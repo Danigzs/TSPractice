@@ -19,7 +19,7 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule],
             declarations: [app_component_1.AppComponent, navbar_component_1.NavbarComponent],
-            bootstrap: [app_component_1.AppComponent, navbar_component_1.NavbarComponent],
+            bootstrap: [app_component_1.AppComponent, navbar_component_1.NavbarComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);

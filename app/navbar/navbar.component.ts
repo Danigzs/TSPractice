@@ -4,53 +4,35 @@ import { Component } from '@angular/core';
   selector: 'navbar',
   template: `
   
-     <ul>
-  <li><a href="default">Home</a></li>
-  <li><a href="news">News</a></li>
-  <li><a href="contact">Contact</a></li>
-  <li><a href="about">About</a></li>
-</ul>
+    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Page 1-1</a></li>
+            <li><a href="#">Page 1-2</a></li>
+            <li><a href="#">Page 1-3</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Page 2</a></li>
+        <li><a href="#">Page 3</a></li>
+      </ul>     
+    </div>
+  </div>
+</nav>
   
   `,
-  styles: [`
-
-  h1{
-  position: fixed;
-  bottom: 0;
-  width: 100%
-
-  }
-
- ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
-
-li {
-    float: left;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-li a:hover {
-    background-color: #111;
-}
-ul {
-    position: fixed;
-    top: 0;
-    width: 100%;
-}
-
   
-   `]
 })
 export class NavbarComponent  {}
