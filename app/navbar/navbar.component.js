@@ -15,7 +15,8 @@ var NavbarComponent = (function () {
     NavbarComponent = __decorate([
         core_1.Component({
             selector: 'navbar',
-            template: "\n  \n    <div>NAVBAR</div>\n  \n  ",
+            template: "\n  \n     <ul>\n  <li><a href=\"default\">Home</a></li>\n  <li><a href=\"news\">News</a></li>\n  <li><a href=\"contact\">Contact</a></li>\n  <li><a href=\"about\">About</a></li>\n</ul>\n  \n  ",
+            styles: ["\n\n  h1{\n  position: fixed;\n  bottom: 0;\n  width: 100%\n\n  }\n\n ul {\n    list-style-type: none;\n    margin: 0;\n    padding: 0;\n    overflow: hidden;\n    background-color: #333;\n}\n\nli {\n    float: left;\n}\n\nli a {\n    display: block;\n    color: white;\n    text-align: center;\n    padding: 14px 16px;\n    text-decoration: none;\n}\n\nli a:hover {\n    background-color: #111;\n}\nul {\n    position: fixed;\n    top: 0;\n    width: 100%;\n}\n\n  \n   "]
         }), 
         __metadata('design:paramtypes', [])
     ], NavbarComponent);

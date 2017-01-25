@@ -1,13 +1,22 @@
 import { Component } from '@angular/core';
-import {NavbarComponent} from './navbar/navbar.component';
+
 
 @Component({
   selector: 'my-app',
   template: `
   
-    <h1>Hello Angular 2 Routing!</h1>
-    <h2>Testing angular</h2>
+    <h1>Testing angular</h1>
     
       `,
+        styles: [`
+
+  h1{
+  position: fixed;
+  bottom: 0;
+  width: 100%
+
+  }
+    
+   `]
 })
 export class AppComponent  {}
