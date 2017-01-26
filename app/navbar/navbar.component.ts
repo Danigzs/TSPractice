@@ -19,7 +19,7 @@ import { Component } from '@angular/core';
       <ul class="nav navbar-nav">
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-folder-close"> Cotizaciones </span><span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="http://www.w3schools.com/css/css_navbar.asp">Page 1-1</a></li>
+            <li><a href="http://www.w3schools.com/js/js_window_screen.asp" target="_blank">link text</a></li>
             <li role="presentation" class="divider"></li>
             <li><a href="#">Page 1-2</a></li>
             <li role="presentation" class="divider"></li>
@@ -32,7 +32,7 @@ import { Component } from '@angular/core';
           <ul class="dropdown-menu">
             <li><a href="http://www.w3schools.com/css/css_navbar.asp">Nuevo</a></li>
             <li role="presentation" class="divider"></li>
-            <li><a href="#">Ver cotizaciones</a></li>
+            <li><a href="#">Ver Inventario</a></li>
             <li role="presentation" class="divider"></li>
             <li><a href="#">Modificar</a></li>
           </ul>      
