@@ -32,7 +32,7 @@ import { Component } from '@angular/core';
           <ul class="dropdown-menu">
             <li><a href="#" data-toggle="modal" data-target="#basicModal">Nuevo</a></li>
             <li role="presentation" class="divider"></li>
-            <li><a href="form.ts">Ver Inventario</a></li>
+            <li><a href="#">Ver Inventario</a></li>
             <li role="presentation" class="divider"></li>
             <li><a href="#">Modificar</a></li>
           </ul>      
