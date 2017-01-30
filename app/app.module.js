@@ -10,16 +10,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
-var navbar_component_1 = require('./navbar/navbar.component');
+var router_1 = require('@angular/router');
 var app_component_1 = require('./app.component');
+var navbar_component_1 = require('./navbar/navbar.component');
+var form_component_1 = require('./form.component');
+var appRoutes = [
+    { path: 'form-directive', component: form_component_1.FormComponent },
+    { path: 'my-app', component: app_component_1.AppComponent },
+    { path: '', redirectTo: '/my-app', pathMatch: 'full' },
+];
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule,],
-            declarations: [app_component_1.AppComponent, navbar_component_1.NavbarComponent,],
-            bootstrap: [app_component_1.AppComponent, navbar_component_1.NavbarComponent,]
+            imports: [platform_browser_1.BrowserModule,
+                router_1.RouterModule.forRoot(appRoutes)],
+            declarations: [navbar_component_1.NavbarComponent, app_component_1.AppComponent, form_component_1.FormComponent],
+            bootstrap: [navbar_component_1.NavbarComponent,]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);

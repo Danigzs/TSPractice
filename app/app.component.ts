@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   selector: 'my-app',
   template: `
   
-    <h1>Testing angular</h1>
+    <h1>Testing angular directives components</h1>
     
       `,
         styles: [`

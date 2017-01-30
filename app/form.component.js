@@ -9,18 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var testComponent = (function () {
-    function testComponent() {
+var FormComponent = (function () {
+    function FormComponent() {
     }
-    testComponent = __decorate([
+    FormComponent = __decorate([
         core_1.Component({
-            selector: 'test-app',
-            template: "\n  \n    <h1>Testing angular 2</h1>\n    \n      ",
-            styles: ["\n\n  h1{\n  position: fixed;\n  bottom: 0;\n  width: 100%\n\n  }\n    \n   "]
+            selector: 'form-directive',
+            template: "\n  \n    <div class=\"form-group\">\n  <label for=\"usr\">Name:</label>\n  <input type=\"text\" class=\"form-control\" id=\"usr\">\n</div>\n<div class=\"form-group\">\n  <label for=\"pwd\">Password:</label>\n  <input type=\"password\" class=\"form-control\" id=\"pwd\">\n</div>\n    \n      ",
         }), 
         __metadata('design:paramtypes', [])
-    ], testComponent);
-    return testComponent;
+    ], FormComponent);
+    return FormComponent;
 }());
-exports.testComponent = testComponent;
+exports.FormComponent = FormComponent;
 //# sourceMappingURL=form.component.js.map

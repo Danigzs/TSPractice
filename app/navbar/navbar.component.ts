@@ -12,7 +12,8 @@ import { Component } from '@angular/core';
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">WebSiteName</a>
+      
+      <a class="navbar-brand" routerLink="/my-app">WebSiteName</a>
     </div>
 
     <div class="collapse navbar-collapse" id="myNavbar">
@@ -21,7 +22,7 @@ import { Component } from '@angular/core';
           <ul class="dropdown-menu">
             <li><a href="#" data-toggle="modal" data-target="#modal2">Nuevo</a></li>
             <li role="presentation" class="divider"></li>
-            <li><a href="#">Page 1-2</a></li>
+            <li><a routerLink="/form-directive">Paises</a></li>
             <li role="presentation" class="divider"></li>
             <li><a href="#">Page 1-3</a></li>
           </ul>
@@ -140,7 +141,7 @@ import { Component } from '@angular/core';
         </div>
     </div>
 </div>
-
+<router-outlet></router-outlet>
   `,
   
 })

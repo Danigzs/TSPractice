@@ -2,21 +2,19 @@ import { Component } from '@angular/core';
 
 
 @Component({
-  selector: 'test-app',
+  selector: 'form-directive',
   template: `
   
-    <h1>Testing angular 2</h1>
+    <div class="form-group">
+  <label for="usr">Name:</label>
+  <input type="text" class="form-control" id="usr">
+</div>
+<div class="form-group">
+  <label for="pwd">Password:</label>
+  <input type="password" class="form-control" id="pwd">
+</div>
     
       `,
-        styles: [`
-
-  h1{
-  position: fixed;
-  bottom: 0;
-  width: 100%
-
-  }
-    
-   `]
+       
 })
-export class testComponent  {}
+export class FormComponent  {}
