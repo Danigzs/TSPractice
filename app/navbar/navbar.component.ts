@@ -65,6 +65,20 @@ import { Component } from '@angular/core';
   </div>
 </nav>
 
+
+					<!--
+					MODALES
+					MODALES
+					MODALES
+					MODALES
+					MODALES
+					MODALES
+					MODALES
+					MODALES
+					-->
+
+
+
 <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">   
@@ -74,36 +88,32 @@ import { Component } from '@angular/core';
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="myModalLabel">Basic Modal</h4>
-
-                	<h1>Datos del articulo</h1>
-        		<form action="demo_form.asp">
- 				 First name: <input type="text" name="fname"><br>
-  				 Last name: <input type="text" name="lname"><br>
-  					<input type="submit" value="Submit">
-				</form>
-
-					<li>
-                        <input type="file" id="myfile" name="myfile" class="rm-input" onchange="selectedFile();"/></li>
-    				<li>
-						<div id="fileSize"></div></li>
-    				<li>
-						<div id="fileType"></div></li>
-    				<li>
-                        <input type="button" value="Subir Archivo" onClick="uploadFile()" class="rm-button" /></li>
-
             </div>
+
+
+						<!--
+					Body
+					MODAL
+					-->
+
+
+
             <div class="modal-body">
                 <h3>Modal Body</h3>
             </div>
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">
-                    Save changes
-                </button>
+                <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>
 </div>
+					<!--
+
+					MODAL 2
+
+					-->
   
 <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="modal2" aria-hidden="true">
     <div class="modal-dialog">
@@ -111,22 +121,11 @@ import { Component } from '@angular/core';
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="myModalLabel">Basic Modal</h4>
-
-                	<h1>Datos del articulo</h1>
-        		<form action="demo_form.asp">
- 				 First name: <input type="text" name="fname"><br>
-  				 Last name: <input type="text" name="lname"><br>
-  					<input type="submit" value="Submit">
-				</form>
-
-					<li>
-                        <input type="file" id="myfile" name="myfile" class="rm-input" onchange="selectedFile();"/></li>
-    				<li>
-						<div id="fileSize"></div></li>
-    				<li>
-						<div id="fileType"></div></li>
-    				<li>
-                        <input type="button" value="Subir Archivo" onClick="uploadFile()" class="rm-button" /></li>
+                	
+						<!--
+					Body
+					MODAL
+					-->
 
             </div>
             <div class="modal-body">
@@ -141,6 +140,15 @@ import { Component } from '@angular/core';
         </div>
     </div>
 </div>
+
+
+					<!--		
+
+					MODAL 3
+					
+					-->
+
+
 <router-outlet></router-outlet>
   `,
   

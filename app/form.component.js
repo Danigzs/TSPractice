@@ -15,7 +15,7 @@ var FormComponent = (function () {
     FormComponent = __decorate([
         core_1.Component({
             selector: 'form-directive',
-            template: "\n  \n    <div class=\"form-group\">\n  <label for=\"usr\">Name:</label>\n  <input type=\"text\" class=\"form-control\" id=\"usr\">\n</div>\n<div class=\"form-group\">\n  <label for=\"pwd\">Password:</label>\n  <input type=\"password\" class=\"form-control\" id=\"pwd\">\n</div>\n    \n      ",
+            template: "\n  \n    <div class=\"table-responsive\">          \n  <table class=\"table\">\n    <thead>\n      <tr>\n        <th>#</th>\n        <th>Nombre</th>\n        <th>Id</th>\n       \n      </tr>\n    \n      ",
         }), 
         __metadata('design:paramtypes', [])
     ], FormComponent);

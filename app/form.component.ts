@@ -5,14 +5,15 @@ import { Component } from '@angular/core';
   selector: 'form-directive',
   template: `
   
-    <div class="form-group">
-  <label for="usr">Name:</label>
-  <input type="text" class="form-control" id="usr">
-</div>
-<div class="form-group">
-  <label for="pwd">Password:</label>
-  <input type="password" class="form-control" id="pwd">
-</div>
+    <div class="table-responsive">          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nombre</th>
+        <th>Id</th>
+       
+      </tr>
     
       `,
        

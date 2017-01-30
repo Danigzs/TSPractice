@@ -10,9 +10,12 @@ import {FormComponent}	from './form.component';
 const appRoutes: Routes = [
   { path: 'form-directive', component: FormComponent },
   { path: 'my-app', component: AppComponent },
+  
+
   { path: '',   redirectTo: '/my-app', pathMatch: 'full' },
   
 ];
+
 
 
 @NgModule({
