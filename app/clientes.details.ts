@@ -2,13 +2,12 @@ import { Component } from '@angular/core';
 
 
 @Component({
-  selector: 'form-directive',
+  selector: 'clientes',
   template: `
   
 <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">   
-
+        <div class="modal-content">
 
 
             <div class="modal-header">
@@ -21,8 +20,6 @@ import { Component } from '@angular/core';
 					Body
 					MODAL
 					-->
-
-
 
             <div class="modal-body">
                 <h3>Modal Body</h3>
@@ -99,4 +96,4 @@ import { Component } from '@angular/core';
       `,
        
 })
-export class FormComponent  {}
+export class ClientesComponent  {}
