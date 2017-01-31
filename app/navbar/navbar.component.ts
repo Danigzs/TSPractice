@@ -3,8 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'navbar',
   template: `
-  
-    <nav class="navbar navbar-inverse">
+ 
+ <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -22,7 +22,7 @@ import { Component } from '@angular/core';
           <ul class="dropdown-menu">
             <li><a href="#" data-toggle="modal" data-target="#modal2">Nuevo</a></li>
             <li role="presentation" class="divider"></li>
-            <li><a routerLink="/form-directive">Paises</a></li>
+            <li><a routerLink="/form-directive">Ver Cotizaciones</a></li>
             <li role="presentation" class="divider"></li>
             <li><a href="#">Page 1-3</a></li>
           </ul>
@@ -36,7 +36,7 @@ import { Component } from '@angular/core';
             <li><a href="#">Ver Inventario</a></li>
             <li role="presentation" class="divider"></li>
             <li><a href="#">Modificar</a></li>
-          </ul>      
+          </ul>
         </li>
 
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"> Clientes </span><span class="caret"></span></a>
@@ -59,13 +59,10 @@ import { Component } from '@angular/core';
             <li><a href="#">Page 1-3</a></li>
           </ul>
         </li>
-
       </ul>     
     </div>
   </div>
 </nav>
-
-
 					<!--
 					MODALES
 					MODALES
@@ -76,8 +73,6 @@ import { Component } from '@angular/core';
 					MODALES
 					MODALES
 					-->
-
-
 
 <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
     <div class="modal-dialog">
@@ -127,15 +122,38 @@ import { Component } from '@angular/core';
 					MODAL
 					-->
 
-            </div>
-            <div class="modal-body">
+			</div>
+			<div class="modal-body">
                 <h3>Modal Body</h3>
-            </div>
+                <div class="form-group">
+  					<label for="usr">Name:</label>
+  					<input type="text" class="form-control" id="usr">
+				</div>
+				<div class="form-group">
+  					<label for="usr">Numero:</label>
+  					<input type="text" class="form-control" id="usr">
+				</div>
+				<div class="form-group">
+  					<label for="usr">Telefono:</label>
+  					<input type="text" class="form-control" id="usr">
+				</div>
+				<div class="form-group">
+  					<label for="usr">Name:</label>
+  					<input type="text" class="form-control" id="usr">
+				</div>
+				<div class="form-group">
+  					<label for="usr">Name:</label>
+  					<input type="text" class="form-control" id="usr">
+				</div>
+				<div class="form-group">
+  					<label for="usr">Name:</label>
+  					<input type="text" class="form-control" id="usr">
+				</div>
+        	</div>
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">
-                    Save changes
-                </button>
+                <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>
@@ -144,7 +162,7 @@ import { Component } from '@angular/core';
 
 					<!--		
 
-					MODAL 3
+					Insert MODAL 3
 					
 					-->
 
