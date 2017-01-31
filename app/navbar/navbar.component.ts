@@ -69,9 +69,6 @@ import { Component } from '@angular/core';
 					MODALES
 					MODALES
 					MODALES
-					MODALES
-					MODALES
-					MODALES
 					-->
 
 <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
@@ -100,11 +97,12 @@ import { Component } from '@angular/core';
       								<div class="form-group two-fields">
         								<label for="">Cliente</label>
         								<div class="input-group">
-         								<select class="form-control" placeholder="Cliente">
-          								<option></option>
- 	 									<option>Bordesa</option>  					
+         								<select class="form-control" placeholder="Cliente">          								
+ 	 									<option value="" disabled selected>Select your option</option>
+ 	 									<option value="hurr">Bordesa</option>
+ 	 									<option value="hurr">Not assigned</option>
+ 	 									<option value="hurr">Not assigned</option>
 										</select>
-									  
           								<input name="email" id="email" type="text" required class="form-control" placeholder="Email" disabled="disabled">
           								<input name="telefono" id="telefono" type="text" required class="form-control" placeholder="Telefono" disabled="disabled">
           							  
