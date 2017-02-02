@@ -6,12 +6,15 @@ import {AppComponent} from './app.component'
 import {NavbarComponent} from './navbar/navbar.component';
 import {FormComponent}	from './form.component';
 import {ClientesComponent} from './clientes.details';
+import {CotizadorComponent} from './cotizador.component';
 
 
 const appRoutes: Routes = [
   { path: 'form-directive', component: FormComponent },
   { path: 'my-app', component: AppComponent },
   { path: 'clientes', component: ClientesComponent},
+  { path: 'cotizador', component: CotizadorComponent},
+  
   
 
   { path: '',   redirectTo: '/my-app', pathMatch: 'full' },
@@ -23,7 +26,7 @@ const appRoutes: Routes = [
 @NgModule({
   imports:      [ BrowserModule,
   				  RouterModule.forRoot(appRoutes) ],
-  declarations: [ NavbarComponent, AppComponent, FormComponent, ClientesComponent ],
+  declarations: [ NavbarComponent, AppComponent, FormComponent, ClientesComponent, CotizadorComponent ],
   bootstrap:    [ NavbarComponent, ]
 })
 export class AppModule { }

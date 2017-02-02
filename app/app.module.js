@@ -15,10 +15,12 @@ var app_component_1 = require('./app.component');
 var navbar_component_1 = require('./navbar/navbar.component');
 var form_component_1 = require('./form.component');
 var clientes_details_1 = require('./clientes.details');
+var cotizador_component_1 = require('./cotizador.component');
 var appRoutes = [
     { path: 'form-directive', component: form_component_1.FormComponent },
     { path: 'my-app', component: app_component_1.AppComponent },
     { path: 'clientes', component: clientes_details_1.ClientesComponent },
+    { path: 'cotizador', component: cotizador_component_1.CotizadorComponent },
     { path: '', redirectTo: '/my-app', pathMatch: 'full' },
 ];
 var AppModule = (function () {
@@ -28,7 +30,7 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule,
                 router_1.RouterModule.forRoot(appRoutes)],
-            declarations: [navbar_component_1.NavbarComponent, app_component_1.AppComponent, form_component_1.FormComponent, clientes_details_1.ClientesComponent],
+            declarations: [navbar_component_1.NavbarComponent, app_component_1.AppComponent, form_component_1.FormComponent, clientes_details_1.ClientesComponent, cotizador_component_1.CotizadorComponent],
             bootstrap: [navbar_component_1.NavbarComponent,]
         }), 
         __metadata('design:paramtypes', [])

@@ -20,7 +20,7 @@ import { Component } from '@angular/core';
       <ul class="nav navbar-nav">
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-folder-close"> Cotizaciones </span><span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#" data-toggle="modal" data-target="#basicModal">Nuevo</a></li>
+            <li><a routerLink="/cotizador">Nueva</a></li>
             <li role="presentation" class="divider"></li>
             <li><a routerLink="/form-directive">Ver Cotizaciones</a></li>
             <li role="presentation" class="divider"></li>
@@ -91,26 +91,7 @@ import { Component } from '@angular/core';
 
 
             	<div class="modal-body">
-            			<div class="container">
-  							<div class="row">
-    							<div class="col-xs-12 col-md-3">
-      								<div class="form-group two-fields">
-        								<label for="">Cliente</label>
-        								<div class="input-group">
-         								<select class="form-control" placeholder="Cliente">          								
- 	 									<option value="" disabled selected>Select your option</option>
- 	 									<option value="hurr">Bordesa</option>
- 	 									<option value="hurr">Not assigned</option>
- 	 									<option value="hurr">Not assigned</option>
-										</select>
-          								<input name="email" id="email" type="text" required class="form-control" placeholder="Email" disabled="disabled">
-          								<input name="telefono" id="telefono" type="text" required class="form-control" placeholder="Telefono" disabled="disabled">
-          							  
-        							</div>
-      							</div>
-    						</div>
-  						</div>
- 					</div>
+            			
                 </div>
 
             <div class="modal-footer">
