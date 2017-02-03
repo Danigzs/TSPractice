@@ -41,7 +41,7 @@ import { Component } from '@angular/core';
 
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"> Clientes </span><span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#" data-toggle="modal" data-target="#modal2">Nuevo</a></li>
+            <li><a href="#" data-toggle="modal" data-target="#basicModal">Nuevo</a></li>
             <li role="presentation" class="divider"></li>
             <li><a routerLink="/clientes">clientes</a></li>
             <li role="presentation" class="divider"></li>
@@ -64,11 +64,11 @@ import { Component } from '@angular/core';
   </div>
 </nav>
 					<!--
-					MODALES
-					MODALES
-					MODALES
-					MODALES
-					MODALES
+					MODALS
+					MODALS
+					MODALS
+					MODALS
+					MODALS
 					-->
 
 <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
@@ -79,7 +79,7 @@ import { Component } from '@angular/core';
 
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Basic Modal</h4>
+                <h4 class="modal-title" id="myModalLabel">Cliente nuevo</h4>
             </div>
 
 
@@ -91,7 +91,38 @@ import { Component } from '@angular/core';
 
 
             	<div class="modal-body">
-            			
+            			<form class="form-inline" role="form">
+                          <div class="form-group">
+                              
+           					   <label>Nombre</label>           					  
+  							  <input type="text" class="form-control" id="usr" placeholder="Nombre  "> 
+  							  </div>
+                        	</form>				  					  
+  							  
+  							  <form class="form-inline" role="form">
+                          <div class="form-group">
+                              
+           					   <label>Domicilio</label>           					  
+  							  <input type="text" class="form-control" id="usr" placeholder="Domicilio"> 
+  							  </div>
+                        	</form>
+
+                        	<form class="form-inline" role="form">
+                          <div class="form-group">
+                              
+           					   <label>Telefono</label>           					  
+  							  <input type="text" class="form-control" id="usr" placeholder="Telefono"> 
+  							  </div>
+                        	</form>
+
+                        	<form class="form-inline" role="form">
+                          <div class="form-group">
+                              
+           					   <label>Email</label>           					  
+  							  <input type="text" class="form-control" id="usr" placeholder="Email" push="right"> 
+  							  </div>
+                        	</form>
+                          
                 </div>
 
             <div class="modal-footer">
@@ -121,31 +152,9 @@ import { Component } from '@angular/core';
 
 			</div>
 			<div class="modal-body">
-                <h3>Modal Body</h3>
-                <div class="form-group">
-  					<label for="usr">Name:</label>
-  					<input type="text" class="form-control" id="usr">
-				</div>
-				<div class="form-group">
-  					<label for="usr">Numero:</label>
-  					<input type="text" class="form-control" id="usr">
-				</div>
-				<div class="form-group">
-  					<label for="usr">Telefono:</label>
-  					<input type="text" class="form-control" id="usr">
-				</div>
-				<div class="form-group">
-  					<label for="usr">Name:</label>
-  					<input type="text" class="form-control" id="usr">
-				</div>
-				<div class="form-group">
-  					<label for="usr">Name:</label>
-  					<input type="text" class="form-control" id="usr">
-				</div>
-				<div class="form-group">
-  					<label for="usr">Name:</label>
-  					<input type="text" class="form-control" id="usr">
-				</div>
+                
+                 
+
         	</div>
 
             <div class="modal-footer">
@@ -155,7 +164,6 @@ import { Component } from '@angular/core';
         </div>
     </div>
 </div>
-
 
 					<!--		
 
@@ -219,4 +227,9 @@ import { Component } from '@angular/core';
   `,
   
 })
-export class NavbarComponent  {}
+export class NavbarComponent  {
+  constructor() {
+    this.name = 'Angular2'
+    this.date = new Date();
+  }
+}
