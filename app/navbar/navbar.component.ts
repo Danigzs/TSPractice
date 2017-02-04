@@ -31,7 +31,7 @@ import { Component } from '@angular/core';
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-folder-open"> Inventario </span><span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#" data-toggle="modal" data-target="#modal2">Nuevo</a></li>
+            <li><a href="#" data-toggle="modal" data-target="#modal2">Agregar</a></li>
             <li role="presentation" class="divider"></li>
             <li><a href="#">Ver Inventario</a></li>
             <li role="presentation" class="divider"></li>
@@ -91,37 +91,41 @@ import { Component } from '@angular/core';
 
 
             	<div class="modal-body">
-            			<form class="form-inline" role="form">
-                          <div class="form-group">
+            			
                               
-           					   <label>Nombre</label>           					  
-  							  <input type="text" class="form-control" id="usr" placeholder="Nombre  "> 
-  							  </div>
-                        	</form>				  					  
-  							  
-  							  <form class="form-inline" role="form">
-                          <div class="form-group">
+           					   <label>Nombre:</label>           					  
+  							  <input type="text" class="form-control" id="usr" placeholder="Nombre  ">   							  
+                        	
+  							  <label>Razon Social:</label>           					  
+  							  <input type="text" class="form-control" id="usr" placeholder="Razon social" push="right"> 
                               
-           					   <label>Domicilio</label>           					  
-  							  <input type="text" class="form-control" id="usr" placeholder="Domicilio"> 
-  							  </div>
-                        	</form>
+           					   <label>Domicilio:</label>           					  
+  							  <input type="text" class="form-control" id="usr" placeholder="Domicilio">
 
-                        	<form class="form-inline" role="form">
-                          <div class="form-group">
-                              
-           					   <label>Telefono</label>           					  
-  							  <input type="text" class="form-control" id="usr" placeholder="Telefono"> 
-  							  </div>
-                        	</form>
+  							  <label>Estado:</label>           					  
+  							  <input type="text" class="form-control" id="usr" placeholder="Estado" push="right">
 
-                        	<form class="form-inline" role="form">
-                          <div class="form-group">
+  							  <label>Municipio:</label>           					  
+  							  <input type="text" class="form-control" id="usr" placeholder="Municipio" push="right"> 
+
+  							  <label>Colonia:</label>           					  
+  							  <input type="text" class="form-control" id="usr" placeholder="Colonia" push="right">
+
+  							  <label>Pais:</label>           					  
+  							  <input type="text" class="form-control" id="usr" placeholder="Pais" push="right">
+
+  							  <label>Codigo postal:</label>           					  
+  							  <input type="text" class="form-control" id="usr" placeholder="C.P." push="right">
                               
-           					   <label>Email</label>           					  
-  							  <input type="text" class="form-control" id="usr" placeholder="Email" push="right"> 
-  							  </div>
-                        	</form>
+           					   <label>Telefono:</label>           					  
+  							  <input type="text" class="form-control" id="usr" placeholder="Telefono">                        	
+                              
+           					   <label>Email:</label>           					  
+  							  <input type="text" class="form-control" id="usr" placeholder="Email" push="right">
+
+  							  <label>Atencion a:</label>           					  
+  							  <input type="text" class="form-control" id="usr" placeholder="Atencion a" push="right">
+  						
                           
                 </div>
 
@@ -228,8 +232,6 @@ import { Component } from '@angular/core';
   
 })
 export class NavbarComponent  {
-  constructor() {
-    this.name = 'Angular2'
-    this.date = new Date();
-  }
+
+	
 }

@@ -5,13 +5,10 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'cotizador',
-  template: `
-
+  template: `                   
 
                     <p>Fecha: 
-            {{date | date: 'dd'}}/{{date | date:'MM'}}/{{date | date: 'yyyy'}}</p>
-
-                    
+                     {{date | date: 'dd'}}/{{date | date:'MM'}}/{{date | date: 'yyyy'}}</p>
 
                         <label for="">Cliente</label>
                         <form class="form-inline" role="form">
@@ -106,7 +103,7 @@ import { Component } from '@angular/core';
 
                           </tr>
 
-                        <tr class='clickable-row' data-href='#'data-toggle="modal" data-target="#basicModal">
+                          <tr class='clickable-row' data-href='#'data-toggle="modal" data-target="#basicModal">
                             <td>Not assigned</td>
                             <td>Not assigned</td>
                             <td>Not assigned</td>
@@ -160,6 +157,7 @@ import { Component } from '@angular/core';
         
 })
 export class CotizadorComponent {
+
   constructor() {
     this.name = 'Angular2'
     this.date = new Date();
