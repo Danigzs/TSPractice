@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 @Component({
   selector: 'navbar',
   template: `
@@ -10,7 +11,7 @@ import { Component } from '@angular/core';
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
+        <span class="icon-bar"></span>
       </button>
       
       <a class="navbar-brand" routerLink="/my-app">WebSiteName</a>
@@ -83,7 +84,7 @@ import { Component } from '@angular/core';
             </div>
 
 
-						<!--
+					<!--
 					Body
 					MODAL
 					-->
