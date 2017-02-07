@@ -52,9 +52,6 @@ import { Component, OnInit, ElementRef} from '@angular/core';
                                     <option>Option 3.3</option>
                                 </optgroup>
                             </select>
-
-
-
                         
                    
                     
