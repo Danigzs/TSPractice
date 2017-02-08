@@ -36,24 +36,5 @@ import { Component, OnInit, ElementRef} from '@angular/core';
     
    `]
 })
-export class AppComponent  implements OnInit {
-    constructor(private _elmRef: ElementRef) { }
-
-    ngOnInit() {
-       $(document).ready(function () {
-    $('#grp_option').on('change', function () {
-        showLabel();
-    });
-
-    // fire on page load
-    $('#grp_option').change();
-});
-
-function showLabel() {
-    var selected = $('#grp_option :selected');
-    var item = selected.text();
-    var group = selected.parent().attr('label');
-    $('#target').text('Selected: ' + group + ' - ' + item);
-}
-    }
+export class AppComponent  {
 }

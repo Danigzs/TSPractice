@@ -33,9 +33,7 @@ import { Component, OnInit, ElementRef} from '@angular/core';
                           <div class="form-group">
 
 
-
-
-                          <label id="target" for="grp_option">Selected: </label>
+                          
                             <br/>
                             <select class="form-control" id="grp_option">
                              <option value="" disabled selected>Tecnicas</option>
@@ -52,21 +50,46 @@ import { Component, OnInit, ElementRef} from '@angular/core';
                                     <option>Option 3.3</option>
                                 </optgroup>
                             </select>
+
                         
                    
                     
-                                  <select class="form-control" placeholder="Grafico">
+                                  <select class="form-control" placeholder="Grafico" id="graf_option">
                             <option value="" disabled selected>Ubicacion del grafico</option>
+                            <optgroup label="group 1">
+                              <option>Centro</option>
+                              </optgroup>
                             </select>
 
-                              <button type="button" class="btn btn-default">Submit</button>
+
+                              <button type="button" class="btn btn-default" onClick="target">Submit</button>
 
                             <select class="form-control" placeholder="Talla">
                             <option value="" disabled selected>Talla</option>
                             </select>
 
+                            <li role="presentation" class="divider"></li>                            
+
                           </div>
                         </form>
+
+                        form class="form-inline" role="form">
+                        <table class = "table table-bordered" c id="submittable">    
+                          <tr>
+                            <th>Tecnicas</th>
+                            <th>Ubicaciones de grafico</th>
+                            <th>Precio</th>
+                            
+                            </tr>
+
+                          <tr>
+                            <td>Not assigned</td>
+                            <td>Not assigned</td>
+                            <td>not assigned</td>                            
+                            </tr>
+                         </form>
+
+                            </table>
                         <li role="presentation" class="divider"></li>
                         <li role="presentation" class="divider"></li>
                         <li role="presentation" class="divider"></li>
@@ -83,7 +106,7 @@ import { Component, OnInit, ElementRef} from '@angular/core';
 
 
                         <form class="form-inline" role="form">
-                            <div class="form-group">
+                            <div class="form-group" align="right">
                             <label>Cantidad:</label>
                             <input type="text" class="form-control" id="cant" placeholder="Cantidad">
                             <label>Precio de prenda:</label>
@@ -95,6 +118,7 @@ import { Component, OnInit, ElementRef} from '@angular/core';
                             </div>
                         </form>
 
+                        
 
                         <table class="table table-bordered">
     
@@ -182,26 +206,10 @@ import { Component, OnInit, ElementRef} from '@angular/core';
                             </tr>                          
 
       `,
-        
+
+     
+
 })
 export class CotizadorComponent implements OnInit  {
-    constructor(private _elmRef: ElementRef) { }
-
-    ngOnInit() {
-       $(document).ready(function () {
-    $('#grp_option').on('change', function () {
-        showLabel();
-    });
-
-    // fire on page load
-    $('#grp_option').change();
-});
-
-function showLabel() {
-    var selected = $('#grp_option :selected');
-    var item = selected.text();
-    var group = selected.parent().attr('label');
-    $('#target').text('Selected: ' + group + ' - ' + item);
-}
-    }
+    
 }
