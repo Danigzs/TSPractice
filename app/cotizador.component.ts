@@ -62,19 +62,17 @@ import { Component, OnInit, ElementRef} from '@angular/core';
                             </select>
 
 
-                              <button type="button" class="btn btn-default" onClick="target">Submit</button>
+                              <button type="button" class="btn btn-primary" onClick="target">Submit</button>
 
                             <select class="form-control" placeholder="Talla">
                             <option value="" disabled selected>Talla</option>
                             </select>
 
-                            <li role="presentation" class="divider"></li>                            
+                            <li role="presentation" class="divider"></li>
 
-                          </div>
-                        </form>
 
-                        form class="form-inline" role="form">
-                        <table class = "table table-bordered" c id="submittable">    
+
+                            <table class = "table table-bordered" id="submittable">    
                           <tr>
                             <th>Tecnicas</th>
                             <th>Ubicaciones de grafico</th>
@@ -82,14 +80,17 @@ import { Component, OnInit, ElementRef} from '@angular/core';
                             
                             </tr>
 
-                          <tr>
+                          <tr >
                             <td>Not assigned</td>
                             <td>Not assigned</td>
-                            <td>not assigned</td>                            
+                            <td>Not assigned</td>                            
                             </tr>
-                         </form>
+                         
 
                             </table>
+
+                          </div>
+                        </form>
                         <li role="presentation" class="divider"></li>
                         <li role="presentation" class="divider"></li>
                         <li role="presentation" class="divider"></li>
@@ -119,7 +120,6 @@ import { Component, OnInit, ElementRef} from '@angular/core';
                         </form>
 
                         
-
                         <table class="table table-bordered">
     
                           <tr>
@@ -207,8 +207,9 @@ import { Component, OnInit, ElementRef} from '@angular/core';
 
       `,
 
-     
+      
 
+        
 })
 export class CotizadorComponent implements OnInit  {
     
