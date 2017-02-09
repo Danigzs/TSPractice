@@ -211,6 +211,6 @@ import { Component, OnInit, ElementRef} from '@angular/core';
 
         
 })
-export class CotizadorComponent implements OnInit  {
+export class CotizadorComponent  {
     
 }

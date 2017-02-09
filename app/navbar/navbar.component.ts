@@ -194,27 +194,27 @@ import { Component } from '@angular/core';
                 <h3>Modal Body</h3>
                 <div class="form-group">
   					<label for="usr">Name:</label>
-  					<input type="text" class="form-control" id="usr">
+  					<input type="text" class="form-control" >
 				</div>
 				<div class="form-group">
   					<label for="usr">Numero:</label>
-  					<input type="text" class="form-control" id="usr">
+  					<input type="text" class="form-control" >
 				</div>
 				<div class="form-group">
   					<label for="usr">Telefono:</label>
-  					<input type="text" class="form-control" id="usr">
+  					<input type="text" class="form-control" >
 				</div>
 				<div class="form-group">
   					<label for="usr">Name:</label>
-  					<input type="text" class="form-control" id="usr">
+  					<input type="text" class="form-control" >
 				</div>
 				<div class="form-group">
   					<label for="usr">Name:</label>
-  					<input type="text" class="form-control" id="usr">
+  					<input type="text" class="form-control" >
 				</div>
 				<div class="form-group">
   					<label for="usr">Name:</label>
-  					<input type="text" class="form-control" id="usr">
+  					<input type="text" class="form-control" >
 				</div>
         	</div>
 
