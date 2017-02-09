@@ -7,6 +7,7 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {FormComponent}	from './form.component';
 import {ClientesComponent} from './clientes.details';
 import {CotizadorComponent} from './cotizador.component';
+import {InventarioComponent} from './inventario.component';
 
 
 const appRoutes: Routes = [
@@ -14,7 +15,7 @@ const appRoutes: Routes = [
   { path: 'my-app', component: AppComponent },
   { path: 'clientes', component: ClientesComponent},
   { path: 'cotizador', component: CotizadorComponent},
-  
+  { path: 'inventario', component: InventarioComponent},
   
 
   { path: '',   redirectTo: '/my-app', pathMatch: 'full' },
@@ -26,7 +27,7 @@ const appRoutes: Routes = [
 @NgModule({
   imports:      [ BrowserModule,
   				  RouterModule.forRoot(appRoutes) ],
-  declarations: [ NavbarComponent, AppComponent, FormComponent, ClientesComponent, CotizadorComponent ],
+  declarations: [ NavbarComponent, AppComponent, FormComponent, ClientesComponent, CotizadorComponent, InventarioComponent ],
   bootstrap:    [ NavbarComponent, ]
 })
 export class AppModule { }

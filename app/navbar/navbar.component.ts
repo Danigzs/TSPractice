@@ -34,7 +34,7 @@ import { Component } from '@angular/core';
           <ul class="dropdown-menu">
             <li><a href="#" data-toggle="modal" data-target="#modal2">Agregar</a></li>
             <li role="presentation" class="divider"></li>
-            <li><a href="#">Ver Inventario</a></li>
+            <li><li><a routerLink="/inventario">Ver inventario</a></li>
             <li role="presentation" class="divider"></li>
             <li><a href="#">Modificar</a></li>
           </ul>
