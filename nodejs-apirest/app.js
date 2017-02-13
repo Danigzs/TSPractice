@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var methodOverride = require("method-override");
 var app = express();
+var path = require('path');
 
 // Connection to DB
 mongoose.connect('mongodb://localhost/clients', function(err, res) {
@@ -23,7 +24,7 @@ var router = express.Router();
 
 // Index - Route
 router.get('/', function(req, res) { 
- res.send("Hola Mundo - www.programacion.com.py");
+ res.sendFile(__dirname + '/../index.html');
 });
 
 app.use(router);
