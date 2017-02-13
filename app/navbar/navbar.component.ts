@@ -95,37 +95,37 @@ import { Component } from '@angular/core';
             			
                               
            					   <label>Nombre:</label>           					  
-  							  <input type="text" class="form-control" id="usr" placeholder="Nombre  ">   							  
+  							  <input type="text" class="form-control" placeholder="Nombre  ">   							  
                         	
   							  <label>Razon Social:</label>           					  
-  							  <input type="text" class="form-control" id="usr" placeholder="Razon social" push="right"> 
+  							  <input type="text" class="form-control" placeholder="Razon social" push="right"> 
                               
            					   <label>Domicilio:</label>           					  
-  							  <input type="text" class="form-control" id="usr" placeholder="Domicilio">
+  							  <input type="text" class="form-control" placeholder="Domicilio">
 
   							  <label>Estado:</label>           					  
-  							  <input type="text" class="form-control" id="usr" placeholder="Estado" push="right">
+  							  <input type="text" class="form-control" placeholder="Estado" push="right">
 
   							  <label>Municipio:</label>           					  
-  							  <input type="text" class="form-control" id="usr" placeholder="Municipio" push="right"> 
+  							  <input type="text" class="form-control" placeholder="Municipio" push="right"> 
 
   							  <label>Colonia:</label>           					  
-  							  <input type="text" class="form-control" id="usr" placeholder="Colonia" push="right">
+  							  <input type="text" class="form-control" placeholder="Colonia" push="right">
 
   							  <label>Pais:</label>           					  
-  							  <input type="text" class="form-control" id="usr" placeholder="Pais" push="right">
+  							  <input type="text" class="form-control" placeholder="Pais" push="right">
 
   							  <label>Codigo postal:</label>           					  
-  							  <input type="text" class="form-control" id="usr" placeholder="C.P." push="right">
+  							  <input type="text" class="form-control" placeholder="C.P." push="right">
                               
            					   <label>Telefono:</label>           					  
-  							  <input type="text" class="form-control" id="usr" placeholder="Telefono">                        	
+  							  <input type="text" class="form-control" placeholder="Telefono">                        	
                               
            					   <label>Email:</label>           					  
-  							  <input type="text" class="form-control" id="usr" placeholder="Email" push="right">
+  							  <input type="text" class="form-control" placeholder="Email" push="right">
 
   							  <label>Atencion a:</label>           					  
-  							  <input type="text" class="form-control" id="usr" placeholder="Atencion a" push="right">
+  							  <input type="text" class="form-control" placeholder="Atencion a" push="right">
   						
                           
                 </div>

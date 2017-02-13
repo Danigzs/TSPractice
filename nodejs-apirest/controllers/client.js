@@ -27,7 +27,7 @@ exports.add = function(req, res) {
  name: req.body.name,
  email: req.body.email,
  genre: req.body.genre,
- Domicilio: req.body.Domicilio,
+ Municipio: req.body.Municipio,
  tecnicas: req.body.tecnicas
  });
  client.save(function(err, client) {
@@ -42,7 +42,7 @@ exports.update = function(req, res) {
  client.name = req.body.name;
  client.email = req.body.email;
  client.genre = req.body.genre;
- client.Domicilio = req.body.Domicilio;
+ client.Municipio = req.body.Municipio;
  client.tecnicas = req.body.tecnicas;
  client.save(function(err) {
  if(err) return res.send(500, err.message);
