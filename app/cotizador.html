@@ -1,8 +1,9 @@
 <div class="c-div-bgr">
+    <div class="c-div-container">
    <p>
       Fecha: {{date | date: 'dd'}}/{{date | date:'MM'}}/{{date | date: 'yyyy'}}
    </p>
-   <label for="">Cliente</label>
+   <label >Cliente</label>
    <form class="form-inline" role="form">
       <div class="form-group">
          <select class="form-control" placeholder="Cliente" push="left">
@@ -11,8 +12,8 @@
             <option value="hurr">Not assigned</option>
             <option value="hurr">Not assigned</option>
          </select>
-         <input name="email" id="email" type="text" required class="form-control" placeholder="Email" disabled="disabled">
-         <input name="telefono" id="telefono" type="text" required class="form-control" placeholder="Telefono" disabled="disabled">
+         <div><input name="email" id="email" type="text" required class="form-control" placeholder="Email" disabled="disabled"></div>
+         <div><input name="telefono" id="telefono" type="text" required class="form-control" placeholder="Telefono" disabled="disabled"></div>
       </div>
    </form>
    <li role="presentation" class="divider"></li>
@@ -159,4 +160,5 @@
          <td>Not assigned</td>
       </tr>
    </table>
+   </div>
 </div>
