@@ -15,7 +15,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n  \n    <h1>Testing angular directives components</h1>\n\n    <label id=\"target\" for=\"grp_option\">Selected: </label>\n\t\t<br/>\n\t\t<select id=\"grp_option\">\n\t\t    <optgroup label=\"Group 1\">\n\t\t        <option>Option 1.1</option>\n\t\t    </optgroup>\n\t\t    <optgroup label=\"Group 2\">\n\t\t        <option>Option 2.1</option>\n\t\t        <option>Option 2.2</option>\n\t\t    </optgroup>\n\t\t    <optgroup label=\"Group 3\" enabled>\n\t\t        <option>Option 3.1</option>\n\t\t        <option>Option 3.2</option>\n\t\t        <option>Option 3.3</option>\n\t\t    </optgroup>\n\t\t</select>\n    \n      ",
+            template: "\n  \n    <h1>Testing angular directives components</h1>\n\n    \n    \n      ",
             styles: ["\n\n  h1{\n  position: fixed;\n  bottom: 0;\n  width: 100%\n\n  }\n    \n   "]
         }), 
         __metadata('design:paramtypes', [])
