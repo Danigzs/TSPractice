@@ -1,9 +1,27 @@
 export class Cliente {
-  public nombre: String;
-  public direccion: String;
-  public telefono = String;
-  constructor(nombre:String,direccion:string) {
-    this.nombre = nombre;
-    this.direccion = direccion;
+  nombre: String;
+  razonSocial: String;
+  domicilio: String;
+  estado: String;
+  municipio: String;
+  colonia: String;
+  pais: String;
+  codigoPostal: String;
+  telefono: String;
+  email: String;
+  atencionA: String;
+
+  constructor() {
+    this.nombre = "";
+    this.razonSocial = "";
+    this.domicilio = "";
+    this.estado = "";
+    this.municipio = "";
+    this.colonia = "";
+    this.pais = "";
+    this.codigoPostal = "";
+    this.telefono = "";
+    this.email = "";
+    this.atencionA = "";
   } 
 }

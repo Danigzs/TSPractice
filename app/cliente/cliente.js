@@ -1,9 +1,17 @@
 "use strict";
 var Cliente = (function () {
-    function Cliente(nombre, direccion) {
-        this.telefono = String;
-        this.nombre = nombre;
-        this.direccion = direccion;
+    function Cliente() {
+        this.nombre = "";
+        this.razonSocial = "";
+        this.domicilio = "";
+        this.estado = "";
+        this.municipio = "";
+        this.colonia = "";
+        this.pais = "";
+        this.codigoPostal = "";
+        this.telefono = "";
+        this.email = "";
+        this.atencionA = "";
     }
     return Cliente;
 }());

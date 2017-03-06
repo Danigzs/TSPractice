@@ -16,7 +16,6 @@ var CotizadorComponent = (function () {
     function CotizadorComponent(_cotizadorService, _clienteService) {
         this.selectedValue = {};
         this.clienteSelected = {};
-        debugger;
         this.cotizaciones = _cotizadorService.getCotizaciones();
         this.clientes = _clienteService.getClientes();
         this.clienteSelected = this.clientes[0];

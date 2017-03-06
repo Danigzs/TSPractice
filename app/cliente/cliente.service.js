@@ -12,7 +12,11 @@ var core_1 = require('@angular/core');
 var cliente_1 = require('./cliente');
 var ClienteService = (function () {
     function ClienteService() {
-        this.clientes = [new cliente_1.Cliente("Bordesa", "guadalupe"), new cliente_1.Cliente("bordesa 2", "gpe")];
+        var cliente1 = new cliente_1.Cliente();
+        var cliente2 = new cliente_1.Cliente();
+        cliente1.nombre = "Bordesa";
+        cliente2.nombre = "Bordesa 2";
+        this.clientes = [cliente1, cliente2];
     }
     ClienteService.prototype.getClientes = function () {
         return this.clientes;
