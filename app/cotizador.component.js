@@ -9,16 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var cotizador_service_1 = require('./cotizador.service');
+var cliente_service_1 = require('./cliente/cliente.service');
 var CotizadorComponent = (function () {
-    function CotizadorComponent() {
+    //Assign 
+    function CotizadorComponent(_cotizadorService, _clienteService) {
+        this.selectedValue = {};
+        this.clienteSelected = {};
+        debugger;
+        this.cotizaciones = _cotizadorService.getCotizaciones();
+        this.clientes = _clienteService.getClientes();
+        this.clienteSelected = this.clientes[0];
     }
+    CotizadorComponent.prototype.updateCliente = function (event) {
+        console.log(event);
+    };
     CotizadorComponent = __decorate([
         core_1.Component({
             selector: 'cotizador',
+            providers: [cotizador_service_1.CotizadorService, cliente_service_1.ClienteService],
             styleUrls: ["app/cotizador.css"],
             templateUrl: "app/cotizador.html"
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [cotizador_service_1.CotizadorService, cliente_service_1.ClienteService])
     ], CotizadorComponent);
     return CotizadorComponent;
 }());

@@ -6,12 +6,25 @@
    <label >Cliente</label>
    <form class="form-inline" role="form">
       <div class="form-group">
-         <select class="form-control" placeholder="Cliente" push="left">
+<!--<select [(ngModel)]="clienteSelected">
+            <option *ngFor="#cliente of clientes"  [ngValue]= "cliente" >
+                {{c.nombre}}
+            </option>
+        </select>-->
+        <select class="form-control" name="sel" 
+    [(ngModel)]="clienteSelected" 
+    (ngModelChange)="updateCliente($event)">
+  <option *ngFor="let cliente of clientes" [ngValue]="cliente">
+    {{cliente.nombre}}
+  </option>
+</select>
+
+         <!--<select class="form-control" placeholder="Cliente" push="left">
             <option value="" disabled selected>Select your option</option>
             <option value="hurr">Bordesa</option>
             <option value="hurr">Not assigned</option>
             <option value="hurr">Not assigned</option>
-         </select>
+         </select>-->
          <div><input name="email" id="email" type="text" required class="form-control" placeholder="Email" disabled="disabled"></div>
          <div><input name="telefono" id="telefono" type="text" required class="form-control" placeholder="Telefono" disabled="disabled"></div>
       </div>
