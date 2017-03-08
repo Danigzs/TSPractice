@@ -30,7 +30,7 @@ export class CotizadorComponent {
     public clientes: Array < Cliente > ;
     selectedValue = {};
     clienteSelected = {};
-    updateCliente(event) {
+    updateCliente(event:Event) {
         console.log(event);
     }
     //Assign 

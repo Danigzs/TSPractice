@@ -18,11 +18,11 @@ import { Component } from '@angular/core';
       </tr>
 
       <tr class='clickable-row' data-href='#'data-toggle="modal" data-target="#basicModal">
-        <td>Not assigned</td>
-      	<td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
+        <td></td>
+      	<td></td>
+        <td></td>
+        <td></td>
+        <td></td>
 
 
       </tr>

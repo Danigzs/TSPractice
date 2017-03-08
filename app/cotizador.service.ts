@@ -9,6 +9,6 @@ export class CotizadorService {
   }
 
   getCotizaciones() {
-    return [];
+    return [this.cotizaciones];
   }
 }

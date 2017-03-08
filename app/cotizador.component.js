@@ -8,9 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var cotizador_service_1 = require('./cotizador.service');
-var cliente_service_1 = require('./cliente/cliente.service');
+var core_1 = require("@angular/core");
+var cotizador_service_1 = require("./cotizador.service");
+var cliente_service_1 = require("./cliente/cliente.service");
 var CotizadorComponent = (function () {
     //Assign 
     function CotizadorComponent(_cotizadorService, _clienteService) {
@@ -23,16 +23,16 @@ var CotizadorComponent = (function () {
     CotizadorComponent.prototype.updateCliente = function (event) {
         console.log(event);
     };
-    CotizadorComponent = __decorate([
-        core_1.Component({
-            selector: 'cotizador',
-            providers: [cotizador_service_1.CotizadorService, cliente_service_1.ClienteService],
-            styleUrls: ["app/cotizador.css"],
-            templateUrl: "app/cotizador.html"
-        }), 
-        __metadata('design:paramtypes', [cotizador_service_1.CotizadorService, cliente_service_1.ClienteService])
-    ], CotizadorComponent);
     return CotizadorComponent;
 }());
+CotizadorComponent = __decorate([
+    core_1.Component({
+        selector: 'cotizador',
+        providers: [cotizador_service_1.CotizadorService, cliente_service_1.ClienteService],
+        styleUrls: ["app/cotizador.css"],
+        templateUrl: "app/cotizador.html"
+    }),
+    __metadata("design:paramtypes", [cotizador_service_1.CotizadorService, cliente_service_1.ClienteService])
+], CotizadorComponent);
 exports.CotizadorComponent = CotizadorComponent;
 //# sourceMappingURL=cotizador.component.js.map

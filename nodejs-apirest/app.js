@@ -16,7 +16,9 @@ mongoose.connect('mongodb://localhost/clients', function(err, res) {
 app.use(bodyParser.urlencoded({ extended: false })); 
 app.use(bodyParser.json()); 
 app.use(methodOverride());
+
 app.use(express.static(__projectRoot));
+
 
 // Import Models and Controllers
 var models = require('./models/client')(app, mongoose);
@@ -25,8 +27,8 @@ var ClientCtrl = require('./controllers/client');
 var router = express.Router();
 
 // Index - Route
-app.get('/', function (req, res) {
-    res.sendFile(path.join(__projectRoot + '/index.html'));
+app.route('/*').get(function(req, res) { 
+    return res.sendFile(path.join(__projectRoot, 'index.html')); 
 });
 
 app.use(router);
