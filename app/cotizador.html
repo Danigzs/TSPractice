@@ -1,9 +1,13 @@
+
 <div class="c-div-bgr">
     <div class="c-div-container">
    <p>
       Fecha: {{date | date: 'dd'}}/{{date | date:'MM'}}/{{date | date: 'yyyy'}}
    </p>
    <label >Cliente</label>
+    
+    <button md-raised-button color="primary" (click)="open()">Open first dialog</button>
+  
    <form class="form-inline" role="form">
       <div class="form-group">
 <!--<select [(ngModel)]="clienteSelected">

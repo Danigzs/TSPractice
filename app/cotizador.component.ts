@@ -1,7 +1,8 @@
 import {
     Component,
     OnInit,
-    ElementRef
+    ElementRef,
+    ViewChild,ViewContainerRef
 } from '@angular/core';
 import {
     CotizadorService
@@ -12,20 +13,31 @@ import {
 import {
     Cliente
 } from './cliente/cliente'
+import {
+    DialogProductoComponent
+} from './modals/dialog.producto.component'
+import {MdDialog, MdDialogConfig, MdDialogRef} from '@angular/material';
 
+// import { Modal } from './modals/modalAgregarProducto';
 
+ 
 @Component({
     selector: 'cotizador',
+    // directives: [ Modal ],
     providers: [CotizadorService, ClienteService],
     styleUrls: ["app/cotizador.css"],
     templateUrl: "app/cotizador.html"
+ 
 
 
 
 
 })
 export class CotizadorComponent {
+    // dialogRef: MdDialogRef<DialogProductoComponent>;
     componentName: 'CotizadorComponent';
+    // dialogProducto = DialogProductoComponent;
+    public viewContainerRef: ViewContainerRef;
     public cotizaciones: Array < any > ;
     public clientes: Array < Cliente > ;
     selectedValue = {};
@@ -33,10 +45,21 @@ export class CotizadorComponent {
     updateCliente(event:Event) {
         console.log(event);
     }
-    //Assign 
-    constructor(_cotizadorService: CotizadorService, _clienteService: ClienteService) {
-        this.cotizaciones = _cotizadorService.getCotizaciones();
-        this.clientes = _clienteService.getClientes();
-        this.clienteSelected = this.clientes[0];
+    open() {
+         
+        let dialogRef: MdDialogRef<DialogProductoComponent>;
+
+        dialogRef = this.dialog.open(DialogProductoComponent);
+        
+
+        return dialogRef.afterClosed();
+
     }
+        constructor(private dialog: MdDialog,_cotizadorService: CotizadorService, _clienteService: ClienteService) { 
+            this.clientes = _clienteService.getClientes();
+            this.clienteSelected = this.clientes[0];
+
+        }
+
+   
 }

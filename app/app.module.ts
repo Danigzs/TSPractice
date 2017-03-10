@@ -9,6 +9,8 @@ import {FormComponent}	from './form.component';
 import {ClientesComponent} from './clientes.details';
 import {CotizadorComponent} from './cotizador.component';
 import {InventarioComponent} from './inventario.component';
+import {DialogProductoComponent} from './modals/dialog.producto.component'
+import { MaterialModule } from '@angular/material';
 
 
 const appRoutes: Routes = [
@@ -27,8 +29,11 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports:      [ BrowserModule,
-  				  RouterModule.forRoot(appRoutes),FormsModule ],
-  declarations: [ NavbarComponent, AppComponent, FormComponent, ClientesComponent, CotizadorComponent, InventarioComponent ],
+  				  RouterModule.forRoot(appRoutes),FormsModule,
+              MaterialModule.forRoot()
+ ],
+  declarations: [ NavbarComponent, AppComponent, FormComponent, ClientesComponent, CotizadorComponent, InventarioComponent, DialogProductoComponent ],
+  entryComponents: [DialogProductoComponent],
   bootstrap:    [ NavbarComponent, ]
 })
 export class AppModule { }
