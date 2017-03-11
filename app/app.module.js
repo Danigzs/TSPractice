@@ -36,8 +36,18 @@ AppModule = __decorate([
             router_1.RouterModule.forRoot(appRoutes), forms_1.FormsModule,
             material_1.MaterialModule.forRoot()
         ],
-        declarations: [navbar_component_1.NavbarComponent, app_component_1.AppComponent, form_component_1.FormComponent, clientes_details_1.ClientesComponent, cotizador_component_1.CotizadorComponent, inventario_component_1.InventarioComponent, dialog_producto_component_1.DialogProductoComponent],
-        entryComponents: [dialog_producto_component_1.DialogProductoComponent],
+        declarations: [
+            navbar_component_1.NavbarComponent,
+            app_component_1.AppComponent,
+            form_component_1.FormComponent,
+            clientes_details_1.ClientesComponent,
+            cotizador_component_1.CotizadorComponent,
+            inventario_component_1.InventarioComponent,
+            dialog_producto_component_1.DialogProductoComponent,
+        ],
+        entryComponents: [
+            dialog_producto_component_1.DialogProductoComponent,
+        ],
         bootstrap: [navbar_component_1.NavbarComponent,]
     })
 ], AppModule);

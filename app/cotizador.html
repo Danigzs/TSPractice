@@ -16,7 +16,7 @@
             </option>
         </select>-->
         <select class="form-control" name="sel" 
-    [(ngModel)]="clienteSelected" 
+    [(ngModel)]="clienteSelected"
     (ngModelChange)="updateCliente($event)">
   <option *ngFor="let cliente of clientes" [ngValue]="cliente">
     {{cliente.nombre}}

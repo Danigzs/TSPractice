@@ -1,5 +1,6 @@
 import { Component, Input, Output, ElementRef } from '@angular/core';
 import {MdDialog, MdDialogConfig, MdDialogRef} from '@angular/material';
+import {DialogInventarioComponent} from './dialog.inventario.component'
 
 @Component({
   selector: 'modal-producto-selector',

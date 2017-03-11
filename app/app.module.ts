@@ -10,6 +10,7 @@ import {ClientesComponent} from './clientes.details';
 import {CotizadorComponent} from './cotizador.component';
 import {InventarioComponent} from './inventario.component';
 import {DialogProductoComponent} from './modals/dialog.producto.component'
+
 import { MaterialModule } from '@angular/material';
 
 
@@ -18,7 +19,12 @@ const appRoutes: Routes = [
   { path: 'my-app', component: AppComponent },
   { path: 'clientes', component: ClientesComponent},
   { path: 'cotizador', component: CotizadorComponent},
-  { path: 'inventario', component: InventarioComponent},
+  { path: 'inventario', component: InventarioComponent}, 
+
+  
+   
+  
+   
   
 
   { path: '',   redirectTo: '/my-app', pathMatch: 'full' },
@@ -32,8 +38,19 @@ const appRoutes: Routes = [
   				  RouterModule.forRoot(appRoutes),FormsModule,
               MaterialModule.forRoot()
  ],
-  declarations: [ NavbarComponent, AppComponent, FormComponent, ClientesComponent, CotizadorComponent, InventarioComponent, DialogProductoComponent ],
-  entryComponents: [DialogProductoComponent],
+  declarations: [ 
+  NavbarComponent, 
+  AppComponent, 
+  FormComponent, 
+  ClientesComponent, 
+  CotizadorComponent, 
+  InventarioComponent, 
+  DialogProductoComponent, 
+  ],
+  entryComponents: [
+    DialogProductoComponent,
+    
+    ],
   bootstrap:    [ NavbarComponent, ]
 })
 export class AppModule { }
