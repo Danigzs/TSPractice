@@ -16,6 +16,7 @@ var clientes_details_1 = require("./clientes.details");
 var cotizador_component_1 = require("./cotizador.component");
 var inventario_component_1 = require("./inventario.component");
 var dialog_producto_component_1 = require("./modals/dialog.producto.component");
+var dialog_inventario_component_1 = require("./modals/dialog.inventario.component");
 var material_1 = require("@angular/material");
 var appRoutes = [
     { path: 'form-directive', component: form_component_1.FormComponent },
@@ -23,6 +24,7 @@ var appRoutes = [
     { path: 'clientes', component: clientes_details_1.ClientesComponent },
     { path: 'cotizador', component: cotizador_component_1.CotizadorComponent },
     { path: 'inventario', component: inventario_component_1.InventarioComponent },
+    { path: 'modal-inventario-selector', component: dialog_inventario_component_1.DialogInventarioComponent },
     { path: '', redirectTo: '/my-app', pathMatch: 'full' },
 ];
 var AppModule = (function () {
@@ -44,9 +46,11 @@ AppModule = __decorate([
             cotizador_component_1.CotizadorComponent,
             inventario_component_1.InventarioComponent,
             dialog_producto_component_1.DialogProductoComponent,
+            dialog_inventario_component_1.DialogInventarioComponent
         ],
         entryComponents: [
             dialog_producto_component_1.DialogProductoComponent,
+            dialog_inventario_component_1.DialogInventarioComponent,
         ],
         bootstrap: [navbar_component_1.NavbarComponent,]
     })

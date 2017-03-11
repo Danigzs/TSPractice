@@ -10,7 +10,7 @@ import {ClientesComponent} from './clientes.details';
 import {CotizadorComponent} from './cotizador.component';
 import {InventarioComponent} from './inventario.component';
 import {DialogProductoComponent} from './modals/dialog.producto.component'
-
+import {DialogInventarioComponent} from './modals/dialog.inventario.component'
 import { MaterialModule } from '@angular/material';
 
 
@@ -19,11 +19,8 @@ const appRoutes: Routes = [
   { path: 'my-app', component: AppComponent },
   { path: 'clientes', component: ClientesComponent},
   { path: 'cotizador', component: CotizadorComponent},
-  { path: 'inventario', component: InventarioComponent}, 
-
-  
-   
-  
+  { path: 'inventario', component: InventarioComponent},
+  { path: 'modal-inventario-selector', component: DialogInventarioComponent},
    
   
 
@@ -45,10 +42,13 @@ const appRoutes: Routes = [
   ClientesComponent, 
   CotizadorComponent, 
   InventarioComponent, 
-  DialogProductoComponent, 
+  DialogProductoComponent,
+  DialogInventarioComponent
   ],
   entryComponents: [
     DialogProductoComponent,
+    DialogInventarioComponent,
+
     
     ],
   bootstrap:    [ NavbarComponent, ]

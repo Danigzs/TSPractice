@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {DialogInventarioComponent} from './../modals/dialog.inventario.component'
 
 
 
@@ -33,7 +34,7 @@ import { Component } from '@angular/core';
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-folder-open"> Inventario </span><span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#" data-toggle="modal" data-target="#modal2">Agregar</a></li>
+            <li><a routerLink="/modal-inventario-selector">Nuevo producto</a></li>
             <li role="presentation" class="divider"></li>
             <li><li><a routerLink="/inventario">Ver inventario</a></li>
             <li role="presentation" class="divider"></li>
