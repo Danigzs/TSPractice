@@ -5,11 +5,20 @@ h1 {
 }
 
 .c-div-bgr{
-  background: lightblue;
+  background: white;
 }
 .c-div-container{
   width: 70%;
   height: 70%;
-  margin-left: 15%;
-  background: lightgray;
+  margin-left: 0%;
+  background: white;
 } 
+li{
+color: white;
+
+}
+button {
+  float: right;
+  width: 20%;
+  height: 10%
+}

@@ -36,7 +36,7 @@ import {DialogInventarioComponent} from './../modals/dialog.inventario.component
           <ul class="dropdown-menu">
             <li><a routerLink="/modal-inventario-selector">Nuevo producto</a></li>
             <li role="presentation" class="divider"></li>
-            <li><li><a routerLink="/inventario">Ver inventario</a></li>
+            <li><a routerLink="/inventario">Ver inventario</a></li>
             <li role="presentation" class="divider"></li>
             <li><a href="#">Modificar</a></li>
           </ul>
