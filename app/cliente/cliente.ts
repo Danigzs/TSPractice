@@ -10,6 +10,7 @@ export class Cliente {
   telefono: String;
   email: String;
   atencionA: String;
+  rfc: String;
 
   constructor() {
     this.nombre = "";
@@ -23,5 +24,21 @@ export class Cliente {
     this.telefono = "";
     this.email = "";
     this.atencionA = "";
+    this.rfc = "";
   } 
+
+  setCliente(nombre:string,razonSocial:string,domicilio:string,estado:string,municipio:string,colonia:string,pais:string,codigoPostal:string,telefono:string,email:string,atencionA:string,rfc:string){
+      this.nombre = nombre;
+    this.razonSocial = razonSocial;
+    this.domicilio = domicilio;
+    this.estado = estado;
+    this.municipio = municipio;
+    this.colonia = colonia;
+    this.pais = pais;
+    this.codigoPostal = codigoPostal;
+    this.telefono = telefono;
+    this.email = email;
+    this.atencionA = atencionA;
+    this.rfc = rfc;
+  }
 }

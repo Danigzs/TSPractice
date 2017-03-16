@@ -13,7 +13,7 @@ var CotizadorService = (function () {
     function CotizadorService() {
     }
     CotizadorService.prototype.getCotizaciones = function () {
-        return [this.cotizaciones];
+        return this.cotizaciones;
     };
     CotizadorService = __decorate([
         core_1.Injectable(), 

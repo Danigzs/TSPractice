@@ -8,11 +8,27 @@ h1 {
   background: white;
 }
 .c-div-container{
-  width: 70%;
-  height: 70%;
-  margin-left: 0%;
+  width: 80%;
+  height: 100%;
+  margin-left: 10%;
   background: white;
+      height: 20px;
 } 
+.c-fecha-elaboracion-container{
+  width:100%;
+      margin-top: 20px;
+    height: 10px;
+}
+.c-fecha-elaboracion{
+  font-size: 22px;
+  font-style: italic;
+  font-weight: bold;
+  float: right
+}
+.c-cliente-seccion{
+  width: 100%;
+  margin-top: 30px;
+}
 li{
 color: white;
 
