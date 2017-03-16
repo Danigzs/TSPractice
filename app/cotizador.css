@@ -38,3 +38,6 @@ button {
   width: 20%;
   height: 10%
 }
+button{
+  float: left;
+}
