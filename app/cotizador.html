@@ -99,7 +99,7 @@
         <li role="presentation" class="divider"></li>
         <li role="presentation" class="divider"></li>
         <li role="presentation" class="divider"></li>-->
-        <form class="form-inline" role="form">
+        <!--<form class="form-inline" role="form">
             <div class="form-group" align="right">
                 <label>Cantidad:</label>
                 <input type="text" class="form-control" id="cant" placeholder="Cantidad">
@@ -110,7 +110,11 @@
                 <label>Precio Final:</label>
                 <input type="text" class="form-control" id="usr" placeholder="Precio Final" disabled="disabled">
             </div>
-        </form>
+        </form>-->
+        <div style="width: 100%;">
+            <div  *ngFor="let cliente of clientes" style="width: 10%;height: 30px" ></div>
+            <div></div>
+        </div>
         <table class="table table-bordered">
             <tr>
                 <th>Fecha</th>
