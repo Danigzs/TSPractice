@@ -12,9 +12,10 @@ var core_1 = require('@angular/core');
 var cotizador_service_1 = require('./cotizacion/cotizador.service');
 var cliente_service_1 = require('./cliente/cliente.service');
 var cliente_1 = require('./cliente/cliente');
-var producto_service_1 = require('./producto/producto.service');
 var dialog_producto_component_1 = require('./modals/dialog.producto.component');
 var cotizacion_1 = require('./cotizacion/cotizacion');
+var producto_1 = require('./producto/producto');
+var producto_service_1 = require('./producto/producto.service');
 var material_1 = require('@angular/material');
 // import { Modal } from './modals/modalAgregarProducto';
 var CotizadorComponent = (function () {
@@ -23,6 +24,7 @@ var CotizadorComponent = (function () {
         // dialogProducto = DialogProductoComponent;
         this.cotizacion = new cotizacion_1.Cotizacion();
         this.selectedValue = {};
+        this.productoSelected = new producto_1.Producto;
         this.clienteSelected = new cliente_1.Cliente;
         this.currentDate = this.getTodayDate();
         this.gridKeys = ["Cantidad", "Nombre", "Descripcion", "Precio Unitario", "Total"];
@@ -31,6 +33,10 @@ var CotizadorComponent = (function () {
         this.clienteSelected = this.clientes[0];
         this.cotizacion.cliente = this.clienteSelected;
         this.cotizacion.productos = this.productos;
+        this.init();
+        this.productos = _productoService.getProductos();
+        this.productoSelected = this.productos[0];
+        this.cotizacion.producto = this.productoSelected;
         this.init();
     }
     CotizadorComponent.prototype.updateCliente = function (event) {
@@ -51,7 +57,7 @@ var CotizadorComponent = (function () {
         core_1.Component({
             selector: 'cotizador',
             // directives: [ Modal ],
-            providers: [cotizador_service_1.CotizadorService, cliente_service_1.ClienteService],
+            providers: [cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService],
             styleUrls: ["app/cotizador.css"],
             templateUrl: "app/cotizador.html"
         }), 

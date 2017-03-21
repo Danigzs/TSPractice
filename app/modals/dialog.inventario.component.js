@@ -8,25 +8,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var material_1 = require('@angular/material');
-var DialogInventarioComponent = (function () {
+var core_1 = require("@angular/core");
+var material_1 = require("@angular/material");
+var DialogInventarioComponent = DialogInventarioComponent_1 = (function () {
     function DialogInventarioComponent(dialog) {
         this.dialog = dialog;
     }
     DialogInventarioComponent.prototype.open = function () {
         var dialogRef;
-        dialogRef = this.dialog.open(DialogInventarioComponent);
+        dialogRef = this.dialog.open(DialogInventarioComponent_1);
         return dialogRef.afterClosed();
     };
-    DialogInventarioComponent = __decorate([
-        core_1.Component({
-            selector: 'modal-inventario-selector',
-            templateUrl: "./app/modals/dialog_inventario.html"
-        }), 
-        __metadata('design:paramtypes', [material_1.MdDialog])
-    ], DialogInventarioComponent);
     return DialogInventarioComponent;
 }());
+DialogInventarioComponent = DialogInventarioComponent_1 = __decorate([
+    core_1.Component({
+        selector: 'modal-inventario-selector',
+        templateUrl: "./app/modals/dialog_inventario.html"
+    }),
+    __metadata("design:paramtypes", [material_1.MdDialog])
+], DialogInventarioComponent);
 exports.DialogInventarioComponent = DialogInventarioComponent;
+var DialogInventarioComponent_1;
 //# sourceMappingURL=dialog.inventario.component.js.map

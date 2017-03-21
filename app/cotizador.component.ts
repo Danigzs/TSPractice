@@ -5,29 +5,16 @@ import {
   ViewChild,
   ViewContainerRef
 } from '@angular/core';
-import {
-  CotizadorService
-} from './cotizacion/cotizador.service';
-import {
-  ClienteService
-} from './cliente/cliente.service'
-import {
-  Cliente
-} from './cliente/cliente'
-import {
-  ProductoService
-} from './producto/producto.service'
-import {
-  Producto
-} from './producto/producto'
 
-import {
-  DialogProductoComponent
-} from './modals/dialog.producto.component'
+import {CotizadorService} from './cotizacion/cotizador.service';
+import {ClienteService} from './cliente/cliente.service'
+import {Cliente} from './cliente/cliente'
+import {DialogProductoComponent} from './modals/dialog.producto.component'
+import {Cotizacion} from './cotizacion/cotizacion'
+import{Producto} from './producto/producto'
+import{ProductoService} from './producto/producto.service'
 
-import {
-    Cotizacion
-} from './cotizacion/cotizacion'
+
 
 import {
   MdDialog,
@@ -41,28 +28,24 @@ import {
 @Component({
   selector: 'cotizador',
   // directives: [ Modal ],
-  providers: [CotizadorService, ClienteService],
+  providers: [CotizadorService, ClienteService, ProductoService],
   styleUrls: ["app/cotizador.css"],
   templateUrl: "app/cotizador.html"
-
-
-
-
 
 })
 export class CotizadorComponent {
   // dialogRef: MdDialogRef<DialogProductoComponent>;
   componentName: 'CotizadorComponent';
-  
   // dialogProducto = DialogProductoComponent;
 
-  cotizacion = new Cotizacion();
-
+  cotizacion = new Cotizacion();   
   public viewContainerRef: ViewContainerRef;
   public cotizaciones: Array < any > ;
   public clientes: Array < Cliente > ;
-  productos: Array < Producto > ;
+  public productos: Array < Producto >;
+
   selectedValue = {};
+  productoSelected = new Producto;
   clienteSelected = new Cliente;
   currentDate = this.getTodayDate();
   gridKeys = ["Cantidad","Nombre","Descripcion","Precio Unitario","Total"];
@@ -89,6 +72,12 @@ export class CotizadorComponent {
     this.cotizacion.cliente = this.clienteSelected;
     this.cotizacion.productos = this.productos;
     this.init();
+
+    this.productos = _productoService.getProductos();
+    this.productoSelected = this.productos[0];
+    this.cotizacion.producto = this.productoSelected;
+    this.init();
+
   }
 
 

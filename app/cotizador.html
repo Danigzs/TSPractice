@@ -36,8 +36,23 @@
                 </md-input-container>
                 <md-input-container class="example-full-width">
                     <input mdInput name="razonSocial" id="razonSocial" type="text" class="form-control" placeholder="Razon Social" disabled="disabled" value="{{clienteSelected.razonSocial}}">
-                </md-input-container>   
-                 
+                </md-input-container>
+                        <li role="presentation" class="divider"></li>
+
+
+                        <!--
+                            select productos
+                            select productos 
+                            select productos
+                            select productos
+                        -->
+                  <select class="form-control" name="selprod" [(ngModel)]="productoSelected" (ngModelChange)="updateProducto($event)">
+                    <option *ngFor="let producto of productos" [ngValue]="producto">
+                        {{producto.nombre}}
+                    </option>
+                </select>         
+                    
+                    <input mdInput name="Precio" id="precio" type="text" class="form-control" placeholder="Precio" disabled="disabled" value="{{productoSelected.precio}}">
                  
             </div>
         </form>
