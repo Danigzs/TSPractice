@@ -9,9 +9,9 @@ export class ProductoService {
     var producto2 = new Producto();
     var producto3 = new Producto();
 
-    producto1.setProducto("celular",2000,"Telefono celular");
-    producto2.setProducto("Television",9000,"Television Full HD");
-    producto3.setProducto("Laptop",13000,"Computadora portatil");
+    producto1.setProducto("celular",2000,"Telefono celular",1);
+    producto2.setProducto("Television",9000,"Television Full HD",1);
+    producto3.setProducto("Laptop",13000,"Computadora portatil",1);
     
     this.productos = [producto1,producto2,producto3];
   }

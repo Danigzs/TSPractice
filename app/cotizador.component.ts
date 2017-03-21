@@ -15,6 +15,13 @@ import {
   Cliente
 } from './cliente/cliente'
 import {
+  ProductoService
+} from './producto/producto.service'
+import {
+  Producto
+} from './producto/producto'
+
+import {
   DialogProductoComponent
 } from './modals/dialog.producto.component'
 
@@ -48,15 +55,17 @@ export class CotizadorComponent {
   componentName: 'CotizadorComponent';
   
   // dialogProducto = DialogProductoComponent;
+
   cotizacion = new Cotizacion();
 
   public viewContainerRef: ViewContainerRef;
   public cotizaciones: Array < any > ;
   public clientes: Array < Cliente > ;
+  productos: Array < Producto > ;
   selectedValue = {};
   clienteSelected = new Cliente;
   currentDate = this.getTodayDate();
-
+  gridKeys = ["Cantidad","Nombre","Descripcion","Precio Unitario","Total"];
   updateCliente(event: Event) {
     console.warn(this.clienteSelected);
   }
@@ -73,10 +82,12 @@ export class CotizadorComponent {
     dialogRef = this.dialog.open(DialogProductoComponent);
     return dialogRef.afterClosed();
   }
-  constructor(private dialog: MdDialog, _cotizadorService: CotizadorService, _clienteService: ClienteService) {
+  constructor(private dialog: MdDialog, _cotizadorService: CotizadorService, _clienteService: ClienteService, _productoService: ProductoService) {
     this.clientes = _clienteService.getClientes();
+    this.productos = _productoService.getProductos();
     this.clienteSelected = this.clientes[0];
     this.cotizacion.cliente = this.clienteSelected;
+    this.cotizacion.productos = this.productos;
     this.init();
   }
 
