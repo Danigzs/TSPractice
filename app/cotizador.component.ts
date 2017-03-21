@@ -52,6 +52,10 @@ export class CotizadorComponent {
   updateCliente(event: Event) {
     console.warn(this.clienteSelected);
   }
+
+  updateProducto(event: Event) {
+    console.warn(this.productoSelected);
+  }
   init(){
     this.cotizacion.numeroCotizacion = "000000000001";
     

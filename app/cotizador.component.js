@@ -8,15 +8,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var cotizador_service_1 = require('./cotizacion/cotizador.service');
-var cliente_service_1 = require('./cliente/cliente.service');
-var cliente_1 = require('./cliente/cliente');
-var dialog_producto_component_1 = require('./modals/dialog.producto.component');
-var cotizacion_1 = require('./cotizacion/cotizacion');
-var producto_1 = require('./producto/producto');
-var producto_service_1 = require('./producto/producto.service');
-var material_1 = require('@angular/material');
+var core_1 = require("@angular/core");
+var cotizador_service_1 = require("./cotizacion/cotizador.service");
+var cliente_service_1 = require("./cliente/cliente.service");
+var cliente_1 = require("./cliente/cliente");
+var dialog_producto_component_1 = require("./modals/dialog.producto.component");
+var cotizacion_1 = require("./cotizacion/cotizacion");
+var producto_1 = require("./producto/producto");
+var producto_service_1 = require("./producto/producto.service");
+var material_1 = require("@angular/material");
 // import { Modal } from './modals/modalAgregarProducto';
 var CotizadorComponent = (function () {
     function CotizadorComponent(dialog, _cotizadorService, _clienteService, _productoService) {
@@ -42,6 +42,9 @@ var CotizadorComponent = (function () {
     CotizadorComponent.prototype.updateCliente = function (event) {
         console.warn(this.clienteSelected);
     };
+    CotizadorComponent.prototype.updateProducto = function (event) {
+        console.warn(this.productoSelected);
+    };
     CotizadorComponent.prototype.init = function () {
         this.cotizacion.numeroCotizacion = "000000000001";
     };
@@ -53,17 +56,17 @@ var CotizadorComponent = (function () {
         dialogRef = this.dialog.open(dialog_producto_component_1.DialogProductoComponent);
         return dialogRef.afterClosed();
     };
-    CotizadorComponent = __decorate([
-        core_1.Component({
-            selector: 'cotizador',
-            // directives: [ Modal ],
-            providers: [cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService],
-            styleUrls: ["app/cotizador.css"],
-            templateUrl: "app/cotizador.html"
-        }), 
-        __metadata('design:paramtypes', [material_1.MdDialog, cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService])
-    ], CotizadorComponent);
     return CotizadorComponent;
 }());
+CotizadorComponent = __decorate([
+    core_1.Component({
+        selector: 'cotizador',
+        // directives: [ Modal ],
+        providers: [cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService],
+        styleUrls: ["app/cotizador.css"],
+        templateUrl: "app/cotizador.html"
+    }),
+    __metadata("design:paramtypes", [material_1.MdDialog, cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService])
+], CotizadorComponent);
 exports.CotizadorComponent = CotizadorComponent;
 //# sourceMappingURL=cotizador.component.js.map

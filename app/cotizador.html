@@ -46,14 +46,22 @@
                             select productos
                             select productos
                         -->
-                  <select class="form-control" name="selprod" [(ngModel)]="productoSelected" (ngModelChange)="updateProducto($event)">
-                    <option *ngFor="let producto of productos" [ngValue]="producto">
+                   <select class="form-control" name="selprod" [(ngModel)]="productoSelected" (ngModelChange)="updateProducto($event)" placeholder="Precio">
+                   <option *ngFor="let producto of productos" [ngValue]="producto">
                         {{producto.nombre}}
                     </option>
-                </select>         
-                    
-                    <input mdInput name="Precio" id="precio" type="text" class="form-control" placeholder="Precio" disabled="disabled" value="{{productoSelected.precio}}">
-                 
+                </select>
+                <md-input-container class="example-full-width">
+                    <input mdInput name="Precio" id="Precio" type="text" class="form-control" placeholder="Precio" disabled="disabled" value="{{productoSelected.precio}}">
+                </md-input-container>
+
+                <md-input-container class="example-full-width">
+                    <input mdInput name="descripcion" id="descripcion" type="text" class="form-control" placeholder="Descripcion" disabled="disabled" value="{{productoSelected.descripcion}}">
+                </md-input-container>
+
+                <md-input-container class="example-full-width">
+                    <input mdInput name="nombre" id="nombre" type="text" class="form-control" placeholder="nombre" disabled="disabled" value="{{productoSelected.nombre}}">
+                </md-input-container>
             </div>
         </form>
         <!--<li role="presentation" class="divider"></li>
