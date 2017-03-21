@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("@angular/core");
-var producto_1 = require("./producto");
+var core_1 = require('@angular/core');
+var producto_1 = require('./producto');
 var ProductoService = (function () {
     function ProductoService() {
         var producto1 = new producto_1.Producto();
@@ -23,11 +23,11 @@ var ProductoService = (function () {
     ProductoService.prototype.getProductos = function () {
         return this.productos;
     };
+    ProductoService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [])
+    ], ProductoService);
     return ProductoService;
 }());
-ProductoService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [])
-], ProductoService);
 exports.ProductoService = ProductoService;
 //# sourceMappingURL=producto.service.js.map
