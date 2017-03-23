@@ -4,7 +4,7 @@ var Tecnica = (function () {
         this.nombre = "";
         this.precio = 0.0;
     }
-    Tecnica.prototype.setProducto = function (nombre, precio) {
+    Tecnica.prototype.setTecnica = function (nombre, precio) {
         this.nombre = nombre;
         this.precio = precio;
     };

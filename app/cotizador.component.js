@@ -33,7 +33,6 @@ var CotizadorComponent = (function () {
         this.clienteSelected = this.clientes[0];
         this.cotizacion.cliente = this.clienteSelected;
         this.cotizacion.productos = this.productos;
-        this.init();
         this.productos = _productoService.getProductos();
         this.productoSelected = this.productos[0];
         this.cotizacion.producto = this.productoSelected;

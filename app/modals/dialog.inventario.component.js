@@ -10,18 +10,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var material_1 = require("@angular/material");
-var DialogInventarioComponent = DialogInventarioComponent_1 = (function () {
+var DialogInventarioComponent = (function () {
     function DialogInventarioComponent(dialog) {
         this.dialog = dialog;
     }
-    DialogInventarioComponent.prototype.open = function () {
-        var dialogRef;
-        dialogRef = this.dialog.open(DialogInventarioComponent_1);
-        return dialogRef.afterClosed();
-    };
     return DialogInventarioComponent;
 }());
-DialogInventarioComponent = DialogInventarioComponent_1 = __decorate([
+DialogInventarioComponent = __decorate([
     core_1.Component({
         selector: 'modal-inventario-selector',
         templateUrl: "./app/modals/dialog_inventario.html"
@@ -29,5 +24,4 @@ DialogInventarioComponent = DialogInventarioComponent_1 = __decorate([
     __metadata("design:paramtypes", [material_1.MdDialog])
 ], DialogInventarioComponent);
 exports.DialogInventarioComponent = DialogInventarioComponent;
-var DialogInventarioComponent_1;
 //# sourceMappingURL=dialog.inventario.component.js.map

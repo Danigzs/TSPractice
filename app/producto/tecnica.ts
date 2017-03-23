@@ -7,7 +7,7 @@ export class Tecnica {
     this.precio = 0.0;
    
   } 
-  setProducto(nombre:string,precio:number){
+  setTecnica(nombre:string,precio:number){
     this.nombre = nombre;
     this.precio = precio;
 

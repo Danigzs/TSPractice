@@ -52,16 +52,19 @@
                     </option>
                 </select>
                 <md-input-container class="example-full-width">
+                    <input mdInput name="cantidad" id="cantidad" type="text" class="form-control" placeholder="Cantidad">
+                </md-input-container>
+
+                <md-input-container class="example-full-width">
                     <input mdInput name="Precio" id="Precio" type="text" class="form-control" placeholder="Precio" disabled="disabled" value="{{productoSelected.precio}}">
                 </md-input-container>
 
                 <md-input-container class="example-full-width">
                     <input mdInput name="descripcion" id="descripcion" type="text" class="form-control" placeholder="Descripcion" disabled="disabled" value="{{productoSelected.descripcion}}">
-                </md-input-container>
+                </md-input-container>                
 
-                <md-input-container class="example-full-width">
-                    <input mdInput name="nombre" id="nombre" type="text" class="form-control" placeholder="nombre" disabled="disabled" value="{{productoSelected.nombre}}">
-                </md-input-container>
+                <button md-raised-button color="primary" (click)="open()">Open first dialog</button>
+
             </div>
         </form>
         <!--<li role="presentation" class="divider"></li>

@@ -6,17 +6,7 @@ import {MdDialog, MdDialogConfig, MdDialogRef} from '@angular/material';
   templateUrl: "./app/modals/dialog_inventario.html"
 })
 export class DialogInventarioComponent {
-
-   open() {
-         
-        let dialogRef: MdDialogRef<DialogInventarioComponent>;
-
-        dialogRef = this.dialog.open(DialogInventarioComponent);
-        
-
-        return dialogRef.afterClosed();
-
-    }
+  
     constructor(
         public dialog: MdDialog
     ) { }
