@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {DialogInventarioComponent} from './../modals/dialog.inventario.component'
-
+import {CotizadorComponent} from './../cotizador.component'
 
 
 @Component({
@@ -34,7 +34,7 @@ import {DialogInventarioComponent} from './../modals/dialog.inventario.component
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-folder-open"> Inventario </span><span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a routerLink="/modal-inventario-selector">Nuevo producto</a></li>
+            <li><a (click)="open($event)">Nuevo producto</a></li>
             <li role="presentation" class="divider"></li>
             <li><a routerLink="/inventario">Ver inventario</a></li>
             <li role="presentation" class="divider"></li>
@@ -167,7 +167,7 @@ import {DialogInventarioComponent} from './../modals/dialog.inventario.component
 
 <router-outlet></router-outlet>
   `,
-  
+providers:[CotizadorComponent]
 })
 export class NavbarComponent  {
 

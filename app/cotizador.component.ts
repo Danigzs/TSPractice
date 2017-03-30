@@ -80,11 +80,8 @@ export class CotizadorComponent {
     this.productos = _productoService.getProductos();
     this.productoSelected = this.productos[0];
     this.cotizacion.producto = this.productoSelected;
-    this.init();
-
-    
-    
-  }
+    this.init(); 
+    }
 
 
 }

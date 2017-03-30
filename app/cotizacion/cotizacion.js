@@ -8,7 +8,7 @@ var Cotizacion = (function () {
         this.fechaElaboracion = null;
         this.estatus = "Nada";
     }
-    Cotizacion.prototype.setCotizacion = function (producto, cliente, productos, total, numeroCotizacion, fechaElaboracion, estatus) {
+    Cotizacion.prototype.setCotizacion = function (producto, cliente, productos, total, numeroCotizacion, fechaElaboracion, estatus, cantidad) {
         this.cliente = cliente;
         this.producto = producto;
         this.productos = productos;

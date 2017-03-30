@@ -52,7 +52,7 @@
                     </option>
                 </select>
                 <md-input-container class="example-full-width">
-                    <input mdInput name="cantidad" id="cantidad" type="text" class="form-control" placeholder="Cantidad">
+                    <input mdInput name="cantidad" id="cantidad" type="text" class="form-control" placeholder="Cantidad" [(ngModel)]="productoSelected.cantidad" >
                 </md-input-container>
 
                 <md-input-container class="example-full-width">
@@ -61,7 +61,11 @@
 
                 <md-input-container class="example-full-width">
                     <input mdInput name="descripcion" id="descripcion" type="text" class="form-control" placeholder="Descripcion" disabled="disabled" value="{{productoSelected.descripcion}}">
-                </md-input-container>                
+                </md-input-container>
+
+                <md-input-container class="example-full-width">
+                    <input mdInput name="total" id="total" type="text" class="form-control" placeholder="Total"  disabled="disabled" [(ngModel)]="productoSelected.total">
+                </md-input-container>
 
                 <button md-raised-button color="primary" (click)="open()">Open first dialog</button>
 
