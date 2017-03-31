@@ -64,7 +64,7 @@
                 </md-input-container>
 
                 <md-input-container class="example-full-width">
-                    <input mdInput name="total" id="total" type="text" class="form-control" placeholder="Total"  disabled="disabled" [(ngModel)]="productoSelected.total">
+                    <input mdInput name="total" id="total" type="text" class="form-control" placeholder="Total"  disabled="disabled" value="{{productoSelected.total}}">
                 </md-input-container>
 
                 <button md-raised-button color="primary" (click)="open()">Open first dialog</button>
@@ -156,13 +156,14 @@
                 <th>Total</th>
             </tr>
             <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal">
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
+                <td>{{currentDate}}</td>
+                <td>{{productoSelected.nombre}}</td>
+                <td>{{productoSelected.cantidad}}</td>
+                <td>{{productoSelected.precio}}</td>
+                <td>NO</td>
+                <td>NO</td>
+                <td>{{productoSelected.total}}</td>
+                
             </tr>
             <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal">
                 <td>Not assigned</td>

@@ -15,7 +15,7 @@ var ProductoService = (function () {
         var producto1 = new producto_1.Producto();
         var producto2 = new producto_1.Producto();
         var producto3 = new producto_1.Producto();
-        producto1.setProducto("celular", 2000, "Telefono celular", 2, 0);
+        producto1.setProducto("celular", 2000, "Telefono celular", 1, 0);
         producto2.setProducto("Television", 9000, "Television Full HD", 1, 0);
         producto3.setProducto("Laptop", 13000, "Computadora portatil", 1, 0);
         this.productos = [producto1, producto2, producto3];

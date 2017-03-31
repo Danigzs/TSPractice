@@ -21,7 +21,7 @@ export class Cotizacion {
     this.estatus = "Nada"
   } 
 
-    setCotizacion(producto: Producto, cliente:Cliente,productos:Array<Producto>,total:number,numeroCotizacion:string,fechaElaboracion:Date,estatus:string, cantidad: number){
+    setCotizacion(producto: Producto, cliente:Cliente, productos:Array<Producto>, total:number, numeroCotizacion:string, fechaElaboracion:Date, estatus:string, cantidad: number){
         this.cliente = cliente;
         this.producto = producto;
         this.productos = productos;

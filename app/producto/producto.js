@@ -12,7 +12,7 @@ var Producto = (function () {
         this.precio = precio;
         this.descripcion = descripcion;
         this.cantidad = cantidad;
-        this.total = precio * cantidad;
+        this.total = cantidad * precio;
     };
     return Producto;
 }());
