@@ -12,12 +12,12 @@ export class Producto {
     this.total = 0;
    
   }
-  setProducto(nombre:string,precio:number,descripcion:string,cantidad:number,total:number){
+  setProducto(nombre:string,precio:number,descripcion:string,cantidad:number){
     this.nombre = nombre;
     this.precio = precio;
     this.descripcion = descripcion;
     this.cantidad = cantidad;
-    this.total = cantidad*precio;  
+    this.total = cantidad*precio;
   }
   
 }

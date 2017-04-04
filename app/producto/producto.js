@@ -7,7 +7,7 @@ var Producto = (function () {
         this.cantidad = 0;
         this.total = 0;
     }
-    Producto.prototype.setProducto = function (nombre, precio, descripcion, cantidad, total) {
+    Producto.prototype.setProducto = function (nombre, precio, descripcion, cantidad) {
         this.nombre = nombre;
         this.precio = precio;
         this.descripcion = descripcion;

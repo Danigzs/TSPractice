@@ -9,25 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var producto_1 = require("./producto");
-var ProductoService = (function () {
-    function ProductoService() {
-        var producto1 = new producto_1.Producto();
-        var producto2 = new producto_1.Producto();
-        var producto3 = new producto_1.Producto();
-        producto1.setProducto("celular", 2000, "Telefono celular", 1);
-        producto2.setProducto("Television", 9000, "Television Full HD", 1);
-        producto3.setProducto("Laptop", 13000, "Computadora portatil", 1);
-        this.productos = [producto1, producto2, producto3];
+var tecnica_1 = require("./tecnica");
+var TecnicaService = (function () {
+    function TecnicaService() {
+        var tecnica1 = new tecnica_1.Tecnica();
+        var tecnica2 = new tecnica_1.Tecnica();
+        tecnica1.setTecnica("Bordado", 150);
+        tecnica2.setTecnica("Serigrafia", 50);
+        this.tecnicas = [tecnica1, tecnica2];
     }
-    ProductoService.prototype.getProductos = function () {
-        return this.productos;
+    TecnicaService.prototype.getTecnicas = function () {
+        return this.tecnicas;
     };
-    return ProductoService;
+    return TecnicaService;
 }());
-ProductoService = __decorate([
+TecnicaService = __decorate([
     core_1.Injectable(),
     __metadata("design:paramtypes", [])
-], ProductoService);
-exports.ProductoService = ProductoService;
-//# sourceMappingURL=producto.service.js.map
+], TecnicaService);
+exports.TecnicaService = TecnicaService;
+//# sourceMappingURL=tecnica.service.js.map
