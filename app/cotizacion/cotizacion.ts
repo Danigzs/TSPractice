@@ -5,7 +5,7 @@ import { Tecnica } from "./../producto/tecnica"
 export class Cotizacion {
   cliente: Cliente;
   producto: Producto;
-  tecnica: Tecnica;
+
   productos: Array<Producto>;
   total: number;
   cantidad: number;
