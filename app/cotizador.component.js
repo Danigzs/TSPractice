@@ -23,6 +23,7 @@ var CotizadorComponent = (function () {
         this.dialog = dialog;
         // dialogProducto = DialogProductoComponent;
         this.cotizacion = new cotizacion_1.Cotizacion();
+        this.totalCotizacion = 0.0;
         this.selectedValue = {};
         this.productoSelected = new producto_1.Producto;
         this.clienteSelected = new cliente_1.Cliente;
@@ -35,6 +36,7 @@ var CotizadorComponent = (function () {
         this.cotizacion.productos = this.productos;
         this.productoSelected = this.productos[0];
         this.cotizacion.producto = this.productoSelected;
+        this.productosCotizacion = [];
         this.init();
     }
     CotizadorComponent.prototype.updateCliente = function (event) {
@@ -42,6 +44,19 @@ var CotizadorComponent = (function () {
     };
     CotizadorComponent.prototype.updateProducto = function (event) {
         console.warn(this.productoSelected);
+    };
+    CotizadorComponent.prototype.addProducto = function (producto) {
+        producto.total = producto.precio * producto.cantidad;
+        this.productosCotizacion.push(producto);
+        this.calculateTotal();
+    };
+    CotizadorComponent.prototype.calculateTotal = function () {
+        var _total = 0;
+        for (var _i = 0, _a = this.productosCotizacion; _i < _a.length; _i++) {
+            var producto = _a[_i];
+            _total += producto.precio * producto.cantidad;
+        }
+        this.totalCotizacion = _total;
     };
     CotizadorComponent.prototype.init = function () {
         this.cotizacion.numeroCotizacion = "000000000001";

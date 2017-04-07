@@ -1,224 +1,189 @@
 <div class="c-div-bgr">
-    <div class="c-div-container">
-        <div class="c-fecha-elaboracion-container">
-            <p class="c-fecha-elaboracion">
-                Fecha de elaboración: {{currentDate}}
-            </p>
-        </div>
-        <div class="c-cliente-seccion">
-            <label>Cliente</label>
-        </div>
-         
+  <div class="c-div-container">
+    <div class="c-fecha-elaboracion-container">
+      <p class="c-fecha-elaboracion">
+        Fecha de elaboración: {{currentDate}}
+      </p>
+    </div>
+    <div class="c-cliente-seccion">
+      <label>Cliente</label>
+    </div>
 
-        <!--<button md-raised-button color="primary" (click)="open()">Open first dialog</button>-->
 
-        <form class="form-inline" role="form">
-            <div class="form-group">
-                <select class="form-control" name="sel" [(ngModel)]="clienteSelected" (ngModelChange)="updateCliente($event)">
+    <!--<button md-raised-button color="primary" (click)="open()">Open first dialog</button>-->
+
+    <form class="form-inline" role="form">
+      <div class="form-group">
+        <select class="form-control" name="sel" [(ngModel)]="clienteSelected" (ngModelChange)="updateCliente($event)">
                     <option *ngFor="let cliente of clientes" [ngValue]="cliente">
                         {{cliente.nombre}}
                     </option>
                 </select>
-                <md-input-container class="example-full-width">
-                    <input mdInput name="email" id="email" type="text" class="form-control" placeholder="Email" disabled="disabled" value="{{clienteSelected.email}}">
-                </md-input-container>
-                <md-input-container class="example-full-width">
-                    <input mdInput name="telefono" id="telefono" type="text" class="form-control" placeholder="Telefono" disabled="disabled" value="{{clienteSelected.telefono}}">
-                </md-input-container>
-                <md-input-container class="example-full-width">
-                    <input mdInput name="rfc" id="rfc" type="text" class="form-control" placeholder="RFC" disabled="disabled" value="{{clienteSelected.rfc}}">
-                </md-input-container>
-                <md-input-container class="example-full-width">
-                    <input mdInput name="estado" id="estado" type="text" class="form-control" placeholder="Estado" disabled="disabled" value="{{clienteSelected.estado}}">
-                </md-input-container>
-                <md-input-container class="example-full-width">
-                    <input mdInput name="pais" id="pais" type="text" class="form-control" placeholder="Pais" disabled="disabled" value="{{clienteSelected.pais}}">
-                </md-input-container>
-                <md-input-container class="example-full-width">
-                    <input mdInput name="razonSocial" id="razonSocial" type="text" class="form-control" placeholder="Razon Social" disabled="disabled" value="{{clienteSelected.razonSocial}}">
-                </md-input-container>
-                        <li role="presentation" class="divider"></li>
+        <md-input-container class="example-full-width">
+          <input mdInput name="email" id="email" type="text" class="form-control" placeholder="Email" disabled="disabled" value="{{clienteSelected.email}}">
+        </md-input-container>
+        <md-input-container class="example-full-width">
+          <input mdInput name="telefono" id="telefono" type="text" class="form-control" placeholder="Telefono" disabled="disabled"
+            value="{{clienteSelected.telefono}}">
+        </md-input-container>
+        <md-input-container class="example-full-width">
+          <input mdInput name="rfc" id="rfc" type="text" class="form-control" placeholder="RFC" disabled="disabled" value="{{clienteSelected.rfc}}">
+        </md-input-container>
+        <md-input-container class="example-full-width">
+          <input mdInput name="estado" id="estado" type="text" class="form-control" placeholder="Estado" disabled="disabled" value="{{clienteSelected.estado}}">
+        </md-input-container>
+        <md-input-container class="example-full-width">
+          <input mdInput name="pais" id="pais" type="text" class="form-control" placeholder="Pais" disabled="disabled" value="{{clienteSelected.pais}}">
+        </md-input-container>
+        <md-input-container class="example-full-width">
+          <input mdInput name="razonSocial" id="razonSocial" type="text" class="form-control" placeholder="Razon Social" disabled="disabled"
+            value="{{clienteSelected.razonSocial}}">
+        </md-input-container>
+        <li role="presentation" class="divider"></li>
 
 
-                        <!--
-                            select productos
-                            select productos 
-                            select productos
-                            select productos
-                        -->
-                   <select class="form-control" name="selprod" [(ngModel)]="productoSelected" (ngModelChange)="updateProducto($event)" placeholder="Precio">
+    <div class="c-cliente-seccion">
+        <label>Productos</label>
+        </div>
+        <select class="form-control" name="selprod" [(ngModel)]="productoSelected" (ngModelChange)="updateProducto($event)" placeholder="Precio">
                    <option *ngFor="let producto of productos" [ngValue]="producto">
                         {{producto.nombre}}
                     </option>
                 </select>
-                <md-input-container class="example-full-width">
-                    <input mdInput name="cantidad" id="cantidad" type="text" class="form-control" placeholder="Cantidad" [(ngModel)]="productoSelected.cantidad" >
-                </md-input-container>
+        <md-input-container class="example-full-width">
+          <input mdInput name="cantidad" id="cantidad" type="text" class="form-control" placeholder="Cantidad" [(ngModel)]="productoSelected.cantidad">
+        </md-input-container>
 
-                <md-input-container class="example-full-width">
-                    <input mdInput name="Precio" id="Precio" type="text" class="form-control" placeholder="Precio" disabled="disabled" value="{{productoSelected.precio}}">
-                </md-input-container>
+        <md-input-container class="example-full-width">
+          <input mdInput name="Precio" id="Precio" type="text" class="form-control input-price" placeholder="Precio" disabled="disabled" value="{{productoSelected.precio | currency:'USD':true}}">
+        </md-input-container>
 
-                <md-input-container class="example-full-width">
-                    <input mdInput name="descripcion" id="descripcion" type="text" class="form-control" placeholder="Descripcion" disabled="disabled" value="{{productoSelected.descripcion}}">
-                </md-input-container>
+        <md-input-container class="example-full-width">
+          <input mdInput name="descripcion" id="descripcion" type="text" class="form-control" placeholder="Descripcion" disabled="disabled"
+            value="{{productoSelected.descripcion}}">
+        </md-input-container>
 
-                <md-input-container class="example-full-width">
-                    <input mdInput name="total" id="total" type="text" class="form-control" placeholder="Total"  disabled="disabled" value="{{productoSelected.total}}">
-                </md-input-container>
+        <md-input-container class="example-full-width">
+          <input mdInput name="total" id="total" type="text" class="form-control input-price" placeholder="Total" disabled="disabled" value="{{productoSelected.total * productoSelected.cantidad | currency:'USD':true}}">
+        </md-input-container>
+        <button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>
 
-                <button md-raised-button color="primary" (click)="open()">Open first dialog</button>
+        <!--<button md-raised-button color="primary" (click)="open()">Open first dialog</button>-->
 
-            </div>
-        </form>
-        <!--<li role="presentation" class="divider"></li>
-        <label for="">Producto</label>
-        <form class="form-inline" role="form">
-            <div class="form-group">
-                <br/>
-                <select class="form-control" id="grp_option">
-            <option value="" disabled selected>Tecnicas</option>
-            <optgroup label="Group 1">
-               <option>Option 1.1</option>
-            </optgroup>
-            <optgroup label="Group 2">
-               <option>Option 2.1</option>
-               <option>Option 2.2</option>
-            </optgroup>
-            <optgroup label="Group 3" disabled>
-               <option>Option 3.1</option>
-               <option>Option 3.2</option>
-               <option>Option 3.3</option>
-            </optgroup>
-         </select>
-                <select class="form-control" placeholder="Grafico" id="graf_option">
-            <option value="" disabled selected>Ubicacion del grafico</option>
-            <optgroup label="group 1">
-               <option>Centro</option>
-            </optgroup>
-         </select>
-                <button type="button" class="btn btn-primary" onClick="target">Submit</button>
-                <select class="form-control" placeholder="Talla">
-            <option value="" disabled selected>Talla</option>
-         </select>
-                <li role="presentation" class="divider"></li>
-                <table class="table table-bordered" id="submittable">
-                    <tr>
-                        <th>Tecnicas</th>
-                        <th>Ubicaciones de grafico</th>
-                        <th>Precio</th>
-                    </tr>
-                    <tr>
-                        <td>Not assigned</td>
-                        <td>Not assigned</td>
-                        <td>Not assigned</td>
-                    </tr>
-                </table>
-            </div>
-        </form>-->
-        <!--<li role="presentation" class="divider"></li>
-        <li role="presentation" class="divider"></li>
-        <li role="presentation" class="divider"></li>
-        <li role="presentation" class="divider"></li>
-        <li role="presentation" class="divider"></li>
-        <li role="presentation" class="divider"></li>
-        <li role="presentation" class="divider"></li>
-        <li role="presentation" class="divider"></li>
-        <li role="presentation" class="divider"></li>
-        <li role="presentation" class="divider"></li>
-        <li role="presentation" class="divider"></li>
-        <li role="presentation" class="divider"></li>
-        <li role="presentation" class="divider"></li>-->
-        <!--<form class="form-inline" role="form">
-            <div class="form-group" align="right">
-                <label>Cantidad:</label>
-                <input type="text" class="form-control" id="cant" placeholder="Cantidad">
-                <label>Precio de prenda:</label>
-                <input type="text" class="form-control" id="usr" placeholder="Precio prenda" disabled="disabled">
-                <label>Precio de Graficos:</label>
-                <input type="text" class="form-control" id="usr" placeholder="Precio Grafico" disabled="disabled">
-                <label>Precio Final:</label>
-                <input type="text" class="form-control" id="usr" placeholder="Precio Final" disabled="disabled">
-            </div>
-        </form>-->
-        <div style="width: 100%;">
-            <div  *ngFor="let cliente of clientes" style="width: 10%;height: 30px" ></div>
-            <div></div>
-        </div>
-        <table class="table table-bordered">
-            <tr>
-                <th>Fecha</th>
-                <th>Producto</th>
-                <th>Cantidad</th>
-                <th>Precio unitario</th>
-                <th>Subtotal</th>
-                <th>IVA</th>
-                <th>Total</th>
-            </tr>
-            <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal">
-                <td>{{currentDate}}</td>
-                <td>{{productoSelected.nombre}}</td>
-                <td>{{productoSelected.cantidad}}</td>
-                <td>{{productoSelected.precio}}</td>
-                <td>NO</td>
-                <td>NO</td>
-                <td>{{productoSelected.total}}</td>
-                
-            </tr>
-            <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal">
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-            </tr>
-            <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal">
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-            </tr>
-            <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal">
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-            </tr>
-            <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal">
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-            </tr>
-            <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal">
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-            </tr>
-            <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal">
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-                <td>Not assigned</td>
-            </tr>
-        </table>
+
+      </div>
+    </form>
+    
+<!--
+    <div style="width: 100%;">
+      <div *ngFor="let cliente of clientes" style="width: 10%;height: 30px"></div>
+      <div></div>
     </div>
+    <table class="table table-bordered">
+      <tr>
+        <th>Fecha</th>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Precio unitario</th>
+        <th>Subtotal</th>
+        <th>IVA</th>
+        <th>Total</th>
+      </tr>
+      <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal">
+        <td>{{currentDate}}</td>
+        <td>{{productoSelected.nombre}}</td>
+        <td>{{productoSelected.cantidad}}</td>
+        <td>{{productoSelected.precio}}</td>
+        <td>NO</td>
+        <td>NO</td>
+        <td>{{productoSelected.total}}</td>
+
+      </tr>
+      <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal">
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+      </tr>
+      <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal">
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+      </tr>
+      <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal">
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+      </tr>
+      <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal">
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+      </tr>
+      <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal">
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+      </tr>
+      <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal">
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+        <td>Not assigned</td>
+      </tr>
+    </table>
+    -->
+
+
+ <div class="c-cliente-seccion">
+      <label>Productos agregados</label>
+    </div>
+    <div style="width: 100%;">
+      
+    <table class="table table-bordered">
+      <tr>
+        <th>Fecha</th>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Precio unitario</th>
+        <th>Subtotal</th>
+        <th>IVA</th>
+        <th>Total</th>
+      </tr>
+       <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let producto of productosCotizacion">
+        <td>{{currentDate}}</td>
+        <td>{{producto.nombre}}</td>
+        <td>{{producto.cantidad}}</td>
+        <td>{{producto.precio | currency:'USD':true}}</td>
+        <td>NO</td>
+        <td>NO</td>
+        <td>{{producto.total | currency:'USD':true}}</td>
+
+      </tr>
+       
+    </table>
+    <div style="float:right">Costo de Pedio: {{totalCotizacion | currency:'USD':true }}</div>
+  </div>
 </div>

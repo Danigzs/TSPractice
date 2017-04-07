@@ -48,7 +48,9 @@ export class CotizadorComponent {
   public cotizaciones: Array < any > ;
   public clientes: Array < Cliente > ;
   public productos: Array < Producto >;
-  
+  public productosCotizacion: Array  <Producto>;
+  totalCotizacion = 0.0;
+
 
   selectedValue = {};
   productoSelected = new Producto;
@@ -64,6 +66,20 @@ export class CotizadorComponent {
     console.warn(this.productoSelected);
   }
 
+  addProducto(producto:Producto){
+    producto.total = producto.precio * producto.cantidad;
+    this.productosCotizacion.push(producto);
+    this.calculateTotal();
+  }
+  calculateTotal(){
+    
+    var _total = 0;
+    for(let producto of this.productosCotizacion){
+      _total += producto.precio * producto.cantidad;
+    }
+    this.totalCotizacion = _total;
+
+  }
  
 
   init(){
@@ -87,7 +103,7 @@ export class CotizadorComponent {
     this.cotizacion.productos = this.productos;
     this.productoSelected = this.productos[0];
     this.cotizacion.producto = this.productoSelected;
-   
+    this.productosCotizacion = [];
     this.init(); 
     }
 

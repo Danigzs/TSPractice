@@ -33,3 +33,10 @@ li{
 color: white;
 
 }
+
+.input-price{
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: right;
+  width: 110px;
+}
