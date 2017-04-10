@@ -20,7 +20,6 @@ import {TecnicaService} from './producto/tecnica.service'
 
 
 
-
 import {
   MdDialog,
   MdDialogConfig,
@@ -33,7 +32,7 @@ import {
 @Component({
   selector: 'cotizador',
   // directives: [ Modal ],
-  providers: [CotizadorService, ClienteService, ProductoService],
+  providers: [CotizadorService, ClienteService, ProductoService, TecnicaService],
   styleUrls: ["app/cotizador.css"],
   templateUrl: "app/cotizador.html"
 
@@ -49,17 +48,23 @@ export class CotizadorComponent {
   public clientes: Array < Cliente > ;
   public productos: Array < Producto >;
   public productosCotizacion: Array  <Producto>;
+  public tecnicas: Array <Tecnica>;
   totalCotizacion = 0.0;
 
 
   selectedValue = {};
   productoSelected = new Producto;
   clienteSelected = new Cliente;
+  tecnicaSelected = new Tecnica;
   
   currentDate = this.getTodayDate();
   gridKeys = ["Cantidad","Nombre","Descripcion","Precio Unitario","Total"];
   updateCliente(event: Event) {
     console.warn(this.clienteSelected);
+  }
+
+  updateTecnica(event: Event) {
+    console.warn(this.tecnicaSelected);
   }
 
   updateProducto(event: Event) {
@@ -95,10 +100,13 @@ export class CotizadorComponent {
     dialogRef = this.dialog.open(DialogProductoComponent);
     return dialogRef.afterClosed();
   }
-  constructor(private dialog: MdDialog, _cotizadorService: CotizadorService, _clienteService: ClienteService, _productoService: ProductoService) {
+  constructor(private dialog: MdDialog, _cotizadorService: CotizadorService, _clienteService: ClienteService, _productoService: ProductoService, _tecnicaService: TecnicaService) {
     this.clientes = _clienteService.getClientes();
     this.productos = _productoService.getProductos();
+    this.tecnicas = _tecnicaService.getTecnicas();
     this.clienteSelected = this.clientes[0];
+    this.tecnicaSelected = this.tecnicas[0];
+    this.cotizacion.tecnica = this.tecnicaSelected;
     this.cotizacion.cliente = this.clienteSelected;
     this.cotizacion.productos = this.productos;
     this.productoSelected = this.productos[0];

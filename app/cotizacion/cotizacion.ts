@@ -3,6 +3,7 @@ import { Producto } from "./../producto/producto"
 import { Tecnica } from "./../producto/tecnica"
 
 export class Cotizacion {
+  tecnica: Tecnica;
   cliente: Cliente;
   producto: Producto;
 
@@ -16,6 +17,7 @@ export class Cotizacion {
 
   constructor() {
     this.cliente = null;
+    this.tecnica = null;
     this.productos = [];   
     this.total = 0.0;
     this.numeroCotizacion = "-1";
@@ -23,8 +25,9 @@ export class Cotizacion {
     this.estatus = "Nada"
   } 
 
-    setCotizacion(producto: Producto, cliente:Cliente, productos:Array<Producto>, total:number, numeroCotizacion:string, fechaElaboracion:Date, estatus:string, cantidad: number){
+    setCotizacion(tecnica: Tecnica, producto: Producto, cliente:Cliente, productos:Array<Producto>, total:number, numeroCotizacion:string, fechaElaboracion:Date, estatus:string, cantidad: number){
         this.cliente = cliente;
+        this.tecnica = tecnica;
         this.producto = producto;
         this.productos = productos;
         this.total = total;        

@@ -28,7 +28,7 @@ export class Cliente {
   } 
 
   setCliente(nombre:string,razonSocial:string,domicilio:string,estado:string,municipio:string,colonia:string,pais:string,codigoPostal:string,telefono:string,email:string,atencionA:string,rfc:string){
-      this.nombre = nombre;
+    this.nombre = nombre;
     this.razonSocial = razonSocial;
     this.domicilio = domicilio;
     this.estado = estado;

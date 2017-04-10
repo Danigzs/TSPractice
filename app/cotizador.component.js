@@ -16,10 +16,12 @@ var dialog_producto_component_1 = require("./modals/dialog.producto.component");
 var cotizacion_1 = require("./cotizacion/cotizacion");
 var producto_1 = require("./producto/producto");
 var producto_service_1 = require("./producto/producto.service");
+var tecnica_1 = require("./producto/tecnica");
+var tecnica_service_1 = require("./producto/tecnica.service");
 var material_1 = require("@angular/material");
 // import { Modal } from './modals/modalAgregarProducto';
 var CotizadorComponent = (function () {
-    function CotizadorComponent(dialog, _cotizadorService, _clienteService, _productoService) {
+    function CotizadorComponent(dialog, _cotizadorService, _clienteService, _productoService, _tecnicaService) {
         this.dialog = dialog;
         // dialogProducto = DialogProductoComponent;
         this.cotizacion = new cotizacion_1.Cotizacion();
@@ -27,11 +29,15 @@ var CotizadorComponent = (function () {
         this.selectedValue = {};
         this.productoSelected = new producto_1.Producto;
         this.clienteSelected = new cliente_1.Cliente;
+        this.tecnicaSelected = new tecnica_1.Tecnica;
         this.currentDate = this.getTodayDate();
         this.gridKeys = ["Cantidad", "Nombre", "Descripcion", "Precio Unitario", "Total"];
         this.clientes = _clienteService.getClientes();
         this.productos = _productoService.getProductos();
+        this.tecnicas = _tecnicaService.getTecnicas();
         this.clienteSelected = this.clientes[0];
+        this.tecnicaSelected = this.tecnicas[0];
+        this.cotizacion.tecnica = this.tecnicaSelected;
         this.cotizacion.cliente = this.clienteSelected;
         this.cotizacion.productos = this.productos;
         this.productoSelected = this.productos[0];
@@ -41,6 +47,9 @@ var CotizadorComponent = (function () {
     }
     CotizadorComponent.prototype.updateCliente = function (event) {
         console.warn(this.clienteSelected);
+    };
+    CotizadorComponent.prototype.updateTecnica = function (event) {
+        console.warn(this.tecnicaSelected);
     };
     CotizadorComponent.prototype.updateProducto = function (event) {
         console.warn(this.productoSelected);
@@ -75,11 +84,11 @@ CotizadorComponent = __decorate([
     core_1.Component({
         selector: 'cotizador',
         // directives: [ Modal ],
-        providers: [cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService],
+        providers: [cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService],
         styleUrls: ["app/cotizador.css"],
         templateUrl: "app/cotizador.html"
     }),
-    __metadata("design:paramtypes", [material_1.MdDialog, cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService])
+    __metadata("design:paramtypes", [material_1.MdDialog, cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService])
 ], CotizadorComponent);
 exports.CotizadorComponent = CotizadorComponent;
 //# sourceMappingURL=cotizador.component.js.map

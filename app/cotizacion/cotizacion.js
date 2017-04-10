@@ -2,14 +2,16 @@
 var Cotizacion = (function () {
     function Cotizacion() {
         this.cliente = null;
+        this.tecnica = null;
         this.productos = [];
         this.total = 0.0;
         this.numeroCotizacion = "-1";
         this.fechaElaboracion = null;
         this.estatus = "Nada";
     }
-    Cotizacion.prototype.setCotizacion = function (producto, cliente, productos, total, numeroCotizacion, fechaElaboracion, estatus, cantidad) {
+    Cotizacion.prototype.setCotizacion = function (tecnica, producto, cliente, productos, total, numeroCotizacion, fechaElaboracion, estatus, cantidad) {
         this.cliente = cliente;
+        this.tecnica = tecnica;
         this.producto = producto;
         this.productos = productos;
         this.total = total;
