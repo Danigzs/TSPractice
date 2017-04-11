@@ -73,7 +73,7 @@
         </md-input-container>
 
         <md-input-container class="example-full-width">
-          <input mdInput name="total" id="total" type="text" class="form-control input-price" placeholder="Total" disabled="disabled" value="{{productoSelected.precio * productoSelected.cantidad + tecnicaSelected.precio  | currency:'USD':true}}">
+          <input mdInput name="total" id="total" type="text" class="form-control input-price" placeholder="Total" disabled="disabled" value="{{productoSelected.precio * productoSelected.cantidad  | currency:'USD':true}}">
         </md-input-container>
         <button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>
          <li role="presentation" class="divider"></li>
