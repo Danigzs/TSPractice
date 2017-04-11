@@ -183,6 +183,7 @@
         <th>Subtotal</th>
         <th>IVA</th>
         <th>Total</th>
+        <th>Maquila</th>
       </tr>
        <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let producto of productosCotizacion">
         <td>{{currentDate}}</td>
@@ -192,9 +193,10 @@
         <td>NO</td>
         <td>NO</td>
         <td>{{producto.total | currency:'USD':true}}</td>
+        <th><button  md-raised-button color="primary" (click)="open()">Agregar Producto</button></th>
 
       </tr>
-       
+
     </table>
     <div style="float:right">Costo de Pedio: {{totalCotizacion | currency:'USD':true }}</div>
   </div>

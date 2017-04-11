@@ -96,8 +96,8 @@ export class CotizadorComponent {
     return new Date().toLocaleDateString();
   }
   open() {
-    let dialogRef: MdDialogRef < DialogProductoComponent > ;
-    dialogRef = this.dialog.open(DialogProductoComponent);
+    let dialogRef: MdDialogRef < DialogInventarioComponent > ;
+    dialogRef = this.dialog.open(DialogInventarioComponent);
     return dialogRef.afterClosed();
   }
   constructor(private dialog: MdDialog, _cotizadorService: CotizadorService, _clienteService: ClienteService, _productoService: ProductoService, _tecnicaService: TecnicaService) {
@@ -108,7 +108,7 @@ export class CotizadorComponent {
     this.tecnicaSelected = this.tecnicas[0];
     this.cotizacion.tecnica = this.tecnicaSelected;
     this.cotizacion.cliente = this.clienteSelected;
-    this.cotizacion.productos = this.productos;
+    this.productos = this.productos;
     this.productoSelected = this.productos[0];
     this.cotizacion.producto = this.productoSelected;
     this.productosCotizacion = [];

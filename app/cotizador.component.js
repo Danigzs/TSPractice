@@ -12,10 +12,10 @@ var core_1 = require("@angular/core");
 var cotizador_service_1 = require("./cotizacion/cotizador.service");
 var cliente_service_1 = require("./cliente/cliente.service");
 var cliente_1 = require("./cliente/cliente");
-var dialog_producto_component_1 = require("./modals/dialog.producto.component");
 var cotizacion_1 = require("./cotizacion/cotizacion");
 var producto_1 = require("./producto/producto");
 var producto_service_1 = require("./producto/producto.service");
+var dialog_inventario_component_1 = require("./modals/dialog.inventario.component");
 var tecnica_1 = require("./producto/tecnica");
 var tecnica_service_1 = require("./producto/tecnica.service");
 var material_1 = require("@angular/material");
@@ -39,7 +39,7 @@ var CotizadorComponent = (function () {
         this.tecnicaSelected = this.tecnicas[0];
         this.cotizacion.tecnica = this.tecnicaSelected;
         this.cotizacion.cliente = this.clienteSelected;
-        this.cotizacion.productos = this.productos;
+        this.productos = this.productos;
         this.productoSelected = this.productos[0];
         this.cotizacion.producto = this.productoSelected;
         this.productosCotizacion = [];
@@ -75,7 +75,7 @@ var CotizadorComponent = (function () {
     };
     CotizadorComponent.prototype.open = function () {
         var dialogRef;
-        dialogRef = this.dialog.open(dialog_producto_component_1.DialogProductoComponent);
+        dialogRef = this.dialog.open(dialog_inventario_component_1.DialogInventarioComponent);
         return dialogRef.afterClosed();
     };
     return CotizadorComponent;

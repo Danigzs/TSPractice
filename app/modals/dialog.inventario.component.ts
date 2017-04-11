@@ -7,8 +7,6 @@ import {MdDialog, MdDialogConfig, MdDialogRef} from '@angular/material';
 })
 export class DialogInventarioComponent {
   
-    constructor(
-        public dialog: MdDialog
-    ) { }
+    constructor(public dialogRef: MdDialogRef<DialogInventarioComponent>) { }
 
 }

@@ -14,9 +14,13 @@ var TecnicaService = (function () {
     function TecnicaService() {
         var tecnica1 = new tecnica_1.Tecnica();
         var tecnica2 = new tecnica_1.Tecnica();
+        var tecnica3 = new tecnica_1.Tecnica();
+        var tecnica4 = new tecnica_1.Tecnica();
         tecnica1.setTecnica("Bordado", 150);
         tecnica2.setTecnica("Serigrafia", 50);
-        this.tecnicas = [tecnica1, tecnica2];
+        tecnica3.setTecnica("Tampografia", 60);
+        tecnica4.setTecnica("Vinil", 80);
+        this.tecnicas = [tecnica1, tecnica2, tecnica3, tecnica4];
     }
     TecnicaService.prototype.getTecnicas = function () {
         return this.tecnicas;

@@ -11,8 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var material_1 = require("@angular/material");
 var DialogInventarioComponent = (function () {
-    function DialogInventarioComponent(dialog) {
-        this.dialog = dialog;
+    function DialogInventarioComponent(dialogRef) {
+        this.dialogRef = dialogRef;
     }
     return DialogInventarioComponent;
 }());
@@ -21,7 +21,7 @@ DialogInventarioComponent = __decorate([
         selector: 'modal-inventario-selector',
         templateUrl: "./app/modals/dialog_inventario.html"
     }),
-    __metadata("design:paramtypes", [material_1.MdDialog])
+    __metadata("design:paramtypes", [material_1.MdDialogRef])
 ], DialogInventarioComponent);
 exports.DialogInventarioComponent = DialogInventarioComponent;
 //# sourceMappingURL=dialog.inventario.component.js.map
