@@ -186,7 +186,7 @@ table tr:hover td {
 
 .c-container-info{
     width: 100%;
-    background: aliceblue;
+    background: #f4f7f8;
     height: 200px;
     margin-bottom: 30px;
 }
@@ -277,4 +277,13 @@ table tr:hover td {
     color: #000;
     text-decoration: none;
     cursor: pointer;
+}
+
+.c-total-amount-info{
+font-size: 24px;
+}
+
+.c-total-amount{
+  font-size: 28px;
+      font-weight: 600;
 }

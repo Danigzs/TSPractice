@@ -267,7 +267,7 @@
         <button  type="button" class="btn btn-primary btn-md" (click)="verProductos()">Agregar Producto</button>
       </div>
         <div class="c-grid-products">
-          <table class="table table-bordered">
+          <table class="table ">
             <thead>
             <tr>
               <th>Fecha</th>
@@ -294,7 +294,7 @@
 
           </table>
         </div>
-        <div style="float:right">Costo de Pedio: {{totalCotizacion | currency:'USD':true }}</div>
+        <div style="float:right"><span class="c-total-amount-info">Total:</span><span class="c-total-amount"> {{totalCotizacion | currency:'USD':true }}</span></div>
       </div>
     
     </div>
@@ -306,7 +306,7 @@
           <span class="close" (click)="closeModal()" >&times;</span>
           <h1>Productos</h1>
            <div class="c-grid-all-products">
-          <table class="table table-bordered">
+          <table class="table ">
             <thead>
             <tr>
               <th>Fecha</th>
