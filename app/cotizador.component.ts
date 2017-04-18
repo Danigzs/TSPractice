@@ -50,7 +50,7 @@ export class CotizadorComponent {
   public productosCotizacion: Array  <Producto>;
   public tecnicas: Array <Tecnica>;
   totalCotizacion = 0.0;
-
+  public hideModal = true;
 
   selectedValue = {};
   productoSelected = new Producto;
@@ -99,6 +99,19 @@ export class CotizadorComponent {
     let dialogRef: MdDialogRef < DialogInventarioComponent > ;
     dialogRef = this.dialog.open(DialogInventarioComponent);
     return dialogRef.afterClosed();
+  }
+
+
+  //Modal
+  verProductos(){
+    this.hideModal = false;
+  }
+  closeModal(){
+    this.hideModal = true;
+  }
+  seleccionarProducto(producto:Producto){
+    this.addProducto(producto);
+    this.closeModal();
   }
   constructor(private dialog: MdDialog, _cotizadorService: CotizadorService, _clienteService: ClienteService, _productoService: ProductoService, _tecnicaService: TecnicaService) {
     this.clientes = _clienteService.getClientes();

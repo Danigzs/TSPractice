@@ -26,6 +26,7 @@ var CotizadorComponent = (function () {
         // dialogProducto = DialogProductoComponent;
         this.cotizacion = new cotizacion_1.Cotizacion();
         this.totalCotizacion = 0.0;
+        this.hideModal = true;
         this.selectedValue = {};
         this.productoSelected = new producto_1.Producto;
         this.clienteSelected = new cliente_1.Cliente;
@@ -77,6 +78,17 @@ var CotizadorComponent = (function () {
         var dialogRef;
         dialogRef = this.dialog.open(dialog_inventario_component_1.DialogInventarioComponent);
         return dialogRef.afterClosed();
+    };
+    //Modal
+    CotizadorComponent.prototype.verProductos = function () {
+        this.hideModal = false;
+    };
+    CotizadorComponent.prototype.closeModal = function () {
+        this.hideModal = true;
+    };
+    CotizadorComponent.prototype.seleccionarProducto = function (producto) {
+        this.addProducto(producto);
+        this.closeModal();
     };
     return CotizadorComponent;
 }());

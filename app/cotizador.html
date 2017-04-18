@@ -9,12 +9,180 @@
       <label>Cliente</label>
     </div>
 
+    <div class="c-container-info">
 
-    <!--<button md-raised-button color="primary" (click)="open()">Open first dialog</button>-->
+      <div class="c-container-info-column">
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Cliente
+          </div>
+
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Email
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Teléfono
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            RFC
+          </div>
+        </div>
+        <!--<div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Estado
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            País
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Razón Social
+          </div>
+        </div>-->
+      </div>
+
+      <div class="c-container-info-column data">
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <select class="form-control" name="sel" [(ngModel)]="clienteSelected" (ngModelChange)="updateCliente($event)">
+                    <option *ngFor="let cliente of clientes" [ngValue]="cliente">
+                        {{cliente.nombre}}
+                    </option>
+                </select>
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <label class="c-label-info">
+              {{clienteSelected.email}}
+            </label>
+            </div>
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <label class="c-label-info">
+              {{clienteSelected.telefono}}
+            </label>
+            </div>
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <label class="c-label-info">
+              {{clienteSelected.rfc}}
+            </label>
+            </div>
+          </div>
+        </div>
+        <!--<div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <label class="c-label-info">
+              {{clienteSelected.estado}}
+            </label>
+            </div> 
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <label class="c-label-info">
+              {{clienteSelected.pais}}
+            </label>
+            </div>
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <label class="c-label-info">
+              {{clienteSelected.razonSocial}}
+            </label>
+            </div>
+
+          </div>
+        </div>-->
+      </div>
+
+
+      <div class="c-container-info-column">
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Estado
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            País
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Razón Social
+          </div>
+        </div>
+      </div>
+
+      <div class="c-container-info-column data">
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <label class="c-label-info">
+              {{clienteSelected.estado}}
+            </label>
+            </div>
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <label class="c-label-info">
+              {{clienteSelected.pais}}
+            </label>
+            </div>
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <label class="c-label-info">
+              {{clienteSelected.razonSocial}}
+            </label>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
 
     <form class="form-inline" role="form">
       <div class="form-group">
-        <select class="form-control" name="sel" [(ngModel)]="clienteSelected" (ngModelChange)="updateCliente($event)">
+        <!--<select class="form-control" name="sel" [(ngModel)]="clienteSelected" (ngModelChange)="updateCliente($event)">
                     <option *ngFor="let cliente of clientes" [ngValue]="cliente">
                         {{cliente.nombre}}
                     </option>
@@ -39,11 +207,11 @@
           <input mdInput name="razonSocial" id="razonSocial" type="text" class="form-control" placeholder="Razon Social" disabled="disabled"
             value="{{clienteSelected.razonSocial}}">
         </md-input-container>
-        <li role="presentation" class="divider"></li>
+        <li role="presentation" class="divider"></li>-->
 
 
-    <div class="c-cliente-seccion">
-        <label>Productos</label>
+        <!--<div class="c-cliente-seccion">
+          <label>Productos</label>
         </div>
         <select class="form-control" name="selprod" [(ngModel)]="productoSelected" (ngModelChange)="updateProducto($event)" placeholder="Precio">
                    <option *ngFor="let producto of productos" [ngValue]="producto">
@@ -55,149 +223,117 @@
         </md-input-container>
 
         <md-input-container class="example-full-width">
-          <input mdInput name="Precio" id="Precio" type="text" class="form-control input-price" placeholder="Precio {{productoSelected.nombre}}" disabled="disabled" value="{{productoSelected.precio | currency:'USD':true}}">
+          <input mdInput name="Precio" id="Precio" type="text" class="form-control input-price" placeholder="Precio {{productoSelected.nombre}}"
+            disabled="disabled" value="{{productoSelected.precio | currency:'USD':true}}">
         </md-input-container>
 
         <md-input-container class="example-full-width">
           <input mdInput name="descripcion" id="descripcion" type="text" class="form-control" placeholder="Descripcion" disabled="disabled"
             value="{{productoSelected.descripcion}}">
         </md-input-container>
-                
+
         <select class="form-control" name="selprod" [(ngModel)]="tecnicaSelected" (ngModelChange)="updateTecnica($event)" placeholder="Tecnica">
                    <option *ngFor="let tecnica of tecnicas" [ngValue]="tecnica">
                         {{tecnica.nombre}}
                     </option>
                 </select>
-                <md-input-container class="example-full-width">
-          <input mdInput name="total" id="total" type="text" class="form-control input-price" placeholder="Precio {{tecnicaSelected.nombre}}" disabled="disabled" value="{{tecnicaSelected.precio |currency:'USD':true}}">
+        <md-input-container class="example-full-width">
+          <input mdInput name="total" id="total" type="text" class="form-control input-price" placeholder="Precio {{tecnicaSelected.nombre}}"
+            disabled="disabled" value="{{tecnicaSelected.precio |currency:'USD':true}}">
         </md-input-container>
 
         <md-input-container class="example-full-width">
-          <input mdInput name="total" id="total" type="text" class="form-control input-price" placeholder="Total" disabled="disabled" value="{{productoSelected.precio * productoSelected.cantidad  | currency:'USD':true}}">
+          <input mdInput name="total" id="total" type="text" class="form-control input-price" placeholder="Total" disabled="disabled"
+            value="{{productoSelected.precio * productoSelected.cantidad  | currency:'USD':true}}">
         </md-input-container>
         <button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>
-         <li role="presentation" class="divider"></li>
+        <li role="presentation" class="divider"></li>-->
 
-          
+
 
         <!--<button md-raised-button color="primary" (click)="open()">Open first dialog</button>-->
 
 
       </div>
     </form>
+
+
+    <div class="c-cliente-seccion">
+      <label>Productos </label>
+    </div>
+    <div class="table-responsive" style="width: 100%;">
+      <div class="c-add-product-container">
+        <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
+        <button  type="button" class="btn btn-primary btn-md" (click)="verProductos()">Agregar Producto</button>
+      </div>
+        <div class="c-grid-products">
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Precio unitario</th>
+              <th>Subtotal</th>
+              <th>IVA</th>
+              <th>Total</th>
+              <th>Agregar Maquila</th>
+            </tr>
+            </thead>
+            <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let producto of productosCotizacion">
+              <td>{{currentDate}}</td>
+              <td>{{producto.nombre}}</td>
+              <td>{{producto.cantidad}}</td>
+              <td>{{producto.precio | currency:'USD':true}}</td>
+              <td>NO</td>
+              <td>NO</td>
+              <td>{{producto.total | currency:'USD':true}}</td>
+              <th><button  type="button" class="btn btn-primary btn-md" (click)="open()">Agregar</button></th>
+
+            </tr>
+
+          </table>
+        </div>
+        <div style="float:right">Costo de Pedio: {{totalCotizacion | currency:'USD':true }}</div>
+      </div>
     
-<!--
-    <div style="width: 100%;">
-      <div *ngFor="let cliente of clientes" style="width: 10%;height: 30px"></div>
-      <div></div>
     </div>
-    <table class="table table-bordered">
-      <tr>
-        <th>Fecha</th>
-        <th>Producto</th>
-        <th>Cantidad</th>
-        <th>Precio unitario</th>
-        <th>Subtotal</th>
-        <th>IVA</th>
-        <th>Total</th>
-      </tr>
-      <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal">
-        <td>{{currentDate}}</td>
-        <td>{{productoSelected.nombre}}</td>
-        <td>{{productoSelected.cantidad}}</td>
-        <td>{{productoSelected.precio}}</td>
-        <td>NO</td>
-        <td>NO</td>
-        <td>{{productoSelected.total}}</td>
-
-      </tr>
-      <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal">
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-      </tr>
-      <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal">
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-      </tr>
-      <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal">
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-      </tr>
-      <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal">
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-      </tr>
-      <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal">
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-      </tr>
-      <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal">
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-      </tr>
-    </table>
-    -->
 
 
- <div class="c-cliente-seccion">
-      <label>Productos agregados</label>
-    </div>
-    <div style="width: 100%;">
-      
-    <table class="table table-bordered">
-      <tr>
-        <th>Fecha</th>
-        <th>Producto</th>
-        <th>Cantidad</th>
-        <th>Precio unitario</th>
-        <th>Subtotal</th>
-        <th>IVA</th>
-        <th>Total</th>
-        <th>Agregar Maquila</th>
-      </tr>
-       <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let producto of productosCotizacion">
-        <td>{{currentDate}}</td>
-        <td>{{producto.nombre}}</td>
-        <td>{{producto.cantidad}}</td>
-        <td>{{producto.precio | currency:'USD':true}}</td>
-        <td>NO</td>
-        <td>NO</td>
-        <td>{{producto.total | currency:'USD':true}}</td>
-        <th><button  md-raised-button color="primary" (click)="open()">Agregar Producto</button></th>
+        <div id="myModal" class="modal" *ngIf="!hideModal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close" (click)="closeModal()" >&times;</span>
+          <h1>Productos</h1>
+           <div class="c-grid-all-products">
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Precio unitario</th>
+              <th>Subtotal</th>
+              <th>IVA</th>
+              <th>Total</th>
+            </tr>
+            </thead>
+            <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let producto of productos">
+              <td>{{currentDate}}</td>
+              <td>{{producto.nombre}}</td>
+              <td>{{producto.cantidad}}</td>
+              <td>{{producto.precio | currency:'USD':true}}</td>
+              <td>NO</td>
+              <td>NO</td>
+              <td>{{producto.total | currency:'USD':true}}</td>
+              <th><button  type="button" class="btn btn-primary btn-md" (click)="seleccionarProducto(producto)">Seleccionar Producto</button></th>
 
-      </tr>
+            </tr>
 
-    </table>
-    <div style="float:right">Costo de Pedio: {{totalCotizacion | currency:'USD':true }}</div>
-  </div>
+          </table>
+        </div>
+        </div>
+
+      </div>
 </div>
+
