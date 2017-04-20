@@ -51,6 +51,7 @@ export class CotizadorComponent {
   public tecnicas: Array <Tecnica>;
   totalCotizacion = 0.0;
   public hideModal = true;
+  public hideModal2 = true;
 
   selectedValue = {};
   productoSelected = new Producto;
@@ -106,8 +107,12 @@ export class CotizadorComponent {
   verProductos(){
     this.hideModal = false;
   }
+    verTecnica(){
+    this.hideModal2 = false;
+  }
   closeModal(){
     this.hideModal = true;
+    this.hideModal2 = true;
   }
   seleccionarProducto(producto:Producto){
     this.addProducto(producto);

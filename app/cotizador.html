@@ -265,6 +265,7 @@
       <div class="c-add-product-container">
         <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
         <button  type="button" class="btn btn-primary btn-md" (click)="verProductos()">Agregar Producto</button>
+        <button  type="button" class="btn btn-primary btn-md" (click)="verTecnica()">Button</button>
       </div>
         <div class="c-grid-products">
           <table class="table ">
@@ -332,8 +333,17 @@
 
           </table>
         </div>
-        </div>
+      </div>
+    </div>
+
+        <div id="myModal" class="modal" *ngIf="!hideModal2">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close" (click)="closeModal()" >&times;</span>
+          <h1>Productos</h1>
+           
+      </div>
 
       </div>
-</div>
+
 
