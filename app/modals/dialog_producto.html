@@ -1,3 +1,25 @@
-<h2>Hi! I am modal dialog!</h2>
+<md-chip-list class="chips">
+  <md-chip   (click)="selected6 ? selected6 = false : selected6 = true;" selected="{{selected6}}">One fish</md-chip>
+  <md-chip  (click)="selected0 ? selected0 = false : selected0 = true;" selected="{{selected0}}">Two fish</md-chip>
+  
+  <md-chip (click)="selected ? selected  =  false :   selected = true;" selected="{{selected}}">Accent fish</md-chip>
+  <md-chip (click)="selected1 ? selected1  =  false : selected1 = true;" selected="{{selected1}}">One fish</md-chip>
+  <md-chip (click)="selected2 ? selected2  =  false : selected2 = true;" selected="{{selected2}}">Two fish</md-chip>
+  <md-chip (click)="selected3 ? selected3  =  false : selected3 = true;" selected="{{selected3}}">One fish</md-chip>
+  <md-chip (click)="selected4 ? selected4  =  false : selected4 = true;" selected="{{selected4}}">Two fish</md-chip>
+  <md-chip (click)="selected5 ? selected5  =  false : selected5 = true;" selected="{{selected5}}">Two fish</md-chip>
+  <md-chip (click)="verTecnica" (click)="selected7 ? selected7  =  false : selected7 = true;" selected="{{selected7}}">Tecnica</md-chip>
+  </md-chip-list>
+  <!--<button (click)="showSectio1 ? showSectio1 = false : showSectio1 = true;">Toggle</button>
+<p *ngIf="showSectio1">
+    This should be shown or hidden on click of the button.
+</p> -->
 
-  <button class = "md-accent md-raised" (click)="dialogRef.close()">Close dialog</button>
+<div id="myModal" class="modal" *ngIf="!hideModal2">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close" (click)="closeModal()" >&times;</span>
+          <h1>Productos</h1>           
+      </div>
+    </div>
+

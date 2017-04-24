@@ -97,8 +97,8 @@ export class CotizadorComponent {
     return new Date().toLocaleDateString();
   }
   open() {
-    let dialogRef: MdDialogRef < DialogInventarioComponent > ;
-    dialogRef = this.dialog.open(DialogInventarioComponent);
+    let dialogRef: MdDialogRef < DialogProductoComponent > ;
+    dialogRef = this.dialog.open(DialogProductoComponent);
     return dialogRef.afterClosed();
   }
 

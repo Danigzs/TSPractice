@@ -9,3 +9,7 @@
 .full-width{
     width: 100%;
 }
+.md-chip .selected{
+background-color:blue;
+color:white;
+}
