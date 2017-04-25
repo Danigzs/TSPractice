@@ -325,7 +325,7 @@
             <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let producto of productos">
               <td>{{currentDate}}</td>
               <td>{{producto.nombre}}</td>
-              <td>{{producto.cantidad}}</td>
+              <td><input type="number" name="quantity" value="{{producto.cantidad}}"></td>
               <td>{{producto.precio | currency:'USD':true}}</td>
               <td>NO</td>
               <td>NO</td>
@@ -347,6 +347,6 @@
            
       </div>
 
-      </div>
+    </div>
 
 

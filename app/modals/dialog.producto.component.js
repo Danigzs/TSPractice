@@ -13,10 +13,13 @@ var material_1 = require("@angular/material");
 var DialogProductoComponent = (function () {
     function DialogProductoComponent(dialogRef) {
         this.dialogRef = dialogRef;
-        this.hideModal2 = true;
+        this.hideModal = true;
     }
-    DialogProductoComponent.prototype.verTecnica = function () {
-        this.hideModal2 = false;
+    DialogProductoComponent.prototype.Details = function () {
+        this.hideModal = false;
+    };
+    DialogProductoComponent.prototype.closeModal = function () {
+        this.hideModal = true;
     };
     return DialogProductoComponent;
 }());

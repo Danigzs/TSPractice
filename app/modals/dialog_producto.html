@@ -1,25 +1,51 @@
+
 <md-chip-list class="chips">
-  <md-chip   (click)="selected6 ? selected6 = false : selected6 = true;" selected="{{selected6}}">One fish</md-chip>
-  <md-chip  (click)="selected0 ? selected0 = false : selected0 = true;" selected="{{selected0}}">Two fish</md-chip>
-  
-  <md-chip (click)="selected ? selected  =  false :   selected = true;" selected="{{selected}}">Accent fish</md-chip>
+  <md-chip (click)="selected6 ? selected6  =  false : selected6 = true;" selected="{{selected6}}">One fish</md-chip>
+  <md-chip (click)="selected0 ? selected0  =  false : selected0 = true;" selected="{{selected0}}">Two fish</md-chip>  
+  <md-chip (click)="selected  ? selected   =  false : selected  = true;" selected="{{selected}}"> One fish</md-chip>
   <md-chip (click)="selected1 ? selected1  =  false : selected1 = true;" selected="{{selected1}}">One fish</md-chip>
   <md-chip (click)="selected2 ? selected2  =  false : selected2 = true;" selected="{{selected2}}">Two fish</md-chip>
   <md-chip (click)="selected3 ? selected3  =  false : selected3 = true;" selected="{{selected3}}">One fish</md-chip>
   <md-chip (click)="selected4 ? selected4  =  false : selected4 = true;" selected="{{selected4}}">Two fish</md-chip>
   <md-chip (click)="selected5 ? selected5  =  false : selected5 = true;" selected="{{selected5}}">Two fish</md-chip>
-  <md-chip (click)="verTecnica" (click)="selected7 ? selected7  =  false : selected7 = true;" selected="{{selected7}}">Tecnica</md-chip>
+  <md-chip>Tecnica</md-chip>
   </md-chip-list>
-  <!--<button (click)="showSectio1 ? showSectio1 = false : showSectio1 = true;">Toggle</button>
-<p *ngIf="showSectio1">
+  <button (click)="Details()">Toggle</button>
+<!--<p *ngIf="showSectio1">
     This should be shown or hidden on click of the button.
-</p> -->
+</p> --> 
 
-<div id="myModal" class="modal" *ngIf="!hideModal2">
+<div id="myModal" class="modal" *ngIf="!hideModal">
         <!-- Modal content -->
         <div class="modal-content">
           <span class="close" (click)="closeModal()" >&times;</span>
-          <h1>Productos</h1>           
+          <h1>Productos</h1>
+           <div class="c-grid-all-products">
+          <table class="table ">
+            <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Precio unitario</th>
+              <th>Subtotal</th>
+              <th>IVA</th>
+              <th>Total</th>
+            </tr>
+            </thead>
+            <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let producto of productos">
+              <td>{{currentDate}}</td>
+              <td>{{producto.nombre}}</td>
+              <td><input type="number" name="quantity" value="{{producto.cantidad}}"></td>
+              <td>{{producto.precio | currency:'USD':true}}</td>
+              <td>NO</td>
+              <td>NO</td>
+              <td>{{producto.total | currency:'USD':true}}</td>
+              <th><button  type="button" class="btn btn-primary btn-md" (click)="seleccionarProducto(producto)">Seleccionar Producto</button></th>
+
+            </tr>
+
+          </table>
+        </div>
       </div>
     </div>
-

@@ -8,14 +8,17 @@ import {MdDialog, MdDialogConfig, MdDialogRef} from '@angular/material';
 })
 export class DialogProductoComponent {
 
-
-
-  public hideModal2 = true;
+  public hideModal = true;
     
-    verTecnica(){
-    this.hideModal2 = false;
-    }
-    constructor(public dialogRef: MdDialogRef<DialogProductoComponent>) { }
+    Details(){
+    this.hideModal = false;
+  }
+  
+    closeModal(){
+    this.hideModal = true;
     
   }
-
+    constructor(public dialogRef: MdDialogRef<DialogProductoComponent>) { }
+    
+  } 
+  
