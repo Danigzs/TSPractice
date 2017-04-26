@@ -14,6 +14,7 @@ var DialogProductoComponent = (function () {
     function DialogProductoComponent(dialogRef) {
         this.dialogRef = dialogRef;
         this.hideModal = true;
+        this.hideModal2 = false;
     }
     DialogProductoComponent.prototype.Details = function () {
         this.hideModal = false;

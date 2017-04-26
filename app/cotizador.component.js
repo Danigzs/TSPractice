@@ -12,7 +12,6 @@ var core_1 = require("@angular/core");
 var cotizador_service_1 = require("./cotizacion/cotizador.service");
 var cliente_service_1 = require("./cliente/cliente.service");
 var cliente_1 = require("./cliente/cliente");
-var dialog_producto_component_1 = require("./modals/dialog.producto.component");
 var cotizacion_1 = require("./cotizacion/cotizacion");
 var producto_1 = require("./producto/producto");
 var producto_service_1 = require("./producto/producto.service");
@@ -28,6 +27,7 @@ var CotizadorComponent = (function () {
         this.totalCotizacion = 0.0;
         this.hideModal = true;
         this.hideModal2 = true;
+        this.hideModal3 = true;
         this.selectedValue = {};
         this.productoSelected = new producto_1.Producto;
         this.clienteSelected = new cliente_1.Cliente;
@@ -75,11 +75,11 @@ var CotizadorComponent = (function () {
     CotizadorComponent.prototype.getTodayDate = function () {
         return new Date().toLocaleDateString();
     };
-    CotizadorComponent.prototype.open = function () {
-        var dialogRef;
-        dialogRef = this.dialog.open(dialog_producto_component_1.DialogProductoComponent);
-        return dialogRef.afterClosed();
-    };
+    // open() {
+    // let dialogRef: MdDialogRef < DialogProductoComponent > ;
+    //dialogRef = this.dialog.open(DialogProductoComponent);
+    //return dialogRef.afterClosed();
+    //}
     //Modal
     CotizadorComponent.prototype.verProductos = function () {
         this.hideModal = false;
@@ -87,9 +87,16 @@ var CotizadorComponent = (function () {
     CotizadorComponent.prototype.verTecnica = function () {
         this.hideModal2 = false;
     };
+    CotizadorComponent.prototype.Details = function () {
+        this.hideModal3 = false;
+    };
     CotizadorComponent.prototype.closeModal = function () {
         this.hideModal = true;
         this.hideModal2 = true;
+    };
+    CotizadorComponent.prototype.closeModal2 = function () {
+        this.hideModal3 = true;
+        this.hideModal2 = false;
     };
     CotizadorComponent.prototype.seleccionarProducto = function (producto) {
         this.addProducto(producto);

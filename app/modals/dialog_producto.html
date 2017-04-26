@@ -1,4 +1,5 @@
 
+<div id = "materialmodal">
 <md-chip-list class="chips">
   <md-chip (click)="selected6 ? selected6  =  false : selected6 = true;" selected="{{selected6}}">One fish</md-chip>
   <md-chip (click)="selected0 ? selected0  =  false : selected0 = true;" selected="{{selected0}}">Two fish</md-chip>  
@@ -10,42 +11,29 @@
   <md-chip (click)="selected5 ? selected5  =  false : selected5 = true;" selected="{{selected5}}">Two fish</md-chip>
   <md-chip>Tecnica</md-chip>
   </md-chip-list>
-  <button (click)="Details()">Toggle</button>
+  </div>
+  <button data-toggle="modal" data-target="#myModal" (click)="Details()" >Toggle</button>
 <!--<p *ngIf="showSectio1">
     This should be shown or hidden on click of the button.
 </p> --> 
 
-<div id="myModal" class="modal" *ngIf="!hideModal">
-        <!-- Modal content -->
-        <div class="modal-content">
-          <span class="close" (click)="closeModal()" >&times;</span>
-          <h1>Productos</h1>
-           <div class="c-grid-all-products">
-          <table class="table ">
-            <thead>
-            <tr>
-              <th>Fecha</th>
-              <th>Producto</th>
-              <th>Cantidad</th>
-              <th>Precio unitario</th>
-              <th>Subtotal</th>
-              <th>IVA</th>
-              <th>Total</th>
-            </tr>
-            </thead>
-            <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let producto of productos">
-              <td>{{currentDate}}</td>
-              <td>{{producto.nombre}}</td>
-              <td><input type="number" name="quantity" value="{{producto.cantidad}}"></td>
-              <td>{{producto.precio | currency:'USD':true}}</td>
-              <td>NO</td>
-              <td>NO</td>
-              <td>{{producto.total | currency:'USD':true}}</td>
-              <th><button  type="button" class="btn btn-primary btn-md" (click)="seleccionarProducto(producto)">Seleccionar Producto</button></th>
+<!-- Modal -->
+<div id="myModal" role="dialog" class="modal fade">
+  <div class="modal-dialog modal-sm" *ngIf ="!hideModal">
 
-            </tr>
-
-          </table>
-        </div>
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" >&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
+
+  </div>
+</div>

@@ -52,6 +52,7 @@ export class CotizadorComponent {
   totalCotizacion = 0.0;
   public hideModal = true;
   public hideModal2 = true;
+  public hideModal3 = true;
 
   selectedValue = {};
   productoSelected = new Producto;
@@ -96,11 +97,11 @@ export class CotizadorComponent {
   getTodayDate() {
     return new Date().toLocaleDateString();
   }
-  open() {
-    let dialogRef: MdDialogRef < DialogProductoComponent > ;
-    dialogRef = this.dialog.open(DialogProductoComponent);
-    return dialogRef.afterClosed();
-  }
+ // open() {
+   // let dialogRef: MdDialogRef < DialogProductoComponent > ;
+    //dialogRef = this.dialog.open(DialogProductoComponent);
+    //return dialogRef.afterClosed();
+  //}
 
 
   //Modal
@@ -110,9 +111,17 @@ export class CotizadorComponent {
     verTecnica(){
     this.hideModal2 = false;
   }
+  Details(){
+    this.hideModal3 = false;
+  }
   closeModal(){
     this.hideModal = true;
     this.hideModal2 = true;
+  }
+  closeModal2(){  
+    this.hideModal3 = true;  
+    this.hideModal2 = false;
+    
   }
   seleccionarProducto(producto:Producto){
     this.addProducto(producto);
