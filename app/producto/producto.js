@@ -6,13 +6,15 @@ var Producto = (function () {
         this.descripcion = "";
         this.cantidad = 0;
         this.total = 0;
+        this.tecnicas = [];
     }
-    Producto.prototype.setProducto = function (nombre, precio, descripcion, cantidad) {
+    Producto.prototype.setProducto = function (nombre, precio, descripcion, cantidad, tecnicas) {
         this.nombre = nombre;
         this.precio = precio;
         this.descripcion = descripcion;
         this.cantidad = cantidad;
         this.total = cantidad * precio;
+        this.tecnicas = [];
     };
     return Producto;
 }());

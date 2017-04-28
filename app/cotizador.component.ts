@@ -38,22 +38,23 @@ import {
 
 })
 export class CotizadorComponent {
-  // dialogRef: MdDialogRef<DialogProductoComponent>;
-  componentName: 'CotizadorComponent';
-  // dialogProducto = DialogProductoComponent;
-
-  cotizacion = new Cotizacion();   
   public viewContainerRef: ViewContainerRef;
   public cotizaciones: Array < any > ;
   public clientes: Array < Cliente > ;
   public productos: Array < Producto >;
   public productosCotizacion: Array  <Producto>;
   public tecnicas: Array <Tecnica>;
-  totalCotizacion = 0.0;
   public hideModal = true;
   public hideModal2 = true;
   public hideModal3 = true;
+  public pIndex:number;
+  // dialogRef: MdDialogRef<DialogProductoComponent>;
+  componentName: 'CotizadorComponent';
+  // dialogProducto = DialogProductoComponent;
 
+  cotizacion = new Cotizacion();   
+  
+  totalCotizacion = 0.0;
   selectedValue = {};
   productoSelected = new Producto;
   clienteSelected = new Cliente;
@@ -78,14 +79,20 @@ export class CotizadorComponent {
     this.productosCotizacion.push(producto);
     this.calculateTotal();
   }
+
+  
   calculateTotal(){
     
     var _total = 0;
     for(let producto of this.productosCotizacion){
       _total += producto.precio * producto.cantidad;
-    }
-    this.totalCotizacion = _total;
 
+      for (let tecnica of producto.tecnicas) {
+        _total += producto.cantidad * tecnica.precio;
+      }
+    }
+    
+    this.totalCotizacion = _total;
   }
  
 
@@ -108,15 +115,62 @@ export class CotizadorComponent {
   verProductos(){
     this.hideModal = false;
   }
-    verTecnica(){
+    verTecnica(index:number){
+    this.pIndex = index;
     this.hideModal2 = false;
+    
   }
+   
   Details(){
     this.hideModal3 = false;
   }
   closeModal(){
     this.hideModal = true;
+  }
+  closeTecnicas(){
     this.hideModal2 = true;
+    for (let tecnica of this.tecnicas) {
+        if(this.isTecnicaSelected(tecnica)){
+            if(!this.alreadyTecnicaAdded(tecnica)){
+              this.productos[this.pIndex].tecnicas.push(tecnica.copyNewTecnica());
+            }
+        }
+        else{
+          if(this.alreadyTecnicaAdded(tecnica)){
+            this.deleteTecnica(tecnica);
+            }
+        }
+    }
+    this.resetTecnicas();
+    this.calculateTotal();
+  }
+  resetTecnicas(){
+    for (let tecnica of this.tecnicas) {
+    
+      tecnica["selected"] = false;
+    }
+  }
+  alreadyTecnicaAdded(tecnicaToAdd:Tecnica){
+      for (let tecnica of this.productos[this.pIndex].tecnicas) {
+        if(tecnica.id == tecnicaToAdd.id){
+          return true;
+        }
+      }
+      return false;
+  }
+  deleteTecnica(tecnica:Tecnica){
+    for(var i = 0;i<this.productos[this.pIndex].tecnicas.length;i++){
+      if(this.productos[this.pIndex].tecnicas[i].id = tecnica.id){
+          this.productos[this.pIndex].tecnicas.splice(i, 1);
+      }
+    }
+  }
+  calcularTotalProducto(producto:Producto){
+      var total = producto.precio * producto.cantidad
+      for (let tecnica of producto.tecnicas) {
+        total += producto.cantidad * tecnica.precio;
+      }
+      return total
   }
   closeModal2(){  
     this.hideModal3 = true;  
@@ -126,6 +180,15 @@ export class CotizadorComponent {
   seleccionarProducto(producto:Producto){
     this.addProducto(producto);
     this.closeModal();
+  }
+  selectTecnica(tecnica:Tecnica){
+    tecnica["selected"] = (tecnica["selected"] == undefined || tecnica["selected"] == null )?true:!tecnica["selected"]; 
+  }
+  isTecnicaSelected(tecnica:Tecnica){
+    if(tecnica["selected"] == undefined || tecnica["selected"] == null ){
+      return false;
+    }
+    return tecnica["selected"];
   }
   constructor(private dialog: MdDialog, _cotizadorService: CotizadorService, _clienteService: ClienteService, _productoService: ProductoService, _tecnicaService: TecnicaService) {
     this.clientes = _clienteService.getClientes();

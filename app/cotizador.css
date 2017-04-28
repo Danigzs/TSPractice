@@ -182,8 +182,51 @@ table tr:hover td {
 	background: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#f0f0f0));
 	background: -moz-linear-gradient(top,  #f2f2f2,  #f0f0f0);	
 }*/
+ 
 
+.c-tecnicas .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+    
+    /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+    opacity: 0;
+    transition: opacity 1s;
+}
 
+.c-tecnicas:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.c-tecnicas{
+  display: inline-block;
+  padding: 10px;
+  border-radius: 20px;
+  margin-right: 20px;
+  font-weight: 300;
+  font-size: small
+}
+.c-tecnicas.normal{
+  background-color: #eaeaea;
+  color:black
+}
+.c-tecnicas.selected{
+  background-color: rgb(16, 108, 200);
+  color:white
+}
+.c-tecnicas:hover{
+
+}
 .c-container-info{
     width: 100%;
     background: #f4f7f8;

@@ -22,12 +22,12 @@ var material_1 = require("@angular/material");
 var CotizadorComponent = (function () {
     function CotizadorComponent(dialog, _cotizadorService, _clienteService, _productoService, _tecnicaService) {
         this.dialog = dialog;
-        // dialogProducto = DialogProductoComponent;
-        this.cotizacion = new cotizacion_1.Cotizacion();
-        this.totalCotizacion = 0.0;
         this.hideModal = true;
         this.hideModal2 = true;
         this.hideModal3 = true;
+        // dialogProducto = DialogProductoComponent;
+        this.cotizacion = new cotizacion_1.Cotizacion();
+        this.totalCotizacion = 0.0;
         this.selectedValue = {};
         this.productoSelected = new producto_1.Producto;
         this.clienteSelected = new cliente_1.Cliente;
@@ -66,6 +66,10 @@ var CotizadorComponent = (function () {
         for (var _i = 0, _a = this.productosCotizacion; _i < _a.length; _i++) {
             var producto = _a[_i];
             _total += producto.precio * producto.cantidad;
+            for (var _b = 0, _c = producto.tecnicas; _b < _c.length; _b++) {
+                var tecnica = _c[_b];
+                _total += producto.cantidad * tecnica.precio;
+            }
         }
         this.totalCotizacion = _total;
     };
@@ -84,7 +88,8 @@ var CotizadorComponent = (function () {
     CotizadorComponent.prototype.verProductos = function () {
         this.hideModal = false;
     };
-    CotizadorComponent.prototype.verTecnica = function () {
+    CotizadorComponent.prototype.verTecnica = function (index) {
+        this.pIndex = index;
         this.hideModal2 = false;
     };
     CotizadorComponent.prototype.Details = function () {
@@ -92,7 +97,54 @@ var CotizadorComponent = (function () {
     };
     CotizadorComponent.prototype.closeModal = function () {
         this.hideModal = true;
+    };
+    CotizadorComponent.prototype.closeTecnicas = function () {
         this.hideModal2 = true;
+        for (var _i = 0, _a = this.tecnicas; _i < _a.length; _i++) {
+            var tecnica = _a[_i];
+            if (this.isTecnicaSelected(tecnica)) {
+                if (!this.alreadyTecnicaAdded(tecnica)) {
+                    this.productos[this.pIndex].tecnicas.push(tecnica.copyNewTecnica());
+                }
+            }
+            else {
+                if (this.alreadyTecnicaAdded(tecnica)) {
+                    this.deleteTecnica(tecnica);
+                }
+            }
+        }
+        this.resetTecnicas();
+        this.calculateTotal();
+    };
+    CotizadorComponent.prototype.resetTecnicas = function () {
+        for (var _i = 0, _a = this.tecnicas; _i < _a.length; _i++) {
+            var tecnica = _a[_i];
+            tecnica["selected"] = false;
+        }
+    };
+    CotizadorComponent.prototype.alreadyTecnicaAdded = function (tecnicaToAdd) {
+        for (var _i = 0, _a = this.productos[this.pIndex].tecnicas; _i < _a.length; _i++) {
+            var tecnica = _a[_i];
+            if (tecnica.id == tecnicaToAdd.id) {
+                return true;
+            }
+        }
+        return false;
+    };
+    CotizadorComponent.prototype.deleteTecnica = function (tecnica) {
+        for (var i = 0; i < this.productos[this.pIndex].tecnicas.length; i++) {
+            if (this.productos[this.pIndex].tecnicas[i].id = tecnica.id) {
+                this.productos[this.pIndex].tecnicas.splice(i, 1);
+            }
+        }
+    };
+    CotizadorComponent.prototype.calcularTotalProducto = function (producto) {
+        var total = producto.precio * producto.cantidad;
+        for (var _i = 0, _a = producto.tecnicas; _i < _a.length; _i++) {
+            var tecnica = _a[_i];
+            total += producto.cantidad * tecnica.precio;
+        }
+        return total;
     };
     CotizadorComponent.prototype.closeModal2 = function () {
         this.hideModal3 = true;
@@ -101,6 +153,15 @@ var CotizadorComponent = (function () {
     CotizadorComponent.prototype.seleccionarProducto = function (producto) {
         this.addProducto(producto);
         this.closeModal();
+    };
+    CotizadorComponent.prototype.selectTecnica = function (tecnica) {
+        tecnica["selected"] = (tecnica["selected"] == undefined || tecnica["selected"] == null) ? true : !tecnica["selected"];
+    };
+    CotizadorComponent.prototype.isTecnicaSelected = function (tecnica) {
+        if (tecnica["selected"] == undefined || tecnica["selected"] == null) {
+            return false;
+        }
+        return tecnica["selected"];
     };
     return CotizadorComponent;
 }());
