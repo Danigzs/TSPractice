@@ -127,6 +127,7 @@ export class CotizadorComponent {
   closeModal(){
     this.hideModal = true;
   }
+ 
   closeTecnicas(){
     this.hideModal2 = true;
     for (let tecnica of this.tecnicas) {

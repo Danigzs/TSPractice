@@ -348,7 +348,8 @@
           <br>
           <div class="c-tecnicas" *ngFor="let tecnica of tecnicas" (click)="selectTecnica(tecnica)" [ngClass]="{'selected':isTecnicaSelected(tecnica)==true,'normal':isTecnicaSelected(tecnica)==false}">
               <span class="tooltiptext">Costo de Tecnica: {{tecnica.precio | currency:'USD':true}}</span>
-            {{tecnica.nombre}}
+               
+            <a Style="color:black"(click)="Details()">{{tecnica.nombre}}</a>
           </div>
           <!--<md-chip-list class="chips">
   <md-chip (click)="selected6 ? selected6  =  false : selected6 = true;" selected="{{selected6}}">One fish</md-chip>
