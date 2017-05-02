@@ -221,8 +221,9 @@ table tr:hover td {
   color:black
 }
 .c-tecnicas.selected{
-  background-color: rgb(16, 108, 200);
-  color:white
+  background-color:paleturquoise;
+  border: medium solid color blue;
+  color:white;
 }
 .c-tecnicas:hover{
 
