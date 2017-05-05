@@ -194,9 +194,13 @@ export class CotizadorComponent {
     this.closeModal();
   }
   selectTecnica(tecnica:Tecnica){
-    tecnica.selected = true;
+    tecnica.selected=(tecnica.selected==undefined||tecnica.selected==null)?true:!tecnica.selected;
+    
   }
   isTecnicaSelected(tecnica:Tecnica){
+    if(tecnica.selected==undefined || tecnica.selected == null){
+      return false;
+    }
     return tecnica.selected;
   }
   constructor(private dialog: MdDialog, _cotizadorService: CotizadorService, _clienteService: ClienteService, _productoService: ProductoService, _tecnicaService: TecnicaService) {
@@ -211,7 +215,7 @@ export class CotizadorComponent {
     this.productoSelected = this.productos[0];
     this.cotizacion.producto = this.productoSelected;
     this.productosCotizacion = [];
-    this.init(); 
+    this.init();
     }
 
 

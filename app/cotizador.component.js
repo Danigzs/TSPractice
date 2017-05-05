@@ -168,9 +168,12 @@ var CotizadorComponent = (function () {
         this.closeModal();
     };
     CotizadorComponent.prototype.selectTecnica = function (tecnica) {
-        tecnica.selected = true;
+        tecnica.selected = (tecnica.selected == undefined || tecnica.selected == null) ? true : !tecnica.selected;
     };
     CotizadorComponent.prototype.isTecnicaSelected = function (tecnica) {
+        if (tecnica.selected == undefined || tecnica.selected == null) {
+            return false;
+        }
         return tecnica.selected;
     };
     return CotizadorComponent;
