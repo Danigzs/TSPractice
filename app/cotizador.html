@@ -346,7 +346,7 @@
 
           <h2>Tecnicas</h2>
           <br>
-          <div class="c-tecnicas" *ngFor="let tecnica of tecnicas" (click)="selectTecnica(tecnica)" [ngClass]="{'selected':isTecnicaSelected(tecnica)==true,'normal':isTecnicaSelected(tecnica)==false}">
+          <div class="c-tecnicas" *ngFor="let tecnica of tecnicas" (click)="selectTecnica(tecnica)" [ngClass]="!tecnica.selected ? 'normal' : 'selected'">
               <span class="tooltiptext">Costo de Tecnica: {{tecnica.precio | currency:'USD':true}}</span>
                
             <a style="font-family:Times New Roman, Times, sans-serif; color:grey"(click)="Details()">{{tecnica.nombre}}</a>

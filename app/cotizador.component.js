@@ -91,6 +91,19 @@ var CotizadorComponent = (function () {
     CotizadorComponent.prototype.verTecnica = function (index) {
         this.pIndex = index;
         this.hideModal2 = false;
+        this.setTecnicasSelected();
+    };
+    CotizadorComponent.prototype.setTecnicasSelected = function () {
+        for (var _i = 0, _a = this.productos[this.pIndex].tecnicas; _i < _a.length; _i++) {
+            var tecnicaP = _a[_i];
+            for (var _b = 0, _c = this.tecnicas; _b < _c.length; _b++) {
+                var tecnica = _c[_b];
+                if (tecnicaP.id == tecnica.id) {
+                    tecnica.selected = true;
+                    break;
+                }
+            }
+        }
     };
     CotizadorComponent.prototype.Details = function () {
         this.hideModal3 = false;
@@ -102,14 +115,14 @@ var CotizadorComponent = (function () {
         this.hideModal2 = true;
         for (var _i = 0, _a = this.tecnicas; _i < _a.length; _i++) {
             var tecnica = _a[_i];
-            if (this.isTecnicaSelected(tecnica)) {
-                if (!this.alreadyTecnicaAdded(tecnica)) {
-                    this.productos[this.pIndex].tecnicas.push(tecnica.copyNewTecnica());
+            if (!this.isTecnicaSelected(tecnica)) {
+                if (this.alreadyTecnicaAdded(tecnica)) {
+                    this.deleteTecnica(tecnica);
                 }
             }
             else {
-                if (this.alreadyTecnicaAdded(tecnica)) {
-                    this.deleteTecnica(tecnica);
+                if (!this.alreadyTecnicaAdded(tecnica)) {
+                    this.productos[this.pIndex].tecnicas.push(tecnica.copyNewTecnica());
                 }
             }
         }
@@ -119,7 +132,7 @@ var CotizadorComponent = (function () {
     CotizadorComponent.prototype.resetTecnicas = function () {
         for (var _i = 0, _a = this.tecnicas; _i < _a.length; _i++) {
             var tecnica = _a[_i];
-            tecnica["selected"] = false;
+            tecnica.selected = false;
         }
     };
     CotizadorComponent.prototype.alreadyTecnicaAdded = function (tecnicaToAdd) {
@@ -155,13 +168,10 @@ var CotizadorComponent = (function () {
         this.closeModal();
     };
     CotizadorComponent.prototype.selectTecnica = function (tecnica) {
-        tecnica["selected"] = (tecnica["selected"] == undefined || tecnica["selected"] == null) ? true : !tecnica["selected"];
+        tecnica.selected = true;
     };
     CotizadorComponent.prototype.isTecnicaSelected = function (tecnica) {
-        if (tecnica["selected"] == undefined || tecnica["selected"] == null) {
-            return false;
-        }
-        return tecnica["selected"];
+        return tecnica.selected;
     };
     return CotizadorComponent;
 }());

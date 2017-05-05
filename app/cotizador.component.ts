@@ -118,7 +118,18 @@ export class CotizadorComponent {
     verTecnica(index:number){
     this.pIndex = index;
     this.hideModal2 = false;
-    
+    this.setTecnicasSelected();
+  }
+
+  setTecnicasSelected(){
+    for (let tecnicaP of this.productos[this.pIndex].tecnicas) {
+      for (let tecnica of this.tecnicas) {
+        if(tecnicaP.id == tecnica.id){
+          tecnica.selected = true;
+          break;
+        }
+      }
+    }
   }
    
   Details(){
@@ -131,14 +142,15 @@ export class CotizadorComponent {
   closeTecnicas(){
     this.hideModal2 = true;
     for (let tecnica of this.tecnicas) {
-        if(this.isTecnicaSelected(tecnica)){
-            if(!this.alreadyTecnicaAdded(tecnica)){
-              this.productos[this.pIndex].tecnicas.push(tecnica.copyNewTecnica());
-            }
-        }
-        else{
+        if(!this.isTecnicaSelected(tecnica)){
           if(this.alreadyTecnicaAdded(tecnica)){
             this.deleteTecnica(tecnica);
+            }  
+            
+        }
+        else{
+          if(!this.alreadyTecnicaAdded(tecnica)){
+              this.productos[this.pIndex].tecnicas.push(tecnica.copyNewTecnica());
             }
         }
     }
@@ -148,7 +160,7 @@ export class CotizadorComponent {
   resetTecnicas(){
     for (let tecnica of this.tecnicas) {
     
-      tecnica["selected"] = false;
+      tecnica.selected = false;
     }
   }
   alreadyTecnicaAdded(tecnicaToAdd:Tecnica){
@@ -176,20 +188,16 @@ export class CotizadorComponent {
   closeModal2(){  
     this.hideModal3 = true;  
     this.hideModal2 = false;
-    
   }
   seleccionarProducto(producto:Producto){
     this.addProducto(producto);
     this.closeModal();
   }
   selectTecnica(tecnica:Tecnica){
-    tecnica["selected"] = (tecnica["selected"] == undefined || tecnica["selected"] == null )?true:!tecnica["selected"]; 
+    tecnica.selected = true;
   }
   isTecnicaSelected(tecnica:Tecnica){
-    if(tecnica["selected"] == undefined || tecnica["selected"] == null ){
-      return false;
-    }
-    return tecnica["selected"];
+    return tecnica.selected;
   }
   constructor(private dialog: MdDialog, _cotizadorService: CotizadorService, _clienteService: ClienteService, _productoService: ProductoService, _tecnicaService: TecnicaService) {
     this.clientes = _clienteService.getClientes();
