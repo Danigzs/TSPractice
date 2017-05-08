@@ -204,7 +204,7 @@ export class CotizadorComponent {
     return tecnica.selected;
   }
 
-   deleteRowAdressForm(rowNumber: number){
+   deleteRow(rowNumber: number){
     this.productosCotizacion.splice(rowNumber, 1);
     this.changeDetectorRef.detectChanges();
     this.calculateTotal()

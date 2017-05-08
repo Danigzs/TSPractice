@@ -178,7 +178,7 @@ var CotizadorComponent = (function () {
         }
         return tecnica.selected;
     };
-    CotizadorComponent.prototype.deleteRowAdressForm = function (rowNumber) {
+    CotizadorComponent.prototype.deleteRow = function (rowNumber) {
         this.productosCotizacion.splice(rowNumber, 1);
         this.changeDetectorRef.detectChanges();
         this.calculateTotal();
