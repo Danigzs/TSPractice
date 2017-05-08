@@ -16,7 +16,7 @@ import {ProductoService} from './producto/producto.service'
 import {DialogInventarioComponent} from './modals/dialog.inventario.component'
 import {Tecnica} from './producto/tecnica'
 import {TecnicaService} from './producto/tecnica.service'
-
+import {ChangeDetectorRef} from '@angular/core'
 
 
 
@@ -203,7 +203,15 @@ export class CotizadorComponent {
     }
     return tecnica.selected;
   }
-  constructor(private dialog: MdDialog, _cotizadorService: CotizadorService, _clienteService: ClienteService, _productoService: ProductoService, _tecnicaService: TecnicaService) {
+
+   deleteRowAdressForm(rowNumber: number){
+    this.productosCotizacion.splice(rowNumber, 1);
+    this.changeDetectorRef.detectChanges();
+    this.calculateTotal()
+    
+}
+
+  constructor(private dialog: MdDialog, _cotizadorService: CotizadorService, _clienteService: ClienteService, _productoService: ProductoService, _tecnicaService: TecnicaService, private changeDetectorRef:ChangeDetectorRef) {
     this.clientes = _clienteService.getClientes();
     this.productos = _productoService.getProductos();
     this.tecnicas = _tecnicaService.getTecnicas();

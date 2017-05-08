@@ -17,11 +17,13 @@ var producto_1 = require("./producto/producto");
 var producto_service_1 = require("./producto/producto.service");
 var tecnica_1 = require("./producto/tecnica");
 var tecnica_service_1 = require("./producto/tecnica.service");
+var core_2 = require("@angular/core");
 var material_1 = require("@angular/material");
 // import { Modal } from './modals/modalAgregarProducto';
 var CotizadorComponent = (function () {
-    function CotizadorComponent(dialog, _cotizadorService, _clienteService, _productoService, _tecnicaService) {
+    function CotizadorComponent(dialog, _cotizadorService, _clienteService, _productoService, _tecnicaService, changeDetectorRef) {
         this.dialog = dialog;
+        this.changeDetectorRef = changeDetectorRef;
         this.hideModal = true;
         this.hideModal2 = true;
         this.hideModal3 = true;
@@ -176,6 +178,11 @@ var CotizadorComponent = (function () {
         }
         return tecnica.selected;
     };
+    CotizadorComponent.prototype.deleteRowAdressForm = function (rowNumber) {
+        this.productosCotizacion.splice(rowNumber, 1);
+        this.changeDetectorRef.detectChanges();
+        this.calculateTotal();
+    };
     return CotizadorComponent;
 }());
 CotizadorComponent = __decorate([
@@ -186,7 +193,7 @@ CotizadorComponent = __decorate([
         styleUrls: ["app/cotizador.css"],
         templateUrl: "app/cotizador.html"
     }),
-    __metadata("design:paramtypes", [material_1.MdDialog, cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService])
+    __metadata("design:paramtypes", [material_1.MdDialog, cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService, core_2.ChangeDetectorRef])
 ], CotizadorComponent);
 exports.CotizadorComponent = CotizadorComponent;
 //# sourceMappingURL=cotizador.component.js.map

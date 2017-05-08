@@ -271,7 +271,7 @@
         
       </div>
         <div class="c-grid-products">
-          <table class="table ">
+          <table class="table " id="tproductos">
             <thead>
             <tr>
               <th>Fecha</th>
@@ -292,7 +292,7 @@
               <td>NO</td>
               <td>NO</td>
               <td>{{calcularTotalProducto(producto) | currency:'USD':true}}</td>
-              <th><button  type="button" class="btn btn-primary btn-md" (click)="verTecnica(i)">Maquila</button> <button  type="button" class="btn btn-primary btn-md" (click)="verTecnica(i)">Eliminar</button></th>
+              <th><button  type="button" class="btn btn-primary btn-md" (click)="verTecnica(i)">Maquila</button> <button  type="button" class="btn btn-primary btn-md" (click)="deleteRowAdressForm()">Eliminar</button></th>
 
             </tr>
 
