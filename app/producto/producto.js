@@ -16,6 +16,15 @@ var Producto = (function () {
         this.total = cantidad * precio;
         this.tecnicas = [];
     };
+    Producto.prototype.copyNewProducto = function () {
+        var _producto = new Producto();
+        _producto.nombre = this.nombre;
+        _producto.precio = this.precio;
+        _producto.descripcion = this.descripcion;
+        _producto.cantidad = this.cantidad;
+        _producto.total = this.cantidad * this.precio;
+        return _producto;
+    };
     return Producto;
 }());
 exports.Producto = Producto;

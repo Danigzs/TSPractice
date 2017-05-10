@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import {DialogInventarioComponent} from './../modals/dialog.inventario.component'
 import {CotizadorComponent} from './../cotizador.component'
-
+import {Producto} from './../producto/producto'
+import {ProductoService} from './../producto/producto.service'
 
 @Component({
   selector: 'navbar',
@@ -34,7 +35,7 @@ import {CotizadorComponent} from './../cotizador.component'
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-folder-open"> Inventario </span><span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a (click)="open($event)">Nuevo producto</a></li>
+            <li><a href="#" data-toggle="modal" data-target="#modal2">Nuevo</a></li>
             <li role="presentation" class="divider"></li>
             <li><a routerLink="/inventario">Ver inventario</a></li>
             <li role="presentation" class="divider"></li>
@@ -44,7 +45,7 @@ import {CotizadorComponent} from './../cotizador.component'
 
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"> Clientes </span><span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#" data-toggle="modal" data-target="#basicModal">Nuevo</a></li>
+            <li></li>
             <li role="presentation" class="divider"></li>
             <li><a routerLink="/clientes">clientes</a></li>
             <li role="presentation" class="divider"></li>
@@ -85,17 +86,15 @@ import {CotizadorComponent} from './../cotizador.component'
         <div class="modal-content"> 
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Basic Modal</h4>
-                	
-						<!--
-					Body
-					MODAL
-					-->
-
+                <h4 class="modal-title" id="myModalLabel">Agregar Producto</h4>
+          
 			</div>
 			<div class="modal-body">
-                
-                 
+                <p>Nombre:</p><input>
+                 <br><br><p>Descripcion:</p><input>
+                 <br><br><p>Precio:</p><input>
+                 <br><br><p>Cantidad:</p><input>
+                 <br><br>
 
         	</div>
 
@@ -167,9 +166,15 @@ import {CotizadorComponent} from './../cotizador.component'
 
 <router-outlet></router-outlet>
   `,
-providers:[CotizadorComponent]
+providers:[CotizadorComponent, ProductoService, Producto]
 })
 export class NavbarComponent  {
 
-	
+NewProduct(producto:Producto)
+{
+/* push product within product array */ 
+}
+	constructor(producto:Producto){
+
+  }  
 }

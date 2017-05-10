@@ -224,7 +224,6 @@ export class CotizadorComponent {
     this.cotizacion.producto = this.productoSelected;
     this.productosCotizacion = [];
     this.init();
-    }
-
-
+  }
+  
 }
