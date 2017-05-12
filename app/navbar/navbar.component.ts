@@ -3,7 +3,7 @@ import {DialogInventarioComponent} from './../modals/dialog.inventario.component
 import {CotizadorComponent} from './../cotizador.component'
 import {Producto} from './../producto/producto'
 import {ProductoService} from './../producto/producto.service'
-
+ 
 @Component({
   selector: 'navbar',
   template: `
@@ -90,17 +90,17 @@ import {ProductoService} from './../producto/producto.service'
           
 			</div>
 			<div class="modal-body">
-                <p>Nombre:</p><input>
-                 <br><br><p>Descripcion:</p><input>
-                 <br><br><p>Precio:</p><input>
-                 <br><br><p>Cantidad:</p><input>
+                <p>Nombre:</p><input [(ngModel)]="producto.nombre" value="{{producto.nombre}}"> >
+                 <br><br><p>Descripcion:</p><input [(ngModel)]="producto.descripcion" value="{{producto.descripcion}}">>
+                 <br><br><p>Precio:</p><input [(ngModel)]="producto.precio" value="{{producto.precio}}">>
+                 <br><br><p>Cantidad:</p><input [(ngModel)]="producto.cantidad" value="{{producto.cantidad}}">>
                  <br><br>
 
         	</div>
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-primary" >Save changes</button>
             </div>
         </div>
     </div>
@@ -169,12 +169,15 @@ import {ProductoService} from './../producto/producto.service'
 providers:[CotizadorComponent, ProductoService, Producto]
 })
 export class NavbarComponent  {
+  public productosnuevos: Array<Producto>
 
 NewProduct(producto:Producto)
 {
-/* push product within product array */ 
+  this.productosnuevos.push(producto);
+  
 }
 	constructor(producto:Producto){
-
+    producto.nombre = producto.nombre;
+    this.productosnuevos=[];
   }  
 }
