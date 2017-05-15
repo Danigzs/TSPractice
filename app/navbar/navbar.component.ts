@@ -90,10 +90,10 @@ import {ProductoService} from './../producto/producto.service'
           
 			</div>
 			<div class="modal-body">
-                <p>Nombre:</p><input [(ngModel)]="producto.nombre" value="{{producto.nombre}}"> >
-                 <br><br><p>Descripcion:</p><input [(ngModel)]="producto.descripcion" value="{{producto.descripcion}}">>
-                 <br><br><p>Precio:</p><input [(ngModel)]="producto.precio" value="{{producto.precio}}">>
-                 <br><br><p>Cantidad:</p><input [(ngModel)]="producto.cantidad" value="{{producto.cantidad}}">>
+                <p>Nombre:</p><input>
+                 <br><br><p>Descripcion:</p><input>
+                 <br><br><p>Precio:</p><input>
+                 <br><br><p>Cantidad:</p><input>
                  <br><br>
 
         	</div>
@@ -164,7 +164,7 @@ import {ProductoService} from './../producto/producto.service'
 
 
 
-<router-outlet></router-outlet>
+<router-outlet> </router-outlet>
   `,
 providers:[CotizadorComponent, ProductoService, Producto]
 })
@@ -173,11 +173,10 @@ export class NavbarComponent  {
 
 NewProduct(producto:Producto)
 {
-  this.productosnuevos.push(producto);
   
 }
-	constructor(producto:Producto){
-    producto.nombre = producto.nombre;
-    this.productosnuevos=[];
-  }  
+	constructor()
+  {
+    
+  }
 }

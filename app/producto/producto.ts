@@ -5,7 +5,8 @@ export class Producto {
   descripcion: string;
   cantidad:number; 
   total:number;
-  tecnicas:Array<Tecnica>
+  tecnicas:Array<Tecnica>;
+  
   constructor() {
     this.nombre = "";
     this.precio = 0.0;
