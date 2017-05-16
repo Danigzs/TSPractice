@@ -8,6 +8,8 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {FormComponent}	from './form.component';
 import {ClientesComponent} from './clientes.details';
 import {CotizadorComponent} from './cotizador.component';
+import {TecnicasComponent} from './tecnicas/tecnicas.component';
+import {CategoriasComponent} from './categorias/categorias.component';
 import {InventarioComponent} from './inventario.component';
 import {DialogProductoComponent} from './modals/dialog.producto.component'
 import {DialogInventarioComponent} from './modals/dialog.inventario.component'
@@ -20,6 +22,8 @@ const appRoutes: Routes = [
   { path: 'clientes', component: ClientesComponent},
   { path: 'cotizador', component: CotizadorComponent},
   { path: 'inventario', component: InventarioComponent},
+  { path: 'tecnicas', component: TecnicasComponent},
+  { path: 'categorias', component: CategoriasComponent},
   { path: 'modal-inventario-selector', component: DialogInventarioComponent},
    
   
@@ -41,7 +45,9 @@ const appRoutes: Routes = [
   FormComponent, 
   ClientesComponent, 
   CotizadorComponent, 
-  InventarioComponent, 
+  InventarioComponent,
+  TecnicasComponent, 
+  CategoriasComponent, 
   DialogProductoComponent,
   DialogInventarioComponent
   ],

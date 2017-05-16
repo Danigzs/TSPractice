@@ -54,13 +54,13 @@ import {ProductoService} from './../producto/producto.service'
         </li>
 
 
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-book"> Page 3 </span><span class="caret"></span></a>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-book"> Configuración </span><span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="http://www.w3schools.com/css/css_navbar.asp">Page 1-1</a></li>
             <li role="presentation" class="divider"></li>
-            <li><a href="#">Page 1-2</a></li>
+            <li><a routerLink="/tecnicas">Técnicas</a></li>
             <li role="presentation" class="divider"></li>
-            <li><a href="#">Page 1-3</a></li>
+            <li><a routerLink="/categorias">Categorías</a></li>
           </ul>
         </li>
       </ul>     

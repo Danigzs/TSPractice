@@ -1,0 +1,75 @@
+<div class="c-div-bgr">
+  <div class="c-div-container">
+
+    <div class="c-cliente-seccion">
+      <h1>Tecnicas</h1>
+    </div>
+
+    <div class="c-container-info">
+
+      <div class="c-container-info-column">
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Nombre
+          </div>
+
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Precio
+          </div>
+        </div>
+       
+
+      </div>
+
+      <div class="c-container-info-column data">
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+           
+              <input type="text" name="nombre" [(ngModel)]="tecnica.nombre">
+           
+
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+                <input type="number" name="email" [(ngModel)]="tecnica.precio">
+            </div>
+          </div>
+        </div>
+</div>
+      
+
+        
+
+    </div>
+ <div class="c-add-product-container">
+        <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
+        <button  type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Agregar Tecnica</button>
+        
+      </div>
+
+ 
+
+ <div class="c-grid-products">
+          <table class="table " id="tproductos">
+            <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Precio</th>
+            </tr>
+            </thead>
+            <tr class='clickable-row'   *ngFor="let tecnica of tecnicas; let i = index">
+              <td>{{tecnica.nombre}}</td>
+              <td>{{tecnica.precio}}</td>
+              
+
+            </tr>
+
+          </table>
+        </div>
+
+  </div>
+</div>

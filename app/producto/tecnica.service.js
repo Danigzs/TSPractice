@@ -31,6 +31,9 @@ var TecnicaService = (function () {
     TecnicaService.prototype.getTecnicas = function () {
         return this.tecnicas;
     };
+    TecnicaService.prototype.addTecnica = function (tecnica) {
+        this.tecnicas.push(tecnica);
+    };
     return TecnicaService;
 }());
 TecnicaService = __decorate([

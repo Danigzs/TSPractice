@@ -27,4 +27,8 @@ export class TecnicaService {
     return this.tecnicas;
   }
 
+  addTecnica(tecnica:Tecnica){
+      this.tecnicas.push(tecnica);
+  }
+
 }
