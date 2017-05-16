@@ -1,60 +1,38 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ElementRef,
+  ViewChild,
+  ViewContainerRef
+} from '@angular/core';
+import {ClienteService} from './cliente/cliente.service';
+import {Cliente} from './cliente/cliente';
+
 
 
 @Component({
   selector: 'clientes',
-  template: `
-
-
-    <div class="table-responsive">          
-  <table class="table table-bordered">
-    
-      <tr>
-        <th>Fecha</th>
-        <th>Nombre</th>
-        <th>Domicilio</th>
-        <th>Telefono</th>
-        <th>Email</th>           
-      </tr>
-
-      <tr class='clickable-row' data-href='#'data-toggle="modal" data-target="#basicModal">
-        <td></td>
-      	<td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-
-
-      </tr>
-      <tr class='clickable-row' data-href='#'data-toggle="modal" data-target="#basicModal">
-        <td>Not assigned</td>
-      	<td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-       
-
-      </tr>
-
-		<tr class='clickable-row' data-href='#'data-toggle="modal" data-target="#basicModal">
-        <td>Not assigned</td>
-      	<td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-       
-        </tr>
-
-        <tr class='clickable-row' data-href='#'data-toggle="modal" data-target="#basicModal">
-        <td>Not assigned</td>
-      	<td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        <td>Not assigned</td>
-        
-        </tr>    
-    
-      `,
+    providers: [ClienteService],
+  styleUrls: ["./app/cliente/clientes.css"],
+  templateUrl: "./app/cliente/clientes.html"
        
 })
-export class ClientesComponent  {}
+export class ClientesComponent  {
+  public clientes: Array < Cliente > ;
+  public cliente:Cliente;
+  private clienteService:ClienteService;
+  constructor(private  _clienteService: ClienteService) {
+    this.clienteService = _clienteService;
+    this.clientes = _clienteService.getClientes();
+       
+  }
+
+  ngOnInit() {
+   this.cliente = new Cliente();
+  }
+
+  agregarCliente(){
+    this.clienteService.addCliente(this.cliente);
+    this.cliente = new Cliente();
+  }
+}

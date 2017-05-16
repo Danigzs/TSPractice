@@ -1,0 +1,160 @@
+<div class="c-div-bgr">
+  <div class="c-div-container">
+
+    <div class="c-cliente-seccion">
+      <h1>Clientes</h1>
+    </div>
+
+    <div class="c-container-info">
+
+      <div class="c-container-info-column">
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Nombre
+          </div>
+
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Email
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Teléfono
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            RFC
+          </div>
+        </div>
+
+      </div>
+
+      <div class="c-container-info-column data">
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+           
+              <input type="text" name="nombre" [(ngModel)]="cliente.nombre">
+           
+
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+                <input type="text" name="email" [(ngModel)]="cliente.email">
+            </div>
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <input type="text" name="telefono" [(ngModel)]="cliente.telefono">
+            </div>
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <input type="text" name="rfc" [(ngModel)]="cliente.rfc">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="c-container-info-column">
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Estado
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            País
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Razón Social
+          </div>
+        </div>
+      </div>
+
+      <div class="c-container-info-column data">
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <input type="text" name="estado" [(ngModel)]="cliente.estado">
+            </div>
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <input type="text" name="pais" [(ngModel)]="cliente.pais">
+            </div>
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <input type="text" name="razonSocial" [(ngModel)]="cliente.razonSocial">
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+ <div class="c-add-product-container">
+        <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
+        <button  type="button" class="btn btn-primary btn-md" (click)="agregarCliente()">Agregar Cliente</button>
+        
+      </div>
+
+ 
+
+ <div class="c-grid-products">
+          <table class="table " id="tproductos">
+            <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Teléfono</th>
+              <th>RFC</th>
+              <th>Estado</th>
+              <th>País</th>
+              <th>Razón Social</th>
+            </tr>
+            </thead>
+            <tr class='clickable-row'   *ngFor="let cliente of clientes; let i = index">
+              <td>{{cliente.nombre}}</td>
+              <td>{{cliente.email}}</td>
+              <td>{{cliente.telefono}}</td>
+              <td>{{cliente.rfc}}</td>
+              <td>{{cliente.estado}}</td>
+              <td>{{cliente.pais}}</td>
+              <td>{{cliente.razonSocial}}</td>
+              
+
+            </tr>
+
+          </table>
+        </div>
+
+  </div>
+</div>

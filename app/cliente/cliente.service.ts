@@ -13,7 +13,9 @@ export class ClienteService {
     cliente3.setCliente("BORDESA GUADALUPE","BORDADOS","AVENIDA XYZ","NUEVO LEON","MONTERREY","COLONIA","MEXICO","1231","81145894","bordesa@guadalupe.com","atencion a","RFCASKODKASODSA");
     this.clientes = [cliente1,cliente2,cliente3];
   }
-
+  addCliente(cliente:Cliente){
+    this.clientes.push(cliente);
+  }
   getClientes() {
     return this.clientes;
   }
