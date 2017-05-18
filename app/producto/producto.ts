@@ -23,15 +23,16 @@ export class Producto {
     this.cantidad = cantidad;
     this.total = cantidad*precio;
     this.tecnicas = [];
-  }
+  }  
   copyNewProducto(){
     var _producto = new Producto();
     _producto.nombre = this.nombre;
     _producto.precio = this.precio;
     _producto.descripcion = this.descripcion;
     _producto.cantidad = this.cantidad;
-    _producto.total = this.cantidad*this.precio;
-    return _producto;
-  }
+    _producto.total = this.total;
+    _producto.tecnicas = this.tecnicas;
+    return _producto
+}
   
 }

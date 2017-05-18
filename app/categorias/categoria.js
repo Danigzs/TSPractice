@@ -16,7 +16,6 @@ var Categoria = (function () {
         _categoria.selected = this.selected;
         _categoria.id = this.id;
         _categoria.nombre = this.nombre;
-        _categoria["selected"] = this["selected"];
         return _categoria;
     };
     return Categoria;

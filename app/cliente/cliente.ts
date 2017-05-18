@@ -11,8 +11,12 @@ export class Cliente {
   email: String;
   atencionA: String;
   rfc: String;
+  id: number;
+  clave: number
 
   constructor() {
+    this.id = 0;
+    this.clave = 0;
     this.nombre = "";
     this.razonSocial = "";
     this.domicilio = "";
@@ -27,7 +31,9 @@ export class Cliente {
     this.rfc = "";
   } 
 
-  setCliente(nombre:string,razonSocial:string,domicilio:string,estado:string,municipio:string,colonia:string,pais:string,codigoPostal:string,telefono:string,email:string,atencionA:string,rfc:string){
+  setCliente(id:number, clave:number,nombre:string,razonSocial:string,domicilio:string,estado:string,municipio:string,colonia:string,pais:string,codigoPostal:string,telefono:string,email:string,atencionA:string,rfc:string){
+    this.id = id;
+    this.clave = clave;
     this.nombre = nombre;
     this.razonSocial = razonSocial;
     this.domicilio = domicilio;

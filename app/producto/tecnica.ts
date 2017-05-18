@@ -21,7 +21,6 @@ export class Tecnica {
     _tecnica.id = this.id;
     _tecnica.precio = this.precio;
     _tecnica.nombre = this.nombre;
-    _tecnica["selected"] = this["selected"];
     return _tecnica
   }
 }

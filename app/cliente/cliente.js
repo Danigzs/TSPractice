@@ -1,6 +1,8 @@
 "use strict";
 var Cliente = (function () {
     function Cliente() {
+        this.id = 0;
+        this.clave = 0;
         this.nombre = "";
         this.razonSocial = "";
         this.domicilio = "";
@@ -14,7 +16,9 @@ var Cliente = (function () {
         this.atencionA = "";
         this.rfc = "";
     }
-    Cliente.prototype.setCliente = function (nombre, razonSocial, domicilio, estado, municipio, colonia, pais, codigoPostal, telefono, email, atencionA, rfc) {
+    Cliente.prototype.setCliente = function (id, clave, nombre, razonSocial, domicilio, estado, municipio, colonia, pais, codigoPostal, telefono, email, atencionA, rfc) {
+        this.id = id;
+        this.clave = clave;
         this.nombre = nombre;
         this.razonSocial = razonSocial;
         this.domicilio = domicilio;

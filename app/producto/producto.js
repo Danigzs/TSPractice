@@ -22,7 +22,8 @@ var Producto = (function () {
         _producto.precio = this.precio;
         _producto.descripcion = this.descripcion;
         _producto.cantidad = this.cantidad;
-        _producto.total = this.cantidad * this.precio;
+        _producto.total = this.total;
+        _producto.tecnicas = this.tecnicas;
         return _producto;
     };
     return Producto;
