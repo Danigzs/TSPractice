@@ -63,7 +63,7 @@
             </thead>
             <tr class='clickable-row'   *ngFor="let tecnica of tecnicas; let i = index">
               <td>{{tecnica.nombre}}</td>
-              <td>{{tecnica.precio}}</td>
+              <td><input type="number" name="quantity" [(ngModel)]="tecnica.precio" value="{{tecnica.precio}}"></td>
               
 
             </tr>
