@@ -24,6 +24,8 @@ var TecnicasComponent = (function () {
         this.tecnicaService.addTecnica(this.tecnica);
         this.tecnica = new tecnica_1.Tecnica();
     };
+    TecnicasComponent.prototype.updateTecnica = function () {
+    };
     return TecnicasComponent;
 }());
 TecnicasComponent = __decorate([

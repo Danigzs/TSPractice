@@ -27,7 +27,9 @@
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
            
-              <input type="text" name="nombre" [(ngModel)]="tecnica.nombre">
+              <select >
+                <option *ngFor="let tecnica of tecnicas; let i = index">{{tecnica.nombre}}</option> 
+              </select>
            
 
           </div>
@@ -63,12 +65,12 @@
             </thead>
             <tr class='clickable-row'   *ngFor="let tecnica of tecnicas; let i = index">
               <td>{{tecnica.nombre}}</td>
-              <td><input type="number" name="quantity" [(ngModel)]="tecnica.precio" value="{{tecnica.precio}}"></td>
-              
-
+              <td><input  [(ngModel)]="tecnica.precio" value="{{tecnica.precio}}"></td>
             </tr>
 
           </table>
+                  <button  type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Guardar</button>
+
         </div>
 
   </div>

@@ -35,4 +35,8 @@ export class TecnicasComponent  {
     this.tecnicaService.addTecnica(this.tecnica);
     this.tecnica = new Tecnica();
   }
+  updateTecnica()
+    {
+      
+    }
 }
