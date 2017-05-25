@@ -11,8 +11,8 @@ import {CotizadorComponent} from './cotizador.component';
 import {TecnicasComponent} from './tecnicas/tecnicas.component';
 import {CategoriasComponent} from './categorias/categorias.component';
 import {InventarioComponent} from './inventario.component';
-import {DialogProductoComponent} from './modals/dialog.producto.component'
-import {DialogInventarioComponent} from './modals/dialog.inventario.component'
+import {DialogProductoComponent} from './inventarios/dialog.producto.component'
+import {DialogInventarioComponent} from './inventarios/dialog.inventario.component'
 import { MaterialModule } from '@angular/material';
 
 

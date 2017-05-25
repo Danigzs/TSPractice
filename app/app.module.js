@@ -17,8 +17,8 @@ var cotizador_component_1 = require("./cotizador.component");
 var tecnicas_component_1 = require("./tecnicas/tecnicas.component");
 var categorias_component_1 = require("./categorias/categorias.component");
 var inventario_component_1 = require("./inventario.component");
-var dialog_producto_component_1 = require("./modals/dialog.producto.component");
-var dialog_inventario_component_1 = require("./modals/dialog.inventario.component");
+var dialog_producto_component_1 = require("./inventarios/dialog.producto.component");
+var dialog_inventario_component_1 = require("./inventarios/dialog.inventario.component");
 var material_1 = require("@angular/material");
 var appRoutes = [
     { path: 'form-directive', component: form_component_1.FormComponent },
