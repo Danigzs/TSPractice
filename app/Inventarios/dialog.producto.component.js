@@ -27,8 +27,8 @@ var DialogProductoComponent = (function () {
 DialogProductoComponent = __decorate([
     core_1.Component({
         selector: 'modal-producto-selector',
-        templateUrl: "./app/modals/dialog_producto.html",
-        styleUrls: ["./app/modals/dialog_producto.css"],
+        templateUrl: "./app/inventarios/dialog_producto.html",
+        styleUrls: ["./app/inventarios/dialog_producto.css"],
     }),
     __metadata("design:paramtypes", [material_1.MdDialogRef])
 ], DialogProductoComponent);

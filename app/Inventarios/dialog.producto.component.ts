@@ -3,8 +3,8 @@ import {MdDialog, MdDialogConfig, MdDialogRef} from '@angular/material';
 import {CotizadorComponent} from './../cotizador.component';
 @Component({
   selector: 'modal-producto-selector',
-  templateUrl: "./app/modals/dialog_producto.html",
-  styleUrls: ["./app/modals/dialog_producto.css"],
+  templateUrl: "./app/inventarios/dialog_producto.html",
+  styleUrls: ["./app/inventarios/dialog_producto.css"],
 })
 export class DialogProductoComponent {
 

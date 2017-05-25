@@ -19,7 +19,7 @@ var DialogInventarioComponent = (function () {
 DialogInventarioComponent = __decorate([
     core_1.Component({
         selector: 'modal-inventario-selector',
-        templateUrl: "./app/modals/dialog_inventario.html"
+        templateUrl: "./app/inventarios/dialog_inventario.html"
     }),
     __metadata("design:paramtypes", [material_1.MdDialogRef])
 ], DialogInventarioComponent);

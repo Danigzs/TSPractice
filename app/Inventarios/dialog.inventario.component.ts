@@ -3,7 +3,7 @@ import {MdDialog, MdDialogConfig, MdDialogRef} from '@angular/material';
 
 @Component({
   selector: 'modal-inventario-selector',
-  templateUrl: "./app/modals/dialog_inventario.html"
+  templateUrl: "./app/inventarios/dialog_inventario.html"
 })
 export class DialogInventarioComponent {
   
