@@ -17,7 +17,6 @@ var cotizador_component_1 = require("./cotizador.component");
 var tecnicas_component_1 = require("./tecnicas/tecnicas.component");
 var categorias_component_1 = require("./categorias/categorias.component");
 var inventario_component_1 = require("./inventario.component");
-var dialog_producto_component_1 = require("./inventarios/dialog.producto.component");
 var material_1 = require("@angular/material");
 var appRoutes = [
     { path: 'form-directive', component: form_component_1.FormComponent },
@@ -49,10 +48,6 @@ AppModule = __decorate([
             inventario_component_1.InventarioComponent,
             tecnicas_component_1.TecnicasComponent,
             categorias_component_1.CategoriasComponent,
-            dialog_producto_component_1.DialogProductoComponent,
-        ],
-        entryComponents: [
-            dialog_producto_component_1.DialogProductoComponent,
         ],
         bootstrap: [navbar_component_1.NavbarComponent,]
     })

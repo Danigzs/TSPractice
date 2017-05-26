@@ -9,7 +9,6 @@ import {
 import {CotizadorService} from './cotizacion/cotizador.service'
 import {ClienteService} from './cliente/cliente.service'
 import {Cliente} from './cliente/cliente'
-import {DialogProductoComponent} from './inventarios/dialog.producto.component'
 import {Cotizacion} from './cotizacion/cotizacion'
 import {Producto} from './producto/producto'
 import {ProductoService} from './producto/producto.service'

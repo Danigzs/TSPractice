@@ -11,7 +11,6 @@ import {CotizadorComponent} from './cotizador.component';
 import {TecnicasComponent} from './tecnicas/tecnicas.component';
 import {CategoriasComponent} from './categorias/categorias.component';
 import {InventarioComponent} from './inventario.component';
-import {DialogProductoComponent} from './inventarios/dialog.producto.component'
 import { MaterialModule } from '@angular/material';
 
 
@@ -46,13 +45,9 @@ const appRoutes: Routes = [
   InventarioComponent,
   TecnicasComponent, 
   CategoriasComponent, 
-  DialogProductoComponent,
+  
   ],
-  entryComponents: [
-    DialogProductoComponent,
 
-    
-    ],
   bootstrap:    [ NavbarComponent, ]
 })
 export class AppModule { }
