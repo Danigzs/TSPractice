@@ -37,14 +37,14 @@ const appRoutes: Routes = [
               MaterialModule.forRoot()
  ],
   declarations: [ 
-  NavbarComponent, 
-  AppComponent, 
-  FormComponent, 
-  ClientesComponent, 
-  CotizadorComponent, 
+  NavbarComponent,
+  AppComponent,
+  FormComponent,
+  ClientesComponent,
+  CotizadorComponent,
   InventarioComponent,
-  TecnicasComponent, 
-  CategoriasComponent, 
+  TecnicasComponent,
+  CategoriasComponent,
   
   ],
 
