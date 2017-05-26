@@ -18,7 +18,6 @@ var tecnicas_component_1 = require("./tecnicas/tecnicas.component");
 var categorias_component_1 = require("./categorias/categorias.component");
 var inventario_component_1 = require("./inventario.component");
 var dialog_producto_component_1 = require("./inventarios/dialog.producto.component");
-var dialog_inventario_component_1 = require("./inventarios/dialog.inventario.component");
 var material_1 = require("@angular/material");
 var appRoutes = [
     { path: 'form-directive', component: form_component_1.FormComponent },
@@ -28,7 +27,6 @@ var appRoutes = [
     { path: 'inventario', component: inventario_component_1.InventarioComponent },
     { path: 'tecnicas', component: tecnicas_component_1.TecnicasComponent },
     { path: 'categorias', component: categorias_component_1.CategoriasComponent },
-    { path: 'modal-inventario-selector', component: dialog_inventario_component_1.DialogInventarioComponent },
     { path: '', redirectTo: '/my-app', pathMatch: 'full' },
 ];
 var AppModule = (function () {
@@ -52,11 +50,9 @@ AppModule = __decorate([
             tecnicas_component_1.TecnicasComponent,
             categorias_component_1.CategoriasComponent,
             dialog_producto_component_1.DialogProductoComponent,
-            dialog_inventario_component_1.DialogInventarioComponent
         ],
         entryComponents: [
             dialog_producto_component_1.DialogProductoComponent,
-            dialog_inventario_component_1.DialogInventarioComponent,
         ],
         bootstrap: [navbar_component_1.NavbarComponent,]
     })

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {DialogInventarioComponent} from './../inventarios/dialog.inventario.component'
 import {CotizadorComponent} from './../cotizador.component'
 import {Producto} from './../producto/producto'
 import {ProductoService} from './../producto/producto.service'

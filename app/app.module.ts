@@ -12,7 +12,6 @@ import {TecnicasComponent} from './tecnicas/tecnicas.component';
 import {CategoriasComponent} from './categorias/categorias.component';
 import {InventarioComponent} from './inventario.component';
 import {DialogProductoComponent} from './inventarios/dialog.producto.component'
-import {DialogInventarioComponent} from './inventarios/dialog.inventario.component'
 import { MaterialModule } from '@angular/material';
 
 
@@ -24,7 +23,6 @@ const appRoutes: Routes = [
   { path: 'inventario', component: InventarioComponent},
   { path: 'tecnicas', component: TecnicasComponent},
   { path: 'categorias', component: CategoriasComponent},
-  { path: 'modal-inventario-selector', component: DialogInventarioComponent},
    
   
 
@@ -49,11 +47,9 @@ const appRoutes: Routes = [
   TecnicasComponent, 
   CategoriasComponent, 
   DialogProductoComponent,
-  DialogInventarioComponent
   ],
   entryComponents: [
     DialogProductoComponent,
-    DialogInventarioComponent,
 
     
     ],
