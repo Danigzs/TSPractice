@@ -49,6 +49,6 @@ app.use('/api', api);
 
 
 // Start server
-app.listen(8888, function() {
- console.log("Node server running on http://localhost:8888");
+app.listen(8080, '0.0.0.0', function() {
+ console.log("Node server running on http://localhost:8080");
 });

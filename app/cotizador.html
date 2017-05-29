@@ -140,6 +140,18 @@
       </div>
 
     </div>
+
+
+<!--detalles de la cotizacion -->
+    <div >
+      <label>Detalles</label>
+    </div>
+      <div class="c-container-descripcion">
+ 
+             
+
+      </div>
+
     
 
 
@@ -234,25 +246,21 @@
           <table class="table " id="tproductos">
             <thead>
             <tr>
-              <th>Fecha</th>
-              <th>Producto</th>
               <th>Cantidad</th>
-              <th>Precio unitario</th>
-              <th>Subtotal</th>
-              <th>IVA</th>
+              <th>Producto</th>
+              <th>Descripcion</th>
+              <th>Precio unitario</th>              
               <th>Total</th>
-              <th>Agregar Maquila</th>
+              <th>Agregar Tecnicas</th>
             </tr>
             </thead>
             <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let producto of productosCotizacion; let i = index">
-              <td>{{currentDate}}</td>
-              <td>{{producto.nombre}}</td>
               <td>{{producto.cantidad}}</td>
-              <td>{{producto.precio | currency:'USD':true}}</td>
-              <td>NO</td>
-              <td>NO</td>
+              <td>{{producto.nombre}}</td>
+              <td>{{producto.descripcion}}</td>
+              <td>{{producto.precio | currency:'USD':true}}</td>            
               <td>{{calcularTotalProducto(producto) | currency:'USD':true}}</td>
-              <th><button  type="button" class="btn btn-primary btn-md" (click)="verTecnica(i)">Maquila</button> <button  type="button" class="btn btn-primary btn-md" (click)="deleteRow()">Eliminar</button></th>
+              <th><button  type="button" class="btn btn-primary btn-md" (click)="verTecnica(i)">Tecnicas</button> <button  type="button" class="btn btn-primary btn-md" (click)="deleteRow()">Eliminar</button></th>
 
             </tr>
 
@@ -273,22 +281,19 @@
           <table class="table ">
             <thead>
             <tr>
-              <th>Fecha</th>
-              <th>Producto</th>
               <th>Cantidad</th>
-              <th>Precio unitario</th>
-              <th>Subtotal</th>
-              <th>IVA</th>
+              <th>Producto</th>
+              <th>Descripcion</th>
+              <th>Precio unitario</th>             
               <th>Total</th>
             </tr>
             </thead>
             <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let producto of productos">
-              <td>{{currentDate}}</td>
+              <td>{{producto.cantidad}}</td>
               <td>{{producto.nombre}}</td>
-              <td>{{producto.cantidad}}></td>
+              <td>{{producto.descripcion}}</td>
               <td>{{producto.precio | currency:'USD':true}}</td>
-              <td>NO</td>
-              <td>NO</td>
+              
               <td>{{producto.total*producto.cantidad | currency:'USD':true}}</td>
               <th><button  type="button" class="btn btn-primary btn-md" (click)="seleccionarProducto(producto)">Seleccionar Producto</button></th>
 
