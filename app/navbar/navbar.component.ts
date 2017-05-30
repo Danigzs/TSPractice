@@ -34,7 +34,7 @@ import {ProductoService} from './../producto/producto.service'
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-folder-open"> Inventario </span><span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#" data-toggle="modal" data-target="#modal2">Nuevo</a></li>
+            <li><a routerLink="/nuevoproducto">Nuevo Producto</a></li>
             <li role="presentation" class="divider"></li>
             <li><a routerLink="/inventario">Ver inventario</a></li>
             <li role="presentation" class="divider"></li>

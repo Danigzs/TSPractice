@@ -11,6 +11,7 @@ import {CotizadorComponent} from './cotizador.component';
 import {TecnicasComponent} from './tecnicas/tecnicas.component';
 import {CategoriasComponent} from './categorias/categorias.component';
 import {InventarioComponent} from './inventario.component';
+import {NuevoProductoComponent} from './nuevoproducto/nuevoproducto.component';
 import { MaterialModule } from '@angular/material';
 
 
@@ -20,6 +21,7 @@ const appRoutes: Routes = [
   { path: 'clientes', component: ClientesComponent},
   { path: 'cotizador', component: CotizadorComponent},
   { path: 'inventario', component: InventarioComponent},
+  { path: 'nuevoproducto', component: NuevoProductoComponent},
   { path: 'tecnicas', component: TecnicasComponent},
   { path: 'categorias', component: CategoriasComponent},
    
@@ -43,6 +45,7 @@ const appRoutes: Routes = [
   ClientesComponent,
   CotizadorComponent,
   InventarioComponent,
+  NuevoProductoComponent,
   TecnicasComponent,
   CategoriasComponent,
   

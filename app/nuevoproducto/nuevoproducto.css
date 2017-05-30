@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 h1 {
   color: #369;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 250%;
 }
-
+textarea{
+      font-family: 'Roboto';
+      font-size: 14px;
+}
 .c-div-bgr{
   background: white;
 }
@@ -33,7 +37,30 @@ li{
 color: white;
 
 }
+input[type=text], select {
+    width: 100%;
+    padding: 6px 10px;
+    
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
 
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
 .input-price{
   padding-left: 10px;
   padding-right: 10px;
@@ -269,7 +296,7 @@ table tr:hover td {
 }
 .c-container-info-column-item-container.info{
   text-align: left;
-    line-height: 50px;
+     
 }
 .c-label-info{
   background: transparent;
@@ -340,11 +367,6 @@ table tr:hover td {
 
 .c-total-amount-info{
 font-size: 24px;
-margin-right: 10px;
-}
-.c-total-amount-info-s{
-font-size: 16px;
-margin-right: 10px;
 }
 
 .c-total-amount{

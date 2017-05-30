@@ -17,6 +17,7 @@ var cotizador_component_1 = require("./cotizador.component");
 var tecnicas_component_1 = require("./tecnicas/tecnicas.component");
 var categorias_component_1 = require("./categorias/categorias.component");
 var inventario_component_1 = require("./inventario.component");
+var nuevoproducto_component_1 = require("./nuevoproducto/nuevoproducto.component");
 var material_1 = require("@angular/material");
 var appRoutes = [
     { path: 'form-directive', component: form_component_1.FormComponent },
@@ -24,6 +25,7 @@ var appRoutes = [
     { path: 'clientes', component: clientes_details_1.ClientesComponent },
     { path: 'cotizador', component: cotizador_component_1.CotizadorComponent },
     { path: 'inventario', component: inventario_component_1.InventarioComponent },
+    { path: 'nuevoproducto', component: nuevoproducto_component_1.NuevoProductoComponent },
     { path: 'tecnicas', component: tecnicas_component_1.TecnicasComponent },
     { path: 'categorias', component: categorias_component_1.CategoriasComponent },
     { path: '', redirectTo: '/my-app', pathMatch: 'full' },
@@ -46,6 +48,7 @@ AppModule = __decorate([
             clientes_details_1.ClientesComponent,
             cotizador_component_1.CotizadorComponent,
             inventario_component_1.InventarioComponent,
+            nuevoproducto_component_1.NuevoProductoComponent,
             tecnicas_component_1.TecnicasComponent,
             categorias_component_1.CategoriasComponent,
         ],
