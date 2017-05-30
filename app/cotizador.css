@@ -16,7 +16,7 @@ h1 {
 } 
 .c-fecha-elaboracion-container{
   width:100%;
-      margin-top: 20px;
+      margin-top: 0px;      
     height: 10px;
 }
 .c-fecha-elaboracion{
@@ -264,10 +264,12 @@ table tr:hover td {
 }
 
 .c-container-info-column-item-container{
+    
     height: 40px;
     padding: 10px;
 }
 .c-container-info-column-item-container.info{
+  
   text-align: left;
     line-height: 50px;
 }
@@ -350,4 +352,13 @@ margin-right: 10px;
 .c-total-amount{
   font-size: 28px;
       font-weight: 600;
+}
+.c-cliente-nuevo{
+  
+}
+.c-cliente-existente{
+  position:relative;
+  left: 60px;
+  bottom: 46px;
+  
 }
