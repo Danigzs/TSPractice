@@ -354,11 +354,13 @@ margin-right: 10px;
       font-weight: 600;
 }
 .c-cliente-nuevo{
+  position:relative;
+  bottom:1px;
   
 }
 .c-cliente-existente{
   position:relative;
   left: 60px;
-  bottom: 46px;
+  bottom: 20px;
   
 }
