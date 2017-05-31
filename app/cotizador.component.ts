@@ -45,6 +45,7 @@ export class CotizadorComponent {
   public hideModal = true;
   public hideModal2 = true;
   public hideModal3 = true;
+  public hideModalcliente=true;
   public pIndex:number;
   // dialogRef: MdDialogRef<DialogProductoComponent>;
   componentName: 'CotizadorComponent';
@@ -133,8 +134,12 @@ export class CotizadorComponent {
   Details(){
     this.hideModal3 = false;
   }
+  ClienteModal(){
+    this.hideModalcliente= false;
+  }
   closeModal(){
     this.hideModal = true;
+    this.hideModalcliente=true;
   }
  
   closeTecnicas(){
@@ -186,7 +191,9 @@ export class CotizadorComponent {
   closeModal2(){  
     this.hideModal3 = true;  
     this.hideModal2 = false;
+    
   }
+ 
   seleccionarProducto(producto:Producto){
     this.addProducto(producto);
     this.closeModal();

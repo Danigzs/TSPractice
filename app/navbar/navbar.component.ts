@@ -44,9 +44,9 @@ import {ProductoService} from './../producto/producto.service'
 
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"> Clientes </span><span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li></li>
+            <li><a routerLink="/clientes">Agregar cliente</a></li>
             <li role="presentation" class="divider"></li>
-            <li><a routerLink="/clientes">clientes</a></li>
+            <li><a routerLink="/clientes">Listado de clientes</a></li>
             <li role="presentation" class="divider"></li>
             <li><a href="#">Page 1-3</a></li>
           </ul>

@@ -27,6 +27,7 @@ var CotizadorComponent = (function () {
         this.hideModal = true;
         this.hideModal2 = true;
         this.hideModal3 = true;
+        this.hideModalcliente = true;
         // dialogProducto = DialogProductoComponent;
         this.cotizacion = new cotizacion_1.Cotizacion();
         this.totalCotizacion = 0.0;
@@ -110,8 +111,12 @@ var CotizadorComponent = (function () {
     CotizadorComponent.prototype.Details = function () {
         this.hideModal3 = false;
     };
+    CotizadorComponent.prototype.ClienteModal = function () {
+        this.hideModalcliente = false;
+    };
     CotizadorComponent.prototype.closeModal = function () {
         this.hideModal = true;
+        this.hideModalcliente = true;
     };
     CotizadorComponent.prototype.closeTecnicas = function () {
         this.hideModal2 = true;
