@@ -11,7 +11,15 @@ var NuevoProductoComponent = (function () {
         this.clienteSelected = {};
         this.producto = {};
     }
-    NuevoProductoComponent.prototype.agregarProducto = function () {
+    NuevoProductoComponent.prototype.Calcular = function (producto) {
+        if (producto.cantidad >= 1 && producto.cantidad <= 12) {
+        }
+        if (producto.cantidad > 12 && producto.cantidad <= 50) {
+        }
+        if (producto.cantidad > 50 && producto.cantidad <= 100) {
+        }
+        if (producto.cantidad > 100) {
+        }
     };
     return NuevoProductoComponent;
 }());
