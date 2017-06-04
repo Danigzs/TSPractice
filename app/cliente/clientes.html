@@ -126,35 +126,6 @@
         
       </div>
 
- 
-
- <div class="c-grid-products">
-          <table class="table " id="tproductos">
-            <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Email</th>
-              <th>Teléfono</th>
-              <th>RFC</th>
-              <th>Estado</th>
-              <th>País</th>
-              <th>Razón Social</th>
-            </tr>
-            </thead>
-            <tr class='clickable-row'   *ngFor="let cliente of clientes; let i = index">
-              <td>{{cliente.nombre}}</td>
-              <td>{{cliente.email}}</td>
-              <td>{{cliente.telefono}}</td>
-              <td>{{cliente.rfc}}</td>
-              <td>{{cliente.estado}}</td>
-              <td>{{cliente.pais}}</td>
-              <td>{{cliente.razonSocial}}</td>
-              
-
-            </tr>
-
-          </table>
-        </div>
-
+ <clients-list [clientes]="clientes" *ngIf="show" ></clients-list>
   </div>
 </div>

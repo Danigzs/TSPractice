@@ -3,10 +3,12 @@ import {
   OnInit,
   ElementRef,
   ViewChild,
-  ViewContainerRef
+  ViewContainerRef,
+  Input
 } from '@angular/core';
 import {ClienteService} from './cliente/cliente.service';
 import {Cliente} from './cliente/cliente';
+import {ClientsListComponent} from './cliente/clientsList.component';
 
 
 
@@ -18,21 +20,26 @@ import {Cliente} from './cliente/cliente';
        
 })
 export class ClientesComponent  {
+  @Input() showClients:Boolean;
+  public show = true;
   public clientes: Array < Cliente > ;
   public cliente:Cliente;
-  private clienteService:ClienteService;
+  
   constructor(private  _clienteService: ClienteService) {
-    this.clienteService = _clienteService;
+    
     this.clientes = _clienteService.getClientes();
        
   }
 
   ngOnInit() {
    this.cliente = new Cliente();
+   this.clientes = this._clienteService.getClientes();
+   this.show = this.showClients == undefined?true:false
   }
 
   agregarCliente(){
-    this.clienteService.addCliente(this.cliente);
+    this._clienteService.addCliente(this.cliente);
     this.cliente = new Cliente();
+    this.clientes = this._clienteService.getClientes();
   }
 }

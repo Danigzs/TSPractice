@@ -14,18 +14,25 @@ var cliente_1 = require("./cliente/cliente");
 var ClientesComponent = (function () {
     function ClientesComponent(_clienteService) {
         this._clienteService = _clienteService;
-        this.clienteService = _clienteService;
+        this.show = true;
         this.clientes = _clienteService.getClientes();
     }
     ClientesComponent.prototype.ngOnInit = function () {
         this.cliente = new cliente_1.Cliente();
+        this.clientes = this._clienteService.getClientes();
+        this.show = this.showClients == undefined ? true : false;
     };
     ClientesComponent.prototype.agregarCliente = function () {
-        this.clienteService.addCliente(this.cliente);
+        this._clienteService.addCliente(this.cliente);
         this.cliente = new cliente_1.Cliente();
+        this.clientes = this._clienteService.getClientes();
     };
     return ClientesComponent;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Boolean)
+], ClientesComponent.prototype, "showClients", void 0);
 ClientesComponent = __decorate([
     core_1.Component({
         selector: 'clientes',

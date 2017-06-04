@@ -399,10 +399,9 @@
     </div>
     <div id="myModal" class="modal" *ngIf="!hideModalcliente">
         <!-- Modal content -->
-        <div class="modal-content">
+        <div class="client-modal-content">
           <span class="close" (click)="closeModal()" >&times;</span>  
-          <clientes></clientes>
-           
+          <clientes [showClients]="1"></clientes> 
       </div>
      
     </div>

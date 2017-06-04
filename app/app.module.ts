@@ -7,6 +7,7 @@ import {AppComponent} from './app.component'
 import {NavbarComponent} from './navbar/navbar.component';
 import {FormComponent}	from './form.component';
 import {ClientesComponent} from './clientes.details';
+import {ClientsListComponent} from './cliente/clientsList.component';
 import {CotizadorComponent} from './cotizador.component';
 import {TecnicasComponent} from './tecnicas/tecnicas.component';
 import {CategoriasComponent} from './categorias/categorias.component';
@@ -19,6 +20,7 @@ const appRoutes: Routes = [
   { path: 'form-directive', component: FormComponent },
   { path: 'my-app', component: AppComponent },
   { path: 'clientes', component: ClientesComponent},
+  { path: 'clients-list', component: ClientsListComponent},
   { path: 'cotizador', component: CotizadorComponent},
   { path: 'inventario', component: InventarioComponent},
   { path: 'nuevoproducto', component: NuevoProductoComponent},
@@ -43,6 +45,7 @@ const appRoutes: Routes = [
   AppComponent,
   FormComponent,
   ClientesComponent,
+  ClientsListComponent,
   CotizadorComponent,
   InventarioComponent,
   NuevoProductoComponent,

@@ -13,6 +13,7 @@ var app_component_1 = require("./app.component");
 var navbar_component_1 = require("./navbar/navbar.component");
 var form_component_1 = require("./form.component");
 var clientes_details_1 = require("./clientes.details");
+var clientsList_component_1 = require("./cliente/clientsList.component");
 var cotizador_component_1 = require("./cotizador.component");
 var tecnicas_component_1 = require("./tecnicas/tecnicas.component");
 var categorias_component_1 = require("./categorias/categorias.component");
@@ -23,6 +24,7 @@ var appRoutes = [
     { path: 'form-directive', component: form_component_1.FormComponent },
     { path: 'my-app', component: app_component_1.AppComponent },
     { path: 'clientes', component: clientes_details_1.ClientesComponent },
+    { path: 'clients-list', component: clientsList_component_1.ClientsListComponent },
     { path: 'cotizador', component: cotizador_component_1.CotizadorComponent },
     { path: 'inventario', component: inventario_component_1.InventarioComponent },
     { path: 'nuevoproducto', component: nuevoproducto_component_1.NuevoProductoComponent },
@@ -46,6 +48,7 @@ AppModule = __decorate([
             app_component_1.AppComponent,
             form_component_1.FormComponent,
             clientes_details_1.ClientesComponent,
+            clientsList_component_1.ClientsListComponent,
             cotizador_component_1.CotizadorComponent,
             inventario_component_1.InventarioComponent,
             nuevoproducto_component_1.NuevoProductoComponent,
