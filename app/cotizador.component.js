@@ -19,10 +19,13 @@ var tecnica_1 = require("./producto/tecnica");
 var tecnica_service_1 = require("./producto/tecnica.service");
 var core_2 = require("@angular/core");
 var material_1 = require("@angular/material");
-// import { Modal } from './modals/modalAgregarProducto';
 var CotizadorComponent = (function () {
     function CotizadorComponent(dialog, _cotizadorService, _clienteService, _productoService, _tecnicaService, changeDetectorRef) {
         this.dialog = dialog;
+        this._cotizadorService = _cotizadorService;
+        this._clienteService = _clienteService;
+        this._productoService = _productoService;
+        this._tecnicaService = _tecnicaService;
         this.changeDetectorRef = changeDetectorRef;
         this.hideModal = true;
         this.hideModal2 = true;
@@ -37,18 +40,6 @@ var CotizadorComponent = (function () {
         this.tecnicaSelected = new tecnica_1.Tecnica;
         this.currentDate = this.getTodayDate();
         this.gridKeys = ["Cantidad", "Nombre", "Descripcion", "Precio Unitario", "Total"];
-        this.clientes = _clienteService.getClientes();
-        this.productos = _productoService.getProductos();
-        this.tecnicas = _tecnicaService.getTecnicas();
-        this.clienteSelected = this.clientes[0];
-        this.tecnicaSelected = this.tecnicas[0];
-        this.cotizacion.tecnica = this.tecnicaSelected;
-        this.cotizacion.cliente = this.clienteSelected;
-        this.productos = this.productos;
-        this.productoSelected = this.productos[0];
-        this.cotizacion.producto = this.productoSelected;
-        this.productosCotizacion = [];
-        this.init();
     }
     CotizadorComponent.prototype.updateCliente = function (event) {
         console.warn(this.clienteSelected);
@@ -63,6 +54,11 @@ var CotizadorComponent = (function () {
         producto.total = producto.precio * producto.cantidad;
         this.productosCotizacion.push(producto);
         this.calculateTotal();
+    };
+    CotizadorComponent.prototype.closeClientAdded = function (event) {
+        this.clienteSelected = event;
+        this.clientes = this._clienteService.getClientes();
+        this.hideModalcliente = true;
     };
     CotizadorComponent.prototype.calculateTotal = function () {
         var _total = 0;
@@ -188,12 +184,24 @@ var CotizadorComponent = (function () {
         this.changeDetectorRef.detectChanges();
         this.calculateTotal();
     };
+    CotizadorComponent.prototype.ngOnInit = function () {
+        this.clientes = this._clienteService.getClientes();
+        this.productos = this._productoService.getProductos();
+        this.tecnicas = this._tecnicaService.getTecnicas();
+        this.clienteSelected = this.clientes[0];
+        this.tecnicaSelected = this.tecnicas[0];
+        this.cotizacion.tecnica = this.tecnicaSelected;
+        this.cotizacion.cliente = this.clienteSelected;
+        this.productos = this.productos;
+        this.productoSelected = this.productos[0];
+        this.cotizacion.producto = this.productoSelected;
+        this.productosCotizacion = [];
+    };
     return CotizadorComponent;
 }());
 CotizadorComponent = __decorate([
     core_1.Component({
         selector: 'cotizador',
-        // directives: [ Modal ],
         providers: [cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService],
         styleUrls: ["app/cotizador.css"],
         templateUrl: "app/cotizador.html"

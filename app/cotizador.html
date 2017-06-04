@@ -401,7 +401,7 @@
         <!-- Modal content -->
         <div class="client-modal-content">
           <span class="close" (click)="closeModal()" >&times;</span>  
-          <clientes [showClients]="1"></clientes> 
+          <clientes [showClients]="1" (closeClientAdded)="closeClientAdded($event)"></clientes> 
       </div>
      
     </div>

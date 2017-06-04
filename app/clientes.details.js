@@ -14,6 +14,7 @@ var cliente_1 = require("./cliente/cliente");
 var ClientesComponent = (function () {
     function ClientesComponent(_clienteService) {
         this._clienteService = _clienteService;
+        this.closeClientAdded = new core_1.EventEmitter();
         this.show = true;
         this.clientes = _clienteService.getClientes();
     }
@@ -24,6 +25,8 @@ var ClientesComponent = (function () {
     };
     ClientesComponent.prototype.agregarCliente = function () {
         this._clienteService.addCliente(this.cliente);
+        if (this.closeClientAdded)
+            this.closeClientAdded.emit(this.cliente);
         this.cliente = new cliente_1.Cliente();
         this.clientes = this._clienteService.getClientes();
     };
@@ -33,6 +36,10 @@ __decorate([
     core_1.Input(),
     __metadata("design:type", Boolean)
 ], ClientesComponent.prototype, "showClients", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], ClientesComponent.prototype, "closeClientAdded", void 0);
 ClientesComponent = __decorate([
     core_1.Component({
         selector: 'clientes',

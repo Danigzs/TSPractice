@@ -14,7 +14,10 @@ import {CategoriasComponent} from './categorias/categorias.component';
 import {InventarioComponent} from './inventario.component';
 import {NuevoProductoComponent} from './nuevoproducto/nuevoproducto.component';
 import { MaterialModule } from '@angular/material';
-
+import {ClienteService} from './cliente/cliente.service'
+import {CotizadorService} from './cotizacion/cotizador.service'
+import {ProductoService} from './producto/producto.service'
+import {TecnicaService} from './producto/tecnica.service'
 
 const appRoutes: Routes = [
   { path: 'form-directive', component: FormComponent },
@@ -53,7 +56,7 @@ const appRoutes: Routes = [
   CategoriasComponent,
   
   ],
-
+  providers : [ CotizadorService, ClienteService, ProductoService, TecnicaService],
   bootstrap:    [ NavbarComponent, ]
 })
 export class AppModule { }

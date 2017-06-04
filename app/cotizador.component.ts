@@ -24,13 +24,11 @@ import {
   MdDialogRef
 } from '@angular/material';
 
-// import { Modal } from './modals/modalAgregarProducto';
 
 
 @Component({
   selector: 'cotizador',
-  // directives: [ Modal ],
-  providers: [CotizadorService, ClienteService, ProductoService, TecnicaService],
+  providers : [ CotizadorService, ClienteService, ProductoService, TecnicaService],
   styleUrls: ["app/cotizador.css"],
   templateUrl: "app/cotizador.html"
 
@@ -61,6 +59,12 @@ export class CotizadorComponent {
   
   currentDate = this.getTodayDate();
   gridKeys = ["Cantidad","Nombre","Descripcion","Precio Unitario","Total"];
+
+
+   constructor(private dialog: MdDialog, private _cotizadorService: CotizadorService, public _clienteService: ClienteService, private _productoService: ProductoService,private _tecnicaService: TecnicaService, private changeDetectorRef:ChangeDetectorRef) {
+
+  }
+  
   updateCliente(event: Event) {
     console.warn(this.clienteSelected);
   }
@@ -79,7 +83,11 @@ export class CotizadorComponent {
     this.calculateTotal();
   }
 
-  
+  closeClientAdded(event:Cliente){
+    this.clienteSelected = event;
+    this.clientes = this._clienteService.getClientes();
+    this.hideModalcliente=true;
+  }
   calculateTotal(){
     
     var _total = 0;
@@ -216,10 +224,10 @@ export class CotizadorComponent {
     
 }
 
-  constructor(private dialog: MdDialog, _cotizadorService: CotizadorService, _clienteService: ClienteService, _productoService: ProductoService, _tecnicaService: TecnicaService, private changeDetectorRef:ChangeDetectorRef) {
-    this.clientes = _clienteService.getClientes();
-    this.productos = _productoService.getProductos();
-    this.tecnicas = _tecnicaService.getTecnicas();
+  ngOnInit() {
+   this.clientes = this._clienteService.getClientes();
+   this.productos = this._productoService.getProductos();
+    this.tecnicas = this._tecnicaService.getTecnicas();
     this.clienteSelected = this.clientes[0];
     this.tecnicaSelected = this.tecnicas[0];
     this.cotizacion.tecnica = this.tecnicaSelected;
@@ -228,7 +236,7 @@ export class CotizadorComponent {
     this.productoSelected = this.productos[0];
     this.cotizacion.producto = this.productoSelected;
     this.productosCotizacion = [];
-    this.init();
   }
+ 
   
 }
