@@ -11,6 +11,8 @@ var NuevoProductoComponent = (function () {
         this.clienteSelected = {};
         this.producto = {};
     }
+    NuevoProductoComponent.prototype.AgregarProducto = function (producto) {
+    };
     NuevoProductoComponent.prototype.Calcular = function (producto) {
         if (producto.cantidad >= 1 && producto.cantidad <= 12) {
         }

@@ -13,7 +13,10 @@ export class NuevoProductoComponent  {
  public clienteSelected = {};
  public producto = {}
 
-
+AgregarProducto(producto:Producto)
+{
+  
+}
 Calcular(producto:Producto)
 {
  if(producto.cantidad>=1 && producto.cantidad<=12)

@@ -273,9 +273,10 @@
 
           </table>
         </div>
-        <div style="text-align:right;width:100%;"><span class="c-total-amount-info-s">Anticipo:</span><input type="number" name="clave" ></div>
-        <div style="text-align:right;width:100%;"><span class="c-total-amount-info-s">Descuento:</span><input type="number" name="clave" ></div>
+        <!-- <div style="text-align:right;width:100%;"><span class="c-total-amount-info-s">Anticipo:</span><input type="number" name="clave" ></div>
+        <div style="text-align:right;width:100%;"><span class="c-total-amount-info-s">Descuento:</span><input type="number" name="clave" ></div> -->
         <div style="text-align:right;width:100%;"><span class="c-total-amount-info">Total:</span><span class="c-total-amount"> {{totalCotizacion | currency:'USD':true }}</span></div>
+                <button md-raised-button color="primary" style="float:right;width:100%;"(click)="Pagos()">Pagar</button>
       </div>
     
     </div>
@@ -405,5 +406,27 @@
       </div>
      
     </div>
-</div>
 
+    <div id="myModal" class="modal" *ngIf="!hideModalPagos">
+      <div class="modal-dialog modal-sm">
+        <!-- Modal content -->
+        <div class="client-modal-content">
+          <span class="close" (click)="closeModal()" >&times;</span>
+          
+         <!-- <button md-raised-button color="primary" style="float:right;width:100%;">Proceder al Pago</button><br> -->           
+            
+          <md-select placeholder="Metodo de pago">
+           <md-option> <span class="glyphicon glyphicon-align-left" aria-hidden="true">Efectivo</span></md-option>
+           <md-option>Cheque</md-option>
+           <md-option> <span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>Transferencia</md-option>
+          </md-select><br><br><br>
+
+          <label>Cantidad a pagar:producto.total</label><br>
+          <label>Anticipo:</label><input type="number"><br>
+          <label>Restan $$$ por pagar</label>
+
+        </div>
+      </div>
+     
+    </div>
+</div>
