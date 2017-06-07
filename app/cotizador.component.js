@@ -32,6 +32,7 @@ var CotizadorComponent = (function () {
         this.hideModal3 = true;
         this.hideModalcliente = true;
         this.hideModalPagos = true;
+        this.checked = true;
         // dialogProducto = DialogProductoComponent;
         this.cotizacion = new cotizacion_1.Cotizacion();
         this.totalCotizacion = 0.0;
@@ -188,6 +189,9 @@ var CotizadorComponent = (function () {
         this.productosCotizacion.splice(rowNumber, 1);
         this.changeDetectorRef.detectChanges();
         this.calculateTotal();
+    };
+    CotizadorComponent.prototype.Checked = function () {
+        this.checked = false;
     };
     CotizadorComponent.prototype.ngOnInit = function () {
         this.clientes = this._clienteService.getClientes();

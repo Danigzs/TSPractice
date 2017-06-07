@@ -46,6 +46,7 @@ export class CotizadorComponent {
   public hideModalcliente=true;
   public hideModalPagos=true;
   public pIndex:number;
+  public checked = true;
   // dialogRef: MdDialogRef<DialogProductoComponent>;
   componentName: 'CotizadorComponent';
   // dialogProducto = DialogProductoComponent;
@@ -227,6 +228,9 @@ export class CotizadorComponent {
     this.changeDetectorRef.detectChanges();
     this.calculateTotal()
     
+}
+Checked(){
+this.checked=false;
 }
 
   ngOnInit() {

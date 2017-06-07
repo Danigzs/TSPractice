@@ -395,7 +395,6 @@
             <md-option>Escudo</md-option>
             <md-option>Manga </md-option>
           </md-select>
-
       </div>
     </div>
     <div id="myModal" class="modal" *ngIf="!hideModalcliente">
@@ -403,30 +402,30 @@
         <div class="client-modal-content">
           <span class="close" (click)="closeModal()" >&times;</span>  
           <clientes [showClients]="1" (closeClientAdded)="closeClientAdded($event)"></clientes> 
-      </div>
-     
+      </div>     
     </div>
-
-    <div id="myModal" class="modal" *ngIf="!hideModalPagos">
-      <div class="modal-dialog modal-sm">
+    <div id="myModal" class="modal" *ngIf="!hideModalPagos">      
         <!-- Modal content -->
         <div class="client-modal-content">
-          <span class="close" (click)="closeModal()" >&times;</span>
-          
-         <!-- <button md-raised-button color="primary" style="float:right;width:100%;">Proceder al Pago</button><br> -->           
-            
-          <md-select placeholder="Metodo de pago">
+          <span class="close" (click)="closeModal()" >&times;</span>          
+         <!-- <button md-raised-button color="primary" style="float:right;width:100%;">Proceder al Pago</button><br> -->
+         
+          <br>
+           <label>Cliente:{{clienteSelected.nombre}}</label><br><br>
+           <md-select placeholder="Metodo de pago">
            <md-option> <span class="glyphicon glyphicon-align-left" aria-hidden="true">Efectivo</span></md-option>
            <md-option>Cheque</md-option>
            <md-option> <span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>Transferencia</md-option>
           </md-select><br><br><br>
-
-          <label>Cantidad a pagar:producto.total</label><br>
-          <label>Anticipo:</label><input type="number"><br>
-          <label>Restan $$$ por pagar</label>
-
-        </div>
-      </div>
-     
+         
+          <label>Total a pagar:{{totalCotizacion | currency:'USD':true }}</label><br><br>
+          <label>Cantidad recibida:</label><input type="number"><br><br>
+          <label>Restan (total-cantidad recibida) por pagar</label><br><br>
+          <label>Pago con: (denominacion)</label><br><br>
+          <label>Cambio:</label><br><br>
+          <label>Factura:</label>
+          <input type="checkbox" checked="no"><br><br><!--ng checked-->
+          <button (click)="Checked()">Button</button>
+        </div>     
     </div>
 </div>
