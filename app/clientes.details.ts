@@ -46,8 +46,7 @@ export class ClientesComponent  {
     if(this.closeClientAdded)
     this.closeClientAdded.emit(this.cliente);
     this.cliente = new Cliente();
-    this.clientes = this._clienteService.getClientes();
-    
+    this.clientes = this._clienteService.getClientes();   
     
   }
 }

@@ -191,7 +191,12 @@ var CotizadorComponent = (function () {
         this.calculateTotal();
     };
     CotizadorComponent.prototype.Checked = function () {
-        this.checked = false;
+        if (this.checkexistente == false) {
+            this.checkexistente = true;
+        }
+        else {
+            this.checkexistente = false;
+        }
     };
     CotizadorComponent.prototype.ngOnInit = function () {
         this.clientes = this._clienteService.getClientes();

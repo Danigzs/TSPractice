@@ -47,6 +47,8 @@ export class CotizadorComponent {
   public hideModalPagos=true;
   public pIndex:number;
   public checked = true;
+  public checknuevo:boolean;
+  public checkexistente:boolean;
   // dialogRef: MdDialogRef<DialogProductoComponent>;
   componentName: 'CotizadorComponent';
   // dialogProducto = DialogProductoComponent;
@@ -229,8 +231,15 @@ export class CotizadorComponent {
     this.calculateTotal()
     
 }
+
 Checked(){
-this.checked=false;
+ 
+if(this.checkexistente==false){
+  this.checkexistente=true;
+}
+else{
+this.checkexistente=false;
+}
 }
 
   ngOnInit() {
