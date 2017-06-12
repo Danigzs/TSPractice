@@ -47,8 +47,8 @@ this._clienteService.getClients().subscribe(
       }
    );
   }
-  agregarCliente(){
-    debugger
+  agregarCliente(){ 
+    
     this._clienteService.addClient(this.cliente).subscribe(
       data => {
         if(this.closeClientAdded)
@@ -57,7 +57,7 @@ this._clienteService.getClients().subscribe(
           this.reloadClients();
       }
     )
-    
-    
+
+
   }
 }

@@ -51,8 +51,12 @@ export class CotizadorComponent {
   public hideModal2 = true;
   public hideModal3 = true;
   public hideModalcliente=true;
+ 
   public maquilasModal = true;
-  public pIndex:number;
+   public pIndex:number;
+  public checked = true;
+  public checknuevo:boolean;
+  public checkexistente:boolean;
   // dialogRef: MdDialogRef<DialogProductoComponent>;
   componentName: 'CotizadorComponent';
   // dialogProducto = DialogProductoComponent;
@@ -164,12 +168,13 @@ export class CotizadorComponent {
   Details(){
     this.hideModal3 = false;
   }
-  ClienteModal(){
+   ClienteModal(){
     this.hideModalcliente= false;
   }
   closeModal(){
     this.hideModal = true;
     this.hideModalcliente=true;
+     
   }
  closeMaquilas(){
    this.maquilasModal = true;
@@ -254,7 +259,7 @@ return tecnicasCot;
 }
 getCPT():Promise<boolean> {
       return new Promise<boolean>((resolve, reject) => {
-
+ 
     Observable.forkJoin(
         this._clienteService.getClients(),
         this._productoService.getProducts(),
@@ -269,7 +274,7 @@ getCPT():Promise<boolean> {
       } 
     );
       });
-}
+} 
   ngOnInit() {
   //   this._clienteService.getClients().subscribe(
   //     data=>{

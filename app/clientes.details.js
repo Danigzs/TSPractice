@@ -31,7 +31,6 @@ var ClientesComponent = (function () {
     };
     ClientesComponent.prototype.agregarCliente = function () {
         var _this = this;
-        debugger;
         this._clienteService.addClient(this.cliente).subscribe(function (data) {
             if (_this.closeClientAdded)
                 _this.closeClientAdded.emit(_this.cliente);

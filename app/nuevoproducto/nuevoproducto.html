@@ -1,10 +1,8 @@
 <div class="c-div-bgr">
-  <div class="c-div-container">
-
+   <div class="c-div-container">
     <div class="c-cliente-seccion">
       <label>Nuevo Producto</label>
     </div>
-
     <div class="c-container-info">
       <div class="c-container-info-column data">
       </div>
@@ -13,7 +11,6 @@
           <div class="c-container-info-column-item-container info">
             Nombre
           </div>
-
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
@@ -25,63 +22,50 @@
             Proveedor
           </div>
         </div>
-
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             Bordesa
           </div>
         </div>
-
       </div>
-
       <div class="c-container-info-column data">
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
+ 
             <input type="text" name="name" [(ngModel)]="producto.name">
 
+ 
           </div>
         </div>
-
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             <input type="text" name="code" [(ngModel)]="producto.code">
           </div>
         </div>
-
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             <input type="checkbox" name="esProveedor" [(ngModel)]="producto.isProvider">
           </div>
         </div>
-
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             <input type="checkbox" name="esBordesa" [(ngModel)]="producto.isBordesa">
           </div>
         </div>
-
-
       </div>
-
-
     </div>
-
-
-
     <div>
       <label>Descripción</label>
     </div>
     <textarea class="c-container-descripcion" [(ngModel)]="producto.description">
 
     </textarea>
-
     <div>
       <label>Insumos</label>
     </div>
     <textarea class="c-container-descripcion" [(ngModel)]="producto.supplies">
 
     </textarea>
-
     <div>
       <label>Precios</label>
     </div>
@@ -113,15 +97,15 @@
             Cantidad 51 a 100
           </div>
         </div>
+ 
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             Cantidad mayor a 100
           </div>
         </div>
 
-
+ 
       </div>
-
       <div class="c-container-info-column data">
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
@@ -139,14 +123,12 @@
             <span >{{producto.price - producto.price * .13  | currency:'USD':true}}</span>
           </div>
         </div>
-
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             <span >{{producto.price - producto.price * .17 | currency:'USD':true}}</span>
             
           </div>
         </div>
-
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             <span >{{producto.price - producto.price * .21 | currency:'USD':true}}</span>
@@ -159,18 +141,14 @@
             
           </div>
         </div>
-
       </div>
-
-
-    </div>
+    </div> 
 
     <div class="c-add-product-container">
       <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
       <button type="button" class="btn btn-primary btn-md" style="    width: 100%;height: 50px;" (click)="agregarProducto()">Agregar Producto</button>
 
     </div>
-
-      
+ 
   </div>
 </div>

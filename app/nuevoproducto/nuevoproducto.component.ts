@@ -12,6 +12,7 @@ import {ProductoService} from './../producto/producto.service';
 export class NuevoProductoComponent  implements OnInit{
   
  public clienteSelected = {};
+ 
  public producto:Producto;
 
 constructor (private _productService:ProductoService){}
@@ -20,6 +21,7 @@ updatePrice(){
       // this.producto.pCantidadTC= this.producto.price - this.producto.price * .17
       // this.producto.pCantidadCC= this.producto.price - this.producto.price * .21
       // this.producto.pCantidadMC= this.producto.price - this.producto.price * .25
+ 
 }
 Calcular(producto:Producto)
 {

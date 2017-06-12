@@ -38,6 +38,7 @@ var CotizadorComponent = (function () {
         this.hideModal3 = true;
         this.hideModalcliente = true;
         this.maquilasModal = true;
+        this.checked = true;
         // dialogProducto = DialogProductoComponent;
         this.cotizacion = new cotizacion_1.Cotizacion();
         this.totalCotizacion = 0.0;
