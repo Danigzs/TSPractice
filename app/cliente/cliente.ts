@@ -1,50 +1,48 @@
 export class Cliente {
-  nombre: String;
-  razonSocial: String;
-  domicilio: String;
-  estado: String;
-  municipio: String;
-  colonia: String;
-  pais: String;
-  codigoPostal: String;
-  telefono: String;
+  name: String;
+  businessName: String;
+  address: String;
+  state: String;
+  town: String;
+  district: String;
+  country: String;
+  postalCode: String;
+  phone: String;
   email: String;
-  atencionA: String;
+  attentTo: String;
   rfc: String;
-  id: number;
-  clave: number
+  code: String
 
   constructor() {
-    this.id = 0;
-    this.clave = 0;
-    this.nombre = "";
-    this.razonSocial = "";
-    this.domicilio = "";
-    this.estado = "";
-    this.municipio = "";
-    this.colonia = "";
-    this.pais = "";
-    this.codigoPostal = "";
-    this.telefono = "";
+     
+    this.code = "";
+    this.name = "";
+    this.businessName = "";
+    this.address= "";
+    this.state= "";
+    this.town = "";
+    this.district = "";
+    this.country = "";
+    this.postalCode = "";
+    this.phone = "";
     this.email = "";
-    this.atencionA = "";
+    this.attentTo = "";
     this.rfc = "";
   } 
 
-  setCliente(id:number, clave:number,nombre:string,razonSocial:string,domicilio:string,estado:string,municipio:string,colonia:string,pais:string,codigoPostal:string,telefono:string,email:string,atencionA:string,rfc:string){
-    this.id = id;
-    this.clave = clave;
-    this.nombre = nombre;
-    this.razonSocial = razonSocial;
-    this.domicilio = domicilio;
-    this.estado = estado;
-    this.municipio = municipio;
-    this.colonia = colonia;
-    this.pais = pais;
-    this.codigoPostal = codigoPostal;
-    this.telefono = telefono;
+  setCliente( code:string,name:string,businessName:string,address:string,state:string,town:string,district:string,country:string,postalCode:string,phone:string,email:string,attentTo:string,rfc:string){
+    this.code = code;
+    this.name = name;
+    this.businessName = businessName;
+    this.address = address;
+    this.state = state;
+    this.town = town;
+    this.district = district;
+    this.country = country;
+    this.postalCode = postalCode;
+    this.phone = phone;
     this.email = email;
-    this.atencionA = atencionA;
+    this.attentTo = attentTo;
     this.rfc = rfc;
   }
 }

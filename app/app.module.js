@@ -19,18 +19,21 @@ var tecnicas_component_1 = require("./tecnicas/tecnicas.component");
 var categorias_component_1 = require("./categorias/categorias.component");
 var inventario_component_1 = require("./inventario.component");
 var nuevoproducto_component_1 = require("./nuevoproducto/nuevoproducto.component");
+var productsList_component_1 = require("./producto/productsList.component");
 var material_1 = require("@angular/material");
 var cliente_service_1 = require("./cliente/cliente.service");
 var cotizador_service_1 = require("./cotizacion/cotizador.service");
 var producto_service_1 = require("./producto/producto.service");
 var tecnica_service_1 = require("./producto/tecnica.service");
+var http_1 = require("@angular/http");
 var appRoutes = [
     { path: 'form-directive', component: form_component_1.FormComponent },
     { path: 'my-app', component: app_component_1.AppComponent },
     { path: 'clientes', component: clientes_details_1.ClientesComponent },
     { path: 'clients-list', component: clientsList_component_1.ClientsListComponent },
     { path: 'cotizador', component: cotizador_component_1.CotizadorComponent },
-    { path: 'inventario', component: inventario_component_1.InventarioComponent },
+    // { path: 'inventario', component: InventarioComponent},
+    { path: 'inventario', component: productsList_component_1.ProductsListComponent },
     { path: 'nuevoproducto', component: nuevoproducto_component_1.NuevoProductoComponent },
     { path: 'tecnicas', component: tecnicas_component_1.TecnicasComponent },
     { path: 'categorias', component: categorias_component_1.CategoriasComponent },
@@ -45,7 +48,8 @@ AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule,
             router_1.RouterModule.forRoot(appRoutes), forms_1.FormsModule,
-            material_1.MaterialModule.forRoot()
+            material_1.MaterialModule.forRoot(), http_1.HttpModule,
+            http_1.JsonpModule
         ],
         declarations: [
             navbar_component_1.NavbarComponent,
@@ -55,6 +59,7 @@ AppModule = __decorate([
             clientsList_component_1.ClientsListComponent,
             cotizador_component_1.CotizadorComponent,
             inventario_component_1.InventarioComponent,
+            productsList_component_1.ProductsListComponent,
             nuevoproducto_component_1.NuevoProductoComponent,
             tecnicas_component_1.TecnicasComponent,
             categorias_component_1.CategoriasComponent,

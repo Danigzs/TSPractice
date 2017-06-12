@@ -9,36 +9,51 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var tecnica_1 = require("./tecnica");
+var http_1 = require("@angular/http");
+var http_2 = require("@angular/http");
+var Observable_1 = require("rxjs/Observable");
+require("rxjs/add/operator/catch");
+require("rxjs/add/operator/map");
 var TecnicaService = (function () {
-    function TecnicaService() {
-        var tecnica1 = new tecnica_1.Tecnica();
-        var tecnica2 = new tecnica_1.Tecnica();
-        var tecnica3 = new tecnica_1.Tecnica();
-        var tecnica4 = new tecnica_1.Tecnica();
-        var tecnica5 = new tecnica_1.Tecnica();
-        var tecnica6 = new tecnica_1.Tecnica();
-        var tecnica7 = new tecnica_1.Tecnica();
-        tecnica1.setTecnica(1, "Bordado", 150);
-        tecnica2.setTecnica(2, "Serigrafia", 50);
-        tecnica3.setTecnica(3, "Tampografia", 60);
-        tecnica4.setTecnica(4, "Vinil", 80);
-        tecnica5.setTecnica(5, "Sublimado", 90);
-        tecnica6.setTecnica(6, "Bordado3D", 200);
-        tecnica7.setTecnica(7, "Vinil Textil", 100);
-        this.tecnicas = [tecnica1, tecnica2, tecnica3, tecnica4, tecnica5, tecnica6, tecnica7];
+    function TecnicaService(http) {
+        this.http = http;
+        this.url = 'http://localhost:8000/api/tecnicas'; // URL to web API
     }
     TecnicaService.prototype.getTecnicas = function () {
-        return this.tecnicas;
+        return this.http.get(this.url)
+            .map(this.extractData)
+            .catch(this.handleError);
     };
     TecnicaService.prototype.addTecnica = function (tecnica) {
-        this.tecnicas.push(tecnica);
+        var headers = new http_2.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_2.RequestOptions({ headers: headers });
+        return this.http.post(this.url, tecnica, options)
+            .map(this.extractData)
+            .catch(this.handleError);
+    };
+    TecnicaService.prototype.extractData = function (res) {
+        var data = res.json();
+        return data.tecnicas || {};
+    };
+    TecnicaService.prototype.handleError = function (error) {
+        // In a real world app, you might use a remote logging infrastructure
+        var errMsg;
+        if (error instanceof http_1.Response) {
+            var body = error.json() || '';
+            var err = body.error || JSON.stringify(body);
+            errMsg = error.status + " - " + (error.statusText || '') + " " + err;
+        }
+        else {
+            errMsg = error.message ? error.message : error.toString();
+        }
+        console.error(errMsg);
+        return Observable_1.Observable.throw(errMsg);
     };
     return TecnicaService;
 }());
 TecnicaService = __decorate([
     core_1.Injectable(),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [http_1.Http])
 ], TecnicaService);
 exports.TecnicaService = TecnicaService;
 //# sourceMappingURL=tecnica.service.js.map

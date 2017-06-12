@@ -1,29 +1,60 @@
 <div class="c-div-bgr">
+  <div class="op-header">
+    <div class="op-title"> ORDEN DE PEDIDO </div>
+    <div class="op-subtitle"> BORDADOS, DISEÑO Y ESPECIALIDADES, S.A DE C.V. </div>
+    <div class="op-subtitle"> ESCOBEDO # 604-F CENTRO APODACA C.P. 66600 APODACA, N.L. </div>
+    <div class="op-subtitle"> BDE-061109-MQ9 </div>
+
+  </div>
+
+  <div class="op-header-stores-folio">
+    <div class="op-header-store">
+      <div class="op-stores-text"> SUC. MONTERREY </div>
+      <div class="op-stores-text"> TAMAZUNCHALE 501 FRACC. BUENOS AIRES </div>
+      <div class="op-stores-text"> MONTERREY, N.L. </div>
+      <div class="op-stores-text"> TELS 8030-5072, 8479-5439, 1493-0496, 8191-0238 </div>
+
+    </div>
+    <div class="op-header-store">
+      <div class="op-stores-text"> SUC. APODACA</div>
+      <div class="op-stores-text"> ESCOBEDO 604-C CENTRO </div>
+      <div class="op-stores-text"> APODACA, N.L. </div>
+      <div class="op-stores-text"> TEL. 8007-9272 </div>
+
+    </div>
+    <div class="op-header-store ">
+    <div class="op-header-folio">
+      <div class="op-header-folio-text"> FOLIO:</div>
+      <div class="op-header-folio-body"> No. 25443 </div>
+    </div>
+    </div>
+  </div>
   <div class="c-div-container">
+
     <div class="c-fecha-elaboracion-container">
-      <p class="c-fecha-elaboracion">
+      <!--<p class="c-fecha-elaboracion">
         Fecha de elaboración: {{currentDate}}
-      </p>
+      </p>-->
     </div>
     <div class="c-cliente-seccion">
-      <label>Cliente</label>     
-       <div class="c-cliente-nuevo">
-           <label> Nuevo</label>                     
-           <input type="checkbox"(click)= "ClienteModal()">
-           
-         </div>
- 
-         <div class="c-cliente-existente">
-           <label> Existente</label>                        
-            <input type="checkbox">
-           
-         </div>   
+      <label>Cliente</label>
+      <div class="c-cliente-nuevo">
+        <label> Nuevo</label>
+        <input type="checkbox" (click)="ClienteModal()">
+
+      </div>
+
+      <div class="c-cliente-existente">
+        <label> Existente</label>
+        <input type="checkbox">
+
+      </div>
     </div>
-   
 
-    <div class="c-container-info">
+<div class="c-container-c-v">
+    <div class="c-container-info c-container-info-l">
 
-      <div class="c-container-info-column">
+      <div class="c-container-info-column column-text">
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             Cliente
@@ -45,7 +76,7 @@
             RFC
           </div>
         </div>
-        
+
       </div>
 
       <div class="c-container-info-column data">
@@ -53,45 +84,45 @@
           <div class="c-container-info-column-item-container info">
             <select class="form-control" name="sel" [(ngModel)]="clienteSelected" (ngModelChange)="updateCliente($event)">
                     <option *ngFor="let cliente of clientes" [ngValue]="cliente">
-                        {{cliente.nombre}}
+                        {{cliente.name}}
                     </option>
                 </select>
 
-                 
+
           </div>
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             <div class="example-full-width">
-              <label class="c-label-info">
+              <span class="c-label-info">
               {{clienteSelected.email}}
-            </label>
+            </span>
             </div>
           </div>
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             <div class="example-full-width">
-              <label class="c-label-info">
-              {{clienteSelected.telefono}}
-            </label>
+              <span class="c-label-info">
+              {{clienteSelected.phone}}
+            </span>
             </div>
           </div>
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             <div class="example-full-width">
-              <label class="c-label-info">
+              <span class="c-label-info">
               {{clienteSelected.rfc}}
-            </label>
+            </span>
             </div>
           </div>
         </div>
-       
+
       </div>
 
 
-      <div class="c-container-info-column">
+      <div class="c-container-info-column column-text">
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
 
@@ -123,209 +154,337 @@
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             <div class="example-full-width">
-              <label class="c-label-info">
-              {{clienteSelected.estado}}
-            </label>
+              <span class="c-label-info">
+              {{clienteSelected.state}}
+            </span>
             </div>
           </div>
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             <div class="example-full-width">
-              <label class="c-label-info">
-              {{clienteSelected.pais}}
-            </label>
+              <span class="c-label-info">
+              {{clienteSelected.country}}
+            </span>
             </div>
           </div>
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             <div class="example-full-width">
-              <label class="c-label-info">
-              {{clienteSelected.razonSocial}}
-            </label>
-           
+              <span class="c-label-info">
+              {{clienteSelected.bussinessName}}
+            </span>
+
             </div>
 
           </div>
         </div>
       </div>
 
-    </div>
+    </div> 
+
+     <div class="c-container-info c-container-info-r">
+
+      <div class="c-container-info-column column-text">
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Vendedor
+          </div>
+
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Zona
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Forma de envío
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Fecha de entrega
+          </div>
+        </div>
+
+      </div>
+
+      <div class="c-container-info-column data">
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <select class="form-control" name="sel" [(ngModel)]="clienteSelected" (ngModelChange)="updateCliente($event)">
+                    <option *ngFor="let cliente of clientes" [ngValue]="cliente">
+                        {{cliente.name}}
+                    </option>
+                </select>
 
 
-<!--detalles de la cotizacion -->
-    <div >
-      <label>Detalles</label>
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <span class="c-label-info">
+              {{clienteSelected.email}}
+            </span>
+            </div>
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <span class="c-label-info">
+              {{clienteSelected.phone}}
+            </span>
+            </div>
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <span class="c-label-info">
+              {{clienteSelected.rfc}}
+            </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+      <!--<div class="c-container-info-column column-text">
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Estado
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            País
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Razón Social
+          </div>
+        </div>
+      </div>
+
+      <div class="c-container-info-column data">
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <span class="c-label-info">
+              {{clienteSelected.state}}
+            </span>
+            </div>
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <span class="c-label-info">
+              {{clienteSelected.country}}
+            </span>
+            </div>
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <span class="c-label-info">
+              {{clienteSelected.bussinessName}}
+            </span>
+
+            </div>
+
+          </div>
+        </div>
+      </div>-->
+
     </div>
-      <textarea class="c-container-descripcion">
+</div>
+
+
+
+    <!--detalles de la cotizacion -->
+    <div>
+      <label>Observaciones Generales, Descripción y Cantidad de Mercancia Recibida</label>
+    </div>
+    <textarea class="c-container-descripcion">
  
 
       </textarea>
-    <form class="form-inline" role="form">
-      <div class="form-group">
-        <!--<select class="form-control" name="sel" [(ngModel)]="clienteSelected" (ngModelChange)="updateCliente($event)">
-                    <option *ngFor="let cliente of clientes" [ngValue]="cliente">
-                        {{cliente.nombre}}
-                    </option>
-                </select>
-        <md-input-container class="example-full-width">
-          <input mdInput name="email" id="email" type="text" class="form-control" placeholder="Email" disabled="disabled" value="{{clienteSelected.email}}">
-        </md-input-container>
-        <md-input-container class="example-full-width">
-          <input mdInput name="telefono" id="telefono" type="text" class="form-control" placeholder="Telefono" disabled="disabled"
-            value="{{clienteSelected.telefono}}">
-        </md-input-container>
-        <md-input-container class="example-full-width">
-          <input mdInput name="rfc" id="rfc" type="text" class="form-control" placeholder="RFC" disabled="disabled" value="{{clienteSelected.rfc}}">
-        </md-input-container>
-        <md-input-container class="example-full-width">
-          <input mdInput name="estado" id="estado" type="text" class="form-control" placeholder="Estado" disabled="disabled" value="{{clienteSelected.estado}}">
-        </md-input-container>
-        <md-input-container class="example-full-width">
-          <input mdInput name="pais" id="pais" type="text" class="form-control" placeholder="Pais" disabled="disabled" value="{{clienteSelected.pais}}">
-        </md-input-container>
-        <md-input-container class="example-full-width">
-          <input mdInput name="razonSocial" id="razonSocial" type="text" class="form-control" placeholder="Razon Social" disabled="disabled"
-            value="{{clienteSelected.razonSocial}}">
-        </md-input-container>
-        <li role="presentation" class="divider"></li>-->
-
-
-        <!--<div class="c-cliente-seccion">
-          <label>Productos</label>
-        </div>
-        <select class="form-control" name="selprod" [(ngModel)]="productoSelected" (ngModelChange)="updateProducto($event)" placeholder="Precio">
-                   <option *ngFor="let producto of productos" [ngValue]="producto">
-                        {{producto.nombre}}
-                    </option>
-                </select>
-        <md-input-container class="example-full-width">
-          <input mdInput name="cantidad" id="cantidad" type="text" class="form-control" placeholder="Cantidad" [(ngModel)]="productoSelected.cantidad">
-        </md-input-container>
-
-        <md-input-container class="example-full-width">
-          <input mdInput name="Precio" id="Precio" type="text" class="form-control input-price" placeholder="Precio {{productoSelected.nombre}}"
-            disabled="disabled" value="{{productoSelected.precio | currency:'USD':true}}">
-        </md-input-container>
-
-        <md-input-container class="example-full-width">
-          <input mdInput name="descripcion" id="descripcion" type="text" class="form-control" placeholder="Descripcion" disabled="disabled"
-            value="{{productoSelected.descripcion}}">
-        </md-input-container>
-
-        <select class="form-control" name="selprod" [(ngModel)]="tecnicaSelected" (ngModelChange)="updateTecnica($event)" placeholder="Tecnica">
-                   <option *ngFor="let tecnica of tecnicas" [ngValue]="tecnica">
-                        {{tecnica.nombre}}
-                    </option>
-                </select>
-        <md-input-container class="example-full-width">
-          <input mdInput name="total" id="total" type="text" class="form-control input-price" placeholder="Precio {{tecnicaSelected.nombre}}"
-            disabled="disabled" value="{{tecnicaSelected.precio |currency:'USD':true}}">
-        </md-input-container>
-
-        <md-input-container class="example-full-width">
-          <input mdInput name="total" id="total" type="text" class="form-control input-price" placeholder="Total" disabled="disabled"
-            value="{{productoSelected.precio * productoSelected.cantidad  | currency:'USD':true}}">
-        </md-input-container>
-        <button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>
-        <li role="presentation" class="divider"></li>-->
 
 
 
-        <!--<button md-raised-button color="primary" (click)="open()">Open first dialog</button>-->
 
-
-      </div>
-    </form>
-
-
-    <div class="c-cliente-seccion">
-      <label>Productos </label>
-    </div>
     <div class="table-responsive" style="width: 100%;">
       <div class="c-add-product-container">
         <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
-        <button  type="button" class="btn btn-primary btn-md" (click)="verProductos()">Agregar Producto</button>
-        
+        <button type="button" class="btn btn-primary btn-md" (click)="verProductos()">Agregar Producto</button>
+        <button type="button" class="btn btn-primary btn-md" (click)="verMaquilas()">Agregar Maquila</button>
+
       </div>
-        <div class="c-grid-products">
-          <table class="table " id="tproductos">
-            <thead>
+      <div class="c-grid-products">
+        <div class="c-cliente-seccion">
+          <label>Productos </label>
+        </div>
+        <table class="table " id="tproductos">
+          <thead>
             <tr>
               <th>Cantidad</th>
               <th>Producto</th>
               <th>Descripcion</th>
-              <th>Precio unitario</th>              
+              <th>Precio unitario</th>
               <th>Total</th>
-              <th>Agregar Tecnicas</th>
+              <!--<th>Agregar Tecnicas</th>-->
             </tr>
-            </thead>
-            <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let producto of productosCotizacion; let i = index">
-              <td>{{producto.cantidad}}</td>
-              <td>{{producto.nombre}}</td>
-              <td>{{producto.descripcion}}</td>
-              <td>{{producto.precio | currency:'USD':true}}</td>            
-              <td>{{calcularTotalProducto(producto) | currency:'USD':true}}</td>
-              <th><button  type="button" class="btn btn-primary btn-md" (click)="verTecnica(i)">Tecnicas</button> <button  type="button" class="btn btn-primary btn-md" (click)="deleteRow()">Eliminar</button></th>
+          </thead>
+          <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let producto of productosCotizacion; let i = index">
+            <td>{{producto.quantity}}</td>
+            <td>{{producto.name}}</td>
+            <td>{{producto.description}}</td>
+            <td>{{producto.price| currency:'USD':true}}</td>
+            <td>{{calcularTotalProducto(producto) | currency:'USD':true}}</td>
+            <!--<th><button  type="button" class="btn btn-primary btn-md" (click)="verTecnica(i)">Tecnicas</button> <button  type="button" class="btn btn-primary btn-md" (click)="deleteRow()">Eliminar</button></th>-->
 
-            </tr>
+          </tr>
 
-          </table>
+
+        </table>
+        <div class="c-cliente-seccion">
+          <label>Maquilas </label>
         </div>
-        <div style="text-align:right;width:100%;"><span class="c-total-amount-info-s">Anticipo:</span><input type="number" name="clave" ></div>
-        <div style="text-align:right;width:100%;"><span class="c-total-amount-info-s">Descuento:</span><input type="number" name="clave" ></div>
-        <div style="text-align:right;width:100%;"><span class="c-total-amount-info">Total:</span><span class="c-total-amount"> {{totalCotizacion | currency:'USD':true }}</span></div>
-      </div>
-    
-    </div>
-
-
-        <div id="myModal" class="modal" *ngIf="!hideModal">
-        <!-- Modal content -->
-        <div class="modal-content">
-          <span class="close" (click)="closeModal()" >&times;</span>
-          <h1>Productos</h1>
-           <div class="c-grid-all-products">
-          <table class="table ">
-            <thead>
+        <table class="table " id="tproductos">
+          <thead>
             <tr>
               <th>Cantidad</th>
-              <th>Producto</th>
-              <th>Descripcion</th>
-              <th>Precio unitario</th>             
+              <th>Nombre</th>
+              <th>Tamaño</th>
+              <th>Posicion</th>
+              <th>Precio unitario</th>
               <th>Total</th>
+              <!--<th>Agregar Tecnicas</th>-->
             </tr>
-            </thead>
-            <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let producto of productos">
-              <td>{{producto.cantidad}}</td>
-              <td>{{producto.nombre}}</td>
-              <td>{{producto.descripcion}}</td>
-              <td>{{producto.precio | currency:'USD':true}}</td>
-              
-              <td>{{producto.total*producto.cantidad | currency:'USD':true}}</td>
-              <th><button  type="button" class="btn btn-primary btn-md" (click)="seleccionarProducto(producto)">Seleccionar Producto</button></th>
+          </thead>
+          <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let tecnica of maquilasCotizacion; let i = index">
+            <td>{{tecnica.quantity}}</td>
+            <td>{{tecnica.name}} {{tecnica.subType}}</td>
+            <td>{{tecnica.size}}</td>
+            <td>{{tecnica.position}}</td>
+            <td>{{tecnica.price | currency:'USD':true}}</td>
+            <td>{{tecnica.total*tecnica.quantity | currency:'USD':true}}</td>
+            <!--<th><button  type="button" class="btn btn-primary btn-md" (click)="verTecnica(i)">Tecnicas</button> <button  type="button" class="btn btn-primary btn-md" (click)="deleteRow()">Eliminar</button></th>-->
 
-            </tr>
+          </tr>
 
-          </table>
-        </div>
+
+        </table>
       </div>
+
+
+
+
+
+      <div style="text-align:right;width:100%;"><span class="c-total-amount-info-s">Anticipo:</span><input type="number" name="clave"></div>
+      <div style="text-align:right;width:100%;"><span class="c-total-amount-info-s">Descuento:</span><input type="number" name="clave"></div>
+      <div style="text-align:right;width:100%;"><span class="c-total-amount-info">Total:</span><span class="c-total-amount"> {{totalCotizacion | currency:'USD':true }}</span></div>
     </div>
 
-        <div id="myModal" class="modal" *ngIf="!hideModal2">
-        <!-- Modal content -->
-        <div class="modal-content">
-                    <span class="close" (click)="closeTecnicas()" >&times;</span>
+  </div>
 
-          <h2>Tecnicas</h2>
-          <br>
-          <div class="c-tecnicas" *ngFor="let tecnica of tecnicas" (click)="selectTecnica(tecnica)" [ngClass]="!tecnica.selected ? 'normal' : 'selected'">
-              <span class="tooltiptext">Costo de Tecnica: {{tecnica.precio | currency:'USD':true}}</span>
-               
-            <a style="font-family:Times New Roman, Times, sans-serif; color:grey"(click)="Details()">{{tecnica.nombre}}</a>
-          </div>
-          <!--<md-chip-list class="chips">
+
+  <div id="myModal" class="modal" *ngIf="!hideModal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <h1>Productos</h1>
+      <div class="c-grid-all-products">
+        <table class="table ">
+          <thead>
+            <tr>
+              <th>Cantidad</th>
+              <th>Nombre</th>
+              <th>Descripcion</th>
+              <th>Precio unitario</th>
+              <th>Total</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let producto of productos">
+            <td>{{producto.quantity}}</td>
+            <td>{{producto.name}}</td>
+            <td>{{producto.description}}</td>
+            <td>{{producto.price | currency:'USD':true}}</td>
+
+            <td>{{producto.total*producto.quantity | currency:'USD':true}}</td>
+            <th><button type="button" class="btn btn-primary btn-md" (click)="seleccionarProducto(producto)">Seleccionar Producto</button></th>
+
+          </tr>
+
+        </table>
+      </div>
+    </div>
+  </div>
+  <div id="maquilasModal" class="modal" *ngIf="!maquilasModal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close" (click)="closeMaquilas()">&times;</span>
+      <h1>Maquilas</h1>
+      <div class="c-grid-all-products">
+        <table class="table ">
+          <thead>
+            <tr>
+              <th>Cantidad</th>
+              <th>Nombre</th>
+              <th>Tamaño</th>
+              <th>Posicion</th>
+              <th>Precio unitario</th>
+              <th>Total</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let tecnica of tecnicas">
+            <td>{{tecnica.quantity}}</td>
+            <td>{{tecnica.name}} {{tecnica.subType}}</td>
+            <td>{{tecnica.size}}</td>
+            <td>{{tecnica.position}}</td>
+            <td>{{tecnica.price | currency:'USD':true}}</td>
+            <td>{{tecnica.total*tecnica.quantity | currency:'USD':true}}</td>
+            <th><button type="button" class="btn btn-primary btn-md" (click)="seleccionarTecnica(tecnica)">Seleccionar Maquila</button></th>
+
+          </tr>
+
+        </table>
+      </div>
+    </div>
+  </div>
+  <div id="myModal" class="modal" *ngIf="!hideModal2">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close" (click)="closeTecnicas()">&times;</span>
+
+      <h2>Tecnicas</h2>
+      <br>
+      <div class="c-tecnicas" *ngFor="let tecnica of tecnicas" (click)="selectTecnica(tecnica)" [ngClass]="!tecnica.selected ? 'normal' : 'selected'">
+        <span class="tooltiptext">Costo de Tecnica: {{tecnica.precio | currency:'USD':true}}</span>
+
+        <a style="font-family:Times New Roman, Times, sans-serif; color:grey" (click)="Details()">{{tecnica.nombre}}</a>
+      </div>
+      <!--<md-chip-list class="chips">
   <md-chip (click)="selected6 ? selected6  =  false : selected6 = true;" selected="{{selected6}}">One fish</md-chip>
   <md-chip (click)="selected0 ? selected0  =  false : selected0 = true;" selected="{{selected0}}">Two fish</md-chip>  
   <md-chip (click)="selected  ? selected   =  false : selected  = true;" selected="{{selected}}"> One fish</md-chip>
@@ -336,74 +495,73 @@
   <md-chip (click)="selected5 ? selected5  =  false : selected5 = true;" selected="{{selected5}}">Two fish</md-chip>
   <md-chip (click)="closeModal()" (click)="Details()">Click</md-chip>
   </md-chip-list>-->
-           
-      </div>
+
+    </div>
+  </div>
+
+  <div id="myModal" class="modal" *ngIf="!hideModal3">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close" (click)="closeModal2()">&times;</span>
+      <md-select placeholder="Tipo de bordado">
+        <md-option>Bordado</md-option>
+        <md-option>Bordado 3D</md-option>
+        <md-option>Bordado 3D plano</md-option>
+      </md-select>
+
+      <md-select placeholder="Tipo de tinta">
+        <md-option>Tinta 1</md-option>
+        <md-option>Tinta 2</md-option>
+        <md-option>Tinta 3</md-option>
+      </md-select>
+      <md-select placeholder="Tamaño">
+        <md-option>Chico </md-option>
+        <md-option>Mediano</md-option>
+        <md-option>Grande </md-option>
+      </md-select>
+      <md-select placeholder="Posicion">
+        <md-option>Centro</md-option>
+        <md-option>Escudo</md-option>
+        <md-option>Manga </md-option>
+      </md-select>
+
+    </div>
+  </div>
+
+  <div id="myModal" class="modal" *ngIf="!hideModal3">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close" (click)="closeModal2()">&times;</span>
+      <md-select placeholder="Tipo de bordado">
+        <md-option>Bordado</md-option>
+        <md-option>Bordado 3D</md-option>
+        <md-option>Bordado 3D plano</md-option>
+      </md-select>
+
+      <md-select placeholder="Tipo de tinta">
+        <md-option>Tinta 1</md-option>
+        <md-option>Tinta 2</md-option>
+        <md-option>Tinta 3</md-option>
+      </md-select>
+      <md-select placeholder="Tamaño">
+        <md-option>Chico </md-option>
+        <md-option>Mediano</md-option>
+        <md-option>Grande </md-option>
+      </md-select>
+      <md-select placeholder="Posicion">
+        <md-option>Centro</md-option>
+        <md-option>Escudo</md-option>
+        <md-option>Manga </md-option>
+      </md-select>
+
+    </div>
+  </div>
+  <div id="myModal" class="modal" *ngIf="!hideModalcliente">
+    <!-- Modal content -->
+    <div class="client-modal-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <clientes [showClients]="1" (closeClientAdded)="closeClientAdded($event)"></clientes>
     </div>
 
-<div id="myModal" class="modal" *ngIf="!hideModal3">
-        <!-- Modal content -->
-        <div class="modal-content">
-          <span class="close" (click)="closeModal2()" >&times;</span>
-          <md-select placeholder="Tipo de bordado">
-            <md-option>Bordado</md-option>
-            <md-option>Bordado 3D</md-option>
-            <md-option>Bordado 3D plano</md-option>                    
-            </md-select>
-        
-          <md-select placeholder="Tipo de tinta">
-             <md-option>Tinta 1</md-option>
-             <md-option>Tinta 2</md-option>
-             <md-option>Tinta 3</md-option>
-             </md-select>
-          <md-select placeholder="Tamaño">
-            <md-option>Chico  </md-option>
-            <md-option>Mediano</md-option>
-            <md-option>Grande </md-option>
-          </md-select>
-          <md-select placeholder="Posicion">
-            <md-option>Centro</md-option>
-            <md-option>Escudo</md-option>
-            <md-option>Manga </md-option>
-          </md-select>
-
-      </div>
-    </div>
-
-    <div id="myModal" class="modal" *ngIf="!hideModal3">
-        <!-- Modal content -->
-        <div class="modal-content">
-          <span class="close" (click)="closeModal2()" >&times;</span>
-          <md-select placeholder="Tipo de bordado">
-            <md-option>Bordado</md-option>
-            <md-option>Bordado 3D</md-option>
-            <md-option>Bordado 3D plano</md-option>                    
-            </md-select>
-        
-          <md-select placeholder="Tipo de tinta">
-             <md-option>Tinta 1</md-option>
-             <md-option>Tinta 2</md-option>
-             <md-option>Tinta 3</md-option>
-             </md-select>
-          <md-select placeholder="Tamaño">
-            <md-option>Chico  </md-option>
-            <md-option>Mediano</md-option>
-            <md-option>Grande </md-option>
-          </md-select>
-          <md-select placeholder="Posicion">
-            <md-option>Centro</md-option>
-            <md-option>Escudo</md-option>
-            <md-option>Manga </md-option>
-          </md-select>
-
-      </div>
-    </div>
-    <div id="myModal" class="modal" *ngIf="!hideModalcliente">
-        <!-- Modal content -->
-        <div class="client-modal-content">
-          <span class="close" (click)="closeModal()" >&times;</span>  
-          <clientes [showClients]="1" (closeClientAdded)="closeClientAdded($event)"></clientes> 
-      </div>
-     
-    </div>
+  </div>
 </div>
-

@@ -1,3 +1,6 @@
+// producto1.setProducto("celular",2000,"Telefono celular",1,[]);
+// producto2.setProducto("Television",9000,"Television Full HD",1,[]);
+// producto3.setProducto("Laptop",13000,"Computadora portatil",1,[]);
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -9,25 +12,51 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var producto_1 = require("./producto");
+var http_1 = require("@angular/http");
+var http_2 = require("@angular/http");
+var Observable_1 = require("rxjs/Observable");
+require("rxjs/add/operator/catch");
+require("rxjs/add/operator/map");
 var ProductoService = (function () {
-    function ProductoService() {
-        var producto1 = new producto_1.Producto();
-        var producto2 = new producto_1.Producto();
-        var producto3 = new producto_1.Producto();
-        producto1.setProducto("celular", 2000, "Telefono celular", 1, []);
-        producto2.setProducto("Television", 9000, "Television Full HD", 1, []);
-        producto3.setProducto("Laptop", 13000, "Computadora portatil", 1, []);
-        this.productos = [producto1, producto2, producto3];
+    function ProductoService(http) {
+        this.http = http;
+        this.url = 'http://localhost:8000/api/products'; // URL to web API
     }
-    ProductoService.prototype.getProductos = function () {
-        return this.productos;
+    ProductoService.prototype.getProducts = function () {
+        return this.http.get(this.url)
+            .map(this.extractData)
+            .catch(this.handleError);
+    };
+    ProductoService.prototype.addProduct = function (product) {
+        var headers = new http_2.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_2.RequestOptions({ headers: headers });
+        return this.http.post(this.url, product, options)
+            .map(this.extractData)
+            .catch(this.handleError);
+    };
+    ProductoService.prototype.extractData = function (res) {
+        var data = res.json();
+        return data.products || {};
+    };
+    ProductoService.prototype.handleError = function (error) {
+        // In a real world app, you might use a remote logging infrastructure
+        var errMsg;
+        if (error instanceof http_1.Response) {
+            var body = error.json() || '';
+            var err = body.error || JSON.stringify(body);
+            errMsg = error.status + " - " + (error.statusText || '') + " " + err;
+        }
+        else {
+            errMsg = error.message ? error.message : error.toString();
+        }
+        console.error(errMsg);
+        return Observable_1.Observable.throw(errMsg);
     };
     return ProductoService;
 }());
 ProductoService = __decorate([
     core_1.Injectable(),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [http_1.Http])
 ], ProductoService);
 exports.ProductoService = ProductoService;
 //# sourceMappingURL=producto.service.js.map

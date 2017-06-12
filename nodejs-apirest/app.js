@@ -4,34 +4,28 @@ var mongoose = require('mongoose');
 var methodOverride = require("method-override");
 var app = express();
 var path = require('path');
-var __projectRoot = __dirname + '/../';
 
 // Connection to DB
-mongoose.connect('mongodb://localhost/clients', function(err, res) {
+var db;
+mongoose.connect('mongodb://localhost/bordesa', function(err, res) {
  if(err) throw err;
+db = res;
  console.log('Connected to Database');
 });
 
 // Middlewares
-app.use(bodyParser.urlencoded({ extended: false })); 
-app.use(bodyParser.json()); 
-app.use(methodOverride());
 
-app.use(express.static(__projectRoot));
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json()); 
 
 
 // Import Models and Controllers
 var models = require('./models/client')(app, mongoose);
+var modelsTecnica = require('./models/tecnica')(app, mongoose);
+var modelProduct = require('./models/product')(app, mongoose);
 var ClientCtrl = require('./controllers/client');
-
-var router = express.Router();
-
-// Index - Route
-app.route('/*').get(function(req, res) { 
-    return res.sendFile(path.join(__projectRoot, 'index.html')); 
-});
-
-app.use(router);
+var TecnicaCtrl = require('./controllers/tecnica');
+var ProductCtrl = require('./controllers/product');
 
 // API routes
 var api = express.Router();
@@ -45,10 +39,30 @@ api.route('/clients/:id')
  .put(ClientCtrl.update)
  .delete(ClientCtrl.delete);
 
+api.route('/tecnicas') 
+ .get(TecnicaCtrl.findAll)
+ .post(TecnicaCtrl.add);
+
+api.route('/tecnicas/:id') 
+ .get(TecnicaCtrl.findById)
+ .put(TecnicaCtrl.update)
+
+
+api.route('/products') 
+ .get(ProductCtrl.findAll)
+ .post(ProductCtrl.add);
+
+api.route('/products/:id') 
+ .get(ProductCtrl.findById)
+ .put(ProductCtrl.update);
+
+
+
+
 app.use('/api', api);
 
 
 // Start server
-app.listen(8080, '0.0.0.0', function() {
+app.listen(8000, '0.0.0.0', function() {
  console.log("Node server running on http://localhost:8080");
 });

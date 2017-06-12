@@ -12,38 +12,75 @@
           <div class="c-container-info-column-item-container info">
             Nombre
           </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Tipo
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Tamaño
+          </div>
+        </div>
+        
+       
 
+      </div>
+      
+  <div class="c-container-info-column">
+
+    <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+           <input type="text" name="name" [(ngModel)]="tecnica.name">
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+           <input type="text" name="subType" [(ngModel)]="tecnica.subType">
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+           <input type="text" name="size" [(ngModel)]="tecnica.size">
+          </div>
+        </div>
+
+        
+     
+
+      </div>
+     
+        
+      <div class="c-container-info-column data">
+         <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Posicion
+          </div>
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             Precio
           </div>
         </div>
-       
-
-      </div>
-
-      <div class="c-container-info-column data">
-        <div class="c-container-info-column-item-container">
+        
+</div>
+      
+  <div class="c-container-info-column data">
+      <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-           
-              <select >
-                <option *ngFor="let tecnica of tecnicas; let i = index">{{tecnica.nombre}}</option> 
-              </select>
-           
-
+           <input type="text" name="position" [(ngModel)]="tecnica.position">
           </div>
         </div>
+
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             <div class="example-full-width">
-                <input type="number" name="email" [(ngModel)]="tecnica.precio">
+                <input type="number" name="price" [(ngModel)]="tecnica.price">
             </div>
           </div>
         </div>
 </div>
-      
-
         
 
     </div>
@@ -60,16 +97,22 @@
             <thead>
             <tr>
               <th>Nombre</th>
+              <th>Tipo</th>
+              <th>Tamaño</th>
+              <th>Posición</th>
               <th>Precio</th>
             </tr>
             </thead>
             <tr class='clickable-row'   *ngFor="let tecnica of tecnicas; let i = index">
-              <td>{{tecnica.nombre}}</td>
-              <td>{{tecnica.precio}}</td>
+              <td>{{tecnica.name}}</td>
+              <td>{{tecnica.subType}}</td>
+              <td>{{tecnica.size}}</td>
+              <td>{{tecnica.position}}</td>
+              <td>{{tecnica.price | currency:'USD':true}}</td>
             </tr>
 
           </table>
-                  <button  type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Guardar</button>
+                  <button  type="button" class="btn btn-primary btn-md" (click)="updateTecnica()">Update</button>
 
         </div>
 

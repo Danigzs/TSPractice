@@ -5,6 +5,7 @@
         <thead>
           <tr>
             <th>Nombre</th>
+            <th>Clave</th>
             <th>Email</th>
             <th>Teléfono</th>
             <th>RFC</th>
@@ -14,13 +15,14 @@
           </tr>
         </thead>
         <tr class='clickable-row' *ngFor="let cliente of clientes; let i = index">
-          <td>{{cliente.nombre}}</td>
+          <td>{{cliente.name}}</td>
+          <td>{{cliente.code}}</td>
           <td>{{cliente.email}}</td>
-          <td>{{cliente.telefono}}</td>
+          <td>{{cliente.phone}}</td>
           <td>{{cliente.rfc}}</td>
-          <td>{{cliente.estado}}</td>
-          <td>{{cliente.pais}}</td>
-          <td>{{cliente.razonSocial}}</td>
+          <td>{{cliente.state}}</td>
+          <td>{{cliente.country}}</td>
+          <td>{{cliente.businessName}}</td>
         </tr>
 
       </table>

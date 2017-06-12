@@ -1,24 +1,26 @@
 "use strict";
 var Tecnica = (function () {
     function Tecnica() {
-        this.selected = false;
-        this.nombre = "";
-        this.precio = 0.0;
-        this.id = -1;
+        this.name = "";
+        this.subType = "";
+        this.size = "";
+        this.position = "";
+        this.price = 0.0;
     }
-    Tecnica.prototype.setTecnica = function (id, nombre, precio, selected) {
-        if (selected === void 0) { selected = false; }
-        this.selected = selected;
-        this.nombre = nombre;
-        this.precio = precio;
-        this.id = id;
+    Tecnica.prototype.setTecnica = function (name, subType, size, position, price) {
+        this.name = name;
+        this.subType = subType;
+        this.size = size;
+        this.position = position;
+        this.price = price;
     };
     Tecnica.prototype.copyNewTecnica = function () {
         var _tecnica = new Tecnica();
-        _tecnica.selected = this.selected;
-        _tecnica.id = this.id;
-        _tecnica.precio = this.precio;
-        _tecnica.nombre = this.nombre;
+        _tecnica.name = this.name;
+        _tecnica.subType = this.subType;
+        _tecnica.size = this.size;
+        _tecnica.position = this.position;
+        _tecnica.price = this.price;
         return _tecnica;
     };
     return Tecnica;

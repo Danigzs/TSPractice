@@ -20,11 +20,13 @@ import {Cliente} from './cliente';
 
 export class ClientsListComponent  implements OnInit{
    @Input() clientes: Array < Cliente > ;
+   
   constructor() {
   }
 
   ngOnInit() {
    //this.clientes = this._clienteService.getClientes();
+   
   }
   
 }

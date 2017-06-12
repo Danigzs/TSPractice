@@ -16,19 +16,28 @@ var ClientesComponent = (function () {
         this._clienteService = _clienteService;
         this.closeClientAdded = new core_1.EventEmitter();
         this.show = true;
-        this.clientes = _clienteService.getClientes();
+        this.clientes = [];
     }
     ClientesComponent.prototype.ngOnInit = function () {
         this.cliente = new cliente_1.Cliente();
-        this.clientes = this._clienteService.getClientes();
+        this.reloadClients();
         this.show = this.showClients == undefined ? true : false;
     };
+    ClientesComponent.prototype.reloadClients = function () {
+        var _this = this;
+        this._clienteService.getClients().subscribe(function (clients) {
+            _this.clientes = clients;
+        });
+    };
     ClientesComponent.prototype.agregarCliente = function () {
-        this._clienteService.addCliente(this.cliente);
-        if (this.closeClientAdded)
-            this.closeClientAdded.emit(this.cliente);
-        this.cliente = new cliente_1.Cliente();
-        this.clientes = this._clienteService.getClientes();
+        var _this = this;
+        debugger;
+        this._clienteService.addClient(this.cliente).subscribe(function (data) {
+            if (_this.closeClientAdded)
+                _this.closeClientAdded.emit(_this.cliente);
+            _this.cliente = new cliente_1.Cliente();
+            _this.reloadClients();
+        });
     };
     return ClientesComponent;
 }());

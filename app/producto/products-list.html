@@ -1,0 +1,39 @@
+<div class="c-div-bgr">
+  <div class="c-div-container">
+    <div class="c-grid-products">
+      <table class="table " id="tproductos">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Código</th>
+            <th>Descripción</th>
+            <th>Insumos</th>
+            <th>Es Proveedor</th>
+            <th>Es Bordesa</th>
+            <th>Precio Unitaro</th>
+            <th>Precio 2-12</th>
+            <th>Precio 13-50</th>
+            <th>Precio 51-100</th>
+            <th>Precio mayor 100</th>
+          </tr>
+        </thead>
+        <tr class='clickable-row' *ngFor="let product of products; let i = index">
+          <td>{{product.name}}</td>
+          <td>{{product.code}}</td>
+          <td>{{product.description}}</td>
+          <td>{{product.supplies}}</td>
+          <td>{{product.isProvider}}</td>
+          <td>{{product.isBordesa}}</td>
+          <td>{{product.price | currency:'USD':true}}</td>
+          <td>{{product.price - product.price * .13  | currency:'USD':true}}</td>
+          <td>{{product.price - product.price * .17 | currency:'USD':true}}</td>
+          <td>{{product.price - product.price * .21 | currency:'USD':true}}</td>
+          <td>{{product.price - product.price * .25 | currency:'USD':true}}</td>
+          
+        </tr>
+
+      </table>
+    </div>
+
+  </div>
+</div>

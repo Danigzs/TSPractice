@@ -11,7 +11,7 @@ import {
 import {ClienteService} from './cliente/cliente.service';
 import {Cliente} from './cliente/cliente';
 import {ClientsListComponent} from './cliente/clientsList.component';
-
+import { Observable } from 'rxjs/Observable';
 
 
 @Component({
@@ -21,32 +21,42 @@ import {ClientsListComponent} from './cliente/clientsList.component';
   templateUrl: "./app/cliente/clientes.html"
        
 })
-export class ClientesComponent  {
+export class ClientesComponent implements OnInit {
   @Input() showClients:Boolean;
   @Output() closeClientAdded = new EventEmitter();
-
+ 
   public show = true;
-  public clientes: Array < Cliente > ;
+  public clientes:Array<Cliente> = [];
   public cliente:Cliente;
   
   constructor(private  _clienteService: ClienteService) {
-    
-    this.clientes = _clienteService.getClientes();
-       
+
   }
 
   ngOnInit() {
    this.cliente = new Cliente();
-   this.clientes = this._clienteService.getClientes();
+   this.reloadClients();
    this.show = this.showClients == undefined?true:false
   }
 
+  reloadClients(){
+this._clienteService.getClients().subscribe(
+      clients => {
+        this.clientes = clients;
+        
+      }
+   );
+  }
   agregarCliente(){
-    this._clienteService.addCliente(this.cliente);
-    if(this.closeClientAdded)
-    this.closeClientAdded.emit(this.cliente);
-    this.cliente = new Cliente();
-    this.clientes = this._clienteService.getClientes();
+    debugger
+    this._clienteService.addClient(this.cliente).subscribe(
+      data => {
+        if(this.closeClientAdded)
+          this.closeClientAdded.emit(this.cliente);
+          this.cliente = new Cliente();
+          this.reloadClients();
+      }
+    )
     
     
   }

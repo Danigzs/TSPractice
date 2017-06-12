@@ -9,28 +9,51 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var cliente_1 = require("./cliente");
+var http_1 = require("@angular/http");
+var http_2 = require("@angular/http");
+var Observable_1 = require("rxjs/Observable");
+require("rxjs/add/operator/catch");
+require("rxjs/add/operator/map");
 var ClienteService = (function () {
-    function ClienteService() {
-        var cliente1 = new cliente_1.Cliente();
-        var cliente2 = new cliente_1.Cliente();
-        var cliente3 = new cliente_1.Cliente();
-        cliente1.setCliente(0, 0, "BORDESA", "BORDADOS", "AVENIDA XYZ", "NUEVO LEON", "MONTERREY", "COLONIA", "MEXICO", "1231", "213312321", "bordesa@bordesa.com", "A", "DASDDFAS");
-        cliente2.setCliente(0, 0, "BORDESA APODACA", "BORDADOS", "AVENIDA XYZ", "NUEVO LEON", "MONTERREY", "COLONIA", "MEXICO", "1231", "8112348481", "bordesa@apodaca.com", "atencion", "RFCKSAKD");
-        cliente3.setCliente(0, 0, "BORDESA GUADALUPE", "BORDADOS", "AVENIDA XYZ", "NUEVO LEON", "MONTERREY", "COLONIA", "MEXICO", "1231", "81145894", "bordesa@guadalupe.com", "atencion a", "RFCASKODKASODSA");
-        this.clientes = [cliente1, cliente2, cliente3];
+    function ClienteService(http) {
+        this.http = http;
+        this.clientsUrl = 'http://localhost:8000/api/clients'; // URL to web API
     }
-    ClienteService.prototype.addCliente = function (cliente) {
-        this.clientes.push(cliente);
+    ClienteService.prototype.getClients = function () {
+        return this.http.get(this.clientsUrl)
+            .map(this.extractData)
+            .catch(this.handleError);
     };
-    ClienteService.prototype.getClientes = function () {
-        return this.clientes;
+    ClienteService.prototype.addClient = function (client) {
+        var headers = new http_2.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_2.RequestOptions({ headers: headers });
+        return this.http.post(this.clientsUrl, client, options)
+            .map(this.extractData)
+            .catch(this.handleError);
+    };
+    ClienteService.prototype.extractData = function (res) {
+        var data = res.json();
+        return data.clients || {};
+    };
+    ClienteService.prototype.handleError = function (error) {
+        // In a real world app, you might use a remote logging infrastructure
+        var errMsg;
+        if (error instanceof http_1.Response) {
+            var body = error.json() || '';
+            var err = body.error || JSON.stringify(body);
+            errMsg = error.status + " - " + (error.statusText || '') + " " + err;
+        }
+        else {
+            errMsg = error.message ? error.message : error.toString();
+        }
+        console.error(errMsg);
+        return Observable_1.Observable.throw(errMsg);
     };
     return ClienteService;
 }());
 ClienteService = __decorate([
     core_1.Injectable(),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [http_1.Http])
 ], ClienteService);
 exports.ClienteService = ClienteService;
 //# sourceMappingURL=cliente.service.js.map

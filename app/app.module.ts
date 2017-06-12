@@ -13,11 +13,14 @@ import {TecnicasComponent} from './tecnicas/tecnicas.component';
 import {CategoriasComponent} from './categorias/categorias.component';
 import {InventarioComponent} from './inventario.component';
 import {NuevoProductoComponent} from './nuevoproducto/nuevoproducto.component';
+import {ProductsListComponent} from './producto/productsList.component';
+
 import { MaterialModule } from '@angular/material';
 import {ClienteService} from './cliente/cliente.service'
 import {CotizadorService} from './cotizacion/cotizador.service'
 import {ProductoService} from './producto/producto.service'
 import {TecnicaService} from './producto/tecnica.service'
+import { HttpModule, JsonpModule } from '@angular/http';
 
 const appRoutes: Routes = [
   { path: 'form-directive', component: FormComponent },
@@ -25,7 +28,8 @@ const appRoutes: Routes = [
   { path: 'clientes', component: ClientesComponent},
   { path: 'clients-list', component: ClientsListComponent},
   { path: 'cotizador', component: CotizadorComponent},
-  { path: 'inventario', component: InventarioComponent},
+  // { path: 'inventario', component: InventarioComponent},
+  { path: 'inventario', component: ProductsListComponent},
   { path: 'nuevoproducto', component: NuevoProductoComponent},
   { path: 'tecnicas', component: TecnicasComponent},
   { path: 'categorias', component: CategoriasComponent},
@@ -41,7 +45,8 @@ const appRoutes: Routes = [
 @NgModule({
   imports:      [ BrowserModule,
   				  RouterModule.forRoot(appRoutes),FormsModule,
-              MaterialModule.forRoot()
+              MaterialModule.forRoot(), HttpModule,
+    JsonpModule
  ],
   declarations: [ 
   NavbarComponent,
@@ -51,6 +56,7 @@ const appRoutes: Routes = [
   ClientsListComponent,
   CotizadorComponent,
   InventarioComponent,
+  ProductsListComponent,
   NuevoProductoComponent,
   TecnicasComponent,
   CategoriasComponent,

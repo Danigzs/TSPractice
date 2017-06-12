@@ -1,34 +1,51 @@
 import { Injectable } from '@angular/core';
+import { Http, Response }          from '@angular/http';
+import { Headers, RequestOptions } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
 import { Tecnica } from './tecnica';
 @Injectable()
 export class TecnicaService {
     tecnicas:Array<Tecnica>;
     
-    constructor(){
-        var tecnica1= new Tecnica();
-        var tecnica2= new Tecnica();
-        var tecnica3= new Tecnica();
-        var tecnica4= new Tecnica();
-        var tecnica5= new Tecnica();
-        var tecnica6= new Tecnica();
-        var tecnica7= new Tecnica();
+     private url = 'http://localhost:8000/api/tecnicas';  // URL to web API
 
-        tecnica1.setTecnica(1,"Bordado",150);
-        tecnica2.setTecnica(2,"Serigrafia",50);
-        tecnica3.setTecnica(3,"Tampografia",60);
-        tecnica4.setTecnica(4,"Vinil",80);
-        tecnica5.setTecnica(5,"Sublimado", 90)
-        tecnica6.setTecnica(6,"Bordado3D", 200)
-        tecnica7.setTecnica(7,"Vinil Textil",100)
+constructor (private http: Http) {}
+ 
+  getTecnicas(): Observable<Array<Tecnica>> {
+    
+    return this.http.get(this.url)
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+  addTecnica(tecnica:Tecnica): Observable<Array<Tecnica>> {
+     let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
 
-        this.tecnicas = [tecnica1,tecnica2,tecnica3,tecnica4,tecnica5,tecnica6,tecnica7];
+   
+    return this.http.post(this.url,tecnica,options)
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+  private extractData(res: Response) {
+    
+    let data = res.json();
+    
+    return data.tecnicas || { };
+  }
+    private handleError (error: Response | any) {
+    // In a real world app, you might use a remote logging infrastructure
+    let errMsg: string;
+    if (error instanceof Response) {
+      const body = error.json() || '';
+      const err = body.error || JSON.stringify(body);
+      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+    } else {
+      errMsg = error.message ? error.message : error.toString();
     }
-    getTecnicas() {
-    return this.tecnicas;
+    console.error(errMsg);
+    return Observable.throw(errMsg);
   }
-
-  addTecnica(tecnica:Tecnica){
-      this.tecnicas.push(tecnica);
-  }
-
 }
+   

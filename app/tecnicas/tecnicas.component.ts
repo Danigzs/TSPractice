@@ -20,23 +20,37 @@ import {Tecnica} from '../producto/tecnica';
 export class TecnicasComponent  {
   public tecnicas: Array < Tecnica > ;
   public tecnica:Tecnica;
-  private tecnicaService:TecnicaService;
   constructor(private  _tecnicaService: TecnicaService) {
-    this.tecnicaService = _tecnicaService;
-    this.tecnicas = _tecnicaService.getTecnicas();
-       
   }
 
   ngOnInit() {
    this.tecnica = new Tecnica();
+   this.reloadTecnicas();
   }
 
+  reloadTecnicas(){
+      this.tecnica = new Tecnica();
+      this._tecnicaService.getTecnicas().subscribe(
+     data => {
+       this.tecnicas = data;
+     }
+   )
+  }
   agregarTecnica(){
-    this.tecnicaService.addTecnica(this.tecnica);
-    this.tecnica = new Tecnica();
+    
+    this._tecnicaService.addTecnica(this.tecnica).subscribe(
+      data => {
+    this.reloadTecnicas();
+
+      }
+    );
   }
   updateTecnica()
     {
-      
+       this._tecnicaService.addTecnica(this.tecnica).subscribe(
+      data => {
+        this.reloadTecnicas();
+      }
+    );
     }
 }

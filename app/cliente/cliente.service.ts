@@ -1,22 +1,52 @@
 import { Injectable } from '@angular/core';
+import { Http, Response }          from '@angular/http';
+import { Headers, RequestOptions } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
+
 import { Cliente } from './cliente';
 @Injectable()
 export class ClienteService {
-  clientes:Array<Cliente>;
+ private clientsUrl = 'http://localhost:8000/api/clients';  // URL to web API
 
-  constructor() {
-    var cliente1 = new Cliente();
-    var cliente2 = new Cliente();
-    var cliente3 = new Cliente();
-    cliente1.setCliente(0,0,"BORDESA","BORDADOS","AVENIDA XYZ","NUEVO LEON","MONTERREY","COLONIA","MEXICO","1231","213312321","bordesa@bordesa.com","A","DASDDFAS");
-    cliente2.setCliente(0,0,"BORDESA APODACA","BORDADOS","AVENIDA XYZ","NUEVO LEON","MONTERREY","COLONIA","MEXICO","1231","8112348481","bordesa@apodaca.com","atencion", "RFCKSAKD");
-    cliente3.setCliente(0,0,"BORDESA GUADALUPE","BORDADOS","AVENIDA XYZ","NUEVO LEON","MONTERREY","COLONIA","MEXICO","1231","81145894","bordesa@guadalupe.com","atencion a","RFCASKODKASODSA");
-    this.clientes = [cliente1,cliente2,cliente3];
+constructor (private http: Http) {}
+
+  getClients(): Observable<Array<Cliente>> {
+    
+    return this.http.get(this.clientsUrl)
+                    .map(this.extractData)
+                    .catch(this.handleError);
   }
-  addCliente(cliente:Cliente){
-    this.clientes.push(cliente);
+  addClient(client:Cliente): Observable<Array<Cliente>> {
+     let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+   
+    return this.http.post(this.clientsUrl,client,options)
+                    .map(this.extractData)
+                    .catch(this.handleError);
   }
-  getClientes() {
-    return this.clientes;
+  private extractData(res: Response) {
+    
+    let data = res.json();
+    
+    return data.clients || { };
   }
+    private handleError (error: Response | any) {
+    // In a real world app, you might use a remote logging infrastructure
+    let errMsg: string;
+    if (error instanceof Response) {
+      const body = error.json() || '';
+      const err = body.error || JSON.stringify(body);
+      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+    } else {
+      errMsg = error.message ? error.message : error.toString();
+    }
+    console.error(errMsg);
+    return Observable.throw(errMsg);
+  }
+ 
 }
+  
+   

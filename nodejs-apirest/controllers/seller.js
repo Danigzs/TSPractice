@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var Client = mongoose.model('Client');
+var Seller = mongoose.model('Client');
 
 //GET - Return all registers
 exports.findAll = function (req, res) {

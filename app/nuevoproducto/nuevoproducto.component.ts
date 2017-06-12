@@ -9,28 +9,30 @@ import {ProductoService} from './../producto/producto.service';
   templateUrl: "app/nuevoproducto/nuevoproducto.html"
        
 })
-export class NuevoProductoComponent  {
+export class NuevoProductoComponent  implements OnInit{
+  
  public clienteSelected = {};
- public producto = {}
+ public producto:Producto;
 
-
+constructor (private _productService:ProductoService){}
+updatePrice(){
+      // this.producto.pCantidadDD = this.producto.price - this.producto.price * .13 
+      // this.producto.pCantidadTC= this.producto.price - this.producto.price * .17
+      // this.producto.pCantidadCC= this.producto.price - this.producto.price * .21
+      // this.producto.pCantidadMC= this.producto.price - this.producto.price * .25
+}
 Calcular(producto:Producto)
 {
- if(producto.cantidad>=1 && producto.cantidad<=12)
- {
+}
+agregarProducto(){
+  this._productService.addProduct(this.producto).subscribe(
+    data => {
 
- }
- if(producto.cantidad>12 && producto.cantidad<=50)
- {
+    }
+  )
+}
 
- }
- if(producto.cantidad>50 && producto.cantidad<=100)
- {
-
- }
- if(producto.cantidad>100)
- {
-
- }
+ngOnInit() {
+  this.producto = new Producto();  
 }
 }

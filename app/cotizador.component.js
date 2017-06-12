@@ -8,14 +8,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var Observable_1 = require("rxjs/Observable");
+require("rxjs/add/operator/catch");
+require("rxjs/add/operator/map");
 var core_1 = require("@angular/core");
 var cotizador_service_1 = require("./cotizacion/cotizador.service");
 var cliente_service_1 = require("./cliente/cliente.service");
 var cliente_1 = require("./cliente/cliente");
 var cotizacion_1 = require("./cotizacion/cotizacion");
 var producto_1 = require("./producto/producto");
+var productCotizacion_1 = require("./producto/productCotizacion");
 var producto_service_1 = require("./producto/producto.service");
 var tecnica_1 = require("./producto/tecnica");
+var tecnicaCotizacion_1 = require("./tecnicas/tecnicaCotizacion");
 var tecnica_service_1 = require("./producto/tecnica.service");
 var core_2 = require("@angular/core");
 var material_1 = require("@angular/material");
@@ -27,10 +32,12 @@ var CotizadorComponent = (function () {
         this._productoService = _productoService;
         this._tecnicaService = _tecnicaService;
         this.changeDetectorRef = changeDetectorRef;
+        this.maquilasCotizacion = [];
         this.hideModal = true;
         this.hideModal2 = true;
         this.hideModal3 = true;
         this.hideModalcliente = true;
+        this.maquilasModal = true;
         // dialogProducto = DialogProductoComponent;
         this.cotizacion = new cotizacion_1.Cotizacion();
         this.totalCotizacion = 0.0;
@@ -51,24 +58,31 @@ var CotizadorComponent = (function () {
         console.warn(this.productoSelected);
     };
     CotizadorComponent.prototype.addProducto = function (producto) {
-        producto.total = producto.precio * producto.cantidad;
+        producto.total = producto.price * producto.quantity;
         this.productosCotizacion.push(producto);
         this.calculateTotal();
     };
+    CotizadorComponent.prototype.seleccionarTecnica = function (tecnica) {
+        this.maquilasCotizacion.push(tecnica);
+        this.calculateTotal();
+    };
     CotizadorComponent.prototype.closeClientAdded = function (event) {
+        var _this = this;
         this.clienteSelected = event;
-        this.clientes = this._clienteService.getClientes();
+        this._clienteService.getClients().subscribe(function (clients) {
+            _this.clientes = clients;
+        });
         this.hideModalcliente = true;
     };
     CotizadorComponent.prototype.calculateTotal = function () {
         var _total = 0;
         for (var _i = 0, _a = this.productosCotizacion; _i < _a.length; _i++) {
             var producto = _a[_i];
-            _total += producto.precio * producto.cantidad;
-            for (var _b = 0, _c = producto.tecnicas; _b < _c.length; _b++) {
-                var tecnica = _c[_b];
-                _total += producto.cantidad * tecnica.precio;
-            }
+            _total += producto.price * producto.quantity;
+        }
+        for (var _b = 0, _c = this.maquilasCotizacion; _b < _c.length; _b++) {
+            var maquila = _c[_b];
+            _total += maquila.price * maquila.quantity;
         }
         this.totalCotizacion = _total;
     };
@@ -87,22 +101,23 @@ var CotizadorComponent = (function () {
     CotizadorComponent.prototype.verProductos = function () {
         this.hideModal = false;
     };
+    CotizadorComponent.prototype.verMaquilas = function () {
+        this.maquilasModal = false;
+    };
     CotizadorComponent.prototype.verTecnica = function (index) {
         this.pIndex = index;
         this.hideModal2 = false;
         this.setTecnicasSelected();
     };
     CotizadorComponent.prototype.setTecnicasSelected = function () {
-        for (var _i = 0, _a = this.productos[this.pIndex].tecnicas; _i < _a.length; _i++) {
-            var tecnicaP = _a[_i];
-            for (var _b = 0, _c = this.tecnicas; _b < _c.length; _b++) {
-                var tecnica = _c[_b];
-                if (tecnicaP.id == tecnica.id) {
-                    tecnica.selected = true;
-                    break;
-                }
-            }
-        }
+        // for (let tecnicaP of this.productos[this.pIndex].tecnicas) {
+        //   for (let tecnica of this.tecnicas) {
+        //     if(tecnicaP.id == tecnica.id){
+        //       tecnica.selected = true;
+        //       break;
+        //     }
+        //   }
+        // }
     };
     CotizadorComponent.prototype.Details = function () {
         this.hideModal3 = false;
@@ -114,52 +129,40 @@ var CotizadorComponent = (function () {
         this.hideModal = true;
         this.hideModalcliente = true;
     };
+    CotizadorComponent.prototype.closeMaquilas = function () {
+        this.maquilasModal = true;
+        this.calculateTotal();
+    };
     CotizadorComponent.prototype.closeTecnicas = function () {
         this.hideModal2 = true;
-        for (var _i = 0, _a = this.tecnicas; _i < _a.length; _i++) {
-            var tecnica = _a[_i];
-            if (!this.isTecnicaSelected(tecnica)) {
-                if (this.alreadyTecnicaAdded(tecnica)) {
-                    this.deleteTecnica(tecnica);
-                }
-            }
-            else {
-                if (!this.alreadyTecnicaAdded(tecnica)) {
-                    this.productos[this.pIndex].tecnicas.push(tecnica.copyNewTecnica());
-                }
-            }
-        }
         this.resetTecnicas();
         this.calculateTotal();
     };
     CotizadorComponent.prototype.resetTecnicas = function () {
-        for (var _i = 0, _a = this.tecnicas; _i < _a.length; _i++) {
-            var tecnica = _a[_i];
-            tecnica.selected = false;
-        }
+        // for (let tecnica of this.tecnicas) {
+        //   tecnica.selected = false;
+        // }
     };
     CotizadorComponent.prototype.alreadyTecnicaAdded = function (tecnicaToAdd) {
-        for (var _i = 0, _a = this.productos[this.pIndex].tecnicas; _i < _a.length; _i++) {
-            var tecnica = _a[_i];
-            if (tecnica.id == tecnicaToAdd.id) {
-                return true;
-            }
-        }
-        return false;
+        // for (let tecnica of this.productos[this.pIndex].tecnicas) {
+        //   if(tecnica.id == tecnicaToAdd.id){
+        //     return true;
+        //   }
+        // }
+        // return false;
     };
     CotizadorComponent.prototype.deleteTecnica = function (tecnica) {
-        for (var i = 0; i < this.productos[this.pIndex].tecnicas.length; i++) {
-            if (this.productos[this.pIndex].tecnicas[i].id = tecnica.id) {
-                this.productos[this.pIndex].tecnicas.splice(i, 1);
-            }
-        }
+        // for(var i = 0;i<this.productos[this.pIndex].tecnicas.length;i++){
+        //   if(this.productos[this.pIndex].tecnicas[i].id = tecnica.id){
+        //       this.productos[this.pIndex].tecnicas.splice(i, 1);
+        //   }
+        // }
     };
     CotizadorComponent.prototype.calcularTotalProducto = function (producto) {
-        var total = producto.precio * producto.cantidad;
-        for (var _i = 0, _a = producto.tecnicas; _i < _a.length; _i++) {
-            var tecnica = _a[_i];
-            total += producto.cantidad * tecnica.precio;
-        }
+        var total = producto.price * producto.quantity;
+        // for (let tecnica of producto.tecnicas) {
+        //   total += producto.quantity * tecnica.precio;
+        // }
         return total;
     };
     CotizadorComponent.prototype.closeModal2 = function () {
@@ -168,34 +171,77 @@ var CotizadorComponent = (function () {
     };
     CotizadorComponent.prototype.seleccionarProducto = function (producto) {
         this.addProducto(producto);
-        this.closeModal();
+        // this.closeModal();
     };
     CotizadorComponent.prototype.selectTecnica = function (tecnica) {
-        tecnica.selected = (tecnica.selected == undefined || tecnica.selected == null) ? true : !tecnica.selected;
+        // tecnica.selected=(tecnica.selected==undefined||tecnica.selected==null)?true:!tecnica.selected;
     };
     CotizadorComponent.prototype.isTecnicaSelected = function (tecnica) {
-        if (tecnica.selected == undefined || tecnica.selected == null) {
-            return false;
-        }
-        return tecnica.selected;
+        // if(tecnica.selected==undefined || tecnica.selected == null){
+        //   return false;
+        // }
+        // return tecnica.selected;
     };
     CotizadorComponent.prototype.deleteRow = function (rowNumber) {
         this.productosCotizacion.splice(rowNumber, 1);
         this.changeDetectorRef.detectChanges();
         this.calculateTotal();
     };
+    CotizadorComponent.prototype.getProductsCotizacionFromProducts = function (_products) {
+        var prodsCot = Array();
+        _products.forEach(function (prod) {
+            prodsCot.push(productCotizacion_1.ProductCotizacion.copyFromProduct(prod));
+        });
+        return prodsCot;
+    };
+    CotizadorComponent.prototype.getTecnicasCotizacionFromTecnicas = function (_tecnicas) {
+        var tecnicasCot = Array();
+        _tecnicas.forEach(function (tecnica) {
+            tecnicasCot.push(tecnicaCotizacion_1.TecnicaCotizacion.copyFromTecnica(tecnica));
+        });
+        return tecnicasCot;
+    };
+    CotizadorComponent.prototype.getCPT = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            Observable_1.Observable.forkJoin(_this._clienteService.getClients(), _this._productoService.getProducts(), _this._tecnicaService.getTecnicas()).subscribe(function (data) {
+                _this.clientes = data[0];
+                _this.productos = _this.getProductsCotizacionFromProducts(data[1]);
+                _this.tecnicas = _this.getTecnicasCotizacionFromTecnicas(data[2]);
+                resolve(true);
+            });
+        });
+    };
     CotizadorComponent.prototype.ngOnInit = function () {
-        this.clientes = this._clienteService.getClientes();
-        this.productos = this._productoService.getProductos();
-        this.tecnicas = this._tecnicaService.getTecnicas();
-        this.clienteSelected = this.clientes[0];
-        this.tecnicaSelected = this.tecnicas[0];
-        this.cotizacion.tecnica = this.tecnicaSelected;
-        this.cotizacion.cliente = this.clienteSelected;
-        this.productos = this.productos;
-        this.productoSelected = this.productos[0];
-        this.cotizacion.producto = this.productoSelected;
-        this.productosCotizacion = [];
+        //   this._clienteService.getClients().subscribe(
+        //     data=>{
+        //       this.clientes = data;
+        //     }
+        //   );
+        //  this._productoService.getProducts().subscribe(
+        //    data => {
+        //      this.productos = data;
+        //    }
+        //  );
+        var _this = this;
+        //   this._tecnicaService.getTecnicas().subscribe(
+        //     data => {
+        //       this.tecnicas = data;
+        //     }
+        //   );
+        this.getCPT().then(function (res) {
+            if (_this.clientes.length > 0)
+                _this.clienteSelected = _this.clientes[0];
+            if (_this.tecnicas.length > 0)
+                _this.tecnicaSelected = _this.tecnicas[0];
+            if (_this.productos.length > 0)
+                _this.productoSelected = _this.productos[0];
+            _this.cotizacion.tecnica = _this.tecnicaSelected;
+            _this.cotizacion.cliente = _this.clienteSelected;
+            _this.productos = _this.productos;
+            _this.cotizacion.producto = _this.productoSelected;
+            _this.productosCotizacion = [];
+        });
     };
     return CotizadorComponent;
 }());

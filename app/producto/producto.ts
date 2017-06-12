@@ -1,37 +1,46 @@
 import {Tecnica} from './tecnica'
 export class Producto {
-  nombre: string;
-  precio: number;
-  descripcion: string;
-  cantidad:number; 
-  total:number;
-  tecnicas:Array<Tecnica>;
+  name: string;
+  price: number;
+  description: string;
+  supplies: string;
+  isProvider: number;
+  isBordesa: number;
+  code:string;
+
+  // tecnicas:Array<Tecnica>;
   
   constructor() {
-    this.nombre = "";
-    this.precio = 0.0;
-    this.descripcion  = "";
-    this.cantidad = 0;
-    this.total = 0;
-    this.tecnicas = [];
+    this.name = "";
+    this.price = 0.0;
+    this.description  = "";
+    this.supplies = "";
+    this.isProvider = 0;
+    this.isBordesa = 0;
+    this.code = "";
+    // this.cantidad = 0;
+    // this.total = 0;
+    // this.tecnicas = [];
    
   }
-  setProducto(nombre:string,precio:number,descripcion:string,cantidad:number,tecnicas:Array<Tecnica>){
-    this.nombre = nombre;
-    this.precio = precio;
-    this.descripcion = descripcion;
-    this.cantidad = cantidad;
-    this.total = cantidad*precio;
-    this.tecnicas = [];
+  setProducto(name:string,price:number,description:string,supplies:string,isProvider:number,isBordesa:number,code:string){
+    this.name = name;
+    this.price = price;
+    this.description = description;
+    this.supplies = supplies;
+    this.isProvider = isProvider;
+    this.isBordesa = isBordesa;
+    this.code = code;
   }  
   copyNewProducto(){
     var _producto = new Producto();
-    _producto.nombre = this.nombre;
-    _producto.precio = this.precio;
-    _producto.descripcion = this.descripcion;
-    _producto.cantidad = this.cantidad;
-    _producto.total = this.total;
-    _producto.tecnicas = this.tecnicas;
+    _producto.name  = this.name;
+    _producto.price = this.price;
+    _producto.description = this.description;
+    _producto.supplies= this.supplies;
+    _producto.isProvider= this.isProvider;
+    _producto.isBordesa = this.isBordesa;
+    _producto.code = this.code;
     return _producto
 }
   

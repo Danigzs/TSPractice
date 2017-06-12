@@ -14,17 +14,29 @@ var tecnica_1 = require("../producto/tecnica");
 var TecnicasComponent = (function () {
     function TecnicasComponent(_tecnicaService) {
         this._tecnicaService = _tecnicaService;
-        this.tecnicaService = _tecnicaService;
-        this.tecnicas = _tecnicaService.getTecnicas();
     }
     TecnicasComponent.prototype.ngOnInit = function () {
         this.tecnica = new tecnica_1.Tecnica();
+        this.reloadTecnicas();
+    };
+    TecnicasComponent.prototype.reloadTecnicas = function () {
+        var _this = this;
+        this.tecnica = new tecnica_1.Tecnica();
+        this._tecnicaService.getTecnicas().subscribe(function (data) {
+            _this.tecnicas = data;
+        });
     };
     TecnicasComponent.prototype.agregarTecnica = function () {
-        this.tecnicaService.addTecnica(this.tecnica);
-        this.tecnica = new tecnica_1.Tecnica();
+        var _this = this;
+        this._tecnicaService.addTecnica(this.tecnica).subscribe(function (data) {
+            _this.reloadTecnicas();
+        });
     };
     TecnicasComponent.prototype.updateTecnica = function () {
+        var _this = this;
+        this._tecnicaService.addTecnica(this.tecnica).subscribe(function (data) {
+            _this.reloadTecnicas();
+        });
     };
     return TecnicasComponent;
 }());
