@@ -51,7 +51,7 @@ export class CotizadorComponent {
   public hideModal2 = true;
   public hideModal3 = true;
   public hideModalcliente=true;
- 
+  public hideModalpago=true;
   public maquilasModal = true;
    public pIndex:number;
   public checked = true;
@@ -171,9 +171,13 @@ export class CotizadorComponent {
    ClienteModal(){
     this.hideModalcliente= false;
   }
+  PagoModal(){
+    this.hideModalpago=false;
+  }
   closeModal(){
     this.hideModal = true;
     this.hideModalcliente=true;
+    this.hideModalpago=true;
      
   }
  closeMaquilas(){

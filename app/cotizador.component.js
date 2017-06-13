@@ -37,6 +37,7 @@ var CotizadorComponent = (function () {
         this.hideModal2 = true;
         this.hideModal3 = true;
         this.hideModalcliente = true;
+        this.hideModalpago = true;
         this.maquilasModal = true;
         this.checked = true;
         // dialogProducto = DialogProductoComponent;
@@ -126,9 +127,13 @@ var CotizadorComponent = (function () {
     CotizadorComponent.prototype.ClienteModal = function () {
         this.hideModalcliente = false;
     };
+    CotizadorComponent.prototype.PagoModal = function () {
+        this.hideModalpago = false;
+    };
     CotizadorComponent.prototype.closeModal = function () {
         this.hideModal = true;
         this.hideModalcliente = true;
+        this.hideModalpago = true;
     };
     CotizadorComponent.prototype.closeMaquilas = function () {
         this.maquilasModal = true;
