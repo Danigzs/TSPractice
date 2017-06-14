@@ -94,8 +94,9 @@ export class CotizadorComponent implements OnInit {
   public hideModal = true;
   public hideModal2 = true;
   public hideModal3 = true;
+ 
   public hideModalcliente = true;
-
+ 
   public maquilasModal = true;
   public pIndex: number;
   public checked = true;
@@ -214,6 +215,7 @@ export class CotizadorComponent implements OnInit {
   ClienteModal() {
     this.hideModalcliente = false;
   }
+ 
   closeModal() {
     this.hideModal = true;
     this.hideModalcliente = true;
@@ -224,6 +226,7 @@ export class CotizadorComponent implements OnInit {
     this.calculateTotal();
   }
   closeTecnicas() {
+ 
     this.hideModal2 = true;
 
     this.resetTecnicas();
