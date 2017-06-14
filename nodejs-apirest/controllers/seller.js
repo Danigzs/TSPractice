@@ -1,14 +1,14 @@
 var mongoose = require('mongoose');
-var Seller = mongoose.model('Client');
+var Seller = mongoose.model('Seller');
 
 //GET - Return all registers
 exports.findAll = function (req, res) {
 
-  Client.find(function (err, clients) {
+  Seller.find(function (err, sellers) {
     if (err) res.send(500, err.message);
-    console.log('GET /clients')
+    console.log('GET /sellers')
     res.json({
-      clients: clients
+      sellers: sellers
     });
 
   });
@@ -16,10 +16,10 @@ exports.findAll = function (req, res) {
 
 //GET - Return a register with specified ID
 exports.findById = function (req, res) {
-  Client.findById(req.params.id, function (err, client) {
+  Seller.findById(req.params.id, function (err, seller) {
     if (err) return res.send(500, err.message);
-    console.log('GET /clients/' + req.params.id);
-    res.status(200).jsonp(client);
+    console.log('GET /sellers/' + req.params.id);
+    res.status(200).jsonp(seller);
   });
 };
 
@@ -27,25 +27,19 @@ exports.findById = function (req, res) {
 exports.add = function (req, res) {
   console.log('POST');
   console.log(req.body);
-  var client = new Client({
+  var seller = new Seller({
     name: req.body.name,
-  businessName: req.body.businessName,
+  store: req.body.store,
   address: req.body.address,
-  state: req.body.state,
-  town: req.body.town,
-  district: req.body.district,
-  country: req.body.country,
-  postalCode: req.body.postalCode,
   phone: req.body.phone,
   email: req.body.email,
-  attentTo: req.body.attentTo,
   rfc: req.body.rfc,
   code:  req.body.code
   });
-  client.save(function (err, client) {
+  seller.save(function (err, seller) {
     if (err) return res.send(500, err.message);
     res.status(200).json({
-      client: client
+      seller: seller
     });
 
   });
@@ -53,24 +47,18 @@ exports.add = function (req, res) {
 
 //PUT - Update a register already exists
 exports.update = function (req, res) {
-  Client.findById(req.params.id, function (err, client) {
-    client.name =  req.body.name,
-  client.businessName =  req.body.businessName,
-  client.address =  req.body.address,
-  client.state =  req.body.state,
-  client.town =  req.body.town,
-  client.district =  req.body.district,
-  client.country =  req.body.country,
-  client.postalCode =  req.body.postalCode,
-  client.phone =  req.body.phone,
-  client.email =  req.body.email,
-  client.attentTo =  req.body.attentTo,
-  client.rfc =  req.body.rfc,
-  client.code =   req.body.code
-    client.save(function (err) {
+  Seller.findById(req.params.id, function (err, seller) {
+    seller.name =  req.body.name,
+  seller.store =  req.body.store,
+  seller.address =  req.body.address,
+  seller.phone =  req.body.phone,
+  seller.email =  req.body.email,
+  seller.rfc =  req.body.rfc,
+  seller.code =   req.body.code
+    seller.save(function (err) {
       if (err) return res.send(500, err.message);
      res.status(200).json({
-      client: client
+      seller: seller
     });
     });
   });
@@ -78,8 +66,8 @@ exports.update = function (req, res) {
 
 //DELETE - Delete a register with specified ID
 exports.delete = function (req, res) {
-  Client.findById(req.params.id, function (err, client) {
-    client.remove(function (err) {
+  Seller.findById(req.params.id, function (err, seller) {
+    seller.remove(function (err) {
       if (err) return res.send(500, err.message);
       res.json({
         message: 'Successfully deleted'

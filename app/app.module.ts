@@ -10,6 +10,7 @@ import {ClientesComponent} from './clientes.details';
 import {ClientsListComponent} from './cliente/clientsList.component';
 import {CotizadorComponent} from './cotizador.component';
 import {TecnicasComponent} from './tecnicas/tecnicas.component';
+import {SellersComponent} from './sellers/sellers.component';
 import {CategoriasComponent} from './categorias/categorias.component';
 import {InventarioComponent} from './inventario.component';
 import {NuevoProductoComponent} from './nuevoproducto/nuevoproducto.component';
@@ -20,6 +21,7 @@ import {ClienteService} from './cliente/cliente.service'
 import {CotizadorService} from './cotizacion/cotizador.service'
 import {ProductoService} from './producto/producto.service'
 import {TecnicaService} from './producto/tecnica.service'
+import {SellerService} from './sellers/seller.service'
 import { HttpModule, JsonpModule } from '@angular/http';
 
 const appRoutes: Routes = [
@@ -32,6 +34,7 @@ const appRoutes: Routes = [
   { path: 'inventario', component: ProductsListComponent},
   { path: 'nuevoproducto', component: NuevoProductoComponent},
   { path: 'tecnicas', component: TecnicasComponent},
+  { path: 'sellers', component: SellersComponent},
   { path: 'categorias', component: CategoriasComponent},
    
   
@@ -59,10 +62,11 @@ const appRoutes: Routes = [
   ProductsListComponent,
   NuevoProductoComponent,
   TecnicasComponent,
+  SellersComponent,
   CategoriasComponent,
   
   ],
-  providers : [ CotizadorService, ClienteService, ProductoService, TecnicaService],
+  providers : [ CotizadorService, ClienteService, ProductoService, TecnicaService,SellerService],
   bootstrap:    [ NavbarComponent, ]
 })
 export class AppModule { }

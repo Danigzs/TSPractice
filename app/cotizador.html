@@ -23,10 +23,10 @@
 
     </div>
     <div class="op-header-store ">
-    <div class="op-header-folio">
-      <div class="op-header-folio-text"> FOLIO:</div>
-      <div class="op-header-folio-body"> No. 25443 </div>
-    </div>
+      <div class="op-header-folio">
+        <div class="op-header-folio-text"> FOLIO:</div>
+        <div class="op-header-folio-body"> No. 25443 </div>
+      </div>
     </div>
   </div>
   <div class="c-div-container">
@@ -37,7 +37,7 @@
       </p>-->
     </div>
     <div class="c-cliente-seccion">
- 
+
       <label>Cliente</label>
       <div class="c-cliente-nuevo">
         <label> Nuevo</label>
@@ -50,213 +50,209 @@
         <input type="checkbox">
 
       </div>
- 
+
     </div>
 
-<div class="c-container-c-v">
-    <div class="c-container-info c-container-info-l">
+    <div class="c-container-c-v">
+      <div class="c-container-info c-container-info-l">
 
-      <div class="c-container-info-column column-text">
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            Cliente
+        <div class="c-container-info-column column-text">
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Cliente
+            </div>
+
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Email
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Teléfono
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              RFC
+            </div>
           </div>
 
         </div>
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            Email
-          </div>
-        </div>
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            Teléfono
-          </div>
-        </div>
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            RFC
-          </div>
-        </div>
 
-      </div>
-
-      <div class="c-container-info-column data">
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            <select class="form-control" name="sel" [(ngModel)]="clienteSelected" (ngModelChange)="updateCliente($event)">
+        <div class="c-container-info-column data">
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <select class="form-control" name="sel" [(ngModel)]="clienteSelected" (ngModelChange)="updateCliente($event)">
                     <option *ngFor="let cliente of clientes" [ngValue]="cliente">
                         {{cliente.name}}
                     </option>
                 </select>
 
 
+            </div>
           </div>
-        </div>
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            <div class="example-full-width">
-              <span class="c-label-info">
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <div class="example-full-width">
+                <span class="c-label-info">
               {{clienteSelected.email}}
             </span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            <div class="example-full-width">
-              <span class="c-label-info">
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <div class="example-full-width">
+                <span class="c-label-info">
               {{clienteSelected.phone}}
             </span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            <div class="example-full-width">
-              <span class="c-label-info">
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <div class="example-full-width">
+                <span class="c-label-info">
               {{clienteSelected.rfc}}
             </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="c-container-info-column column-text">
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Estado
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              País
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Razón Social
             </div>
           </div>
         </div>
 
-      </div>
+        <div class="c-container-info-column data">
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
 
-
-      <div class="c-container-info-column column-text">
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-
+            </div>
           </div>
-        </div>
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            Estado
-          </div>
-        </div>
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            País
-          </div>
-        </div>
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            Razón Social
-          </div>
-        </div>
-      </div>
-
-      <div class="c-container-info-column data">
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-
-          </div>
-        </div>
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            <div class="example-full-width">
-              <span class="c-label-info">
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <div class="example-full-width">
+                <span class="c-label-info">
               {{clienteSelected.state}}
             </span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            <div class="example-full-width">
-              <span class="c-label-info">
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <div class="example-full-width">
+                <span class="c-label-info">
               {{clienteSelected.country}}
             </span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            <div class="example-full-width">
-              <span class="c-label-info">
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <div class="example-full-width">
+                <span class="c-label-info">
               {{clienteSelected.bussinessName}}
             </span>
 
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="c-container-info c-container-info-r">
+
+        <div class="c-container-info-column column-text">
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Vendedor
             </div>
 
           </div>
-        </div>
-      </div>
-
-    </div> 
-
-     <div class="c-container-info c-container-info-r">
-
-      <div class="c-container-info-column column-text">
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            Vendedor
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Zona
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Forma de envío
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Fecha de entrega
+            </div>
           </div>
 
         </div>
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            Zona
-          </div>
-        </div>
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            Forma de envío
-          </div>
-        </div>
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            Fecha de entrega
-          </div>
-        </div>
 
-      </div>
-
-      <div class="c-container-info-column data">
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            <select class="form-control" name="sel" [(ngModel)]="clienteSelected" (ngModelChange)="updateCliente($event)">
-                    <option *ngFor="let cliente of clientes" [ngValue]="cliente">
-                        {{cliente.name}}
+        <div class="c-container-info-column data">
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <select class="form-control" name="sel" [(ngModel)]="sellerSelected" (ngModelChange)="updateSeller($event)">
+                    <option *ngFor="let seller of sellers" [ngValue]="seller">
+                        {{seller.name}}
                     </option>
                 </select>
 
 
-          </div>
-        </div>
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            <div class="example-full-width">
-              <span class="c-label-info">
-              {{clienteSelected.email}}
-            </span>
             </div>
           </div>
-        </div>
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            <div class="example-full-width">
-              <span class="c-label-info">
-              {{clienteSelected.phone}}
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <div class="example-full-width">
+                <span class="c-label-info">
+              {{sellerSelected.store}}
             </span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            <div class="example-full-width">
-              <span class="c-label-info">
-              {{clienteSelected.rfc}}
-            </span>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <div class="example-full-width">
+                <input type="text" name="code" [(ngModel)]="order.shippingWay">
+              </div>
             </div>
           </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <div class="example-full-width">
+                <input type="text" name="code" [(ngModel)]="order.shippingDate">
+              </div>
+            </div>
+          </div>
+
         </div>
 
-      </div>
 
-
-      <!--<div class="c-container-info-column column-text">
+        <!--<div class="c-container-info-column column-text">
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
 
@@ -316,8 +312,8 @@
         </div>
       </div>-->
 
+      </div>
     </div>
-</div>
 
 
 
@@ -355,7 +351,7 @@
               <!--<th>Agregar Tecnicas</th>-->
             </tr>
           </thead>
-          <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let producto of productosCotizacion; let i = index">
+          <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let producto of order.products; let i = index">
             <td>{{producto.quantity}}</td>
             <td>{{producto.name}}</td>
             <td>{{producto.description}}</td>
@@ -382,7 +378,7 @@
               <!--<th>Agregar Tecnicas</th>-->
             </tr>
           </thead>
-          <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let tecnica of maquilasCotizacion; let i = index">
+          <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let tecnica of order.maquilas; let i = index">
             <td>{{tecnica.quantity}}</td>
             <td>{{tecnica.name}} {{tecnica.subType}}</td>
             <td>{{tecnica.size}}</td>
@@ -394,7 +390,7 @@
           </tr>
 
 
-        </table> 
+        </table>
       </div>
 
 
@@ -497,7 +493,7 @@
   <md-chip (click)="selected5 ? selected5  =  false : selected5 = true;" selected="{{selected5}}">Two fish</md-chip>
   <md-chip (click)="closeModal()" (click)="Details()">Click</md-chip>
   </md-chip-list>-->
- 
+
     </div>
   </div>
 
@@ -567,3 +563,4 @@
 
   </div>
 </div>
+

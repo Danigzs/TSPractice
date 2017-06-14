@@ -16,6 +16,7 @@ var clientes_details_1 = require("./clientes.details");
 var clientsList_component_1 = require("./cliente/clientsList.component");
 var cotizador_component_1 = require("./cotizador.component");
 var tecnicas_component_1 = require("./tecnicas/tecnicas.component");
+var sellers_component_1 = require("./sellers/sellers.component");
 var categorias_component_1 = require("./categorias/categorias.component");
 var inventario_component_1 = require("./inventario.component");
 var nuevoproducto_component_1 = require("./nuevoproducto/nuevoproducto.component");
@@ -25,6 +26,7 @@ var cliente_service_1 = require("./cliente/cliente.service");
 var cotizador_service_1 = require("./cotizacion/cotizador.service");
 var producto_service_1 = require("./producto/producto.service");
 var tecnica_service_1 = require("./producto/tecnica.service");
+var seller_service_1 = require("./sellers/seller.service");
 var http_1 = require("@angular/http");
 var appRoutes = [
     { path: 'form-directive', component: form_component_1.FormComponent },
@@ -36,6 +38,7 @@ var appRoutes = [
     { path: 'inventario', component: productsList_component_1.ProductsListComponent },
     { path: 'nuevoproducto', component: nuevoproducto_component_1.NuevoProductoComponent },
     { path: 'tecnicas', component: tecnicas_component_1.TecnicasComponent },
+    { path: 'sellers', component: sellers_component_1.SellersComponent },
     { path: 'categorias', component: categorias_component_1.CategoriasComponent },
     { path: '', redirectTo: '/my-app', pathMatch: 'full' },
 ];
@@ -62,9 +65,10 @@ AppModule = __decorate([
             productsList_component_1.ProductsListComponent,
             nuevoproducto_component_1.NuevoProductoComponent,
             tecnicas_component_1.TecnicasComponent,
+            sellers_component_1.SellersComponent,
             categorias_component_1.CategoriasComponent,
         ],
-        providers: [cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService],
+        providers: [cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService, seller_service_1.SellerService],
         bootstrap: [navbar_component_1.NavbarComponent,]
     })
 ], AppModule);

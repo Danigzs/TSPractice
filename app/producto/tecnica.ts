@@ -1,4 +1,5 @@
 export class Tecnica {
+  _id: String;
   name: string;
   subType: string;
   size: string;

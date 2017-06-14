@@ -1,4 +1,5 @@
 export class Cliente {
+  _id: String;
   name: String;
   businessName: String;
   address: String;

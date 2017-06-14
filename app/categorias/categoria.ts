@@ -1,4 +1,5 @@
 export class Categoria {
+  _id: String;
   nombre: string;
   selected: boolean;
   id:number;

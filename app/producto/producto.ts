@@ -1,5 +1,6 @@
 import {Tecnica} from './tecnica'
 export class Producto {
+  _id: String;
   name: string;
   price: number;
   description: string;

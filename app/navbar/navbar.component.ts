@@ -60,6 +60,8 @@ import {ProductoService} from './../producto/producto.service'
             <li><a routerLink="/tecnicas">Técnicas</a></li>
             <li role="presentation" class="divider"></li>
             <li><a routerLink="/categorias">Categorías</a></li>
+            <li role="presentation" class="divider"></li>
+            <li><a routerLink="/sellers">Vendedores</a></li>
           </ul>
         </li>
       </ul>     

@@ -1,4 +1,6 @@
-import { Observable } from 'rxjs/Observable';
+import {
+  Observable
+} from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
@@ -10,17 +12,56 @@ import {
   ViewContainerRef
 } from '@angular/core';
 
-import {CotizadorService} from './cotizacion/cotizador.service'
-import {ClienteService} from './cliente/cliente.service'
-import {Cliente} from './cliente/cliente'
-import {Cotizacion} from './cotizacion/cotizacion'
-import {Producto} from './producto/producto'
-import {ProductCotizacion} from './producto/productCotizacion'
-import {ProductoService} from './producto/producto.service'
-import {Tecnica} from './producto/tecnica'
-import {TecnicaCotizacion} from './tecnicas/tecnicaCotizacion'
-import {TecnicaService} from './producto/tecnica.service'
-import {ChangeDetectorRef} from '@angular/core'
+/*
+    Objects
+*/
+import {
+  Cliente
+} from './cliente/cliente'
+import {
+  Cotizacion
+} from './cotizacion/cotizacion'
+import {
+  Producto
+} from './producto/producto'
+import {
+  Tecnica
+} from './producto/tecnica'
+import {
+  Seller
+} from './sellers/seller'
+
+import {
+  ProductCotizacion
+} from './producto/productCotizacion'
+import {
+  TecnicaCotizacion
+} from './tecnicas/tecnicaCotizacion'
+import {
+  Order
+} from './orders/order'
+/*
+    Services
+*/
+import {
+  CotizadorService
+} from './cotizacion/cotizador.service'
+import {
+  ClienteService
+} from './cliente/cliente.service'
+import {
+  ProductoService
+} from './producto/producto.service'
+
+import {
+  TecnicaService
+} from './producto/tecnica.service'
+import {
+  SellerService
+} from './sellers/seller.service'
+import {
+  ChangeDetectorRef
+} from '@angular/core'
 
 
 
@@ -34,49 +75,52 @@ import {
 
 @Component({
   selector: 'cotizador',
-  providers : [ CotizadorService, ClienteService, ProductoService, TecnicaService],
+  providers: [CotizadorService, ClienteService, ProductoService, TecnicaService, SellerService],
   styleUrls: ["app/cotizador.css"],
   templateUrl: "app/cotizador.html"
 
 })
-export class CotizadorComponent {
+export class CotizadorComponent implements OnInit {
   public viewContainerRef: ViewContainerRef;
+
   public cotizaciones: Array < any > ;
   public clientes: Array < Cliente > ;
-  public productos: Array < ProductCotizacion >;
-  public productosCotizacion: Array  <ProductCotizacion>;
-  public tecnicas: Array <TecnicaCotizacion>;
-  public maquilasCotizacion: Array <TecnicaCotizacion> = [];
+  public sellers: Array < Seller > ;
+  public order:Order;
+  public productos: Array < ProductCotizacion > ;
+  //public productosCotizacion: Array < ProductCotizacion > ;
+  public tecnicas: Array < TecnicaCotizacion > ;
+  //public maquilasCotizacion: Array < TecnicaCotizacion > = [];
   public hideModal = true;
   public hideModal2 = true;
   public hideModal3 = true;
-  public hideModalcliente=true;
- 
+  public hideModalcliente = true;
+
   public maquilasModal = true;
-   public pIndex:number;
+  public pIndex: number;
   public checked = true;
-  public checknuevo:boolean;
-  public checkexistente:boolean;
+  public checknuevo: boolean;
+  public checkexistente: boolean;
   // dialogRef: MdDialogRef<DialogProductoComponent>;
   componentName: 'CotizadorComponent';
   // dialogProducto = DialogProductoComponent;
 
-  cotizacion = new Cotizacion();   
+  cotizacion = new Cotizacion();
   
   totalCotizacion = 0.0;
   selectedValue = {};
   productoSelected = new Producto;
   clienteSelected = new Cliente;
   tecnicaSelected = new Tecnica;
+  sellerSelected = new Seller;
   
   currentDate = this.getTodayDate();
-  gridKeys = ["Cantidad","Nombre","Descripcion","Precio Unitario","Total"];
+  gridKeys = ["Cantidad", "Nombre", "Descripcion", "Precio Unitario", "Total"];
 
 
-   constructor(private dialog: MdDialog, private _cotizadorService: CotizadorService, public _clienteService: ClienteService, private _productoService: ProductoService,private _tecnicaService: TecnicaService, private changeDetectorRef:ChangeDetectorRef) {
-
+  constructor(private dialog: MdDialog, private _cotizadorService: CotizadorService, public _clienteService: ClienteService, private _productoService: ProductoService, private _tecnicaService: TecnicaService, private changeDetectorRef: ChangeDetectorRef, private _sellerService: SellerService) {
   }
-  
+
   updateCliente(event: Event) {
     console.warn(this.clienteSelected);
   }
@@ -88,73 +132,72 @@ export class CotizadorComponent {
   updateProducto(event: Event) {
     console.warn(this.productoSelected);
   }
+  updateSeller(event: Event) {
+    console.warn(this.sellerSelected);
+  }
 
-  addProducto(producto:ProductCotizacion){
+  addProducto(producto: ProductCotizacion) {
     producto.total = producto.price * producto.quantity;
-    this.productosCotizacion.push(producto);
+    this.order.products.push(producto);
     this.calculateTotal();
   }
- seleccionarTecnica(tecnica:TecnicaCotizacion){
-   this.maquilasCotizacion.push(tecnica);
-   this.calculateTotal();
+  seleccionarTecnica(tecnica: TecnicaCotizacion) {
+    this.order.maquilas.push(tecnica);
+    this.calculateTotal();
 
- }
-  closeClientAdded(event:Cliente){
+  }
+  closeClientAdded(event: Cliente) {
     this.clienteSelected = event;
     this._clienteService.getClients().subscribe(
       clients => {
-        this.clientes = clients 
+        this.clientes = clients
       }
     );
-    this.hideModalcliente=true;
+    this.hideModalcliente = true;
   }
-  calculateTotal(){
-    
-    var _total = 0;
-    for(let producto of this.productosCotizacion){
-      _total += producto.price * producto.quantity;
+  calculateTotal() {
 
-      // for (let tecnica of producto.tecnicas) {
-      //   _total += producto.quantity * tecnica.precio;
-      // }
+    var _total = 0;
+    for (let producto of this.order.products) {
+      _total += producto.price * producto.quantity;
     }
-    for(let maquila of this.maquilasCotizacion){
+    for (let maquila of this.order.maquilas) {
       _total += maquila.price * maquila.quantity;
     }
-    
+
     this.totalCotizacion = _total;
   }
- 
 
-  init(){
+
+  init() {
     this.cotizacion.numeroCotizacion = "000000000001";
-    
+
 
   }
   getTodayDate() {
     return new Date().toLocaleDateString();
   }
- // open() {
-   // let dialogRef: MdDialogRef < DialogProductoComponent > ;
-    //dialogRef = this.dialog.open(DialogProductoComponent);
-    //return dialogRef.afterClosed();
+  // open() {
+  // let dialogRef: MdDialogRef < DialogProductoComponent > ;
+  //dialogRef = this.dialog.open(DialogProductoComponent);
+  //return dialogRef.afterClosed();
   //}
 
 
   //Modal
-  verProductos(){
+  verProductos() {
     this.hideModal = false;
   }
-  verMaquilas(){
+  verMaquilas() {
     this.maquilasModal = false;
   }
-    verTecnica(index:number){
+  verTecnica(index: number) {
     this.pIndex = index;
     this.hideModal2 = false;
     this.setTecnicasSelected();
   }
 
-  setTecnicasSelected(){
+  setTecnicasSelected() {
     // for (let tecnicaP of this.productos[this.pIndex].tecnicas) {
     //   for (let tecnica of this.tecnicas) {
     //     if(tecnicaP.id == tecnica.id){
@@ -164,150 +207,141 @@ export class CotizadorComponent {
     //   }
     // }
   }
-   
-  Details(){
+
+  Details() {
     this.hideModal3 = false;
   }
-   ClienteModal(){
-    this.hideModalcliente= false;
+  ClienteModal() {
+    this.hideModalcliente = false;
   }
-  closeModal(){
+  closeModal() {
     this.hideModal = true;
-    this.hideModalcliente=true;
-     
+    this.hideModalcliente = true;
+
   }
- closeMaquilas(){
-   this.maquilasModal = true;
-   this.calculateTotal();
- }
-  closeTecnicas(){
+  closeMaquilas() {
+    this.maquilasModal = true;
+    this.calculateTotal();
+  }
+  closeTecnicas() {
     this.hideModal2 = true;
-     
+
     this.resetTecnicas();
     this.calculateTotal();
   }
-  resetTecnicas(){
+  resetTecnicas() {
     // for (let tecnica of this.tecnicas) {
-    
+
     //   tecnica.selected = false;
     // }
   }
-  alreadyTecnicaAdded(tecnicaToAdd:Tecnica){
-      // for (let tecnica of this.productos[this.pIndex].tecnicas) {
-      //   if(tecnica.id == tecnicaToAdd.id){
-      //     return true;
-      //   }
-      // }
-      // return false;
+  alreadyTecnicaAdded(tecnicaToAdd: Tecnica) {
+    // for (let tecnica of this.productos[this.pIndex].tecnicas) {
+    //   if(tecnica.id == tecnicaToAdd.id){
+    //     return true;
+    //   }
+    // }
+    // return false;
   }
-  deleteTecnica(tecnica:Tecnica){
+  deleteTecnica(tecnica: Tecnica) {
     // for(var i = 0;i<this.productos[this.pIndex].tecnicas.length;i++){
     //   if(this.productos[this.pIndex].tecnicas[i].id = tecnica.id){
     //       this.productos[this.pIndex].tecnicas.splice(i, 1);
     //   }
     // }
   }
-  calcularTotalProducto(producto:ProductCotizacion){
-      var total = producto.price * producto.quantity
-      // for (let tecnica of producto.tecnicas) {
-      //   total += producto.quantity * tecnica.precio;
-      // }
-      return total
+  calcularTotalProducto(producto: ProductCotizacion) {
+    var total = producto.price * producto.quantity
+    // for (let tecnica of producto.tecnicas) {
+    //   total += producto.quantity * tecnica.precio;
+    // }
+    return total
   }
-  closeModal2(){  
-    this.hideModal3 = true;  
+  closeModal2() {
+    this.hideModal3 = true;
     this.hideModal2 = false;
-    
+
   }
- 
-  seleccionarProducto(producto:ProductCotizacion){
+
+  seleccionarProducto(producto: ProductCotizacion) {
     this.addProducto(producto);
     // this.closeModal();
   }
-  selectTecnica(tecnica:Tecnica){
+  selectTecnica(tecnica: Tecnica) {
     // tecnica.selected=(tecnica.selected==undefined||tecnica.selected==null)?true:!tecnica.selected;
-    
+
   }
-  isTecnicaSelected(tecnica:Tecnica){
+  isTecnicaSelected(tecnica: Tecnica) {
     // if(tecnica.selected==undefined || tecnica.selected == null){
     //   return false;
     // }
     // return tecnica.selected;
   }
 
-   deleteRow(rowNumber: number){
-    this.productosCotizacion.splice(rowNumber, 1);
+  deleteRow(rowNumber: number) {
+    this.order.products.splice(rowNumber, 1);
     this.changeDetectorRef.detectChanges();
     this.calculateTotal()
-    
-}
-getProductsCotizacionFromProducts(_products:Array<Producto>){
-  var prodsCot = Array<ProductCotizacion>();
-_products.forEach(prod => {
-  prodsCot.push(ProductCotizacion.copyFromProduct(prod));
 
-});
-return prodsCot;
-}
-getTecnicasCotizacionFromTecnicas(_tecnicas:Array<Tecnica>){
-  var tecnicasCot = Array<TecnicaCotizacion>();
-_tecnicas.forEach(tecnica => {
-  tecnicasCot.push(TecnicaCotizacion.copyFromTecnica(tecnica));
+  }
+  getProductsCotizacionFromProducts(_products: Array < Producto > ) {
+    var prodsCot = Array < ProductCotizacion > ();
+    _products.forEach(prod => {
+      prodsCot.push(ProductCotizacion.copyFromProduct(prod));
 
-});
-return tecnicasCot;
-}
-getCPT():Promise<boolean> {
-      return new Promise<boolean>((resolve, reject) => {
- 
-    Observable.forkJoin(
+    });
+    return prodsCot;
+  }
+  getTecnicasCotizacionFromTecnicas(_tecnicas: Array < Tecnica > ) {
+    var tecnicasCot = Array < TecnicaCotizacion > ();
+    _tecnicas.forEach(tecnica => {
+      tecnicasCot.push(TecnicaCotizacion.copyFromTecnica(tecnica));
+
+    });
+    return tecnicasCot;
+  }
+  getCPT(): Promise < boolean > {
+    return new Promise < boolean > ((resolve, reject) => {
+
+      Observable.forkJoin(
         this._clienteService.getClients(),
         this._productoService.getProducts(),
-         this._tecnicaService.getTecnicas()
-    ).subscribe(
-      data => {
-        
-        this.clientes = data[0]
-         this.productos = this.getProductsCotizacionFromProducts(data[1])
-         this.tecnicas = this.getTecnicasCotizacionFromTecnicas(data[2]);
-         resolve(true)
-      } 
-    );
-      });
-} 
-  ngOnInit() {
-  //   this._clienteService.getClients().subscribe(
-  //     data=>{
-  //       this.clientes = data;
-  //     }
-  //   );
-  //  this._productoService.getProducts().subscribe(
-  //    data => {
-  //      this.productos = data;
-  //    }
-  //  );
+        this._tecnicaService.getTecnicas(),
+        this._sellerService.getSellers()
 
-  //   this._tecnicaService.getTecnicas().subscribe(
-  //     data => {
-  //       this.tecnicas = data;
-  //     }
-  //   );
-  this.getCPT().then(res => { 
-    if(this.clientes.length > 0)
-    this.clienteSelected = this.clientes[0];
-    if(this.tecnicas.length > 0)
-    this.tecnicaSelected = this.tecnicas[0];
-    if(this.productos.length > 0)
-    this.productoSelected = this.productos[0];
+      ).subscribe(
+        data => {
 
-    this.cotizacion.tecnica = this.tecnicaSelected;
-    this.cotizacion.cliente = this.clienteSelected;
-    this.productos = this.productos;
-    this.cotizacion.producto = this.productoSelected;
-    this.productosCotizacion = [];
-  });
+          this.clientes = data[0]
+          this.productos = this.getProductsCotizacionFromProducts(data[1])
+          this.tecnicas = this.getTecnicasCotizacionFromTecnicas(data[2]);
+          this.sellers = data[3];
+          resolve(true)
+        }
+      );
+    });
   }
-    
- 
-  
+  ngOnInit() {
+    this.order = new Order;
+    this.getCPT().then(res => {
+      if (this.clientes.length > 0)
+        this.clienteSelected = this.clientes[0];
+      if (this.tecnicas.length > 0)
+        this.tecnicaSelected = this.tecnicas[0];
+      if (this.productos.length > 0)
+        this.productoSelected = this.productos[0];
+
+      this.cotizacion.tecnica = this.tecnicaSelected;
+      this.cotizacion.cliente = this.clienteSelected;
+      this.productos = this.productos;
+      this.cotizacion.producto = this.productoSelected;
+
+      this.order.products = [];
+      this.order.maquilas = [];
+    });
+  }
+
+
+
 }
+
