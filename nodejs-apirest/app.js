@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 var methodOverride = require("method-override");
 var app = express();
 var path = require('path');
+var __projectRoot = __dirname + '/../';
 
 // Connection to DB
 var db;
@@ -15,8 +16,10 @@ db = res;
 
 // Middlewares
 
-app.use(bodyParser.urlencoded({extended: true}))
-app.use(bodyParser.json()); 
+app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.json());
+app.use(methodOverride());
+app.use(express.static(__projectRoot));
 
 
 // Import Models and Controllers
@@ -35,6 +38,13 @@ var OrderCtrl = require('./controllers/order');
 var TecnicaCtrl = require('./controllers/tecnica');
 var ProductCtrl = require('./controllers/product');
 var SellerCtrl = require('./controllers/seller');
+var router = express.Router();
+// Index - Route
+app.route('/*').get(function(req, res) { 
+    return res.sendFile(path.join(__projectRoot, 'index.html')); 
+});
+
+app.use(router);
 
 // API routes
 var api = express.Router();
