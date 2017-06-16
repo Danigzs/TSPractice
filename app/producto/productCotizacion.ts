@@ -10,7 +10,8 @@ export class ProductCotizacion extends Producto {
     this.total = 0;
   }
 
-  setProductCotizacion(name:string,price:number,description:string,supplies:string,isProvider:number,isBordesa:number,code:string,quantity:number,total:number){
+  setProductCotizacion(_id:string,name:string,price:number,description:string,supplies:string,isProvider:number,isBordesa:number,code:string,quantity:number,total:number){
+    this._id = _id;
     this.name = name;
     this.price = price;
     this.description = description;
@@ -24,6 +25,7 @@ export class ProductCotizacion extends Producto {
   }  
   copyNewProductCotizacion(){
     var _producto = new ProductCotizacion();
+    _producto._id = this._id;
     _producto.name  = this.name;
     _producto.price = this.price;
     _producto.description = this.description;
@@ -38,6 +40,7 @@ export class ProductCotizacion extends Producto {
 }
  static copyFromProduct(producto:Producto){
     var _producto = new ProductCotizacion();
+    _producto._id = producto._id;
     _producto.name  = producto.name;
     _producto.price = producto.price;
     _producto.description = producto.description;

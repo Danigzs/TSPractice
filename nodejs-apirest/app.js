@@ -28,6 +28,7 @@ var modelOrder = require('./models/order')(app, mongoose);
 var modelTecnicaCotizacion = require('./models/tecnicaCotizacion')(app, mongoose);
 var modelProductCotizacion = require('./models/productCotizacion')(app, mongoose);
 var modelOrder = require('./models/order')(app, mongoose);
+var modelOrderProducts = require('./models/orderProducts')(app, mongoose);
 
 
 var ClientCtrl = require('./controllers/client');
@@ -35,6 +36,7 @@ var OrderCtrl = require('./controllers/order');
 var TecnicaCtrl = require('./controllers/tecnica');
 var ProductCtrl = require('./controllers/product');
 var SellerCtrl = require('./controllers/seller');
+var OrderProductsCtrl = require('./controllers/orderProducts');
 
 // API routes
 var api = express.Router();
@@ -56,6 +58,11 @@ api.route('/orders')
 api.route('/orders/:id') 
  .get(OrderCtrl.findById)
  .put(OrderCtrl.update)
+
+ api.route('/orderProducts') 
+ .get(OrderProductsCtrl.findAll)
+ .post(OrderProductsCtrl.add);
+
 
 api.route('/tecnicas') 
  .get(TecnicaCtrl.findAll)

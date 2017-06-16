@@ -13,7 +13,8 @@ var ProductCotizacion = (function (_super) {
         _this.total = 0;
         return _this;
     }
-    ProductCotizacion.prototype.setProductCotizacion = function (name, price, description, supplies, isProvider, isBordesa, code, quantity, total) {
+    ProductCotizacion.prototype.setProductCotizacion = function (_id, name, price, description, supplies, isProvider, isBordesa, code, quantity, total) {
+        this._id = _id;
         this.name = name;
         this.price = price;
         this.description = description;
@@ -27,6 +28,7 @@ var ProductCotizacion = (function (_super) {
     };
     ProductCotizacion.prototype.copyNewProductCotizacion = function () {
         var _producto = new ProductCotizacion();
+        _producto._id = this._id;
         _producto.name = this.name;
         _producto.price = this.price;
         _producto.description = this.description;
@@ -41,6 +43,7 @@ var ProductCotizacion = (function (_super) {
     };
     ProductCotizacion.copyFromProduct = function (producto) {
         var _producto = new ProductCotizacion();
+        _producto._id = producto._id;
         _producto.name = producto.name;
         _producto.price = producto.price;
         _producto.description = producto.description;

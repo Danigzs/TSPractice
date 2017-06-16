@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Order = mongoose.model('Order');
+var OrderProducts = mongoose.model('OrderProducts');
 
 //GET - Return all registers
 exports.findAll = function (req, res) {
@@ -28,10 +29,8 @@ exports.add = function (req, res) {
   console.log('POST');
   console.log(req.body);
   var order = new Order({
-    client_id: req.body.client_id,
-    seller_id: req.body.seller_id,
-    products: req.body.products,
-    maquilas: req.body.maquilas,
+    client_id: req.body.client._id,
+    seller_id: req.body.seller._id,
     total: req.body.total,
     folio: req.body.folio,
     notes: req.body.notes,
@@ -41,8 +40,40 @@ exports.add = function (req, res) {
     shippingDate: req.body.shippingDate
 
   });
+
   order.save(function (err, order) {
     if (err) return res.send(500, err.message);
+
+    var prods = req.body.products;
+    var maquilas = req.body.maquilas;
+    prods.forEach(function(element) {
+
+      var orderProducts = new OrderProducts({
+          order_id:order._id,
+          product_id:element._id,
+          maquila_id:null,
+          quantity:element.quantity,
+          price:element.price
+      });
+      orderProducts.save(function(err,op){
+
+      })
+      
+    }, this);
+    maquilas.forEach(function(element) {
+        var orderProducts = new OrderProducts({
+          order_id:order._id,
+          product_id:null,
+          maquila_id:element._id,
+          quantity:element.quantity,
+          price:element.price
+      });
+      orderProducts.save(function(err,op){
+        
+      })
+    }, this);
+
+
     res.status(200).json({
       order: order
     });

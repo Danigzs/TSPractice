@@ -25,6 +25,7 @@ var material_1 = require("@angular/material");
 var cliente_service_1 = require("./cliente/cliente.service");
 var cotizador_service_1 = require("./cotizacion/cotizador.service");
 var producto_service_1 = require("./producto/producto.service");
+var order_service_1 = require("./orders/order.service");
 var tecnica_service_1 = require("./producto/tecnica.service");
 var seller_service_1 = require("./sellers/seller.service");
 var http_1 = require("@angular/http");
@@ -68,7 +69,7 @@ AppModule = __decorate([
             sellers_component_1.SellersComponent,
             categorias_component_1.CategoriasComponent,
         ],
-        providers: [cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService, seller_service_1.SellerService],
+        providers: [cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService, seller_service_1.SellerService, order_service_1.OrderService],
         bootstrap: [navbar_component_1.NavbarComponent,]
     })
 ], AppModule);

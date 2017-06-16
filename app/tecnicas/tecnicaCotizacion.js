@@ -13,7 +13,8 @@ var TecnicaCotizacion = (function (_super) {
         _this.total = 0.0;
         return _this;
     }
-    TecnicaCotizacion.prototype.setTecnicaCotizacion = function (name, subType, size, position, price, quantity, total) {
+    TecnicaCotizacion.prototype.setTecnicaCotizacion = function (_id, name, subType, size, position, price, quantity, total) {
+        this._id = _id;
         this.name = name;
         this.subType = subType;
         this.size = size;
@@ -24,6 +25,7 @@ var TecnicaCotizacion = (function (_super) {
     };
     TecnicaCotizacion.prototype.copyNewTecnica = function () {
         var _tecnica = new TecnicaCotizacion();
+        _tecnica._id = this._id;
         _tecnica.name = this.name;
         _tecnica.subType = this.subType;
         _tecnica.size = this.size;
@@ -35,6 +37,7 @@ var TecnicaCotizacion = (function (_super) {
     };
     TecnicaCotizacion.copyFromTecnica = function (tecnica) {
         var _tecnica = new TecnicaCotizacion();
+        _tecnica._id = tecnica._id;
         _tecnica.name = tecnica.name;
         _tecnica.subType = tecnica.subType;
         _tecnica.size = tecnica.size;

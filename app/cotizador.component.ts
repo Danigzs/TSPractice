@@ -52,6 +52,9 @@ import {
 import {
   ProductoService
 } from './producto/producto.service'
+import {
+  OrderService
+} from './orders/order.service'
 
 import {
   TecnicaService
@@ -75,7 +78,7 @@ import {
 
 @Component({
   selector: 'cotizador',
-  providers: [CotizadorService, ClienteService, ProductoService, TecnicaService, SellerService],
+  providers: [CotizadorService, ClienteService, ProductoService, TecnicaService, SellerService,OrderService],
   styleUrls: ["app/cotizador.css"],
   templateUrl: "app/cotizador.html"
 
@@ -94,7 +97,7 @@ export class CotizadorComponent implements OnInit {
   public hideModal = true;
   public hideModal2 = true;
   public hideModal3 = true;
- 
+ public hideModalpago = true;
   public hideModalcliente = true;
  
   public maquilasModal = true;
@@ -102,13 +105,14 @@ export class CotizadorComponent implements OnInit {
   public checked = true;
   public checknuevo: boolean;
   public checkexistente: boolean;
+  public shippingDate: String = "";
   // dialogRef: MdDialogRef<DialogProductoComponent>;
   componentName: 'CotizadorComponent';
   // dialogProducto = DialogProductoComponent;
 
   cotizacion = new Cotizacion();
   
-  totalCotizacion = 0.0;
+  tizacion = 0.0;
   selectedValue = {};
   productoSelected = new Producto;
   clienteSelected = new Cliente;
@@ -118,10 +122,13 @@ export class CotizadorComponent implements OnInit {
   currentDate = this.getTodayDate();
   gridKeys = ["Cantidad", "Nombre", "Descripcion", "Precio Unitario", "Total"];
 
-
-  constructor(private dialog: MdDialog, private _cotizadorService: CotizadorService, public _clienteService: ClienteService, private _productoService: ProductoService, private _tecnicaService: TecnicaService, private changeDetectorRef: ChangeDetectorRef, private _sellerService: SellerService) {
+  constructor(private dialog: MdDialog, private _cotizadorService: CotizadorService, public _clienteService: ClienteService, private _productoService: ProductoService, private _tecnicaService: TecnicaService, private changeDetectorRef: ChangeDetectorRef, private _sellerService: SellerService, private _orderService:OrderService) {
   }
 
+  setShippingDate(){
+     var d  = new Date();
+     this.shippingDate = d.getDate().toString() +"/"+d.getMonth().toString()+"/"+d.getFullYear().toString();
+  }
   updateCliente(event: Event) {
     console.warn(this.clienteSelected);
   }
@@ -166,7 +173,7 @@ export class CotizadorComponent implements OnInit {
       _total += maquila.price * maquila.quantity;
     }
 
-    this.totalCotizacion = _total;
+    this.order.total = _total;
   }
 
 
@@ -324,6 +331,21 @@ export class CotizadorComponent implements OnInit {
       );
     });
   }
+
+  Pay(){
+    
+    this.order.client = this.clienteSelected;
+    this.order.seller = this.sellerSelected;
+    
+    console.log(this.order);
+    this._orderService.addOrder(this.order).subscribe(
+      data => {
+        console.log("order added");
+      }
+    );
+    
+    
+  }
   ngOnInit() {
     this.order = new Order;
     this.getCPT().then(res => {
@@ -333,7 +355,9 @@ export class CotizadorComponent implements OnInit {
         this.tecnicaSelected = this.tecnicas[0];
       if (this.productos.length > 0)
         this.productoSelected = this.productos[0];
-
+      
+      if (this.sellers.length > 0)
+        this.sellerSelected = this.sellers[0];
       this.cotizacion.tecnica = this.tecnicaSelected;
       this.cotizacion.cliente = this.clienteSelected;
       this.productos = this.productos;
@@ -341,6 +365,9 @@ export class CotizadorComponent implements OnInit {
 
       this.order.products = [];
       this.order.maquilas = [];
+    this.setShippingDate();
+      
+      
     });
   }
 

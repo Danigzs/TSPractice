@@ -24,7 +24,8 @@ export class Producto {
     // this.tecnicas = [];
    
   }
-  setProducto(name:string,price:number,description:string,supplies:string,isProvider:number,isBordesa:number,code:string){
+  setProducto(_id:string, name:string,price:number,description:string,supplies:string,isProvider:number,isBordesa:number,code:string){
+    this._id = _id;
     this.name = name;
     this.price = price;
     this.description = description;
@@ -35,6 +36,7 @@ export class Producto {
   }  
   copyNewProducto(){
     var _producto = new Producto();
+    _producto._id = this._id;
     _producto.name  = this.name;
     _producto.price = this.price;
     _producto.description = this.description;

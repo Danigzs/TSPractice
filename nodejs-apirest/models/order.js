@@ -10,13 +10,13 @@ var orderSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId, 
     required: true
   },
-  products: [{
-    type: mongoose.Schema.Types.ObjectId  
-  }],
+  // products: [{
+  //   type: mongoose.Schema.Types.ObjectId  
+  // }],
 
-  maquilas: [{
-    type: mongoose.Schema.Types.ObjectId   
-  }],
+  // maquilas: [{
+  //   type: mongoose.Schema.Types.ObjectId   
+  // }],
   total: {
     type: Number
   },

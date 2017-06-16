@@ -29,12 +29,13 @@ var order_1 = require("./orders/order");
 var cotizador_service_1 = require("./cotizacion/cotizador.service");
 var cliente_service_1 = require("./cliente/cliente.service");
 var producto_service_1 = require("./producto/producto.service");
+var order_service_1 = require("./orders/order.service");
 var tecnica_service_1 = require("./producto/tecnica.service");
 var seller_service_1 = require("./sellers/seller.service");
 var core_2 = require("@angular/core");
 var material_1 = require("@angular/material");
 var CotizadorComponent = (function () {
-    function CotizadorComponent(dialog, _cotizadorService, _clienteService, _productoService, _tecnicaService, changeDetectorRef, _sellerService) {
+    function CotizadorComponent(dialog, _cotizadorService, _clienteService, _productoService, _tecnicaService, changeDetectorRef, _sellerService, _orderService) {
         this.dialog = dialog;
         this._cotizadorService = _cotizadorService;
         this._clienteService = _clienteService;
@@ -42,16 +43,19 @@ var CotizadorComponent = (function () {
         this._tecnicaService = _tecnicaService;
         this.changeDetectorRef = changeDetectorRef;
         this._sellerService = _sellerService;
+        this._orderService = _orderService;
         //public maquilasCotizacion: Array < TecnicaCotizacion > = [];
         this.hideModal = true;
         this.hideModal2 = true;
         this.hideModal3 = true;
+        this.hideModalpago = true;
         this.hideModalcliente = true;
         this.maquilasModal = true;
         this.checked = true;
+        this.shippingDate = "";
         // dialogProducto = DialogProductoComponent;
         this.cotizacion = new cotizacion_1.Cotizacion();
-        this.totalCotizacion = 0.0;
+        this.tizacion = 0.0;
         this.selectedValue = {};
         this.productoSelected = new producto_1.Producto;
         this.clienteSelected = new cliente_1.Cliente;
@@ -60,6 +64,10 @@ var CotizadorComponent = (function () {
         this.currentDate = this.getTodayDate();
         this.gridKeys = ["Cantidad", "Nombre", "Descripcion", "Precio Unitario", "Total"];
     }
+    CotizadorComponent.prototype.setShippingDate = function () {
+        var d = new Date();
+        this.shippingDate = d.getDate().toString() + "/" + d.getMonth().toString() + "/" + d.getFullYear().toString();
+    };
     CotizadorComponent.prototype.updateCliente = function (event) {
         console.warn(this.clienteSelected);
     };
@@ -99,7 +107,7 @@ var CotizadorComponent = (function () {
             var maquila = _c[_b];
             _total += maquila.price * maquila.quantity;
         }
-        this.totalCotizacion = _total;
+        this.order.total = _total;
     };
     CotizadorComponent.prototype.init = function () {
         this.cotizacion.numeroCotizacion = "000000000001";
@@ -228,6 +236,14 @@ var CotizadorComponent = (function () {
             });
         });
     };
+    CotizadorComponent.prototype.Pay = function () {
+        this.order.client = this.clienteSelected;
+        this.order.seller = this.sellerSelected;
+        console.log(this.order);
+        this._orderService.addOrder(this.order).subscribe(function (data) {
+            console.log("order added");
+        });
+    };
     CotizadorComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.order = new order_1.Order;
@@ -238,12 +254,15 @@ var CotizadorComponent = (function () {
                 _this.tecnicaSelected = _this.tecnicas[0];
             if (_this.productos.length > 0)
                 _this.productoSelected = _this.productos[0];
+            if (_this.sellers.length > 0)
+                _this.sellerSelected = _this.sellers[0];
             _this.cotizacion.tecnica = _this.tecnicaSelected;
             _this.cotizacion.cliente = _this.clienteSelected;
             _this.productos = _this.productos;
             _this.cotizacion.producto = _this.productoSelected;
             _this.order.products = [];
             _this.order.maquilas = [];
+            _this.setShippingDate();
         });
     };
     return CotizadorComponent;
@@ -251,11 +270,11 @@ var CotizadorComponent = (function () {
 CotizadorComponent = __decorate([
     core_1.Component({
         selector: 'cotizador',
-        providers: [cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService, seller_service_1.SellerService],
+        providers: [cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService, seller_service_1.SellerService, order_service_1.OrderService],
         styleUrls: ["app/cotizador.css"],
         templateUrl: "app/cotizador.html"
     }),
-    __metadata("design:paramtypes", [material_1.MdDialog, cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService, core_2.ChangeDetectorRef, seller_service_1.SellerService])
+    __metadata("design:paramtypes", [material_1.MdDialog, cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService, core_2.ChangeDetectorRef, seller_service_1.SellerService, order_service_1.OrderService])
 ], CotizadorComponent);
 exports.CotizadorComponent = CotizadorComponent;
 //# sourceMappingURL=cotizador.component.js.map
