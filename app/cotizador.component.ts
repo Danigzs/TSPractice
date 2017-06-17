@@ -143,6 +143,7 @@ export class CotizadorComponent implements OnInit {
   updateSeller(event: Event) {
     console.warn(this.sellerSelected);
   }
+ 
 
   addProducto(producto: ProductCotizacion) {
     producto.total = producto.price * producto.quantity;
@@ -348,6 +349,7 @@ export class CotizadorComponent implements OnInit {
   }
   ngOnInit() {
     this.order = new Order;
+    this.order.folio = "300";
     this.getCPT().then(res => {
       if (this.clientes.length > 0)
         this.clienteSelected = this.clientes[0];

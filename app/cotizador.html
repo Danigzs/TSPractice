@@ -25,7 +25,7 @@
     <div class="op-header-store ">
       <div class="op-header-folio">
         <div class="op-header-folio-text"> FOLIO:</div>
-        <div class="op-header-folio-body"> No. 25443 </div>
+        <div class="op-header-folio-body"> No. {{order.folio}} </div>
       </div>
     </div>
   </div>
@@ -261,7 +261,7 @@
     <div>
       <label>Observaciones Generales, Descripción y Cantidad de Mercancia Recibida</label>
     </div>
-    <textarea class="c-container-descripcion">
+    <textarea class="c-container-descripcion" [(ngModel)]="order.notes">
  
 
       </textarea>
@@ -292,7 +292,7 @@
             </tr>
           </thead>
           <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let producto of order.products; let i = index">
-            <td>{{producto.quantity}}</td>
+            <td> <input type="number" name="quantity" [(ngModel)]="producto.quantity" ></td>
             <td>{{producto.name}}</td>
             <td>{{producto.description}}</td>
             <td>{{producto.price| currency:'USD':true}}</td>

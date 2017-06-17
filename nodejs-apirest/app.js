@@ -5,6 +5,8 @@ var methodOverride = require("method-override");
 var app = express();
 var path = require('path');
 var __projectRoot = __dirname + '/../';
+var cors = require('cors')
+app.use(cors())
 
 // Connection to DB
 var db;
@@ -44,9 +46,9 @@ var OrderProductsCtrl = require('./controllers/orderProducts');
  
 var router = express.Router();
 // Index - Route
-app.route('/*').get(function(req, res) { 
-    return res.sendFile(path.join(__projectRoot, 'index.html')); 
-});
+// app.route('/*').get(function(req, res) { 
+//     return res.sendFile(path.join(__projectRoot, 'index.html')); 
+// });
 
 app.use(router);
  

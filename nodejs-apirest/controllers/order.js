@@ -46,8 +46,10 @@ exports.add = function (req, res) {
 
     var prods = req.body.products;
     var maquilas = req.body.maquilas;
+    console.log(JSON.stringify(prods));
     prods.forEach(function(element) {
-
+    console.log("ORDER SAVED, saving prod = " + element);
+    
       var orderProducts = new OrderProducts({
           order_id:order._id,
           product_id:element._id,
@@ -55,6 +57,8 @@ exports.add = function (req, res) {
           quantity:element.quantity,
           price:element.price
       });
+          console.log("orderProducts = " + JSON.stringify(orderProducts));
+
       orderProducts.save(function(err,op){
 
       })

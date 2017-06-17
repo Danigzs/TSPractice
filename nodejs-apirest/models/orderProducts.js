@@ -7,13 +7,9 @@ var orderProductSchema = new Schema({
     required: true
   },
    product_id:{
-    type: mongoose.Schema.Types.ObjectId,  
-    required: true
-  },
+    type: mongoose.Schema.Types.ObjectId  },
    maquila_id:{
-    type: mongoose.Schema.Types.ObjectId,  
-    required: true
-  },
+    type: mongoose.Schema.Types.ObjectId  },
    quantity:{
     type: Number
   },

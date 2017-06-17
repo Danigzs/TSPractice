@@ -247,6 +247,7 @@ var CotizadorComponent = (function () {
     CotizadorComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.order = new order_1.Order;
+        this.order.folio = "300";
         this.getCPT().then(function (res) {
             if (_this.clientes.length > 0)
                 _this.clienteSelected = _this.clientes[0];
