@@ -10,13 +10,16 @@ var orderSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId, 
     required: true
   },
-  // products: [{
-  //   type: mongoose.Schema.Types.ObjectId  
-  // }],
-
-  // maquilas: [{
-  //   type: mongoose.Schema.Types.ObjectId   
-  // }],
+  products:[{
+  }],
+  maquilas:[{
+  }],
+  isPaid: {
+    type: Number
+  },
+  paidTotal: {
+    type: Number
+  },
   total: {
     type: Number
   },
@@ -29,7 +32,7 @@ var orderSchema = new Schema({
   advance: {
     type: Number
   },
-  discount: {
+  debt: {
     type: Number
   },
   shippingWay: {

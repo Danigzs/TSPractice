@@ -6,6 +6,18 @@ var tecnicaCotizacionSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,  
     required: true
   },
+   name: {
+    type: String
+  },
+  subType: {
+    type: String
+  },
+  size: {
+    type: String
+  },
+  position: {
+    type: String
+  },
   price: {
     type: Number
   },

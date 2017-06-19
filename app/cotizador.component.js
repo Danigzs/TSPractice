@@ -53,7 +53,6 @@ var CotizadorComponent = (function () {
         this.maquilasModal = true;
         this.checked = true;
         this.shippingDate = "";
-        // dialogProducto = DialogProductoComponent;
         this.cotizacion = new cotizacion_1.Cotizacion();
         this.tizacion = 0.0;
         this.selectedValue = {};
@@ -80,13 +79,26 @@ var CotizadorComponent = (function () {
     CotizadorComponent.prototype.updateSeller = function (event) {
         console.warn(this.sellerSelected);
     };
+    CotizadorComponent.prototype.updateAdvance = function (event) {
+        if (this.order.total - this.order.advance >= 0) {
+            this.order.debt = this.order.total - this.order.advance;
+        }
+        else {
+            this.order.advance = 0;
+        }
+    };
     CotizadorComponent.prototype.addProducto = function (producto) {
         producto.total = producto.price * producto.quantity;
-        this.order.products.push(producto);
+        this.order.products.push(producto.copyNewProductCotizacion());
+        producto.quantity = 1;
+        producto.total = producto.price;
         this.calculateTotal();
     };
     CotizadorComponent.prototype.seleccionarTecnica = function (tecnica) {
-        this.order.maquilas.push(tecnica);
+        tecnica.total = tecnica.price * tecnica.quantity;
+        this.order.maquilas.push(tecnica.copyNewTecnica());
+        tecnica.quantity = 1;
+        tecnica.total = tecnica.price;
         this.calculateTotal();
     };
     CotizadorComponent.prototype.closeClientAdded = function (event) {
@@ -115,11 +127,6 @@ var CotizadorComponent = (function () {
     CotizadorComponent.prototype.getTodayDate = function () {
         return new Date().toLocaleDateString();
     };
-    // open() {
-    // let dialogRef: MdDialogRef < DialogProductoComponent > ;
-    //dialogRef = this.dialog.open(DialogProductoComponent);
-    //return dialogRef.afterClosed();
-    //}
     //Modal
     CotizadorComponent.prototype.verProductos = function () {
         this.hideModal = false;
@@ -133,14 +140,6 @@ var CotizadorComponent = (function () {
         this.setTecnicasSelected();
     };
     CotizadorComponent.prototype.setTecnicasSelected = function () {
-        // for (let tecnicaP of this.productos[this.pIndex].tecnicas) {
-        //   for (let tecnica of this.tecnicas) {
-        //     if(tecnicaP.id == tecnica.id){
-        //       tecnica.selected = true;
-        //       break;
-        //     }
-        //   }
-        // }
     };
     CotizadorComponent.prototype.Details = function () {
         this.hideModal3 = false;
@@ -167,25 +166,11 @@ var CotizadorComponent = (function () {
         // }
     };
     CotizadorComponent.prototype.alreadyTecnicaAdded = function (tecnicaToAdd) {
-        // for (let tecnica of this.productos[this.pIndex].tecnicas) {
-        //   if(tecnica.id == tecnicaToAdd.id){
-        //     return true;
-        //   }
-        // }
-        // return false;
     };
     CotizadorComponent.prototype.deleteTecnica = function (tecnica) {
-        // for(var i = 0;i<this.productos[this.pIndex].tecnicas.length;i++){
-        //   if(this.productos[this.pIndex].tecnicas[i].id = tecnica.id){
-        //       this.productos[this.pIndex].tecnicas.splice(i, 1);
-        //   }
-        // }
     };
     CotizadorComponent.prototype.calcularTotalProducto = function (producto) {
         var total = producto.price * producto.quantity;
-        // for (let tecnica of producto.tecnicas) {
-        //   total += producto.quantity * tecnica.precio;
-        // }
         return total;
     };
     CotizadorComponent.prototype.closeModal2 = function () {
@@ -194,16 +179,10 @@ var CotizadorComponent = (function () {
     };
     CotizadorComponent.prototype.seleccionarProducto = function (producto) {
         this.addProducto(producto);
-        // this.closeModal();
     };
     CotizadorComponent.prototype.selectTecnica = function (tecnica) {
-        // tecnica.selected=(tecnica.selected==undefined||tecnica.selected==null)?true:!tecnica.selected;
     };
     CotizadorComponent.prototype.isTecnicaSelected = function (tecnica) {
-        // if(tecnica.selected==undefined || tecnica.selected == null){
-        //   return false;
-        // }
-        // return tecnica.selected;
     };
     CotizadorComponent.prototype.deleteRow = function (rowNumber) {
         this.order.products.splice(rowNumber, 1);
@@ -239,6 +218,13 @@ var CotizadorComponent = (function () {
     CotizadorComponent.prototype.Pay = function () {
         this.order.client = this.clienteSelected;
         this.order.seller = this.sellerSelected;
+        this.order.debt = this.order.total - this.order.advance;
+        if (this.order.debt == 0) {
+            this.order.isPaid = 1;
+        }
+        else {
+            this.order.isPaid = 0;
+        }
         console.log(this.order);
         this._orderService.addOrder(this.order).subscribe(function (data) {
             console.log("order added");

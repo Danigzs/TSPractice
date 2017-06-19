@@ -11,20 +11,22 @@ var Order = (function () {
         this.folio = "";
         this.notes = "";
         this.advance = 0;
-        this.discount = 0;
+        this.debt = 0;
         this.shippingWay = "";
         this.shippingDate = Date.now();
     }
-    Order.prototype.setOrder = function (client, seller, products, maquilas, total, folio, notes, advance, discount, shippingWay, shippingDate) {
+    Order.prototype.setOrder = function (client, seller, products, maquilas, total, folio, notes, advance, debt, isPaid, createdAt, shippingWay, shippingDate) {
         this.client = client;
         this.seller = seller;
         this.products = products;
         this.maquilas = maquilas;
         this.total = total;
         this.folio = folio;
+        this.isPaid = isPaid;
+        this.createdAt = createdAt;
         this.notes = notes;
         this.advance = advance;
-        this.discount = discount;
+        this.debt = debt;
         this.shippingWay = shippingWay;
         this.shippingDate = shippingDate;
     };

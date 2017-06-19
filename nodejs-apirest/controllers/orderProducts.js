@@ -23,6 +23,14 @@ exports.findById = function (req, res) {
   });
 };
 
+exports.findByOrderID = function (req, res) {
+  OrderProducts.find( {order_id:req.order_id}, function (err, orderProducts) {
+    if (err) return res.send(500, err.message);
+    console.log('GET /orderProducts/' + req.params.order_id);
+    res.status(200).jsonp(orderProducts);
+  });
+};
+
 //POST - Insert a new register
 exports.add = function (req, res) {
   console.log('POST');

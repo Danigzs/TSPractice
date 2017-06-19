@@ -78,7 +78,7 @@ import {
 
 @Component({
   selector: 'cotizador',
-  providers: [CotizadorService, ClienteService, ProductoService, TecnicaService, SellerService,OrderService],
+  providers: [CotizadorService, ClienteService, ProductoService, TecnicaService, SellerService, OrderService],
   styleUrls: ["app/cotizador.css"],
   templateUrl: "app/cotizador.html"
 
@@ -89,7 +89,7 @@ export class CotizadorComponent implements OnInit {
   public cotizaciones: Array < any > ;
   public clientes: Array < Cliente > ;
   public sellers: Array < Seller > ;
-  public order:Order;
+  public order: Order;
   public productos: Array < ProductCotizacion > ;
   //public productosCotizacion: Array < ProductCotizacion > ;
   public tecnicas: Array < TecnicaCotizacion > ;
@@ -97,37 +97,34 @@ export class CotizadorComponent implements OnInit {
   public hideModal = true;
   public hideModal2 = true;
   public hideModal3 = true;
- public hideModalpago = true;
+  public hideModalpago = true;
   public hideModalcliente = true;
- 
+
   public maquilasModal = true;
   public pIndex: number;
   public checked = true;
   public checknuevo: boolean;
   public checkexistente: boolean;
   public shippingDate: String = "";
-  // dialogRef: MdDialogRef<DialogProductoComponent>;
   componentName: 'CotizadorComponent';
-  // dialogProducto = DialogProductoComponent;
 
   cotizacion = new Cotizacion();
-  
+
   tizacion = 0.0;
   selectedValue = {};
   productoSelected = new Producto;
   clienteSelected = new Cliente;
   tecnicaSelected = new Tecnica;
   sellerSelected = new Seller;
-  
+
   currentDate = this.getTodayDate();
   gridKeys = ["Cantidad", "Nombre", "Descripcion", "Precio Unitario", "Total"];
 
-  constructor(private dialog: MdDialog, private _cotizadorService: CotizadorService, public _clienteService: ClienteService, private _productoService: ProductoService, private _tecnicaService: TecnicaService, private changeDetectorRef: ChangeDetectorRef, private _sellerService: SellerService, private _orderService:OrderService) {
-  }
+  constructor(private dialog: MdDialog, private _cotizadorService: CotizadorService, public _clienteService: ClienteService, private _productoService: ProductoService, private _tecnicaService: TecnicaService, private changeDetectorRef: ChangeDetectorRef, private _sellerService: SellerService, private _orderService: OrderService) {}
 
-  setShippingDate(){
-     var d  = new Date();
-     this.shippingDate = d.getDate().toString() +"/"+d.getMonth().toString()+"/"+d.getFullYear().toString();
+  setShippingDate() {
+    var d = new Date();
+    this.shippingDate = d.getDate().toString() + "/" + d.getMonth().toString() + "/" + d.getFullYear().toString();
   }
   updateCliente(event: Event) {
     console.warn(this.clienteSelected);
@@ -143,15 +140,29 @@ export class CotizadorComponent implements OnInit {
   updateSeller(event: Event) {
     console.warn(this.sellerSelected);
   }
- 
+  
+  updateAdvance(event: Event){
+    if(this.order.total -  this.order.advance >= 0)
+      {
+        this.order.debt = this.order.total -  this.order.advance;
+      }
+    else{
+        this.order.advance = 0;
+    }
+  }
 
   addProducto(producto: ProductCotizacion) {
     producto.total = producto.price * producto.quantity;
-    this.order.products.push(producto);
+    this.order.products.push(producto.copyNewProductCotizacion());
+    producto.quantity = 1;
+    producto.total = producto.price;
     this.calculateTotal();
   }
   seleccionarTecnica(tecnica: TecnicaCotizacion) {
-    this.order.maquilas.push(tecnica);
+    tecnica.total = tecnica.price * tecnica.quantity;
+    this.order.maquilas.push(tecnica.copyNewTecnica());
+    tecnica.quantity = 1;
+    tecnica.total = tecnica.price;
     this.calculateTotal();
 
   }
@@ -186,13 +197,6 @@ export class CotizadorComponent implements OnInit {
   getTodayDate() {
     return new Date().toLocaleDateString();
   }
-  // open() {
-  // let dialogRef: MdDialogRef < DialogProductoComponent > ;
-  //dialogRef = this.dialog.open(DialogProductoComponent);
-  //return dialogRef.afterClosed();
-  //}
-
-
   //Modal
   verProductos() {
     this.hideModal = false;
@@ -206,15 +210,7 @@ export class CotizadorComponent implements OnInit {
     this.setTecnicasSelected();
   }
 
-  setTecnicasSelected() {
-    // for (let tecnicaP of this.productos[this.pIndex].tecnicas) {
-    //   for (let tecnica of this.tecnicas) {
-    //     if(tecnicaP.id == tecnica.id){
-    //       tecnica.selected = true;
-    //       break;
-    //     }
-    //   }
-    // }
+  setTecnicasSelected() { 
   }
 
   Details() {
@@ -223,7 +219,7 @@ export class CotizadorComponent implements OnInit {
   ClienteModal() {
     this.hideModalcliente = false;
   }
- 
+
   closeModal() {
     this.hideModal = true;
     this.hideModalcliente = true;
@@ -234,7 +230,7 @@ export class CotizadorComponent implements OnInit {
     this.calculateTotal();
   }
   closeTecnicas() {
- 
+
     this.hideModal2 = true;
 
     this.resetTecnicas();
@@ -247,25 +243,11 @@ export class CotizadorComponent implements OnInit {
     // }
   }
   alreadyTecnicaAdded(tecnicaToAdd: Tecnica) {
-    // for (let tecnica of this.productos[this.pIndex].tecnicas) {
-    //   if(tecnica.id == tecnicaToAdd.id){
-    //     return true;
-    //   }
-    // }
-    // return false;
   }
   deleteTecnica(tecnica: Tecnica) {
-    // for(var i = 0;i<this.productos[this.pIndex].tecnicas.length;i++){
-    //   if(this.productos[this.pIndex].tecnicas[i].id = tecnica.id){
-    //       this.productos[this.pIndex].tecnicas.splice(i, 1);
-    //   }
-    // }
   }
   calcularTotalProducto(producto: ProductCotizacion) {
     var total = producto.price * producto.quantity
-    // for (let tecnica of producto.tecnicas) {
-    //   total += producto.quantity * tecnica.precio;
-    // }
     return total
   }
   closeModal2() {
@@ -276,17 +258,11 @@ export class CotizadorComponent implements OnInit {
 
   seleccionarProducto(producto: ProductCotizacion) {
     this.addProducto(producto);
-    // this.closeModal();
   }
   selectTecnica(tecnica: Tecnica) {
-    // tecnica.selected=(tecnica.selected==undefined||tecnica.selected==null)?true:!tecnica.selected;
 
   }
   isTecnicaSelected(tecnica: Tecnica) {
-    // if(tecnica.selected==undefined || tecnica.selected == null){
-    //   return false;
-    // }
-    // return tecnica.selected;
   }
 
   deleteRow(rowNumber: number) {
@@ -322,7 +298,6 @@ export class CotizadorComponent implements OnInit {
 
       ).subscribe(
         data => {
-
           this.clientes = data[0]
           this.productos = this.getProductsCotizacionFromProducts(data[1])
           this.tecnicas = this.getTecnicasCotizacionFromTecnicas(data[2]);
@@ -333,19 +308,24 @@ export class CotizadorComponent implements OnInit {
     });
   }
 
-  Pay(){
-    
+  Pay() {
     this.order.client = this.clienteSelected;
     this.order.seller = this.sellerSelected;
-    
+    this.order.debt = this.order.total -  this.order.advance;
+    if(this.order.debt == 0){
+      this.order.isPaid = 1;
+    }
+    else {
+      this.order.isPaid = 0;
+    }
     console.log(this.order);
     this._orderService.addOrder(this.order).subscribe(
       data => {
         console.log("order added");
       }
     );
-    
-    
+
+
   }
   ngOnInit() {
     this.order = new Order;
@@ -357,7 +337,7 @@ export class CotizadorComponent implements OnInit {
         this.tecnicaSelected = this.tecnicas[0];
       if (this.productos.length > 0)
         this.productoSelected = this.productos[0];
-      
+
       if (this.sellers.length > 0)
         this.sellerSelected = this.sellers[0];
       this.cotizacion.tecnica = this.tecnicaSelected;
@@ -367,13 +347,12 @@ export class CotizadorComponent implements OnInit {
 
       this.order.products = [];
       this.order.maquilas = [];
-    this.setShippingDate();
-      
-      
+      this.setShippingDate();
+
+
     });
   }
 
 
 
 }
-

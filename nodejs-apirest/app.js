@@ -34,6 +34,7 @@ var modelTecnicaCotizacion = require('./models/tecnicaCotizacion')(app, mongoose
 var modelProductCotizacion = require('./models/productCotizacion')(app, mongoose);
 var modelOrder = require('./models/order')(app, mongoose);
 var modelOrderProducts = require('./models/orderProducts')(app, mongoose);
+var modelPayment = require('./models/payment')(app, mongoose);
 
 
 var ClientCtrl = require('./controllers/client');
@@ -41,6 +42,8 @@ var OrderCtrl = require('./controllers/order');
 var TecnicaCtrl = require('./controllers/tecnica');
 var ProductCtrl = require('./controllers/product');
 var SellerCtrl = require('./controllers/seller');
+var PaymentCtrl = require('./controllers/payment');
+var HomeCtrl = require('./controllers/home');
  
 var OrderProductsCtrl = require('./controllers/orderProducts');
  
@@ -64,7 +67,9 @@ api.route('/clients/:id')
  .put(ClientCtrl.update)
  .delete(ClientCtrl.delete);
 
-
+api.route('/home') 
+ .get(HomeCtrl.getHome)
+ 
 api.route('/orders') 
  .get(OrderCtrl.findAll)
  .post(OrderCtrl.add);
@@ -77,6 +82,11 @@ api.route('/orders/:id')
  .get(OrderProductsCtrl.findAll)
  .post(OrderProductsCtrl.add);
 
+
+api.route('/payments') 
+ .get(PaymentCtrl.findAll)
+ .post(PaymentCtrl.add);
+ 
 
 api.route('/tecnicas') 
  .get(TecnicaCtrl.findAll)

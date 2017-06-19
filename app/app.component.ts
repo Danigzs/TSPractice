@@ -1,25 +1,30 @@
 import { Component, OnInit, ElementRef} from '@angular/core';
-
+import { DashboardService } from "./dashboard/dashboard.service";
+import { Order } from "./orders/order";
 
 @Component({
   selector: 'my-app',
-  template: `
-  
-    <h1>Testing angular directives components</h1>
+  providers: [DashboardService],
+  styleUrls: ["app/dashboard.css"],
+  templateUrl: "app/dashboard.html"
+})
+export class AppComponent implements OnInit {
+  public orders:Array<Order>;
 
-    
-    
-      `,
-        styles: [`
 
-  h1{
-  position: fixed;
-  bottom: 0;
-  width: 100%
+  constructor(private _dashboardService:DashboardService){
 
   }
+  ngOnInit() {
+
+    this._dashboardService.getOrders().subscribe(
+      data=>{
+        this.orders = data;
+      }
+    )
+
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
     
-   `]
-})
-export class AppComponent  {
+  }
 }

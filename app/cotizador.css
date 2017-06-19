@@ -125,7 +125,7 @@ caption {
 
 thead th {
   font-weight: 400;
-  background: #8a97a0;
+  background: rgb(182, 154, 77);
   color: #FFF;
 }
 
@@ -395,8 +395,13 @@ margin-right: 10%;
 
 .c-grid-all-products table{
   width: 80%;
-  
   padding: 0%;
+}
+
+table input{
+      max-width: 50px;
+    text-align: center;
+    margin: 0 auto;
 }
 
 
@@ -474,4 +479,29 @@ margin-right: 10px;
   left: 70px;
   bottom: 29px;
   
+}
+
+
+.paid-container{
+  padding: 10px;
+  margin: 20px 0;
+}
+
+.paid-container .advance-discount{
+   text-align: left;
+    width: 30%;
+    margin: 0 auto;
+    float: left;
+    font-size: 20px;
+}
+
+.paid-container .advance-discount span{
+    margin-right: 10px;
+    font-weight: bolder;
+}
+.paid-container .advance-discount input{
+      border-style: none;
+    border-bottom-style: solid;
+    border-bottom-color: red;
+    text-align: center;
 }

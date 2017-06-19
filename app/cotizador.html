@@ -32,9 +32,7 @@
   <div class="c-div-container">
 
     <div class="c-fecha-elaboracion-container">
-      <!--<p class="c-fecha-elaboracion">
-        Fecha de elaboración: {{currentDate}}
-      </p>-->
+      
     </div>
     <div class="c-cliente-seccion">
 
@@ -250,7 +248,7 @@
           </div>
 
         </div>
- 
+
 
       </div>
     </div>
@@ -270,12 +268,7 @@
 
 
     <div class="table-responsive" style="width: 100%;">
-      <div class="c-add-product-container">
-        <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
-        <button type="button" class="btn btn-primary btn-md" (click)="verProductos()">Agregar Producto</button>
-        <button type="button" class="btn btn-primary btn-md" (click)="verMaquilas()">Agregar Maquila</button>
 
-      </div>
       <div class="c-grid-products">
         <div class="c-cliente-seccion">
           <label>Productos </label>
@@ -283,18 +276,18 @@
         <table class="table " id="tproductos">
           <thead>
             <tr>
-              <th>Cantidad</th>
-              <th>Producto</th>
-              <th>Descripcion</th>
-              <th>Precio unitario</th>
-              <th>Total</th>
-              <!--<th>Agregar Tecnicas</th>-->
+              <th>CANTIDAD/th>
+                <!--<th>Producto</th>-->
+                <th>DESCRIPCIÓN</th>
+                <th>PRECIO UNITARIO</th>
+                <th>IMPORTE</th>
+                <!--<th>Agregar Tecnicas</th>-->
             </tr>
           </thead>
           <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let producto of order.products; let i = index">
-            <td> <input type="number" name="quantity" [(ngModel)]="producto.quantity" ></td>
-            <td>{{producto.name}}</td>
-            <td>{{producto.description}}</td>
+            <td> <input type="number" name="quantity" [(ngModel)]="producto.quantity"></td>
+            <!--<td>{{producto.name}}</td>-->
+            <td>{{producto.name}}. {{producto.description}}</td>
             <td>{{producto.price| currency:'USD':true}}</td>
             <td>{{calcularTotalProducto(producto) | currency:'USD':true}}</td>
             <!--<th><button  type="button" class="btn btn-primary btn-md" (click)="verTecnica(i)">Tecnicas</button> <button  type="button" class="btn btn-primary btn-md" (click)="deleteRow()">Eliminar</button></th>-->
@@ -305,7 +298,10 @@
         </table>
 
       </div>
+      <div class="c-add-product-container">
 
+        <button type="button" class="btn btn-primary btn-md" (click)="verProductos()">Agregar Producto</button>
+      </div>
       <div class="c-grid-products">
         <div class="c-cliente-seccion">
           <label>Maquilas </label>
@@ -313,20 +309,19 @@
         <table class="table " id="tproductos">
           <thead>
             <tr>
-              <th>Cantidad</th>
-              <th>Nombre</th>
-              <th>Tamaño</th>
-              <th>Posicion</th>
-              <th>Precio unitario</th>
-              <th>Total</th>
+              <th>CANTIDAD</th>
+              <th>DESCRIPCIÓN</th>
+              <!--<th>Tamaño</th>
+              <th>Posicion</th>-->
+              <th>PRECIO UNITARIO</th>
+              <th>IMPORTE</th>
               <!--<th>Agregar Tecnicas</th>-->
             </tr>
           </thead>
           <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let tecnica of order.maquilas; let i = index">
-            <td>{{tecnica.quantity}}</td>
-            <td>{{tecnica.name}} {{tecnica.subType}}</td>
-            <td>{{tecnica.size}}</td>
-            <td>{{tecnica.position}}</td>
+            <td> <input type="number" name="quantity" [(ngModel)]="tecnica.quantity"></td>
+            <td>{{tecnica.name}} {{tecnica.subType}}, Tamaño: {{tecnica.size}}, Posición: {{tecnica.position}}</td>
+
             <td>{{tecnica.price | currency:'USD':true}}</td>
             <td>{{tecnica.total*tecnica.quantity | currency:'USD':true}}</td>
             <!--<th><button  type="button" class="btn btn-primary btn-md" (click)="verTecnica(i)">Tecnicas</button> <button  type="button" class="btn btn-primary btn-md" (click)="deleteRow()">Eliminar</button></th>-->
@@ -337,14 +332,23 @@
         </table>
 
       </div>
+      <div class="c-add-product-container">
+        <button type="button" class="btn btn-primary btn-md" (click)="verMaquilas()">Agregar Maquila</button>
+      </div>
 
+      <div class="paid-container">
+        <div class="advance-discount">
+          <span class="c-total-amount-info-s">Anticipo:</span><input   type="number" name="clave" [(ngModel)]="order.advance" (blur)="updateAdvance($event)" >
+        </div>
+        <div class="advance-discount">
+          <span class="c-total-amount-info-s">Resto:</span><input  type="number" name="clave" [(ngModel)]="order.debt" readonly>
+        </div>
 
-
-      <div style="text-align:right;width:100%;"><span class="c-total-amount-info-s">Anticipo:</span><input type="number" name="clave"></div>
-      <div style="text-align:right;width:100%;"><span class="c-total-amount-info-s">Descuento:</span><input type="number" name="clave"></div>
-      <div style="text-align:right;width:100%;"><span class="c-total-amount-info">Total:</span><span class="c-total-amount"> {{order.total | currency:'USD':true }}</span></div>
-
-      <button type="button" class="btn btn-primary btn-md" style="width:100%;    font-size: 20px;font-weight: bold;" (click)="Pay()">Pagar</button>
+      </div>
+      <div class="total" style="text-align:right;width:100%;">
+        <span class="c-total-amount-info">Total:</span><span class="c-total-amount"> {{order.total | currency:'USD':true }}</span>
+      </div>
+      <button type="button" class="btn btn-success btn-lg" style="width:100%;    font-size: 20px;font-weight: bold;" (click)="Pay()">Pagar</button>
     </div>
 
   </div>
@@ -360,7 +364,7 @@
           <thead>
             <tr>
               <th>Cantidad</th>
-              <th>Nombre</th>
+              <!--<th>Nombre</th>-->
               <th>Descripcion</th>
               <th>Precio unitario</th>
               <th>Total</th>
@@ -368,9 +372,9 @@
             </tr>
           </thead>
           <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let producto of productos">
-            <td>{{producto.quantity}}</td>
-            <td>{{producto.name}}</td>
-            <td>{{producto.description}}</td>
+            <td> <input type="number" name="quantity" [(ngModel)]="producto.quantity"></td>
+            <!--<td>{{producto.name}}</td>-->
+            <td>{{producto.name}}. {{producto.description}}</td>
             <td>{{producto.price | currency:'USD':true}}</td>
 
             <td>{{producto.total*producto.quantity | currency:'USD':true}}</td>
@@ -392,19 +396,20 @@
           <thead>
             <tr>
               <th>Cantidad</th>
-              <th>Nombre</th>
+              <!--<th>Nombre</th>
               <th>Tamaño</th>
-              <th>Posicion</th>
+              <th>Posicion</th>-->
               <th>Precio unitario</th>
               <th>Total</th>
               <th></th>
             </tr>
           </thead>
           <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let tecnica of tecnicas">
-            <td>{{tecnica.quantity}}</td>
-            <td>{{tecnica.name}} {{tecnica.subType}}</td>
+            <td> <input type="number" name="quantity" [(ngModel)]="tecnica.quantity"></td>
+            <!--<td>{{tecnica.name}} {{tecnica.subType}}</td>
             <td>{{tecnica.size}}</td>
-            <td>{{tecnica.position}}</td>
+            <td>{{tecnica.position}}</td>-->
+            <td>{{tecnica.name}} {{tecnica.subType}}, Tamaño: {{tecnica.size}}, Posición: {{tecnica.position}}</td>
             <td>{{tecnica.price | currency:'USD':true}}</td>
             <td>{{tecnica.total*tecnica.quantity | currency:'USD':true}}</td>
             <th><button type="button" class="btn btn-primary btn-md" (click)="seleccionarTecnica(tecnica)">Seleccionar Maquila</button></th>
@@ -517,4 +522,3 @@
 
   </div>
 </div>
-

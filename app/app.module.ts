@@ -23,6 +23,7 @@ import {ProductoService} from './producto/producto.service'
 import {OrderService} from './orders/order.service'
 import {TecnicaService} from './producto/tecnica.service'
 import {SellerService} from './sellers/seller.service'
+import {DashboardService} from './dashboard/dashboard.service'
 import { HttpModule, JsonpModule } from '@angular/http';
 
 const appRoutes: Routes = [
@@ -67,7 +68,7 @@ const appRoutes: Routes = [
   CategoriasComponent,
   
   ],
-  providers : [ CotizadorService, ClienteService, ProductoService, TecnicaService,SellerService,OrderService],
+  providers : [ CotizadorService, ClienteService, ProductoService, TecnicaService,SellerService,OrderService,DashboardService],
   bootstrap:    [ NavbarComponent, ]
 })
 export class AppModule { }
