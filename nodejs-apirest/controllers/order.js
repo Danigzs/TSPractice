@@ -36,8 +36,8 @@ exports.add = function (req, res) {
   console.log('POST');
   console.log(req.body);
   var order = new Order({
-    client_id: req.body.client._id,
-    seller_id: req.body.seller._id,
+    client: req.body.client,
+    seller: req.body.seller,
     products: req.body.products,
     maquilas: req.body.maquilas,
     total: req.body.total,
@@ -66,8 +66,8 @@ exports.add = function (req, res) {
 //PUT - Update a register already exists
 exports.update = function (req, res) {
   Oder.findById(req.params.id, function (err, order) {
-    order.client_id = req.body.client_id,
-      order.seller_id = req.body.seller_id,
+    order.client = req.body.client,
+      order.seller = req.body.seller,
       order.products = req.body.products,
       order.maquilas = req.body.maquilas,
       order.total = req.body.total,

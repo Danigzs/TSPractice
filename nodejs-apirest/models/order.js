@@ -2,13 +2,9 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var orderSchema = new Schema({
-  client_id:{
-    type: mongoose.Schema.Types.ObjectId,  
-    required: true
+  client:{
   },
-  seller_id: {
-    type: mongoose.Schema.Types.ObjectId, 
-    required: true
+  seller: {
   },
   products:[{
   }],
@@ -40,6 +36,9 @@ var orderSchema = new Schema({
   },
   shippingDate: {
     type: Number
+  },
+  createdAt:{
+    type:Date
   }
 
 });

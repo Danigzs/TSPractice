@@ -1,0 +1,51 @@
+<div class="c-div-bgr">
+     
+  <div class="c-div-container">
+      <div class="c-cliente-seccion">
+
+      <label>Pedidos Pendientes por Pagar</label>
+     </div>
+    <div class="c-grid-products">
+      <table class="table " id="tproductos">
+        <thead>
+          <tr>
+            <th>Cliente</th>
+            <th>Vendedor</th>
+            <th>Folio</th>
+            <th>Forma de Envío</th>
+            <th>Fecha de Entrega</th>
+            <th>Anticipo</th>
+            <th>Resto</th>
+            <th>Total</th>
+            
+          </tr>
+        </thead>
+        <tr class='clickable-row' *ngFor="let order of orders; let i = index">
+          <td>{{order.client.name}}</td>
+          <td>{{order.seller.name}}</td>
+          <td>{{order.folio}}</td>
+          <td>{{order.shippingWay}}</td>
+          <td>{{order.shippingDate}}</td>
+          <td>{{order.advance | currency:'USD':true}}</td>
+          <td>{{order.debt | currency:'USD':true}}</td>
+          <td>{{order.total | currency:'USD':true}}</td>
+        </tr>
+
+      </table>
+    </div>
+
+  </div>
+</div>
+<!--
+
+  "_id": "5945c2fd5cf909add0000001",
+      "client_id": "593c3a2311753b463e000001",
+      "seller_id": "5940b4488cda8e783e000001",
+      "total": 17200,
+      "folio": "300",
+      "notes": "NECESITO URGENTE dasd as",
+      "isPaid": 0,
+      "advance": 3000,
+      "debt": 14200,
+      "shippingWay": "a domicilio",
+      "shippingDate": 1497744094717,-->
