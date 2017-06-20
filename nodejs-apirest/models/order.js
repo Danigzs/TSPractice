@@ -12,10 +12,7 @@ var orderSchema = new Schema({
   }],
   isPaid: {
     type: Number
-  },
-  paidTotal: {
-    type: Number
-  },
+  }, 
   total: {
     type: Number
   },

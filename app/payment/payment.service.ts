@@ -1,23 +1,22 @@
-import {  Injectable} from '@angular/core';
-import {  Http,  Response} from '@angular/http';
-import {  Headers,  RequestOptions} from '@angular/http';
-import {  Observable} from 'rxjs/Observable';
+import {Injectable} from '@angular/core';
+import {Http,  Response} from '@angular/http';
+import {Headers,  RequestOptions} from '@angular/http';
+import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-import {  Order} from './order';
+import {Payment} from './payment';
 @Injectable()
-export class OrderService {
-  orders: Array < Order > ;
-  private url = 'http://localhost:8000/api/orders'; // URL to web API
+export class PaymentService{
+    payments:Array<Payment>
+    private url = 'http://localhost:8000/api/payments'; // URL to web API
   constructor(private http: Http) {}
 
-  getOrders(): Observable < Array < Order >> {
-
-    return this.http.get(this.url)
+  getPayments(): Observable < Array < Payment >> {
+        return this.http.get(this.url)
       .map(this.extractData)
-      .catch(this.handleError);
-  }
-  addOrder(order: Order): Observable < Array < Order >> {
+      .catch(this.handleError);  
+}
+ddPayment(payment: Payment): Observable < Array < Payment >> {
     let headers = new Headers({
       'Content-Type': 'application/json'
     });
@@ -25,8 +24,7 @@ export class OrderService {
       headers: headers
     });
 
-
-    return this.http.post(this.url, order, options)
+    return this.http.post(this.url, payment, options)
       .map(this.extractData)
       .catch(this.handleError);
   }
@@ -34,7 +32,7 @@ export class OrderService {
 
     let data = res.json();
 
-    return data.orders || {};
+    return data.payments || {};
   }
   private handleError(error: Response | any) {
     // In a real world app, you might use a remote logging infrastructure
@@ -50,4 +48,3 @@ export class OrderService {
     return Observable.throw(errMsg);
   }
 }
-
