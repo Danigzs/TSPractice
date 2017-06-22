@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {CotizadorComponent} from './../cotizador.component'
 import {Producto} from './../producto/producto'
 import {ProductoService} from './../producto/producto.service'
+
  
 @Component({
   selector: 'navbar',
@@ -24,10 +25,10 @@ import {ProductoService} from './../producto/producto.service'
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-folder-close"> Cotizaciones </span><span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a routerLink="/cotizador">Nueva</a></li>
+             <li role="presentation" class="divider"></li>
+            <li><a routerLink="/payment">Pagar orden</a></li>
             <li role="presentation" class="divider"></li>
-            <li><a routerLink="/form-directive">Ver Cotizaciones</a></li>
-            <li role="presentation" class="divider"></li>
-            <li><a href="#">Page 1-3</a></li>
+            <li><a routerLink="/form-directive">Ver Cotizaciones</a></li>           
           </ul>
         </li>
 
@@ -130,31 +131,9 @@ import {ProductoService} from './../producto/producto.service'
 			<div class="modal-body">
                 <h3>Modal Body</h3>
                 <div class="form-group">
-  					<label for="usr">Name:</label>
-  					<input type="text" class="form-control" >
-				</div>
-				<div class="form-group">
-  					<label for="usr">Numero:</label>
-  					<input type="text" class="form-control" >
-				</div>
-				<div class="form-group">
-  					<label for="usr">Telefono:</label>
-  					<input type="text" class="form-control" >
-				</div>
-				<div class="form-group">
-  					<label for="usr">Name:</label>
-  					<input type="text" class="form-control" >
-				</div>
-				<div class="form-group">
-  					<label for="usr">Name:</label>
-  					<input type="text" class="form-control" >
-				</div>
-				<div class="form-group">
-  					<label for="usr">Name:</label>
-  					<input type="text" class="form-control" >
+  					
 				</div>
         	</div>
-
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary">Save changes</button>
@@ -170,14 +149,4 @@ import {ProductoService} from './../producto/producto.service'
 providers:[CotizadorComponent, ProductoService, Producto]
 })
 export class NavbarComponent  {
-  public productosnuevos: Array<Producto>
-
-NewProduct(producto:Producto)
-{
-  
-}
-	constructor()
-  {
-    
-  }
 }

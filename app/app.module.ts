@@ -13,17 +13,19 @@ import {TecnicasComponent} from './tecnicas/tecnicas.component';
 import {SellersComponent} from './sellers/sellers.component';
 import {CategoriasComponent} from './categorias/categorias.component';
 import {InventarioComponent} from './inventario.component';
+import {PaymentComponent} from './payment/payment.component';
 import {NuevoProductoComponent} from './nuevoproducto/nuevoproducto.component';
 import {ProductsListComponent} from './producto/productsList.component';
 
 import { MaterialModule } from '@angular/material';
-import {ClienteService} from './cliente/cliente.service'
-import {CotizadorService} from './cotizacion/cotizador.service'
-import {ProductoService} from './producto/producto.service'
-import {OrderService} from './orders/order.service'
-import {TecnicaService} from './producto/tecnica.service'
-import {SellerService} from './sellers/seller.service'
-import {DashboardService} from './dashboard/dashboard.service'
+import {ClienteService} from './cliente/cliente.service';
+import {CotizadorService} from './cotizacion/cotizador.service';
+import {ProductoService} from './producto/producto.service';
+import {OrderService} from './orders/order.service';
+import {TecnicaService} from './producto/tecnica.service';
+import {SellerService} from './sellers/seller.service';
+import {PaymentService}from './payment/payment.service';
+import {DashboardService} from './dashboard/dashboard.service';
 import { HttpModule, JsonpModule } from '@angular/http';
 
 const appRoutes: Routes = [
@@ -38,6 +40,7 @@ const appRoutes: Routes = [
   { path: 'tecnicas', component: TecnicasComponent},
   { path: 'sellers', component: SellersComponent},
   { path: 'categorias', component: CategoriasComponent},
+  { path: 'payment', component: PaymentComponent},
    
   
 
@@ -66,9 +69,10 @@ const appRoutes: Routes = [
   TecnicasComponent,
   SellersComponent,
   CategoriasComponent,
+  PaymentComponent,
   
   ],
-  providers : [ CotizadorService, ClienteService, ProductoService, TecnicaService,SellerService,OrderService,DashboardService],
+  providers : [ CotizadorService, ClienteService, ProductoService, TecnicaService,SellerService,OrderService,DashboardService,PaymentService],
   bootstrap:    [ NavbarComponent, ]
 })
 export class AppModule { }

@@ -1,78 +1,36 @@
-import {
-  Observable
-} from 'rxjs/Observable';
+import {  Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
-import {
-  Component,
-  OnInit,
-  ElementRef,
-  ViewChild,
-  ViewContainerRef
-} from '@angular/core';
+import {  Component,  OnInit,  ElementRef,  ViewChild,  ViewContainerRef} from '@angular/core';
 
 /*
     Objects
 */
-import {
-  Cliente
-} from './cliente/cliente'
-import {
-  Cotizacion
-} from './cotizacion/cotizacion'
-import {
-  Producto
-} from './producto/producto'
-import {
-  Tecnica
-} from './producto/tecnica'
-import {
-  Seller
-} from './sellers/seller'
+import {  Cliente} from './cliente/cliente'
+import {  Cotizacion} from './cotizacion/cotizacion'
+import {  Producto} from './producto/producto'
+import {  Tecnica} from './producto/tecnica'
+import {  Seller} from './sellers/seller'
 
-import {
-  ProductCotizacion
-} from './producto/productCotizacion'
-import {
-  TecnicaCotizacion
-} from './tecnicas/tecnicaCotizacion'
-import {
-  Order
-} from './orders/order'
+import {  ProductCotizacion} from './producto/productCotizacion'
+import {  TecnicaCotizacion} from './tecnicas/tecnicaCotizacion'
+import {  Order} from './orders/order'
 /*
     Services
 */
-import {
-  CotizadorService
-} from './cotizacion/cotizador.service'
-import {
-  ClienteService
-} from './cliente/cliente.service'
-import {
-  ProductoService
-} from './producto/producto.service'
-import {
-  OrderService
-} from './orders/order.service'
+import {  CotizadorService} from './cotizacion/cotizador.service'
+import {  ClienteService} from './cliente/cliente.service'
+import {  ProductoService} from './producto/producto.service'
+import {  OrderService} from './orders/order.service'
 
-import {
-  TecnicaService
-} from './producto/tecnica.service'
-import {
-  SellerService
-} from './sellers/seller.service'
-import {
-  ChangeDetectorRef
-} from '@angular/core'
+import {  TecnicaService} from './producto/tecnica.service'
+import {  SellerService} from './sellers/seller.service'
+import {  ChangeDetectorRef} from '@angular/core'
 
 
 
-import {
-  MdDialog,
-  MdDialogConfig,
-  MdDialogRef
-} from '@angular/material';
+import {  MdDialog,  MdDialogConfig,  MdDialogRef} from '@angular/material';
 
 
 
@@ -308,7 +266,7 @@ export class CotizadorComponent implements OnInit {
     });
   }
 
-  Pay() {
+  CreateOrder() {
     this.order.client = this.clienteSelected;
     this.order.seller = this.sellerSelected;
     this.order.debt = this.order.total -  this.order.advance;

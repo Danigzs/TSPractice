@@ -215,7 +215,7 @@ var CotizadorComponent = (function () {
             });
         });
     };
-    CotizadorComponent.prototype.Pay = function () {
+    CotizadorComponent.prototype.CreateOrder = function () {
         this.order.client = this.clienteSelected;
         this.order.seller = this.sellerSelected;
         this.order.debt = this.order.total - this.order.advance;

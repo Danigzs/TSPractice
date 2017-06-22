@@ -19,6 +19,7 @@ var tecnicas_component_1 = require("./tecnicas/tecnicas.component");
 var sellers_component_1 = require("./sellers/sellers.component");
 var categorias_component_1 = require("./categorias/categorias.component");
 var inventario_component_1 = require("./inventario.component");
+var payment_component_1 = require("./payment/payment.component");
 var nuevoproducto_component_1 = require("./nuevoproducto/nuevoproducto.component");
 var productsList_component_1 = require("./producto/productsList.component");
 var material_1 = require("@angular/material");
@@ -28,6 +29,7 @@ var producto_service_1 = require("./producto/producto.service");
 var order_service_1 = require("./orders/order.service");
 var tecnica_service_1 = require("./producto/tecnica.service");
 var seller_service_1 = require("./sellers/seller.service");
+var payment_service_1 = require("./payment/payment.service");
 var dashboard_service_1 = require("./dashboard/dashboard.service");
 var http_1 = require("@angular/http");
 var appRoutes = [
@@ -42,6 +44,7 @@ var appRoutes = [
     { path: 'tecnicas', component: tecnicas_component_1.TecnicasComponent },
     { path: 'sellers', component: sellers_component_1.SellersComponent },
     { path: 'categorias', component: categorias_component_1.CategoriasComponent },
+    { path: 'payment', component: payment_component_1.PaymentComponent },
     { path: '', redirectTo: '/my-app', pathMatch: 'full' },
 ];
 var AppModule = (function () {
@@ -69,8 +72,9 @@ AppModule = __decorate([
             tecnicas_component_1.TecnicasComponent,
             sellers_component_1.SellersComponent,
             categorias_component_1.CategoriasComponent,
+            payment_component_1.PaymentComponent,
         ],
-        providers: [cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService, seller_service_1.SellerService, order_service_1.OrderService, dashboard_service_1.DashboardService],
+        providers: [cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService, seller_service_1.SellerService, order_service_1.OrderService, dashboard_service_1.DashboardService, payment_service_1.PaymentService],
         bootstrap: [navbar_component_1.NavbarComponent,]
     })
 ], AppModule);
