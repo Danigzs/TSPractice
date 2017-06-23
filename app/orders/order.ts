@@ -9,7 +9,7 @@ export class Order {
   products: Array<ProductCotizacion>;
   maquilas: Array<TecnicaCotizacion>;
   total: number;
-  folio: String;
+  folio: number;
   notes:String;
   advance:number;
   debt:number;
@@ -23,7 +23,7 @@ export class Order {
     this.products = [];
     this.maquilas = [];
     this.total = 0;
-    this.folio = "";
+    this.folio = 0;
     this.notes = "";
     this.advance = 0;
     this.debt = 0;
@@ -31,7 +31,7 @@ export class Order {
     this.shippingDate = Date.now();
   } 
 
-  setOrder(client:Cliente,seller:Seller,products:Array<ProductCotizacion>,maquilas:Array<TecnicaCotizacion>,total:number,folio:String,notes:String,advance:number,debt:number,isPaid:number,createdAt:Date,shippingWay:String,shippingDate:number){
+  setOrder(client:Cliente,seller:Seller,products:Array<ProductCotizacion>,maquilas:Array<TecnicaCotizacion>,total:number,folio:number,notes:String,advance:number,debt:number,isPaid:number,createdAt:Date,shippingWay:String,shippingDate:number){
     this.client = client;
     this.seller = seller;
     this.products = products;

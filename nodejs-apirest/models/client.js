@@ -1,4 +1,6 @@
 var mongoose = require('mongoose');
+var autoIncrement = require('mongoose-auto-increment');
+autoIncrement.initialize(mongoose.connection);
 var Schema = mongoose.Schema;
 
 var clientSchema = new Schema({
@@ -43,5 +45,5 @@ var clientSchema = new Schema({
   }
 });
 
-
+clientSchema.plugin(autoIncrement.plugin, 'Client');
 module.exports = mongoose.model('Client', clientSchema);

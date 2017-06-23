@@ -1,4 +1,6 @@
 var mongoose = require('mongoose');
+var autoIncrement = require('mongoose-auto-increment');
+autoIncrement.initialize(mongoose.connection);
 var Schema = mongoose.Schema;
 
 var sellerSchema = new Schema({
@@ -26,5 +28,5 @@ var sellerSchema = new Schema({
   }
 });
 
-
+sellerSchema.plugin(autoIncrement.plugin, 'Seller');
 module.exports = mongoose.model('Seller', sellerSchema);

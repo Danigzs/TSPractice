@@ -287,7 +287,7 @@ export class CotizadorComponent implements OnInit {
   }
   ngOnInit() {
     this.order = new Order;
-    this.order.folio = "300";
+    // this.order.folio = "300";
     this.getCPT().then(res => {
       if (this.clientes.length > 0)
         this.clienteSelected = this.clientes[0];

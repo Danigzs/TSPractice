@@ -1,4 +1,6 @@
 var mongoose = require('mongoose');
+var autoIncrement = require('mongoose-auto-increment');
+autoIncrement.initialize(mongoose.connection);
 var Schema = mongoose.Schema;
 
 var paymentSchema = new Schema({
@@ -21,6 +23,6 @@ var paymentSchema = new Schema({
 
 });
 
-
+paymentSchema.plugin(autoIncrement.plugin, 'Payment');
 module.exports = mongoose.model('Payment', paymentSchema);
 

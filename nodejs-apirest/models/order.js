@@ -1,4 +1,7 @@
 var mongoose = require('mongoose');
+var autoIncrement = require('mongoose-auto-increment');
+autoIncrement.initialize(mongoose.connection);
+
 var Schema = mongoose.Schema;
 
 var orderSchema = new Schema({
@@ -17,7 +20,7 @@ var orderSchema = new Schema({
     type: Number
   },
   folio: {
-    type: String
+    type: Number
   },
   notes: {
     type: String
@@ -40,6 +43,6 @@ var orderSchema = new Schema({
 
 });
 
-
+orderSchema.plugin(autoIncrement.plugin, 'Order');
 module.exports = mongoose.model('Order', orderSchema);
 

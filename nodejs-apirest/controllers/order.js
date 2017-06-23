@@ -31,36 +31,68 @@ exports.findById = function (req, res) {
   });
 };
 
+
+exports.getLast = function(req,res){
+  Order.findOne( 
+    { 
+      $query: {}, 
+      $orderby: { _id : -1 } 
+    },{}, {limit : 1 } , function(err, order) {
+       if (err) return res.send(500, err.message);
+       console.log(parseInt(order.folio)+1);
+       res.status(200).json({
+          order: order
+        });
+        
+    });
+
+    
+
+}
+
 //POST - Insert a new register
 exports.add = function (req, res) {
   console.log('POST');
   console.log(req.body);
-  var order = new Order({
-    client: req.body.client,
-    seller: req.body.seller,
-    products: req.body.products,
-    maquilas: req.body.maquilas,
-    total: req.body.total,
-    folio: req.body.folio,
-    notes: req.body.notes,
-    isPaid: req.body.isPaid,
-    advance: req.body.advance,
-    debt: req.body.debt,
-    shippingWay: req.body.shippingWay,
-    shippingDate: req.body.shippingDate,
-    createdAt: new Date()
+  
+  Order.findOne( 
+    { 
+      $query: {}, 
+      $orderby: { _id : -1 } 
+    },{}, {limit : 1 } , function(err, ord) {
+      
+      
+       if (err) return res.send(500, err.message);
+       console.log("ORDEEEEN" + ord);
+        var order = new Order({
+        client: req.body.client,
+        seller: req.body.seller,
+        products: req.body.products,
+        maquilas: req.body.maquilas,
+        total: req.body.total,
+        folio: (ord)?parseInt(ord.folio)+1:1,
+        notes: req.body.notes,
+        isPaid: req.body.isPaid,
+        advance: req.body.advance,
+        debt: req.body.debt,
+        shippingWay: req.body.shippingWay,
+        shippingDate: req.body.shippingDate,
+        createdAt: new Date()
 
-  });
+      });
 
-  order.save(function (err, order) {
-    if (err) return res.send(500, err.message);
- 
-  res.status(200).json({
-      order: order
-    });
+      order.save(function (err, order) {
+        if (err) return res.send(500, err.message);
     
+      res.status(200).json({
+          order: order
+        });
+        
 
-  });
+      });
+    });
+
+  
 };
 
 //PUT - Update a register already exists

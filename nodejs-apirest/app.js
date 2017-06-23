@@ -74,6 +74,9 @@ api.route('/orders')
  .get(OrderCtrl.findAll)
  .post(OrderCtrl.add);
 
+api.route('/getLastOrder')
+.get(OrderCtrl.getLast)
+
 api.route('/orders/:id') 
  .get(OrderCtrl.findById)
  .put(OrderCtrl.update)
