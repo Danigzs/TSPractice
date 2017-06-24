@@ -1,19 +1,95 @@
-<div>
-    <div>
-        <label>Folio:</label><input>
-        <div class="c-grid-products">
-      <table class="table " id="tproductos">
-        <thead>
-          <tr>
-            <th>Forma de pago</th>
-            <th>Fecha de pago</th>
-            <th>Concepto</th>
-            <th>Monto</th>           
-          </tr>
-        </thead>
-        <tr class='clickable-row'>          
-        </tr>
-      </table>
-    </div>        
+<div class="c-div-container">
+  <div class="c-container-c-v">
+    <div class="c-container-info ">
+      <div class="c-container-info-column column-text">
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Folio
+          </div>
+        </div>
+
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Orders
+          </div>
+
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Client
+          </div>
+        </div>
+
+      </div>
+
+      <div class="c-container-info-column data">
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <input type="text" name="folio" [(ngModel)]="folio">
+            </div>
+          </div>
+        </div>
+
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <select class="form-control" name="sel" [(ngModel)]="selectedOrder" (ngModelChange)="getOrderPayments()">
+                    <option *ngFor="let order of orders" [ngValue]="order">
+                        Folio: #{{order.folio}}
+                    </option>
+                </select>
+
+
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <span class="c-label-info">
+              {{selectedOrder.client.name}}
+            </span>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
     </div>
+  </div>
+
+  <div class="c-add-product-container">
+    <button type="button" class="btn btn-primary btn-md" (click)="addPayment()">Realizar Pago</button>
+  </div>
+
+  <div class="c-grid-products">
+    <table class="table " id="tproductos">
+      <thead>
+        <tr>
+
+          <th>Forma de pago</th>
+          <th>Fecha de pago</th>
+          <th>Concepto</th>
+          <th>Monto</th>
+        </tr>
+      </thead>
+      <tr class='clickable-row'>
+      </tr>
+    </table>
+  </div>
+
+
+
+  <div id="modalPayment" class="modal" *ngIf="!showModalPayment">
+    <div class="modal-content">
+      <span class="close" (click)="closeModalPaymeny()">&times;</span>
+      <h1>Pagos</h1>
+
+      <!--TODO: Agregar inputs y realizasr post request para agregar un pago a la orden seleccionada (selectedOrder._id) -->
+    </div>
+  </div>
+
+
 </div>

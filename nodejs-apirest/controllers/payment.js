@@ -23,6 +23,16 @@ exports.findById = function (req, res) {
   });
 };
 
+
+exports.getOrderPayments = function(req,res){
+  Payment.find({order_id:req.params.id},function(err,payments){
+    if(err)res.send(500,err.message);
+    res.status(200).json({
+      payments:payments
+    });
+  });
+}
+
 //POST - Insert a new register
 exports.add = function (req, res) {
   console.log('POST');
@@ -30,9 +40,9 @@ exports.add = function (req, res) {
   var payment = new Payment({
     order_id: req.body.order_id,
   paymentWay: req.body.paymentWay,
-  paymentDate: req.body.paymentDate,
+  date: req.body.date,
   concept: req.body.concept,
-  amount: req.body.amoun
+  amount: req.body.amount
   });
   payment.save(function (err, payment) {
     if (err) return res.send(500, err.message);

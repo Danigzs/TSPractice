@@ -77,6 +77,9 @@ api.route('/orders')
 api.route('/getLastOrder')
 .get(OrderCtrl.getLast)
 
+api.route('/ordersByFolio/:id')
+.get(OrderCtrl.getOrderByFolio);
+
 api.route('/orders/:id') 
  .get(OrderCtrl.findById)
  .put(OrderCtrl.update)
@@ -90,6 +93,8 @@ api.route('/payments')
  .get(PaymentCtrl.findAll)
  .post(PaymentCtrl.add);
  
+ api.route('/getOrderPayments')
+ .get(PaymentCtrl.getOrderPayments);
 
 api.route('/tecnicas') 
  .get(TecnicaCtrl.findAll)

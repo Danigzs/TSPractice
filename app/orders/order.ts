@@ -3,7 +3,7 @@ import { Seller } from "../sellers/seller";
 import { ProductCotizacion } from "../producto/productCotizacion"
 import { TecnicaCotizacion } from "../tecnicas/tecnicaCotizacion"
 export class Order {
-  _id: String;
+  _id: number;
   client: Cliente;
   seller: Seller;
   products: Array<ProductCotizacion>;
@@ -31,7 +31,8 @@ export class Order {
     this.shippingDate = Date.now();
   } 
 
-  setOrder(client:Cliente,seller:Seller,products:Array<ProductCotizacion>,maquilas:Array<TecnicaCotizacion>,total:number,folio:number,notes:String,advance:number,debt:number,isPaid:number,createdAt:Date,shippingWay:String,shippingDate:number){
+  setOrder(_id:number, client:Cliente,seller:Seller,products:Array<ProductCotizacion>,maquilas:Array<TecnicaCotizacion>,total:number,folio:number,notes:String,advance:number,debt:number,isPaid:number,createdAt:Date,shippingWay:String,shippingDate:number){
+    this._id = _id;
     this.client = client;
     this.seller = seller;
     this.products = products;

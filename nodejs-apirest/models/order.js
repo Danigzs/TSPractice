@@ -39,6 +39,9 @@ var orderSchema = new Schema({
   },
   createdAt:{
     type:Date
+  },
+  payments:{
+    type:Number
   }
 
 });

@@ -11,7 +11,7 @@ var paymentSchema = new Schema({
   paymentWay:{
       type:String
   },
-  paymentDate:{
+  date:{
       type:Number
   },
   concept:{
