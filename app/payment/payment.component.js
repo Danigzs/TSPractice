@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var payment_service_1 = require("./payment.service");
+var payment_1 = require("./payment");
 var order_1 = require("./../orders/order");
 var order_service_1 = require("./../orders/order.service");
 var PaymentComponent = (function () {
@@ -18,29 +19,59 @@ var PaymentComponent = (function () {
         this._orderService = _orderService;
         this.orders = [];
         this.showModalPayment = false;
+        this.totalPayments = 0;
         this.selectedOrder = new order_1.Order;
+        this.todayDate = (new Date).toDateString();
     }
     PaymentComponent.prototype.ngOnInit = function () {
         var _this = this;
         //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
         //Add 'implements OnInit' to the class.
+        this.payment = new payment_1.Payment;
+        this.payments = [];
         this._orderService.getOrders().subscribe(function (data) {
             _this.orders = data;
             _this.selectedOrder = (_this.orders && _this.orders.length > 0) ? _this.orders[0] : null;
             _this.getOrderPayments();
         });
     };
+    PaymentComponent.prototype.calculateTotalPayments = function () {
+        var _this = this;
+        this.payments.forEach(function (payment) {
+            _this.totalPayments += payment.amount;
+        });
+    };
     PaymentComponent.prototype.getOrderPayments = function () {
         var _this = this;
         this._paymentService.getOrderPayments(this.selectedOrder._id).subscribe(function (data) {
+            _this.payments = [];
             _this.payments = data;
+            _this.calculateTotalPayments();
         });
     };
     PaymentComponent.prototype.addPayment = function () {
         this.showModalPayment = true;
     };
-    PaymentComponent.prototype.closeModalPaymeny = function () {
+    PaymentComponent.prototype.closeModalPayment = function () {
         this.showModalPayment = false;
+    };
+    PaymentComponent.prototype.makePayment = function () {
+        var _this = this;
+        this.payment.order_id = this.selectedOrder._id;
+        if (this.payment.amount <= 0) {
+            alert("La canitdad a pagar debe de ser mayor a 0");
+            return;
+        }
+        if (this.payment.amount <= this.selectedOrder.debt) {
+            this._paymentService.makePayment(this.payment).subscribe(function (data) {
+                _this.closeModalPayment();
+                alert(data.message);
+                _this.getOrderPayments();
+            });
+        }
+        else {
+            alert("La cantidad a pagar no puede ser mayor al adeudo");
+        }
     };
     return PaymentComponent;
 }());

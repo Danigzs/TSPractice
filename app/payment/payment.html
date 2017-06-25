@@ -51,11 +51,50 @@
             </div>
           </div>
         </div>
+      </div>
 
+      <!--second column-->
+      <div class="c-container-info-column column-text">
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Total
+          </div>
+        </div>
+
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Restante
+          </div>
+
+        </div>
 
       </div>
 
+      <div class="c-container-info-column data">
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <span class="c-label-info">
+              {{selectedOrder.total | currency:'USD':true}}
+              
+            </span>
+            </div>
+          </div>
+        </div>
 
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <span class="c-label-info">
+              {{selectedOrder.debt | currency:'USD':true}}
+            </span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+      <!--end second column-->
 
     </div>
   </div>
@@ -75,18 +114,134 @@
           <th>Monto</th>
         </tr>
       </thead>
-      <tr class='clickable-row'>
-      </tr>
-    </table>
+      <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let payment of payments; let i = index">
+            <td>{{payment.paymentWay}}</td>
+            <td>{{payment.date |date:'medium'}}</td>
+            <td>{{payment.concept }}</td>
+            <td>{{payment.amount | currency:'USD':true }}</td>
+          </tr>
+
+    </table> 
+    
   </div>
+<div class="total" style="text-align:right;width:100%;">
+        <span class="c-total-amount-info">Total de Pagos:</span><span class="c-total-amount"> {{totalPayments | currency:'USD':true }}</span>
+      </div>
 
 
-
-  <div id="modalPayment" class="modal" *ngIf="!showModalPayment">
+  <div id="modalPayment" class="modal" *ngIf="showModalPayment">
     <div class="modal-content">
-      <span class="close" (click)="closeModalPaymeny()">&times;</span>
-      <h1>Pagos</h1>
+      <span class="close" (click)="closeModalPayment()">&times;</span>
+      <h1>Realizar Pago</h1>
 
+      <div class="c-container-c-v">
+        <div class="c-container-info c-container-info-modal">
+          <div class="c-container-info-column column-text">
+
+            <div class="c-container-info-column-item-container">
+              <div class="c-container-info-column-item-container info">
+                Client
+              </div>
+            </div>
+
+            <div class="c-container-info-column-item-container">
+              <div class="c-container-info-column-item-container info">
+                Folio
+              </div>
+
+            </div>
+            <div class="c-container-info-column-item-container">
+              <div class="c-container-info-column-item-container info">
+                Concepto
+              </div>
+            </div>
+          </div>
+
+          <div class="c-container-info-column data">
+            <div class="c-container-info-column-item-container">
+              <div class="c-container-info-column-item-container info">
+                <div class="example-full-width">
+                  <span class="c-label-info">
+              {{selectedOrder.client.name}}
+            </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="c-container-info-column-item-container">
+              <div class="c-container-info-column-item-container info">
+                <div class="example-full-width">
+                  <span class="c-label-info">
+                  # {{selectedOrder.folio}}
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="c-container-info-column-item-container">
+              <div class="c-container-info-column-item-container info">
+                <div class="example-full-width">
+                  <input type="text" name="folio" [(ngModel)]="payment.concept">
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!--second column-->
+          <div class="c-container-info-column column-text">
+            <div class="c-container-info-column-item-container">
+              <div class="c-container-info-column-item-container info">
+                Fecha de Pago
+              </div>
+            </div>
+
+            <div class="c-container-info-column-item-container">
+              <div class="c-container-info-column-item-container info">
+                Forma de Pago
+              </div>
+
+            </div>
+            <div class="c-container-info-column-item-container">
+              <div class="c-container-info-column-item-container info">
+                Monto
+              </div>
+            </div>
+          </div>
+
+          <div class="c-container-info-column data">
+            <div class="c-container-info-column-item-container">
+              <div class="c-container-info-column-item-container info">
+                <div class="example-full-width">
+                  <span class="c-label-info">
+                    {{todayDate}}
+                </span>
+                </div>
+              </div>
+            </div>
+            <div class="c-container-info-column-item-container">
+              <div class="c-container-info-column-item-container info">
+                <div class="example-full-width">
+                  <span class="c-label-info">
+                    <input type="text" name="paymentWay" [(ngModel)]="payment.paymentWay">
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="c-container-info-column-item-container">
+              <div class="c-container-info-column-item-container info">
+                <div class="example-full-width">
+                  <input type="text" name="amount" [(ngModel)]="payment.amount">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--end second column-->
+
+      </div>
+      <div class="c-add-product-container">
+    <button type="button" class="btn btn-primary btn-md" (click)="makePayment()">Pagar</button>
+  </div>
       <!--TODO: Agregar inputs y realizasr post request para agregar un pago a la orden seleccionada (selectedOrder._id) -->
     </div>
   </div>

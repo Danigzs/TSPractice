@@ -40,7 +40,7 @@ var PaymentService = (function () {
             .map(this.extractData)
             .catch(this.handleError);
     };
-    PaymentService.prototype.ddPayment = function (payment) {
+    PaymentService.prototype.makePayment = function (payment) {
         var headers = new http_2.Headers({
             'Content-Type': 'application/json'
         });
@@ -48,12 +48,16 @@ var PaymentService = (function () {
             headers: headers
         });
         return this.http.post(this.url, payment, options)
-            .map(this.extractData)
+            .map(this.extractPostData)
             .catch(this.handleError);
     };
     PaymentService.prototype.extractData = function (res) {
         var data = res.json();
         return data.payments || {};
+    };
+    PaymentService.prototype.extractPostData = function (res) {
+        var data = res.json();
+        return data.response || {};
     };
     PaymentService.prototype.handleError = function (error) {
         // In a real world app, you might use a remote logging infrastructure

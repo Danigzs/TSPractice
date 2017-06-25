@@ -5,14 +5,14 @@ var Schema = mongoose.Schema;
 
 var paymentSchema = new Schema({
   order_id: {
-    type: mongoose.Schema.Types.ObjectId, 
+    type: Number, 
     required: true
   },
   paymentWay:{
       type:String
   },
   date:{
-      type:Number
+      type:Date
   },
   concept:{
       type:String

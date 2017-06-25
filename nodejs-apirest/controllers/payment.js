@@ -24,11 +24,15 @@ exports.findById = function (req, res) {
 };
 
 
-exports.getOrderPayments = function(req,res){
-  Payment.find({order_id:req.params.id},function(err,payments){
-    if(err)res.send(500,err.message);
+exports.getOrderPayments = function (req, res) {
+  
+  console.log(req.query);
+  Payment.find({
+    order_id: req.query.id
+  }, function (err, payments) {
+    if (err) res.send(500, err.message);
     res.status(200).json({
-      payments:payments
+      payments: payments
     });
   });
 }
@@ -39,17 +43,26 @@ exports.add = function (req, res) {
   console.log(req.body);
   var payment = new Payment({
     order_id: req.body.order_id,
-  paymentWay: req.body.paymentWay,
-  date: req.body.date,
-  concept: req.body.concept,
-  amount: req.body.amount
+    paymentWay: req.body.paymentWay,
+    date: req.body.date,
+    concept: req.body.concept,
+    amount: req.body.amount
   });
   payment.save(function (err, payment) {
-    if (err) return res.send(500, err.message);
+    if (err) {
+      console.log(err);
+      return res.status(500).json({
+      response:{status: 500,
+      success:false,
+      message: "Ha ocurrido un problema. El Pago no se ha realizado correctamente."
+    }});
+    }
     res.status(200).json({
-      payment: payment
-    });
+      response:{ 
+      status: 200,
+      success:true,
+      message: "El Pago se ha realizado correctamente"
+    }});
 
   });
 };
-  
