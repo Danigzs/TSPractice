@@ -1,0 +1,53 @@
+.dropdown:hover .dropdown-menu {
+   display: block;
+}
+
+.navbar{
+    background-color:  #262E49
+}
+
+.app-bar{
+  width:100%;
+  background-color:#262E49;
+position: fixed;
+    z-index: 999;
+        top: 0;
+}
+
+.logo{
+ display: inline-block;
+    height: 100%;
+    text-align: right;
+    padding-top: 20px;
+}
+
+.bar-childs{
+        display: inline-block;
+    color: white;
+    width: 80%;
+    text-align: right;
+}
+
+.bar-child{
+            width: 15%;
+    display: inline-block;
+    text-align: center;
+}
+.dropdown{
+display: inline-block;
+    
+}
+
+li > a{
+    color: white;
+}
+
+
+.dropdown li > a{
+    color: black;
+}
+.bar-childs .dropdown{
+    padding: 20px;
+        font-size: large;
+}
+ 

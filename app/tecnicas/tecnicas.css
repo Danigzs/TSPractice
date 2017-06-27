@@ -29,6 +29,7 @@ input[type=submit]:hover {
 }
 .c-div-bgr{
   background: white;
+  margin-top: 100px;
 }
 .c-div-container{
   width: 80%;
