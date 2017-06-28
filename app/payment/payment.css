@@ -1,6 +1,10 @@
+body{
+        background: #E7EBF0;
+}
 h1 {
-  color: #369;
-  font-family: Arial, Helvetica, sans-serif;
+  color: #262E49;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+
   font-size: 250%;
 }
 input[type=text], select {
@@ -29,7 +33,7 @@ input[type=submit]:hover {
 }
 .c-div-bgr{
   background: white;
-  margin-top: 100px;
+  margin-top: 30px;
 }
 .op-header{
   width: 700px;
@@ -80,12 +84,9 @@ input[type=submit]:hover {
   height: 100px;
 }
 .c-div-container{
-  width: 90%;
-  margin-top: 100px;
-  height: 100%;
-  margin-left: 5%;
-  background: white;
-      height: 20px;
+      width: 90%;
+    margin-top: 30px;
+    margin-left: 5%;
 } 
 .c-fecha-elaboracion-container{
   width:100%;
@@ -101,6 +102,7 @@ input[type=submit]:hover {
 .c-cliente-seccion{
   width: 100%;
   margin-top: 30px;
+  margin-left: 5%;
 }
 li{
 color: white;
@@ -117,6 +119,7 @@ color: white;
 table {
   /*max-width: 960px;*/
   margin: 10px auto;
+      font-size: 1.2em;
 }
 
 caption {
@@ -127,7 +130,7 @@ caption {
 
 thead th {
   font-weight: 400;
-  background: rgb(182, 154, 77);
+  background: #5B7290;
   color: #FFF;
 }
 
@@ -150,7 +153,9 @@ th, td {
 tfoot tr {
   background: none;
 }
-
+.btn-primary{
+  font-size: 1.3em;
+}
 tfoot td {
   padding: 10px 2px;
   font-size: 0.8em;
@@ -309,14 +314,9 @@ table tr:hover td {
 }
 
 .c-container-info{
-    display: inline-flex;
-    margin:  0 auto;
-    background: #f4f7f8;
-    height: 200px;
-    margin-bottom: 30px;
-    border-style: solid;
-    border-width: 1px;
-    
+       display: inline-flex;
+    margin: 0 auto;
+    padding: 20px;
     
 }
 .c-container-info.c-container-info-l{
@@ -329,9 +329,8 @@ table tr:hover td {
 margin-right: 10%;
 }
 .c-container-c-v{
-  text-align: center;
-  height: 200px;
-  margin-bottom: 40px;
+      text-align: center;
+    margin-bottom: 40px;
 }
 .c-container-descripcion{
   width: 100%;
@@ -355,7 +354,7 @@ margin-right: 10%;
 }
 .c-container-info-column.data{
   /*width: 180px;*/
-  height: 100%;    
+  
     float: left;
 }
 
@@ -366,13 +365,15 @@ margin-right: 10%;
 
 
 .c-container-info-column-item-container{
-    
-    height: 40px;
-    padding: 10px;
+    padding: 8px;
+    height: 60px;
+    font-weight: 800;
 }
 .c-container-info-column-item-container.info{
   
-  text-align: left;
+text-align: left;
+    font-size: 1.5em;
+    font-weight: 500;
     
 }
 .c-label-info{
@@ -508,4 +509,8 @@ margin-right: 10px;
     border-bottom-style: solid;
     border-bottom-color: red;
     text-align: center;
+}
+
+body{
+      background: #E7EBF0;
 }

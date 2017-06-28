@@ -1,9 +1,10 @@
 h1 {
-  color: #369;
-  font-family: Arial, Helvetica, sans-serif;
+  color: #262E49;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+
   font-size: 250%;
 }
-input[type=text], select {
+input[type=text],input[type=number], select {
     width: 100%;
     padding: 6px 10px;
     
@@ -23,20 +24,21 @@ input[type=submit] {
     border-radius: 4px;
     cursor: pointer;
 }
-
+.btn-primary{
+  font-size: 1.3em;
+}
 input[type=submit]:hover {
     background-color: #45a049;
 }
 .c-div-bgr{
-  background: white;
-  margin-top: 100px;
+  
+  margin-top: 30px;
 }
 .c-div-container{
-  width: 80%;
-  height: 100%;
-  margin-left: 10%;
-  background: white;
-      height: 20px;
+  text-align: center;
+      width: 90%;
+    margin-top: 30px;
+    margin-left: 5%;
 } 
 .c-fecha-elaboracion-container{
   width:100%;
@@ -52,6 +54,7 @@ input[type=submit]:hover {
 .c-cliente-seccion{
   width: 100%;
   margin-top: 30px;
+  margin-left: 5%;
 }
 li{
 color: white;
@@ -68,6 +71,7 @@ color: white;
 table {
   /*max-width: 960px;*/
   margin: 10px auto;
+  font-size: 1.2em;
 }
 
 caption {
@@ -77,10 +81,11 @@ caption {
 }
 
 thead th {
-  font-weight: 400;
-  background: #8a97a0;
+  font-weight: 600;
+  background: #5B7290;
   color: #FFF;
 }
+
 
 tr {
   background: #f4f7f8;
@@ -158,37 +163,37 @@ tfoot td {
   
 }
 .c-container-info{
-    width: 100%;
-    background: #f4f7f8;
-    height: 200px;
-    margin-bottom: 30px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #e2e2e2;
+     display: inline-flex;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 .c-container-info-column{
-    width: calc(100%/4);
+    
     height: 100%;
     
     float: left;
 }
 .c-container-info-column.data{
-  width: calc(100%/4);
-  height: 100%;    
-    float: left;
+  float: left;
 }
 
 .c-container-info-column-item-container{
-    height: 40px;
-    padding: 10px;
+    padding: 8px;
+    height: 60px;
+    font-weight: 800;
 }
 .c-container-info-column-item-container.info{
-  text-align: left;
-     
+  
+text-align: left;
+    font-size: 1.5em;
+    font-weight: 500;
+    
 }
 .c-label-info{
   background: transparent;
+  font-weight: 200;
+
 }
 .c-add-product-container{
   text-align: right;

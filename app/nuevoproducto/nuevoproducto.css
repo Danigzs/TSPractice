@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 h1 {
-  color: #369;
-  font-family: Arial, Helvetica, sans-serif;
+  color: #262E49;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+
   font-size: 250%;
 }
 textarea{
@@ -9,16 +10,16 @@ textarea{
       font-size: 14px;
 }
 .c-div-bgr{
-  background: white;
+
   
 }
 .c-div-container{
-  width: 60%;
-  height: 100%;
-  margin-left: 20%;
-  background: white;
-      height: 20px;
+     width: 60%;
+    margin: 0 auto;
 } 
+.btn-primary{
+  font-size: 1.3em;
+}
 .c-fecha-elaboracion-container{
   width:100%;
       margin-top: 20px;
@@ -33,6 +34,7 @@ textarea{
 .c-cliente-seccion{
   width: 100%;
   margin-top: 30px;
+  margin-left: 5%;
 }
 li{
 color: white;

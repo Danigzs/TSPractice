@@ -9,7 +9,6 @@
 .app-bar{
   width:100%;
   background-color:#262E49;
-position: fixed;
     z-index: 999;
         top: 0;
 }
@@ -35,7 +34,7 @@ position: fixed;
 }
 .dropdown{
 display: inline-block;
-    
+    background-color:#262E49;
 }
 
 li > a{
@@ -51,3 +50,4 @@ li > a{
         font-size: large;
 }
  
+

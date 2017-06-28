@@ -1,3 +1,40 @@
 .bar-margin{
     margin-top: 120px;
 }
+
+body{
+        background: #E7EBF0;
+}
+
+.c-div-container{
+        width: 90%;
+    margin-top: 30px;
+    margin-left: 5%;
+}
+
+.c-container-info{
+       display: inline-flex;
+    margin: 0 auto;
+    padding: 20px;
+    
+}
+.c-container-c-v{
+      text-align: center;
+    margin-bottom: 40px;
+}
+.c-div-container{
+    width: 90%;
+    margin-top: 30px;
+    margin-left: 5%;
+}
+
+.c-container-info-column-item-container{
+    padding: 8px;
+    height: 60px;
+}
+
+.c-container-info-column-item-container.info{
+    text-align: left;
+    font-size: 1.5em;
+    font-weight: 500;
+}
