@@ -13,5 +13,5 @@ providers:[CotizadorComponent, ProductoService, Producto]
 })
 export class NavbarComponent  {
 
-  
+
 }

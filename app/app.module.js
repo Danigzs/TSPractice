@@ -23,6 +23,7 @@ var payment_component_1 = require("./payment/payment.component");
 var nuevoproducto_component_1 = require("./nuevoproducto/nuevoproducto.component");
 var productsList_component_1 = require("./producto/productsList.component");
 var login_component_1 = require("./login/login.component");
+var register_component_1 = require("./login/register.component");
 var material_1 = require("@angular/material");
 var cliente_service_1 = require("./cliente/cliente.service");
 var cotizador_service_1 = require("./cotizacion/cotizador.service");
@@ -47,6 +48,7 @@ var appRoutes = [
     { path: 'categorias', component: categorias_component_1.CategoriasComponent },
     { path: 'payment', component: payment_component_1.PaymentComponent },
     { path: 'login', component: login_component_1.LoginComponent },
+    { path: 'register', component: register_component_1.RegisterComponent },
     { path: '', redirectTo: '/my-app', pathMatch: 'full' },
 ];
 var AppModule = (function () {
@@ -76,6 +78,7 @@ AppModule = __decorate([
             categorias_component_1.CategoriasComponent,
             payment_component_1.PaymentComponent,
             login_component_1.LoginComponent,
+            register_component_1.RegisterComponent,
         ],
         providers: [cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService, seller_service_1.SellerService, order_service_1.OrderService, dashboard_service_1.DashboardService, payment_service_1.PaymentService],
         bootstrap: [navbar_component_1.NavbarComponent,]

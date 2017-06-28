@@ -17,6 +17,7 @@ import {PaymentComponent} from './payment/payment.component';
 import {NuevoProductoComponent} from './nuevoproducto/nuevoproducto.component';
 import {ProductsListComponent} from './producto/productsList.component';
 import {LoginComponent} from './login/login.component'
+import {RegisterComponent} from './login/register.component'
 
 import { MaterialModule } from '@angular/material';
 import {ClienteService} from './cliente/cliente.service';
@@ -43,6 +44,7 @@ const appRoutes: Routes = [
   { path: 'categorias', component: CategoriasComponent},
   { path: 'payment', component: PaymentComponent},
   { path: 'login', component: LoginComponent},
+  { path: 'register', component: RegisterComponent},
    
   
 
@@ -73,6 +75,7 @@ const appRoutes: Routes = [
   CategoriasComponent,
   PaymentComponent,
   LoginComponent,
+  RegisterComponent,
   
   ],
   providers : [ CotizadorService, ClienteService, ProductoService, TecnicaService,SellerService,OrderService,DashboardService,PaymentService],
