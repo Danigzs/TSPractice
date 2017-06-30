@@ -3,8 +3,8 @@ import {  Component,  OnInit,  ElementRef,  ViewChild,  ViewContainerRef} from '
 
 @Component({
     selector:'register',
-    templateUrl:"app/login/register.html",
-    styleUrls:["app/login/register.css"]
+    templateUrl:"app/register/register.html",
+    styleUrls:["app/register/register.css"]
 
 })
 export class RegisterComponent {

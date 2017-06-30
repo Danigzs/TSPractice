@@ -11,7 +11,7 @@ router.get('/', function (req, res) {
 router.post('/', function (req, res) {
     // register using api to maintain clean separation between layers
     request.post({
-        url: config.apiUrl + '/users/register',
+        url: config.apiUrl + '/register',
         form: req.body,
         json: true
     }, function (error, response, body) {
@@ -24,7 +24,9 @@ router.post('/', function (req, res) {
                 error: response.body,
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
-                username: req.body.username
+                username: req.body.username,
+                password: req.body.password,
+                range: req.body.range 
             });
         }
  

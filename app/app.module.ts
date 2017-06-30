@@ -17,7 +17,7 @@ import {PaymentComponent} from './payment/payment.component';
 import {NuevoProductoComponent} from './nuevoproducto/nuevoproducto.component';
 import {ProductsListComponent} from './producto/productsList.component';
 import {LoginComponent} from './login/login.component'
-import {RegisterComponent} from './login/register.component'
+import {RegisterComponent} from './register/register.component'
 
 import { MaterialModule } from '@angular/material';
 import {ClienteService} from './cliente/cliente.service';
