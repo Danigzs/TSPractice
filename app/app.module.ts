@@ -28,6 +28,8 @@ import {TecnicaService} from './producto/tecnica.service';
 import {SellerService} from './sellers/seller.service';
 import {PaymentService}from './payment/payment.service';
 import {DashboardService} from './dashboard/dashboard.service';
+import {RoleService} from './roles/role.service';
+import {RegisterService} from './register/register.service';
 import { HttpModule, JsonpModule } from '@angular/http';
 
 const appRoutes: Routes = [
@@ -78,7 +80,7 @@ const appRoutes: Routes = [
   RegisterComponent,
   
   ],
-  providers : [ CotizadorService, ClienteService, ProductoService, TecnicaService,SellerService,OrderService,DashboardService,PaymentService],
+  providers : [ CotizadorService, ClienteService, ProductoService, TecnicaService,SellerService,OrderService,DashboardService,PaymentService,RoleService,RegisterService],
   bootstrap:    [ NavbarComponent, ]
 })
 export class AppModule { }

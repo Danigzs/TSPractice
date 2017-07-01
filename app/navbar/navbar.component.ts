@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import {CotizadorComponent} from './../cotizador.component'
 import {Producto} from './../producto/producto'
 import {ProductoService} from './../producto/producto.service'
-
+import {User} from "./../register/user"
  
 @Component({
   selector: 'navbar',
@@ -11,7 +11,17 @@ import {ProductoService} from './../producto/producto.service'
   ,
 providers:[CotizadorComponent, ProductoService, Producto]
 })
-export class NavbarComponent  {
+export class NavbarComponent implements OnInit  {
+username:String
+public user:User
 
-
+ngOnInit() {
+  var user = window.localStorage.getItem("user");
+  if(user){
+    this.user = JSON.parse(user);
+  }
+  //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+  //Add 'implements OnInit' to the class.
+  
+}
 }

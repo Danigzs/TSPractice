@@ -3,28 +3,24 @@ var autoIncrement = require('mongoose-auto-increment');
 autoIncrement.initialize(mongoose.connection);
 var Schema = mongoose.Schema;
 
-var paymentSchema = new Schema({
-  _id: {
-    type: Number, 
-    required: true
+var userSchema = new Schema({
+  name:{
+      type:String
   },
   username:{
       type:String
   },
   password:{
       type:String
-  },
-  firstName:{
+  }, 
+  email:{
       type:String
   },
-  lastName:{
-      type:String
-  },
-  range:{
-      type:String
+  role:{
+
   }
 
 });
 
-paymentSchema.plugin(autoIncrement.plugin, 'User');
+userSchema.plugin(autoIncrement.plugin, 'User');
 module.exports = mongoose.model('User', userSchema);

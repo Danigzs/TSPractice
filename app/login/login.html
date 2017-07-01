@@ -1,6 +1,59 @@
-<div>
-    <div class="c-loginscreen">   
-            <label>Usuario</label><input type="text">
-            <label>Contraseña</label><input type="text">         
+<div class="c-div-bgr bar-margin">
+  <div class="c-cliente-seccion">
+      <h1>Login</h1>
     </div>
+  <div class="c-div-container">
+
+    <div style="    max-width: 500px;
+    margin-top: 30px;
+    margin-left: 5%;
+    text-align: center;
+    display: block;
+    margin: 0 auto;">
+
+    <div class="c-container-info">
+
+      <div class="c-container-info-column">
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Usuario
+          </div>
+
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Contraseña
+          </div>
+        </div>
+         
+
+      </div>
+
+      <div class="c-container-info-column data">
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+              <input type="text" name="username" [(ngModel)]="username">
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+                <input type="password" name="password" [(ngModel)]="password">
+            </div>
+          </div>
+        </div>
+         
+      </div>
+
+ 
+
+  </div>
+  <div class="c-add-product-container">
+        <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
+        <button  type="button" class="btn btn-primary btn-md" (click)="login()">Iniciar Sesión</button>
+    
+      </div>
+    </div>
+    </div>
+ 
 </div>

@@ -35,7 +35,8 @@ var modelProductCotizacion = require('./models/productCotizacion')(app, mongoose
 var modelOrder = require('./models/order')(app, mongoose);
 var modelOrderProducts = require('./models/orderProducts')(app, mongoose);
 var modelPayment = require('./models/payment')(app, mongoose);
-
+var modelRole = require('./models/role')(app, mongoose);
+var modelUser = require('./models/user')(app, mongoose);
 
 var ClientCtrl = require('./controllers/client');
 var OrderCtrl = require('./controllers/order');
@@ -44,6 +45,8 @@ var ProductCtrl = require('./controllers/product');
 var SellerCtrl = require('./controllers/seller');
 var PaymentCtrl = require('./controllers/payment');
 var HomeCtrl = require('./controllers/home');
+var RoleCtrl = require('./controllers/role');
+var UserCtrl = require('./controllers/user');
  
 var OrderProductsCtrl = require('./controllers/orderProducts');
  
@@ -66,6 +69,32 @@ api.route('/clients/:id')
  .get(ClientCtrl.findById)
  .put(ClientCtrl.update)
  .delete(ClientCtrl.delete);
+
+
+
+//Roles Routes
+api.route('/roles') 
+ .get(RoleCtrl.findAll)
+
+api.route('/roles/:id') 
+ .get(RoleCtrl.findById)
+  
+//User Routes
+api.route('/users') 
+ .get(UserCtrl.findAll)
+
+api.route('/users/:id') 
+ .get(UserCtrl.findById)
+
+api.route('/login') 
+ .post(UserCtrl.login)
+
+api.route('/register') 
+ .post(UserCtrl.register)
+
+
+// 
+
 
 api.route('/home') 
  .get(HomeCtrl.getHome)

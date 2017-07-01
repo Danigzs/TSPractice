@@ -1,85 +1,107 @@
-var config = require('config.json');
-var express = require('express');
-var router = express.Router();
-var userService = require('');
- 
-// routes
-router.post('/authenticate', authenticateUser);
-router.post('/register', registerUser);
-router.get('/current', getCurrentUser);
-router.put('/:_id', updateUser);
-router.delete('/:_id', deleteUser);
- 
-module.exports = router;
- 
-function authenticateUser(req, res) {
-    userService.authenticate(req.body.username, req.body.password)
-        .then(function (token) {
-            if (token) {
-                // authentication successful
-                res.send({ token: token });
-            } else {
-                // authentication failed
-                res.sendStatus(401);
-            }
-        })
-        .catch(function (err) {
-            res.status(400).send(err);
-        });
-}
- 
-function registerUser(req, res) {
-    userService.create(req.body)
-        .then(function () {
-            res.sendStatus(200);
-        })
-        .catch(function (err) {
-            res.status(400).send(err);
-        });
-}
- 
-function getCurrentUser(req, res) {
-    userService.getById(req.user.sub)
-        .then(function (user) {
-            if (user) {
-                res.send(user);
-            } else {
-                res.sendStatus(404);
-            }
-        })
-        .catch(function (err) {
-            res.status(400).send(err);
-        });
-}
- 
-function updateUser(req, res) {
-    var userId = req.user.sub;
-    if (req.params._id !== userId) {
-        // can only update own account
-        return res.status(401).send('You can only update your own account');
+var mongoose = require('mongoose');
+var User = mongoose.model('User');
+
+//GET - Return all registers
+exports.findAll = function (req, res) {
+
+  User.find(function (err, users) {
+    if (err) res.send(500, err.message);
+    console.log('GET /user')
+    res.json({
+      users: users
+    });
+
+  });
+};
+
+//GET - Return a register with specified ID
+exports.findById = function (req, res) {
+  User.findById(req.params.id, function (err, user) {
+    if (err) return res.send(500, err.message);
+    console.log('GET /users/' + req.params.id);
+    res.status(200).jsonp({
+      user: user
+    });
+  });
+};
+
+//POST - Insert a new register
+exports.register = function (req, res) {
+  console.log('POST');
+  console.log(req.body);
+  var user = new User({
+    name: req.body.name,
+    email: req.body.email,
+    username: req.body.username,
+    password: req.body.password,
+    role: req.body.role
+  });
+  user.save(function (err, user) {
+    if (err) return res.send(500, err.message);
+    user.password = "";
+    res.status(200).json({
+      user: user
+    });
+
+  });
+};
+
+//POST - Get An User by username and password
+exports.login = function (req, res) {
+    console.log(req.query);
+  User.findOne({username:req.query.username}, function (err, user) {
+    if (err) return res.send(500, err.message);
+    if (!user) {
+      res.status(200).jsonp({
+        success: false,
+        user: {},
+        message: "No existe usuario"
+      });
+    } else if (user.password == req.params.password) {
+      res.status(200).jsonp({
+        success: true,
+        user: user
+      });
+    } else {
+      res.status(200).jsonp({
+        success: false,
+        user: user,
+        message: "Contraseña incorrecta"
+      });
     }
- 
-    userService.update(userId, req.body)
-        .then(function () {
-            res.sendStatus(200);
-        })
-        .catch(function (err) {
-            res.status(400).send(err);
-        });
-}
- 
-function deleteUser(req, res) {
-    var userId = req.user.sub;
-    if (req.params._id !== userId) {
-        // can only delete own account
-        return res.status(401).send('You can only delete your own account');
-    }
- 
-    userService.delete(userId)
-        .then(function () {
-            res.sendStatus(200);
-        })
-        .catch(function (err) {
-            res.status(400).send(err);
-        });
-}
+
+  });
+};
+
+
+
+// //PUT - Update a register already exists
+// exports.update = function (req, res) {
+//   Seller.findById(req.params.id, function (err, seller) {
+//     seller.name =  req.body.name,
+//   seller.store =  req.body.store,
+//   seller.address =  req.body.address,
+//   seller.phone =  req.body.phone,
+//   seller.email =  req.body.email,
+//   seller.rfc =  req.body.rfc,
+//   seller.code =   req.body.code
+//     seller.save(function (err) {
+//       if (err) return res.send(500, err.message);
+//      res.status(200).json({
+//       seller: seller
+//     });
+//     });
+//   });
+// };
+
+// //DELETE - Delete a register with specified ID
+// exports.delete = function (req, res) {
+//   Seller.findById(req.params.id, function (err, seller) {
+//     seller.remove(function (err) {
+//       if (err) return res.send(500, err.message);
+//       res.json({
+//         message: 'Successfully deleted'
+//       });
+//     });
+//   });
+// };

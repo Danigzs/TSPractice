@@ -12,6 +12,14 @@ var producto_service_1 = require("./../producto/producto.service");
 var NavbarComponent = (function () {
     function NavbarComponent() {
     }
+    NavbarComponent.prototype.ngOnInit = function () {
+        var user = window.localStorage.getItem("user");
+        if (user) {
+            this.user = JSON.parse(user);
+        }
+        //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+        //Add 'implements OnInit' to the class.
+    };
     return NavbarComponent;
 }());
 NavbarComponent = __decorate([

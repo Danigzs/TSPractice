@@ -33,6 +33,8 @@ var tecnica_service_1 = require("./producto/tecnica.service");
 var seller_service_1 = require("./sellers/seller.service");
 var payment_service_1 = require("./payment/payment.service");
 var dashboard_service_1 = require("./dashboard/dashboard.service");
+var role_service_1 = require("./roles/role.service");
+var register_service_1 = require("./register/register.service");
 var http_1 = require("@angular/http");
 var appRoutes = [
     { path: 'form-directive', component: form_component_1.FormComponent },
@@ -80,7 +82,7 @@ AppModule = __decorate([
             login_component_1.LoginComponent,
             register_component_1.RegisterComponent,
         ],
-        providers: [cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService, seller_service_1.SellerService, order_service_1.OrderService, dashboard_service_1.DashboardService, payment_service_1.PaymentService],
+        providers: [cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService, seller_service_1.SellerService, order_service_1.OrderService, dashboard_service_1.DashboardService, payment_service_1.PaymentService, role_service_1.RoleService, register_service_1.RegisterService],
         bootstrap: [navbar_component_1.NavbarComponent,]
     })
 ], AppModule);

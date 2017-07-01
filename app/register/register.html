@@ -59,7 +59,7 @@
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             <div class="example-full-width">
-              <input type="text" name="rfc" [(ngModel)]="cliente.rfc">
+              <input type="text" name="rfc" [(ngModel)]="user.username">
             </div>
           </div>
         </div>
@@ -68,11 +68,7 @@
 
 
       <div class="c-container-info-column">
-         <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            Apellido
-          </div>
-        </div>
+         
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             Contraseña
@@ -91,24 +87,21 @@
       </div>
 
       <div class="c-container-info-column data">
+        
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-<div class="example-full-width">
-              <input type="text" name="code" [(ngModel)]="user.lastName">
+            <div class="example-full-width">
+              <input type="password" name="estado" [(ngModel)]="user.password">
             </div>
           </div>
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             <div class="example-full-width">
-              <input type="text" name="estado" [(ngModel)]="user.password">
-            </div>
-          </div>
-        </div>
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            <div class="example-full-width">
-              <select type="text" name="pais" [(ngModel)]="user.range">
+              <select type="text" name="role" [(ngModel)]="roleSelected">
+                  <option *ngFor="let role of roles" [ngValue]="role">
+                    {{role.name}}
+                </option>          
               </select>
             </div>
           </div>
@@ -126,7 +119,7 @@
     </div>
  <div class="c-add-product-container">
         <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
-        <button  type="button" class="btn btn-primary btn-md" (click)="agregarCliente()">Agregar Usuario</button>
+        <button  type="button" class="btn btn-primary btn-md" (click)="register()">Agregar Usuario</button>
         
       </div>
 
