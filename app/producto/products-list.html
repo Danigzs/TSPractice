@@ -1,5 +1,98 @@
-<div class="c-div-bgr">
+<div class="c-div-bgr bar-margin">
+  <div class="c-cliente-seccion">
+    <h1>Inventario</h1>
+  </div>
   <div class="c-div-container">
+
+
+
+    <div class="c-container-info">
+
+      <div class="c-container-info-column">
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Nombre
+          </div>
+
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Clave
+          </div>
+        </div>
+      </div>
+
+      <div class="c-container-info-column data">
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+
+            <input type="text" name="nombre" [(ngModel)]="productname">
+
+
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+             <input type="text" name="code" [(ngModel)]="productcode">
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="c-container-info-column">
+      </div>    
+
+    </div>
+    <div class="c-add-product-container">
+      <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
+      <button type="button" class="btn btn-primary btn-md">Buscar</button>
+
+    </div>
+    <div class="c-grid-products">
+      <table class="table " id="tproductos">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Código</th>
+            <th>Descripción</th>
+            <th>Insumos</th>
+            <th>Es Proveedor</th>
+            <th>Es Bordesa</th>
+            <th>Precio Unitaro</th>
+            <th>Precio 1-12</th>
+            <th>Precio 13-50</th>
+            <th>Precio 51-100</th>
+            <th>Precio mayor 100</th>
+          </tr>
+        </thead>
+        <tr class='clickable-row' *ngFor="let product of (products | search:productname:true  | searchcode:productcode:true)">
+          <td>{{product.name}}</td>
+          <td>{{product.code}}</td>
+          <td>{{product.description}}</td>
+          <td>{{product.supplies}}</td>
+          <td>{{product.isProvider}}</td>
+          <td>{{product.isBordesa}}</td>
+          <td>{{product.price | currency:'USD':true}}</td>
+          <td>{{product.price - product.price * .25 | currency:'USD':true}}</td>
+          <td>{{product.price - product.price * .21 | currency:'USD':true}}</td>
+          <td>{{product.price - product.price * .17 | currency:'USD':true}}</td>
+          <td>{{product.price - product.price * .13 | currency:'USD':true}}</td>
+        </tr>
+
+      </table>
+    </div>
+    <!--<clients-list [clientes]="clientes" *ngIf="show" ></clients-list>-->
+  </div>
+</div>
+
+
+<!--<div class="c-div-bgr">
+  <div class="c-div-container">
+
+
+    
     <div class="c-grid-products">
       <table class="table " id="tproductos">
         <thead>
@@ -34,3 +127,5 @@
     </div>
   </div>
 </div>
+
+-->

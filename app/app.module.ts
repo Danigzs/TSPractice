@@ -19,8 +19,13 @@ import {NuevoProductoComponent} from './nuevoproducto/nuevoproducto.component';
 import {ProductsListComponent} from './producto/productsList.component';
 import {LoginComponent} from './login/login.component'
 import {RegisterComponent} from './register/register.component'
+
 import {EditSellerComponent} from './sellers/editseller.component'
 import {OrdersComponent} from './orders/orders.component'
+ 
+import {SearchCode} from './utilities/productcode.filter'
+import {SearchPipe} from './utilities/productname.filter'
+
 
 import { MaterialModule } from '@angular/material';
 import {ClienteService} from './cliente/cliente.service';
@@ -87,8 +92,8 @@ const appRoutes: Routes = [
   PaymentComponent,
   LoginComponent,
   RegisterComponent,
-  HomeComponent,
-  OrdersComponent
+  SearchCode,
+  SearchPipe,
   
   ],
   providers : [  AuthGuard,CotizadorService, ClienteService, ProductoService, TecnicaService,SellerService,OrderService,DashboardService,PaymentService,RoleService,RegisterService],
