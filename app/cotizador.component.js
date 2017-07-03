@@ -65,7 +65,7 @@ var CotizadorComponent = (function () {
     }
     CotizadorComponent.prototype.setShippingDate = function () {
         var d = new Date();
-        this.shippingDate = d.getDate().toString() + "/" + d.getMonth().toString() + "/" + d.getFullYear().toString();
+        // this.shippingDate = d.getDate().toString() + "/" + d.getMonth().toString() + "/" + d.getFullYear().toString();
     };
     CotizadorComponent.prototype.updateCliente = function (event) {
         console.warn(this.clienteSelected);
@@ -258,7 +258,7 @@ CotizadorComponent = __decorate([
     core_1.Component({
         selector: 'cotizador',
         providers: [cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService, seller_service_1.SellerService, order_service_1.OrderService],
-        styleUrls: ["app/cotizador.css"],
+        styleUrls: ["app/cotizador.css", "app/styles/table.css"],
         templateUrl: "app/cotizador.html"
     }),
     __metadata("design:paramtypes", [material_1.MdDialog, cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService, core_2.ChangeDetectorRef, seller_service_1.SellerService, order_service_1.OrderService])

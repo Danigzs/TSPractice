@@ -16,7 +16,7 @@ export class Order {
   shippingWay:String;
   createdAt:Date;
   isPaid:number;
-  shippingDate:number;
+  shippingDate:Date;
   constructor() {
     this.client = new Cliente;
     this.seller = new Seller;
@@ -28,10 +28,10 @@ export class Order {
     this.advance = 0;
     this.debt = 0;
     this.shippingWay ="";
-    this.shippingDate = Date.now();
+    this.shippingDate = new Date;
   } 
 
-  setOrder(_id:number, client:Cliente,seller:Seller,products:Array<ProductCotizacion>,maquilas:Array<TecnicaCotizacion>,total:number,folio:number,notes:String,advance:number,debt:number,isPaid:number,createdAt:Date,shippingWay:String,shippingDate:number){
+  setOrder(_id:number, client:Cliente,seller:Seller,products:Array<ProductCotizacion>,maquilas:Array<TecnicaCotizacion>,total:number,folio:number,notes:String,advance:number,debt:number,isPaid:number,createdAt:Date,shippingWay:String,shippingDate:Date){
     this._id = _id;
     this.client = client;
     this.seller = seller;

@@ -40,8 +40,7 @@ export class PaymentService {
     let headers = new Headers({
       'Content-Type': 'application/json'
     });
-    let myParams = new URLSearchParams();
-    myParams.append('id', order_id.toString());
+    
     let options = new RequestOptions();
     options.headers = headers;
     options.search = new URLSearchParams();

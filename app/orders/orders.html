@@ -1,0 +1,78 @@
+<navbar></navbar>
+<div class="c-div-bgr bar-margin">
+     <div class="c-cliente-seccion">
+      <h1>Pedidos</h1>
+    </div>
+  <div class="c-div-container">
+           <div class="c-container-info">
+      <div class="c-container-info-column">
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Cliente
+          </div>
+
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Folio
+          </div>
+        </div>
+         
+      </div>
+
+      <div class="c-container-info-column data">
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+           
+              <input type="text" name="nombre" [(ngModel)]="clientname">
+           
+
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+                <input type="text" name="folio" [(ngModel)]="clientfolio">
+            </div>
+          </div>
+        </div>
+         
+
+      </div>
+
+ 
+
+    </div>
+  
+    <div class="c-grid-products">
+      <table class="table " id="tproductos">
+        <thead>
+          <tr>
+            <th>Cliente</th>
+            <th>Vendedor</th>
+            <th>Folio</th>
+            <th>Forma de Envío</th>
+            <th>Fecha de Entrega</th>
+            <th>Anticipo</th>
+            <th>Resto</th>
+            <th>Total</th>
+            
+          </tr>
+        </thead>
+        <tr class='clickable-row' *ngFor="let order of orders; let i = index">
+          <td>{{order.client.name}}</td>
+          <td>{{order.seller.name}}</td>
+          <td>{{order.folio}}</td>
+          <td>{{order.shippingWay}}</td>
+          <td>{{order.shippingDate |date}}</td>
+          <td>{{order.advance | currency:'USD':true}}</td>
+          <td>{{order.debt | currency:'USD':true}}</td>
+          <td>{{order.total | currency:'USD':true}}</td>
+        </tr>
+
+      </table>
+    </div>
+
+  </div>
+
+</div>

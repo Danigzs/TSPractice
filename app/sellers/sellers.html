@@ -1,7 +1,8 @@
+<navbar></navbar>
 <div class="c-div-bgr bar-margin">
-      <div class="c-cliente-seccion">
-      <h1>Vendedores</h1>
-    </div>
+  <div class="c-cliente-seccion">
+    <h1>Vendedores</h1>
+  </div>
 
   <div class="c-div-container">
 
@@ -29,41 +30,41 @@
             Teléfono
           </div>
         </div>
-       
-       
+
+
 
       </div>
-      
-  <div class="c-container-info-column">
 
-    <div class="c-container-info-column-item-container">
+      <div class="c-container-info-column">
+
+        <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-           <input type="text" name="name" [(ngModel)]="seller.name">
+            <input type="text" name="name" [(ngModel)]="seller.name">
           </div>
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-           <input type="text" name="store" [(ngModel)]="seller.store">
+            <input type="text" name="store" [(ngModel)]="seller.store">
           </div>
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-           <input type="text" name="address" [(ngModel)]="seller.address">
+            <input type="text" name="address" [(ngModel)]="seller.address">
           </div>
         </div>
 
-          <div class="c-container-info-column-item-container">
+        <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-           <input type="text" name="phone" [(ngModel)]="seller.phone">
+            <input type="text" name="phone" [(ngModel)]="seller.phone">
           </div>
         </div>
-     
+
 
       </div>
-     
-        
+
+
       <div class="c-container-info-column data">
-         <div class="c-container-info-column-item-container">
+        <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             Email
           </div>
@@ -78,75 +79,73 @@
             Clave
           </div>
         </div>
-        
-</div>
-      
-  <div class="c-container-info-column data">
-      <div class="c-container-info-column-item-container">
+
+      </div>
+
+      <div class="c-container-info-column data">
+        <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-           <input type="text" name="email" [(ngModel)]="seller.email">
+            <input type="text" name="email" [(ngModel)]="seller.email">
           </div>
         </div>
 
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             <div class="example-full-width">
-                <input type="text" name="rfc" [(ngModel)]="seller.rfc">
+              <input type="text" name="rfc" [(ngModel)]="seller.rfc">
             </div>
           </div>
         </div>
 
-         <div class="c-container-info-column-item-container">
+        <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             <div class="example-full-width">
-                <input type="text" name="code" [(ngModel)]="seller.code">
+              <input type="text" name="code" [(ngModel)]="seller.code">
             </div>
           </div>
         </div>
-</div>
-        
+      </div>
+
 
     </div>
- <div class="c-add-product-container">
-        <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
-        <button  type="button" class="btn btn-primary btn-md" (click)="agregarSeller()">Agregar Vendedor</button>
-        
-      </div>
+    <div class="c-add-product-container">
+      <button type="button" class="btn btn-primary btn-md" (click)="agregarSeller()">Agregar Vendedor</button>
 
- 
+    </div>
 
- <div class="c-grid-products">
-          <table class="table " id="tproductos">
-            <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Sucursal</th>
-              <th>Dirección</th>
-              <th>Teléfono</th>
-              <th>Email</th>
-              <th>RFC</th>
-              <th>Clave</th>
-            </tr>
-            </thead>
-            <tr class='clickable-row'   *ngFor="let seller of sellers; let i = index">
-              <td>{{seller.name}}</td>
-              <td>{{seller.store}}</td>
-              <td>{{seller.address}}</td>
-              <td>{{seller.phone}}</td>
-              <td>{{seller.email}}</td>
-              <td>{{seller.rfc}}</td>
-              <td>{{seller.code}}</td>
-            </tr>
 
-          </table>
-                  
 
-        </div>
- <div class="c-add-product-container">
-        <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
-        <button  type="button" class="btn btn-primary btn-md" (click)="updateVendedor()">Update</button>
-        
-      </div>
+    <div class="c-grid-products">
+      <table class="table " id="tproductos">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Sucursal</th>
+            <th>Dirección</th>
+            <th>Teléfono</th>
+            <th>Email</th>
+            <th>RFC</th>
+            <th>Clave</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tr class='clickable-row' *ngFor="let seller of sellers; let i = index">
+          <td>{{seller.name}}</td>
+          <td>{{seller.store}}</td>
+          <td>{{seller.address}}</td>
+          <td>{{seller.phone}}</td>
+          <td>{{seller.email}}</td>
+          <td>{{seller.rfc}}</td>
+          <td>{{seller.code}}</td>
+          <td> <button type="button" class="btn btn-primary btn-md" (click)="editSeller(seller)">Editar</button></td>
+        </tr>
 
+      </table>
+
+
+    </div>
+    
   </div>
+
+  <editseller [seller]="editSellerSelected" (onCloseEdit)="onCloseEdit()" *ngIf="showEditSeller"></editseller>
 </div>

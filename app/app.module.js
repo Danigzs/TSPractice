@@ -10,6 +10,7 @@ var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var router_1 = require("@angular/router");
 var app_component_1 = require("./app.component");
+var home_component_1 = require("./home.component");
 var navbar_component_1 = require("./navbar/navbar.component");
 var form_component_1 = require("./form.component");
 var clientes_details_1 = require("./clientes.details");
@@ -24,6 +25,8 @@ var nuevoproducto_component_1 = require("./nuevoproducto/nuevoproducto.component
 var productsList_component_1 = require("./producto/productsList.component");
 var login_component_1 = require("./login/login.component");
 var register_component_1 = require("./register/register.component");
+var editseller_component_1 = require("./sellers/editseller.component");
+var orders_component_1 = require("./orders/orders.component");
 var material_1 = require("@angular/material");
 var cliente_service_1 = require("./cliente/cliente.service");
 var cotizador_service_1 = require("./cotizacion/cotizador.service");
@@ -36,9 +39,10 @@ var dashboard_service_1 = require("./dashboard/dashboard.service");
 var role_service_1 = require("./roles/role.service");
 var register_service_1 = require("./register/register.service");
 var http_1 = require("@angular/http");
+var auth_guard_1 = require("./guards/auth.guard");
 var appRoutes = [
-    { path: 'form-directive', component: form_component_1.FormComponent },
-    { path: 'my-app', component: app_component_1.AppComponent },
+    { path: '', component: home_component_1.HomeComponent, canActivate: [auth_guard_1.AuthGuard] },
+    { path: 'dashboard', component: app_component_1.AppComponent },
     { path: 'clientes', component: clientes_details_1.ClientesComponent },
     { path: 'clients-list', component: clientsList_component_1.ClientsListComponent },
     { path: 'cotizador', component: cotizador_component_1.CotizadorComponent },
@@ -47,11 +51,12 @@ var appRoutes = [
     { path: 'nuevoproducto', component: nuevoproducto_component_1.NuevoProductoComponent },
     { path: 'tecnicas', component: tecnicas_component_1.TecnicasComponent },
     { path: 'sellers', component: sellers_component_1.SellersComponent },
+    { path: 'editSeller', component: editseller_component_1.EditSellerComponent },
     { path: 'categorias', component: categorias_component_1.CategoriasComponent },
     { path: 'payment', component: payment_component_1.PaymentComponent },
     { path: 'login', component: login_component_1.LoginComponent },
     { path: 'register', component: register_component_1.RegisterComponent },
-    { path: '', redirectTo: '/my-app', pathMatch: 'full' },
+    { path: 'orders', component: orders_component_1.OrdersComponent },
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -77,13 +82,16 @@ AppModule = __decorate([
             nuevoproducto_component_1.NuevoProductoComponent,
             tecnicas_component_1.TecnicasComponent,
             sellers_component_1.SellersComponent,
+            editseller_component_1.EditSellerComponent,
             categorias_component_1.CategoriasComponent,
             payment_component_1.PaymentComponent,
             login_component_1.LoginComponent,
             register_component_1.RegisterComponent,
+            home_component_1.HomeComponent,
+            orders_component_1.OrdersComponent
         ],
-        providers: [cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService, seller_service_1.SellerService, order_service_1.OrderService, dashboard_service_1.DashboardService, payment_service_1.PaymentService, role_service_1.RoleService, register_service_1.RegisterService],
-        bootstrap: [navbar_component_1.NavbarComponent,]
+        providers: [auth_guard_1.AuthGuard, cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService, seller_service_1.SellerService, order_service_1.OrderService, dashboard_service_1.DashboardService, payment_service_1.PaymentService, role_service_1.RoleService, register_service_1.RegisterService],
+        bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);
 exports.AppModule = AppModule;

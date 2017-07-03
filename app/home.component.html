@@ -1,3 +1,4 @@
+<navbar></navbar>
 <div class="c-div-bgr bar-margin">
      <div class="c-cliente-seccion">
       <h1>Pedidos Pendientes por Pagar</h1>
@@ -24,7 +25,7 @@
           <td>{{order.seller.name}}</td>
           <td>{{order.folio}}</td>
           <td>{{order.shippingWay}}</td>
-          <td>{{order.shippingDate}}</td>
+          <td>{{order.shippingDate |date}}</td>
           <td>{{order.advance | currency:'USD':true}}</td>
           <td>{{order.debt | currency:'USD':true}}</td>
           <td>{{order.total | currency:'USD':true}}</td>
@@ -35,16 +36,3 @@
 
   </div>
 </div>
-<!--
-
-  "_id": "5945c2fd5cf909add0000001",
-      "client_id": "593c3a2311753b463e000001",
-      "seller_id": "5940b4488cda8e783e000001",
-      "total": 17200,
-      "folio": "300",
-      "notes": "NECESITO URGENTE",
-      "isPaid": 0,
-      "advance": 3000,
-      "debt": 14200,
-      "shippingWay": "a domicilio",
-      "shippingDate": 1497744094717,-->

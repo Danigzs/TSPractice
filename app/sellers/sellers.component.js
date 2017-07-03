@@ -14,6 +14,7 @@ var seller_1 = require("./seller");
 var SellersComponent = (function () {
     function SellersComponent(_sellerService) {
         this._sellerService = _sellerService;
+        this.showEditSeller = false;
     }
     SellersComponent.prototype.ngOnInit = function () {
         this.seller = new seller_1.Seller();
@@ -32,10 +33,15 @@ var SellersComponent = (function () {
             _this.reloadSellers();
         });
     };
-    SellersComponent.prototype.updateSeller = function () {
+    SellersComponent.prototype.editSeller = function (seller) {
+        this.editSellerSelected = seller_1.Seller.copyNewSeller(seller);
+        this.showEditSeller = true;
+    };
+    SellersComponent.prototype.onCloseEdit = function () {
         var _this = this;
-        this._sellerService.addSeller(this.seller).subscribe(function (data) {
-            _this.reloadSellers();
+        this._sellerService.getSellers().subscribe(function (data) {
+            _this.sellers = data;
+            _this.showEditSeller = false;
         });
     };
     return SellersComponent;
@@ -44,7 +50,7 @@ SellersComponent = __decorate([
     core_1.Component({
         selector: 'sellers',
         providers: [seller_service_1.SellerService],
-        styleUrls: ["./app/sellers/sellers.css"],
+        styleUrls: ["./app/sellers/sellers.css", "app/styles/table.css"],
         templateUrl: "./app/sellers/sellers.html"
     }),
     __metadata("design:paramtypes", [seller_service_1.SellerService])

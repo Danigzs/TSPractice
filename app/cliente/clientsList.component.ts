@@ -14,7 +14,7 @@ import {Cliente} from './cliente';
 @Component({
   selector: 'clients-list',
     providers: [ClienteService],
-  styleUrls: ["./app/cliente/clients-list.css"],
+  styleUrls: ["./app/cliente/clients-list.css", "app/styles/table.css"],
   templateUrl: "./app/cliente/clients-list.html"
 })
 

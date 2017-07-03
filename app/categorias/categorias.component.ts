@@ -13,7 +13,7 @@ import {Categoria} from '../categorias/categoria';
 @Component({
   selector: 'categorias',
     providers: [CategoriaService],
-  styleUrls: ["./app/categorias/categorias.css"],
+  styleUrls: ["./app/categorias/categorias.css", "app/styles/table.css"],
   templateUrl: "./app/categorias/categorias.html"
        
 })

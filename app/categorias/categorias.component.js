@@ -30,7 +30,7 @@ CategoriasComponent = __decorate([
     core_1.Component({
         selector: 'categorias',
         providers: [categoria_service_1.CategoriaService],
-        styleUrls: ["./app/categorias/categorias.css"],
+        styleUrls: ["./app/categorias/categorias.css", "app/styles/table.css"],
         templateUrl: "./app/categorias/categorias.html"
     }),
     __metadata("design:paramtypes", [categoria_service_1.CategoriaService])

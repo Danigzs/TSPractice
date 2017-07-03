@@ -1,3 +1,6 @@
+ 
+import { Router, ActivatedRoute } from '@angular/router';
+
 import {
   Component,
   OnInit,
@@ -27,13 +30,18 @@ export class LoginComponent implements OnInit {
   user = new User()
   public username:String
   public password:String
-  constructor(private _registerService:RegisterService){
+      returnUrl: string;
+
+  constructor(private _registerService:RegisterService,private route: ActivatedRoute,
+        private router: Router,){
 
   }
+  
   ngOnInit() {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-
+   this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+ 
   }
 
   login(){
@@ -45,6 +53,7 @@ export class LoginComponent implements OnInit {
         {
           alert("Inicio de sesión correcto");
           window.localStorage.setItem("user",JSON.stringify(data));
+          this.router.navigate([this.returnUrl]);
         }
         else{
           alert("Usuario o contraseña incorrecto");

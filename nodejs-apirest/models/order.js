@@ -35,7 +35,7 @@ var orderSchema = new Schema({
     type: String
   },
   shippingDate: {
-    type: Number
+    type: Date
   },
   createdAt:{
     type:Date

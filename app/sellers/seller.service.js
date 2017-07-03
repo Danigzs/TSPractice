@@ -18,15 +18,30 @@ var SellerService = (function () {
     function SellerService(http) {
         this.http = http;
         this.url = 'http://localhost:8000/api/sellers'; // URL to web API
+        this.updateUrl = 'http://localhost:8000/api/sellers/'; // URL to web API
     }
     SellerService.prototype.getSellers = function () {
         return this.http.get(this.url)
             .map(this.extractData)
             .catch(this.handleError);
     };
+    SellerService.prototype.updateSeller = function (seller) {
+        var headers = new http_2.Headers({
+            'Content-Type': 'application/json'
+        });
+        var options = new http_2.RequestOptions();
+        options.headers = headers;
+        return this.http.put(this.updateUrl + seller._id.toString(), seller, options)
+            .map(this.extractData)
+            .catch(this.handleError);
+    };
     SellerService.prototype.addSeller = function (seller) {
-        var headers = new http_2.Headers({ 'Content-Type': 'application/json' });
-        var options = new http_2.RequestOptions({ headers: headers });
+        var headers = new http_2.Headers({
+            'Content-Type': 'application/json'
+        });
+        var options = new http_2.RequestOptions({
+            headers: headers
+        });
         return this.http.post(this.url, seller, options)
             .map(this.extractData)
             .catch(this.handleError);

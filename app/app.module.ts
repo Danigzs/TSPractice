@@ -4,6 +4,7 @@ import { FormsModule }   from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
 import {AppComponent} from './app.component'
+import {HomeComponent} from './home.component'
 import {NavbarComponent} from './navbar/navbar.component';
 import {FormComponent}	from './form.component';
 import {ClientesComponent} from './clientes.details';
@@ -18,6 +19,8 @@ import {NuevoProductoComponent} from './nuevoproducto/nuevoproducto.component';
 import {ProductsListComponent} from './producto/productsList.component';
 import {LoginComponent} from './login/login.component'
 import {RegisterComponent} from './register/register.component'
+import {EditSellerComponent} from './sellers/editseller.component'
+import {OrdersComponent} from './orders/orders.component'
 
 import { MaterialModule } from '@angular/material';
 import {ClienteService} from './cliente/cliente.service';
@@ -32,9 +35,12 @@ import {RoleService} from './roles/role.service';
 import {RegisterService} from './register/register.service';
 import { HttpModule, JsonpModule } from '@angular/http';
 
+
+
+import{ AuthGuard} from './guards/auth.guard'
 const appRoutes: Routes = [
-  { path: 'form-directive', component: FormComponent },
-  { path: 'my-app', component: AppComponent },
+      { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'dashboard', component: AppComponent },
   { path: 'clientes', component: ClientesComponent},
   { path: 'clients-list', component: ClientsListComponent},
   { path: 'cotizador', component: CotizadorComponent},
@@ -43,14 +49,16 @@ const appRoutes: Routes = [
   { path: 'nuevoproducto', component: NuevoProductoComponent},
   { path: 'tecnicas', component: TecnicasComponent},
   { path: 'sellers', component: SellersComponent},
+  { path: 'editSeller', component: EditSellerComponent},
   { path: 'categorias', component: CategoriasComponent},
   { path: 'payment', component: PaymentComponent},
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
+  { path: 'orders', component: OrdersComponent },
    
   
 
-  { path: '',   redirectTo: '/my-app', pathMatch: 'full' },
+  
   
 ];
 
@@ -74,14 +82,17 @@ const appRoutes: Routes = [
   NuevoProductoComponent,
   TecnicasComponent,
   SellersComponent,
+  EditSellerComponent,
   CategoriasComponent,
   PaymentComponent,
   LoginComponent,
   RegisterComponent,
+  HomeComponent,
+  OrdersComponent
   
   ],
-  providers : [ CotizadorService, ClienteService, ProductoService, TecnicaService,SellerService,OrderService,DashboardService,PaymentService,RoleService,RegisterService],
-  bootstrap:    [ NavbarComponent, ]
+  providers : [  AuthGuard,CotizadorService, ClienteService, ProductoService, TecnicaService,SellerService,OrderService,DashboardService,PaymentService,RoleService,RegisterService],
+  bootstrap:    [ AppComponent]
 })
 export class AppModule { }
 

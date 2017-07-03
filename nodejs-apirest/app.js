@@ -142,14 +142,20 @@ api.route('/products/:id')
  .get(ProductCtrl.findById)
  .put(ProductCtrl.update);
 
+
+
+//
+// ─── SELLERS ROUTES ─────────────────────────────────────────────────────────────
+//
+
+    
 api.route('/sellers') 
  .get(SellerCtrl.findAll)
  .post(SellerCtrl.add);
-
+ 
 api.route('/sellers/:id') 
  .get(SellerCtrl.findById)
- .put(SellerCtrl.update);
-
+.put(SellerCtrl.update);
 
 app.use('/api', api);
 

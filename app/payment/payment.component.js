@@ -79,7 +79,7 @@ PaymentComponent = __decorate([
     core_1.Component({
         selector: 'payment',
         providers: [payment_service_1.PaymentService, order_service_1.OrderService],
-        styleUrls: ["./app/payment/payment.css"],
+        styleUrls: ["./app/payment/payment.css", "app/styles/table.css"],
         templateUrl: "./app/payment/payment.html"
     }),
     __metadata("design:paramtypes", [payment_service_1.PaymentService, order_service_1.OrderService])

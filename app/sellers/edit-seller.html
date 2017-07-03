@@ -1,0 +1,124 @@
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close" (click)="close()">&times;</span>
+
+    <div class="c-div-bgr bar-margin">
+      <div class="c-cliente-seccion">
+        <h1>Editar Vendedor</h1>
+      </div>
+      <div class="c-div-container">
+
+        <div class="c-container-info">
+
+          <div class="c-container-info-column">
+            <div class="c-container-info-column-item-container">
+              <div class="c-container-info-column-item-container info">
+                Nombre
+              </div>
+            </div>
+            <div class="c-container-info-column-item-container">
+              <div class="c-container-info-column-item-container info">
+                Sucursal
+              </div>
+            </div>
+            <div class="c-container-info-column-item-container">
+              <div class="c-container-info-column-item-container info">
+                Dirección
+              </div>
+            </div>
+            <div class="c-container-info-column-item-container">
+              <div class="c-container-info-column-item-container info">
+                Teléfono
+              </div>
+            </div>
+
+
+
+          </div>
+
+          <div class="c-container-info-column">
+
+            <div class="c-container-info-column-item-container">
+              <div class="c-container-info-column-item-container info">
+                <input type="text" name="name" [(ngModel)]="seller.name">
+              </div>
+            </div>
+            <div class="c-container-info-column-item-container">
+              <div class="c-container-info-column-item-container info">
+                <input type="text" name="store" [(ngModel)]="seller.store">
+              </div>
+            </div>
+            <div class="c-container-info-column-item-container">
+              <div class="c-container-info-column-item-container info">
+                <input type="text" name="address" [(ngModel)]="seller.address">
+              </div>
+            </div>
+
+            <div class="c-container-info-column-item-container">
+              <div class="c-container-info-column-item-container info">
+                <input type="text" name="phone" [(ngModel)]="seller.phone">
+              </div>
+            </div>
+
+
+          </div>
+
+
+          <div class="c-container-info-column data">
+            <div class="c-container-info-column-item-container">
+              <div class="c-container-info-column-item-container info">
+                Email
+              </div>
+            </div>
+            <div class="c-container-info-column-item-container">
+              <div class="c-container-info-column-item-container info">
+                RFC
+              </div>
+            </div>
+            <div class="c-container-info-column-item-container">
+              <div class="c-container-info-column-item-container info">
+                Clave
+              </div>
+            </div>
+
+          </div>
+
+          <div class="c-container-info-column data">
+            <div class="c-container-info-column-item-container">
+              <div class="c-container-info-column-item-container info">
+                <input type="text" name="email" [(ngModel)]="seller.email">
+              </div>
+            </div>
+
+            <div class="c-container-info-column-item-container">
+              <div class="c-container-info-column-item-container info">
+                <div class="example-full-width">
+                  <input type="text" name="rfc" [(ngModel)]="seller.rfc">
+                </div>
+              </div>
+            </div>
+
+            <div class="c-container-info-column-item-container">
+              <div class="c-container-info-column-item-container info">
+                <div class="example-full-width">
+                  <input type="text" name="code" [(ngModel)]="seller.code">
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="c-add-product-container">
+          <button type="button" class="btn btn-primary btn-md" (click)="updateSeller()">Guardar</button>
+        </div>
+
+      </div>
+    </div>
+
+
+
+<!--<clientes [showClients]="1" (closeClientAdded)="closeClientAdded($event)"></clientes>-->
+  </div>
+
+</div>

@@ -1,40 +1,74 @@
-import { Injectable } from '@angular/core';
-import { Http, Response }          from '@angular/http';
-import { Headers, RequestOptions } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+import {
+  Injectable
+} from '@angular/core';
+import {
+  URLSearchParams
+} from '@angular/http';
+import {
+  Http,
+  Response
+} from '@angular/http';
+import {
+  Headers,
+  RequestOptions
+} from '@angular/http';
+import {
+  Observable
+} from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-import { Seller } from './seller';
+import {
+  Seller
+} from './seller';
+import {
+  RequestMessage
+} from './../httpMessages/requestMessage';
 @Injectable()
 export class SellerService {
-    tecnicas:Array<Seller>;
-    
-     private url = 'http://localhost:8000/api/sellers';  // URL to web API
+  tecnicas: Array < Seller > ;
 
-constructor (private http: Http) {}
- 
-  getSellers(): Observable<Array<Seller>> {
-    
+  private url = 'http://localhost:8000/api/sellers'; // URL to web API
+  private updateUrl = 'http://localhost:8000/api/sellers/'; // URL to web API
+  constructor(private http: Http) {}
+
+  getSellers(): Observable < Array < Seller >> {
+
     return this.http.get(this.url)
-                    .map(this.extractData)
-                    .catch(this.handleError);
+      .map(this.extractData)
+      .catch(this.handleError);
   }
-  addSeller(seller:Seller): Observable<Array<Seller>> {
-     let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
+  updateSeller(seller: Seller): Observable < RequestMessage > {
+    let headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+    let options = new RequestOptions();
+    options.headers = headers;
+    
+  
+    return this.http.put(this.updateUrl+seller._id.toString(), seller ,options)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+  addSeller(seller: Seller): Observable < Array < Seller >> {
+    let headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+    let options = new RequestOptions({
+      headers: headers
+    });
 
-   
-    return this.http.post(this.url,seller,options)
-                    .map(this.extractData)
-                    .catch(this.handleError);
+
+    return this.http.post(this.url, seller, options)
+      .map(this.extractData)
+      .catch(this.handleError);
   }
   private extractData(res: Response) {
-    
+
     let data = res.json();
-    
-    return data.sellers || { };
+
+    return data.sellers || {};
   }
-    private handleError (error: Response | any) {
+  private handleError(error: Response | any) {
     // In a real world app, you might use a remote logging infrastructure
     let errMsg: string;
     if (error instanceof Response) {
@@ -48,4 +82,3 @@ constructor (private http: Http) {}
     return Observable.throw(errMsg);
   }
 }
-   

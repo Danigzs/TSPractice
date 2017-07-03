@@ -37,7 +37,7 @@ import {  MdDialog,  MdDialogConfig,  MdDialogRef} from '@angular/material';
 @Component({
   selector: 'cotizador',
   providers: [CotizadorService, ClienteService, ProductoService, TecnicaService, SellerService, OrderService],
-  styleUrls: ["app/cotizador.css"],
+  styleUrls: ["app/cotizador.css", "app/styles/table.css"],
   templateUrl: "app/cotizador.html"
 
 })
@@ -82,7 +82,7 @@ export class CotizadorComponent implements OnInit {
 
   setShippingDate() {
     var d = new Date();
-    this.shippingDate = d.getDate().toString() + "/" + d.getMonth().toString() + "/" + d.getFullYear().toString();
+    // this.shippingDate = d.getDate().toString() + "/" + d.getMonth().toString() + "/" + d.getFullYear().toString();
   }
   updateCliente(event: Event) {
     console.warn(this.clienteSelected);

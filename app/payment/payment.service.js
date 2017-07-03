@@ -30,8 +30,6 @@ var PaymentService = (function () {
         var headers = new http_2.Headers({
             'Content-Type': 'application/json'
         });
-        var myParams = new http_3.URLSearchParams();
-        myParams.append('id', order_id.toString());
         var options = new http_2.RequestOptions();
         options.headers = headers;
         options.search = new http_3.URLSearchParams();

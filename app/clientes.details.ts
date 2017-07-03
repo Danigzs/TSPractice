@@ -17,7 +17,7 @@ import { Observable } from 'rxjs/Observable';
 @Component({
   selector: 'clientes',
     providers: [ClienteService],
-  styleUrls: ["./app/cliente/clientes.css"],
+  styleUrls: ["./app/cliente/clientes.css", "app/styles/table.css"],
   templateUrl: "./app/cliente/clientes.html"
        
 })

@@ -16,7 +16,7 @@ exports.findAll = function (req, res) {
 
 //GET - Return a register with specified ID
 exports.findById = function (req, res) {
-  Seller.findById(req.params.id, function (err, seller) {
+  Seller.findById({_id:req.params.id}, function (err, seller) {
     if (err) return res.send(500, err.message);
     console.log('GET /sellers/' + req.params.id);
     res.status(200).jsonp(seller);
@@ -47,18 +47,21 @@ exports.add = function (req, res) {
 
 //PUT - Update a register already exists
 exports.update = function (req, res) {
-  Seller.findById(req.params.id, function (err, seller) {
-    seller.name =  req.body.name,
-  seller.store =  req.body.store,
-  seller.address =  req.body.address,
-  seller.phone =  req.body.phone,
-  seller.email =  req.body.email,
-  seller.rfc =  req.body.rfc,
-  seller.code =   req.body.code
-    seller.save(function (err) {
-      if (err) return res.send(500, err.message);
+  console.log("Update seller " + req.params.id)
+  var _seller = new Seller(req.body);
+  Seller.findById({_id:req.params.id}, function (err, seller) {
+     
+    seller.name =  _seller.name,
+  seller.store =  _seller.store,
+  seller.address =  _seller.address,
+  seller.phone =  _seller.phone,
+  seller.email =  _seller.email,
+  seller.rfc =  _seller.rfc,
+  seller.code =   _seller.code
+    seller.save(function (err,seller) {
+      if (err) return res.send(500).json({seller:null});
      res.status(200).json({
-      seller: seller
+       seller: seller
     });
     });
   });

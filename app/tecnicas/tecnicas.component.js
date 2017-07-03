@@ -44,7 +44,7 @@ TecnicasComponent = __decorate([
     core_1.Component({
         selector: 'tecnicas',
         providers: [tecnica_service_1.TecnicaService],
-        styleUrls: ["./app/tecnicas/tecnicas.css"],
+        styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
         templateUrl: "./app/tecnicas/tecnicas.html"
     }),
     __metadata("design:paramtypes", [tecnica_service_1.TecnicaService])

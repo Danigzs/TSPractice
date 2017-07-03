@@ -52,7 +52,7 @@ ClientesComponent = __decorate([
     core_1.Component({
         selector: 'clientes',
         providers: [cliente_service_1.ClienteService],
-        styleUrls: ["./app/cliente/clientes.css"],
+        styleUrls: ["./app/cliente/clientes.css", "app/styles/table.css"],
         templateUrl: "./app/cliente/clientes.html"
     }),
     __metadata("design:paramtypes", [cliente_service_1.ClienteService])

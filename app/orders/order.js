@@ -13,7 +13,7 @@ var Order = (function () {
         this.advance = 0;
         this.debt = 0;
         this.shippingWay = "";
-        this.shippingDate = Date.now();
+        this.shippingDate = new Date;
     }
     Order.prototype.setOrder = function (_id, client, seller, products, maquilas, total, folio, notes, advance, debt, isPaid, createdAt, shippingWay, shippingDate) {
         this._id = _id;

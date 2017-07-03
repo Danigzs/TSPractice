@@ -28,6 +28,7 @@ export class Seller {
   }
   copyNewSeller(){
     var _seller = new Seller();
+    _seller._id = this._id;
     _seller.name = this.name;
     _seller.store = this.store;
     _seller.address = this.address;
@@ -35,6 +36,20 @@ export class Seller {
     _seller.email = this.email;
     _seller.rfc = this.rfc;
     _seller.code = this.code;
+    
+    return _seller
+  }
+
+  static copyNewSeller(seller:Seller){
+    var _seller = new Seller();
+    _seller._id = seller._id;
+    _seller.name = seller.name;
+    _seller.store = seller.store;
+    _seller.address = seller.address;
+    _seller.phone = seller.phone;
+    _seller.email = seller.email;
+    _seller.rfc = seller.rfc;
+    _seller.code = seller.code;
     
     return _seller
   }

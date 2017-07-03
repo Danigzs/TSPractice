@@ -28,7 +28,7 @@ import {
 @Component({
   selector: 'payment',
   providers: [PaymentService, OrderService],
-  styleUrls: ["./app/payment/payment.css"],
+  styleUrls: ["./app/payment/payment.css","app/styles/table.css"],
   templateUrl: "./app/payment/payment.html"
 
 })
