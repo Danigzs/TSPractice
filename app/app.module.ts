@@ -94,6 +94,8 @@ const appRoutes: Routes = [
   RegisterComponent,
   SearchCode,
   SearchPipe,
+  HomeComponent,
+  OrdersComponent
   
   ],
   providers : [  AuthGuard,CotizadorService, ClienteService, ProductoService, TecnicaService,SellerService,OrderService,DashboardService,PaymentService,RoleService,RegisterService],

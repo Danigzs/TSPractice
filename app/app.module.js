@@ -91,6 +91,8 @@ AppModule = __decorate([
             register_component_1.RegisterComponent,
             productcode_filter_1.SearchCode,
             productname_filter_1.SearchPipe,
+            home_component_1.HomeComponent,
+            orders_component_1.OrdersComponent
         ],
         providers: [auth_guard_1.AuthGuard, cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService, seller_service_1.SellerService, order_service_1.OrderService, dashboard_service_1.DashboardService, payment_service_1.PaymentService, role_service_1.RoleService, register_service_1.RegisterService],
         bootstrap: [app_component_1.AppComponent]

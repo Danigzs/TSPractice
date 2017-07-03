@@ -27,7 +27,7 @@ ProductsListComponent = __decorate([
     core_1.Component({
         selector: 'products-list',
         providers: [producto_service_1.ProductoService],
-        styleUrls: ["./app/producto/products-list.css"],
+        styleUrls: ["./app/producto/products-list.css", 'app/styles/table.css'],
         templateUrl: "./app/producto/products-list.html"
     }),
     __metadata("design:paramtypes", [producto_service_1.ProductoService])

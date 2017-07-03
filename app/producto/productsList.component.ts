@@ -14,7 +14,7 @@ import {Producto} from './producto';
 @Component({
   selector: 'products-list',
     providers: [ProductoService],
-  styleUrls: ["./app/producto/products-list.css"],
+  styleUrls: ["./app/producto/products-list.css",'app/styles/table.css'],
   templateUrl: "./app/producto/products-list.html"
 })
 
