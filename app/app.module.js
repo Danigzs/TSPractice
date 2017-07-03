@@ -24,6 +24,8 @@ var nuevoproducto_component_1 = require("./nuevoproducto/nuevoproducto.component
 var productsList_component_1 = require("./producto/productsList.component");
 var login_component_1 = require("./login/login.component");
 var register_component_1 = require("./register/register.component");
+var productcode_filter_1 = require("./utilities/productcode.filter");
+var productname_filter_1 = require("./utilities/productname.filter");
 var material_1 = require("@angular/material");
 var cliente_service_1 = require("./cliente/cliente.service");
 var cotizador_service_1 = require("./cotizacion/cotizador.service");
@@ -81,6 +83,8 @@ AppModule = __decorate([
             payment_component_1.PaymentComponent,
             login_component_1.LoginComponent,
             register_component_1.RegisterComponent,
+            productcode_filter_1.SearchCode,
+            productname_filter_1.SearchPipe,
         ],
         providers: [cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService, seller_service_1.SellerService, order_service_1.OrderService, dashboard_service_1.DashboardService, payment_service_1.PaymentService, role_service_1.RoleService, register_service_1.RegisterService],
         bootstrap: [navbar_component_1.NavbarComponent,]
