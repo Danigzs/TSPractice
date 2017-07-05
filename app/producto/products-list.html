@@ -56,6 +56,7 @@
         <thead>
           <tr>
             <th>Nombre</th>
+            <th>Cantidad</th>
             <th>Código</th>
             <th>Descripción</th>
             <th>Insumos</th>
@@ -66,10 +67,12 @@
             <th>Precio 13-50</th>
             <th>Precio 51-100</th>
             <th>Precio mayor 100</th>
+            
           </tr>
         </thead>
         <tr class='clickable-row' *ngFor="let product of (products | search:productname:true  | searchcode:productcode:true)">
           <td>{{product.name}}</td>
+          <td>{{product.Cantidad}}</td>
           <td>{{product.code}}</td>
           <td>{{product.description}}</td>
           <td>{{product.supplies}}</td>

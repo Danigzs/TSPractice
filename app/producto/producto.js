@@ -2,6 +2,10 @@
 var Producto = (function () {
     // tecnicas:Array<Tecnica>;
     function Producto() {
+        this.CantidadDDiva = 0.0;
+        this.CantidadTCiva = 0.0;
+        this.CantidadCCiva = 0.0;
+        this.CantidadMCiva = 0.0;
         this.name = "";
         this.price = 0.0;
         this.description = "";

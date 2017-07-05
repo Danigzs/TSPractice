@@ -8,10 +8,21 @@ export class Producto {
   isProvider: number;
   isBordesa: number;
   code:string;
-
+ pCantidadDD:number;
+ pCantidadTC:number;
+ pCantidadCC:number;
+ pCantidadMC:number;
+ CantidadDDiva:number;
+ CantidadTCiva:number;
+ CantidadCCiva:number;
+ CantidadMCiva:number;
   // tecnicas:Array<Tecnica>;
   
   constructor() {
+    this.CantidadDDiva=0.0;
+    this.CantidadTCiva=0.0;
+    this.CantidadCCiva=0.0;
+    this.CantidadMCiva=0.0;
     this.name = "";
     this.price = 0.0;
     this.description  = "";

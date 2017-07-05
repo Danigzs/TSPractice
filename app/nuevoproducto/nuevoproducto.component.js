@@ -17,10 +17,14 @@ var NuevoProductoComponent = (function () {
         this.clienteSelected = {};
     }
     NuevoProductoComponent.prototype.updatePrice = function () {
-        // this.producto.pCantidadDD = this.producto.price - this.producto.price * .13 
-        // this.producto.pCantidadTC= this.producto.price - this.producto.price * .17
-        // this.producto.pCantidadCC= this.producto.price - this.producto.price * .21
-        // this.producto.pCantidadMC= this.producto.price - this.producto.price * .25
+        this.producto.pCantidadDD = this.producto.price + this.producto.price * .25;
+        this.producto.pCantidadTC = this.producto.price + this.producto.price * .21;
+        this.producto.pCantidadCC = this.producto.price + this.producto.price * .17;
+        this.producto.pCantidadMC = this.producto.price + this.producto.price * .13;
+        this.producto.CantidadDDiva = this.producto.pCantidadDD + this.producto.pCantidadDD * .16;
+        this.producto.CantidadTCiva = this.producto.pCantidadTC + this.producto.pCantidadTC * .16;
+        this.producto.CantidadCCiva = this.producto.pCantidadCC + this.producto.pCantidadCC * .16;
+        this.producto.CantidadMCiva = this.producto.pCantidadMC + this.producto.pCantidadMC * .16;
     };
     NuevoProductoComponent.prototype.Calcular = function (producto) {
     };

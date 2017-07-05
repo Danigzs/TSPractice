@@ -21,6 +21,11 @@
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
+            Cantidad
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
             Proveedor
           </div>
         </div>
@@ -42,6 +47,11 @@
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             <input type="text" name="code" [(ngModel)]="producto.code">
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <input type="text" name="code" [(ngModel)]="producto.cantidad">
           </div>
         </div>
         <div class="c-container-info-column-item-container">
@@ -122,24 +132,24 @@
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-            <span >{{producto.price + producto.price * .25 |  currency:'USD':true}}</span>
+            <span >{{producto.CantidadDDiva |  currency:'USD':true}}</span>
           </div>
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-            <span >{{producto.price + producto.price * .21  | currency:'USD':true}}</span>
+            <span >{{producto.CantidadTCiva  | currency:'USD':true}}</span>
             
           </div>
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-            <span >{{producto.price + producto.price * .17  | currency:'USD':true}}</span>
+            <span >{{producto.CantidadCCiva  | currency:'USD':true}}</span>
             </div>
         </div>
 
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-            <span >{{producto.price + producto.price * .13   | currency:'USD':true}}</span>
+            <span >{{producto.CantidadMCiva   | currency:'USD':true}}</span>
             
           </div>
         </div>
