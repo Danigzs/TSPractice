@@ -1,8 +1,4 @@
  
-
-  
-
-
     // producto1.setProducto("celular",2000,"Telefono celular",1,[]);
     // producto2.setProducto("Television",9000,"Television Full HD",1,[]);
     // producto3.setProducto("Laptop",13000,"Computadora portatil",1,[]);

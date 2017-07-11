@@ -366,6 +366,7 @@
           <thead>
             <tr>
               <th>Cantidad</th>
+              <th>Codigo</th>
               <!--<th>Nombre</th>-->
               <th>Descripcion</th>
               <th>Precio unitario</th>
@@ -376,6 +377,7 @@
           <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let producto of productos">
             <td> <input type="number" name="quantity" [(ngModel)]="producto.quantity"></td>
             <!--<td>{{producto.name}}</td>-->
+            <td>{{producto.code}}
             <td>{{producto.name}}. {{producto.description}}</td>
             <td>{{producto.price | currency:'USD':true}}</td>
 

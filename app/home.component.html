@@ -12,11 +12,12 @@
             <th>Cliente</th>
             <th>Vendedor</th>
             <th>Folio</th>
-            <th>Forma de Envío</th>
+            <th>Numero de factura</th>
             <th>Fecha de Entrega</th>
             <th>Anticipo</th>
             <th>Resto</th>
             <th>Total</th>
+            <th>Status</th>
             
           </tr>
         </thead>
@@ -29,6 +30,7 @@
           <td>{{order.advance | currency:'USD':true}}</td>
           <td>{{order.debt | currency:'USD':true}}</td>
           <td>{{order.total | currency:'USD':true}}</td>
+          <td>Status</td>
         </tr>
 
       </table>
