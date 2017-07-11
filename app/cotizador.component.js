@@ -228,6 +228,7 @@ var CotizadorComponent = (function () {
         console.log(this.order);
         this._orderService.addOrder(this.order).subscribe(function (data) {
             console.log("order added");
+            alert("Pedido Creado");
         });
     };
     CotizadorComponent.prototype.ngOnInit = function () {

@@ -280,6 +280,8 @@ export class CotizadorComponent implements OnInit {
     this._orderService.addOrder(this.order).subscribe(
       data => {
         console.log("order added");
+        alert("Pedido Creado");
+         
       }
     );
 
