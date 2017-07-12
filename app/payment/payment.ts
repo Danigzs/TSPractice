@@ -16,7 +16,7 @@ export class Payment {
       this.paymentWay=paymentWay;
       this.date = date;
       this.concept=concept;
-      this.amount=amount;  
+      this.amount=amount;
     }
 
 }

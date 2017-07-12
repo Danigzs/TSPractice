@@ -44,7 +44,12 @@
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-           <input type="text" name="size" [(ngModel)]="tecnica.size">
+          <select type="text" name="size" [(ngModel)]="tecnica.size">
+             <option>Escudo</option>
+             <option>Carta</option>
+             <option>Grande</option>
+             <option>Chico</option>
+          </select>
           </div>
         </div>
 
@@ -117,11 +122,11 @@
                   
 
         </div>
-         <div class="c-add-product-container">
-        <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
-       <button  type="button" class="btn btn-primary btn-md" (click)="updateTecnica()">Update</button>
+          <div class="c-add-product-container">
+          <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
+          <button  type="button" class="btn btn-primary btn-md" (click)="updateTecnica()">Update</button>
         
-      </div>
+          </div>
 
 
   </div>
