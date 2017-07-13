@@ -14,8 +14,9 @@ var Order = (function () {
         this.debt = 0;
         this.shippingWay = "";
         this.shippingDate = new Date;
+        this.subTotal = 0;
     }
-    Order.prototype.setOrder = function (_id, client, seller, products, maquilas, total, folio, notes, advance, debt, isPaid, createdAt, shippingWay, shippingDate) {
+    Order.prototype.setOrder = function (_id, client, seller, products, maquilas, total, folio, notes, advance, debt, isPaid, createdAt, shippingWay, shippingDate, subTotal) {
         this._id = _id;
         this.client = client;
         this.seller = seller;
@@ -30,6 +31,7 @@ var Order = (function () {
         this.debt = debt;
         this.shippingWay = shippingWay;
         this.shippingDate = shippingDate;
+        this.subTotal = subTotal;
     };
     return Order;
 }());
