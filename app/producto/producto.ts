@@ -16,6 +16,7 @@ export class Producto {
  CantidadTCiva:number;
  CantidadCCiva:number;
  CantidadMCiva:number;
+ stock:number;
   // tecnicas:Array<Tecnica>;
   
   constructor() {
@@ -30,6 +31,7 @@ export class Producto {
     this.isProvider = 0;
     this.isBordesa = 0;
     this.code = "";
+    this.stock = 0;
     // this.cantidad = 0;
     // this.total = 0;
     // this.tecnicas = [];
@@ -44,6 +46,7 @@ export class Producto {
     this.isProvider = isProvider;
     this.isBordesa = isBordesa;
     this.code = code;
+    
   }  
   copyNewProducto(){
     var _producto = new Producto();

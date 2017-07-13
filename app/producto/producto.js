@@ -13,6 +13,7 @@ var Producto = (function () {
         this.isProvider = 0;
         this.isBordesa = 0;
         this.code = "";
+        this.stock = 0;
         // this.cantidad = 0;
         // this.total = 0;
         // this.tecnicas = [];

@@ -48,26 +48,37 @@
       <table class="table " id="tproductos">
         <thead>
           <tr>
+            <th>Folio</th>            
             <th>Cliente</th>
-            <th>Vendedor</th>
-            <th>Folio</th>
-            <th>Forma de Envío</th>
+            <th>Fecha</th>
             <th>Fecha de Entrega</th>
-            <th>Anticipo</th>
-            <th>Resto</th>
+            <th>Sub Total</th>
             <th>Total</th>
+            <th>Anticipo</th>
+            <th>Pend. por cobrar</th>
+            <th>Vendedor</th>
+            <th>Status</th>
+            <th>Días de pago</th>
+            
             
           </tr>
         </thead>
         <tr class='clickable-row' *ngFor="let order of orders; let i = index">
+          <td>{{order.folio}}</td>          
           <td>{{order.client.name}}</td>
-          <td>{{order.seller.name}}</td>
-          <td>{{order.folio}}</td>
-          <td>{{order.shippingWay}}</td>
+          <td>{{order.createdAt |date}}</td>
           <td>{{order.shippingDate |date}}</td>
+          <td>{{order.total - order.total*.16 | currency:'USD':true}}</td>
+          <td>{{order.total | currency:'USD':true}}</td>
           <td>{{order.advance | currency:'USD':true}}</td>
           <td>{{order.debt | currency:'USD':true}}</td>
-          <td>{{order.total | currency:'USD':true}}</td>
+          <td>{{order.seller.name}}</td>
+          <td>{{order.shippingWay}}</td>
+          <td>{{order.paymentDays}}</td>
+          
+          
+          
+          
         </tr>
 
       </table>
