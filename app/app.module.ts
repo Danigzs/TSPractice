@@ -23,6 +23,7 @@ import {RegisterComponent} from './register/register.component'
 import {EditSellerComponent} from './sellers/editseller.component'
 import {OrdersComponent} from './orders/orders.component'
 import {BordadoReportComponent} from './dailyreports/bordado.reports'
+import {VerReportesComponent} from'./dailyreports/ver.reportes'
  
 import {SearchCode} from './utilities/productcode.filter'
 import {SearchPipe} from './utilities/productname.filter'
@@ -62,6 +63,7 @@ const appRoutes: Routes = [
   { path: 'register', component: RegisterComponent},
   { path: 'orders', component: OrdersComponent },
   { path: 'bordadoreport', component: BordadoReportComponent},
+  { path: 'verreportes', component: VerReportesComponent},
 
 ];
 
@@ -95,6 +97,7 @@ const appRoutes: Routes = [
   HomeComponent,
   OrdersComponent,
   BordadoReportComponent,
+  VerReportesComponent,
   
   ],
   providers : [  AuthGuard,CotizadorService, ClienteService, ProductoService, TecnicaService,SellerService,OrderService,DashboardService,PaymentService,RoleService,RegisterService],

@@ -28,6 +28,7 @@ var register_component_1 = require("./register/register.component");
 var editseller_component_1 = require("./sellers/editseller.component");
 var orders_component_1 = require("./orders/orders.component");
 var bordado_reports_1 = require("./dailyreports/bordado.reports");
+var ver_reportes_1 = require("./dailyreports/ver.reportes");
 var productcode_filter_1 = require("./utilities/productcode.filter");
 var productname_filter_1 = require("./utilities/productname.filter");
 var material_1 = require("@angular/material");
@@ -61,6 +62,7 @@ var appRoutes = [
     { path: 'register', component: register_component_1.RegisterComponent },
     { path: 'orders', component: orders_component_1.OrdersComponent },
     { path: 'bordadoreport', component: bordado_reports_1.BordadoReportComponent },
+    { path: 'verreportes', component: ver_reportes_1.VerReportesComponent },
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -96,6 +98,7 @@ AppModule = __decorate([
             home_component_1.HomeComponent,
             orders_component_1.OrdersComponent,
             bordado_reports_1.BordadoReportComponent,
+            ver_reportes_1.VerReportesComponent,
         ],
         providers: [auth_guard_1.AuthGuard, cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService, seller_service_1.SellerService, order_service_1.OrderService, dashboard_service_1.DashboardService, payment_service_1.PaymentService, role_service_1.RoleService, register_service_1.RegisterService],
         bootstrap: [app_component_1.AppComponent]
