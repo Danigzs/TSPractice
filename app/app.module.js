@@ -29,6 +29,7 @@ var editseller_component_1 = require("./sellers/editseller.component");
 var orders_component_1 = require("./orders/orders.component");
 var bordado_reports_1 = require("./dailyreports/bordado.reports");
 var ver_reportes_1 = require("./dailyreports/ver.reportes");
+var denied_component_1 = require("./denied/denied.component");
 var productcode_filter_1 = require("./utilities/productcode.filter");
 var productname_filter_1 = require("./utilities/productname.filter");
 var material_1 = require("@angular/material");
@@ -47,22 +48,23 @@ var auth_guard_1 = require("./guards/auth.guard");
 var appRoutes = [
     { path: '', component: home_component_1.HomeComponent, canActivate: [auth_guard_1.AuthGuard] },
     { path: 'dashboard', component: app_component_1.AppComponent },
-    { path: 'clientes', component: clientes_details_1.ClientesComponent },
+    { path: 'clientes', component: clientes_details_1.ClientesComponent, canActivate: [auth_guard_1.AuthGuard] },
     { path: 'clients-list', component: clientsList_component_1.ClientsListComponent },
-    { path: 'cotizador', component: cotizador_component_1.CotizadorComponent },
+    { path: 'cotizador', component: cotizador_component_1.CotizadorComponent, canActivate: [auth_guard_1.AuthGuard] },
     // { path: 'inventario', component: InventarioComponent},
     { path: 'inventario', component: productsList_component_1.ProductsListComponent },
-    { path: 'nuevoproducto', component: nuevoproducto_component_1.NuevoProductoComponent },
+    { path: 'nuevoproducto', component: nuevoproducto_component_1.NuevoProductoComponent, canActivate: [auth_guard_1.AuthGuard] },
     { path: 'tecnicas', component: tecnicas_component_1.TecnicasComponent },
     { path: 'sellers', component: sellers_component_1.SellersComponent },
-    { path: 'editSeller', component: editseller_component_1.EditSellerComponent },
+    { path: 'editSeller', component: editseller_component_1.EditSellerComponent, canActivate: [auth_guard_1.AuthGuard] },
     { path: 'categorias', component: categorias_component_1.CategoriasComponent },
-    { path: 'payment', component: payment_component_1.PaymentComponent },
+    { path: 'payment', component: payment_component_1.PaymentComponent, canActivate: [auth_guard_1.AuthGuard] },
     { path: 'login', component: login_component_1.LoginComponent },
-    { path: 'register', component: register_component_1.RegisterComponent },
+    { path: 'register', component: register_component_1.RegisterComponent, canActivate: [auth_guard_1.AuthGuard] },
     { path: 'orders', component: orders_component_1.OrdersComponent },
-    { path: 'bordadoreport', component: bordado_reports_1.BordadoReportComponent },
-    { path: 'verreportes', component: ver_reportes_1.VerReportesComponent },
+    { path: 'bordadoreport', component: bordado_reports_1.BordadoReportComponent, canActivate: [auth_guard_1.AuthGuard] },
+    { path: 'verreportes', component: ver_reportes_1.VerReportesComponent, canActivate: [auth_guard_1.AuthGuard] },
+    { path: 'denied', component: denied_component_1.DeniedComponent },
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -99,6 +101,7 @@ AppModule = __decorate([
             orders_component_1.OrdersComponent,
             bordado_reports_1.BordadoReportComponent,
             ver_reportes_1.VerReportesComponent,
+            denied_component_1.DeniedComponent
         ],
         providers: [auth_guard_1.AuthGuard, cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService, seller_service_1.SellerService, order_service_1.OrderService, dashboard_service_1.DashboardService, payment_service_1.PaymentService, role_service_1.RoleService, register_service_1.RegisterService],
         bootstrap: [app_component_1.AppComponent]

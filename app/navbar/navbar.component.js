@@ -9,12 +9,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var cotizador_component_1 = require("./../cotizador.component");
 var producto_1 = require("./../producto/producto");
 var producto_service_1 = require("./../producto/producto.service");
 var user_1 = require("./../register/user");
 var NavbarComponent = (function () {
-    function NavbarComponent() {
+    function NavbarComponent(route, router) {
+        this.route = route;
+        this.router = router;
         this.isLogin = false;
     }
     NavbarComponent.prototype.ngOnInit = function () {
@@ -28,6 +31,10 @@ var NavbarComponent = (function () {
         //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
         //Add 'implements OnInit' to the class.
     };
+    NavbarComponent.prototype.logout = function () {
+        window.localStorage.clear();
+        this.router.navigate(['login']);
+    };
     return NavbarComponent;
 }());
 __decorate([
@@ -40,7 +47,9 @@ NavbarComponent = __decorate([
         styleUrls: ["./app/navbar/navbar.css"],
         templateUrl: "./app/navbar/navbar.html",
         providers: [cotizador_component_1.CotizadorComponent, producto_service_1.ProductoService, producto_1.Producto]
-    })
+    }),
+    __metadata("design:paramtypes", [router_1.ActivatedRoute,
+        router_1.Router])
 ], NavbarComponent);
 exports.NavbarComponent = NavbarComponent;
 //# sourceMappingURL=navbar.component.js.map

@@ -1,12 +1,12 @@
 export class Role {
-  id: number;
+  _id: number;
   name: String;
   constructor() {
-    this.id = -1;
+    this._id = -1;
     this.name = "";
   }
-  seRole(id:number,name:String) {
-    this.id = id;
+  seRole(_id:number,name:String) {
+    this._id = _id;
     this.name = name;
   }
 

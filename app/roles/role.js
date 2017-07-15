@@ -1,11 +1,11 @@
 "use strict";
 var Role = (function () {
     function Role() {
-        this.id = -1;
+        this._id = -1;
         this.name = "";
     }
-    Role.prototype.seRole = function (id, name) {
-        this.id = id;
+    Role.prototype.seRole = function (_id, name) {
+        this._id = _id;
         this.name = name;
     };
     return Role;

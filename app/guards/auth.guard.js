@@ -13,10 +13,20 @@ var router_1 = require("@angular/router");
 var AuthGuard = (function () {
     function AuthGuard(router) {
         this.router = router;
+        this.adminRoutes = ['/cotizador', '/nuevoproducto', '/register', '/bordadoreport', '/verreportes', '/payment', '/clientes'];
     }
     AuthGuard.prototype.canActivate = function (route, state) {
         if (localStorage.getItem('user')) {
             // logged in so return true
+            var user = localStorage.getItem("user");
+            user = JSON.parse(user);
+            if (this.adminRoutes.indexOf(state.url) == -1) {
+                return true;
+            }
+            if (user.role._id != 1) {
+                this.router.navigate(['/denied']);
+                return false;
+            }
             return true;
         }
         // not logged in so redirect to login page with the return url

@@ -24,7 +24,8 @@ import {EditSellerComponent} from './sellers/editseller.component'
 import {OrdersComponent} from './orders/orders.component'
 import {BordadoReportComponent} from './dailyreports/bordado.reports'
 import {VerReportesComponent} from'./dailyreports/ver.reportes'
- 
+import {DeniedComponent} from'./denied/denied.component'
+
 import {SearchCode} from './utilities/productcode.filter'
 import {SearchPipe} from './utilities/productname.filter'
 
@@ -48,22 +49,23 @@ import{ AuthGuard} from './guards/auth.guard'
 const appRoutes: Routes = [
       { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'dashboard', component: AppComponent },
-  { path: 'clientes', component: ClientesComponent},
+  { path: 'clientes', component: ClientesComponent,canActivate: [AuthGuard]},
   { path: 'clients-list', component: ClientsListComponent},
-  { path: 'cotizador', component: CotizadorComponent},
+  { path: 'cotizador', component: CotizadorComponent,canActivate: [AuthGuard]},
   // { path: 'inventario', component: InventarioComponent},
   { path: 'inventario', component: ProductsListComponent},
-  { path: 'nuevoproducto', component: NuevoProductoComponent},
+  { path: 'nuevoproducto', component: NuevoProductoComponent,canActivate: [AuthGuard]},
   { path: 'tecnicas', component: TecnicasComponent},
   { path: 'sellers', component: SellersComponent},
-  { path: 'editSeller', component: EditSellerComponent},
+  { path: 'editSeller', component: EditSellerComponent,canActivate: [AuthGuard]},
   { path: 'categorias', component: CategoriasComponent},
-  { path: 'payment', component: PaymentComponent},
+  { path: 'payment', component: PaymentComponent,canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent},
-  { path: 'register', component: RegisterComponent},
+  { path: 'register', component: RegisterComponent,canActivate: [AuthGuard]},
   { path: 'orders', component: OrdersComponent },
-  { path: 'bordadoreport', component: BordadoReportComponent},
-  { path: 'verreportes', component: VerReportesComponent},
+  { path: 'bordadoreport', component: BordadoReportComponent,canActivate: [AuthGuard]},
+  { path: 'verreportes', component: VerReportesComponent,canActivate: [AuthGuard]},
+  { path: 'denied', component: DeniedComponent},
 
 ];
 
@@ -98,7 +100,7 @@ const appRoutes: Routes = [
   OrdersComponent,
   BordadoReportComponent,
   VerReportesComponent,
-  
+  DeniedComponent
   ],
   providers : [  AuthGuard,CotizadorService, ClienteService, ProductoService, TecnicaService,SellerService,OrderService,DashboardService,PaymentService,RoleService,RegisterService],
   bootstrap:    [ AppComponent]
