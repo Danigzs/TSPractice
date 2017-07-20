@@ -19,12 +19,16 @@ import {NuevoProductoComponent} from './nuevoproducto/nuevoproducto.component';
 import {ProductsListComponent} from './producto/productsList.component';
 import {LoginComponent} from './login/login.component'
 import {RegisterComponent} from './register/register.component'
+import {TecnicaBordadoComponent} from './tecnicas/tecnica.bordado';
+import {TecnicaSerigrafiaComponent} from './tecnicas/tecnica.serigrafia';
+
 
 import {EditSellerComponent} from './sellers/editseller.component'
 import {OrdersComponent} from './orders/orders.component'
 import {BordadoReportComponent} from './dailyreports/bordado.reports'
 import {VerReportesComponent} from'./dailyreports/ver.reportes'
 import {DeniedComponent} from'./denied/denied.component'
+import {DisenoReportComponent} from './dailyreports/diseno.reports'
 
 import {SearchCode} from './utilities/productcode.filter'
 import {SearchPipe} from './utilities/productname.filter'
@@ -66,6 +70,9 @@ const appRoutes: Routes = [
   { path: 'bordadoreport', component: BordadoReportComponent,canActivate: [AuthGuard]},
   { path: 'verreportes', component: VerReportesComponent,canActivate: [AuthGuard]},
   { path: 'denied', component: DeniedComponent},
+  { path: 'disenoreport', component: DisenoReportComponent},
+  { path: 'tecnicabordado', component: TecnicaBordadoComponent},
+  { path: 'tecnicaserigrafia', component: TecnicaSerigrafiaComponent}
 
 ];
 
@@ -100,7 +107,10 @@ const appRoutes: Routes = [
   OrdersComponent,
   BordadoReportComponent,
   VerReportesComponent,
-  DeniedComponent
+  DeniedComponent,
+  DisenoReportComponent,
+  TecnicaBordadoComponent,
+  TecnicaSerigrafiaComponent
   ],
   providers : [  AuthGuard,CotizadorService, ClienteService, ProductoService, TecnicaService,SellerService,OrderService,DashboardService,PaymentService,RoleService,RegisterService],
   bootstrap:    [ AppComponent]

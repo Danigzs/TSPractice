@@ -312,7 +312,4 @@ export class CotizadorComponent implements OnInit {
 
     });
   }
-
-
-
 }

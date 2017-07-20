@@ -25,11 +25,14 @@ var nuevoproducto_component_1 = require("./nuevoproducto/nuevoproducto.component
 var productsList_component_1 = require("./producto/productsList.component");
 var login_component_1 = require("./login/login.component");
 var register_component_1 = require("./register/register.component");
+var tecnica_bordado_1 = require("./tecnicas/tecnica.bordado");
+var tecnica_serigrafia_1 = require("./tecnicas/tecnica.serigrafia");
 var editseller_component_1 = require("./sellers/editseller.component");
 var orders_component_1 = require("./orders/orders.component");
 var bordado_reports_1 = require("./dailyreports/bordado.reports");
 var ver_reportes_1 = require("./dailyreports/ver.reportes");
 var denied_component_1 = require("./denied/denied.component");
+var diseno_reports_1 = require("./dailyreports/diseno.reports");
 var productcode_filter_1 = require("./utilities/productcode.filter");
 var productname_filter_1 = require("./utilities/productname.filter");
 var material_1 = require("@angular/material");
@@ -65,6 +68,9 @@ var appRoutes = [
     { path: 'bordadoreport', component: bordado_reports_1.BordadoReportComponent, canActivate: [auth_guard_1.AuthGuard] },
     { path: 'verreportes', component: ver_reportes_1.VerReportesComponent, canActivate: [auth_guard_1.AuthGuard] },
     { path: 'denied', component: denied_component_1.DeniedComponent },
+    { path: 'disenoreport', component: diseno_reports_1.DisenoReportComponent },
+    { path: 'tecnicabordado', component: tecnica_bordado_1.TecnicaBordadoComponent },
+    { path: 'tecnicaserigrafia', component: tecnica_serigrafia_1.TecnicaSerigrafiaComponent }
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -101,7 +107,10 @@ AppModule = __decorate([
             orders_component_1.OrdersComponent,
             bordado_reports_1.BordadoReportComponent,
             ver_reportes_1.VerReportesComponent,
-            denied_component_1.DeniedComponent
+            denied_component_1.DeniedComponent,
+            diseno_reports_1.DisenoReportComponent,
+            tecnica_bordado_1.TecnicaBordadoComponent,
+            tecnica_serigrafia_1.TecnicaSerigrafiaComponent
         ],
         providers: [auth_guard_1.AuthGuard, cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService, seller_service_1.SellerService, order_service_1.OrderService, dashboard_service_1.DashboardService, payment_service_1.PaymentService, role_service_1.RoleService, register_service_1.RegisterService],
         bootstrap: [app_component_1.AppComponent]

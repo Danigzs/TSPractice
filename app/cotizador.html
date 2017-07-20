@@ -33,7 +33,7 @@
   <div class="c-div-container">
 
     <div class="c-fecha-elaboracion-container">
-      
+
     </div>
     <div class="c-cliente-seccion">
 
@@ -270,19 +270,19 @@
 
     <div class="table-responsive" style="width: 100%;">
       <div class="c-cliente-seccion">
-          <h3>Productos </h3>
-        </div>
+        <h3>Productos </h3>
+      </div>
       <div class="c-grid-products">
-        
+
         <table class="table " id="tproductos">
           <thead>
             <tr>
               <th>CANTIDAD</th>
-                <!--<th>Producto</th>-->
-                <th>DESCRIPCIÓN</th>
-                <th>PRECIO UNITARIO</th>
-                <th>IMPORTE</th>
-                <!--<th>Agregar Tecnicas</th>-->
+              <!--<th>Producto</th>-->
+              <th>DESCRIPCIÓN</th>
+              <th>PRECIO UNITARIO</th>
+              <th>IMPORTE</th>
+              <!--<th>Agregar Tecnicas</th>-->
             </tr>
           </thead>
           <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let producto of order.products; let i = index">
@@ -304,10 +304,10 @@
         <button type="button" class="btn btn-primary btn-md" (click)="verProductos()">Agregar Producto</button>
       </div>
       <div class="c-cliente-seccion">
-          <h3>Maquilas </h3>
-        </div>
-      <div class="c-grid-products">
-        
+        <h3>Maquilas </h3>
+      </div>
+      <div class="c-grid-products">        
+
         <table class="table " id="tproductos">
           <thead>
             <tr>
@@ -340,10 +340,11 @@
 
       <div class="paid-container">
         <div class="advance-discount">
-          <span class="c-total-amount-info-s">Anticipo:</span><input   type="number" name="clave" [(ngModel)]="order.advance" (blur)="updateAdvance($event)" >
+          <span class="c-total-amount-info-s">Anticipo:</span><input type="number" name="clave" [(ngModel)]="order.advance"
+            (blur)="updateAdvance($event)">
         </div>
         <div class="advance-discount">
-          <span class="c-total-amount-info-s">Resto:</span><input  type="number" name="clave" [(ngModel)]="order.debt" readonly>
+          <span class="c-total-amount-info-s">Resto:</span><input type="number" name="clave" [(ngModel)]="order.debt" readonly>
         </div>
 
       </div>
@@ -378,11 +379,11 @@
             <td> <input type="number" name="quantity" [(ngModel)]="producto.quantity"></td>
             <!--<td>{{producto.name}}</td>-->
             <td>{{producto.code}}
-            <td>{{producto.name}}. {{producto.description}}</td>
-            <td>{{producto.price | currency:'USD':true}}</td>
+              <td>{{producto.name}}. {{producto.description}}</td>
+              <td>{{producto.price | currency:'USD':true}}</td>
 
-            <td>{{producto.total*producto.quantity | currency:'USD':true}}</td>
-            <th><button type="button" class="btn btn-primary btn-md" (click)="seleccionarProducto(producto)">Seleccionar Producto</button></th>
+              <td>{{producto.total*producto.quantity | currency:'USD':true}}</td>
+              <th><button type="button" class="btn btn-primary btn-md" (click)="seleccionarProducto(producto)">Seleccionar Producto</button></th>
 
           </tr>
 
@@ -392,8 +393,9 @@
   </div>
   <div id="maquilasModal" class="modal" *ngIf="!maquilasModal">
     <!-- Modal content -->
-    <div class="modal-content">
+    <div class="modal-content">      
       <span class="close" (click)="closeMaquilas()">&times;</span>
+      <tecnicabordado></tecnicabordado>
       <h1>Maquilas</h1>
       <div class="c-grid-all-products">
         <table class="table ">
@@ -422,6 +424,7 @@
 
         </table>
       </div>
+     
     </div>
   </div>
   <div id="myModal" class="modal" *ngIf="!hideModal2">
@@ -526,3 +529,4 @@
 
   </div>
 </div>
+

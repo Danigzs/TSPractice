@@ -13,8 +13,9 @@ var router_1 = require("@angular/router");
 var AuthGuard = (function () {
     function AuthGuard(router) {
         this.router = router;
-        this.adminRoutes = ['/cotizador', '/nuevoproducto', '/register', '/bordadoreport', '/verreportes', '/payment', '/clientes'];
+        this.adminRoutes = [''];
     }
+    // /cotizador','/nuevoproducto','/register','/bordadoreport','/verreportes','/payment','/clientes
     AuthGuard.prototype.canActivate = function (route, state) {
         if (localStorage.getItem('user')) {
             // logged in so return true
