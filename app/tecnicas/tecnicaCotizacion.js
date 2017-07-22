@@ -11,9 +11,10 @@ var TecnicaCotizacion = (function (_super) {
         var _this = _super.call(this) || this;
         _this.quantity = 1;
         _this.total = 0.0;
+        _this.colores = "";
         return _this;
     }
-    TecnicaCotizacion.prototype.setTecnicaCotizacion = function (_id, name, subType, size, position, price, quantity, total) {
+    TecnicaCotizacion.prototype.setTecnicaCotizacion = function (colores, bordado, puntadas, _id, name, subType, size, position, price, quantity, total) {
         this._id = _id;
         this.name = name;
         this.subType = subType;
@@ -22,6 +23,9 @@ var TecnicaCotizacion = (function (_super) {
         this.price = price;
         this.quantity = quantity;
         this.total = total;
+        this.puntadas = puntadas;
+        this.bordado = bordado;
+        this.colores = colores;
     };
     TecnicaCotizacion.prototype.copyNewTecnica = function () {
         var _tecnica = new TecnicaCotizacion();
@@ -33,6 +37,9 @@ var TecnicaCotizacion = (function (_super) {
         _tecnica.price = this.price;
         _tecnica.quantity = this.quantity;
         _tecnica.total = this.total;
+        _tecnica.puntadas = this.puntadas;
+        _tecnica.bordado = this.bordado;
+        _tecnica.colores = this.colores;
         return _tecnica;
     };
     TecnicaCotizacion.copyFromTecnica = function (tecnica) {
@@ -45,6 +52,9 @@ var TecnicaCotizacion = (function (_super) {
         _tecnica.price = tecnica.price;
         _tecnica.quantity = 1;
         _tecnica.total = _tecnica.quantity * _tecnica.price;
+        _tecnica.puntadas = _tecnica.puntadas;
+        _tecnica.bordado = _tecnica.bordado;
+        _tecnica.colores = _tecnica.colores;
         return _tecnica;
     };
     return TecnicaCotizacion;

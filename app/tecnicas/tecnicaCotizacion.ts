@@ -3,13 +3,15 @@ export class TecnicaCotizacion extends Tecnica {
 _id:string;
 quantity:number;
 total:number;
+colores:string;
 
   constructor() {
       super()
     this.quantity = 1;
     this.total = 0.0;
+    this.colores=""
   } 
-  setTecnicaCotizacion(_id:string,name:string,subType:string,size:string,position:string,price:number,quantity:number,total:number){
+  setTecnicaCotizacion(colores:string,bordado:string,puntadas:number,_id:string,name:string,subType:string,size:string,position:string,price:number,quantity:number,total:number){
     this._id = _id;
     this.name = name;
     this.subType = subType;
@@ -18,6 +20,9 @@ total:number;
     this.price = price;
     this.quantity = quantity;
     this.total = total;
+    this.puntadas = puntadas;
+    this.bordado = bordado;
+    this.colores=colores;
   }
   copyNewTecnica(){
     var _tecnica = new TecnicaCotizacion();
@@ -29,6 +34,9 @@ total:number;
     _tecnica.price = this.price;
     _tecnica.quantity = this.quantity;
     _tecnica.total = this.total;
+    _tecnica.puntadas = this.puntadas;
+    _tecnica.bordado = this.bordado;
+    _tecnica.colores = this.colores;
     
     return _tecnica
   }
@@ -42,6 +50,9 @@ total:number;
     _tecnica.price = tecnica.price;
     _tecnica.quantity = 1;
     _tecnica.total = _tecnica.quantity * _tecnica.price;
+     _tecnica.puntadas = _tecnica.puntadas;
+    _tecnica.bordado = _tecnica.bordado;
+    _tecnica.colores = _tecnica.colores;
     return _tecnica;
   }
 }

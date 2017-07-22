@@ -13,7 +13,7 @@ import {Tecnica} from '../producto/tecnica';
 @Component({
   selector: 'tecnicabordado',
     providers: [TecnicaService],
-  styleUrls: ["/app/tecnicas/tecnicas.css", "app/styles/table.css"],
+  styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
   templateUrl: "./app/tecnicas/tecnica.bordado.html"
        
 })

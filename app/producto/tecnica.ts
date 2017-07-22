@@ -2,10 +2,11 @@ export class Tecnica {
   _id: string;
   name: string;
   subType: string;
-  size: string;
+  size: string; 
   position: string;
   price: number;
   puntadas:number;
+  bordado:string;
   constructor() {
     this.name = "";
     this.subType = "";
@@ -13,6 +14,7 @@ export class Tecnica {
     this.position = "";
     this.price = 0.0;
     this.puntadas =0;
+    this.bordado ="";
   } 
   setTecnica(puntadas:number,name:string,subType:string,size:string,position:string,price:number){
     this.name = name;

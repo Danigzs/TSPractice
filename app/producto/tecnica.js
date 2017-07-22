@@ -7,6 +7,7 @@ var Tecnica = (function () {
         this.position = "";
         this.price = 0.0;
         this.puntadas = 0;
+        this.bordado = "";
     }
     Tecnica.prototype.setTecnica = function (puntadas, name, subType, size, position, price) {
         this.name = name;

@@ -44,7 +44,7 @@ TecnicaBordadoComponent = __decorate([
     core_1.Component({
         selector: 'tecnicabordado',
         providers: [tecnica_service_1.TecnicaService],
-        styleUrls: ["/app/tecnicas/tecnicas.css", "app/styles/table.css"],
+        styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
         templateUrl: "./app/tecnicas/tecnica.bordado.html"
     }),
     __metadata("design:paramtypes", [tecnica_service_1.TecnicaService])

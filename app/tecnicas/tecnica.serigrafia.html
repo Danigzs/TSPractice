@@ -1,19 +1,99 @@
- <div class="c-grid-products">
-          <table class="table " id="tproductos">
-            <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Tipo</th>
-              <th>Tamaño</th>
-              <th>Posición</th>
-              <th>Precio</th>
-            </tr>
-            </thead>
-            <tr class='clickable-row'   *ngFor="let tecnica of tecnicas; let i = index">
-           
-            </tr>
 
-          </table>
-                  
+<div class="c-div-bgr bar-margin">
+  <div class="c-cliente-seccion">
+      <h1>Tecnicas</h1>
+    </div>
 
+  <div class="c-div-container">
+
+    
+    <div class="c-container-info">
+
+      <div class="c-container-info-column">
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Tipo
+          </div>
         </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Cantidad de tintas
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Tamaño
+          </div>
+        </div>
+        
+       
+
+      </div>
+      
+  <div class="c-container-info-column">
+
+    <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+           <select type="text" name="name" [(ngModel)]="tecnica.bordado">
+           </select>
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+           <select type="text" name="subType" [(ngModel)]="tecnica.colores">
+           </select>
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+          <select type="text" name="size" [(ngModel)]="tecnica.size">
+             <option>Escudo</option>
+             <option>Carta</option>
+             <option>Grande</option>
+             <option>Chico</option>
+          </select>
+          </div>
+        </div>        
+     
+
+      </div>
+     
+        
+      <div class="c-container-info-column data">
+         <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Posicion
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Puntadas
+          </div>
+        </div>
+        
+</div>
+      
+  <div class="c-container-info-column data">
+      <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+           <select type="text" name="position" [(ngModel)]="tecnica.position">
+           </select>
+          </div>
+        </div>
+
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+                <input type="number" name="price" [(ngModel)]="tecnica.puntadas">
+            </div>
+          </div>
+        </div>
+</div>
+        
+
+    </div>
+ <div class="c-add-product-container">
+        <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
+        <button  type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Agregar Tecnica</button>
+        
+      </div>
