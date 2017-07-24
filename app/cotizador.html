@@ -396,7 +396,9 @@ jm
     <!-- Modal content -->
     <div class="modal-content">      
       <span class="close" (click)="closeMaquilas()">&times;</span>
-      <tecnicabordado></tecnicabordado>
+      <select>
+        <option *ngFor="let tecnica of tecnicas; let i = index">{{tecnica.name}}</option>
+      </select>
       <h1>Maquilas</h1>
       <div class="c-grid-all-products">
         <table class="table ">

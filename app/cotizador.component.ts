@@ -49,6 +49,7 @@ export class CotizadorComponent implements OnInit {
   public sellers: Array < Seller > ;
   public order: Order;
   public productos: Array < ProductCotizacion > ;
+  public tecnica: Array <Tecnica>;
   //public productosCotizacion: Array < ProductCotizacion > ;
   public tecnicas: Array < TecnicaCotizacion > ;
   //public maquilasCotizacion: Array < TecnicaCotizacion > = [];
