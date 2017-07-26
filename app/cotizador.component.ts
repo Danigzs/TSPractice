@@ -75,12 +75,32 @@ export class CotizadorComponent implements OnInit {
   clienteSelected = new Cliente;
   tecnicaSelected = new Tecnica;
   sellerSelected = new Seller;
+  public hidebordado=true;
+  public hideserigrafia=true;
+  public hidesublimado = true;
 
   currentDate = this.getTodayDate();
   gridKeys = ["Cantidad", "Nombre", "Descripcion", "Precio Unitario", "Total"];
 
   constructor(private dialog: MdDialog, private _cotizadorService: CotizadorService, public _clienteService: ClienteService, private _productoService: ProductoService, private _tecnicaService: TecnicaService, private changeDetectorRef: ChangeDetectorRef, private _sellerService: SellerService, private _orderService: OrderService) {}
 
+  openBordados(){
+    this.hideserigrafia = true;
+    this.hidesublimado = true
+    this.hidebordado = false; 
+    
+  }
+   openSerigrafia(){
+    this.hidebordado = true;   
+    this.hidesublimado = true;
+   this.hideserigrafia = false;
+   
+  }
+   openSublimado(){
+    this.hidebordado = true;   
+   this.hideserigrafia = true;
+   this.hidesublimado = false
+  }
   setShippingDate() {
     var d = new Date();
     // this.shippingDate = d.getDate().toString() + "/" + d.getMonth().toString() + "/" + d.getFullYear().toString();

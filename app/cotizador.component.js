@@ -60,9 +60,27 @@ var CotizadorComponent = (function () {
         this.clienteSelected = new cliente_1.Cliente;
         this.tecnicaSelected = new tecnica_1.Tecnica;
         this.sellerSelected = new seller_1.Seller;
+        this.hidebordado = true;
+        this.hideserigrafia = true;
+        this.hidesublimado = true;
         this.currentDate = this.getTodayDate();
         this.gridKeys = ["Cantidad", "Nombre", "Descripcion", "Precio Unitario", "Total"];
     }
+    CotizadorComponent.prototype.openBordados = function () {
+        this.hideserigrafia = true;
+        this.hidesublimado = true;
+        this.hidebordado = false;
+    };
+    CotizadorComponent.prototype.openSerigrafia = function () {
+        this.hidebordado = true;
+        this.hidesublimado = true;
+        this.hideserigrafia = false;
+    };
+    CotizadorComponent.prototype.openSublimado = function () {
+        this.hidebordado = true;
+        this.hideserigrafia = true;
+        this.hidesublimado = false;
+    };
     CotizadorComponent.prototype.setShippingDate = function () {
         var d = new Date();
         // this.shippingDate = d.getDate().toString() + "/" + d.getMonth().toString() + "/" + d.getFullYear().toString();
