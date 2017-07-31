@@ -34,7 +34,10 @@ exports.add = function (req, res) {
     subType: req.body.subType,
     size: req.body.size,
     position: req.body.position,
-    price: req.body.price
+    price: req.body.price,
+    puntadas: req.body.puntadas,
+    bordado: req.body.bordado,
+    colores: req.body.colores
   });
   tecnica.save(function (err, client) {
     if (err) return res.send(500, err.message);
@@ -53,6 +56,9 @@ exports.update = function (req, res) {
     tecnica.size = req.body.size;
     tecnica.position = req.body.position;
     tecnica.price = req.body.price;
+    tecnica.puntadas=req.body.puntadas;
+    tecnicas.bordado=req.body.bordado;
+    tecnicas.colores=req.body.colores;
     tecnica.save(function (err) {
       if (err) return res.send(500, err.message);
       res.status(200).json({client:client});

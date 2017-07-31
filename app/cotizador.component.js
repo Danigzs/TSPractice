@@ -54,7 +54,6 @@ var CotizadorComponent = (function () {
         this.checked = true;
         this.shippingDate = "";
         this.cotizacion = new cotizacion_1.Cotizacion();
-        this.tizacion = 0.0;
         this.selectedValue = {};
         this.productoSelected = new producto_1.Producto;
         this.clienteSelected = new cliente_1.Cliente;

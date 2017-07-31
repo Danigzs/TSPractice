@@ -69,7 +69,6 @@ export class CotizadorComponent implements OnInit {
 
   cotizacion = new Cotizacion();
 
-  tizacion = 0.0;
   selectedValue = {};
   productoSelected = new Producto;
   clienteSelected = new Cliente;

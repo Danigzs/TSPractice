@@ -19,6 +19,15 @@ var tecnicaSchema = new Schema({
   },
   price: {
     type: Number
+  },
+  puntadas:{
+    type: Number
+  },
+  bordado:{
+    type:String
+  },
+  colores:{
+    type:String
   }
 });
 

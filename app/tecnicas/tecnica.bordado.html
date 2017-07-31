@@ -34,14 +34,16 @@
 
     <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-           <select type="text" name="name" [(ngModel)]="tecnica.bordado">
-           </select>
+           <select type="text" name="bordado">
+                <option *ngFor="let tecnica of tecnicas; let i = index">{{tecnica.bordado}}</option>
+              </select>
           </div>
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-           <select type="text" name="subType" [(ngModel)]="tecnica.colores">
-           </select>
+           <select type="text" name="bordado">
+                <option *ngFor="let tecnica of tecnicas; let i = index">{{tecnica.colores}}</option>
+              </select>
           </div>
         </div>
         <div class="c-container-info-column-item-container">

@@ -1,10 +1,10 @@
 <navbar></navbar>
 <div class="c-div-bgr bar-margin">
   <div class="c-cliente-seccion">
-          <h3>Nuevo Producto </h3>
-        </div>
-   <div class="c-div-container">
-     
+    <h3>Nuevo Producto </h3>
+  </div>
+  <div class="c-div-container">
+
     <div class="c-container-info">
       <div class="c-container-info-column data">
       </div>
@@ -18,7 +18,7 @@
           <div class="c-container-info-column-item-container info">
             Clave
           </div>
-        </div>       
+        </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             Proveedor
@@ -33,10 +33,10 @@
       <div class="c-container-info-column data">
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
- 
+
             <input type="text" name="name" [(ngModel)]="producto.name">
 
- 
+
           </div>
         </div>
         <div class="c-container-info-column-item-container">
@@ -44,7 +44,7 @@
             <input type="text" name="code" [(ngModel)]="producto.code">
           </div>
         </div>
-        
+
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             <input type="checkbox" name="esProveedor" [(ngModel)]="producto.isProvider">
@@ -85,7 +85,8 @@
           <div class="c-container-info-column-item-container info">
             Precio de compra
           </div>
-        </div><div class="c-container-info-column-item-container">
+        </div>
+        <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             Cantidad 1 a 12
           </div>
@@ -100,14 +101,14 @@
             Cantidad 51 a 200
           </div>
         </div>
- 
+
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             Cantidad mayor a 200
           </div>
         </div>
 
- 
+
       </div>
       <div class="c-container-info-column data">
         <div class="c-container-info-column-item-container">
@@ -118,40 +119,41 @@
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             <input type="number" name="nombre" [(ngModel)]="producto.price" (ngModelChange)="updatePrice()">
-            
+
           </div>
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-            <span >{{producto.CantidadDDiva |  currency:'USD':true}}</span>
+            <span>{{producto.CantidadDDiva |  currency:'USD':true}}</span>
           </div>
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-            <span >{{producto.CantidadTCiva  | currency:'USD':true}}</span>
-            
+            <span>{{producto.CantidadTCiva  | currency:'USD':true}}</span>
+
           </div>
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-            <span >{{producto.CantidadCCiva  | currency:'USD':true}}</span>
-            </div>
+            <span>{{producto.CantidadCCiva  | currency:'USD':true}}</span>
+          </div>
         </div>
 
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-            <span >{{producto.CantidadMCiva   | currency:'USD':true}}</span>
-            
+            <span>{{producto.CantidadMCiva   | currency:'USD':true}}</span>
+
           </div>
         </div>
       </div>
-    </div> 
+    </div>
 
     <div class="c-add-product-container">
       <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
       <button type="button" class="btn btn-primary btn-md" style="    width: 100%;height: 50px;" (click)="agregarProducto()">Agregar Producto</button>
 
     </div>
- 
+
   </div>
 </div>
+

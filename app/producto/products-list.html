@@ -35,7 +35,7 @@
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             <div class="example-full-width">
-             <input type="text" name="code" [(ngModel)]="productcode">
+              <input type="text" name="code" [(ngModel)]="productcode">
             </div>
           </div>
         </div>
@@ -43,7 +43,7 @@
 
 
       <div class="c-container-info-column">
-      </div>    
+      </div>
 
     </div>
     <div class="c-add-product-container">
@@ -66,7 +66,7 @@
             <th>Precio 13-50</th>
             <th>Precio 51-200</th>
             <th>Precio mayor 200</th>
-            
+
           </tr>
         </thead>
         <tr class='clickable-row' *ngFor="let product of (products | search:productname:true  | searchcode:productcode:true)">
@@ -86,7 +86,7 @@
 
       </table>
 
-      
+
     </div>
     <div class="c-grid-products">
       <table class="table " id="tproductos">
@@ -99,11 +99,11 @@
             <th>Insumos</th>
             <th>Es Proveedor</th>
             <th>Es Bordesa</th>
-            <th>Precio Unitaro</th>            
-            
+            <th>Precio Unitaro</th>
+
           </tr>
         </thead>
-        <tr class='clickable-row' *ngFor="let product of (products | search:productname:true  | searchcode:productcode:true)" >
+        <tr class='clickable-row' *ngFor="let product of (products | search:productname:true  | searchcode:productcode:true)">
           <td>{{product.name}}</td>
           <td>{{product.Cantidad}}</td>
           <td>{{product.code}}</td>
@@ -113,7 +113,7 @@
           <td>{{product.isBordesa}}</td>
           <td>{{product.price | currency:'USD':true}}</td>
         </tr>
-      </table>      
+      </table>
     </div>
     <!--<clients-list [clientes]="clientes" *ngIf="show" ></clients-list>-->
   </div>
@@ -161,3 +161,4 @@
 </div>
 
 -->
+

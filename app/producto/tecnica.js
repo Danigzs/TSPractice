@@ -8,14 +8,17 @@ var Tecnica = (function () {
         this.price = 0.0;
         this.puntadas = 0;
         this.bordado = "";
+        this.colores = "";
     }
-    Tecnica.prototype.setTecnica = function (puntadas, name, subType, size, position, price) {
+    Tecnica.prototype.setTecnica = function (colores, bordado, puntadas, name, subType, size, position, price) {
         this.name = name;
         this.subType = subType;
         this.size = size;
         this.position = position;
         this.price = price;
         this.puntadas = puntadas;
+        this.bordado = "";
+        this.colores = "";
     };
     Tecnica.prototype.copyNewTecnica = function () {
         var _tecnica = new Tecnica();
@@ -25,6 +28,8 @@ var Tecnica = (function () {
         _tecnica.position = this.position;
         _tecnica.price = this.price;
         _tecnica.puntadas = this.puntadas;
+        _tecnica.bordado = "";
+        _tecnica.colores = "";
         return _tecnica;
     };
     return Tecnica;

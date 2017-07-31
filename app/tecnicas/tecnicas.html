@@ -1,12 +1,12 @@
 <navbar></navbar>
 <div class="c-div-bgr bar-margin">
   <div class="c-cliente-seccion">
-      <h1>Tecnicas</h1>
-    </div>
+    <h1>Tecnicas</h1>
+  </div>
 
   <div class="c-div-container">
 
-    
+
     <div class="c-container-info">
 
       <div class="c-container-info-column">
@@ -25,26 +25,32 @@
             Tamaño
           </div>
         </div>
-        
-       
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            colores
+          </div>
+        </div>
+
+
+
 
       </div>
-      
-  <div class="c-container-info-column">
 
-    <div class="c-container-info-column-item-container">
+      <div class="c-container-info-column">
+
+        <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-           <input type="text" name="name" [(ngModel)]="tecnica.name">
+            <input type="text" name="name" [(ngModel)]="tecnica.name">
           </div>
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-           <input type="text" name="subType" [(ngModel)]="tecnica.subType">
+            <input type="text" name="subType" [(ngModel)]="tecnica.subType">
           </div>
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-          <select type="text" name="size" [(ngModel)]="tecnica.size">
+            <select type="text" name="size" [(ngModel)]="tecnica.size">
              <option>Escudo</option>
              <option>Carta</option>
              <option>Grande</option>
@@ -52,17 +58,33 @@
           </select>
           </div>
         </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <input type="text" name="name" [(ngModel)]="tecnica.colores">
+          </div>
+        </div>
 
-        
-     
+
+
 
       </div>
-     
-        
+
+
       <div class="c-container-info-column data">
-         <div class="c-container-info-column-item-container">
+        <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             Posicion
+          </div>
+        </div>
+
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+           Tipo de Bordado
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+           Cantidad de puntadas
           </div>
         </div>
         <div class="c-container-info-column-item-container">
@@ -70,64 +92,89 @@
             Precio
           </div>
         </div>
-        
-</div>
-      
-  <div class="c-container-info-column data">
-      <div class="c-container-info-column-item-container">
+
+      </div>
+
+      <div class="c-container-info-column data">
+        <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-           <input type="text" name="position" [(ngModel)]="tecnica.position">
+            <input type="text" name="position" [(ngModel)]="tecnica.position">
           </div>
         </div>
 
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             <div class="example-full-width">
-                <input type="number" name="price" [(ngModel)]="tecnica.price">
+              <input type="text" name="bordado" [(ngModel)]="tecnica.bordado">
             </div>
           </div>
         </div>
-</div>
-        
 
-    </div>
- <div class="c-add-product-container">
-        <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
-        <button  type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Agregar Tecnica</button>
-        
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <input type="number" name="puntadas" [(ngModel)]="tecnica.puntadas">
+            </div>
+          </div>
+        </div>
+
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <input type="number" name="price" [(ngModel)]="tecnica.price">
+            </div>
+          </div>
+        </div>
       </div>
 
- 
 
- <div class="c-grid-products">
-          <table class="table " id="tproductos">
-            <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Tipo</th>
-              <th>Tamaño</th>
-              <th>Posición</th>
-              <th>Precio</th>
-            </tr>
-            </thead>
-            <tr class='clickable-row'   *ngFor="let tecnica of tecnicas; let i = index">
-              <td>{{tecnica.name}}</td>
-              <td>{{tecnica.subType}}</td>
-              <td>{{tecnica.size}}</td>
-              <td>{{tecnica.position}}</td>
-              <td>{{tecnica.price | currency:'USD':true}}</td>
-            </tr>
+    </div>
+    <div class="c-add-product-container">
+      <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
+      <button type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Agregar Tecnica</button>
 
-          </table>
-                  
+    </div>
 
-        </div>
-          <div class="c-add-product-container">
-          <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
-          <button  type="button" class="btn btn-primary btn-md" (click)="updateTecnica()">Update</button>
-        
-          </div>
+
+
+    <div class="c-grid-products">
+      <table class="table " id="tproductos">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Tipo</th>
+            <th>Tamaño</th>
+            <th>Posición</th>            
+            <th>colores</th>
+            <th>Cantidad de puntadas</th>
+            <th>tipo de bordado</th>
+            <th>Precio</th>
+          </tr>
+        </thead>
+        <tr class='clickable-row' *ngFor="let tecnica of tecnicas; let i = index">
+          <td>{{tecnica.name}}</td>
+          <td>{{tecnica.subType}}</td>
+          <td>{{tecnica.size}}</td>
+          <td>{{tecnica.position}}</td>
+          <td>{{tecnica.colores}}</td>
+          <td>{{tecnica.puntadas}}</td>
+          <td>{{tecnica.bordado}}</td>
+          <td>{{tecnica.price | currency:'USD':true}}</td>
+        </tr>
+
+      </table>
+
+      
+
+
+    </div>
+    <div class="c-add-product-container">
+      <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
+      <button type="button" class="btn btn-primary btn-md" (click)="updateTecnica()">Update</button>
+
+    </div>
 
 
   </div>
 </div>
+

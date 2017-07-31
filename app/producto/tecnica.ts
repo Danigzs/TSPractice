@@ -7,6 +7,7 @@ export class Tecnica {
   price: number;
   puntadas:number;
   bordado:string;
+  colores:string;
   constructor() {
     this.name = "";
     this.subType = "";
@@ -15,14 +16,17 @@ export class Tecnica {
     this.price = 0.0;
     this.puntadas =0;
     this.bordado ="";
+    this.colores="";
   } 
-  setTecnica(puntadas:number,name:string,subType:string,size:string,position:string,price:number){
+  setTecnica(colores:string,bordado:number,puntadas:number,name:string,subType:string,size:string,position:string,price:number){
     this.name = name;
     this.subType = subType;
     this.size  = size;
     this.position = position;
     this.price = price;
     this.puntadas = puntadas;
+    this.bordado="";
+    this.colores="";
   }
   copyNewTecnica(){
     var _tecnica = new Tecnica();
@@ -32,6 +36,8 @@ export class Tecnica {
     _tecnica.position = this.position;
     _tecnica.price = this.price;
     _tecnica.puntadas=this.puntadas
+    _tecnica.bordado="";
+    _tecnica.colores="";
     
     return _tecnica
   }
