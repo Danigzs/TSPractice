@@ -1,95 +1,56 @@
-
 <div class="c-div-bgr bar-margin">
   <div class="c-cliente-seccion">
-      <h1>Sublimado</h1>
-    </div>
+    <h1>Sublimado</h1>
+  </div>
 
-  <div class="c-div-container">
 
-    
+
     <div class="c-container-info">
 
       <div class="c-container-info-column">
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            Tipo
-          </div>
-        </div>
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            *Cantidad de tintas*
-          </div>
-        </div>
+
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             Tamaño/cm
           </div>
         </div>
-        
-       
 
-      </div>
-      
-  <div class="c-container-info-column">
-
-    <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-           <select type="text" name="name" [(ngModel)]="tecnica.bordado">
-           </select>
-          </div>
-        </div>
         <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-           <select type="text" name="subType" [(ngModel)]="tecnica.colores">
-           </select>
-          </div>
-        </div>
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-          <input type="text" name="size" [(ngModel)]="tecnica.size">
-            
-          </div>
-        </div>        
-     
-
-      </div>
-     
-        
-      <div class="c-container-info-column data">
-         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             Posicion
           </div>
+        </div>       
+      </div>
+
+      <div class="c-container-info-column">
+
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <input type="text" name="size" [(ngModel)]="tecnica.size">
+          </div>
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-            Puntadas
-          </div>
-        </div>
-        
-</div>
-      
-  <div class="c-container-info-column data">
-      <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-           <select type="text" name="position" [(ngModel)]="tecnica.position">
+            <select type="text" name="position" [(ngModel)]="tecnica.position">
            </select>
           </div>
         </div>
 
+      </div>
+     
+
+      <div class="c-container-info-column data">
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             <div class="example-full-width">
-                <input type="number" name="price" [(ngModel)]="tecnica.puntadas">
+              <input type="number" name="price" [(ngModel)]="tecnica.price" disabled>
             </div>
           </div>
         </div>
-</div>
-        
+      </div>
+    </div>
+    <div class="c-add-product-container">
+      <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
+      <button type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Agregar Tecnica</button>
 
     </div>
- <div class="c-add-product-container">
-        <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
-        <button  type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Agregar Tecnica</button>
-        
-      </div>
