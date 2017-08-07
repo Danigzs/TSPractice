@@ -88,8 +88,6 @@
                         {{cliente.name}}
                     </option>
                 </select>
-
-
             </div>
           </div>
           <div class="c-container-info-column-item-container">
@@ -293,7 +291,7 @@
             <td>{{calcularTotalProducto(producto) | currency:'USD':true}}</td>
             <!--<th><button  type="button" class="btn btn-primary btn-md" (click)="verTecnica(i)">Tecnicas</button> <button  type="button" class="btn btn-primary btn-md" (click)="deleteRow()">Eliminar</button></th>-->
 
-jm
+            jm
           </tr>
 
 
@@ -305,9 +303,9 @@ jm
         <button type="button" class="btn btn-primary btn-md" (click)="verProductos()">Agregar Producto</button>
       </div>
       <div class="c-cliente-seccion">
-        <h3>Maquilas </h3>
+        <h3>Graficos </h3>
       </div>
-      <div class="c-grid-products">        
+      <div class="c-grid-products">
 
         <table class="table " id="tproductos">
           <thead>
@@ -330,15 +328,11 @@ jm
             <!--<th><button  type="button" class="btn btn-primary btn-md" (click)="verTecnica(i)">Tecnicas</button> <button  type="button" class="btn btn-primary btn-md" (click)="deleteRow()">Eliminar</button></th>-->
 
           </tr>
-
-
         </table>
-
       </div>
       <div class="c-add-product-container">
-        <button type="button" class="btn btn-primary btn-md" (click)="verMaquilas()">Agregar Maquila</button>
+        <button type="button" class="btn btn-primary btn-md" (click)="verMaquilas()">Tecnicas</button>
       </div>
-
       <div class="paid-container">
         <div class="advance-discount">
           <span class="c-total-amount-info-s">Anticipo:</span><input type="number" name="clave" [(ngModel)]="order.advance"
@@ -347,7 +341,6 @@ jm
         <div class="advance-discount">
           <span class="c-total-amount-info-s">Resto:</span><input type="number" name="clave" [(ngModel)]="order.debt" readonly>
         </div>
-
       </div>
       <div class="total" style="text-align:right;width:100%;">
         <span class="c-total-amount-info">Total:</span><span class="c-total-amount"> {{order.total | currency:'USD':true }}</span>
@@ -385,16 +378,14 @@ jm
 
               <td>{{producto.total*producto.quantity | currency:'USD':true}}</td>
               <th><button type="button" class="btn btn-primary btn-md" (click)="seleccionarProducto(producto)">Seleccionar Producto</button></th>
-
           </tr>
-
         </table>
       </div>
     </div>
   </div>
   <div id="maquilasModal" class="modal" *ngIf="!maquilasModal">
     <!-- Modal content -->
-    <div class="modal-content">      
+    <div class="modal-content">
       <span class="close" (click)="closeMaquilas()">&times;</span>
       <Button (click)="openBordados()">
         Bordados
@@ -405,21 +396,21 @@ jm
       <Button (click)="openSublimado()">
         Sublimado
       </Button>
-      
-      <tecnicabordado *ngIf="!hidebordado"></tecnicabordado>    
+
+      <tecnicabordado *ngIf="!hidebordado"></tecnicabordado>
       <tecnicaserigrafia *ngIf="!hideserigrafia"></tecnicaserigrafia>
       <tecnicasublimado *ngIf="!hidesublimado"></tecnicasublimado>
-      
+
       <h1>Tecnicas</h1>
-     <!-- <div class="c-grid-all-products">
+      <!-- <div class="c-grid-all-products">
         <table class="table ">
           <thead>
             <tr>
               <th>Cantidad</th> -->
-              <!--<th>Nombre</th>
+      <!--<th>Nombre</th>
               <th>Tamaño</th>
               <th>Posicion</th>-->
-              <!--<th>Precio unitario</th>
+      <!--<th>Precio unitario</th>
               <th>Total</th>
               <th></th>
             </tr>
@@ -427,10 +418,10 @@ jm
           <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let tecnica of tecnicas">
             <td> <input type="number" name="quantity" [(ngModel)]="tecnica.quantity"></td>
             -->
-            <!--<td>{{tecnica.name}} {{tecnica.subType}}</td>
+      <!--<td>{{tecnica.name}} {{tecnica.subType}}</td>
             <td>{{tecnica.size}}</td>
             <td>{{tecnica.position}}</td>-->
-            <!-- <td>{{tecnica.name}} {{tecnica.subType}}, Tamaño: {{tecnica.size}}, Posición: {{tecnica.position}}</td>
+      <!-- <td>{{tecnica.name}} {{tecnica.subType}}, Tamaño: {{tecnica.size}}, Posición: {{tecnica.position}}</td>
             <td>{{tecnica.price | currency:'USD':true}}</td>
             <td>{{tecnica.total*tecnica.quantity | currency:'USD':true}}</td>
             <th><button type="button" class="btn btn-primary btn-md" (click)="seleccionarTecnica(tecnica)">Seleccionar Maquila</button></th>
@@ -439,7 +430,7 @@ jm
 
         </table>
       </div> -->
-     
+
     </div>
   </div>
   <div id="myModal" class="modal" *ngIf="!hideModal2">
