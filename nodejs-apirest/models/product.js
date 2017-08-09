@@ -24,6 +24,9 @@ var productSchema = new Schema({
   },
   price: {
     type: Number
+  },
+  stock:{
+    type:Number
   }
 });
 

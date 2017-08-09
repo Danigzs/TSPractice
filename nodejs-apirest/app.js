@@ -26,6 +26,7 @@ app.use(express.static(__projectRoot));
 
 // Import Models and Controllers
 var models = require('./models/client')(app, mongoose);
+var modelProvideer = require('./models/provideer')(app, mongoose);
 var modelSeller = require('./models/seller')(app, mongoose);
 var modelsTecnica = require('./models/tecnica')(app, mongoose);
 var modelProduct = require('./models/product')(app, mongoose);
@@ -39,6 +40,7 @@ var modelRole = require('./models/role')(app, mongoose);
 var modelUser = require('./models/user')(app, mongoose);
 
 var ClientCtrl = require('./controllers/client');
+var ProvideerCtrl = require('./controllers/provideer');
 var OrderCtrl = require('./controllers/order');
 var TecnicaCtrl = require('./controllers/tecnica');
 var ProductCtrl = require('./controllers/product');
@@ -69,6 +71,17 @@ api.route('/clients/:id')
  .get(ClientCtrl.findById)
  .put(ClientCtrl.update)
  .delete(ClientCtrl.delete);
+
+
+//Provideer
+ api.route('/provideers') 
+ .get(ProvideerCtrl.findAll)
+ .post(ProvideerCtrl.add);
+
+api.route('/provideers/:id') 
+ .get(ProvideerCtrl.findById)
+ .put(ProvideerCtrl.update)
+ .delete(ProvideerCtrl.delete);
 
 
 

@@ -14,6 +14,7 @@ export class NuevoProductoComponent  implements OnInit{
  public clienteSelected = {};
  
  public producto:Producto;
+ 
 
 
 constructor (private _productService:ProductoService){}
@@ -41,5 +42,25 @@ agregarProducto(){
 
 ngOnInit() {
   this.producto = new Producto();  
+  this.producto.isProvider = 1;
+  this.producto.isBordesa = 0;
+}
+
+onProviderChange(){
+  // if(this.producto.isProvider){
+  //   this.producto.isProvider = 0;
+  //   this.producto.isBordesa = 1
+  // }
+  // else{
+  //   this.producto.isProvider = 1;
+  //   this.producto.isBordesa = 0
+  // }
+  this.producto.isBordesa = this.producto.isProvider == 1 ? 0 : 1;
+  
+  
+}
+
+onBordesaChange(){
+  this.producto.isProvider = this.producto.isBordesa == 1 ? 0 : 1;
 }
 }

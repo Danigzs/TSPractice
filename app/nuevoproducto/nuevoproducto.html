@@ -33,10 +33,7 @@
       <div class="c-container-info-column data">
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-
             <input type="text" name="name" [(ngModel)]="producto.name">
-
-
           </div>
         </div>
         <div class="c-container-info-column-item-container">
@@ -47,12 +44,12 @@
 
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-            <input type="checkbox" name="esProveedor" [(ngModel)]="producto.isProvider">
+            <input type="checkbox" name="esProveedor" [(ngModel)]="producto.isProvider" (change)="onProviderChange()">
           </div>
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-            <input type="checkbox" name="esBordesa" [(ngModel)]="producto.isBordesa">
+            <input type="checkbox" name="esBordesa" [(ngModel)]="producto.isBordesa" (change)="onBordesaChange()">
           </div>
         </div>
       </div>
@@ -63,10 +60,10 @@
     <textarea class="c-container-descripcion" [(ngModel)]="producto.description">
 
     </textarea>
-    <div>
+    <div *ngIf="producto.isBordesa">
       <label>Insumos</label>
     </div>
-    <textarea class="c-container-descripcion" [(ngModel)]="producto.supplies">
+    <textarea *ngIf="producto.isBordesa" class="c-container-descripcion" [(ngModel)]="producto.supplies">
 
     </textarea>
     <div>
@@ -75,7 +72,7 @@
     <div class="c-container-info precio">
       <div class="c-container-info-column data">
       </div>
-      <div class="c-container-info-column">
+      <div class="c-container-info-column" *ngIf="producto.isProvider">
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             <label>Cantidades</label>
@@ -107,10 +104,12 @@
             Cantidad mayor a 200
           </div>
         </div>
-
-
       </div>
-      <div class="c-container-info-column data">
+
+
+
+      
+      <div class="c-container-info-column data" *ngIf="producto.isProvider">
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             <label>Precio Neto</label>
@@ -146,6 +145,45 @@
           </div>
         </div>
       </div>
+
+       <div class="c-container-info-column data" *ngIf="producto.isBordesa">
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <label>Precio Neto</label>
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <input type="number" name="nombre" [(ngModel)]="producto.price" (ngModelChange)="updatePrice()">
+
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container" *ngIf="producto.isProvider">
+          <div class="c-container-info-column-item-container info">
+            <span>{{producto.CantidadDDiva |  currency:'USD':true}}</span>
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container" *ngIf="producto.isProvider">
+          <div class="c-container-info-column-item-container info">
+            <span>{{producto.CantidadTCiva  | currency:'USD':true}}</span>
+
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container" *ngIf="producto.isProvider">
+          <div class="c-container-info-column-item-container info">
+            <span>{{producto.CantidadCCiva  | currency:'USD':true}}</span>
+          </div>
+        </div>
+
+        <div class="c-container-info-column-item-container" *ngIf="producto.isProvider">
+          <div class="c-container-info-column-item-container info">
+            <span>{{producto.CantidadMCiva   | currency:'USD':true}}</span>
+
+          </div>
+        </div>
+      </div>
+
+
     </div>
 
     <div class="c-add-product-container">

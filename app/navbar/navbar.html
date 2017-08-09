@@ -1,10 +1,10 @@
 <div class="app-bar">
   <div class="logo">
     <a routerLink="/"><img src="http://www.bordesa.com.mx/images/logo2.png"/></a>
-  </div>
-  <div class="username-bar" *ngIf="!isLogin">
-    <label>{{user.username}}</label>
-  </div>
+</div>
+<div class="username-bar" *ngIf="!isLogin">
+    <label>Bienvenido, {{user.username}}</label>
+</div>
   <ul class="bar-childs" *ngIf="!isLogin">
 
     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class=" font-size: large;"> Cotizaciones </span><span class="caret"></span></a>

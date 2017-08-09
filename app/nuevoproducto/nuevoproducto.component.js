@@ -34,6 +34,22 @@ var NuevoProductoComponent = (function () {
     };
     NuevoProductoComponent.prototype.ngOnInit = function () {
         this.producto = new producto_1.Producto();
+        this.producto.isProvider = 1;
+        this.producto.isBordesa = 0;
+    };
+    NuevoProductoComponent.prototype.onProviderChange = function () {
+        // if(this.producto.isProvider){
+        //   this.producto.isProvider = 0;
+        //   this.producto.isBordesa = 1
+        // }
+        // else{
+        //   this.producto.isProvider = 1;
+        //   this.producto.isBordesa = 0
+        // }
+        this.producto.isBordesa = this.producto.isProvider == 1 ? 0 : 1;
+    };
+    NuevoProductoComponent.prototype.onBordesaChange = function () {
+        this.producto.isProvider = this.producto.isBordesa == 1 ? 0 : 1;
     };
     return NuevoProductoComponent;
 }());
