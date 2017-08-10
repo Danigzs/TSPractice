@@ -322,7 +322,6 @@
           <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let tecnica of order.maquilas; let i = index">
             <td> <input type="number" name="quantity" [(ngModel)]="tecnica.quantity"></td>
             <td>{{tecnica.name}} {{tecnica.subType}}, Tamaño: {{tecnica.size}}, Posición: {{tecnica.position}}</td>
-
             <td>{{tecnica.price | currency:'USD':true}}</td>
             <td>{{tecnica.total*tecnica.quantity | currency:'USD':true}}</td>
             <!--<th><button  type="button" class="btn btn-primary btn-md" (click)="verTecnica(i)">Tecnicas</button> <button  type="button" class="btn btn-primary btn-md" (click)="deleteRow()">Eliminar</button></th>-->

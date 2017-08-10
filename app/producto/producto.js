@@ -18,7 +18,11 @@ var Producto = (function () {
         // this.total = 0;
         // this.tecnicas = [];
     }
-    Producto.prototype.setProducto = function (_id, name, price, description, supplies, isProvider, isBordesa, code) {
+    Producto.prototype.setProducto = function (CantidadDDiva, CantidadTCiva, CantidadCCiva, CantidadMCiva, _id, name, price, description, supplies, isProvider, isBordesa, code) {
+        this.CantidadDDiva = CantidadDDiva;
+        this.CantidadTCiva = CantidadTCiva;
+        this.CantidadCCiva = CantidadCCiva;
+        this.CantidadMCiva = CantidadMCiva;
         this._id = _id;
         this.name = name;
         this.price = price;
@@ -30,6 +34,10 @@ var Producto = (function () {
     };
     Producto.prototype.copyNewProducto = function () {
         var _producto = new Producto();
+        _producto.CantidadDDiva = this.CantidadDDiva;
+        _producto.CantidadTCiva = this.CantidadTCiva;
+        _producto.CantidadCCiva = this.CantidadCCiva;
+        _producto.CantidadMCiva = this.CantidadMCiva;
         _producto._id = this._id;
         _producto.name = this.name;
         _producto.price = this.price;
