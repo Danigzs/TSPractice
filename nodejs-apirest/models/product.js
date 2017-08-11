@@ -17,10 +17,10 @@ var productSchema = new Schema({
     type: String
   },
   isProvider: {
-    type: String
+    type: Number
   },
   isBordesa: {
-    type: String
+    type: Number
   },
   price: {
     type: Number

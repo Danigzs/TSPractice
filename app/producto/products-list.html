@@ -58,9 +58,9 @@
             <th>Cantidad</th>
             <th>Código</th>
             <th>Descripción</th>
-            <th>Insumos</th>
-            <th>Es Proveedor</th>
-            <th>Es Bordesa</th>
+            <!--<th>Insumos</th>-->
+            <!--<th>Es Proveedor</th>
+            <th>Es Bordesa</th>-->
             <th>Precio Unitaro</th>
             <th>Precio 1-12</th>
             <th>Precio 13-50</th>
@@ -69,14 +69,14 @@
 
           </tr>
         </thead>
-        <tr class='clickable-row' *ngFor="let product of (products | search:productname:true  | searchcode:productcode:true)">
+        <tr class='clickable-row' *ngFor="let product of (providerProducts | search:productname:true  | searchcode:productcode:true)">
           <td>{{product.name}}</td>
           <td>{{product.Cantidad}}</td>
           <td>{{product.code}}</td>
           <td>{{product.description}}</td>
-          <td>{{product.supplies}}</td>
-          <td>{{product.isProvider}}</td>
-          <td>{{product.isBordesa}}</td>
+          <!--<td>{{product.supplies}}</td>-->
+          <!--<td>{{product.isProvider}}</td>
+          <td>{{product.isBordesa}}</td>-->
           <td>{{product.price | currency:'USD':true}}</td>
           <td>{{product.price - product.price * .25 | currency:'USD':true}}</td>
           <td>{{product.price - product.price * .21 | currency:'USD':true}}</td>
@@ -97,20 +97,20 @@
             <th>Código</th>
             <th>Descripción</th>
             <th>Insumos</th>
-            <th>Es Proveedor</th>
-            <th>Es Bordesa</th>
+            <!--<th>Es Proveedor</th>
+            <th>Es Bordesa</th>-->
             <th>Precio Unitaro</th>
 
           </tr>
         </thead>
-        <tr class='clickable-row' *ngFor="let product of (products | search:productname:true  | searchcode:productcode:true)">
+        <tr class='clickable-row' *ngFor="let product of (bordesaProducts | search:productname:true  | searchcode:productcode:true)">
           <td>{{product.name}}</td>
           <td>{{product.Cantidad}}</td>
           <td>{{product.code}}</td>
           <td>{{product.description}}</td>
           <td>{{product.supplies}}</td>
-          <td>{{product.isProvider}}</td>
-          <td>{{product.isBordesa}}</td>
+          <!--<td>{{product.isProvider}}</td>
+          <td>{{product.isBordesa}}</td>-->
           <td>{{product.price | currency:'USD':true}}</td>
         </tr>
       </table>

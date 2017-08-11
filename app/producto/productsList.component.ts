@@ -20,7 +20,8 @@ import {Producto} from './producto';
 
 export class ProductsListComponent  implements OnInit{
   products: Array < Producto > = [] ;
-   
+  providerProducts: Array < Producto > = [] ;
+  bordesaProducts: Array < Producto > = [] ;
   constructor(private  _productService: ProductoService) {
 
   }
@@ -29,8 +30,10 @@ export class ProductsListComponent  implements OnInit{
    this._productService.getProducts().subscribe(
      data => 
      {
-      
+       
        this.products = data;
+       this.providerProducts = data.filter(function(x){return x.isProvider == 1});
+       this.bordesaProducts =  data.filter(function(x){return x.isBordesa == 1});
      }
    )
   }

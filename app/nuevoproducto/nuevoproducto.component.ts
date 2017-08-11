@@ -33,17 +33,33 @@ Calcular(producto:Producto)
 {
 }
 agregarProducto(){
-  this._productService.addProduct(this.producto).subscribe(
+  if(this.producto.isProvider == 1){
+    this.producto.supplies = "";
+    this.producto.isProvider = 1
+    this.producto.isBordesa = 0
+    
+    this._productService.addProduct(this.producto).subscribe(
     data => {
 
     }
   )
+}else{
+    this.producto.isBordesa = 1
+    this.producto.isProvider= 0
+    this._productService.addProduct(this.producto).subscribe(
+    data => {
+
+    }
+  )
+  }
+  
 }
 
 ngOnInit() {
   this.producto = new Producto();  
   this.producto.isProvider = 1;
   this.producto.isBordesa = 0;
+  this.producto.stock = 1;
 }
 
 onProviderChange(){

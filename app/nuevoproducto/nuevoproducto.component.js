@@ -29,13 +29,25 @@ var NuevoProductoComponent = (function () {
     NuevoProductoComponent.prototype.Calcular = function (producto) {
     };
     NuevoProductoComponent.prototype.agregarProducto = function () {
-        this._productService.addProduct(this.producto).subscribe(function (data) {
-        });
+        if (this.producto.isProvider == 1) {
+            this.producto.supplies = "";
+            this.producto.isProvider = 1;
+            this.producto.isBordesa = 0;
+            this._productService.addProduct(this.producto).subscribe(function (data) {
+            });
+        }
+        else {
+            this.producto.isBordesa = 1;
+            this.producto.isProvider = 0;
+            this._productService.addProduct(this.producto).subscribe(function (data) {
+            });
+        }
     };
     NuevoProductoComponent.prototype.ngOnInit = function () {
         this.producto = new producto_1.Producto();
         this.producto.isProvider = 1;
         this.producto.isBordesa = 0;
+        this.producto.stock = 1;
     };
     NuevoProductoComponent.prototype.onProviderChange = function () {
         // if(this.producto.isProvider){
