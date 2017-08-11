@@ -14,11 +14,15 @@ var ProductsListComponent = (function () {
     function ProductsListComponent(_productService) {
         this._productService = _productService;
         this.products = [];
+        this.providerProducts = [];
+        this.bordesaProducts = [];
     }
     ProductsListComponent.prototype.ngOnInit = function () {
         var _this = this;
         this._productService.getProducts().subscribe(function (data) {
             _this.products = data;
+            _this.providerProducts = data.filter(function (x) { return x.isProvider == 1; });
+            _this.bordesaProducts = data.filter(function (x) { return x.isBordesa == 1; });
         });
     };
     return ProductsListComponent;
