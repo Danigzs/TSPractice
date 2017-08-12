@@ -1,14 +1,14 @@
 var mongoose = require('mongoose');
-var Tecnica = mongoose.model('Tecnica');
+var Bordado = mongoose.model('Bordado');
 
 //GET - Return all registers
 exports.findAll = function (req, res) {
 
-  Tecnica.find(function (err, tecnicas) {
+  Bordado.find(function (err, bordado) {
     if (err) res.send(500, err.message);
-    console.log('GET /tecnicas')
+    console.log('GET /bordados')
     res.status(200).json({
-      tecnicas: tecnicas
+      bordados: bordados
     });
 
   });
@@ -16,11 +16,11 @@ exports.findAll = function (req, res) {
 
 //GET - Return a register with specified ID
 exports.findById = function (req, res) {
-  Tecnica.findById(req.params.id, function (err, tecnica) {
+  Bordado.findById(req.params.id, function (err, bordado) {
     if (err) return res.send(500, err.message);
-    console.log('GET /tecnicas/' + req.params.id);
+    console.log('GET /bordados/' + req.params.id);
     res.status(200).json({
-      tecnica: tecnica
+      bordado: bordado
     });
   });
 };
@@ -29,9 +29,7 @@ exports.findById = function (req, res) {
 exports.add = function (req, res) {
   console.log('POST');
   console.log(req.body);
-  var tecnica = new Tecnica({
-    name: req.body.name,
-    subType: req.body.subType,
+  var bordado = new Bordado({
     size: req.body.size,
     position: req.body.position,
     price: req.body.price,
@@ -39,10 +37,10 @@ exports.add = function (req, res) {
     bordado: req.body.bordado,
     colores: req.body.colores
   });
-  tecnica.save(function (err, client) {
+  bordado.save(function (err, client) {
     if (err) return res.send(500, err.message);
     res.status(200).json({
-      tecnica: tecnica
+      bordado: bordado
     });
 
   });
@@ -50,16 +48,14 @@ exports.add = function (req, res) {
 
 //PUT - Update a register already exists
 exports.update = function (req, res) {
-  Tecnica.findById(req.params.id, function (err, tecnica) {
-    tecnica.name = req.body.name;
-    tecnica.subType = req.body.subType;
-    tecnica.size = req.body.size;
-    tecnica.position = req.body.position;
-    tecnica.price = req.body.price;
-    tecnica.puntadas=req.body.puntadas;
-    tecnica.bordado=req.body.bordado;
-    tecnica.colores=req.body.colores;
-    tecnica.save(function (err) {
+    Bordado.findById(req.params.id, function (err, bordado) {
+    bordado.size = req.body.size;
+    bordado.position = req.body.position;
+    bordado.price = req.body.price;
+    bordado.puntadas=req.body.puntadas;
+    bordado.bordado=req.body.bordado;
+    bordado.colores=req.body.colores;
+    bordado.save(function (err) {
       if (err) return res.send(500, err.message);
       res.status(200).json({client:client});
     });

@@ -8,7 +8,7 @@ var Bordado = (function () {
         this.bordado = "";
         this.colores = "";
     }
-    Bordado.prototype.setTecnica = function (colores, bordado, puntadas, name, subType, size, position, price) {
+    Bordado.prototype.setTecnica = function (colores, bordado, puntadas, size, position, price) {
         this.size = size;
         this.position = position;
         this.price = price;
@@ -18,7 +18,6 @@ var Bordado = (function () {
     };
     Bordado.prototype.copyNewTecnica = function () {
         var _bordado = new Bordado();
-        _bordado.subType = this.subType;
         _bordado.size = this.size;
         _bordado.position = this.position;
         _bordado.price = this.price;

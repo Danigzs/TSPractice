@@ -71,7 +71,7 @@
         </thead>
         <tr class='clickable-row' *ngFor="let product of (providerProducts | search:productname:true  | searchcode:productcode:true)">
           <td>{{product.name}}</td>
-          <td>{{product.Cantidad}}</td>
+          <td>{{product.stock}}</td>
           <td>{{product.code}}</td>
           <td>{{product.description}}</td>
           <!--<td>{{product.supplies}}</td>-->
@@ -105,7 +105,7 @@
         </thead>
         <tr class='clickable-row' *ngFor="let product of (bordesaProducts | search:productname:true  | searchcode:productcode:true)">
           <td>{{product.name}}</td>
-          <td>{{product.Cantidad}}</td>
+          <td>{{product.stock}}</td>
           <td>{{product.code}}</td>
           <td>{{product.description}}</td>
           <td>{{product.supplies}}</td>

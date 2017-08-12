@@ -15,7 +15,7 @@ export class Bordado {
     this.bordado ="";
     this.colores="";
   } 
-  setTecnica(colores:string,bordado:string,puntadas:number,name:string,subType:string,size:string,position:string,price:number){
+  setTecnica(colores:string,bordado:string,puntadas:number,size:string,position:string,price:number){
     
     this.size  = size;
     this.position = position;
@@ -26,7 +26,6 @@ export class Bordado {
   }
   copyNewTecnica(){
     var _bordado= new Bordado();
-    _bordado.subType = this.subType;
     _bordado.size = this.size;
     _bordado.position = this.position;
     _bordado.price = this.price;

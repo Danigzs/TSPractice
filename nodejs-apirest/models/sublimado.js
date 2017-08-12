@@ -4,7 +4,7 @@ autoIncrement.initialize(mongoose.connection);
 
 var Schema = mongoose.Schema;
 
-var serigrafiaSchema = new Schema({
+var sublimadoSchema = new Schema({
   size: {
     type: String
   },
@@ -13,13 +13,10 @@ var serigrafiaSchema = new Schema({
   },
   price: {
     type: Number
-  },
-  tintas:{
-    type:String
   }
   
 });
 
-sublimadoSchema.plugin(autoIncrement.plugin, 'Serigrafia');
+sublimadoSchema.plugin(autoIncrement.plugin, 'Sublimado');
 
-module.exports = mongoose.model('Serigrafia', serigrafiaSchema);
+module.exports = mongoose.model('Sublimado', sublimadoSchema);
