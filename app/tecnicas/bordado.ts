@@ -1,6 +1,4 @@
 export class Bordado {
-  _id: string;
-  subType: string;
   size: string; 
   position: string;
   price: number;

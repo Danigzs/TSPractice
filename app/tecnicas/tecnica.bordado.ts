@@ -5,40 +5,40 @@ import {
   ViewChild,
   ViewContainerRef
 } from '@angular/core';
-import {TecnicaService} from '../producto/tecnica.service';
-import {Tecnica} from '../producto/tecnica';
+import {BordadoService} from './bordado.service';
+import {Bordado} from './bordado';
 
 
 
 @Component({
   selector: 'tecnicabordado',
-    providers: [TecnicaService],
+    providers: [BordadoService],
   styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
   templateUrl: "./app/tecnicas/tecnica.bordado.html"
        
 })
 export class TecnicaBordadoComponent  {
-  public tecnica:Tecnica;
-  public tecnicas: Array < Tecnica > ;
-  constructor(private  _tecnicaService: TecnicaService) {
+  public bordado:Bordado;
+  public bordados: Array < Bordado > ;
+  constructor(private  _bordadoService: BordadoService) {
   }
 
   ngOnInit() {
-   this.tecnica = new Tecnica();
+   this. bordado = new Bordado();
    this.reloadTecnicas();
   }
 
   reloadTecnicas(){
-      this.tecnica = new Tecnica();
-      this._tecnicaService.getTecnicas().subscribe(
+      this.bordado = new Bordado();
+      this._bordadoService.getTecnicas().subscribe(
      data => {
-       this.tecnicas = data;
+       this.bordados = data;
      }
    )
   }
   agregarTecnica(){
     
-    this._tecnicaService.addTecnica(this.tecnica).subscribe(
+    this._bordadoService.addTecnica(this.bordado).subscribe(
       data => {
     this.reloadTecnicas();
 
@@ -47,7 +47,7 @@ export class TecnicaBordadoComponent  {
   }
   updateTecnica()
     {
-       this._tecnicaService.addTecnica(this.tecnica).subscribe(
+       this._bordadoService.addTecnica(this.bordado).subscribe(
       data => {
         this.reloadTecnicas();
       }

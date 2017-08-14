@@ -9,32 +9,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var tecnica_service_1 = require("../producto/tecnica.service");
-var tecnica_1 = require("../producto/tecnica");
+var bordado_service_1 = require("./bordado.service");
+var bordado_1 = require("./bordado");
 var TecnicaBordadoComponent = (function () {
-    function TecnicaBordadoComponent(_tecnicaService) {
-        this._tecnicaService = _tecnicaService;
+    function TecnicaBordadoComponent(_bordadoService) {
+        this._bordadoService = _bordadoService;
     }
     TecnicaBordadoComponent.prototype.ngOnInit = function () {
-        this.tecnica = new tecnica_1.Tecnica();
+        this.bordado = new bordado_1.Bordado();
         this.reloadTecnicas();
     };
     TecnicaBordadoComponent.prototype.reloadTecnicas = function () {
         var _this = this;
-        this.tecnica = new tecnica_1.Tecnica();
-        this._tecnicaService.getTecnicas().subscribe(function (data) {
-            _this.tecnicas = data;
+        this.bordado = new bordado_1.Bordado();
+        this._bordadoService.getTecnicas().subscribe(function (data) {
+            _this.bordados = data;
         });
     };
     TecnicaBordadoComponent.prototype.agregarTecnica = function () {
         var _this = this;
-        this._tecnicaService.addTecnica(this.tecnica).subscribe(function (data) {
+        this._bordadoService.addTecnica(this.bordado).subscribe(function (data) {
             _this.reloadTecnicas();
         });
     };
     TecnicaBordadoComponent.prototype.updateTecnica = function () {
         var _this = this;
-        this._tecnicaService.addTecnica(this.tecnica).subscribe(function (data) {
+        this._bordadoService.addTecnica(this.bordado).subscribe(function (data) {
             _this.reloadTecnicas();
         });
     };
@@ -43,11 +43,11 @@ var TecnicaBordadoComponent = (function () {
 TecnicaBordadoComponent = __decorate([
     core_1.Component({
         selector: 'tecnicabordado',
-        providers: [tecnica_service_1.TecnicaService],
+        providers: [bordado_service_1.BordadoService],
         styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
         templateUrl: "./app/tecnicas/tecnica.bordado.html"
     }),
-    __metadata("design:paramtypes", [tecnica_service_1.TecnicaService])
+    __metadata("design:paramtypes", [bordado_service_1.BordadoService])
 ], TecnicaBordadoComponent);
 exports.TecnicaBordadoComponent = TecnicaBordadoComponent;
 //# sourceMappingURL=tecnica.bordado.js.map
