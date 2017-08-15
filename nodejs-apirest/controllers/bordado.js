@@ -6,9 +6,9 @@ exports.findAll = function (req, res) {
 
   Bordado.find(function (err, bordado) {
     if (err) res.send(500, err.message);
-    console.log('GET /bordados')
+    console.log('GET /bordado')
     res.status(200).json({
-      bordados: bordados
+      bordado: bordado
     });
 
   });
@@ -18,7 +18,7 @@ exports.findAll = function (req, res) {
 exports.findById = function (req, res) {
   Bordado.findById(req.params.id, function (err, bordado) {
     if (err) return res.send(500, err.message);
-    console.log('GET /bordados/' + req.params.id);
+    console.log('GET /bordado/' + req.params.id);
     res.status(200).json({
       bordado: bordado
     });

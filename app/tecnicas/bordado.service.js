@@ -17,7 +17,7 @@ require("rxjs/add/operator/map");
 var BordadoService = (function () {
     function BordadoService(http) {
         this.http = http;
-        this.url = 'http://localhost:8000/api/bordados'; // URL to web API
+        this.url = 'http://localhost:8000/api/bordado'; // URL to web API
     }
     BordadoService.prototype.getTecnicas = function () {
         return this.http.get(this.url)

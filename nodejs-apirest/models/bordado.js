@@ -25,6 +25,6 @@ var bordadoSchema = new Schema({
   }
 });
 
-sublimadoSchema.plugin(autoIncrement.plugin, 'Bordado');
+bordadoSchema.plugin(autoIncrement.plugin, 'Bordado');
 
 module.exports = mongoose.model('Bordado', bordadoSchema);
