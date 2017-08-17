@@ -6,9 +6,9 @@ exports.findAll = function (req, res) {
 
   Sublimado.find(function (err, sublimado) {
     if (err) res.send(500, err.message);
-    console.log('GET /sublimados')
+    console.log('GET /sublimado')
     res.status(200).json({
-      sublimados: sublimados
+      sublimado: sublimado
     });
 
   });
@@ -18,7 +18,7 @@ exports.findAll = function (req, res) {
 exports.findById = function (req, res) {
   Sublimado.findById(req.params.id, function (err, sublimado) {
     if (err) return res.send(500, err.message);
-    console.log('GET /sublimados/' + req.params.id);
+    console.log('GET /sublimado/' + req.params.id);
     res.status(200).json({
       sublimado: sublimado
         });

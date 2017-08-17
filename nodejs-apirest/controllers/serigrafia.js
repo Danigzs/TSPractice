@@ -6,9 +6,9 @@ exports.findAll = function (req, res) {
 
   Serigrafia.find(function (err, serigrafia) {
     if (err) res.send(500, err.message);
-    console.log('GET /serigrafias')
+    console.log('GET /serigrafia')
     res.status(200).json({
-      serigrafias: serigrafias
+      serigrafia: serigrafia
     });
 
   });
@@ -18,7 +18,7 @@ exports.findAll = function (req, res) {
 exports.findById = function (req, res) {
   Serigrafia.findById(req.params.id, function (err, serigrafia) {
     if (err) return res.send(500, err.message);
-    console.log('GET /serigrafias/' + req.params.id);
+    console.log('GET /serigrafia/' + req.params.id);
     res.status(200).json({
       serigrafia: serigrafia
     });

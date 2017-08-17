@@ -20,6 +20,6 @@ var serigrafiaSchema = new Schema({
   
 });
 
-sublimadoSchema.plugin(autoIncrement.plugin, 'Serigrafia');
+serigrafiaSchema.plugin(autoIncrement.plugin, 'Serigrafia');
 
 module.exports = mongoose.model('Serigrafia', serigrafiaSchema);

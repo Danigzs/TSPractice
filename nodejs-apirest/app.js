@@ -39,6 +39,8 @@ var modelPayment = require('./models/payment')(app, mongoose);
 var modelRole = require('./models/role')(app, mongoose);
 var modelUser = require('./models/user')(app, mongoose);
 var modelBordado = require('./models/bordado')(app,mongoose);
+var modelSerigrafia = require('./models/serigrafia')(app,mongoose);
+var modelSublimado = require('./models/sublimado')(app, mongoose);
 
 var ClientCtrl = require('./controllers/client');
 var ProvideerCtrl = require('./controllers/provideer');
@@ -51,6 +53,8 @@ var HomeCtrl = require('./controllers/home');
 var RoleCtrl = require('./controllers/role');
 var UserCtrl = require('./controllers/user');
 var BordadoCtrl = require('./controllers/bordado');
+var SerigrafiaCtrl = require('./controllers/serigrafia');
+var SublimadoCtrl = require('./controllers/sublimado')
  
 var OrderProductsCtrl = require('./controllers/orderProducts');
  
@@ -156,6 +160,21 @@ api.route('/bordado/:id')
  .get(BordadoCtrl.findById)
  .put(BordadoCtrl.update)
 
+ api.route('/serigrafia') 
+ .get(SerigrafiaCtrl.findAll)
+ .post(SerigrafiaCtrl.add);
+
+api.route('/serigrafia/:id') 
+ .get(SerigrafiaCtrl.findById)
+ .put(SerigrafiaCtrl.update)
+
+ api.route('/sublimado') 
+ .get(SublimadoCtrl.findAll)
+ .post(SublimadoCtrl.add);
+
+api.route('/sublimado/:id') 
+ .get(SublimadoCtrl.findById)
+ .put(SublimadoCtrl.update)
 
 api.route('/products') 
  .get(ProductCtrl.findAll)

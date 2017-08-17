@@ -49,6 +49,8 @@ import {RoleService} from './roles/role.service';
 import {RegisterService} from './register/register.service';
 import { HttpModule, JsonpModule } from '@angular/http';
 import {BordadoService} from './tecnicas/bordado.service';
+import {SerigrafiaService} from'./tecnicas/serigrafia.service';
+import {SublimadoService} from './tecnicas/sublimado.service';
 
 
 
@@ -77,6 +79,8 @@ const appRoutes: Routes = [
   { path: 'tecnicabordado', component: TecnicaBordadoComponent},
   { path: 'tecnicaserigrafia', component: TecnicaSerigrafiaComponent},
   { path: 'tecnicasublimado', component: TecnicaSublimadoComponent}
+  
+  
 
 ];
 
@@ -120,7 +124,7 @@ const appRoutes: Routes = [
   providers : [  AuthGuard,CotizadorService, 
     ClienteService, ProductoService, TecnicaService,
     SellerService,OrderService,DashboardService,PaymentService,
-    RoleService,RegisterService, BordadoService],
+    RoleService,RegisterService, BordadoService, SerigrafiaService,SublimadoService],
   bootstrap:    [ AppComponent]
 })
 export class AppModule { }
