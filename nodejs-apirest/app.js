@@ -10,15 +10,17 @@ app.use(cors())
 
 // Connection to DB
 var db;
-mongoose.connect('mongodb://localhost/bordesa', function(err, res) {
- if(err) throw err;
-db = res;
- console.log('Connected to Database');
+mongoose.connect('mongodb://localhost/bordesa', function (err, res) {
+  if (err) throw err;
+  db = res;
+  console.log('Connected to Database');
 });
 
 // Middlewares
 
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({
+  extended: false
+}))
 app.use(bodyParser.json());
 app.use(methodOverride());
 app.use(express.static(__projectRoot));
@@ -38,8 +40,8 @@ var modelOrderProducts = require('./models/orderProducts')(app, mongoose);
 var modelPayment = require('./models/payment')(app, mongoose);
 var modelRole = require('./models/role')(app, mongoose);
 var modelUser = require('./models/user')(app, mongoose);
-var modelBordado = require('./models/bordado')(app,mongoose);
-var modelSerigrafia = require('./models/serigrafia')(app,mongoose);
+var modelBordado = require('./models/bordado')(app, mongoose);
+var modelSerigrafia = require('./models/serigrafia')(app, mongoose);
 var modelSublimado = require('./models/sublimado')(app, mongoose);
 
 var ClientCtrl = require('./controllers/client');
@@ -55,9 +57,9 @@ var UserCtrl = require('./controllers/user');
 var BordadoCtrl = require('./controllers/bordado');
 var SerigrafiaCtrl = require('./controllers/serigrafia');
 var SublimadoCtrl = require('./controllers/sublimado')
- 
+
 var OrderProductsCtrl = require('./controllers/orderProducts');
- 
+
 var router = express.Router();
 // Index - Route
 // app.route('/*').get(function(req, res) { 
@@ -65,125 +67,125 @@ var router = express.Router();
 // });
 
 app.use(router);
- 
+
 // API routes
 var api = express.Router();
 
-api.route('/clients') 
- .get(ClientCtrl.findAll)
- .post(ClientCtrl.add);
+api.route('/clients')
+  .get(ClientCtrl.findAll)
+  .post(ClientCtrl.add);
 
-api.route('/clients/:id') 
- .get(ClientCtrl.findById)
- .put(ClientCtrl.update)
- .delete(ClientCtrl.delete);
+api.route('/clients/:id')
+  .get(ClientCtrl.findById)
+  .put(ClientCtrl.update)
+  .delete(ClientCtrl.delete);
 
 
 //Provideer
- api.route('/provideers') 
- .get(ProvideerCtrl.findAll)
- .post(ProvideerCtrl.add);
+api.route('/provideers')
+  .get(ProvideerCtrl.findAll)
+  .post(ProvideerCtrl.add);
 
-api.route('/provideers/:id') 
- .get(ProvideerCtrl.findById)
- .put(ProvideerCtrl.update)
- .delete(ProvideerCtrl.delete);
+api.route('/provideers/:id')
+  .get(ProvideerCtrl.findById)
+  .put(ProvideerCtrl.update)
+  .delete(ProvideerCtrl.delete);
 
 
 
 //Roles Routes
-api.route('/roles') 
- .get(RoleCtrl.findAll)
+api.route('/roles')
+  .get(RoleCtrl.findAll)
 
-api.route('/roles/:id') 
- .get(RoleCtrl.findById)
-  
+api.route('/roles/:id')
+  .get(RoleCtrl.findById)
+
 //User Routes
-api.route('/users') 
- .get(UserCtrl.findAll)
+api.route('/users')
+  .get(UserCtrl.findAll)
 
-api.route('/users/:id') 
- .get(UserCtrl.findById)
+api.route('/users/:id')
+  .get(UserCtrl.findById)
 
-api.route('/login') 
- .post(UserCtrl.login)
+api.route('/login')
+  .post(UserCtrl.login)
 
-api.route('/register') 
- .post(UserCtrl.register)
+api.route('/register')
+  .post(UserCtrl.register)
 
 
 // 
 
 
-api.route('/home') 
- .get(HomeCtrl.getHome)
- 
-api.route('/orders') 
- .get(OrderCtrl.findAll)
- .post(OrderCtrl.add);
+api.route('/home')
+  .get(HomeCtrl.getHome)
+
+api.route('/orders')
+  .get(OrderCtrl.findAll)
+  .post(OrderCtrl.add);
 
 api.route('/getLastOrder')
-.get(OrderCtrl.getLast)
+  .get(OrderCtrl.getLast)
 
 api.route('/ordersByFolio/:id')
-.get(OrderCtrl.getOrderByFolio);
+  .get(OrderCtrl.getOrderByFolio);
 
-api.route('/orders/:id') 
- .get(OrderCtrl.findById)
- .put(OrderCtrl.update)
+api.route('/orders/:id')
+  .get(OrderCtrl.findById)
+  .put(OrderCtrl.update)
 
- api.route('/orderProducts') 
- .get(OrderProductsCtrl.findAll)
- .post(OrderProductsCtrl.add);
+api.route('/orderProducts')
+  .get(OrderProductsCtrl.findAll)
+  .post(OrderProductsCtrl.add);
 
 
-api.route('/payments') 
- .get(PaymentCtrl.findAll)
- .post(PaymentCtrl.add);
- 
- api.route('/getOrderPayments')
- .get(PaymentCtrl.getOrderPayments);
+api.route('/payments')
+  .get(PaymentCtrl.findAll)
+  .post(PaymentCtrl.add);
 
-api.route('/tecnicas') 
- .get(TecnicaCtrl.findAll)
- .post(TecnicaCtrl.add);
+api.route('/getOrderPayments')
+  .get(PaymentCtrl.getOrderPayments);
 
-api.route('/tecnicas/:id') 
- .get(TecnicaCtrl.findById)
- .put(TecnicaCtrl.update)
+api.route('/tecnicas')
+  .get(TecnicaCtrl.findAll)
+  .post(TecnicaCtrl.add);
 
- api.route('/bordado') 
- .get(BordadoCtrl.findAll)
- .post(BordadoCtrl.add);
+api.route('/tecnicas/:id')
+  .get(TecnicaCtrl.findById)
+  .put(TecnicaCtrl.update)
 
-api.route('/bordado/:id') 
- .get(BordadoCtrl.findById)
- .put(BordadoCtrl.update)
+api.route('/bordado')
+  .get(BordadoCtrl.findAll)
+  .post(BordadoCtrl.add);
 
- api.route('/serigrafia') 
- .get(SerigrafiaCtrl.findAll)
- .post(SerigrafiaCtrl.add);
+api.route('/bordado/:id')
+  .get(BordadoCtrl.findById)
+  .put(BordadoCtrl.update)
 
-api.route('/serigrafia/:id') 
- .get(SerigrafiaCtrl.findById)
- .put(SerigrafiaCtrl.update)
+api.route('/serigrafia')
+  .get(SerigrafiaCtrl.findAll)
+  .post(SerigrafiaCtrl.add);
 
- api.route('/sublimado') 
- .get(SublimadoCtrl.findAll)
- .post(SublimadoCtrl.add);
+api.route('/serigrafia/:id')
+  .get(SerigrafiaCtrl.findById)
+  .put(SerigrafiaCtrl.update)
 
-api.route('/sublimado/:id') 
- .get(SublimadoCtrl.findById)
- .put(SublimadoCtrl.update)
+api.route('/sublimado')
+  .get(SublimadoCtrl.findAll)
+  .post(SublimadoCtrl.add);
 
-api.route('/products') 
- .get(ProductCtrl.findAll)
- .post(ProductCtrl.add);
+api.route('/sublimado/:id')
+  .get(SublimadoCtrl.findById)
+  .put(SublimadoCtrl.update)
 
-api.route('/products/:id') 
- .get(ProductCtrl.findById)
- .put(ProductCtrl.update);
- 
+api.route('/products')
+  .get(ProductCtrl.findAll)
+  .post(ProductCtrl.add);
+
+api.route('/products/:id')
+  .get(ProductCtrl.findById)
+  .put(ProductCtrl.update);
+
 
 
 
@@ -191,19 +193,19 @@ api.route('/products/:id')
 // ─── SELLERS ROUTES ─────────────────────────────────────────────────────────────
 //
 
-    
-api.route('/sellers') 
- .get(SellerCtrl.findAll)
- .post(SellerCtrl.add);
- 
-api.route('/sellers/:id') 
- .get(SellerCtrl.findById)
-.put(SellerCtrl.update);
+
+api.route('/sellers')
+  .get(SellerCtrl.findAll)
+  .post(SellerCtrl.add);
+
+api.route('/sellers/:id')
+  .get(SellerCtrl.findById)
+  .put(SellerCtrl.update);
 
 app.use('/api', api);
 
 
 // Start server
-app.listen(8000, '0.0.0.0', function() {
- console.log("Node server running on http://localhost:8000");
+app.listen(8000, '0.0.0.0', function () {
+  console.log("Node server running on http://localhost:8000");
 });
