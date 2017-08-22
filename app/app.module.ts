@@ -51,6 +51,7 @@ import { HttpModule, JsonpModule } from '@angular/http';
 import {BordadoService} from './tecnicas/bordado.service';
 import {SerigrafiaService} from'./tecnicas/serigrafia.service';
 import {SublimadoService} from './tecnicas/sublimado.service';
+import {TransferService} from './tecnicas/transfer.service'
 
 
 
@@ -126,7 +127,8 @@ const appRoutes: Routes = [
   providers : [  AuthGuard,CotizadorService, 
     ClienteService, ProductoService, TecnicaService,
     SellerService,OrderService,DashboardService,PaymentService,
-    RoleService,RegisterService, BordadoService, SerigrafiaService,SublimadoService],
+    RoleService,RegisterService, BordadoService, SerigrafiaService,
+    SublimadoService, TransferService],
   bootstrap:    [ AppComponent]
 })
 export class AppModule { }

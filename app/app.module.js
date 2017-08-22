@@ -52,6 +52,7 @@ var http_1 = require("@angular/http");
 var bordado_service_1 = require("./tecnicas/bordado.service");
 var serigrafia_service_1 = require("./tecnicas/serigrafia.service");
 var sublimado_service_1 = require("./tecnicas/sublimado.service");
+var transfer_service_1 = require("./tecnicas/transfer.service");
 var auth_guard_1 = require("./guards/auth.guard");
 var appRoutes = [
     { path: '', component: home_component_1.HomeComponent, canActivate: [auth_guard_1.AuthGuard] },
@@ -124,7 +125,8 @@ AppModule = __decorate([
         providers: [auth_guard_1.AuthGuard, cotizador_service_1.CotizadorService,
             cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService,
             seller_service_1.SellerService, order_service_1.OrderService, dashboard_service_1.DashboardService, payment_service_1.PaymentService,
-            role_service_1.RoleService, register_service_1.RegisterService, bordado_service_1.BordadoService, serigrafia_service_1.SerigrafiaService, sublimado_service_1.SublimadoService],
+            role_service_1.RoleService, register_service_1.RegisterService, bordado_service_1.BordadoService, serigrafia_service_1.SerigrafiaService,
+            sublimado_service_1.SublimadoService, transfer_service_1.TransferService],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

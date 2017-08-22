@@ -4,7 +4,7 @@ autoIncrement.initialize(mongoose.connection);
 
 var Schema = mongoose.Schema;
 
-var sublimadoSchema = new Schema({
+var transferSchema = new Schema({
   size: {
     type: String
   },
@@ -17,7 +17,6 @@ var sublimadoSchema = new Schema({
   
 });
 
-sublimadoSchema.plugin(autoIncrement.plugin, 'Sublimado');
+transferSchema.plugin(autoIncrement.plugin, 'Transfer');
 
-module.exports = mongoose.model('Sublimado', sublimadoSchema);
-
+module.exports = mongoose.model('Transfer', transferSchema);
