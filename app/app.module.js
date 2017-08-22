@@ -28,6 +28,7 @@ var register_component_1 = require("./register/register.component");
 var tecnica_bordado_1 = require("./tecnicas/tecnica.bordado");
 var tecnica_serigrafia_1 = require("./tecnicas/tecnica.serigrafia");
 var tecnica_sublimado_1 = require("./tecnicas/tecnica.sublimado");
+var tecnica_transfer_1 = require("./tecnicas/tecnica.transfer");
 var editseller_component_1 = require("./sellers/editseller.component");
 var orders_component_1 = require("./orders/orders.component");
 var bordado_reports_1 = require("./dailyreports/bordado.reports");
@@ -75,7 +76,8 @@ var appRoutes = [
     { path: 'disenoreport', component: diseno_reports_1.DisenoReportComponent },
     { path: 'tecnicabordado', component: tecnica_bordado_1.TecnicaBordadoComponent },
     { path: 'tecnicaserigrafia', component: tecnica_serigrafia_1.TecnicaSerigrafiaComponent },
-    { path: 'tecnicasublimado', component: tecnica_sublimado_1.TecnicaSublimadoComponent }
+    { path: 'tecnicasublimado', component: tecnica_sublimado_1.TecnicaSublimadoComponent },
+    { path: 'tecnicatransfer', component: tecnica_transfer_1.TecnicaTransferComponent }
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -116,7 +118,8 @@ AppModule = __decorate([
             diseno_reports_1.DisenoReportComponent,
             tecnica_bordado_1.TecnicaBordadoComponent,
             tecnica_serigrafia_1.TecnicaSerigrafiaComponent,
-            tecnica_sublimado_1.TecnicaSublimadoComponent
+            tecnica_sublimado_1.TecnicaSublimadoComponent,
+            tecnica_transfer_1.TecnicaTransferComponent,
         ],
         providers: [auth_guard_1.AuthGuard, cotizador_service_1.CotizadorService,
             cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService,

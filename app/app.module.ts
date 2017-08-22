@@ -22,7 +22,7 @@ import {RegisterComponent} from './register/register.component'
 import {TecnicaBordadoComponent} from './tecnicas/tecnica.bordado';
 import {TecnicaSerigrafiaComponent} from './tecnicas/tecnica.serigrafia';
 import {TecnicaSublimadoComponent} from './tecnicas/tecnica.sublimado';
-
+import {TecnicaTransferComponent} from './tecnicas/tecnica.transfer';
 
 
 import {EditSellerComponent} from './sellers/editseller.component'
@@ -78,7 +78,8 @@ const appRoutes: Routes = [
   { path: 'disenoreport', component: DisenoReportComponent},
   { path: 'tecnicabordado', component: TecnicaBordadoComponent},
   { path: 'tecnicaserigrafia', component: TecnicaSerigrafiaComponent},
-  { path: 'tecnicasublimado', component: TecnicaSublimadoComponent}
+  { path: 'tecnicasublimado', component: TecnicaSublimadoComponent},
+  { path: 'tecnicatransfer', component: TecnicaTransferComponent}
   
   
 
@@ -119,7 +120,8 @@ const appRoutes: Routes = [
   DisenoReportComponent,
   TecnicaBordadoComponent,
   TecnicaSerigrafiaComponent,
-  TecnicaSublimadoComponent
+  TecnicaSublimadoComponent,
+  TecnicaTransferComponent,
   ],
   providers : [  AuthGuard,CotizadorService, 
     ClienteService, ProductoService, TecnicaService,

@@ -43,7 +43,7 @@ var TecnicaSublimadoComponent = (function () {
 TecnicaSublimadoComponent = __decorate([
     core_1.Component({
         selector: 'tecnicasublimado',
-        providers: [SublimadoService],
+        providers: [tecnica_service_1.TecnicaService],
         styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
         templateUrl: "./app/tecnicas/tecnica.sublimado.html"
     }),

@@ -48,4 +48,3 @@ constructor (private http: Http) {}
     return Observable.throw(errMsg);
   }
 }
-   

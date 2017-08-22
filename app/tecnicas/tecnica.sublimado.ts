@@ -12,7 +12,7 @@ import {Tecnica} from '../producto/tecnica';
 
 @Component({
   selector: 'tecnicasublimado',
-    providers: [SublimadoService],
+    providers: [TecnicaService],
   styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
   templateUrl: "./app/tecnicas/tecnica.sublimado.html"
        
