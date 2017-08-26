@@ -30,6 +30,7 @@ import {ChangeDetectorRef} from '@angular/core'
 
 
 
+
 import {MdDialog,  MdDialogConfig,  MdDialogRef} from '@angular/material';
 
 
@@ -60,6 +61,9 @@ export class CotizadorComponent implements OnInit {
   public hideModalcliente = true;
 
   public maquilasModal = true;
+  public showBordado = true;
+  public showSerigrafia = false;
+  public showSublimado = false;
   public pIndex: number;
   public checked = true;
   public checknuevo: boolean;
@@ -153,11 +157,32 @@ export class CotizadorComponent implements OnInit {
     );
     this.hideModalcliente = true;
   }
+
+  getProductPrice(product:ProductCotizacion){
+
+      if(product.quantity >=1 && product.quantity<=12){
+        var price = product.price + product.price * .25;
+        return price + price * .16;
+      }
+      else if(product.quantity >=13 && product.quantity<=50){
+        var price = product.price + product.price * .21;
+        return price + price * .16;
+      }
+      else if(product.quantity >=51 && product.quantity<=200){
+        var price = product.price + product.price * .17;
+        return price + price * .16;
+      }
+      else if(product.quantity > 200){
+        var price = product.price + product.price * .13;
+        return price + price * .16;
+      }
+
+  }
   calculateTotal() {
 
     var _total = 0;
     for (let producto of this.order.products) {
-      _total += producto.price * producto.quantity;
+      _total += this.getProductPrice(producto); //producto.price * producto.quantity;
     }
     for (let maquila of this.order.maquilas) {
       _total += maquila.price * maquila.quantity;
@@ -225,8 +250,7 @@ export class CotizadorComponent implements OnInit {
   deleteTecnica(tecnica: Tecnica) {
   }
   calcularTotalProducto(producto: ProductCotizacion) {
-    var total = producto.price * producto.quantity
-    return total
+    return  this.getProductPrice(producto) * producto.quantity;
   }
   closeModal2() {
     this.hideModal3 = true;

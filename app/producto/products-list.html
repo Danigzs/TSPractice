@@ -78,10 +78,10 @@
           <!--<td>{{product.isProvider}}</td>
           <td>{{product.isBordesa}}</td>-->
           <td>{{product.price | currency:'USD':true}}</td>
-          <td>{{product.price - product.price * .25 | currency:'USD':true}}</td>
-          <td>{{product.price - product.price * .21 | currency:'USD':true}}</td>
-          <td>{{product.price - product.price * .17 | currency:'USD':true}}</td>
-          <td>{{product.price - product.price * .13 | currency:'USD':true}}</td>
+          <td>{{ ((product.price + product.price * .25) + (product.price + product.price * .25)  * .16) | currency:'USD':true}}</td>
+          <td>{{ ((product.price + product.price * .21) + (product.price + product.price * .21)  * .16)| currency:'USD':true}}</td>
+          <td>{{((product.price + product.price * .17) + (product.price + product.price * .17)  * .16) | currency:'USD':true}}</td>
+          <td>{{ ((product.price + product.price * .13) + (product.price + product.price * .13)  * .16) | currency:'USD':true}}</td>
         </tr>
 
       </table>

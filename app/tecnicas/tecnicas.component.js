@@ -14,6 +14,9 @@ var tecnica_1 = require("../producto/tecnica");
 var TecnicasComponent = (function () {
     function TecnicasComponent(_tecnicaService) {
         this._tecnicaService = _tecnicaService;
+        this.showBordado = true;
+        this.showSerigrafia = false;
+        this.showSublimado = false;
     }
     TecnicasComponent.prototype.ngOnInit = function () {
         this.tecnica = new tecnica_1.Tecnica();

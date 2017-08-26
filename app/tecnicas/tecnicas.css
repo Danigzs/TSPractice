@@ -1,7 +1,7 @@
 h1 {
   color: #262E49;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+text-align: left;
   font-size: 250%;
 }
 input[type=text],input[type=number], select {
@@ -228,4 +228,19 @@ font-size: 24px;
 .c-total-amount{
   font-size: 28px;
       font-weight: 600;
+}
+
+.tab-selected{
+  background: #262E49;
+  color:white;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 100%;
+
+}
+
+.tab-no-selected{
+  color: #262E49;
+  background:white;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 100%;
 }

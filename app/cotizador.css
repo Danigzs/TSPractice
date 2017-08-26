@@ -1,3 +1,5 @@
+
+
 h1 {
   color: #262E49;
     font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -283,9 +285,9 @@ padding: 8px;
     border-bottom-style: solid;
 }
 .c-grid-all-products{
-  height: 300px;
+  height: 80%;
   overflow: auto;
-  margin-top: 40px;
+  
 }
 
 .c-grid-all-products table{
@@ -302,7 +304,7 @@ padding: 8px;
     display: block; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -314,11 +316,13 @@ padding: 8px;
 
 /* Modal Content */
 .modal-content {
-    background-color: #fefefe;
+        background-color: #fefefe;
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+    height: 80%;
+    margin-top: 10%;
 }
 
 .client-modal-content{
@@ -408,4 +412,21 @@ margin-right: 10px;
 
 
 }
+}
+.tab-selected{
+  background: #262E49;
+  color:white;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 100%;
+
+}
+
+.tab-no-selected{
+  color: #262E49;
+  background:white;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 100%;
+}
+.nav-tabs>li>a:hover{
+  background-color: #E7EBF0;
 }

@@ -33,7 +33,7 @@ export class ProductsListComponent  implements OnInit{
        
        this.products = data;
        this.providerProducts = data.filter(function(x){return x.isProvider == 1});
-       this.bordesaProducts =  data.filter(function(x){return x.isBordesa == 1});
+       this.bordesaProducts =  data.filter(function(x){return x.isBordesa == 1 });
      }
    )
   }

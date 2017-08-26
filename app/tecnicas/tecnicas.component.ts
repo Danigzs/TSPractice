@@ -20,6 +20,9 @@ import {Tecnica} from '../producto/tecnica';
 export class TecnicasComponent  {
   public tecnicas: Array < Tecnica > ;
   public tecnica:Tecnica;
+  public showBordado = true;
+  public showSerigrafia = false;
+  public showSublimado = false;
   constructor(private  _tecnicaService: TecnicaService) {
   }
 

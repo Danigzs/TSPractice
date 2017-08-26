@@ -51,6 +51,9 @@ var CotizadorComponent = (function () {
         this.hideModalpago = true;
         this.hideModalcliente = true;
         this.maquilasModal = true;
+        this.showBordado = true;
+        this.showSerigrafia = false;
+        this.showSublimado = false;
         this.checked = true;
         this.shippingDate = "";
         this.cotizacion = new cotizacion_1.Cotizacion();
@@ -126,11 +129,29 @@ var CotizadorComponent = (function () {
         });
         this.hideModalcliente = true;
     };
+    CotizadorComponent.prototype.getProductPrice = function (product) {
+        if (product.quantity >= 1 && product.quantity <= 12) {
+            var price = product.price + product.price * .25;
+            return price + price * .16;
+        }
+        else if (product.quantity >= 13 && product.quantity <= 50) {
+            var price = product.price + product.price * .21;
+            return price + price * .16;
+        }
+        else if (product.quantity >= 51 && product.quantity <= 200) {
+            var price = product.price + product.price * .17;
+            return price + price * .16;
+        }
+        else if (product.quantity > 200) {
+            var price = product.price + product.price * .13;
+            return price + price * .16;
+        }
+    };
     CotizadorComponent.prototype.calculateTotal = function () {
         var _total = 0;
         for (var _i = 0, _a = this.order.products; _i < _a.length; _i++) {
             var producto = _a[_i];
-            _total += producto.price * producto.quantity;
+            _total += this.getProductPrice(producto); //producto.price * producto.quantity;
         }
         for (var _b = 0, _c = this.order.maquilas; _b < _c.length; _b++) {
             var maquila = _c[_b];
@@ -187,8 +208,7 @@ var CotizadorComponent = (function () {
     CotizadorComponent.prototype.deleteTecnica = function (tecnica) {
     };
     CotizadorComponent.prototype.calcularTotalProducto = function (producto) {
-        var total = producto.price * producto.quantity;
-        return total;
+        return this.getProductPrice(producto) * producto.quantity;
     };
     CotizadorComponent.prototype.closeModal2 = function () {
         this.hideModal3 = true;
