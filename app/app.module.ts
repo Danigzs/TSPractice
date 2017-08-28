@@ -51,7 +51,9 @@ import { HttpModule, JsonpModule } from '@angular/http';
 import {BordadoService} from './tecnicas/bordado.service';
 import {SerigrafiaService} from'./tecnicas/serigrafia.service';
 import {SublimadoService} from './tecnicas/sublimado.service';
-import {TransferService} from './tecnicas/transfer.service'
+import {TransferService} from './tecnicas/transfer.service';
+import {BordadoTipoComponent} from './tecnicas config/bordado.config.tipo';
+import {BordadoTamañoComponent} from './tecnicas config/bordado.config.size';
 
 
 
@@ -80,7 +82,9 @@ const appRoutes: Routes = [
   { path: 'tecnicabordado', component: TecnicaBordadoComponent},
   { path: 'tecnicaserigrafia', component: TecnicaSerigrafiaComponent},
   { path: 'tecnicasublimado', component: TecnicaSublimadoComponent},
-  { path: 'tecnicatransfer', component: TecnicaTransferComponent}
+  { path: 'tecnicatransfer', component: TecnicaTransferComponent},
+  { path: 'bordado-tipo', component: BordadoTipoComponent},
+  { path: 'bordado-size', component: BordadoTamañoComponent},
   
   
 
@@ -123,6 +127,8 @@ const appRoutes: Routes = [
   TecnicaSerigrafiaComponent,
   TecnicaSublimadoComponent,
   TecnicaTransferComponent,
+  BordadoTipoComponent,
+  BordadoTamañoComponent,
   ],
   providers : [  AuthGuard,CotizadorService, 
     ClienteService, ProductoService, TecnicaService,

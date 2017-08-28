@@ -53,6 +53,8 @@ var bordado_service_1 = require("./tecnicas/bordado.service");
 var serigrafia_service_1 = require("./tecnicas/serigrafia.service");
 var sublimado_service_1 = require("./tecnicas/sublimado.service");
 var transfer_service_1 = require("./tecnicas/transfer.service");
+var bordado_config_tipo_1 = require("./tecnicas config/bordado.config.tipo");
+var bordado_config_size_1 = require("./tecnicas config/bordado.config.size");
 var auth_guard_1 = require("./guards/auth.guard");
 var appRoutes = [
     { path: '', component: home_component_1.HomeComponent, canActivate: [auth_guard_1.AuthGuard] },
@@ -78,7 +80,9 @@ var appRoutes = [
     { path: 'tecnicabordado', component: tecnica_bordado_1.TecnicaBordadoComponent },
     { path: 'tecnicaserigrafia', component: tecnica_serigrafia_1.TecnicaSerigrafiaComponent },
     { path: 'tecnicasublimado', component: tecnica_sublimado_1.TecnicaSublimadoComponent },
-    { path: 'tecnicatransfer', component: tecnica_transfer_1.TecnicaTransferComponent }
+    { path: 'tecnicatransfer', component: tecnica_transfer_1.TecnicaTransferComponent },
+    { path: 'bordado-tipo', component: bordado_config_tipo_1.BordadoTipoComponent },
+    { path: 'bordado-size', component: bordado_config_size_1.BordadoTamañoComponent },
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -121,6 +125,8 @@ AppModule = __decorate([
             tecnica_serigrafia_1.TecnicaSerigrafiaComponent,
             tecnica_sublimado_1.TecnicaSublimadoComponent,
             tecnica_transfer_1.TecnicaTransferComponent,
+            bordado_config_tipo_1.BordadoTipoComponent,
+            bordado_config_size_1.BordadoTamañoComponent,
         ],
         providers: [auth_guard_1.AuthGuard, cotizador_service_1.CotizadorService,
             cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService,
