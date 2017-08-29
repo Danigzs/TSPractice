@@ -54,6 +54,7 @@ import {SublimadoService} from './tecnicas/sublimado.service';
 import {TransferService} from './tecnicas/transfer.service';
 import {BordadoTipoComponent} from './tecnicas config/bordado.config.tipo';
 import {BordadoTamañoComponent} from './tecnicas config/bordado.config.size';
+import {BordadoPuntadasComponent} from './tecnicas config/bordado.config.puntadas';
 
 
 
@@ -85,6 +86,7 @@ const appRoutes: Routes = [
   { path: 'tecnicatransfer', component: TecnicaTransferComponent},
   { path: 'bordado-tipo', component: BordadoTipoComponent},
   { path: 'bordado-size', component: BordadoTamañoComponent},
+  { path: 'bordado-puntadas', component: BordadoPuntadasComponent},
   
   
 
@@ -129,6 +131,7 @@ const appRoutes: Routes = [
   TecnicaTransferComponent,
   BordadoTipoComponent,
   BordadoTamañoComponent,
+  BordadoPuntadasComponent,
   ],
   providers : [  AuthGuard,CotizadorService, 
     ClienteService, ProductoService, TecnicaService,
