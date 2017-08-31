@@ -44,6 +44,9 @@ var modelBordado = require('./models/bordado')(app, mongoose);
 var modelSerigrafia = require('./models/serigrafia')(app, mongoose);
 var modelSublimado = require('./models/sublimado')(app, mongoose);
 var modelTransfer = require('./models/transfer')(app, mongoose);
+var modelbordadoNombre = require('./models/BordadoNombre')(app, mongoose);
+var modelbordadoPuntadas = require('./models/BordadoPuntadas')(app, mongoose);
+var modelbordadoTamaño = require('./models/BordadoSize')(app, mongoose);
 
 var ClientCtrl = require('./controllers/client');
 var ProvideerCtrl = require('./controllers/provideer');
@@ -59,6 +62,9 @@ var BordadoCtrl = require('./controllers/bordado');
 var SerigrafiaCtrl = require('./controllers/serigrafia');
 var SublimadoCtrl = require('./controllers/sublimado');
 var TransferCtrl = require('./controllers/transfer');
+var bordadoNombreCtrl = require('./controllers/BordadoNombre');
+var bordadoPuntadasCtrl = require('./controllers/BordadoPuntadas');
+var bordadoTamañoCtrl = require('./controllers/BordadoSize');
 
 var OrderProductsCtrl = require('./controllers/orderProducts');
 
@@ -164,7 +170,7 @@ api.route('/bordado/:id')
   .get(BordadoCtrl.findById)
   .put(BordadoCtrl.update)
 
-  api.route('/transfer')
+api.route('/transfer')
   .get(TransferCtrl.findAll)
   .post(TransferCtrl.add);
 
@@ -187,6 +193,31 @@ api.route('/sublimado')
 api.route('/sublimado/:id')
   .get(SublimadoCtrl.findById)
   .put(SublimadoCtrl.update)
+
+
+api.route('/bordadoNombre')
+  .get(bordadoNombreCtrl.findAll)
+  .put(bordadoNombreCtrl.add)
+
+api.route('/bordadoNombre/:id')
+  .get(bordadoNombreCtrl.findById)
+  .put(bordadoNombreCtrl.update)
+
+api.route('/bordadoSize')
+  .get(bordadoTamañoCtrl.findAll)
+  .put(bordadoTamañoCtrl.add)
+
+api.route('/bordadoSize/:id')
+  .get(bordadoTamañoCtrl.findById)
+  .put(bordadoTamañoCtrl.update)
+
+api.route('/bordadoPuntadas')
+  .get(bordadoPuntadasCtrl.findAll)
+  .put(bordadoPuntadasCtrl.add)
+
+api.route('/bordadoPuntadas/:id')
+  .get(bordadoPuntadasCtrl.findById)
+  .put(bordadoPuntadasCtrl.update)
 
 api.route('/products')
   .get(ProductCtrl.findAll)

@@ -1,0 +1,1 @@
+{"version":3,"file":"bordados.mainscreen.js","sourceRoot":"","sources":["bordados.mainscreen.ts"],"names":[],"mappings":";;;;;;;AACA,sCAA6D;AAQ7D,IAAa,oBAAoB;IAAjC;IAEE,CAAC;IAAD,2BAAC;AAAD,CAAC,AAFH,IAEG;AAFU,oBAAoB;IANhC,gBAAS,CAAC;QACT,QAAQ,EAAE,cAAc;QAExB,SAAS,EAAE,CAAC,6BAA6B,EAAE,sBAAsB,CAAC;QAClE,WAAW,EAAE,gDAAgD;KAC9D,CAAC;GACW,oBAAoB,CAE9B;AAFU,oDAAoB"}

@@ -3,17 +3,15 @@ var autoIncrement = require('mongoose-auto-increment');
 autoIncrement.initialize(mongoose.connection);
 var Schema = mongoose.Schema;
 
-var confignombreSchema = new Schema({
+var bordadopuntadasSchema = new Schema({
  
-  Nombre:{
-      type:String
-  },
-  Costo:{
+ 
+  costo:{
       type:Number
   }
 
 });
 
-confignombre.plugin(autoIncrement.plugin, 'Nombre');
-module.exports = mongoose.model('Nombre', confignombreSchema);
+bordadopuntadasSchema.plugin(autoIncrement.plugin, 'Puntadas');
+module.exports = mongoose.model('Puntadas', bordadopuntadasSchema);
 

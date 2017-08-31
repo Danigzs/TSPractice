@@ -3,15 +3,17 @@ var autoIncrement = require('mongoose-auto-increment');
 autoIncrement.initialize(mongoose.connection);
 var Schema = mongoose.Schema;
 
-var configpuntadasSchema = new Schema({
+var bordadosizeSchema = new Schema({
  
- 
-  Costo:{
+  size:{
+      type:String
+  },
+  costo:{
       type:Number
   }
 
 });
 
-configpuntadas.plugin(autoIncrement.plugin, 'Puntadas');
-module.exports = mongoose.model('Puntadas', configpuntadasSchema);
+bordadosizeSchema.plugin(autoIncrement.plugin, 'Size');
+module.exports = mongoose.model('Size', bordadosizeSchema);
 

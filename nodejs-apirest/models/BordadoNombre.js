@@ -3,17 +3,16 @@ var autoIncrement = require('mongoose-auto-increment');
 autoIncrement.initialize(mongoose.connection);
 var Schema = mongoose.Schema;
 
-var configtamañoSchema = new Schema({
+var bordadoNombreSchema = new Schema({
  
-  Tamaño:{
+  nombre:{
       type:String
   },
-  Costo:{
+  costo:{
       type:Number
   }
 
 });
 
-configtamaño.plugin(autoIncrement.plugin, 'Tamaño');
-module.exports = mongoose.model('Tamaño', configtamañoSchema);
-
+bordadoNombreSchema.plugin(autoIncrement.plugin, 'Nombre');
+module.exports = mongoose.model('Nombre', bordadoNombreSchema);
