@@ -47,6 +47,7 @@ var modelTransfer = require('./models/transfer')(app, mongoose);
 var modelbordadoNombre = require('./models/BordadoNombre')(app, mongoose);
 var modelbordadoPuntadas = require('./models/BordadoPuntadas')(app, mongoose);
 var modelbordadoTamaño = require('./models/BordadoSize')(app, mongoose);
+var modelserigrafiaTipotinta = require('./models/SerigrafiaTipoTinta')(app, mongoose);
 
 var ClientCtrl = require('./controllers/client');
 var ProvideerCtrl = require('./controllers/provideer');
@@ -65,6 +66,7 @@ var TransferCtrl = require('./controllers/transfer');
 var bordadoNombreCtrl = require('./controllers/BordadoNombre');
 var bordadoPuntadasCtrl = require('./controllers/BordadoPuntadas');
 var bordadoTamañoCtrl = require('./controllers/BordadoSize');
+var SerigrafiaTipoTintaCtrl = require ('./controllers/SerigrafiaTipoTinta');
 
 var OrderProductsCtrl = require('./controllers/orderProducts');
 
@@ -218,6 +220,14 @@ api.route('/bordadoPuntadas')
 api.route('/bordadoPuntadas/:id')
   .get(bordadoPuntadasCtrl.findById)
   .put(bordadoPuntadasCtrl.update)
+
+  api.route('/serigrafiatipotinta')
+  .get(SerigrafiaTipoTintaCtrl.findAll)
+  .put(SerigrafiaTipoTintaCtrl.add)
+
+api.route('/serigrafiatipotinta/:id')
+  .get(SerigrafiaTipoTintaCtrl.findById)
+  .put(SerigrafiaTipoTintaCtrl.update)
 
 api.route('/products')
   .get(ProductCtrl.findAll)

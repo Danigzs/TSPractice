@@ -1,0 +1,1 @@
+{"version":3,"file":"sublimado.mainscreen.js","sourceRoot":"","sources":["sublimado.mainscreen.ts"],"names":[],"mappings":";;;;;;;AACA,sCAA6D;AAQ7D,IAAa,sBAAsB;IAAnC;IAEE,CAAC;IAAD,6BAAC;AAAD,CAAC,AAFH,IAEG;AAFU,sBAAsB;IANlC,gBAAS,CAAC;QACT,QAAQ,EAAE,gBAAgB;QAE1B,SAAS,EAAE,CAAC,6BAA6B,EAAE,sBAAsB,CAAC;QAClE,WAAW,EAAE,iDAAiD;KAC/D,CAAC;GACW,sBAAsB,CAEhC;AAFU,wDAAsB"}

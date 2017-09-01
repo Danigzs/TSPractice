@@ -47,7 +47,7 @@ import {PaymentService}from './payment/payment.service';
 import {DashboardService} from './dashboard/dashboard.service';
 import {RoleService} from './roles/role.service';
 import {RegisterService} from './register/register.service';
-import { HttpModule, JsonpModule } from '@angular/http';
+import {HttpModule, JsonpModule } from '@angular/http';
 import {BordadoService} from './tecnicas/bordado.service';
 import {SerigrafiaService} from'./tecnicas/serigrafia.service';
 import {SublimadoService} from './tecnicas/sublimado.service';
@@ -56,7 +56,11 @@ import {BordadoTipoComponent} from './tecnicas config/bordado.config.tipo';
 import {BordadoTamañoComponent} from './tecnicas config/bordado.config.size';
 import {BordadoPuntadasComponent} from './tecnicas config/bordado.config.puntadas';
 import {BordadoMainComponent} from './tecnicas config/bordados.mainscreen';
-
+import {SerigrafiaMainComponent} from './tecnicas config/serigrafia.mainscreen';
+import {SublimadoMainComponent} from './tecnicas config/sublimado.mainscreen';
+import {BordadoTipoService} from './tecnicas config/BordadoTipo.service';
+import {BordadoPuntadasService} from './tecnicas config/BordadoPuntadas.service';
+import {BordadoSizeService} from './tecnicas config/BordadoSize.service';
 
 
 
@@ -90,7 +94,8 @@ const appRoutes: Routes = [
   { path: 'bordado-size', component: BordadoTamañoComponent},
   { path: 'bordado-puntadas', component: BordadoPuntadasComponent},
   { path: 'bordado-main', component: BordadoMainComponent},
-  
+  { path: 'serigrafia-main', component: SerigrafiaMainComponent},
+  { path: 'sublimado-main', component: SublimadoMainComponent},
   
 
 ];
@@ -136,12 +141,15 @@ const appRoutes: Routes = [
   BordadoTamañoComponent,
   BordadoPuntadasComponent,
   BordadoMainComponent,
+  SerigrafiaMainComponent,
+  SublimadoMainComponent,
   ],
   providers : [  AuthGuard,CotizadorService, 
     ClienteService, ProductoService, TecnicaService,
     SellerService,OrderService,DashboardService,PaymentService,
     RoleService,RegisterService, BordadoService, SerigrafiaService,
-    SublimadoService, TransferService],
+    SublimadoService, TransferService, BordadoSizeService, 
+    BordadoPuntadasService, BordadoTipoService],
   bootstrap:    [ AppComponent]
 })
 export class AppModule { }

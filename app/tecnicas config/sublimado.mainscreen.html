@@ -1,0 +1,23 @@
+<ul class="nav nav-tabs">
+    
+   <li><a [ngClass]="{'tab-selected': showBordado,'tab-no-selected':!showBordado}"  style="cursor:pointer"  (click)="showBordado=true;showSerigrafia=false;showSublimado=false;">Tipos de tintas</a></li>
+   <li><a [ngClass]="{'tab-selected': showSerigrafia,'tab-no-selected':!showSerigrafia}"  style="cursor:pointer" (click)="showBordado=false;showSerigrafia=true;showSublimado=false;">Tamaños</a></li>
+   <li><a [ngClass]="{'tab-selected': showSublimado,'tab-no-selected':!showSublimado}"  style="cursor:pointer"  (click)="showBordado=false;showSerigrafia=false;showSublimado=true;">Precio Tamaños</a></li>
+</ul>
+
+<div style="width:100%">
+  <div style="width:100%;height:300px;" *ngIf="showBordado">
+         ****************     
+  </div>
+  
+  <div style="cursor:pointer;width:100%;height:300px;" *ngIf="showSerigrafia">
+    **************              
+  </div>
+  
+  <div style="cursor:pointer;width:100%;height:300px;" *ngIf="showSublimado">
+    *******************
+  </div>
+</div>
+<div>
+<h1>Precio Base:</h1> 
+</div>

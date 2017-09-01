@@ -57,6 +57,11 @@ var bordado_config_tipo_1 = require("./tecnicas config/bordado.config.tipo");
 var bordado_config_size_1 = require("./tecnicas config/bordado.config.size");
 var bordado_config_puntadas_1 = require("./tecnicas config/bordado.config.puntadas");
 var bordados_mainscreen_1 = require("./tecnicas config/bordados.mainscreen");
+var serigrafia_mainscreen_1 = require("./tecnicas config/serigrafia.mainscreen");
+var sublimado_mainscreen_1 = require("./tecnicas config/sublimado.mainscreen");
+var BordadoTipo_service_1 = require("./tecnicas config/BordadoTipo.service");
+var BordadoPuntadas_service_1 = require("./tecnicas config/BordadoPuntadas.service");
+var BordadoSize_service_1 = require("./tecnicas config/BordadoSize.service");
 var auth_guard_1 = require("./guards/auth.guard");
 var appRoutes = [
     { path: '', component: home_component_1.HomeComponent, canActivate: [auth_guard_1.AuthGuard] },
@@ -87,6 +92,8 @@ var appRoutes = [
     { path: 'bordado-size', component: bordado_config_size_1.BordadoTamañoComponent },
     { path: 'bordado-puntadas', component: bordado_config_puntadas_1.BordadoPuntadasComponent },
     { path: 'bordado-main', component: bordados_mainscreen_1.BordadoMainComponent },
+    { path: 'serigrafia-main', component: serigrafia_mainscreen_1.SerigrafiaMainComponent },
+    { path: 'sublimado-main', component: sublimado_mainscreen_1.SublimadoMainComponent },
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -133,12 +140,15 @@ AppModule = __decorate([
             bordado_config_size_1.BordadoTamañoComponent,
             bordado_config_puntadas_1.BordadoPuntadasComponent,
             bordados_mainscreen_1.BordadoMainComponent,
+            serigrafia_mainscreen_1.SerigrafiaMainComponent,
+            sublimado_mainscreen_1.SublimadoMainComponent,
         ],
         providers: [auth_guard_1.AuthGuard, cotizador_service_1.CotizadorService,
             cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService,
             seller_service_1.SellerService, order_service_1.OrderService, dashboard_service_1.DashboardService, payment_service_1.PaymentService,
             role_service_1.RoleService, register_service_1.RegisterService, bordado_service_1.BordadoService, serigrafia_service_1.SerigrafiaService,
-            sublimado_service_1.SublimadoService, transfer_service_1.TransferService],
+            sublimado_service_1.SublimadoService, transfer_service_1.TransferService, BordadoSize_service_1.BordadoSizeService,
+            BordadoPuntadas_service_1.BordadoPuntadasService, BordadoTipo_service_1.BordadoTipoService],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);
