@@ -61,6 +61,7 @@ import {SublimadoMainComponent} from './tecnicas config/sublimado.mainscreen';
 import {BordadoTipoService} from './tecnicas config/BordadoTipo.service';
 import {BordadoPuntadasService} from './tecnicas config/BordadoPuntadas.service';
 import {BordadoSizeService} from './tecnicas config/BordadoSize.service';
+import {TipoTintaComponent} from './tecnicas config/serigrafia.config.tipotinta';
 
 
 
@@ -96,6 +97,7 @@ const appRoutes: Routes = [
   { path: 'bordado-main', component: BordadoMainComponent},
   { path: 'serigrafia-main', component: SerigrafiaMainComponent},
   { path: 'sublimado-main', component: SublimadoMainComponent},
+  { path: 'tinta-tipo', component: TipoTintaComponent},
   
 
 ];
@@ -143,6 +145,7 @@ const appRoutes: Routes = [
   BordadoMainComponent,
   SerigrafiaMainComponent,
   SublimadoMainComponent,
+  TipoTintaComponent,
   ],
   providers : [  AuthGuard,CotizadorService, 
     ClienteService, ProductoService, TecnicaService,

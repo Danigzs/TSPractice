@@ -62,6 +62,7 @@ var sublimado_mainscreen_1 = require("./tecnicas config/sublimado.mainscreen");
 var BordadoTipo_service_1 = require("./tecnicas config/BordadoTipo.service");
 var BordadoPuntadas_service_1 = require("./tecnicas config/BordadoPuntadas.service");
 var BordadoSize_service_1 = require("./tecnicas config/BordadoSize.service");
+var serigrafia_config_tipotinta_1 = require("./tecnicas config/serigrafia.config.tipotinta");
 var auth_guard_1 = require("./guards/auth.guard");
 var appRoutes = [
     { path: '', component: home_component_1.HomeComponent, canActivate: [auth_guard_1.AuthGuard] },
@@ -94,6 +95,7 @@ var appRoutes = [
     { path: 'bordado-main', component: bordados_mainscreen_1.BordadoMainComponent },
     { path: 'serigrafia-main', component: serigrafia_mainscreen_1.SerigrafiaMainComponent },
     { path: 'sublimado-main', component: sublimado_mainscreen_1.SublimadoMainComponent },
+    { path: 'tinta-tipo', component: serigrafia_config_tipotinta_1.TipoTintaComponent },
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -142,6 +144,7 @@ AppModule = __decorate([
             bordados_mainscreen_1.BordadoMainComponent,
             serigrafia_mainscreen_1.SerigrafiaMainComponent,
             sublimado_mainscreen_1.SublimadoMainComponent,
+            serigrafia_config_tipotinta_1.TipoTintaComponent,
         ],
         providers: [auth_guard_1.AuthGuard, cotizador_service_1.CotizadorService,
             cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService,

@@ -15,7 +15,7 @@ TipoTintaComponent = __decorate([
     core_1.Component({
         selector: 'tinta-tipo',
         styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
-        templateUrl: "./app/tecnicas config/serigrafia.tipotinta.html"
+        templateUrl: "./app/tecnicas config/serigrafia.config.tipotinta.html"
     })
 ], TipoTintaComponent);
 exports.TipoTintaComponent = TipoTintaComponent;
