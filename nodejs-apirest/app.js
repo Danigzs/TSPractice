@@ -44,11 +44,13 @@ var modelBordado = require('./models/bordado')(app, mongoose);
 var modelSerigrafia = require('./models/serigrafia')(app, mongoose);
 var modelSublimado = require('./models/sublimado')(app, mongoose);
 var modelTransfer = require('./models/transfer')(app, mongoose);
+
 var modelbordadoNombre = require('./models/BordadoNombre')(app, mongoose);
 var modelbordadoPuntadas = require('./models/BordadoPuntadas')(app, mongoose);
 var modelbordadoTamaño = require('./models/BordadoSize')(app, mongoose);
 var modelserigrafiaTipotinta = require('./models/SerigrafiaTipoTinta')(app, mongoose);
-
+var modelSerigrafiaPrecioBordesa = require('./models/serigrafiaPrecioBordesa')(app, mongoose);
+var modelSerigrafiaPrecioCliente = require('./models/serigrafiaPrecioCliente')(app, mongoose);
 var ClientCtrl = require('./controllers/client');
 var ProvideerCtrl = require('./controllers/provideer');
 var OrderCtrl = require('./controllers/order');
@@ -63,10 +65,13 @@ var BordadoCtrl = require('./controllers/bordado');
 var SerigrafiaCtrl = require('./controllers/serigrafia');
 var SublimadoCtrl = require('./controllers/sublimado');
 var TransferCtrl = require('./controllers/transfer');
+
 var bordadoNombreCtrl = require('./controllers/BordadoNombre');
 var bordadoPuntadasCtrl = require('./controllers/BordadoPuntadas');
 var bordadoTamañoCtrl = require('./controllers/BordadoSize');
 var SerigrafiaTipoTintaCtrl = require ('./controllers/SerigrafiaTipoTinta');
+var serigrafiaPrecioBordesaCtrl = require ('./controllers/serigrafiaPrecioBordesa');
+var serigrafiaPrecioClienteCtrl = require ('./controllers/serigrafiaPrecioCliente');
 
 var OrderProductsCtrl = require('./controllers/orderProducts');
 
@@ -228,6 +233,24 @@ api.route('/bordadoPuntadas/:id')
 api.route('/serigrafiatipotinta/:id')
   .get(SerigrafiaTipoTintaCtrl.findById)
   .put(SerigrafiaTipoTintaCtrl.update)
+
+
+api.route('/serigrafiaPrecioBordesa')
+  .get(serigrafiaPrecioBordesaCtrl.findAll)
+  .post(serigrafiaPrecioBordesaCtrl.add)
+  
+
+api.route('/serigrafiaPrecioBordesa/:id')
+  .get(serigrafiaPrecioBordesaCtrl.findById) 
+
+api.route('/serigrafiaPrecioCliente')
+  .get(serigrafiaPrecioClienteCtrl.findAll)
+  .post(serigrafiaPrecioClienteCtrl.add)
+
+api.route('/serigrafiaPrecioCliente/:id')
+  .get(serigrafiaPrecioClienteCtrl.findById)
+
+
 
 api.route('/products')
   .get(ProductCtrl.findAll)
