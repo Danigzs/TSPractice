@@ -3,11 +3,12 @@ import {
     OnInit,
     ElementRef,
     ViewChild,
+    Input,
     ViewContainerRef
   } from '@angular/core';
   import {BordadoService} from './../tecnicas/bordado.service';
   import {Bordado} from './../tecnicas/bordado';
-  
+  import {AppConfig} from './../appConfig/appConfig';
   
   
   @Component({
@@ -18,6 +19,7 @@ import {
          
   })
   export class BordadoTipoComponent  {
+    @Input() appConfig:  AppConfig  ;
     public bordado:Bordado;
     public bordados: Array < Bordado > ;
     constructor(private  _bordadoService: BordadoService) {

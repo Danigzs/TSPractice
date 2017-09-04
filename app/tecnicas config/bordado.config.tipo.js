@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var bordado_service_1 = require("./../tecnicas/bordado.service");
 var bordado_1 = require("./../tecnicas/bordado");
+var appConfig_1 = require("./../appConfig/appConfig");
 var BordadoTipoComponent = (function () {
     function BordadoTipoComponent(_bordadoService) {
         this._bordadoService = _bordadoService;
@@ -40,6 +41,10 @@ var BordadoTipoComponent = (function () {
     };
     return BordadoTipoComponent;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", appConfig_1.AppConfig)
+], BordadoTipoComponent.prototype, "appConfig", void 0);
 BordadoTipoComponent = __decorate([
     core_1.Component({
         selector: 'bordado-tipo',

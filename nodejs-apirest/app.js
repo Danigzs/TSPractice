@@ -51,6 +51,8 @@ var modelbordadoTamaño = require('./models/BordadoSize')(app, mongoose);
 var modelserigrafiaTipotinta = require('./models/SerigrafiaTipoTinta')(app, mongoose);
 var modelSerigrafiaPrecioBordesa = require('./models/serigrafiaPrecioBordesa')(app, mongoose);
 var modelSerigrafiaPrecioCliente = require('./models/serigrafiaPrecioCliente')(app, mongoose);
+var modelAppConfig = require('./models/appConfig')(app, mongoose);
+
 var ClientCtrl = require('./controllers/client');
 var ProvideerCtrl = require('./controllers/provideer');
 var OrderCtrl = require('./controllers/order');
@@ -72,6 +74,7 @@ var bordadoTamañoCtrl = require('./controllers/BordadoSize');
 var SerigrafiaTipoTintaCtrl = require ('./controllers/SerigrafiaTipoTinta');
 var serigrafiaPrecioBordesaCtrl = require ('./controllers/serigrafiaPrecioBordesa');
 var serigrafiaPrecioClienteCtrl = require ('./controllers/serigrafiaPrecioCliente');
+var appConfigCtrl = require ('./controllers/appConfig');
 
 var OrderProductsCtrl = require('./controllers/orderProducts');
 
@@ -249,6 +252,16 @@ api.route('/serigrafiaPrecioCliente')
 
 api.route('/serigrafiaPrecioCliente/:id')
   .get(serigrafiaPrecioClienteCtrl.findById)
+
+
+api.route('/appConfig')
+  .get(appConfigCtrl.findAll)
+  .post(appConfigCtrl.add)
+
+api.route('/appConfig/:id')
+  .get(appConfigCtrl.findById)
+  .put(appConfigCtrl.update);
+  
 
 
 

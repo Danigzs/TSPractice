@@ -53,6 +53,7 @@ var bordado_service_1 = require("./tecnicas/bordado.service");
 var serigrafia_service_1 = require("./tecnicas/serigrafia.service");
 var sublimado_service_1 = require("./tecnicas/sublimado.service");
 var transfer_service_1 = require("./tecnicas/transfer.service");
+var appConfig_service_1 = require("./appConfig/appConfig.service");
 var bordado_config_tipo_1 = require("./tecnicas config/bordado.config.tipo");
 var bordado_config_size_1 = require("./tecnicas config/bordado.config.size");
 var bordado_config_puntadas_1 = require("./tecnicas config/bordado.config.puntadas");
@@ -151,7 +152,7 @@ AppModule = __decorate([
             seller_service_1.SellerService, order_service_1.OrderService, dashboard_service_1.DashboardService, payment_service_1.PaymentService,
             role_service_1.RoleService, register_service_1.RegisterService, bordado_service_1.BordadoService, serigrafia_service_1.SerigrafiaService,
             sublimado_service_1.SublimadoService, transfer_service_1.TransferService, BordadoSize_service_1.BordadoSizeService,
-            BordadoPuntadas_service_1.BordadoPuntadasService, BordadoTipo_service_1.BordadoTipoService],
+            BordadoPuntadas_service_1.BordadoPuntadasService, BordadoTipo_service_1.BordadoTipoService, appConfig_service_1.AppConfigService],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

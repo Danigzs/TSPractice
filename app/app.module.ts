@@ -52,6 +52,7 @@ import {BordadoService} from './tecnicas/bordado.service';
 import {SerigrafiaService} from'./tecnicas/serigrafia.service';
 import {SublimadoService} from './tecnicas/sublimado.service';
 import {TransferService} from './tecnicas/transfer.service';
+import {AppConfigService} from './appConfig/appConfig.service';
 import {BordadoTipoComponent} from './tecnicas config/bordado.config.tipo';
 import {BordadoTamañoComponent} from './tecnicas config/bordado.config.size';
 import {BordadoPuntadasComponent} from './tecnicas config/bordado.config.puntadas';
@@ -152,7 +153,7 @@ const appRoutes: Routes = [
     SellerService,OrderService,DashboardService,PaymentService,
     RoleService,RegisterService, BordadoService, SerigrafiaService,
     SublimadoService, TransferService, BordadoSizeService, 
-    BordadoPuntadasService, BordadoTipoService],
+    BordadoPuntadasService, BordadoTipoService,AppConfigService],
   bootstrap:    [ AppComponent]
 })
 export class AppModule { }
