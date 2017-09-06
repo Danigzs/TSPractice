@@ -33,7 +33,7 @@ var BordadoTipoService = (function () {
     };
     BordadoTipoService.prototype.extractData = function (res) {
         var data = res.json();
-        return data.bordadotipo || {};
+        return data.bordadoNombre || {};
     };
     BordadoTipoService.prototype.handleError = function (error) {
         // In a real world app, you might use a remote logging infrastructure

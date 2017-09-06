@@ -6,32 +6,32 @@ import {
     Input,
     ViewContainerRef
   } from '@angular/core';
-  import {BordadoService} from './../tecnicas/bordado.service';
-  import {Bordado} from './../tecnicas/bordado';
+  import {BordadoTipoService} from './BordadoTipo.service';
+  import {BordadoTipo} from './BordadoTipo';
   import {AppConfig} from './../appConfig/appConfig';
   
   
   @Component({
     selector: 'bordado-tipo',
-      providers: [BordadoService],
+      providers: [BordadoTipoService],
     styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
     templateUrl: "./app/tecnicas config/bordado.config.tipo.html"
          
   })
   export class BordadoTipoComponent  {
     @Input() appConfig:  AppConfig  ;
-    public bordado:Bordado;
-    public bordados: Array < Bordado > ;
-    constructor(private  _bordadoService: BordadoService) {
+    public bordadotipo:BordadoTipo;
+    public bordados: Array < BordadoTipo > ;
+    constructor(private  _bordadoService: BordadoTipoService) {
     }
   
     ngOnInit() {
-     this. bordado = new Bordado();
+     this. bordadotipo = new BordadoTipo();
      this.reloadTecnicas();
     }
   
     reloadTecnicas(){
-        this.bordado = new Bordado();
+        this.bordadotipo = new BordadoTipo();
         this._bordadoService.getTecnicas().subscribe(
        data => {
          this.bordados = data;
@@ -40,7 +40,7 @@ import {
     }
     agregarTecnica(){
       
-      this._bordadoService.addTecnica(this.bordado).subscribe(
+      this._bordadoService.addTecnica(this.bordadotipo).subscribe(
         data => {
       this.reloadTecnicas();
   
@@ -49,7 +49,7 @@ import {
     }
     updateTecnica()
       {
-         this._bordadoService.addTecnica(this.bordado).subscribe(
+         this._bordadoService.addTecnica(this.bordadotipo).subscribe(
         data => {
           this.reloadTecnicas();
         }

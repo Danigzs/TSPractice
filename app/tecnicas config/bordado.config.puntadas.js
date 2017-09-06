@@ -9,19 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var tecnica_service_1 = require("../producto/tecnica.service");
-var tecnica_1 = require("../producto/tecnica");
+var BordadoPuntadas_service_1 = require("./BordadoPuntadas.service");
+var BordadoPuntadas_1 = require("./BordadoPuntadas");
 var BordadoPuntadasComponent = (function () {
     function BordadoPuntadasComponent(_tecnicaService) {
         this._tecnicaService = _tecnicaService;
     }
     BordadoPuntadasComponent.prototype.ngOnInit = function () {
-        this.tecnica = new tecnica_1.Tecnica();
+        this.tecnica = new BordadoPuntadas_1.BordadoPuntadas();
         this.reloadTecnicas();
     };
     BordadoPuntadasComponent.prototype.reloadTecnicas = function () {
         var _this = this;
-        this.tecnica = new tecnica_1.Tecnica();
+        this.tecnica = new BordadoPuntadas_1.BordadoPuntadas();
         this._tecnicaService.getTecnicas().subscribe(function (data) {
             _this.tecnicas = data;
         });
@@ -43,11 +43,11 @@ var BordadoPuntadasComponent = (function () {
 BordadoPuntadasComponent = __decorate([
     core_1.Component({
         selector: 'bordado-puntadas',
-        providers: [tecnica_service_1.TecnicaService],
+        providers: [BordadoPuntadas_service_1.BordadoPuntadasService],
         styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
         templateUrl: "./app/tecnicas config/bordado.config.puntadas.html"
     }),
-    __metadata("design:paramtypes", [tecnica_service_1.TecnicaService])
+    __metadata("design:paramtypes", [BordadoPuntadas_service_1.BordadoPuntadasService])
 ], BordadoPuntadasComponent);
 exports.BordadoPuntadasComponent = BordadoPuntadasComponent;
 //# sourceMappingURL=bordado.config.puntadas.js.map

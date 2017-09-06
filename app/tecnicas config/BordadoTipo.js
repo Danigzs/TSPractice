@@ -1,17 +1,17 @@
 "use strict";
 var BordadoTipo = (function () {
     function BordadoTipo() {
-        this.price = 0.0;
-        this.tipo = "";
+        this.costo = 0.0;
+        this.nombre = "";
     }
-    BordadoTipo.prototype.setTecnica = function (tipo, price) {
-        this.tipo = tipo;
-        this.price = price;
+    BordadoTipo.prototype.setTecnica = function (nombre, costo) {
+        this.nombre = nombre;
+        this.costo = costo;
     };
     BordadoTipo.prototype.copyNewTecnica = function () {
         var _bordadotipo = new BordadoTipo();
-        _bordadotipo.tipo = this.tipo;
-        _bordadotipo.price = this.price;
+        _bordadotipo.nombre = this.nombre;
+        _bordadotipo.costo = this.costo;
         return _bordadotipo;
     };
     return BordadoTipo;

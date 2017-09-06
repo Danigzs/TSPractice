@@ -5,31 +5,31 @@ import {
     ViewChild,
     ViewContainerRef
   } from '@angular/core';
-  import {BordadoService} from './../tecnicas/bordado.service';
-  import {Bordado} from './../tecnicas/bordado';
+  import {BordadoSizeService} from './BordadoSize.service';
+  import {BordadoSize} from './BordadoSize';
   
   
   
   @Component({
     selector: 'bordado-size',
-      providers: [BordadoService],
+      providers: [BordadoSizeService],
     styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
     templateUrl: "./app/tecnicas config/bordado.config.size.html"
          
   })
   export class BordadoTamañoComponent  {
-    public bordado:Bordado;
-    public bordados: Array < Bordado > ;
-    constructor(private  _bordadoService: BordadoService) {
+    public bordado:BordadoSize;
+    public bordados: Array < BordadoSize > ;
+    constructor(private  _bordadoService: BordadoSizeService) {
     }
   
     ngOnInit() {
-     this. bordado = new Bordado();
+     this. bordado = new BordadoSize();
      this.reloadTecnicas();
     }
   
     reloadTecnicas(){
-        this.bordado = new Bordado();
+        this.bordado = new BordadoSize();
         this._bordadoService.getTecnicas().subscribe(
        data => {
          this.bordados = data;

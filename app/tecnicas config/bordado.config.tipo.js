@@ -9,33 +9,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var bordado_service_1 = require("./../tecnicas/bordado.service");
-var bordado_1 = require("./../tecnicas/bordado");
+var BordadoTipo_service_1 = require("./BordadoTipo.service");
+var BordadoTipo_1 = require("./BordadoTipo");
 var appConfig_1 = require("./../appConfig/appConfig");
 var BordadoTipoComponent = (function () {
     function BordadoTipoComponent(_bordadoService) {
         this._bordadoService = _bordadoService;
     }
     BordadoTipoComponent.prototype.ngOnInit = function () {
-        this.bordado = new bordado_1.Bordado();
+        this.bordadotipo = new BordadoTipo_1.BordadoTipo();
         this.reloadTecnicas();
     };
     BordadoTipoComponent.prototype.reloadTecnicas = function () {
         var _this = this;
-        this.bordado = new bordado_1.Bordado();
+        this.bordadotipo = new BordadoTipo_1.BordadoTipo();
         this._bordadoService.getTecnicas().subscribe(function (data) {
             _this.bordados = data;
         });
     };
     BordadoTipoComponent.prototype.agregarTecnica = function () {
         var _this = this;
-        this._bordadoService.addTecnica(this.bordado).subscribe(function (data) {
+        this._bordadoService.addTecnica(this.bordadotipo).subscribe(function (data) {
             _this.reloadTecnicas();
         });
     };
     BordadoTipoComponent.prototype.updateTecnica = function () {
         var _this = this;
-        this._bordadoService.addTecnica(this.bordado).subscribe(function (data) {
+        this._bordadoService.addTecnica(this.bordadotipo).subscribe(function (data) {
             _this.reloadTecnicas();
         });
     };
@@ -48,11 +48,11 @@ __decorate([
 BordadoTipoComponent = __decorate([
     core_1.Component({
         selector: 'bordado-tipo',
-        providers: [bordado_service_1.BordadoService],
+        providers: [BordadoTipo_service_1.BordadoTipoService],
         styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
         templateUrl: "./app/tecnicas config/bordado.config.tipo.html"
     }),
-    __metadata("design:paramtypes", [bordado_service_1.BordadoService])
+    __metadata("design:paramtypes", [BordadoTipo_service_1.BordadoTipoService])
 ], BordadoTipoComponent);
 exports.BordadoTipoComponent = BordadoTipoComponent;
 //# sourceMappingURL=bordado.config.tipo.js.map

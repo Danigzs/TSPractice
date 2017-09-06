@@ -5,32 +5,32 @@ import {
     ViewChild,
     ViewContainerRef
   } from '@angular/core';
-  import {TecnicaService} from '../producto/tecnica.service';
-  import {Tecnica} from '../producto/tecnica';
+  import {BordadoPuntadasService} from './BordadoPuntadas.service';
+  import {BordadoPuntadas} from './BordadoPuntadas';
   
   
   
   @Component({
     selector: 'bordado-puntadas',
-      providers: [TecnicaService],
+      providers: [BordadoPuntadasService],
     styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
     templateUrl: "./app/tecnicas config/bordado.config.puntadas.html"
          
   })
   export class BordadoPuntadasComponent  {
   
-    public tecnica:Tecnica;
-    public tecnicas: Array < Tecnica > ;
-    constructor(private  _tecnicaService: TecnicaService) {
+    public tecnica:BordadoPuntadas;
+    public tecnicas: Array < BordadoPuntadas > ;
+    constructor(private  _tecnicaService: BordadoPuntadasService) {
     }
   
     ngOnInit() {
-     this.tecnica = new Tecnica();
+     this.tecnica = new BordadoPuntadas();
      this.reloadTecnicas();
     }
   
     reloadTecnicas(){
-        this.tecnica = new Tecnica();
+        this.tecnica = new BordadoPuntadas();
         this._tecnicaService.getTecnicas().subscribe(
        data => {
          this.tecnicas = data;

@@ -1,23 +1,23 @@
 export class BordadoTipo {
 
-    price: number;   
-    tipo:string;
+    costo: number;   
+    nombre:string;
     constructor() {
 
-      this.price = 0.0;
-      this.tipo="";
+      this.costo = 0.0;
+      this.nombre="";
     } 
-    setTecnica(tipo:string,price:number){
+    setTecnica(nombre:string,costo:number){
       
       
-      this.tipo = tipo;
-      this.price = price;
+      this.nombre = nombre;
+      this.costo = costo;
       
     }
     copyNewTecnica(){
       var _bordadotipo= new BordadoTipo();
-      _bordadotipo.tipo = this.tipo;
-      _bordadotipo.price = this.price;
+      _bordadotipo.nombre = this.nombre;
+      _bordadotipo.costo = this.costo;
     
       
       return _bordadotipo
