@@ -33,7 +33,7 @@ var BordadoSizeService = (function () {
     };
     BordadoSizeService.prototype.extractData = function (res) {
         var data = res.json();
-        return data.bordadosize || {};
+        return data.bordadoSize || {};
     };
     BordadoSizeService.prototype.handleError = function (error) {
         // In a real world app, you might use a remote logging infrastructure

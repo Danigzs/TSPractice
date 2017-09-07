@@ -1,17 +1,17 @@
 "use strict";
 var BordadoSize = (function () {
     function BordadoSize() {
-        this.price = 0.0;
+        this.costo = 0.0;
         this.size = "";
     }
-    BordadoSize.prototype.setTecnica = function (size, price) {
+    BordadoSize.prototype.setTecnica = function (size, costo) {
         this.size = size;
-        this.price = price;
+        this.costo = costo;
     };
     BordadoSize.prototype.copyNewTecnica = function () {
         var _bordadosize = new BordadoSize();
         _bordadosize.size = this.size;
-        _bordadosize.price = this.price;
+        _bordadosize.costo = this.costo;
         return _bordadosize;
     };
     return BordadoSize;

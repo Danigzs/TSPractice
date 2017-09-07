@@ -1,23 +1,23 @@
 export class BordadoSize {
     
-        price: number;   
+        costo: number;   
         size:string;
         constructor() {
     
-          this.price = 0.0;
+          this.costo = 0.0;
           this.size="";
         } 
-        setTecnica(size:string,price:number){
+        setTecnica(size:string,costo:number){
           
           
           this.size = size;
-          this.price = price;
+          this.costo = costo;
           
         }
         copyNewTecnica(){
           var _bordadosize= new BordadoSize();
           _bordadosize.size = this.size;
-          _bordadosize.price = this.price;
+          _bordadosize.costo = this.costo;
         
           
           return _bordadosize

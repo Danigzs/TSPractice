@@ -26,13 +26,13 @@
 
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-            <input type="text" name="name">
+            <input type="text" name="name" [(ngModel)]="bordadosize.size">
 
           </div>
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-            <input type="text" name="subType">
+            <input type="text" name="subType" [(ngModel)]="bordadosize.costo">
           </div>
         </div>
 
@@ -42,18 +42,33 @@
 
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-            Precio:
+            Precio:{{appConfig.bordado + ((bordadosize.costo*.01)*appConfig.bordado) | currency:'USD':true}}
+            
           </div>
         </div>
 
       </div>
 
     </div>
-    <!-- <div class="c-add-product-container">
-          <button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>
-          <button type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Agregar Tecnica</button>
-
-        </div> -->
+  </div>
+  <div class="c-add-product-container">
+    <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
+    <button type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Agregar</button>
+    <div class="c-grid-products">
+      <table class="table " id="tproductos">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>%</th>
+            <th>Precio</th>
+          </tr>
+        </thead>
+        <tr *ngFor="let bordadosize of bordados; let i = index">
+          <td>{{bordadosize.size}}</td>
+          <td>{{bordadosize.costo}}</td>
+          <td>{{appConfig.bordado + ((bordadosize.costo*.01)*appConfig.bordado) | currency:'USD':true}}</td>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>
-

@@ -33,10 +33,10 @@ exports.add = function (req, res) {
     nombre: req.body.nombre,
     costo: req.body.costo,
   });
-  nombre.save(function (err, client) {
+  bordadoNombre.save(function (err, client) {
     if (err) return res.send(500, err.message);
     res.status(200).json({
-      costo: costo
+      bordadoNombre: bordadoNombre
     });
 
   });

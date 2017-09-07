@@ -3,10 +3,12 @@ import {
     OnInit,
     ElementRef,
     ViewChild,
+    Input,    
     ViewContainerRef
   } from '@angular/core';
   import {BordadoSizeService} from './BordadoSize.service';
   import {BordadoSize} from './BordadoSize';
+  import {AppConfig} from './../appConfig/appConfig';
   
   
   
@@ -18,18 +20,19 @@ import {
          
   })
   export class BordadoTamañoComponent  {
-    public bordado:BordadoSize;
+    @Input() appConfig:  AppConfig  ;    
+    public bordadosize:BordadoSize;
     public bordados: Array < BordadoSize > ;
     constructor(private  _bordadoService: BordadoSizeService) {
     }
   
     ngOnInit() {
-     this. bordado = new BordadoSize();
+     this. bordadosize = new BordadoSize();
      this.reloadTecnicas();
     }
   
     reloadTecnicas(){
-        this.bordado = new BordadoSize();
+        this.bordadosize = new BordadoSize();
         this._bordadoService.getTecnicas().subscribe(
        data => {
          this.bordados = data;
@@ -38,7 +41,7 @@ import {
     }
     agregarTecnica(){
       
-      this._bordadoService.addTecnica(this.bordado).subscribe(
+      this._bordadoService.addTecnica(this.bordadosize).subscribe(
         data => {
       this.reloadTecnicas();
   
@@ -47,7 +50,7 @@ import {
     }
     updateTecnica()
       {
-         this._bordadoService.addTecnica(this.bordado).subscribe(
+         this._bordadoService.addTecnica(this.bordadosize).subscribe(
         data => {
           this.reloadTecnicas();
         }

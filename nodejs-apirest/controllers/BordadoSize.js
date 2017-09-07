@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var BordadoSize = mongoose.model('Nombre');
+var BordadoSize = mongoose.model('Size');
 
 //GET - Return all registers
 exports.findAll = function (req, res) {
@@ -30,13 +30,13 @@ exports.add = function (req, res) {
   console.log('POST');
   console.log(req.body);
   var bordadoSize = new BordadoSize({
-    nombre: req.body.nombre,
+    size: req.body.size,
     costo: req.body.costo,
   });
-  nombre.save(function (err, client) {
+  bordadoSize.save(function (err, client) {
     if (err) return res.send(500, err.message);
     res.status(200).json({
-      costo: costo
+      bordadoSize: bordadoSize
     });
 
   });
@@ -45,12 +45,12 @@ exports.add = function (req, res) {
 //PUT - Update a register already exists
 exports.update = function (req, res) {
   BordadoSize.findById(req.params.id, function (err, bordadoSize) {
-    bordadoSize.size = req.body.nombre;
+    bordadoSize.size = req.body.size;
     bordadoSize.costo = req.body.costo;
     bordadoSize.save(function (err) {
       if (err) return res.send(500, err.message);
       res.status(200).json({
-        client: client
+        bordadoSize: bordadoSize
       });
     });
   });

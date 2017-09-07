@@ -32,7 +32,7 @@ constructor (private http: Http) {}
     
     let data = res.json();
     
-    return data.bordadosize || { };
+    return data.bordadoSize || { };
   }
     private handleError (error: Response | any) {
     // In a real world app, you might use a remote logging infrastructure

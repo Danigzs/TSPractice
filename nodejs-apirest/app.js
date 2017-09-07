@@ -207,7 +207,7 @@ api.route('/sublimado/:id')
 
 api.route('/bordadoNombre')
   .get(bordadoNombreCtrl.findAll)
-  .put(bordadoNombreCtrl.add)
+  .post(bordadoNombreCtrl.add)
 
 api.route('/bordadoNombre/:id')
   .get(bordadoNombreCtrl.findById)
@@ -215,7 +215,7 @@ api.route('/bordadoNombre/:id')
 
 api.route('/bordadoSize')
   .get(bordadoTamañoCtrl.findAll)
-  .put(bordadoTamañoCtrl.add)
+  .post(bordadoTamañoCtrl.add)
 
 api.route('/bordadoSize/:id')
   .get(bordadoTamañoCtrl.findById)
@@ -223,7 +223,7 @@ api.route('/bordadoSize/:id')
 
 api.route('/bordadoPuntadas')
   .get(bordadoPuntadasCtrl.findAll)
-  .put(bordadoPuntadasCtrl.add)
+  .post(bordadoPuntadasCtrl.add)
 
 api.route('/bordadoPuntadas/:id')
   .get(bordadoPuntadasCtrl.findById)

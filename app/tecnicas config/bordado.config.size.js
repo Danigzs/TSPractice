@@ -11,35 +11,40 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var BordadoSize_service_1 = require("./BordadoSize.service");
 var BordadoSize_1 = require("./BordadoSize");
+var appConfig_1 = require("./../appConfig/appConfig");
 var BordadoTamañoComponent = (function () {
     function BordadoTamañoComponent(_bordadoService) {
         this._bordadoService = _bordadoService;
     }
     BordadoTamañoComponent.prototype.ngOnInit = function () {
-        this.bordado = new BordadoSize_1.BordadoSize();
+        this.bordadosize = new BordadoSize_1.BordadoSize();
         this.reloadTecnicas();
     };
     BordadoTamañoComponent.prototype.reloadTecnicas = function () {
         var _this = this;
-        this.bordado = new BordadoSize_1.BordadoSize();
+        this.bordadosize = new BordadoSize_1.BordadoSize();
         this._bordadoService.getTecnicas().subscribe(function (data) {
             _this.bordados = data;
         });
     };
     BordadoTamañoComponent.prototype.agregarTecnica = function () {
         var _this = this;
-        this._bordadoService.addTecnica(this.bordado).subscribe(function (data) {
+        this._bordadoService.addTecnica(this.bordadosize).subscribe(function (data) {
             _this.reloadTecnicas();
         });
     };
     BordadoTamañoComponent.prototype.updateTecnica = function () {
         var _this = this;
-        this._bordadoService.addTecnica(this.bordado).subscribe(function (data) {
+        this._bordadoService.addTecnica(this.bordadosize).subscribe(function (data) {
             _this.reloadTecnicas();
         });
     };
     return BordadoTamañoComponent;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", appConfig_1.AppConfig)
+], BordadoTamañoComponent.prototype, "appConfig", void 0);
 BordadoTamañoComponent = __decorate([
     core_1.Component({
         selector: 'bordado-size',
