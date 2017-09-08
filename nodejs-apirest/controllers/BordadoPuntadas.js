@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var BordadoPuntadas = mongoose.model('Nombre');
+var BordadoPuntadas = mongoose.model('Puntadas');
 
 //GET - Return all registers
 exports.findAll = function (req, res) {
@@ -30,13 +30,13 @@ exports.add = function (req, res) {
   console.log('POST');
   console.log(req.body);
   var bordadoPuntadas = new BordadoPuntadas({
-    nombre: req.body.nombre,
+    
     costo: req.body.costo,
   });
-  nombre.save(function (err, client) {
+  bordadoPuntadas.save(function (err, client) {
     if (err) return res.send(500, err.message);
     res.status(200).json({
-      costo: costo
+      bordadoPuntadas: bordadoPuntadas
     });
 
   });
@@ -45,7 +45,6 @@ exports.add = function (req, res) {
 //PUT - Update a register already exists
 exports.update = function (req, res) {
     BordadoPuntadas.findById(req.params.id, function (err, bordadoPuntadas) {
-        bordadoPuntadas.nombre = req.body.nombre;
         bordadoPuntadas.costo = req.body.costo;    
         bordadoPuntadas.save(function (err) {
       if (err) return res.send(500, err.message);

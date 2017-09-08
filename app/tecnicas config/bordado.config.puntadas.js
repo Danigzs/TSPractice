@@ -11,35 +11,41 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var BordadoPuntadas_service_1 = require("./BordadoPuntadas.service");
 var BordadoPuntadas_1 = require("./BordadoPuntadas");
+var appConfig_1 = require("./../appConfig/appConfig");
 var BordadoPuntadasComponent = (function () {
     function BordadoPuntadasComponent(_tecnicaService) {
         this._tecnicaService = _tecnicaService;
+        this.cantidad = 1000;
     }
     BordadoPuntadasComponent.prototype.ngOnInit = function () {
-        this.tecnica = new BordadoPuntadas_1.BordadoPuntadas();
+        this.bordadopuntadas = new BordadoPuntadas_1.BordadoPuntadas();
         this.reloadTecnicas();
     };
     BordadoPuntadasComponent.prototype.reloadTecnicas = function () {
         var _this = this;
-        this.tecnica = new BordadoPuntadas_1.BordadoPuntadas();
+        this.bordadopuntadas = new BordadoPuntadas_1.BordadoPuntadas();
         this._tecnicaService.getTecnicas().subscribe(function (data) {
-            _this.tecnicas = data;
+            _this.bordados = data;
         });
     };
     BordadoPuntadasComponent.prototype.agregarTecnica = function () {
         var _this = this;
-        this._tecnicaService.addTecnica(this.tecnica).subscribe(function (data) {
+        this._tecnicaService.addTecnica(this.bordadopuntadas).subscribe(function (data) {
             _this.reloadTecnicas();
         });
     };
     BordadoPuntadasComponent.prototype.updateTecnica = function () {
         var _this = this;
-        this._tecnicaService.addTecnica(this.tecnica).subscribe(function (data) {
+        this._tecnicaService.addTecnica(this.bordadopuntadas).subscribe(function (data) {
             _this.reloadTecnicas();
         });
     };
     return BordadoPuntadasComponent;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", appConfig_1.AppConfig)
+], BordadoPuntadasComponent.prototype, "appConfig", void 0);
 BordadoPuntadasComponent = __decorate([
     core_1.Component({
         selector: 'bordado-puntadas',

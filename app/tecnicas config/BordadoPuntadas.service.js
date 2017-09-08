@@ -33,7 +33,7 @@ var BordadoPuntadasService = (function () {
     };
     BordadoPuntadasService.prototype.extractData = function (res) {
         var data = res.json();
-        return data.bordadopuntadas || {};
+        return data.bordadoPuntadas || {};
     };
     BordadoPuntadasService.prototype.handleError = function (error) {
         // In a real world app, you might use a remote logging infrastructure

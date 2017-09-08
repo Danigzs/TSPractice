@@ -3,10 +3,13 @@ import {
     OnInit,
     ElementRef,
     ViewChild,
+    Input,
     ViewContainerRef
   } from '@angular/core';
   import {BordadoPuntadasService} from './BordadoPuntadas.service';
   import {BordadoPuntadas} from './BordadoPuntadas';
+  import {AppConfig} from './../appConfig/appConfig';
+  
   
   
   
@@ -18,28 +21,29 @@ import {
          
   })
   export class BordadoPuntadasComponent  {
-  
-    public tecnica:BordadoPuntadas;
-    public tecnicas: Array < BordadoPuntadas > ;
+    @Input() appConfig:  AppConfig ;    
+    public bordadopuntadas:BordadoPuntadas;
+    public bordados: Array < BordadoPuntadas > ;
+    cantidad = 1000;
     constructor(private  _tecnicaService: BordadoPuntadasService) {
     }
   
     ngOnInit() {
-     this.tecnica = new BordadoPuntadas();
+     this.bordadopuntadas = new BordadoPuntadas();
      this.reloadTecnicas();
     }
   
     reloadTecnicas(){
-        this.tecnica = new BordadoPuntadas();
+        this.bordadopuntadas = new BordadoPuntadas();
         this._tecnicaService.getTecnicas().subscribe(
        data => {
-         this.tecnicas = data;
+         this.bordados = data;
        }
      )
     }
     agregarTecnica(){
       
-      this._tecnicaService.addTecnica(this.tecnica).subscribe(
+      this._tecnicaService.addTecnica(this.bordadopuntadas).subscribe(
         data => {
       this.reloadTecnicas();
   
@@ -48,7 +52,7 @@ import {
     }
     updateTecnica()
       {
-         this._tecnicaService.addTecnica(this.tecnica).subscribe(
+         this._tecnicaService.addTecnica(this.bordadopuntadas).subscribe(
         data => {
           this.reloadTecnicas();
         }
