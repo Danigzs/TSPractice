@@ -44,6 +44,7 @@ var modelBordado = require('./models/bordado')(app, mongoose);
 var modelSerigrafia = require('./models/serigrafia')(app, mongoose);
 var modelSublimado = require('./models/sublimado')(app, mongoose);
 var modelTransfer = require('./models/transfer')(app, mongoose);
+var modelPosiciones = require('./models/posiciones')(app, mongoose);
 
 var modelbordadoNombre = require('./models/BordadoNombre')(app, mongoose);
 var modelbordadoPuntadas = require('./models/BordadoPuntadas')(app, mongoose);
@@ -75,6 +76,7 @@ var SerigrafiaTipoTintaCtrl = require ('./controllers/SerigrafiaTipoTinta');
 var serigrafiaPrecioBordesaCtrl = require ('./controllers/serigrafiaPrecioBordesa');
 var serigrafiaPrecioClienteCtrl = require ('./controllers/serigrafiaPrecioCliente');
 var appConfigCtrl = require ('./controllers/appConfig');
+var posicionesCtrl = require ('./controllers/posiciones')
 
 var OrderProductsCtrl = require('./controllers/orderProducts');
 
@@ -263,6 +265,13 @@ api.route('/appConfig/:id')
   .put(appConfigCtrl.update);
   
 
+  api.route('/posiciones')
+  .get(posicionesCtrl.findAll)
+  .post(posicionesCtrl.add);
+
+api.route('/posiciones/:id')
+  .get(posicionesCtrl.findById)
+  .put(posicionesCtrl.update);
 
 
 api.route('/products')

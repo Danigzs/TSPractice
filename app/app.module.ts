@@ -63,6 +63,10 @@ import {BordadoTipoService} from './tecnicas config/BordadoTipo.service';
 import {BordadoPuntadasService} from './tecnicas config/BordadoPuntadas.service';
 import {BordadoSizeService} from './tecnicas config/BordadoSize.service';
 import {TipoTintaComponent} from './tecnicas config/serigrafia.config.tipotinta';
+import {PosicionComponent} from './tecnicas config/posiciones.config';
+import {PosicionesService} from './tecnicas config/posiciones.service';
+
+
 
 
 
@@ -99,6 +103,7 @@ const appRoutes: Routes = [
   { path: 'serigrafia-main', component: SerigrafiaMainComponent},
   { path: 'sublimado-main', component: SublimadoMainComponent},
   { path: 'tinta-tipo', component: TipoTintaComponent},
+  { path: 'posiciones', component: PosicionComponent},
   
 
 ];
@@ -147,13 +152,14 @@ const appRoutes: Routes = [
   SerigrafiaMainComponent,
   SublimadoMainComponent,
   TipoTintaComponent,
+  PosicionComponent,
   ],
   providers : [  AuthGuard,CotizadorService, 
     ClienteService, ProductoService, TecnicaService,
     SellerService,OrderService,DashboardService,PaymentService,
     RoleService,RegisterService, BordadoService, SerigrafiaService,
     SublimadoService, TransferService, BordadoSizeService, 
-    BordadoPuntadasService, BordadoTipoService,AppConfigService],
+    BordadoPuntadasService, BordadoTipoService,AppConfigService,PosicionesService],
   bootstrap:    [ AppComponent]
 })
 export class AppModule { }
