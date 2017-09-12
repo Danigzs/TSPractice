@@ -1,22 +1,22 @@
 export class Posiciones {
     
         costo: number;   
-        posicion:string;
+        posiciones:string;
         constructor() {
     
           this.costo = 0.0;
-          this.posicion="";
+          this.posiciones="";
         } 
-        setTecnica(posicion:string,costo:number){
+        setTecnica(posiciones:string,costo:number){
           
           
-          this.posicion = posicion;
+          this.posiciones = posiciones;
           this.costo = costo;
           
         }
         copyNewTecnica(){
           var _posiciones= new Posiciones();
-          _posiciones.posicion = this.posicion;
+          _posiciones.posiciones = this.posiciones;
           _posiciones.costo = this.costo;
         
           

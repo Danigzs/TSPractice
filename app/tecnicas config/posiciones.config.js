@@ -17,25 +17,25 @@ var PosicionComponent = (function () {
         this._bordadoService = _bordadoService;
     }
     PosicionComponent.prototype.ngOnInit = function () {
-        this.posicion = new posiciones_1.Posiciones();
+        this.posiciones = new posiciones_1.Posiciones();
         this.reloadTecnicas();
     };
     PosicionComponent.prototype.reloadTecnicas = function () {
         var _this = this;
-        this.posicion = new posiciones_1.Posiciones();
+        this.posiciones = new posiciones_1.Posiciones();
         this._bordadoService.getTecnicas().subscribe(function (data) {
-            _this.posiciones = data;
+            _this.posicion = data;
         });
     };
     PosicionComponent.prototype.agregarTecnica = function () {
         var _this = this;
-        this._bordadoService.addTecnica(this.posicion).subscribe(function (data) {
+        this._bordadoService.addTecnica(this.posiciones).subscribe(function (data) {
             _this.reloadTecnicas();
         });
     };
     PosicionComponent.prototype.updateTecnica = function () {
         var _this = this;
-        this._bordadoService.addTecnica(this.posicion).subscribe(function (data) {
+        this._bordadoService.addTecnica(this.posiciones).subscribe(function (data) {
             _this.reloadTecnicas();
         });
     };

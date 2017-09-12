@@ -21,27 +21,27 @@ import {
   })
   export class PosicionComponent  {
     @Input() appConfig:  AppConfig  ;    
-    public posicion:Posiciones;
-    public posiciones: Array < Posiciones > ;
+    public posiciones:Posiciones;
+    public posicion: Array < Posiciones > ;
     constructor(private  _bordadoService: PosicionesService) {
     }
   
     ngOnInit() {
-     this. posicion = new Posiciones();
+     this. posiciones = new Posiciones();
      this.reloadTecnicas();
     }
   
     reloadTecnicas(){
-        this.posicion = new Posiciones();
+        this.posiciones = new Posiciones();
         this._bordadoService.getTecnicas().subscribe(
        data => {
-         this.posiciones = data;
+         this.posicion = data;
        }
      )
     }
     agregarTecnica(){
       
-      this._bordadoService.addTecnica(this.posicion).subscribe(
+      this._bordadoService.addTecnica(this.posiciones).subscribe(
         data => {
       this.reloadTecnicas();
   
@@ -50,7 +50,7 @@ import {
     }
     updateTecnica()
       {
-         this._bordadoService.addTecnica(this.posicion).subscribe(
+         this._bordadoService.addTecnica(this.posiciones).subscribe(
         data => {
           this.reloadTecnicas();
         }

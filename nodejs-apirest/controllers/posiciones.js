@@ -30,7 +30,7 @@ exports.add = function (req, res) {
   console.log('POST');
   console.log(req.body);
   var posiciones = new Posiciones({
-    size: req.body.size,
+    posiciones: req.body.posiciones,
     costo: req.body.costo,
   });
   posiciones.save(function (err, posiciones) {
@@ -45,7 +45,7 @@ exports.add = function (req, res) {
 //PUT - Update a register already exists
 exports.update = function (req, res) {
     Posiciones.findById(req.params.id, function (err, posiciones) {
-    posiciones.size = req.body.size;
+    posiciones.posiciones = req.body.posiciones;
     posiciones.costo = req.body.costo;
     posiciones.save(function (err) {
       if (err) return res.send(500, err.message);

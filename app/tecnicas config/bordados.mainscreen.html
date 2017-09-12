@@ -6,6 +6,10 @@
    <li><a [ngClass]="{'tab-selected': showPosiciones,'tab-no-selected':!showPosiciones}"  style="cursor:pointer"  (click)="showBordado=false;showSerigrafia=false;showSublimado=false;showPosiciones=true;">Posiciones</a></li>
    
 </ul>
+<div>
+    
+  <h1>Precio Base: {{appConfig.bordado | currency:'USD':true}}</h1> 
+  </div>
 
 <div style="width:100%">
   <div style="width:100%;height:300px;" *ngIf="showBordado">
@@ -22,8 +26,4 @@
   <div style="cursor:pointer;width:100%;height:300px;" *ngIf="showPosiciones">
     <posiciones [appConfig]="appConfig"></posiciones>
   </div>
-</div>
-<div>
-  
-<h1>Precio Base: {{appConfig.bordado | currency:'USD':true}}</h1> 
 </div>

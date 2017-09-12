@@ -22,7 +22,7 @@
   
           <div class="c-container-info-column-item-container">
             <div class="c-container-info-column-item-container info">
-              <input type="text" name="name"  [(ngModel)]="posicion.posicion">
+              <input type="text" [(ngModel)]="posiciones.posiciones">
             </div>
           </div>
   
@@ -47,13 +47,13 @@
         <table class="table " id="tproductos">
           <thead>
             <tr>
-              <th>Puntadas</th>
+              <th>Posicion</th>
               
               
             </tr>
           </thead>
-          <tr *ngFor="let posicion of posiciones; let i = index">
-            <td>{{posicion.posicion}}</td>           
+          <tr *ngFor="let posiciones of posicion; let i = index">
+            <td>{{posiciones.posiciones}}</td>           
             
           </tr>               
   
