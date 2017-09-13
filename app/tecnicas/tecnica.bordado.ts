@@ -6,13 +6,20 @@ import {
   ViewContainerRef
 } from '@angular/core';
 import {BordadoService} from './bordado.service';
+import {BordadoSizeService} from './../tecnicas config/BordadoSize.service';
+import {BordadoTipoService} from './../tecnicas config/BordadoTipo.service';
+import {BordadoPuntadasService} from './../tecnicas config/BordadoPuntadas.service';
+import {PosicionesService} from './../tecnicas config/posiciones.service';
+import {BordadoTipoComponent} from './../tecnicas config/bordado.config.tipo'
+import {BordadoTipo} from './../tecnicas config/bordadoTipo'
+
 import {Bordado} from './bordado';
 
 
 
 @Component({
   selector: 'tecnicabordado',
-    providers: [BordadoService],
+    providers: [BordadoService,BordadoSizeService,BordadoPuntadasService,BordadoTipoService,PosicionesService],
   styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
   templateUrl: "./app/tecnicas/tecnica.bordado.html"
        
@@ -20,7 +27,9 @@ import {Bordado} from './bordado';
 export class TecnicaBordadoComponent  {
   public bordado:Bordado;
   public bordados: Array < Bordado > ;
-  constructor(private  _bordadoService: BordadoService) {
+  public bordadoNombre: Array <BordadoTipo>
+  bordadotipoSelected = new BordadoTipo;
+  constructor(private  _bordadoService: BordadoTipoService) {
   }
 
   ngOnInit() {
@@ -32,13 +41,13 @@ export class TecnicaBordadoComponent  {
       this.bordado = new Bordado();
       this._bordadoService.getTecnicas().subscribe(
      data => {
-       this.bordados = data;
+       this.bordadoNombre = data;
      }
    )
   }
   agregarTecnica(){
     
-    this._bordadoService.addTecnica(this.bordado).subscribe(
+    this._bordadoService.addTecnica(this.bordadotipoSelected).subscribe(
       data => {
     this.reloadTecnicas();
 
@@ -47,11 +56,16 @@ export class TecnicaBordadoComponent  {
   }
   updateTecnica()
     {
-       this._bordadoService.addTecnica(this.bordado).subscribe(
+       this._bordadoService.addTecnica(this.bordadotipoSelected).subscribe(
       data => {
         this.reloadTecnicas();
       }
     );
     }
+
+    updateCliente(event: Event) {
+      console.warn(this.bordadotipoSelected);
+    }
+    
 }
 

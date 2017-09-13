@@ -17,7 +17,7 @@ require("rxjs/add/operator/map");
 var BordadoTipoService = (function () {
     function BordadoTipoService(http) {
         this.http = http;
-        this.url = 'http://localhost:8000/api/bordadoNombre'; // URL to web API
+        this.url = 'http://localhost:8000/api/serigrafiatipotinta'; // URL to web API
     }
     BordadoTipoService.prototype.getTecnicas = function () {
         return this.http.get(this.url)

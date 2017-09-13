@@ -9,7 +9,7 @@ import { SerigrafiaTipoTinta } from './SerigrafiaTipoTinta';
 export class BordadoTipoService {
     serigrafiatipotinta:Array<SerigrafiaTipoTinta>;
     
-     private url = 'http://localhost:8000/api/bordadoNombre';  // URL to web API
+     private url = 'http://localhost:8000/api/serigrafiatipotinta';  // URL to web API
 
 constructor (private http: Http) {}
  
