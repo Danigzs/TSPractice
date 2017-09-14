@@ -33,8 +33,8 @@
 
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-            <select type="text" name="bordado">
-         <option *ngFor="let bordadotipo of bordados" [ngValue]="bordadotipo">
+            <select type="text" name="bordado"  [(ngModel)]="bordadoTypeSelected" (ngModelChange)="selectBordadoType($event)">
+         <option *ngFor="let bordadotipo of bordadoTypes" [ngValue]="bordadotipo" >
            {{bordadotipo.nombre}}
           </option>
               </select>
@@ -49,12 +49,11 @@
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-            <select type="text" name="size" [(ngModel)]="bordado.size">
-             <option>Escudo</option>
-             <option>Carta</option>
-             <option>Grande</option>
-             <option>Chico</option>
-          </select>
+              <select type="text" name="bordadoSize"  [(ngModel)]="bordadoSizeSelected" (ngModelChange)="selectBordadoSize($event)">
+                  <option *ngFor="let bordadoSize of bordadoSizes" [ngValue]="bordadoSize" >
+                    {{bordadoSize.size}}
+                   </option>
+              </select>
           </div>
         </div>
 
@@ -84,15 +83,23 @@
       <div class="c-container-info-column data">
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-            <select type="text" name="position" [(ngModel)]="bordado.position">
-           </select>
+              <select type="text" name="bordadoPosition"  [(ngModel)]="bordadoPositionSelected" (ngModelChange)="selectBordadoPosition($event)">
+                  <option *ngFor="let bordadoPosition of bordadoPositions" [ngValue]="bordadoPosition" >
+                    {{bordadoPosition.posiciones}}
+                   </option>
+              </select>
           </div>
         </div>
 
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             <div class="example-full-width">
-              <input type="number" name="price" [(ngModel)]="bordado.puntadas">
+                <!-- <select type="text" name="bordadoStitch"  [(ngModel)]="bordadoStitchSelected" (ngModelChange)="selectBordadoStitch($event)">
+                    <option *ngFor="let bordadoStitch of bordadoStitches" [ngValue]="bordadoStitch" >
+                      {{bordadoStitch.nombre}}
+                     </option>
+                </select> -->
+                <input type="number" name="price" [(ngModel)]="bordado.puntadas" disabled>
             </div>
           </div>
         </div>

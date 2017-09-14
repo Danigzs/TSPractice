@@ -32,6 +32,9 @@ var producto_service_1 = require("./producto/producto.service");
 var order_service_1 = require("./orders/order.service");
 var tecnica_service_1 = require("./producto/tecnica.service");
 var seller_service_1 = require("./sellers/seller.service");
+var BordadoPuntadas_1 = require("./tecnicas config/BordadoPuntadas");
+var BordadoSize_1 = require("./tecnicas config/BordadoSize");
+var posiciones_1 = require("./tecnicas config/posiciones");
 var core_2 = require("@angular/core");
 var material_1 = require("@angular/material");
 var CotizadorComponent = (function () {
@@ -62,6 +65,9 @@ var CotizadorComponent = (function () {
         this.clienteSelected = new cliente_1.Cliente;
         this.tecnicaSelected = new tecnica_1.Tecnica;
         this.sellerSelected = new seller_1.Seller;
+        this.bordadoStitchSelected = new BordadoPuntadas_1.BordadoPuntadas;
+        this.bordadoSizeSelected = new BordadoSize_1.BordadoSize;
+        this.bordadoPositionSelected = new posiciones_1.Posiciones;
         this.hidebordado = true;
         this.hideserigrafia = true;
         this.hidesublimado = true;
@@ -240,14 +246,14 @@ var CotizadorComponent = (function () {
         });
         return tecnicasCot;
     };
-    CotizadorComponent.prototype.getCPT = function () {
+    CotizadorComponent.prototype.getConfigData = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            Observable_1.Observable.forkJoin(_this._clienteService.getClients(), _this._productoService.getProducts(), _this._tecnicaService.getTecnicas(), _this._sellerService.getSellers()).subscribe(function (data) {
-                _this.clientes = data[0];
-                _this.productos = _this.getProductsCotizacionFromProducts(data[1]);
-                _this.tecnicas = _this.getTecnicasCotizacionFromTecnicas(data[2]);
-                _this.sellers = data[3];
+            Observable_1.Observable.forkJoin(_this._clienteService.getClients(), _this._productoService.getProducts(), _this._tecnicaService.getTecnicas(), _this._sellerService.getSellers()).subscribe(function (results) {
+                _this.clientes = results[0];
+                _this.productos = _this.getProductsCotizacionFromProducts(results[1]);
+                _this.tecnicas = _this.getTecnicasCotizacionFromTecnicas(results[2]);
+                _this.sellers = results[3];
                 resolve(true);
             });
         });
@@ -268,11 +274,23 @@ var CotizadorComponent = (function () {
             alert("Pedido Creado");
         });
     };
+    CotizadorComponent.prototype.OnSelectBordadoType = function (bordadoType) {
+        this.bordadoTypeSelected = bordadoType;
+        console.log(this.bordadoTypeSelected.nombre + " selected");
+    };
+    CotizadorComponent.prototype.OnSelectBordadoSize = function (bordadoSize) {
+        this.bordadoSizeSelected = bordadoSize;
+        console.log(this.bordadoSizeSelected.size + " selected");
+    };
+    CotizadorComponent.prototype.OnSelectBordadoPosition = function (bordadoPosition) {
+        this.bordadoPositionSelected = bordadoPosition;
+        console.log(this.bordadoPositionSelected.posiciones + " selected");
+    };
     CotizadorComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.order = new order_1.Order;
         // this.order.folio = "300";
-        this.getCPT().then(function (res) {
+        this.getConfigData().then(function (res) {
             if (_this.clientes.length > 0)
                 _this.clienteSelected = _this.clientes[0];
             if (_this.tecnicas.length > 0)
@@ -299,7 +317,14 @@ CotizadorComponent = __decorate([
         styleUrls: ["app/cotizador.css", "app/styles/table.css"],
         templateUrl: "app/cotizador.html"
     }),
-    __metadata("design:paramtypes", [material_1.MdDialog, cotizador_service_1.CotizadorService, cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService, core_2.ChangeDetectorRef, seller_service_1.SellerService, order_service_1.OrderService])
+    __metadata("design:paramtypes", [material_1.MdDialog,
+        cotizador_service_1.CotizadorService,
+        cliente_service_1.ClienteService,
+        producto_service_1.ProductoService,
+        tecnica_service_1.TecnicaService,
+        core_2.ChangeDetectorRef,
+        seller_service_1.SellerService,
+        order_service_1.OrderService])
 ], CotizadorComponent);
 exports.CotizadorComponent = CotizadorComponent;
 //# sourceMappingURL=cotizador.component.js.map

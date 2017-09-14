@@ -26,6 +26,15 @@ import {OrderService} from './orders/order.service'
 
 import {TecnicaService} from './producto/tecnica.service'
 import {SellerService} from './sellers/seller.service'
+
+
+/**
+ * Config bordados  - Models
+ */
+import {BordadoTipo} from './tecnicas config/BordadoTipo';
+import {BordadoPuntadas} from './tecnicas config/BordadoPuntadas';
+import {BordadoSize} from './tecnicas config/BordadoSize';
+import {Posiciones} from './tecnicas config/posiciones';
 import {ChangeDetectorRef} from '@angular/core'
 
 
@@ -85,7 +94,6 @@ export class CotizadorComponent implements OnInit {
   currentDate = this.getTodayDate();
   gridKeys = ["Cantidad", "Nombre", "Descripcion", "Precio Unitario", "Total"];
 
-  constructor(private dialog: MdDialog, private _cotizadorService: CotizadorService, public _clienteService: ClienteService, private _productoService: ProductoService, private _tecnicaService: TecnicaService, private changeDetectorRef: ChangeDetectorRef, private _sellerService: SellerService, private _orderService: OrderService) {}
 
   openBordados(){
     this.hideserigrafia = true;
@@ -289,7 +297,6 @@ export class CotizadorComponent implements OnInit {
     });
     return tecnicasCot;
   }
-  getCPT(): Promise < boolean > {
     return new Promise < boolean > ((resolve, reject) => {
 
       Observable.forkJoin(
@@ -304,6 +311,7 @@ export class CotizadorComponent implements OnInit {
           this.productos = this.getProductsCotizacionFromProducts(data[1])
           this.tecnicas = this.getTecnicasCotizacionFromTecnicas(data[2]);
           this.sellers = data[3];
+
           resolve(true)
         }
       );
@@ -334,7 +342,6 @@ export class CotizadorComponent implements OnInit {
   ngOnInit() {
     this.order = new Order;
     // this.order.folio = "300";
-    this.getCPT().then(res => {
       if (this.clientes.length > 0)
         this.clienteSelected = this.clientes[0];
       if (this.tecnicas.length > 0)
