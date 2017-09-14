@@ -35,6 +35,8 @@ import {BordadoTipo} from './tecnicas config/BordadoTipo';
 import {BordadoPuntadas} from './tecnicas config/BordadoPuntadas';
 import {BordadoSize} from './tecnicas config/BordadoSize';
 import {Posiciones} from './tecnicas config/posiciones';
+ 
+
 import {ChangeDetectorRef} from '@angular/core'
 
 
@@ -52,14 +54,21 @@ import {MdDialog,  MdDialogConfig,  MdDialogRef} from '@angular/material';
 
 })
 export class CotizadorComponent implements OnInit {
+  
   public viewContainerRef: ViewContainerRef;
-
   public cotizaciones: Array < any > ;
   public clientes: Array < Cliente > ;
   public sellers: Array < Seller > ;
   public order: Order;
   public productos: Array < ProductCotizacion > ;
   public tecnica: Array <Tecnica>;
+   
+  
+  
+
+
+
+
   //public productosCotizacion: Array < ProductCotizacion > ;
   public tecnicas: Array < TecnicaCotizacion > ;
   //public maquilasCotizacion: Array < TecnicaCotizacion > = [];
@@ -87,6 +96,19 @@ export class CotizadorComponent implements OnInit {
   clienteSelected = new Cliente;
   tecnicaSelected = new Tecnica;
   sellerSelected = new Seller;
+
+  /**
+   * Config bordado
+   */
+
+  
+  bordadoTypeSelected:BordadoTipo;
+  bordadoStitchSelected = new BordadoPuntadas;
+  bordadoSizeSelected = new BordadoSize;
+  bordadoPositionSelected = new Posiciones;
+  
+
+
   public hidebordado=true;
   public hideserigrafia=true;
   public hidesublimado = true;
@@ -94,6 +116,15 @@ export class CotizadorComponent implements OnInit {
   currentDate = this.getTodayDate();
   gridKeys = ["Cantidad", "Nombre", "Descripcion", "Precio Unitario", "Total"];
 
+  constructor(private dialog: MdDialog,
+    private _cotizadorService: CotizadorService, 
+    public _clienteService: ClienteService, 
+    private _productoService: ProductoService, 
+    private _tecnicaService: TecnicaService, 
+    private changeDetectorRef: ChangeDetectorRef, 
+    private _sellerService: SellerService, 
+    private _orderService: OrderService
+    ) {}
 
   openBordados(){
     this.hideserigrafia = true;
@@ -297,6 +328,9 @@ export class CotizadorComponent implements OnInit {
     });
     return tecnicasCot;
   }
+
+
+  getConfigData(): Promise < boolean > {
     return new Promise < boolean > ((resolve, reject) => {
 
       Observable.forkJoin(
@@ -306,17 +340,20 @@ export class CotizadorComponent implements OnInit {
         this._sellerService.getSellers()
 
       ).subscribe(
-        data => {
-          this.clientes = data[0]
-          this.productos = this.getProductsCotizacionFromProducts(data[1])
-          this.tecnicas = this.getTecnicasCotizacionFromTecnicas(data[2]);
-          this.sellers = data[3];
+        results => {
+          
+          this.clientes = results[0];
+          this.productos = this.getProductsCotizacionFromProducts(results[1]);
+          this.tecnicas = this.getTecnicasCotizacionFromTecnicas(results[2]);
+          this.sellers = results[3];
 
           resolve(true)
         }
       );
     });
   }
+
+ 
 
   CreateOrder() {
     this.order.client = this.clienteSelected;
@@ -339,9 +376,26 @@ export class CotizadorComponent implements OnInit {
 
 
   }
+   
+  OnSelectBordadoType(bordadoType:BordadoTipo){
+    this.bordadoTypeSelected = bordadoType;
+    console.log(this.bordadoTypeSelected.nombre + " selected" );
+  }
+  OnSelectBordadoSize(bordadoSize:BordadoSize){
+    
+    this.bordadoSizeSelected = bordadoSize
+    console.log(this.bordadoSizeSelected.size + " selected" );
+  }
+  OnSelectBordadoPosition(bordadoPosition:Posiciones){
+    
+    this.bordadoPositionSelected = bordadoPosition;
+    console.log(this.bordadoPositionSelected.posiciones + " selected" );
+  }
   ngOnInit() {
+  
     this.order = new Order;
     // this.order.folio = "300";
+    this.getConfigData().then(res => {
       if (this.clientes.length > 0)
         this.clienteSelected = this.clientes[0];
       if (this.tecnicas.length > 0)
@@ -355,11 +409,10 @@ export class CotizadorComponent implements OnInit {
       this.cotizacion.cliente = this.clienteSelected;
       this.productos = this.productos;
       this.cotizacion.producto = this.productoSelected;
-
       this.order.products = [];
       this.order.maquilas = [];
-      this.setShippingDate();
 
+      this.setShippingDate();
 
     });
   }
