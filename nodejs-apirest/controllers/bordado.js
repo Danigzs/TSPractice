@@ -35,7 +35,8 @@ exports.add = function (req, res) {
     price: req.body.price,
     puntadas: req.body.puntadas,
     bordado: req.body.bordado,
-    colores: req.body.colores
+    colores: req.body.colores,
+    cantidad:requ.body.cantidad
   });
   bordado.save(function (err, client) {
     if (err) return res.send(500, err.message);
@@ -55,6 +56,7 @@ exports.update = function (req, res) {
     bordado.puntadas=req.body.puntadas;
     bordado.bordado=req.body.bordado;
     bordado.colores=req.body.colores;
+    bordado.cantidad=req.body.cantidad;
     bordado.save(function (err) {
       if (err) return res.send(500, err.message);
       res.status(200).json({client:client});

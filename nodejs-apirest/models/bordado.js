@@ -22,6 +22,9 @@ var bordadoSchema = new Schema({
   },
   colores:{
     type:String
+  },
+  cantidad:{
+    type:Number
   }
 });
 

@@ -401,7 +401,8 @@
         <div style="width:100%;height:300px;" *ngIf="showBordado" >
             <tecnicabordado [OnSelectBordadoType]="OnSelectBordadoType" 
                             [OnSelectBordadoSize]="OnSelectBordadoSize" 
-                            [OnSelectBordadoPosition]="OnSelectBordadoPosition"  ></tecnicabordado>          
+                            [OnSelectBordadoPosition]="OnSelectBordadoPosition"
+                            [OnSelectAppConfig]="OnSelectAppConfig"></tecnicabordado>          
         </div>
         
         <div style="cursor:pointer;width:100%;height:300px;" *ngIf="showSerigrafia"> 
@@ -411,6 +412,7 @@
         <div style="cursor:pointer;width:100%;height:300px;" *ngIf="showSublimado">
           <tecnicasublimado></tecnicasublimado>
         </div>
+        
       </div>
       
       <!-- <Button (click)="openBordados()">

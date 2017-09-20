@@ -21,6 +21,7 @@ import {BordadoTipo} from './../tecnicas config/BordadoTipo';
 import {BordadoPuntadas} from './../tecnicas config/BordadoPuntadas';
 import {BordadoSize} from './../tecnicas config/BordadoSize';
 import {Posiciones} from './../tecnicas config/posiciones';
+import {AppConfig} from './../appConfig/appConfig'
 
 /**
  * Config bordados - Services
@@ -29,6 +30,7 @@ import {BordadoTipoService} from './../tecnicas config/BordadoTipo.service';
 import {BordadoPuntadasService} from './../tecnicas config/BordadoPuntadas.service';
 import {BordadoSizeService} from './../tecnicas config/BordadoSize.service';
 import {PosicionesService} from './../tecnicas config/posiciones.service';
+import {AppConfigService} from './../appConfig/appConfig.service'
 
 
 import {Bordado} from './bordado';
@@ -37,7 +39,7 @@ import {Bordado} from './bordado';
 
 @Component({
   selector: 'tecnicabordado',
-    providers: [BordadoService,BordadoSizeService,BordadoPuntadasService,BordadoTipoService,PosicionesService],
+    providers: [AppConfigService,BordadoService,BordadoSizeService,BordadoPuntadasService,BordadoTipoService,PosicionesService],
   styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
   templateUrl: "./app/tecnicas/tecnica.bordado.html"
        
@@ -46,6 +48,7 @@ export class TecnicaBordadoComponent  implements OnInit {
   @Input() OnSelectBordadoType:Function ;
   @Input() OnSelectBordadoSize:Function ;
   @Input() OnSelectBordadoPosition:Function ;
+  @Input() OnSelectAppConfig:Function;
 
   public bordado:Bordado;
   public bordados: Array < Bordado > ;
@@ -57,6 +60,7 @@ export class TecnicaBordadoComponent  implements OnInit {
   public bordadoStitches: Array <BordadoPuntadas>;
   public bordadoSizes: Array <BordadoSize>;
   public bordadoPositions: Array <Posiciones>;
+ 
 
 
   /**
@@ -67,13 +71,17 @@ export class TecnicaBordadoComponent  implements OnInit {
   bordadoStitchSelected = new BordadoPuntadas;
   bordadoSizeSelected = new BordadoSize;
   bordadoPositionSelected = new Posiciones;
+  appConfigSelected = new AppConfig;
+  appConfig = new AppConfig;
 
   bordadotipoSelected = new BordadoTipo;
   constructor(
     private _bordadoTypeService:BordadoTipoService,
     private _bordadoStitchService: BordadoPuntadasService,
     private _bordadoSizeService: BordadoSizeService,
-    private _bordadoPositionService: PosicionesService,) {
+    private _bordadoPositionService: PosicionesService,
+    private _appConfigService: AppConfigService,
+  ) {
   }
 
   ngOnInit() {
@@ -82,6 +90,7 @@ export class TecnicaBordadoComponent  implements OnInit {
    this.bordadoSizeSelected = new BordadoSize();
    this.bordadoPositionSelected = new Posiciones();
    this.bordadoStitchSelected= new BordadoPuntadas();
+   this.appConfigSelected = new AppConfig();
    this.getBordadosData().then(res =>{
     if (this.bordadoTypes.length > 0)
     {
@@ -97,7 +106,9 @@ export class TecnicaBordadoComponent  implements OnInit {
         this.bordadoPositionSelected = this.bordadoPositions[0];
         this.OnSelectBordadoPosition(this.bordadoPositionSelected);
       }
-    if (this.bordadoStitches.length > 0)
+
+  
+    if (this.bordadoStitches.length > 0)    
       this.bordadoStitchSelected = this.bordadoStitches[0];
 
   
@@ -112,6 +123,9 @@ export class TecnicaBordadoComponent  implements OnInit {
   selectBordadoPosition(event:Event){
     this.OnSelectBordadoPosition(this.bordadoPositionSelected)
 }
+  selectAppConfig(event:Event){
+    this.OnSelectAppConfig(this.appConfigSelected)
+  }
 selectBordadoStitch(event:Event){
   
 }
@@ -126,6 +140,7 @@ selectBordadoStitch(event:Event){
         this._bordadoSizeService.getTecnicas(),
         this._bordadoStitchService.getTecnicas(),
         this._bordadoPositionService.getTecnicas(),
+        this._appConfigService.getAppConfig(),
 
       ).subscribe(
         results => {
@@ -134,7 +149,7 @@ selectBordadoStitch(event:Event){
           this.bordadoSizes  = results[1];
           this.bordadoStitches  = results[2];
           this.bordadoPositions  = results[3];
-          
+          this.appConfig = results[4];
 
 
           resolve(true)

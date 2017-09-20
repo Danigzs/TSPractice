@@ -5,6 +5,7 @@ export class Bordado {
   puntadas:number;
   bordado:string;
   colores:string;
+  cantidad:number;
   constructor() {
     this.size = "";
     this.position = "";
@@ -12,8 +13,9 @@ export class Bordado {
     this.puntadas =0;
     this.bordado ="";
     this.colores="";
+    this.cantidad=0;
   } 
-  setTecnica(colores:string,bordado:string,puntadas:number,size:string,position:string,price:number){
+  setTecnica(cantidad:number,colores:string,bordado:string,puntadas:number,size:string,position:string,price:number){
     
     this.size  = size;
     this.position = position;
@@ -21,6 +23,7 @@ export class Bordado {
     this.puntadas = puntadas;
     this.bordado= bordado;
     this.colores=colores;
+    this.cantidad=cantidad;
   }
   copyNewTecnica(){
     var _bordado= new Bordado();
@@ -30,6 +33,7 @@ export class Bordado {
     _bordado.puntadas=this.puntadas
     _bordado.bordado=this.bordado;
     _bordado.colores=this.colores;
+    _bordado.cantidad=this.cantidad;
     
     return _bordado
   }
