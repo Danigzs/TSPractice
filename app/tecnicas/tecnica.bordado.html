@@ -33,7 +33,7 @@
 
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-            <select type="text" name="bordado" [(ngModel)]="bordadoTypeSelected" (ngModelChange)="selectBordadoType($event)">
+            <select type="text" name="bordado"  [(ngModel)]="bordadoTypeSelected" (ngModelChange)="selectBordadoType($event)">
          <option *ngFor="let bordadotipo of bordadoTypes" [ngValue]="bordadotipo" >
            {{bordadotipo.nombre}}
           </option>
@@ -49,7 +49,7 @@
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-            <select type="text" name="bordadoSize" [(ngModel)]="bordadoSizeSelected" (ngModelChange)="selectBordadoSize($event)">
+              <select type="text" name="bordadoSize"  [(ngModel)]="bordadoSizeSelected" (ngModelChange)="selectBordadoSize($event)">
                   <option *ngFor="let bordadoSize of bordadoSizes" [ngValue]="bordadoSize" >
                     {{bordadoSize.size}}
                    </option>
@@ -84,7 +84,7 @@
       <div class="c-container-info-column data">
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-            <select type="text" name="bordadoPosition" [(ngModel)]="bordadoPositionSelected" (ngModelChange)="selectBordadoPosition($event)">
+              <select type="text" name="bordadoPosition"  [(ngModel)]="bordadoPositionSelected" (ngModelChange)="selectBordadoPosition($event)">
                   <option *ngFor="let bordadoPosition of bordadoPositions" [ngValue]="bordadoPosition" >
                     {{bordadoPosition.posiciones}}
                    </option>
@@ -95,12 +95,12 @@
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             <div class="example-full-width">
-              <!-- <select type="text" name="bordadoStitch"  [(ngModel)]="bordadoStitchSelected" (ngModelChange)="selectBordadoStitch($event)">
+                <!-- <select type="text" name="bordadoStitch"  [(ngModel)]="bordadoStitchSelected" (ngModelChange)="selectBordadoStitch($event)">
                     <option *ngFor="let bordadoStitch of bordadoStitches" [ngValue]="bordadoStitch" >
                       {{bordadoStitch.nombre}}
                      </option>
                 </select> -->
-              <input type="number" name="price" [(ngModel)]="bordado.puntadas">
+                <input type="number" name="price" [(ngModel)]="bordado.puntadas">
             </div>
           </div>
         </div>
@@ -117,7 +117,6 @@
     </div>
     <div class="c-add-product-container">
       <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
-      <button type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Agregar Tecnica</button> Precio:{{appConfig.bordado
-      + ((bordadoTypeSelected.costo*.01+bordadoPositionSelected.costo*.01+)*appConfig.bordado) | currency:'USD':true}}
+      <button type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Agregar Tecnica</button>
+      Precio:{{appConfig.bordado + ((bordadoTypeSelected.costo*.01+bordadoPositionSelected.costo*.01)*appConfig.bordado) | currency:'USD':true}}
     </div>
-
