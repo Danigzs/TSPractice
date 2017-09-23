@@ -1,14 +1,14 @@
 "use strict";
 var BordadoPuntadas = (function () {
     function BordadoPuntadas() {
-        this.price = 0.0;
+        this.costo = 0.0;
     }
-    BordadoPuntadas.prototype.setTecnica = function (price) {
-        this.price = price;
+    BordadoPuntadas.prototype.setTecnica = function (costo) {
+        this.costo = costo;
     };
     BordadoPuntadas.prototype.copyNewTecnica = function () {
         var _bordadopuntadas = new BordadoPuntadas();
-        _bordadopuntadas.price = this.price;
+        _bordadopuntadas.costo = this.costo;
         return _bordadopuntadas;
     };
     return BordadoPuntadas;

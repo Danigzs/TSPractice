@@ -59,6 +59,7 @@ var CotizadorComponent = (function () {
         this.showSublimado = false;
         this.checked = true;
         this.shippingDate = "";
+        this.context = this;
         this.cotizacion = new cotizacion_1.Cotizacion();
         this.selectedValue = {};
         this.productoSelected = new producto_1.Producto;
@@ -73,6 +74,8 @@ var CotizadorComponent = (function () {
         this.hidesublimado = true;
         this.currentDate = this.getTodayDate();
         this.gridKeys = ["Cantidad", "Nombre", "Descripcion", "Precio Unitario", "Total"];
+        this.closeMaquilas = this.closeMaquilas.bind(this);
+        this.OnAddBordadoTecnica = this.OnAddBordadoTecnica.bind(this);
     }
     CotizadorComponent.prototype.openBordados = function () {
         this.hideserigrafia = true;
@@ -112,6 +115,10 @@ var CotizadorComponent = (function () {
         else {
             this.order.advance = 0;
         }
+    };
+    CotizadorComponent.prototype.OnAddBordadoTecnica = function (bordado) {
+        this.closeMaquilas();
+        this.order.tecnicaBordados.push(bordado.copyNewTecnica());
     };
     CotizadorComponent.prototype.addProducto = function (producto) {
         producto.total = producto.price * producto.quantity;
@@ -274,18 +281,6 @@ var CotizadorComponent = (function () {
             alert("Pedido Creado");
         });
     };
-    CotizadorComponent.prototype.OnSelectBordadoType = function (bordadoType) {
-        this.bordadoTypeSelected = bordadoType;
-        console.log(this.bordadoTypeSelected.nombre + " selected");
-    };
-    CotizadorComponent.prototype.OnSelectBordadoSize = function (bordadoSize) {
-        this.bordadoSizeSelected = bordadoSize;
-        console.log(this.bordadoSizeSelected.size + " selected");
-    };
-    CotizadorComponent.prototype.OnSelectBordadoPosition = function (bordadoPosition) {
-        this.bordadoPositionSelected = bordadoPosition;
-        console.log(this.bordadoPositionSelected.posiciones + " selected");
-    };
     CotizadorComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.order = new order_1.Order;
@@ -305,6 +300,7 @@ var CotizadorComponent = (function () {
             _this.cotizacion.producto = _this.productoSelected;
             _this.order.products = [];
             _this.order.maquilas = [];
+            _this.order.tecnicaBordados = [];
             _this.setShippingDate();
         });
     };

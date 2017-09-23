@@ -2,12 +2,14 @@ import { Cliente } from "../cliente/cliente";
 import { Seller } from "../sellers/seller";
 import { ProductCotizacion } from "../producto/productCotizacion"
 import { TecnicaCotizacion } from "../tecnicas/tecnicaCotizacion"
+import {Bordado} from './../tecnicas/bordado'; 
 export class Order {
   _id: number;
   client: Cliente;
   seller: Seller;
   products: Array<ProductCotizacion>;
   maquilas: Array<TecnicaCotizacion>;
+  tecnicaBordados: Array<Bordado>;
   total: number;
   folio: number;
   notes:String;
@@ -25,6 +27,7 @@ export class Order {
     this.seller = new Seller;
     this.products = [];
     this.maquilas = [];
+    this.tecnicaBordados = [];
     this.total = 0;
     this.folio = 0;
     this.notes = "";
@@ -36,12 +39,13 @@ export class Order {
   } 
 
 
-  setOrder(_id:number, client:Cliente,seller:Seller,products:Array<ProductCotizacion>,maquilas:Array<TecnicaCotizacion>,total:number,folio:number,notes:String,advance:number,debt:number,isPaid:number,createdAt:Date,shippingWay:String,shippingDate:Date,subTotal:number){
+  setOrder(_id:number, client:Cliente,seller:Seller,products:Array<ProductCotizacion>,maquilas:Array<TecnicaCotizacion>,tecnicaBordados:Array<Bordado>, total:number,folio:number,notes:String,advance:number,debt:number,isPaid:number,createdAt:Date,shippingWay:String,shippingDate:Date,subTotal:number){
     this._id = _id;
     this.client = client;
     this.seller = seller;
     this.products = products;
     this.maquilas = maquilas;
+    this.tecnicaBordados = tecnicaBordados;
     this.total = total;
     this.folio = folio;
     this.isPaid = isPaid;

@@ -1,21 +1,17 @@
 export class BordadoPuntadas {
     
-        price: number;           
-        constructor() {
-    
-          this.price = 0.0;
+        costo: number;           
+        constructor() {    
+          this.costo = 0.0;
           
         } 
-        setTecnica(price:number){
-          
-          
-          
-          this.price = price;
+        setTecnica(costo:number){
+          this.costo = costo;
           
         }
         copyNewTecnica(){
           var _bordadopuntadas= new BordadoPuntadas();
-          _bordadopuntadas.price = this.price;
+          _bordadopuntadas.costo = this.costo;
         
           
           return _bordadopuntadas

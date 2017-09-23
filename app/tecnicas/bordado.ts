@@ -1,3 +1,8 @@
+import {BordadoTipo} from './../tecnicas config/BordadoTipo';
+ import {BordadoPuntadas} from './../tecnicas config/BordadoPuntadas';
+ import {BordadoSize} from './../tecnicas config/BordadoSize';
+ import {Posiciones} from './../tecnicas config/posiciones';
+
 export class Bordado {
   size: string; 
   position: string;
@@ -6,6 +11,11 @@ export class Bordado {
   bordado:string;
   colores:string;
   cantidad:number;
+
+  bType:BordadoTipo;
+  bStitches:BordadoPuntadas;
+  bSize:BordadoSize
+  bPosition:Posiciones
   constructor() {
     this.size = "";
     this.position = "";
@@ -14,7 +24,14 @@ export class Bordado {
     this.bordado ="";
     this.colores="";
     this.cantidad=0;
+    this.bType = new BordadoTipo()
+    this.bStitches = new BordadoPuntadas()
+    this.bSize = new BordadoSize()
+    this.bPosition = new Posiciones()
   } 
+  calculateBordadoPrice(){
+    this.price = this.cantidad * ( this.bType.costo + this.bSize.costo + this.bPosition.costo + this.bStitches.costo)
+  }
   setTecnica(cantidad:number,colores:string,bordado:string,puntadas:number,size:string,position:string,price:number){
     
     this.size  = size;
@@ -35,6 +52,10 @@ export class Bordado {
     _bordado.colores=this.colores;
     _bordado.cantidad=this.cantidad;
     
+    _bordado.bType=this.bType;
+    _bordado.bStitches=this.bStitches;
+    _bordado.bPosition=this.bPosition;
+    _bordado.bSize=this.bSize;
     return _bordado
   }
 }

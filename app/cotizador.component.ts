@@ -35,7 +35,7 @@ import {BordadoTipo} from './tecnicas config/BordadoTipo';
 import {BordadoPuntadas} from './tecnicas config/BordadoPuntadas';
 import {BordadoSize} from './tecnicas config/BordadoSize';
 import {Posiciones} from './tecnicas config/posiciones';
- 
+ import {Bordado} from './tecnicas/bordado'; 
 
 import {ChangeDetectorRef} from '@angular/core'
 
@@ -87,6 +87,8 @@ export class CotizadorComponent implements OnInit {
   public checknuevo: boolean;
   public checkexistente: boolean;
   public shippingDate: String = "";
+
+  public context = this
   componentName: 'CotizadorComponent';
 
   cotizacion = new Cotizacion();
@@ -124,7 +126,11 @@ export class CotizadorComponent implements OnInit {
     private changeDetectorRef: ChangeDetectorRef, 
     private _sellerService: SellerService, 
     private _orderService: OrderService
-    ) {}
+    ) {
+
+    this.closeMaquilas = this.closeMaquilas.bind(this);
+    this.OnAddBordadoTecnica = this.OnAddBordadoTecnica.bind(this);
+  }
 
   openBordados(){
     this.hideserigrafia = true;
@@ -161,6 +167,7 @@ export class CotizadorComponent implements OnInit {
   updateSeller(event: Event) {
     console.warn(this.sellerSelected);
   }
+
   
   updateAdvance(event: Event){
     if(this.order.total -  this.order.advance >= 0)
@@ -170,6 +177,12 @@ export class CotizadorComponent implements OnInit {
     else{
         this.order.advance = 0;
     }
+  }
+
+  OnAddBordadoTecnica(bordado:Bordado){
+    
+    this.closeMaquilas()
+    this.order.tecnicaBordados.push(bordado.copyNewTecnica());
   }
 
   addProducto(producto: ProductCotizacion) {
@@ -377,20 +390,6 @@ export class CotizadorComponent implements OnInit {
 
   }
    
-  OnSelectBordadoType(bordadoType:BordadoTipo){
-    this.bordadoTypeSelected = bordadoType;
-    console.log(this.bordadoTypeSelected.nombre + " selected" );
-  }
-  OnSelectBordadoSize(bordadoSize:BordadoSize){
-    
-    this.bordadoSizeSelected = bordadoSize
-    console.log(this.bordadoSizeSelected.size + " selected" );
-  }
-  OnSelectBordadoPosition(bordadoPosition:Posiciones){
-    
-    this.bordadoPositionSelected = bordadoPosition;
-    console.log(this.bordadoPositionSelected.posiciones + " selected" );
-  }
   ngOnInit() {
   
     this.order = new Order;
@@ -411,7 +410,8 @@ export class CotizadorComponent implements OnInit {
       this.cotizacion.producto = this.productoSelected;
       this.order.products = [];
       this.order.maquilas = [];
-
+      this.order.tecnicaBordados = [];
+      
       this.setShippingDate();
 
     });

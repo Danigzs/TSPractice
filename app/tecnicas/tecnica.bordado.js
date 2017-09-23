@@ -56,36 +56,54 @@ var TecnicaBordadoComponent = (function () {
         this.bordadoPositionSelected = new posiciones_1.Posiciones();
         this.bordadoStitchSelected = new BordadoPuntadas_1.BordadoPuntadas();
         this.appConfigSelected = new appConfig_1.AppConfig();
+        this.bordado.cantidad = 1;
+        this.bordado.bType = this.bordadoTypeSelected;
+        this.bordado.bSize = this.bordadoSizeSelected;
+        this.bordado.bPosition = this.bordadoPositionSelected;
+        this.bordado.bStitches = this.bordadoStitchSelected;
+        this.bordado.calculateBordadoPrice();
         this.getBordadosData().then(function (res) {
             if (_this.bordadoTypes.length > 0) {
                 _this.bordadoTypeSelected = _this.bordadoTypes[0];
-                _this.OnSelectBordadoType(_this.bordadoTypeSelected);
             }
             if (_this.bordadoSizes.length > 0) {
                 _this.bordadoSizeSelected = _this.bordadoSizes[0];
-                _this.OnSelectBordadoSize(_this.bordadoSizeSelected);
             }
             if (_this.bordadoPositions.length > 0) {
                 _this.bordadoPositionSelected = _this.bordadoPositions[0];
-                _this.OnSelectBordadoPosition(_this.bordadoPositionSelected);
             }
             if (_this.bordadoStitches.length > 0)
                 _this.bordadoStitchSelected = _this.bordadoStitches[0];
+            _this.bordado.bType = _this.bordadoTypeSelected;
+            _this.bordado.bSize = _this.bordadoSizeSelected;
+            _this.bordado.bPosition = _this.bordadoPositionSelected;
+            _this.bordado.bStitches = _this.bordadoStitchSelected;
+            _this.bordado.calculateBordadoPrice();
         });
     };
     TecnicaBordadoComponent.prototype.selectBordadoType = function (event) {
-        this.OnSelectBordadoType(this.bordadoTypeSelected);
+        this.bordado.bType = this.bordadoTypeSelected;
+        this.bordado.calculateBordadoPrice();
     };
     TecnicaBordadoComponent.prototype.selectBordadoSize = function (event) {
-        this.OnSelectBordadoSize(this.bordadoSizeSelected);
+        this.bordado.bSize = this.bordadoSizeSelected;
+        this.bordado.calculateBordadoPrice();
     };
     TecnicaBordadoComponent.prototype.selectBordadoPosition = function (event) {
-        this.OnSelectBordadoPosition(this.bordadoPositionSelected);
+        this.bordado.bPosition = this.bordadoPositionSelected;
+        this.bordado.calculateBordadoPrice();
     };
     TecnicaBordadoComponent.prototype.selectAppConfig = function (event) {
-        this.OnSelectAppConfig(this.appConfigSelected);
     };
     TecnicaBordadoComponent.prototype.selectBordadoStitch = function (event) {
+    };
+    TecnicaBordadoComponent.prototype.addBordadoTecnica = function () {
+        this.bordado.bType = this.bordadoTypeSelected;
+        this.bordado.bPosition = this.bordadoPositionSelected;
+        this.bordado.bStitches = this.bordadoStitchSelected;
+        this.bordado.bSize = this.bordadoSizeSelected;
+        this.bordado.calculateBordadoPrice();
+        this.OnAddBordadoTecnica(this.bordado);
     };
     TecnicaBordadoComponent.prototype.getBordadosData = function () {
         var _this = this;
@@ -105,19 +123,7 @@ var TecnicaBordadoComponent = (function () {
 __decorate([
     core_1.Input(),
     __metadata("design:type", Function)
-], TecnicaBordadoComponent.prototype, "OnSelectBordadoType", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Function)
-], TecnicaBordadoComponent.prototype, "OnSelectBordadoSize", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Function)
-], TecnicaBordadoComponent.prototype, "OnSelectBordadoPosition", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Function)
-], TecnicaBordadoComponent.prototype, "OnSelectAppConfig", void 0);
+], TecnicaBordadoComponent.prototype, "OnAddBordadoTecnica", void 0);
 TecnicaBordadoComponent = __decorate([
     core_1.Component({
         selector: 'tecnicabordado',
