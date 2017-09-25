@@ -45,7 +45,6 @@ var modelSerigrafia = require('./models/serigrafia')(app, mongoose);
 var modelSublimado = require('./models/sublimado')(app, mongoose);
 var modelTransfer = require('./models/transfer')(app, mongoose);
 var modelPosiciones = require('./models/posiciones')(app, mongoose);
-
 var modelbordadoNombre = require('./models/BordadoNombre')(app, mongoose);
 var modelbordadoPuntadas = require('./models/BordadoPuntadas')(app, mongoose);
 var modelbordadoTamaño = require('./models/BordadoSize')(app, mongoose);
@@ -53,6 +52,8 @@ var modelserigrafiaTipotinta = require('./models/SerigrafiaTipoTinta')(app, mong
 var modelSerigrafiaPrecioBordesa = require('./models/serigrafiaPrecioBordesa')(app, mongoose);
 var modelSerigrafiaPrecioCliente = require('./models/serigrafiaPrecioCliente')(app, mongoose);
 var modelAppConfig = require('./models/appConfig')(app, mongoose);
+var modelColores = require('./models/colores')(app, mongoose);
+
 
 var ClientCtrl = require('./controllers/client');
 var ProvideerCtrl = require('./controllers/provideer');
@@ -68,7 +69,6 @@ var BordadoCtrl = require('./controllers/bordado');
 var SerigrafiaCtrl = require('./controllers/serigrafia');
 var SublimadoCtrl = require('./controllers/sublimado');
 var TransferCtrl = require('./controllers/transfer');
-
 var bordadoNombreCtrl = require('./controllers/BordadoNombre');
 var bordadoPuntadasCtrl = require('./controllers/BordadoPuntadas');
 var bordadoTamañoCtrl = require('./controllers/BordadoSize');
@@ -76,7 +76,8 @@ var SerigrafiaTipoTintaCtrl = require ('./controllers/SerigrafiaTipoTinta');
 var serigrafiaPrecioBordesaCtrl = require ('./controllers/serigrafiaPrecioBordesa');
 var serigrafiaPrecioClienteCtrl = require ('./controllers/serigrafiaPrecioCliente');
 var appConfigCtrl = require ('./controllers/appConfig');
-var posicionesCtrl = require ('./controllers/posiciones')
+var posicionesCtrl = require ('./controllers/posiciones');
+var coloresCtrl = require ('./controllers/colores');
 
 var OrderProductsCtrl = require('./controllers/orderProducts');
 
@@ -272,6 +273,14 @@ api.route('/appConfig/:id')
 api.route('/posiciones/:id')
   .get(posicionesCtrl.findById)
   .put(posicionesCtrl.update);
+
+  api.route('/colores')
+  .get(coloresCtrl.findAll)
+  .post(coloresCtrl.add);
+
+api.route('/colores/:id')
+  .get(coloresCtrl.findById)
+  .put(coloresCtrl.update);
 
 
 api.route('/products')

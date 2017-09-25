@@ -65,6 +65,8 @@ import {BordadoSizeService} from './tecnicas config/BordadoSize.service';
 import {TipoTintaComponent} from './tecnicas config/serigrafia.config.tipotinta';
 import {PosicionComponent} from './tecnicas config/posiciones.config';
 import {PosicionesService} from './tecnicas config/posiciones.service';
+import {ColoresService} from './tecnicas config/colores.service';
+import {ColoresComponent} from './tecnicas config/bordado.config.colores';
 
 
 
@@ -104,6 +106,7 @@ const appRoutes: Routes = [
   { path: 'sublimado-main', component: SublimadoMainComponent},
   { path: 'tinta-tipo', component: TipoTintaComponent},
   { path: 'posiciones', component: PosicionComponent},
+  { path: 'bordado-colores', component: ColoresComponent}
   
 
 ];
@@ -153,13 +156,14 @@ const appRoutes: Routes = [
   SublimadoMainComponent,
   TipoTintaComponent,
   PosicionComponent,
+  ColoresComponent,
   ],
   providers : [  AuthGuard,CotizadorService, 
     ClienteService, ProductoService, TecnicaService,
     SellerService,OrderService,DashboardService,PaymentService,
     RoleService,RegisterService, BordadoService, SerigrafiaService,
-    SublimadoService, TransferService, BordadoSizeService, 
-    BordadoPuntadasService, BordadoTipoService,AppConfigService,PosicionesService],
+    SublimadoService, TransferService, BordadoSizeService,ColoresComponent, 
+    BordadoPuntadasService, BordadoTipoService,AppConfigService,PosicionesService,ColoresService],
   bootstrap:    [ AppComponent]
 })
 export class AppModule { }

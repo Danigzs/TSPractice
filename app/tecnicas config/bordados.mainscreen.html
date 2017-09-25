@@ -1,9 +1,10 @@
 <ul class="nav nav-tabs">
     
-   <li><a [ngClass]="{'tab-selected': showBordado,'tab-no-selected':!showBordado}"  style="cursor:pointer"  (click)="showBordado=true;showSerigrafia=false;showSublimado=false;showPosiciones=false;">Precio de bordados</a></li>
-   <li><a [ngClass]="{'tab-selected': showSerigrafia,'tab-no-selected':!showSerigrafia}"  style="cursor:pointer" (click)="showBordado=false;showSerigrafia=true;showSublimado=false;showPosiciones=false;">Precios puntadas</a></li>
-   <li><a [ngClass]="{'tab-selected': showSublimado,'tab-no-selected':!showSublimado}"  style="cursor:pointer"  (click)="showBordado=false;showSerigrafia=false;showSublimado=true;showPosiciones=false;">Precio Tamaños</a></li>
-   <li><a [ngClass]="{'tab-selected': showPosiciones,'tab-no-selected':!showPosiciones}"  style="cursor:pointer"  (click)="showBordado=false;showSerigrafia=false;showSublimado=false;showPosiciones=true;">Posiciones</a></li>
+   <li><a [ngClass]="{'tab-selected': showBordado,'tab-no-selected':!showBordado}"  style="cursor:pointer"  (click)="showBordado=true;showSerigrafia=false;showSublimado=false;showPosiciones=false;showColores=false">Precio de bordados</a></li>
+   <li><a [ngClass]="{'tab-selected': showSerigrafia,'tab-no-selected':!showSerigrafia}"  style="cursor:pointer" (click)="showBordado=false;showSerigrafia=true;showSublimado=false;showPosiciones=false;showColores=false">Precios puntadas</a></li>
+   <li><a [ngClass]="{'tab-selected': showSublimado,'tab-no-selected':!showSublimado}"  style="cursor:pointer"  (click)="showBordado=false;showSerigrafia=false;showSublimado=true;showPosiciones=false;showColores=false">Precio Tamaños</a></li>
+   <li><a [ngClass]="{'tab-selected': showPosiciones,'tab-no-selected':!showPosiciones}"  style="cursor:pointer"  (click)="showBordado=false;showSerigrafia=false;showSublimado=false;showPosiciones=true;showColores=false;">Posiciones</a></li>
+   <li><a [ngClass]="{'tab-selected': showColores,'tab-no-selected':!showColores}"  style="cursor:pointer"  (click)="showBordado=false;showSerigrafia=false;showSublimado=false;showPosiciones=false;showColores=true;">Colores</a></li>
    
 </ul>
 <div>
@@ -25,5 +26,8 @@
   </div>
   <div style="cursor:pointer;width:100%;height:300px;" *ngIf="showPosiciones">
     <posiciones [appConfig]="appConfig"></posiciones>
+  </div>
+  <div style="cursor:pointer;width:100%;height:300px;" *ngIf="showColores">
+    <bordado-colores> </bordado-colores>
   </div>
 </div>
