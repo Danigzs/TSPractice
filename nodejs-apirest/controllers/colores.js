@@ -30,7 +30,7 @@ exports.add = function (req, res) {
   console.log('POST');
   console.log(req.body);
   var colores = new Colores({
-    colores: req.body.colores,
+    color: req.body.color
   });
   colores.save(function (err, colores) {
     if (err) return res.send(500, err.message);

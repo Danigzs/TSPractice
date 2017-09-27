@@ -21,7 +21,8 @@ import {BordadoTipoComponent} from './../tecnicas config/bordado.config.tipo'
  import {BordadoPuntadas} from './../tecnicas config/BordadoPuntadas';
  import {BordadoSize} from './../tecnicas config/BordadoSize';
  import {Posiciones} from './../tecnicas config/posiciones';
- import {AppConfig} from './../appConfig/appConfig'
+ import {AppConfig} from './../appConfig/appConfig';
+ import {Colores} from './../tecnicas config/colores';
 
 /**
  * Config bordados - Services
@@ -30,7 +31,8 @@ import {BordadoTipoComponent} from './../tecnicas config/bordado.config.tipo'
  import {BordadoPuntadasService} from './../tecnicas config/BordadoPuntadas.service';
  import {BordadoSizeService} from './../tecnicas config/BordadoSize.service';
  import {PosicionesService} from './../tecnicas config/posiciones.service';
- import {AppConfigService} from './../appConfig/appConfig.service'
+ import {AppConfigService} from './../appConfig/appConfig.service';
+ import {ColoresService} from './../tecnicas config/colores.service';
 
 
  import {Bordado} from './bordado';
@@ -39,7 +41,7 @@ import {BordadoTipoComponent} from './../tecnicas config/bordado.config.tipo'
 
  @Component({
    selector: 'tecnicabordado',
-   providers: [AppConfigService,BordadoService,BordadoSizeService,BordadoPuntadasService,BordadoTipoService,PosicionesService],
+   providers: [ColoresService, AppConfigService,BordadoService,BordadoSizeService,BordadoPuntadasService,BordadoTipoService,PosicionesService],
    styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
    templateUrl: "./app/tecnicas/tecnica.bordado.html"
 
@@ -59,6 +61,7 @@ import {BordadoTipoComponent} from './../tecnicas config/bordado.config.tipo'
    public bordadoStitches: Array <BordadoPuntadas>;
    public bordadoSizes: Array <BordadoSize>;
    public bordadoPositions: Array <Posiciones>;
+   public bordadoColores:Array<Colores>;
 
 
 
@@ -72,6 +75,7 @@ import {BordadoTipoComponent} from './../tecnicas config/bordado.config.tipo'
    bordadoPositionSelected = new Posiciones;
    appConfigSelected = new AppConfig;
    appConfig = new AppConfig;
+   bordadoColoresSelected = new Colores;
 
    bordadotipoSelected = new BordadoTipo;
    constructor(
@@ -80,6 +84,7 @@ import {BordadoTipoComponent} from './../tecnicas config/bordado.config.tipo'
      private _bordadoSizeService: BordadoSizeService,
      private _bordadoPositionService: PosicionesService,
      private _appConfigService: AppConfigService,
+     private _coloresService: ColoresService,
      ) {
    }
 
@@ -90,12 +95,14 @@ import {BordadoTipoComponent} from './../tecnicas config/bordado.config.tipo'
      this.bordadoPositionSelected = new Posiciones();
      this.bordadoStitchSelected= new BordadoPuntadas();
      this.appConfigSelected = new AppConfig();
+     this.bordadoColoresSelected = new Colores();
      this.bordado.cantidad = 1;
 
      this.bordado.bType = this.bordadoTypeSelected;
      this.bordado.bSize = this.bordadoSizeSelected;
      this.bordado.bPosition = this.bordadoPositionSelected;
      this.bordado.bStitches = this.bordadoStitchSelected;
+     this.bordado.bColores = this.bordadoColoresSelected;
      this.bordado.calculateBordadoPrice();
      this.getBordadosData().then(res =>{
        if (this.bordadoTypes.length > 0)
@@ -109,6 +116,10 @@ import {BordadoTipoComponent} from './../tecnicas config/bordado.config.tipo'
        { 
          this.bordadoPositionSelected = this.bordadoPositions[0];
        }
+       if (this.bordadoColores.length > 0)
+       { 
+         this.bordadoColoresSelected = this.bordadoColores[0];
+       }
 
 
        if (this.bordadoStitches.length > 0)    
@@ -118,6 +129,7 @@ import {BordadoTipoComponent} from './../tecnicas config/bordado.config.tipo'
      this.bordado.bSize = this.bordadoSizeSelected;
      this.bordado.bPosition = this.bordadoPositionSelected;
      this.bordado.bStitches = this.bordadoStitchSelected;
+     this.bordado.bColores = this.bordadoColoresSelected;
 
        this.bordado.calculateBordadoPrice();
 
@@ -140,6 +152,9 @@ import {BordadoTipoComponent} from './../tecnicas config/bordado.config.tipo'
    selectBordadoStitch(event:Event){
 
    }
+   selectBordadoColores(event:Event){
+     
+   }
 
 
    addBordadoTecnica(){
@@ -148,6 +163,7 @@ import {BordadoTipoComponent} from './../tecnicas config/bordado.config.tipo'
      this.bordado.bPosition = this.bordadoPositionSelected;
      this.bordado.bStitches = this.bordadoStitchSelected;
      this.bordado.bSize = this.bordadoSizeSelected;
+     this.bordado.bColores = this.bordadoColoresSelected;
      this.bordado.calculateBordadoPrice();
      this.OnAddBordadoTecnica(this.bordado);
    }
@@ -163,6 +179,7 @@ import {BordadoTipoComponent} from './../tecnicas config/bordado.config.tipo'
          this._bordadoStitchService.getTecnicas(),
          this._bordadoPositionService.getTecnicas(),
          this._appConfigService.getAppConfig(),
+         this._coloresService.getTecnicas(),
 
          ).subscribe(
          results => {
@@ -172,6 +189,7 @@ import {BordadoTipoComponent} from './../tecnicas config/bordado.config.tipo'
            this.bordadoStitches  = results[2];
            this.bordadoPositions  = results[3];
            this.appConfig = results[4];
+           this.bordadoColores = results[5];
 
 
            resolve(true)

@@ -36,6 +36,7 @@ import {BordadoPuntadas} from './tecnicas config/BordadoPuntadas';
 import {BordadoSize} from './tecnicas config/BordadoSize';
 import {Posiciones} from './tecnicas config/posiciones';
  import {Bordado} from './tecnicas/bordado'; 
+ import {Colores} from './tecnicas config/colores'
 
 import {ChangeDetectorRef} from '@angular/core'
 
@@ -108,6 +109,7 @@ export class CotizadorComponent implements OnInit {
   bordadoStitchSelected = new BordadoPuntadas;
   bordadoSizeSelected = new BordadoSize;
   bordadoPositionSelected = new Posiciones;
+  bordadoColorSelected = new Colores;
   
 
 
