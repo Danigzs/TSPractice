@@ -1,9 +1,28 @@
+import {
+  Component,
+  OnInit,
+  ElementRef,
+  ViewChild,
+  Input,
+  Output,
+  EventEmitter,
+  ViewContainerRef
+} from '@angular/core';
 import {BordadoTipo} from './../tecnicas config/BordadoTipo';
  import {BordadoPuntadas} from './../tecnicas config/BordadoPuntadas';
  import {BordadoSize} from './../tecnicas config/BordadoSize';
  import {Posiciones} from './../tecnicas config/posiciones';
  import {Colores} from './../tecnicas config/colores';
+ import {AppConfig} from './../appConfig/appConfig';
+ import {AppConfigService} from './../appConfig/appConfig.service';
 
+ @Component({
+  
+  providers: [AppConfigService],
+ 
+
+})
+ 
 export class Bordado {
   size: string; 
   position: string;
@@ -12,6 +31,7 @@ export class Bordado {
   bordado:string;
   colores:number;
   cantidad:number;
+  appConfig = new AppConfig;
 
   bType:BordadoTipo;
   bStitches:BordadoPuntadas;
@@ -33,7 +53,8 @@ export class Bordado {
     this.bColores = new Colores()
   } 
   calculateBordadoPrice(){
-    this.price = this.cantidad * ( this.bType.costo + this.bSize.costo + this.bPosition.costo)
+    this.appConfig = new AppConfig();
+    this.price = this.cantidad * ( (this.bType.costo*.01)*this.appConfig.bordado) + (this.bSize.costo*.01) + (this.bPosition.costo*.01))
   }
   setTecnica(cantidad:number,colores:number,bordado:string,puntadas:number,size:string,position:string,price:number){
     

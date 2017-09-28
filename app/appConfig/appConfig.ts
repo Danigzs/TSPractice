@@ -5,7 +5,7 @@ export class AppConfig {
     sublimado:number;
     id:number
     constructor() {
-      this.bordado = 0;
+      this.bordado =0;
       this.serigrafia = 0;
       this.sublimado = 0;
     } 

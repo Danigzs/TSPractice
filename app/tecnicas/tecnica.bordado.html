@@ -120,6 +120,6 @@
     <div class="c-add-product-container">
       <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
       <button type="button" class="btn btn-primary btn-md" (click)="addBordadoTecnica()">Agregar Tecnica</button>
-       Precio:{{bordado.cantidad*( bordado.price) | currency:'USD':true}}
+       Precio:{{bordado.cantidad*( bordado.price + appConfig.bordado)| currency:'USD':true}}
     </div>
 
