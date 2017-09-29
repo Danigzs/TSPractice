@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var Observable_1 = require("rxjs/Observable");
 var core_1 = require("@angular/core");
 var BordadoTipo_1 = require("./../tecnicas config/BordadoTipo");
 var BordadoPuntadas_1 = require("./../tecnicas config/BordadoPuntadas");
@@ -60,6 +61,18 @@ var Bordado = Bordado_1 = (function () {
         _bordado.bSize = this.bSize;
         _bordado.bColores = this.bColores;
         return _bordado;
+    };
+    Bordado.prototype.getBordadosData = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            Observable_1.Observable.forkJoin(_this._appConfigService.getAppConfig()).subscribe(function (results) {
+                _this.appConfig = results[0];
+                resolve(true);
+            });
+        });
+    };
+    Bordado.prototype.ngOnInit = function () {
+        this.appConfig;
     };
     return Bordado;
 }());

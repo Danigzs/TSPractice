@@ -1,3 +1,4 @@
+import {Observable} from 'rxjs/Observable';
 import {
   Component,
   OnInit,
@@ -32,6 +33,7 @@ export class Bordado {
   colores:number;
   cantidad:number;
   appConfig = new AppConfig;
+  _appConfigService:AppConfigService;
 
   bType:BordadoTipo;
   bStitches:BordadoPuntadas;
@@ -51,6 +53,7 @@ export class Bordado {
     this.bSize = new BordadoSize()
     this.bPosition = new Posiciones()
     this.bColores = new Colores()
+    
   } 
   calculateBordadoPrice(){
     this.appConfig = new AppConfig();
@@ -83,4 +86,26 @@ export class Bordado {
     _bordado.bColores=this.bColores;
     return _bordado
   }
+
+  getBordadosData(): Promise < boolean > {
+    return new Promise < boolean > ((resolve, reject) => {
+
+      Observable.forkJoin(
+       
+        this._appConfigService.getAppConfig(),
+      
+
+        ).subscribe(
+        results => {         
+          this.appConfig = results[0];  
+          resolve(true)
+        }
+        );
+      });
+  }
+  ngOnInit() {
+    this.appConfig
+
+  }
+
 }

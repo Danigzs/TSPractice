@@ -6,10 +6,10 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import { SerigrafiaTipoTinta } from './SerigrafiaTipoTinta';
 @Injectable()
-export class BordadoTipoService {
-    serigrafiatipotinta:Array<SerigrafiaTipoTinta>;
+export class SerigrafiaTipoTintaService {
+  tipos:Array<SerigrafiaTipoTinta>;
     
-     private url = 'http://localhost:8000/api/serigrafiatipotinta';  // URL to web API
+     private url = 'http://localhost:8000/api/tipos';  // URL to web API
 
 constructor (private http: Http) {}
  
@@ -19,12 +19,12 @@ constructor (private http: Http) {}
                     .map(this.extractData)
                     .catch(this.handleError);
   }
-  addTecnica(serigrafiatipotinta:SerigrafiaTipoTinta): Observable<Array<SerigrafiaTipoTinta>> {
+  addTecnica(tipos:SerigrafiaTipoTinta): Observable<Array<SerigrafiaTipoTinta>> {
      let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
    
-    return this.http.post(this.url,serigrafiatipotinta,options)
+    return this.http.post(this.url,tipos,options)
                     .map(this.extractData)
                     .catch(this.handleError);
   }
@@ -32,7 +32,7 @@ constructor (private http: Http) {}
     
     let data = res.json();
     
-    return data.serigrafiatipotinta || { };
+    return data.tipos || { };
   }
     private handleError (error: Response | any) {
     // In a real world app, you might use a remote logging infrastructure

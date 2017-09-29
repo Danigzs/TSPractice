@@ -232,11 +232,11 @@ api.route('/bordadoPuntadas/:id')
   .get(bordadoPuntadasCtrl.findById)
   .put(bordadoPuntadasCtrl.update)
 
-  api.route('/serigrafiatipotinta')
+  api.route('/tipos')
   .get(SerigrafiaTipoTintaCtrl.findAll)
-  .put(SerigrafiaTipoTintaCtrl.add)
+  .post(SerigrafiaTipoTintaCtrl.add)
 
-api.route('/serigrafiatipotinta/:id')
+api.route('/tipos/:id')
   .get(SerigrafiaTipoTintaCtrl.findById)
   .put(SerigrafiaTipoTintaCtrl.update)
 

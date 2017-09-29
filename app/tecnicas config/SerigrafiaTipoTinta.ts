@@ -1,22 +1,22 @@
 export class SerigrafiaTipoTinta {
     
         price: number;   
-        tipo:string;
+        tipotinta:string;
         constructor() {
     
           this.price = 0.0;
-          this.tipo="";
+          this.tipotinta="";
         } 
-        setTecnica(tipo:string,price:number){
+        setTecnica(tipotinta:string,price:number){
           
           
-          this.tipo = tipo;
+          this.tipotinta = tipotinta;
           this.price = price;
           
         }
         copyNewTecnica(){
           var _serigrafiatipotinta= new SerigrafiaTipoTinta();
-          _serigrafiatipotinta.tipo = this.tipo;
+          _serigrafiatipotinta.tipotinta = this.tipotinta;
           _serigrafiatipotinta.price = this.price;
         
           

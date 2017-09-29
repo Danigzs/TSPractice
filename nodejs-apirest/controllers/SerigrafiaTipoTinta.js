@@ -1,14 +1,14 @@
 var mongoose = require('mongoose');
-var SerigrafiaTipotinta = mongoose.model('Nombre');
+var SerigrafiaTipotinta = mongoose.model('Tipotinta');
 
 //GET - Return all registers
 exports.findAll = function (req, res) {
 
-    SerigrafiaTipotinta.find(function (err, serigrafiatipotinta) {
+    SerigrafiaTipotinta.find(function (err, tipos) {
     if (err) res.send(500, err.message);
-    console.log('GET /serigrafiatipotinta')
+    console.log('GET /tipos')
     res.status(200).json({
-        serigrafiatipotinta: serigrafiatipotinta
+      tipos: tipos
     });
 
   });
@@ -16,11 +16,11 @@ exports.findAll = function (req, res) {
 
 //GET - Return a register with specified ID
 exports.findById = function (req, res) {
-    SerigrafiaTipotinta.findById(req.params.id, function (err, serigrafiatipotinta) {
+    SerigrafiaTipotinta.findById(req.params.id, function (err, tipos) {
     if (err) return res.send(500, err.message);
-    console.log('GET /serigrafiatipotinta/' + req.params.id);
+    console.log('GET /tipos/' + req.params.id);
     res.status(200).json({
-        serigrafiatipotinta: serigrafiatipotinta
+      tipos: tipos
         });
   });
 };
@@ -29,14 +29,14 @@ exports.findById = function (req, res) {
 exports.add = function (req, res) {
   console.log('POST');
   console.log(req.body);
-  var serigrafiatipotinta = new SerigrafiaTipotinta({
+  var tipos = new SerigrafiaTipotinta({
     tipotinta: req.body.tipotinta,
     costo: req.body.costo,
   });
-  nombre.save(function (err, client) {
+  tipos.save(function (err, tipos) {
     if (err) return res.send(500, err.message);
     res.status(200).json({
-      costo: costo
+      tipos: tipos
     });
 
   });
@@ -44,12 +44,12 @@ exports.add = function (req, res) {
 
 //PUT - Update a register already exists
 exports.update = function (req, res) {
-    SerigrafiaTipotinta.findById(req.params.id, function (err, serigrafiatipotinta) {
-        serigrafiatipotinta.tipotinta = req.body.tipotinta;
-        serigrafiatipotinta.tipotinta = req.body.costo;    
-        serigrafiatipotinta.save(function (err) {
+    SerigrafiaTipotinta.findById(req.params.id, function (err, tipos) {
+      tipos.tipotinta = req.body.tipotinta;
+      tipos.costo = req.body.costo;    
+      tipos.save(function (err) {
       if (err) return res.send(500, err.message);
-      res.status(200).json({client:client});
+      res.status(200).json({tipos:tipos});
     });
   });
 };

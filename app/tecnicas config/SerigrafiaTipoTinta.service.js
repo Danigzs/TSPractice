@@ -14,28 +14,28 @@ var http_2 = require("@angular/http");
 var Observable_1 = require("rxjs/Observable");
 require("rxjs/add/operator/catch");
 require("rxjs/add/operator/map");
-var BordadoTipoService = (function () {
-    function BordadoTipoService(http) {
+var SerigrafiaTipoTintaService = (function () {
+    function SerigrafiaTipoTintaService(http) {
         this.http = http;
-        this.url = 'http://localhost:8000/api/serigrafiatipotinta'; // URL to web API
+        this.url = 'http://localhost:8000/api/tipos'; // URL to web API
     }
-    BordadoTipoService.prototype.getTecnicas = function () {
+    SerigrafiaTipoTintaService.prototype.getTecnicas = function () {
         return this.http.get(this.url)
             .map(this.extractData)
             .catch(this.handleError);
     };
-    BordadoTipoService.prototype.addTecnica = function (serigrafiatipotinta) {
+    SerigrafiaTipoTintaService.prototype.addTecnica = function (tipos) {
         var headers = new http_2.Headers({ 'Content-Type': 'application/json' });
         var options = new http_2.RequestOptions({ headers: headers });
-        return this.http.post(this.url, serigrafiatipotinta, options)
+        return this.http.post(this.url, tipos, options)
             .map(this.extractData)
             .catch(this.handleError);
     };
-    BordadoTipoService.prototype.extractData = function (res) {
+    SerigrafiaTipoTintaService.prototype.extractData = function (res) {
         var data = res.json();
-        return data.serigrafiatipotinta || {};
+        return data.tipos || {};
     };
-    BordadoTipoService.prototype.handleError = function (error) {
+    SerigrafiaTipoTintaService.prototype.handleError = function (error) {
         // In a real world app, you might use a remote logging infrastructure
         var errMsg;
         if (error instanceof http_1.Response) {
@@ -49,11 +49,11 @@ var BordadoTipoService = (function () {
         console.error(errMsg);
         return Observable_1.Observable.throw(errMsg);
     };
-    return BordadoTipoService;
+    return SerigrafiaTipoTintaService;
 }());
-BordadoTipoService = __decorate([
+SerigrafiaTipoTintaService = __decorate([
     core_1.Injectable(),
     __metadata("design:paramtypes", [http_1.Http])
-], BordadoTipoService);
-exports.BordadoTipoService = BordadoTipoService;
+], SerigrafiaTipoTintaService);
+exports.SerigrafiaTipoTintaService = SerigrafiaTipoTintaService;
 //# sourceMappingURL=SerigrafiaTipoTinta.service.js.map

@@ -21,7 +21,7 @@ import {
          
   })
   export class ColoresComponent  {
-    @Input() appConfig:  AppConfig ;    
+    @Input() appConfig:  AppConfig ;   
     public colores:Colores;
     public color: Array < Colores > ;
     cantidad = 1000;

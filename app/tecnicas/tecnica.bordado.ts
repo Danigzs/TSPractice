@@ -122,7 +122,7 @@ import {BordadoTipoComponent} from './../tecnicas config/bordado.config.tipo'
        }
 
 
-       if (this.bordadoStitches.length > 0)    
+       if (this.bordadoStitches.length > 0)
          this.bordadoStitchSelected = this.bordadoStitches[0];
 
        this.bordado.bType = this.bordadoTypeSelected;
