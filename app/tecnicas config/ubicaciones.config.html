@@ -13,39 +13,26 @@
             <div class="c-container-info-column-item-container info">
               Posicion
             </div>
-          </div>
+          </div>  
+        </div>  
+
+        <div class="c-container-info-column">  
           <div class="c-container-info-column-item-container">
             <div class="c-container-info-column-item-container info">
-              Coste %
+              <input type="text" [(ngModel)]="ubicaciones.ubicaciones">
+            </div>
+          </div>  
+        </div>
+  
+        <div class="c-container-info-column data">  
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Precio:              
             </div>
           </div>  
         </div>  
-        <div class="c-container-info-column">
-  
-          <div class="c-container-info-column-item-container">
-            <div class="c-container-info-column-item-container info">
-              <input type="text" [(ngModel)]="posiciones.posiciones">
-            </div>
-          </div>
-          <div class="c-container-info-column-item-container">
-            <div class="c-container-info-column-item-container info">
-              <input type="text" [(ngModel)]="posiciones.costo">
-            </div>
-          </div>  
-        </div>
-  
-        <div class="c-container-info-column data">
-  
-          <div class="c-container-info-column-item-container">
-            <div class="c-container-info-column-item-container info">
-              Precio:{{appConfig.bordado + ((posiciones.costo*.01)*appConfig.bordado) | currency:'USD':true}}
-              
-            </div>
-          </div>
-  
-        </div>
-  
       </div>
+
       <div class="c-add-product-container">
           <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
           <button type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Agregar</button>
@@ -54,15 +41,12 @@
         <table class="table " id="tproductos">
           <thead>
             <tr>
-              <th>Posicion</th>
-              <th>Costo</th>              
+              <th>Posicion</th>                
             </tr>
           </thead>
-          <tr *ngFor="let posiciones of posicion; let i = index">
-            <td>{{posiciones.posiciones}}</td>           
-            <td>Precio:{{appConfig.bordado + ((posiciones.costo*.01)*appConfig.bordado) | currency:'USD':true}}</td>
-          </tr>               
-  
+          <tr *ngFor="let ubicaciones of ubicacion; let i = index">
+            <td>{{ubicaciones.ubicaciones}}</td>
+          </tr>
         </table>
       </div>
       </div>

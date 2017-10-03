@@ -16,4 +16,3 @@ var posicionesSchema = new Schema({
 
 posicionesSchema.plugin(autoIncrement.plugin, 'Posiciones');
 module.exports = mongoose.model('Posiciones', posicionesSchema);
-

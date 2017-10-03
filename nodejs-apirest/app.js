@@ -53,6 +53,7 @@ var modelSerigrafiaPrecioBordesa = require('./models/serigrafiaPrecioBordesa')(a
 var modelSerigrafiaPrecioCliente = require('./models/serigrafiaPrecioCliente')(app, mongoose);
 var modelAppConfig = require('./models/appConfig')(app, mongoose);
 var modelColores = require('./models/colores')(app, mongoose);
+var modelubicaciones = require ('./models/ubicaciones')(app, mongoose);
 
 
 var ClientCtrl = require('./controllers/client');
@@ -78,6 +79,7 @@ var serigrafiaPrecioClienteCtrl = require ('./controllers/serigrafiaPrecioClient
 var appConfigCtrl = require ('./controllers/appConfig');
 var posicionesCtrl = require ('./controllers/posiciones');
 var coloresCtrl = require ('./controllers/colores');
+var ubicacionesCtrl = require('./controllers/ubicaciones');
 
 var OrderProductsCtrl = require('./controllers/orderProducts');
 
@@ -273,6 +275,14 @@ api.route('/appConfig/:id')
 api.route('/posiciones/:id')
   .get(posicionesCtrl.findById)
   .put(posicionesCtrl.update);
+
+  api.route('/ubicaciones')
+  .get(ubicacionesCtrl.findAll)
+  .post(ubicacionesCtrl.add);
+
+api.route('/ubicaciones/:id')
+  .get(ubicacionesCtrl.findById)
+  .put(ubicacionesCtrl.update);
 
   api.route('/colores')
   .get(coloresCtrl.findAll)

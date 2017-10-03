@@ -68,6 +68,8 @@ var posiciones_config_1 = require("./tecnicas config/posiciones.config");
 var posiciones_service_1 = require("./tecnicas config/posiciones.service");
 var colores_service_1 = require("./tecnicas config/colores.service");
 var bordado_config_colores_1 = require("./tecnicas config/bordado.config.colores");
+var ubicaciones_config_1 = require("./tecnicas config/ubicaciones.config");
+var ubicaciones_service_1 = require("./tecnicas config/ubicaciones.service");
 var auth_guard_1 = require("./guards/auth.guard");
 var appRoutes = [
     { path: '', component: home_component_1.HomeComponent, canActivate: [auth_guard_1.AuthGuard] },
@@ -102,7 +104,8 @@ var appRoutes = [
     { path: 'sublimado-main', component: sublimado_mainscreen_1.SublimadoMainComponent },
     { path: 'tinta-tipo', component: serigrafia_config_tipotinta_1.TipoTintaComponent },
     { path: 'posiciones', component: posiciones_config_1.PosicionComponent },
-    { path: 'bordado-colores', component: bordado_config_colores_1.ColoresComponent }
+    { path: 'bordado-colores', component: bordado_config_colores_1.ColoresComponent },
+    { path: 'ubicaciones', component: ubicaciones_config_1.UbicacionComponent }
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -154,12 +157,13 @@ AppModule = __decorate([
             serigrafia_config_tipotinta_1.TipoTintaComponent,
             posiciones_config_1.PosicionComponent,
             bordado_config_colores_1.ColoresComponent,
+            ubicaciones_config_1.UbicacionComponent
         ],
         providers: [auth_guard_1.AuthGuard, cotizador_service_1.CotizadorService,
             cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService,
             seller_service_1.SellerService, order_service_1.OrderService, dashboard_service_1.DashboardService, payment_service_1.PaymentService,
             role_service_1.RoleService, register_service_1.RegisterService, bordado_service_1.BordadoService, serigrafia_service_1.SerigrafiaService,
-            sublimado_service_1.SublimadoService, transfer_service_1.TransferService, BordadoSize_service_1.BordadoSizeService, bordado_config_colores_1.ColoresComponent,
+            sublimado_service_1.SublimadoService, transfer_service_1.TransferService, ubicaciones_service_1.UbicacionesService, BordadoSize_service_1.BordadoSizeService, bordado_config_colores_1.ColoresComponent,
             BordadoPuntadas_service_1.BordadoPuntadasService, BordadoTipo_service_1.BordadoTipoService, appConfig_service_1.AppConfigService, posiciones_service_1.PosicionesService, colores_service_1.ColoresService],
         bootstrap: [app_component_1.AppComponent]
     })
