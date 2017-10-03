@@ -32,7 +32,9 @@ exports.add = function (req, res) {
   var appConfig = new AppConfig({
     bordado: req.body.bordado,
     serigrafia: req.body.serigrafia,
-    sublimado: req.body.sublimado
+    sublimado: req.body.sublimado,
+    presecado: req.body.presecado,
+    revelado: req.body.revelado
   });
   appConfig.save(function (err, appConfig) {
     if (err) return res.send(500, err.message);
@@ -52,6 +54,10 @@ exports.update = function (req, res) {
         appConfig.serigrafia = req.body.serigrafia;
       if(req.body.sublimado)
         appConfig.sublimado = req.body.sublimado; 
+        if(req.body.revelado)
+        appConfig.revelado = req.body.revelado; 
+        if(req.body.sublimado)
+        appConfig.revelado = req.body.revelado; 
       appConfig.save(function (err) {
       
         if (err) return res.send(500, err.message);

@@ -13,6 +13,12 @@ var schema = new Schema({
   },
   sublimado: {
     type: Number
+  },
+  presecado: {
+    type: Number
+  },
+  revelado: {
+    type: Number
   }
 
 });

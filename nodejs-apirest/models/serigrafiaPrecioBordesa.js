@@ -16,12 +16,6 @@ var schema = new Schema({
   },
   costo: {
     type: Number    
-  },
-  presecado: {
-    type: Number
-  },
-  revelado: {
-    type: Number
   }
 
 });
