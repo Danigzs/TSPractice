@@ -34,8 +34,8 @@ exports.add = function (req, res) {
     prendaDe:req.body.prendaDe,
     prendaHasta:req.body.prendaHasta,
     costo:req.body.costo,
-    presecado:req.body.presecado,
-    revelado:req.body.revelado
+
+
   });
   serigrafiaPrecioBordesa.save(function (err, serigrafiaPrecioBordesa) {
     if (err) return res.send(500, err.message);

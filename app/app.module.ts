@@ -69,6 +69,8 @@ import {ColoresService} from './tecnicas config/colores.service';
 import {ColoresComponent} from './tecnicas config/bordado.config.colores';
 import {UbicacionComponent} from './tecnicas config/ubicaciones.config';
 import {UbicacionesService} from './tecnicas config/ubicaciones.service';
+import {SerigrafiaPrecioBordesaService} from './tecnicas config/serigrafia.precioBordesa.service'
+import {SerigrafiaPrecioBordesaComponent} from './tecnicas config/serigrafia.config.precioBordesa'
 
 
 
@@ -111,8 +113,8 @@ const appRoutes: Routes = [
   { path: 'tinta-tipo', component: TipoTintaComponent},
   { path: 'posiciones', component: PosicionComponent},
   { path: 'bordado-colores', component: ColoresComponent},
-  { path: 'ubicaciones', component: UbicacionComponent}
-  
+  { path: 'ubicaciones', component: UbicacionComponent},
+  { path: 'serigrafia-preciobordesa', component: SerigrafiaPrecioBordesaComponent}  
 
 ];
 
@@ -162,14 +164,16 @@ const appRoutes: Routes = [
   TipoTintaComponent,
   PosicionComponent,
   ColoresComponent,
-  UbicacionComponent
+  UbicacionComponent,
+  SerigrafiaPrecioBordesaComponent
   ],
   providers : [  AuthGuard,CotizadorService, 
     ClienteService, ProductoService, TecnicaService,
     SellerService,OrderService,DashboardService,PaymentService,
     RoleService,RegisterService, BordadoService, SerigrafiaService,
     SublimadoService, TransferService,UbicacionesService, BordadoSizeService,ColoresComponent, 
-    BordadoPuntadasService, BordadoTipoService,AppConfigService,PosicionesService,ColoresService],
+    BordadoPuntadasService, BordadoTipoService,AppConfigService,
+    SerigrafiaPrecioBordesaService,PosicionesService,ColoresService],
   bootstrap:    [ AppComponent]
 })
 export class AppModule { }

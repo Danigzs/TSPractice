@@ -70,6 +70,8 @@ var colores_service_1 = require("./tecnicas config/colores.service");
 var bordado_config_colores_1 = require("./tecnicas config/bordado.config.colores");
 var ubicaciones_config_1 = require("./tecnicas config/ubicaciones.config");
 var ubicaciones_service_1 = require("./tecnicas config/ubicaciones.service");
+var serigrafia_precioBordesa_service_1 = require("./tecnicas config/serigrafia.precioBordesa.service");
+var serigrafia_config_precioBordesa_1 = require("./tecnicas config/serigrafia.config.precioBordesa");
 var auth_guard_1 = require("./guards/auth.guard");
 var appRoutes = [
     { path: '', component: home_component_1.HomeComponent, canActivate: [auth_guard_1.AuthGuard] },
@@ -105,7 +107,8 @@ var appRoutes = [
     { path: 'tinta-tipo', component: serigrafia_config_tipotinta_1.TipoTintaComponent },
     { path: 'posiciones', component: posiciones_config_1.PosicionComponent },
     { path: 'bordado-colores', component: bordado_config_colores_1.ColoresComponent },
-    { path: 'ubicaciones', component: ubicaciones_config_1.UbicacionComponent }
+    { path: 'ubicaciones', component: ubicaciones_config_1.UbicacionComponent },
+    { path: 'serigrafia-preciobordesa', component: serigrafia_config_precioBordesa_1.SerigrafiaPrecioBordesaComponent }
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -157,14 +160,16 @@ AppModule = __decorate([
             serigrafia_config_tipotinta_1.TipoTintaComponent,
             posiciones_config_1.PosicionComponent,
             bordado_config_colores_1.ColoresComponent,
-            ubicaciones_config_1.UbicacionComponent
+            ubicaciones_config_1.UbicacionComponent,
+            serigrafia_config_precioBordesa_1.SerigrafiaPrecioBordesaComponent
         ],
         providers: [auth_guard_1.AuthGuard, cotizador_service_1.CotizadorService,
             cliente_service_1.ClienteService, producto_service_1.ProductoService, tecnica_service_1.TecnicaService,
             seller_service_1.SellerService, order_service_1.OrderService, dashboard_service_1.DashboardService, payment_service_1.PaymentService,
             role_service_1.RoleService, register_service_1.RegisterService, bordado_service_1.BordadoService, serigrafia_service_1.SerigrafiaService,
             sublimado_service_1.SublimadoService, transfer_service_1.TransferService, ubicaciones_service_1.UbicacionesService, BordadoSize_service_1.BordadoSizeService, bordado_config_colores_1.ColoresComponent,
-            BordadoPuntadas_service_1.BordadoPuntadasService, BordadoTipo_service_1.BordadoTipoService, appConfig_service_1.AppConfigService, posiciones_service_1.PosicionesService, colores_service_1.ColoresService],
+            BordadoPuntadas_service_1.BordadoPuntadasService, BordadoTipo_service_1.BordadoTipoService, appConfig_service_1.AppConfigService,
+            serigrafia_precioBordesa_service_1.SerigrafiaPrecioBordesaService, posiciones_service_1.PosicionesService, colores_service_1.ColoresService],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);
