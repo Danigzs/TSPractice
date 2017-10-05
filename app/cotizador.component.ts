@@ -1,4 +1,6 @@
 import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/forkJoin'
+
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
@@ -43,7 +45,6 @@ import {ChangeDetectorRef} from '@angular/core'
 
 
 
-import {MdDialog,  MdDialogConfig,  MdDialogRef} from '@angular/material';
 
 
 
@@ -120,7 +121,7 @@ export class CotizadorComponent implements OnInit {
   currentDate = this.getTodayDate();
   gridKeys = ["Cantidad", "Nombre", "Descripcion", "Precio Unitario", "Total"];
 
-  constructor(private dialog: MdDialog,
+  constructor(
     private _cotizadorService: CotizadorService, 
     public _clienteService: ClienteService, 
     private _productoService: ProductoService, 

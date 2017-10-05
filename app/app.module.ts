@@ -1,3 +1,5 @@
+import { MultiselectDropdownModule } from 'angular-2-dropdown-multiselect';
+
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
@@ -36,7 +38,7 @@ import {SearchCode} from './utilities/productcode.filter'
 import {SearchPipe} from './utilities/productname.filter'
 
 
-import { MaterialModule } from '@angular/material';
+
 import {ClienteService} from './cliente/cliente.service';
 import {CotizadorService} from './cotizacion/cotizador.service';
 import {ProductoService} from './producto/producto.service';
@@ -75,6 +77,7 @@ import {SerigrafiaPrecioBordesaComponent} from './tecnicas config/serigrafia.con
 
 
 
+ 
 
 
 
@@ -123,8 +126,9 @@ const appRoutes: Routes = [
 @NgModule({
   imports:      [ BrowserModule,
   				  RouterModule.forRoot(appRoutes),FormsModule,
-              MaterialModule.forRoot(), HttpModule,
-    JsonpModule
+               HttpModule,
+    JsonpModule,
+    MultiselectDropdownModule
  ],
   declarations: [ 
   NavbarComponent,

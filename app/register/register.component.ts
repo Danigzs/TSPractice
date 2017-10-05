@@ -1,8 +1,4 @@
-import {
-  MdDialog,
-  MdDialogConfig,
-  MdDialogRef
-} from '@angular/material';
+
 import {
   Component,
   OnInit,

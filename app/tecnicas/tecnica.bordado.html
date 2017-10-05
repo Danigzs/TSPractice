@@ -42,6 +42,7 @@
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
+            <ss-multiselect-dropdown [options]="myOptions" [(ngModel)]="optionsModel" (ngModelChange)="onChange($event)"></ss-multiselect-dropdown>
 
             <select>
                 <option *ngFor="let color of bordadoColores; let i = index">{{color.color}}</option>

@@ -1,5 +1,5 @@
 import {Component,OnInit,ElementRef,ViewChild,ViewContainerRef} from '@angular/core';
-import {MdDialog,MdDialogConfig,MdDialogRef} from '@angular/material';
+
 import {Producto} from './../producto/producto';
 import {ProductoService} from './../producto/producto.service';
 

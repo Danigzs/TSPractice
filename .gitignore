@@ -1,4 +1,8 @@
 node_modules
+node_modules/
+app/**/*.js
+app/**/*.js.map
+
 # Logs
 logs
 *.log
@@ -35,6 +39,8 @@ build/Release
 
 # Dependency directories
 /node_modules/
+
+
 jspm_packages/
 
 # Typescript v1 declaration files
@@ -57,15 +63,3 @@ typings/
 
 # dotenv environment variables file
 .env
-
-app/clientes.details.ts
-
-app/nuevoproducto/nuevoproducto.html
-
-app/nuevoproducto/nuevoproducto.component.ts
-
-app/clientes.details.js.map
-
-app/clientes.details.js.map
-
-app/clientes.details.js.map

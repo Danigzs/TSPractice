@@ -1,3 +1,4 @@
+
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
@@ -34,8 +35,12 @@ import {BordadoTipoComponent} from './../tecnicas config/bordado.config.tipo'
  import {AppConfigService} from './../appConfig/appConfig.service';
  import {ColoresService} from './../tecnicas config/colores.service';
 
+import { IMultiSelectOption } from 'angular-2-dropdown-multiselect';
 
  import {Bordado} from './bordado';
+
+
+/// Multiselect
 
 
 
@@ -49,6 +54,15 @@ import {BordadoTipoComponent} from './../tecnicas config/bordado.config.tipo'
  export class TecnicaBordadoComponent  implements OnInit {
     
    @Input() OnAddBordadoTecnica:Function;
+ 
+  
+  optionsModel: number[];
+    myOptions: IMultiSelectOption[];
+ 
+     
+    onChange() {
+        console.log(this.optionsModel);
+    }
 
 
    public bordado:Bordado;
@@ -86,9 +100,13 @@ import {BordadoTipoComponent} from './../tecnicas config/bordado.config.tipo'
      private _appConfigService: AppConfigService,
      private _coloresService: ColoresService,
      ) {
-   }
+   } 
 
    ngOnInit() {
+        this.myOptions = [
+            { id: 1, name: 'Option 1' },
+            { id: 2, name: 'Option 2' },
+        ];
      this.bordado = new Bordado();
      this.bordadoTypeSelected = new BordadoTipo();
      this.bordadoSizeSelected = new BordadoSize();
