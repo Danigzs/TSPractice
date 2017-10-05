@@ -95,7 +95,7 @@
           <td>{{precios.tintas}}</td>
           <td>{{precios.prendaDe}}</td>
           <td>{{precios.prendaHasta}}</td>
-          <td>{{precios.costo}}</td>
+          <td>{{precios.costo | currency:'USD':true}}</td>
         </tr>
 
       </table>
@@ -105,5 +105,5 @@
     
   </div>
 
-  <editseller [seller]="editSellerSelected" (onCloseEdit)="onCloseEdit()" *ngIf="showEditSeller"></editseller>
+  
 </div>
