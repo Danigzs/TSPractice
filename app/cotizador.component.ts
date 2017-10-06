@@ -183,7 +183,7 @@ export class CotizadorComponent implements OnInit {
   }
 
   OnAddBordadoTecnica(bordado:Bordado){
-    
+    debugger
     this.closeMaquilas()
     this.order.tecnicaBordados.push(bordado.copyNewTecnica());
   }

@@ -1,5 +1,6 @@
 
 import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/forkJoin'
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
@@ -35,12 +36,12 @@ import {BordadoTipoComponent} from './../tecnicas config/bordado.config.tipo'
  import {AppConfigService} from './../appConfig/appConfig.service';
  import {ColoresService} from './../tecnicas config/colores.service';
 
-import { IMultiSelectOption } from 'angular-2-dropdown-multiselect';
+ import { IMultiSelectOption,IMultiSelectTexts } from 'angular-2-dropdown-multiselect';
 
  import {Bordado} from './bordado';
 
 
-/// Multiselect
+ /// Multiselect
 
 
 
@@ -52,17 +53,25 @@ import { IMultiSelectOption } from 'angular-2-dropdown-multiselect';
 
  })
  export class TecnicaBordadoComponent  implements OnInit {
-    
+
    @Input() OnAddBordadoTecnica:Function;
- 
-  
-  optionsModel: number[];
-    myOptions: IMultiSelectOption[];
- 
-     
-    onChange() {
-        console.log(this.optionsModel);
-    }
+
+
+   
+   colorOptions: any[];
+   // Text configuration
+    multiConfig: IMultiSelectTexts = {
+      checkAll: 'Seleccionar todos',
+      uncheckAll: 'Deseleccionar todos',
+      checked: 'color seleccionado',
+      checkedPlural: 'colores seleccionados',
+      searchPlaceholder: 'Buscar',
+      searchEmptyResult: 'Vacío...',
+      defaultTitle: 'Colores',
+      allSelected: 'Todos seleccionados',
+    };
+
+
 
 
    public bordado:Bordado;
@@ -89,7 +98,7 @@ import { IMultiSelectOption } from 'angular-2-dropdown-multiselect';
    bordadoPositionSelected = new Posiciones;
    appConfigSelected = new AppConfig;
    appConfig = new AppConfig;
-   bordadoColoresSelected = new Colores;
+   bordadoColoresSelected = new Array<Colores>();
 
    bordadotipoSelected = new BordadoTipo;
    constructor(
@@ -103,17 +112,14 @@ import { IMultiSelectOption } from 'angular-2-dropdown-multiselect';
    } 
 
    ngOnInit() {
-        this.myOptions = [
-            { id: 1, name: 'Option 1' },
-            { id: 2, name: 'Option 2' },
-        ];
+     this.colorOptions = [ ];
      this.bordado = new Bordado();
      this.bordadoTypeSelected = new BordadoTipo();
      this.bordadoSizeSelected = new BordadoSize();
      this.bordadoPositionSelected = new Posiciones();
      this.bordadoStitchSelected= new BordadoPuntadas();
      this.appConfigSelected = new AppConfig();
-     this.bordadoColoresSelected = new Colores();
+     this.bordadoColoresSelected = new Array<Colores>();
      this.bordado.cantidad = 1;
 
      this.bordado.bType = this.bordadoTypeSelected;
@@ -136,7 +142,8 @@ import { IMultiSelectOption } from 'angular-2-dropdown-multiselect';
        }
        if (this.bordadoColores.length > 0)
        { 
-         this.bordadoColoresSelected = this.bordadoColores[0];
+         this.bordadoColoresSelected  = []
+         this.bordadoColoresSelected.push(this.bordadoColores[0]);
        }
 
 
@@ -144,11 +151,12 @@ import { IMultiSelectOption } from 'angular-2-dropdown-multiselect';
          this.bordadoStitchSelected = this.bordadoStitches[0];
 
        this.bordado.bType = this.bordadoTypeSelected;
-     this.bordado.bSize = this.bordadoSizeSelected;
-     this.bordado.bPosition = this.bordadoPositionSelected;
-     this.bordado.bStitches = this.bordadoStitchSelected;
-     this.bordado.bColores = this.bordadoColoresSelected;
+       this.bordado.bSize = this.bordadoSizeSelected;
+       this.bordado.bPosition = this.bordadoPositionSelected;
+       this.bordado.bStitches = this.bordadoStitchSelected;
+       this.bordado.bColores = this.bordadoColoresSelected;
 
+       this.colorOptions = this.bordadoColores.map((color,index) =>  ({id : color._id , name :color.color}));
        this.bordado.calculateBordadoPrice();
 
      })
@@ -171,12 +179,12 @@ import { IMultiSelectOption } from 'angular-2-dropdown-multiselect';
 
    }
    selectBordadoColores(event:Event){
-     
+
    }
 
 
    addBordadoTecnica(){
-     
+
      this.bordado.bType = this.bordadoTypeSelected;
      this.bordado.bPosition = this.bordadoPositionSelected;
      this.bordado.bStitches = this.bordadoStitchSelected;

@@ -39,7 +39,7 @@ export class Bordado {
   bStitches:BordadoPuntadas;
   bSize:BordadoSize;
   bPosition:Posiciones;
-  bColores:Colores;
+  bColores:Array<Colores>;
   constructor() {
     this.size = "";
     this.position = "";
@@ -52,7 +52,7 @@ export class Bordado {
     this.bStitches = new BordadoPuntadas()
     this.bSize = new BordadoSize()
     this.bPosition = new Posiciones()
-    this.bColores = new Colores()
+    this.bColores = new Array<Colores>()
     
   } 
   calculateBordadoPrice(){
