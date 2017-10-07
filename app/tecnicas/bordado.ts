@@ -108,4 +108,8 @@ export class Bordado {
 
   }
 
+  getColores() {
+    return this.bColores.join(',');
+  }
+
 }

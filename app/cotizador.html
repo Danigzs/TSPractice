@@ -329,7 +329,7 @@
             <td>{{tecnicaBordado.bSize.size}} </td>
             <td>{{tecnicaBordado.puntadas}} </td>
             <td>{{tecnicaBordado.price | currency:'USD':true}}</td>
-            <td>{{tecnicaBordado.bColores.color}}</td>
+            <td>{{tecnicaBordado.getColores()}}</td>
             <td>{{tecnicaBordado.price*tecnicaBordado.cantidad | currency:'USD':true}}</td>
 
           </tr>
