@@ -73,6 +73,8 @@ import {UbicacionComponent} from './tecnicas config/ubicaciones.config';
 import {UbicacionesService} from './tecnicas config/ubicaciones.service';
 import {SerigrafiaPrecioBordesaService} from './tecnicas config/serigrafia.precioBordesa.service'
 import {SerigrafiaPrecioBordesaComponent} from './tecnicas config/serigrafia.config.precioBordesa'
+import {SerigrafiaPrecioClienteService} from './tecnicas config/serigrafia.precioCliente.service'
+import {SerigrafiaPrecioClienteComponent} from './tecnicas config/serigrafia.config.precioCliente'
 
 
 
@@ -117,7 +119,9 @@ const appRoutes: Routes = [
   { path: 'posiciones', component: PosicionComponent},
   { path: 'bordado-colores', component: ColoresComponent},
   { path: 'ubicaciones', component: UbicacionComponent},
-  { path: 'serigrafia-preciobordesa', component: SerigrafiaPrecioBordesaComponent}  
+  { path: 'serigrafia-preciobordesa', component: SerigrafiaPrecioBordesaComponent}, 
+  { path: 'serigrafia-preciocliente', component: SerigrafiaPrecioClienteComponent}
+
 
 ];
 
@@ -169,7 +173,8 @@ const appRoutes: Routes = [
   PosicionComponent,
   ColoresComponent,
   UbicacionComponent,
-  SerigrafiaPrecioBordesaComponent
+  SerigrafiaPrecioBordesaComponent,
+  SerigrafiaPrecioClienteComponent
   ],
   providers : [  AuthGuard,CotizadorService, 
     ClienteService, ProductoService, TecnicaService,
@@ -177,7 +182,7 @@ const appRoutes: Routes = [
     RoleService,RegisterService, BordadoService, SerigrafiaService,
     SublimadoService, TransferService,UbicacionesService, BordadoSizeService,ColoresComponent, 
     BordadoPuntadasService, BordadoTipoService,AppConfigService,
-    SerigrafiaPrecioBordesaService,PosicionesService,ColoresService],
+    SerigrafiaPrecioBordesaService,PosicionesService,ColoresService,SerigrafiaPrecioClienteService],
   bootstrap:    [ AppComponent]
 })
 export class AppModule { }

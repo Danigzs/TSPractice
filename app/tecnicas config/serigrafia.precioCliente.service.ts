@@ -4,27 +4,27 @@ import { Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-import { serigrafiaPrecioCliente } from './serigrafiaPrecioCliente';
+import { SerigrafiaPrecioCliente } from './serigrafiaPrecioCliente';
 @Injectable()
-export class SerigrafiaPrecioBordesaService {
-    serigrafiaPrecioBordesa:Array<serigrafiaPrecioCliente>;
+export class SerigrafiaPrecioClienteService {
+    serigrafiapreciocliente:Array<SerigrafiaPrecioCliente>;
     
-     private url = 'http://localhost:8000/api/SerigrafiaPrecioCliente ';  // URL to web API
+     private url = 'http://localhost:8000/api/serigrafiaPrecioCliente ';  // URL to web API
 
 constructor (private http: Http) {}
  
-  getTecnicas(): Observable<Array<serigrafiaPrecioCliente>> {
+  getTecnicas(): Observable<Array<SerigrafiaPrecioCliente>> {
     
     return this.http.get(this.url)
                     .map(this.extractData)
                     .catch(this.handleError);
   }
-  addTecnica(serigrafiaPrecioBordesa:serigrafiaPrecioCliente): Observable<Array<SerigrafiaPrecioBordesa>> {
+  addTecnica(serigrafiaPrecioCliente:SerigrafiaPrecioCliente): Observable<Array<SerigrafiaPrecioCliente>> {
      let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
    
-    return this.http.post(this.url,serigrafiaPrecioBordesa,options)
+    return this.http.post(this.url,serigrafiaPrecioCliente,options)
                     .map(this.extractData)
                     .catch(this.handleError);
   }
@@ -32,7 +32,7 @@ constructor (private http: Http) {}
     
     let data = res.json();
     
-    return data.serigrafiaPrecioBordesa || { };
+    return data.serigrafiaPrecioCliente || { };
   }
     private handleError (error: Response | any) {
     // In a real world app, you might use a remote logging infrastructure

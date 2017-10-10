@@ -1,4 +1,4 @@
-export class serigrafiaPrecioCliente {
+export class SerigrafiaPrecioCliente {
 
 
 
