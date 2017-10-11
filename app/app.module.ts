@@ -75,6 +75,8 @@ import {SerigrafiaPrecioBordesaService} from './tecnicas config/serigrafia.preci
 import {SerigrafiaPrecioBordesaComponent} from './tecnicas config/serigrafia.config.precioBordesa'
 import {SerigrafiaPrecioClienteService} from './tecnicas config/serigrafia.precioCliente.service'
 import {SerigrafiaPrecioClienteComponent} from './tecnicas config/serigrafia.config.precioCliente'
+import {SerigrafiaTamañoComponent} from './tecnicas config/serigrafia.config.size';
+
 
 
 
@@ -120,8 +122,8 @@ const appRoutes: Routes = [
   { path: 'bordado-colores', component: ColoresComponent},
   { path: 'ubicaciones', component: UbicacionComponent},
   { path: 'serigrafia-preciobordesa', component: SerigrafiaPrecioBordesaComponent}, 
-  { path: 'serigrafia-preciocliente', component: SerigrafiaPrecioClienteComponent}
-
+  { path: 'serigrafia-preciocliente', component: SerigrafiaPrecioClienteComponent},
+  { path: 'serigrafia-size', component: SerigrafiaTamañoComponent},
 
 ];
 
@@ -174,7 +176,8 @@ const appRoutes: Routes = [
   ColoresComponent,
   UbicacionComponent,
   SerigrafiaPrecioBordesaComponent,
-  SerigrafiaPrecioClienteComponent
+  SerigrafiaPrecioClienteComponent,
+  SerigrafiaTamañoComponent
   ],
   providers : [  AuthGuard,CotizadorService, 
     ClienteService, ProductoService, TecnicaService,

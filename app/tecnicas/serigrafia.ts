@@ -1,10 +1,40 @@
+
+import {Observable} from 'rxjs/Observable';
+import {
+  Component,
+  OnInit,
+  ElementRef,
+  ViewChild,
+  Input,
+  Output,
+  EventEmitter,
+  ViewContainerRef
+} from '@angular/core';
+import {SerigrafiaTipoTinta} from './../tecnicas config/SerigrafiaTipoTinta';
+import {Ubicaciones} from './../tecnicas config/ubicaciones';
+import {SerigrafiaPrecioBordesa} from './../tecnicas config/serigrafiaPrecioBordesa';
+import {SerigrafiaPrecioCliente} from './../tecnicas config/serigrafiaPrecioCliente';
+import {AppConfig} from './../appConfig/appConfig';
+import {AppConfigService} from './../appConfig/appConfig.service';
+
+
+@Component({
+  
+  providers: [AppConfigService],
+ 
+
+})
+
 export class Serigrafia {
   _id: string; 
   size: string; 
   position: string;
   price: number;
-  colores:string;
   tintas:number
+
+bInk:SerigrafiaTipoTinta;
+
+
   constructor() {
     this.size = "";
     this.position = "";
