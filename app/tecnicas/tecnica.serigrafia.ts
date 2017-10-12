@@ -75,6 +75,7 @@ export class TecnicaSerigrafiaComponent  {
    serigrafiaUbicationSelected = new Ubicaciones;
    serigrafiaBordesaPriceSelected = new SerigrafiaPrecioBordesa;
    serigrafiaClientePriceSelected = new SerigrafiaPrecioCliente;
+   serigrafiaSizeSelected = new SerigrafiaSize;
 
    constructor(private  _tecnicaService: TecnicaService,
     private _serigrafiaInkTypeService: SerigrafiaTipoTintaService,
@@ -94,9 +95,15 @@ export class TecnicaSerigrafiaComponent  {
    this.serigrafiaUbicationSelected = new Ubicaciones;
    this.serigrafiaBordesaPriceSelected = new SerigrafiaPrecioBordesa;
    this.serigrafiaClientePriceSelected = new SerigrafiaPrecioCliente;
+   this.serigrafiaSizeSelected = new SerigrafiaSize;
    
 
-   this.serigrafia.bInkType = this.serigrafiaInkTypeSelected;
+   this.serigrafia.bInk = this.serigrafiaInkTypeSelected;
+   this.serigrafia.bUbication = this.serigrafiaUbicationSelected;
+   this.serigrafia.bBordesaPrice = this.serigrafiaBordesaPriceSelected;
+   this.serigrafia.bClientePrice = this.serigrafiaClientePriceSelected;
+   this.serigrafia.bSize = this.serigrafiaSizeSelected;
+
    
    
   }

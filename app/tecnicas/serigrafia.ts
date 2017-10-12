@@ -34,6 +34,10 @@ export class Serigrafia {
   tintas:number
 
 bInk:SerigrafiaTipoTinta;
+bUbication: Ubicaciones;
+bBordesaPrice: SerigrafiaPrecioBordesa;
+bClientePrice: SerigrafiaPrecioCliente;
+bSize: SerigrafiaSize;
 
 
   constructor() {
@@ -41,6 +45,7 @@ bInk:SerigrafiaTipoTinta;
     this.position = "";
     this.price = 0.0;
     this.tintas = 0.0;
+    
   } 
   setTecnica(size:string,position:string,price:number,tintas:number){
     
