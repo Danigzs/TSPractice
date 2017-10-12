@@ -24,6 +24,7 @@ import {UbicacionesService} from './../tecnicas config/ubicaciones.service';
 import {SerigrafiaTipoTintaService} from './../tecnicas config/SerigrafiaTipoTinta.service';
 import {SerigrafiaPrecioBordesaService} from './../tecnicas config/serigrafia.PrecioBordesa.service';
 import {SerigrafiaPrecioClienteService} from './../tecnicas config/serigrafia.PrecioCliente.service';
+import {SerigrafiaSizeService} from './../tecnicas config/serigrafiaSize.service';
 
 /**
  * Config serigrafia  - Models
@@ -32,6 +33,7 @@ import {SerigrafiaTipoTinta} from './../tecnicas config/SerigrafiaTipoTinta';
 import {Ubicaciones} from './../tecnicas config/ubicaciones';
 import {SerigrafiaPrecioBordesa} from './../tecnicas config/serigrafiaPrecioBordesa';
 import {SerigrafiaPrecioCliente} from './../tecnicas config/serigrafiaPrecioCliente';
+import {SerigrafiaSize} from './../tecnicas config/serigrafiaSize';
 import {AppConfig} from './../appConfig/appConfig';
 
 

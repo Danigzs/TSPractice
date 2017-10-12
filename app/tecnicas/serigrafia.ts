@@ -15,6 +15,7 @@ import {Ubicaciones} from './../tecnicas config/ubicaciones';
 import {SerigrafiaPrecioBordesa} from './../tecnicas config/serigrafiaPrecioBordesa';
 import {SerigrafiaPrecioCliente} from './../tecnicas config/serigrafiaPrecioCliente';
 import {AppConfig} from './../appConfig/appConfig';
+import {SerigrafiaSize} from './../tecnicas config/serigrafiaSize';
 import {AppConfigService} from './../appConfig/appConfig.service';
 
 
