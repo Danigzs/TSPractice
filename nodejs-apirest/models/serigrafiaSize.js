@@ -14,6 +14,6 @@ var serigrafiasizeSchema = new Schema({
 
 });
 
-serigrafiasizeSchema.plugin(autoIncrement.plugin, 'Size');
-module.exports = mongoose.model('Size', serigrafiasizeSchema);
+serigrafiasizeSchema.plugin(autoIncrement.plugin, 'serigrafiaSize');
+module.exports = mongoose.model('serigrafiaSize', serigrafiasizeSchema);
 

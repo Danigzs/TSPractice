@@ -6,42 +6,42 @@ import {
     Input,    
     ViewContainerRef
   } from '@angular/core';
-  import {BordadoSizeService} from './BordadoSize.service';
-  import {BordadoSize} from './BordadoSize';
+  import {SerigrafiaSizeService} from './serigrafiaSize.service';
+  import {SerigrafiaSize} from './serigrafiaSize';
   import {AppConfig} from './../appConfig/appConfig';
   
   
   
   @Component({
     selector: 'serigrafia-size',
-      providers: [BordadoSizeService],
+      providers: [SerigrafiaSizeService],
     styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
-    templateUrl: "./app/tecnicas config/bordado.config.size.html"
+    templateUrl: "./app/tecnicas config/serigrafia.config.size.html"
          
   })
   export class SerigrafiaTamañoComponent  {
     @Input() appConfig:  AppConfig  ;    
-    public bordadosize:BordadoSize;
-    public bordados: Array < BordadoSize > ;
-    constructor(private  _bordadoService: BordadoSizeService) {
+    public serigrafiasize:SerigrafiaSize;
+    public serigrafias: Array < SerigrafiaSize > ;
+    constructor(private  _bordadoService: SerigrafiaSizeService) {
     }
   
     ngOnInit() {
-     this. bordadosize = new BordadoSize();
+     this. serigrafiasize = new SerigrafiaSize();
      this.reloadTecnicas();
     }
   
     reloadTecnicas(){
-        this.bordadosize = new BordadoSize();
+        this.serigrafiasize = new SerigrafiaSize();
         this._bordadoService.getTecnicas().subscribe(
        data => {
-         this.bordados = data;
+         this.serigrafias = data;
        }
      )
     }
     agregarTecnica(){
       
-      this._bordadoService.addTecnica(this.bordadosize).subscribe(
+      this._bordadoService.addTecnica(this.serigrafiasize).subscribe(
         data => {
       this.reloadTecnicas();
   
@@ -50,7 +50,7 @@ import {
     }
     updateTecnica()
       {
-         this._bordadoService.addTecnica(this.bordadosize).subscribe(
+         this._bordadoService.addTecnica(this.serigrafiasize).subscribe(
         data => {
           this.reloadTecnicas();
         }

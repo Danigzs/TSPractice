@@ -1,9 +1,11 @@
 <ul class="nav nav-tabs">
     
-   <li><a [ngClass]="{'tab-selected': showBordado,'tab-no-selected':!showBordado}"  style="cursor:pointer"  (click)="showBordado=true;showSerigrafia=false;showSublimado=false;showPrecioCliente=false;">Tipos de tintas</a></li>
-   <li><a [ngClass]="{'tab-selected': showSerigrafia,'tab-no-selected':!showSerigrafia}"  style="cursor:pointer" (click)="showBordado=false;showSerigrafia=true;showSublimado=false;showPrecioCliente=false;">Ubicaciones</a></li>
-   <li><a [ngClass]="{'tab-selected': showSublimado,'tab-no-selected':!showSublimado}"  style="cursor:pointer"  (click)="showBordado=false;showSerigrafia=false;showSublimado=true;showPrecioCliente=false;">Precios maquila</a></li>
-   <li><a [ngClass]="{'tab-selected': showPrecioCliente,'tab-no-selected':!showPrecioCliente}"  style="cursor:pointer"  (click)="showBordado=false;showSerigrafia=false;showSublimado=false;showPrecioCliente=true;">Precios serigrafia</a></li>
+   <li><a [ngClass]="{'tab-selected': showBordado,'tab-no-selected':!showBordado}"  style="cursor:pointer"  (click)="showBordado=true;showSerigrafia=false;showSublimado=false;showPrecioCliente=false;showSize=false;">Tipos de tintas</a></li>
+   <li><a [ngClass]="{'tab-selected': showSerigrafia,'tab-no-selected':!showSerigrafia}"  style="cursor:pointer" (click)="showBordado=false;showSerigrafia=true;showSublimado=false;showPrecioCliente=false;showSize=false;">Ubicaciones</a></li>
+   <li><a [ngClass]="{'tab-selected': showSublimado,'tab-no-selected':!showSublimado}"  style="cursor:pointer"  (click)="showBordado=false;showSerigrafia=false;showSublimado=true;showPrecioCliente=false;showSize=false;">Precios maquila</a></li>
+   <li><a [ngClass]="{'tab-selected': showPrecioCliente,'tab-no-selected':!showPrecioCliente}"  style="cursor:pointer"  (click)="showBordado=false;showSerigrafia=false;showSublimado=false;showPrecioCliente=true;showSize=false;">Precios serigrafia</a></li>
+   <li><a [ngClass]="{'tab-selected': showSize,'tab-no-selected':!showSize}"  style="cursor:pointer"  (click)="showBordado=false;showSerigrafia=false;showSublimado=false;showPrecioCliente=false;showSize=true;">Tamaños</a></li>
+   
   </ul>
 <div>
     <h1>Precio Base: {{appConfig.serigrafia | currency:'USD':true}}</h1> 
@@ -23,5 +25,8 @@
   </div>
   <div style="cursor:pointer;width:100%;height:300px;" *ngIf="showPrecioCliente">
     <serigrafia-preciocliente></serigrafia-preciocliente>
+   </div>
+   <div style="cursor:pointer;width:100%;height:300px;" *ngIf="showSize">
+    <serigrafia-size></serigrafia-size>
    </div>
 </div>

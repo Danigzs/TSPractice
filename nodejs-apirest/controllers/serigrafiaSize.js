@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
-var BordadoSize = mongoose.model('Size');
+var SerigrafiaSize = mongoose.model('serigrafiaSize');
 
 //GET - Return all registers
 exports.findAll = function (req, res) {
 
-  BordadoSize.find(function (err, bordadoSize) {
+  SerigrafiaSize.find(function (err, serigrafiaSize) {
     if (err) res.send(500, err.message);
     console.log('GET /serigrafiaSize')
     res.status(200).json({
