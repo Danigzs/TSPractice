@@ -103,6 +103,10 @@ export class TecnicaSerigrafiaComponent  {
    this.serigrafia.bBordesaPrice = this.serigrafiaBordesaPriceSelected;
    this.serigrafia.bClientePrice = this.serigrafiaClientePriceSelected;
    this.serigrafia.bSize = this.serigrafiaSizeSelected;
+   this.serigrafia.calculateBordadoPrice();
+   this.getSerigrafiaData().then(res=>{
+     
+   })
 
    
    

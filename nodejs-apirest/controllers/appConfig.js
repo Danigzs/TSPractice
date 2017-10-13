@@ -53,11 +53,11 @@ exports.update = function (req, res) {
       if(req.body.serigrafia)
         appConfig.serigrafia = req.body.serigrafia;
       if(req.body.sublimado)
-        appConfig.sublimado = req.body.sublimado; 
+        appConfig.sublimado = req.body.sublimado;  
         if(req.body.revelado)
         appConfig.revelado = req.body.revelado; 
-        if(req.body.sublimado)
-        appConfig.revelado = req.body.revelado; 
+        if(req.body.presecado)
+        appConfig.presecado = req.body.presecado; 
       appConfig.save(function (err) {
       
         if (err) return res.send(500, err.message);
