@@ -96,7 +96,6 @@ export class TecnicaSerigrafiaComponent  {
    this.serigrafiaClientePriceSelected = new SerigrafiaPrecioCliente;
    
 
-   this.serigrafia.bInkType = this.serigrafiaInkTypeSelected;
    
    
   }
