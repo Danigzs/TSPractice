@@ -33,6 +33,11 @@ export class Serigrafia {
   tintas:number
 
 bInk:SerigrafiaTipoTinta;
+bInkType: SerigrafiaTipoTinta;
+bUbications:Ubicaciones;
+bSize:SerigrafiaSize;
+bBordesaPrice:SerigrafiaPrecioBordesa;
+bClientePrice:SerigrafiaPrecioCliente;
 
 
   constructor() {
@@ -40,6 +45,12 @@ bInk:SerigrafiaTipoTinta;
     this.position = "";
     this.price = 0.0;
     this.tintas = 0.0;
+    this.bInk  = new SerigrafiaTipoTinta();
+    this.bInkType  = new SerigrafiaTipoTinta();
+    this.bUbications  = new Ubicaciones();
+    this.bSize  = new SerigrafiaSize();
+    this.bBordesaPrice   = new SerigrafiaPrecioBordesa();
+    this.bClientePrice   = new SerigrafiaPrecioCliente();
   } 
   setTecnica(size:string,position:string,price:number,tintas:number){
     
@@ -54,6 +65,14 @@ bInk:SerigrafiaTipoTinta;
     _serigrafia.position = this.position;
     _serigrafia.price = this.price;
     _serigrafia.tintas=this.tintas
+    
+    _serigrafia.bInk=this.bInk;
+    _serigrafia.bInkType=this.bInkType;
+    _serigrafia.bUbications=this.bUbications;
+    _serigrafia.bSize=this.bSize;
+    _serigrafia.bBordesaPrice=this.bBordesaPrice;
+    _serigrafia.bClientePrice=this.bClientePrice;
+    
     
     return _serigrafia
   }

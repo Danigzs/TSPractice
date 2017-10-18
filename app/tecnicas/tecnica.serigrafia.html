@@ -30,24 +30,29 @@
 
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-            <select type="text" name="name" [(ngModel)]="tecnica.position">
-           </select>
+            <select type="text" name="bordado" [(ngModel)]="serigrafiaUbicationSelected" (ngModelChange)="selectSerigrafiaSize($event)">
+               <option *ngFor="let serigrafiaUbication of serigrafiaUbications" [ngValue]="serigrafiaUbication" >
+                 {{serigrafiaUbication.ubicaciones}}
+                </option>
+            </select>
           </div>
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-            <select type="text" name="subType" [(ngModel)]="tecnica.colores">
-           </select>
+            <select type="text" name="bordado" [(ngModel)]="serigrafiaInkTypeSelected" (ngModelChange)="selectSerigrafiaInkType($event)">
+               <option *ngFor="let serigrafiaInkType of serigrafiaInkTypes" [ngValue]="serigrafiaInkType" >
+                 {{serigrafiaInkType.tipotinta}}
+                </option>
+            </select>
           </div>
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-            <select type="text" name="size" [(ngModel)]="tecnica.size">
-             <option>Escudo</option>
-             <option>Carta</option>
-             <option>Grande</option>
-             <option>Chico</option>
-          </select>
+            <select type="text" name="bordado" [(ngModel)]="serigrafiaSizeSelected" (ngModelChange)="selectSerigrafiaSize($event)">
+               <option *ngFor="let serigrafiaSize of serigrafiaSizes" [ngValue]="serigrafiaSize" >
+                 {{serigrafiaSize.size}}
+                </option>
+            </select>
           </div>
         </div>
       </div>
@@ -72,7 +77,7 @@
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             <div class="example-full-width">
-              <input type="number" name="price" [(ngModel)]="tecnica.price" >
+              <input type="number" name="price" [(ngModel)]="serigrafia.price" >
             </div>
           </div>
 
