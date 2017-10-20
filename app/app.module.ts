@@ -77,6 +77,11 @@ import {SerigrafiaPrecioClienteService} from './tecnicas config/serigrafia.preci
 import {SerigrafiaPrecioClienteComponent} from './tecnicas config/serigrafia.config.precioCliente'
 import {SerigrafiaTamañoComponent} from './tecnicas config/serigrafia.config.size';
 import {SerigrafiaSizeService} from './tecnicas config/serigrafiaSize.service';
+import {SublimadoPrecioComponent} from './tecnicas config/sublimado.config.precio';
+import {SublimadoPrecioService} from './tecnicas config/sublimadoPrecio.service';
+import {SublimadoSizeService} from './tecnicas config/sublimadoSize.service';
+import {SublimadoSizeComponent} from './tecnicas config/sublimado.config.size';
+
 
 
 
@@ -124,7 +129,9 @@ const appRoutes: Routes = [
   { path: 'serigrafia-preciobordesa', component: SerigrafiaPrecioBordesaComponent}, 
   { path: 'serigrafia-preciocliente', component: SerigrafiaPrecioClienteComponent},
   { path: 'serigrafia-size', component: SerigrafiaTamañoComponent},
-
+  { path: 'sublimado-precio', component: SublimadoPrecioComponent},
+  { path: 'sublimado-precio', component: SublimadoPrecioComponent},
+  { path: 'sublimado-size', component: SublimadoSizeComponent},
 ];
 
 
@@ -177,15 +184,18 @@ const appRoutes: Routes = [
   UbicacionComponent,
   SerigrafiaPrecioBordesaComponent,
   SerigrafiaPrecioClienteComponent,
-  SerigrafiaTamañoComponent
+  SerigrafiaTamañoComponent,
+  SublimadoPrecioComponent,
+  SublimadoSizeComponent,
   ],
   providers : [  AuthGuard,CotizadorService, 
     ClienteService, ProductoService, TecnicaService,
     SellerService,OrderService,DashboardService,PaymentService,
     RoleService,RegisterService, BordadoService, SerigrafiaService,
     SublimadoService, TransferService,UbicacionesService, BordadoSizeService,ColoresComponent, 
-    BordadoPuntadasService, BordadoTipoService,AppConfigService,
-    SerigrafiaPrecioBordesaService,SerigrafiaSizeService,PosicionesService,ColoresService,SerigrafiaPrecioClienteService],
+    BordadoPuntadasService, BordadoTipoService,AppConfigService,SublimadoPrecioService,
+    SerigrafiaPrecioBordesaService,SerigrafiaSizeService,SublimadoSizeService,
+    PosicionesService,ColoresService,SerigrafiaPrecioClienteService],
   bootstrap:    [ AppComponent]
 })
 export class AppModule { }

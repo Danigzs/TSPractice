@@ -1,13 +1,13 @@
 var mongoose = require('mongoose');
-var SerigrafiaPrecioCliente = mongoose.model('SerigrafiaPrecioCliente');
+var SublimadoPrecioMaquila = mongoose.model('SublimadoPrecioMaquila');
 
 //GET - Return all registers
 exports.findAll = function (req, res) {
-  SerigrafiaPrecioCliente.find(function (err, serigrafiaPrecioCliente) {
+  SublimadoPrecioMaquila.find(function (err, sublimadoPrecioMaquila) {
     if (err) res.send(500, err.message);
-    console.log('GET /serigrafiaPrecioCliente')
+    console.log('GET /sublimadoPrecioMaquila')
     res.status(200).json({
-      serigrafiaPrecioCliente: serigrafiaPrecioCliente
+      sublimadoPrecioMaquila: sublimadoPrecioMaquila
     });
 
   });
@@ -15,11 +15,11 @@ exports.findAll = function (req, res) {
 
 //GET - Return a register with specified ID
 exports.findById = function (req, res) {
-  SerigrafiaPrecioCliente.findById(req.params.id, function (err, serigrafiaPrecioCliente) {
+    SublimadoPrecio.findById(req.params.id, function (err, sublimadoPrecioMaquila) {
     if (err) return res.send(500, err.message);
-    console.log('GET /serigrafiaPrecioCliente/' + req.params.id);
+    console.log('GET /sublimadoPrecioMaquila/' + req.params.id);
     res.status(200).json({
-      serigrafiaPrecioCliente: serigrafiaPrecioCliente
+      sublimadoPrecioMaquila: sublimadoPrecioMaquila
     });
   });
 };
@@ -28,16 +28,15 @@ exports.findById = function (req, res) {
 exports.add = function (req, res) {
   console.log('POST');
   console.log(req.body);
-  var serigrafiaPrecioCliente = new SerigrafiaPrecioCliente({
-    tintas: req.body.tintas,
+  var sublimadoPrecioMaquila = new SublimadoPrecioMaquila({   
     prendaDe:req.body.prendaDe,
     prendaHasta:req.body.prendaHasta,
     costo:req.body.costo
   });
-  serigrafiaPrecioCliente.save(function (err, serigrafiaPrecioCliente) {
+  sublimadoPrecioMaquila.save(function (err, sublimadoPrecioMaquila) {
     if (err) return res.send(500, err.message);
     res.status(200).json({
-      serigrafiaPrecioCliente: serigrafiaPrecioCliente
+      sublimadoPrecioMaquila: sublimadoPrecioMaquila
     });
 
   });

@@ -23,7 +23,7 @@ export class SerigrafiaPrecioCliente {
           
         }
         copyNewTecnica(){
-          var _serigrafiapreciocliente= new serigrafiaPrecioCliente();
+          var _serigrafiapreciocliente= new SerigrafiaPrecioCliente();
           _serigrafiapreciocliente.tintas = this.tintas;
           _serigrafiapreciocliente.costo = this.costo;
           _serigrafiapreciocliente.prendaDe = this.prendaDe;

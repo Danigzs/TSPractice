@@ -6,33 +6,33 @@ import {
     Input,    
     ViewContainerRef
   } from '@angular/core';
-  import {SerigrafiaPrecioClienteService} from './serigrafia.precioCliente.service';
-  import {SerigrafiaPrecioCliente} from './serigrafiaPrecioCliente';
+  import {SublimadoPrecioService} from './sublimadoPrecio.service';
+  import {SublimadoPrecio} from './sublimadoPrecio';
   import {AppConfig} from './../appConfig/appConfig';
   
   
   
   @Component({
-    selector: 'serigrafia-preciocliente',
-      providers: [SerigrafiaPrecioClienteService],
+    selector: 'sublimado-precio',
+      providers: [SublimadoPrecioService],
     styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
-    templateUrl: "./app/tecnicas config/serigrafia.config.precioCliente.html"
+    templateUrl: "./app/tecnicas config/sublimado.config.precio.html"
          
   })
-  export class SerigrafiaPrecioClienteComponent  {
+  export class SublimadoPrecioComponent  {
     @Input() appConfig:  AppConfig  ;    
-    public precios:SerigrafiaPrecioCliente;
-    public precio: Array < SerigrafiaPrecioCliente > ;
-    constructor(private  _bordadoService: SerigrafiaPrecioClienteService) {
+    public precios:SublimadoPrecio;
+    public precio: Array < SublimadoPrecio > ;
+    constructor(private  _bordadoService: SublimadoPrecioService) {
     }
   
     ngOnInit() {
-     this. precios = new SerigrafiaPrecioCliente();
+     this. precios = new SublimadoPrecio();
      this.reloadTecnicas();
     }
   
     reloadTecnicas(){
-        this.precios = new SerigrafiaPrecioCliente();
+        this.precios = new SublimadoPrecio();
         this._bordadoService.getTecnicas().subscribe(
        data => {
          this.precio = data;
@@ -57,3 +57,5 @@ import {
       );
       }
   }
+  
+  

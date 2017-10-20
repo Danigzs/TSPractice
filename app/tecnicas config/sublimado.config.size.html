@@ -1,57 +1,73 @@
 <div class="c-div-bgr bar-margin">
     <div class="c-cliente-seccion">
-      <h1>Transfer</h1>
+      <h1>Tamaño</h1>
     </div>
   
+    <div class="c-div-container">
   
   
       <div class="c-container-info">
   
         <div class="c-container-info-column">
-  
           <div class="c-container-info-column-item-container">
             <div class="c-container-info-column-item-container info">
-              Tamaño/cm
+              Tamaño
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Coste %
             </div>
           </div>
   
-          <div class="c-container-info-column-item-container">
-            <div class="c-container-info-column-item-container info">
-              Posicion
-            </div>
-          </div>       
         </div>
   
         <div class="c-container-info-column">
   
           <div class="c-container-info-column-item-container">
             <div class="c-container-info-column-item-container info">
-              <input type="text" name="size">
+              <input type="text" name="name" [(ngModel)]="sublimadosize.size">
+  
             </div>
           </div>
           <div class="c-container-info-column-item-container">
             <div class="c-container-info-column-item-container info">
-              <select type="text" name="position" >
-             </select>
+              <input type="text" name="subType" [(ngModel)]="sublimadosize.costo">
             </div>
           </div>
   
         </div>
-       
   
         <div class="c-container-info-column data">
+  
           <div class="c-container-info-column-item-container">
             <div class="c-container-info-column-item-container info">
-              <div class="example-full-width">
-                <input type="number" name="price"  disabled>
-              </div>
+              Precio:
+              
             </div>
           </div>
+  
         </div>
-      </div>
-      <div class="c-add-product-container">
-        <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
-        <button type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Agregar Tecnica</button>
   
       </div>
+    </div>
+    <div class="c-add-product-container">
+      <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
+      <button type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Agregar</button>
+      <div class="c-grid-products">
+        <table class="table " id="tproductos">
+          <thead>
+            <tr>
+              <th>Tamaño</th>
+              <th>%</th>             
+            </tr>
+          </thead>
+          <tr *ngFor="let sublimadosize of sublimados; let i = index">
+            <td>{{sublimadosize.size}}</td>
+            <td>{{sublimadosize.costo}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
   

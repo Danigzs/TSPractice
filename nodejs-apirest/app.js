@@ -56,6 +56,9 @@ var modelColores = require('./models/colores')(app, mongoose);
 var modelubicaciones = require ('./models/ubicaciones')(app, mongoose);
 var modelserigrafiaPrecioBordesa = require('./models/serigrafiaPrecioBordesa')(app, mongoose);
 var modelserigrafiaSize = require('./models/serigrafiaSize')(app, mongoose);
+var modelsublimadoPrecio = require('./models/sublimadoPrecio')(app,mongoose);
+var modelsublimadoPrecioMaquila = require('./models/sublimadoPrecioMaquila')(app,mongoose);
+var modelsublimadoSize = require('./models/sublimadoSize')(app, mongoose);
 
 
 var ClientCtrl = require('./controllers/client');
@@ -84,6 +87,9 @@ var coloresCtrl = require ('./controllers/colores');
 var ubicacionesCtrl = require('./controllers/ubicaciones');
 var serigrafiaPrecioBordesaCtrl = require('./controllers/serigrafiaPrecioBordesa');
 var serigrafiaSizeCtrl = require('./controllers/serigrafiaSize');
+var sublimadoPrecioCtrl = require('./controllers/sublimadoPrecio');
+var sublimadoPrecioMaquilaCtrl = require('./controllers/sublimadoPrecioMaquila');
+var sublimadoSizeCtrl = require('./controllers/sublimadoSize');
 
 var OrderProductsCtrl = require('./controllers/orderProducts');
 
@@ -312,6 +318,28 @@ api.route('/products/:id')
 api.route('/serigrafiaSize/:id')
   .get(serigrafiaSizeCtrl.findById)
   .put(serigrafiaSizeCtrl.update)
+
+  api.route('/sublimadoPrecio')
+  .get(sublimadoPrecioCtrl.findAll)
+  .post(sublimadoPrecioCtrl.add)
+
+api.route('/sublimadoPrecio/:id')
+  .get(sublimadoPrecioCtrl.findById)
+  
+  api.route('/sublimadoPrecioMaquila')
+  .get(sublimadoPrecioMaquilaCtrl.findAll)
+  .post(sublimadoPrecioMaquilaCtrl.add)
+
+api.route('/sublimadoPrecioMaquila/:id')
+  .get(sublimadoPrecioMaquilaCtrl.findById)
+
+  api.route('/sublimadoSize')
+  .get(sublimadoSizeCtrl.findAll)
+  .post(sublimadoSizeCtrl.add)
+
+api.route('/sublimadoSize/:id')
+  .get(sublimadoSizeCtrl.findById)
+  .put(sublimadoSizeCtrl.update)  
 
 
 
