@@ -1,4 +1,4 @@
-export class SerigrafiaSize {
+export class TransferSize {
     
         costo: number;   
         size:string;
@@ -6,7 +6,7 @@ export class SerigrafiaSize {
     
           this.costo = 0.0;
           this.size="";
-        }
+        } 
         setTecnica(size:string,costo:number){
           
           
@@ -15,11 +15,11 @@ export class SerigrafiaSize {
           
         }
         copyNewTecnica(){
-          var _serigrafiasize= new SerigrafiaSize();
-          _serigrafiasize.size = this.size;
-          _serigrafiasize.costo = this.costo;
+          var _transfersize= new TransferSize();
+          _transfersize.size = this.size;
+          _transfersize.costo = this.costo;
         
           
-          return _serigrafiasize
+          return _transfersize
         }
       }
