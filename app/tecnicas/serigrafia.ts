@@ -64,15 +64,13 @@ bClientePrice:SerigrafiaPrecioCliente;
     _serigrafia.size = this.size;
     _serigrafia.position = this.position;
     _serigrafia.price = this.price;
-    _serigrafia.tintas=this.tintas
-    
+    _serigrafia.tintas=this.tintas;    
     _serigrafia.bInk=this.bInk;
     _serigrafia.bInkType=this.bInkType;
     _serigrafia.bUbications=this.bUbications;
     _serigrafia.bSize=this.bSize;
     _serigrafia.bBordesaPrice=this.bBordesaPrice;
-    _serigrafia.bClientePrice=this.bClientePrice;
-    
+    _serigrafia.bClientePrice=this.bClientePrice;   
     
     return _serigrafia
   }

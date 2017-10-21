@@ -54,10 +54,7 @@ import {AppConfig} from './../appConfig/appConfig';
 export class TecnicaSerigrafiaComponent  {  
  public tecnica:Tecnica;
  public serigrafia:Serigrafia;
-
   public tecnicas: Array < Tecnica > ;
-
-  public serigrafia:Serigrafia;
   public serigrafias: Array<Serigrafia>;
   
 
@@ -73,6 +70,7 @@ export class TecnicaSerigrafiaComponent  {
   public serigrafiaSizes: Array <SerigrafiaSize>;
   public serigrafiaBordesaPrice: Array <SerigrafiaPrecioBordesa>;
   public serigrafiaClientePrice: Array <SerigrafiaPrecioCliente>;
+
 
   /**
    * Config serigraph
@@ -127,7 +125,7 @@ export class TecnicaSerigrafiaComponent  {
 
        this.serigrafia.bInkType = this.serigrafiaInkTypeSelected;
        this.serigrafia.bUbications = this.serigrafiaUbicationSelected;
-       this.serigrafia.bSizes = this.serigrafiaSizeSelected;
+       this.serigrafia.bSize = this.serigrafiaSizeSelected;
        this.serigrafia.bBordesaPrice = this.serigrafiaBordesaPriceSelected;
        this.serigrafia.bClientePrice = this.serigrafiaClientePriceSelected;
 

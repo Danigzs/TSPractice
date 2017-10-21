@@ -3,9 +3,7 @@ import 'rxjs/add/observable/forkJoin'
 
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-
 import {Component,  OnInit,  ElementRef,  ViewChild,  ViewContainerRef} from '@angular/core';
-
 /*
     Objects
 */

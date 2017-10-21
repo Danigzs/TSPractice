@@ -3,23 +3,34 @@
     <h1>Sublimado</h1>
   </div>
 
+  <div class="c-div-container">
 
 
     <div class="c-container-info">
 
       <div class="c-container-info-column">
-
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-            Tamaño/cm
+            Posicion
           </div>
         </div>
 
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-            Posicion
+            Tamaño
           </div>
-        </div>       
+        </div>
+
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Cantidad
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Precio:
+          </div>
+        </div>
       </div>
 
       <div class="c-container-info-column">
@@ -32,14 +43,17 @@
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             <select type="text" name="position" [(ngModel)]="tecnica.position">
-           </select>
+            </select>
           </div>
         </div>
-
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <input type="number" name="size">
+          </div>
+        </div>
       </div>
-     
-
-      <div class="c-container-info-column data">
+    </div>
+    <!-- <div class="c-container-info-column data">
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             <div class="example-full-width">
@@ -47,10 +61,10 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="c-add-product-container">
-      <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
-      <button type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Agregar Tecnica</button>
+      </div> -->
+  </div>
+  <div class="c-add-product-container">
+    <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
+    <button type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Agregar Tecnica</button>
+  </div>
 
-    </div>

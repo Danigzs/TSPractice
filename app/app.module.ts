@@ -81,6 +81,8 @@ import {SublimadoPrecioComponent} from './tecnicas config/sublimado.config.preci
 import {SublimadoPrecioService} from './tecnicas config/sublimadoPrecio.service';
 import {SublimadoSizeService} from './tecnicas config/sublimadoSize.service';
 import {SublimadoSizeComponent} from './tecnicas config/sublimado.config.size';
+import {SublimadoPrecioMaquilaComponent} from './tecnicas config/sublimado.config.preciomaquila';
+import {SublimadoPrecioMaquilaService} from './tecnicas config/sublimadoPrecioMaquila.service';
 
 
 
@@ -130,7 +132,7 @@ const appRoutes: Routes = [
   { path: 'serigrafia-preciocliente', component: SerigrafiaPrecioClienteComponent},
   { path: 'serigrafia-size', component: SerigrafiaTamañoComponent},
   { path: 'sublimado-precio', component: SublimadoPrecioComponent},
-  { path: 'sublimado-precio', component: SublimadoPrecioComponent},
+  { path: 'sublimado-preciomaquila', component: SublimadoPrecioMaquilaComponent},
   { path: 'sublimado-size', component: SublimadoSizeComponent},
 ];
 
@@ -187,6 +189,7 @@ const appRoutes: Routes = [
   SerigrafiaTamañoComponent,
   SublimadoPrecioComponent,
   SublimadoSizeComponent,
+  SublimadoPrecioMaquilaComponent,
   ],
   providers : [  AuthGuard,CotizadorService, 
     ClienteService, ProductoService, TecnicaService,
@@ -195,7 +198,7 @@ const appRoutes: Routes = [
     SublimadoService, TransferService,UbicacionesService, BordadoSizeService,ColoresComponent, 
     BordadoPuntadasService, BordadoTipoService,AppConfigService,SublimadoPrecioService,
     SerigrafiaPrecioBordesaService,SerigrafiaSizeService,SublimadoSizeService,
-    PosicionesService,ColoresService,SerigrafiaPrecioClienteService],
+    PosicionesService,ColoresService,SerigrafiaPrecioClienteService,SublimadoPrecioMaquilaService],
   bootstrap:    [ AppComponent]
 })
 export class AppModule { }
