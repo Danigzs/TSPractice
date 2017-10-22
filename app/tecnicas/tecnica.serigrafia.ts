@@ -116,24 +116,10 @@ export class TecnicaSerigrafiaComponent  {
      if (this.serigrafiaSizes.length > 0){ 
        this.serigrafiaSizeSelected= this.serigrafiaSizes[0];
      }
-     if (this.serigrafiaBordesaPrice.length > 0)
-     { 
-       this.serigrafiaBordesaPriceSelected = this.serigrafiaBordesaPrice[0];
-     }
-     if (this.serigrafiaClientePrice.length > 0)
-       this.serigrafiaClientePriceSelected = this.serigrafiaClientePrice[0];
 
      this.serigrafia.bInkType = this.serigrafiaInkTypeSelected;
      this.serigrafia.bUbications = this.serigrafiaUbicationSelected;
      this.serigrafia.bSize = this.serigrafiaSizeSelected;
-     this.serigrafia.bBordesaPrice = this.serigrafiaBordesaPriceSelected;
-     this.serigrafia.bClientePrice = this.serigrafiaClientePriceSelected;
-
-     // this.bordado.bType = this.bordadoTypeSelected;
-     // this.bordado.bSize = this.bordadoSizeSelected;
-     // this.bordado.bPosition = this.bordadoPositionSelected;
-     // this.bordado.bStitches = this.bordadoStitchSelected;
-     // this.bordado.bColores = this.bordadoColoresSelected;
 
    })
 
@@ -147,8 +133,6 @@ export class TecnicaSerigrafiaComponent  {
        this._serigrafiaInkTypeService.getTecnicas(),
        this._serigrafiaUbicationsService.getTecnicas(),
        this._serigrafiaSizeServie.getTecnicas(),
-       // this._serigrafiaBordesaPriceService.getTecnicas(),
-       this._serigrafiaClientePriceService.getTecnicas(),
        this._appConfigService.getAppConfig()
 
        ).subscribe(
@@ -157,9 +141,7 @@ export class TecnicaSerigrafiaComponent  {
          this.serigrafiaInkTypes = results[0];
          this.serigrafiaUbications  = results[1];
          this.serigrafiaSizes  = results[2];
-         this.serigrafiaBordesaPrice  = results[3];
-         this.serigrafiaClientePrice = results[4];
-         this.appConfig = results[5];
+         this.appConfig = results[3];
 
 
          resolve(true)
@@ -171,16 +153,34 @@ export class TecnicaSerigrafiaComponent  {
  {
    if(this.serigrafia.quantity > 0 && this.serigrafia.tintas > 0 )
    {
-     this._serigrafiaBordesaPriceService.getInkQuantity(this.serigrafia.tintas,this.serigrafia.quantity).subscribe(
-       data => {
-           if(data.length >= 0)
-           {
-             this.serigrafia.price = data[0].costo;
-           }
-           else {
-             this.serigrafia.price = 0;
-           }
-       });
+     if(this.serigrafia.wItem == false){
+       this._serigrafiaBordesaPriceService.getInkQuantity(this.serigrafia.tintas,this.serigrafia.quantity).subscribe(
+         data => {
+             if(data.length > 0)
+             {
+               this.serigrafia.price = data[0].costo;
+             }
+             else {
+               this.serigrafia.price = 0;
+             }
+         });
+     }
+     else 
+     {
+       this._serigrafiaClientePriceService.getInkQuantityWItem(this.serigrafia.tintas,this.serigrafia.quantity).subscribe(
+         data => {
+             if(data.length > 0)
+             {
+               if(this.serigrafia.quantity >= 1 && this.serigrafia.quantity <= 60)
+                 this.serigrafia.price = data[0].costo + this.appConfig.presecado + this.appConfig.revelado;
+               else 
+                 this.serigrafia.price = data[0].costo ;
+             }
+             else {
+               this.serigrafia.price = 0;
+             }
+         });
+     }
    }
  } 
  reloadTecnicas(){

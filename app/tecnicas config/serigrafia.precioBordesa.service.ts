@@ -8,16 +8,15 @@ import 'rxjs/add/operator/map';
 import { SerigrafiaPrecioBordesa } from './serigrafiaPrecioBordesa';
 @Injectable()
 export class SerigrafiaPrecioBordesaService {
-    serigrafiaPrecioBordesa:Array<SerigrafiaPrecioBordesa>;
-    
-     private url = 'http://localhost:8000/api/SerigrafiaPrecioBordesa';  // URL to web API
-    private getInkQuantityUrl = 'http://localhost:8000/api/findByInkQuantity';  // URL to web API
-constructor (private http: Http) {}
- 
-  getInkQuantity(tintas:number, prendas:number): Observable<Array<SerigrafiaPrecioBordesa>> {
-     
+  serigrafiaPrecioBordesa:Array<SerigrafiaPrecioBordesa>;
 
-     let headers = new Headers({
+  private url = 'http://localhost:8000/api/SerigrafiaPrecioBordesa';  // URL to web API
+  private getInkQuantityUrl = 'http://localhost:8000/api/findByInkQuantity';  // URL to web API
+  
+  constructor (private http: Http) {}
+
+  getInkQuantity(tintas:number, prendas:number): Observable<Array<SerigrafiaPrecioBordesa>> {
+    let headers = new Headers({
       'Content-Type': 'application/json'
     });
     
@@ -27,31 +26,33 @@ constructor (private http: Http) {}
     options.search.append('tintas', tintas.toString());
     options.search.append('prendas', prendas.toString());
     return this.http.get(this.getInkQuantityUrl,options)
-                    .map(this.extractData)
-                    .catch(this.handleError);
+    .map(this.extractData)
+    .catch(this.handleError);
   }
+
+ 
 
   getTecnicas(): Observable<Array<SerigrafiaPrecioBordesa>> {
     return this.http.get(this.url)
-                    .map(this.extractData)
-                    .catch(this.handleError);
+    .map(this.extractData)
+    .catch(this.handleError);
   }
   addTecnica(serigrafiaPrecioBordesa:SerigrafiaPrecioBordesa): Observable<Array<SerigrafiaPrecioBordesa>> {
-     let headers = new Headers({ 'Content-Type': 'application/json' });
+    let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-   
+
     return this.http.post(this.url,serigrafiaPrecioBordesa,options)
-                    .map(this.extractData)
-                    .catch(this.handleError);
+    .map(this.extractData)
+    .catch(this.handleError);
   }
   private extractData(res: Response) {
-    
+
     let data = res.json();
     
     return data.serigrafiaPrecioBordesa || { };
   }
-    private handleError (error: Response | any) {
+  private handleError (error: Response | any) {
     // In a real world app, you might use a remote logging infrastructure
     let errMsg: string;
     if (error instanceof Response) {

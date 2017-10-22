@@ -280,6 +280,10 @@ api.route('/serigrafiaPrecioCliente')
   .get(serigrafiaPrecioClienteCtrl.findAll)
   .post(serigrafiaPrecioClienteCtrl.add)
 
+api.route('/findByInkQuantityWItem')
+.get(serigrafiaPrecioClienteCtrl.findByInkQuantityWItem)
+
+
 api.route('/serigrafiaPrecioCliente/:id')
   .get(serigrafiaPrecioClienteCtrl.findById)
 
