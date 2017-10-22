@@ -26,8 +26,7 @@
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-            <input type="checkbox" name="wItem" [(ngModel)]="serigrafia.wItem" (change)="getSerigrafiaValue()">
-            Con prenda
+            Precio
           </div>
         </div>
       </div>
@@ -61,6 +60,13 @@
             </select>
           </div>
         </div>
+        <div class="c-container-info-column-item-container">
+        <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <label >{{serigrafia.price| currency:'USD':true}}</label>
+            </div> 
+        </div>
+        </div>
       </div>
 
       <div class="c-container-info-column data">
@@ -79,7 +85,8 @@
 
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-            Precio: 
+            <input type="checkbox" name="wItem" [(ngModel)]="serigrafia.wItem" (change)="getSerigrafiaValue()">
+            Con prenda
           </div>
         </div>
 
@@ -97,12 +104,7 @@
               <input type="number" name="quantity" [(ngModel)]="serigrafia.quantity" (blur)="getSerigrafiaValue($event)" >
             </div> 
         </div>
-           <div class="c-container-info-column-item-container info">
-            <div class="example-full-width">
-              <!-- <input type="number" name="quantity" [(ngModel)]="serigrafia.quantity" (blur)="getSerigrafiaValue($event)" > -->
-              <label >{{serigrafia.price| currency:'USD':true}}</label>
-            </div> 
-        </div>
+           
       </div>
     </div>
     </div>

@@ -24,6 +24,12 @@
             Tamaño
           </div>
         </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Precio total
+          </div>
+        </div>
+        
 
 
 
@@ -59,7 +65,13 @@
               </select>
           </div>
         </div>
-
+        <div class="c-container-info-column-item-container">
+        <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <label >{{bordado.cantidad*( bordado.price + appConfig.bordado)| currency:'USD':true}}</label>
+            </div> 
+        </div>
+        </div>
 
       </div>
 
@@ -98,11 +110,6 @@
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             <div class="example-full-width">
-              <!-- <select type="text" name="bordadoStitch"  [(ngModel)]="bordadoStitchSelected" (ngModelChange)="selectBordadoStitch($event)">
-                    <option *ngFor="let bordadoStitch of bordadoStitches" [ngValue]="bordadoStitch" >
-                      {{bordadoStitch.nombre}}
-                     </option>
-                </select> -->
               <input type="number" name="price" [(ngModel)]="bordado.puntadas">
             </div>
           </div>
@@ -114,13 +121,14 @@
             </div>
           </div>
         </div>
+
+
       </div>
 
 
     </div>
     <div class="c-add-product-container">
-      <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
       <button type="button" class="btn btn-primary btn-md" (click)="addBordadoTecnica()">Agregar Tecnica</button>
-       Precio:{{bordado.cantidad*( bordado.price + appConfig.bordado)| currency:'USD':true}}
+       
     </div>
 

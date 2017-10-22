@@ -23,12 +23,6 @@
       <div class="op-stores-text"> TEL. 8007-9272 </div>
 
     </div>
-    <!--<div class="op-header-store ">
-      <div class="op-header-folio">
-        <div class="op-header-folio-text"> FOLIO:</div>
-        <div class="op-header-folio-body"> No. {{order.folio}} </div>
-      </div>
-    </div>-->
   </div>
   <div class="c-div-container">
 
@@ -284,7 +278,7 @@
             </tr>
           </thead>
           <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let producto of order.products; let i = index">
-            <td> <input type="number" name="quantity" [(ngModel)]="producto.quantity"></td>
+            <td> <input type="number" name="quantity" [(ngModel)]="producto.quantity" (blur)="calculateTotal()></td>
             <!--<td>{{producto.name}}</td>-->
             <td>{{producto.name}}. {{producto.description}}</td>
             <td>{{getProductPrice(producto)| currency:'USD':true}}</td>
@@ -310,28 +304,17 @@
           <thead>
             <tr>
               <th>CANTIDAD</th>
-              <th>Técnica</th>
-              <th>Descripción</th>
-              <!-- <th>TIPO BORDADO</th> -->
-              <!--<th>Tamaño</th>
-              <th>Posicion</th>-->
-              <!-- <th>POSICIÓN</th>
-              <th>TAMAÑO</th>
-              <th>PUNTADAS</th> -->
+              <th>TÉCNICA</th>
+              <th>DESCRIPCIÓN</th>
               <th>PRECIO</th>
-              <!-- <th>COLORES</th> -->
               <th>TOTAL</th>
-              <!--<th>Agregar Tecnicas</th>-->
             </tr>
           </thead>
           <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let grafico of order.graficos; let i = index">
-            <td> <input type="number" name="quantity" [(ngModel)]="grafico.quantity"></td>
+            <td> <input type="number" name="quantity" [(ngModel)]="grafico.quantity" (blur)="calculateTotal()"></td>
             <td>{{grafico.name}} </td>
             <td [innerHtml]="grafico.summary"> </td>
-            <!-- <td>{{tecnicaBordado.bSize.size}} </td>
-            <td>{{tecnicaBordado.puntadas}} </td> -->
             <td>{{grafico.price | currency:'USD':true}}</td>
-            <!-- <td>{{tecnicaBordado.getColores()}}</td> -->
             <td>{{grafico.price*grafico.quantity | currency:'USD':true}}</td>
 
           </tr>
@@ -369,7 +352,6 @@
             <tr>
               <th>Cantidad</th>
               <th>Codigo</th>
-              <!--<th>Nombre</th>-->
               <th>Descripcion</th>
               <th>Precio unitario</th>
               <th>Total</th>
@@ -378,7 +360,6 @@
           </thead>
           <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let producto of productos">
             <td> <input type="number" name="quantity" [(ngModel)]="producto.quantity" min="1"></td>
-            <!--<td>{{producto.name}}</td>-->
             <td>{{producto.code}}
               <td>{{producto.name}}. {{producto.description}}</td>
               <td>{{getProductPrice(producto) | currency:'USD':true}}</td>
@@ -393,12 +374,7 @@
   <div id="maquilasModal" class="modal" *ngIf="!maquilasModal">
     <!-- Modal content -->
     <div class="modal-content">
-
-
-
       <span class="close" (click)="closeMaquilas()">&times;</span>
-
-
       <h1>Tecnicas</h1>
       <ul class="nav nav-tabs">
 

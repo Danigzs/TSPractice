@@ -193,6 +193,7 @@ export class CotizadorComponent implements OnInit {
     var _grafico = new Grafico();
     _grafico.setBordado(_bordado);
     this.order.graficos.push(_grafico);
+    this.calculateTotal();
   }
   OnAddSerigrafia(serigrafia:Serigrafia){
     debugger
@@ -202,6 +203,7 @@ export class CotizadorComponent implements OnInit {
     var _grafico = new Grafico();
     _grafico.setSerigrafia(_serigrafia);
     this.order.graficos.push(_grafico);
+    this.calculateTotal();
   }
 
   addProducto(producto: ProductCotizacion) {
@@ -255,8 +257,8 @@ export class CotizadorComponent implements OnInit {
     for (let producto of this.order.products) {
       _total += this.getProductPrice(producto); //producto.price * producto.quantity;
     }
-    for (let maquila of this.order.maquilas) {
-      _total += maquila.price * maquila.quantity;
+    for (let grafico of this.order.graficos) {
+      _total += grafico.price * grafico.quantity;
     }
 
     this.order.total = _total;
