@@ -59,6 +59,11 @@ var modelserigrafiaSize = require('./models/serigrafiaSize')(app, mongoose);
 var modelsublimadoPrecio = require('./models/sublimadoPrecio')(app,mongoose);
 var modelsublimadoPrecioMaquila = require('./models/sublimadoPrecioMaquila')(app,mongoose);
 var modelsublimadoSize = require('./models/sublimadoSize')(app, mongoose);
+var modeltransferSize = require('./models/transferSize')(app, mongoose);
+var modeltransferPrecio = require('./models/transferPrecio')(app, mongoose);
+var modeltransferPrecioMaquila = require('./models/transferPrecioMaquila')(app, mongoose);
+
+
 
 
 var ClientCtrl = require('./controllers/client');
@@ -90,6 +95,10 @@ var serigrafiaSizeCtrl = require('./controllers/serigrafiaSize');
 var sublimadoPrecioCtrl = require('./controllers/sublimadoPrecio');
 var sublimadoPrecioMaquilaCtrl = require('./controllers/sublimadoPrecioMaquila');
 var sublimadoSizeCtrl = require('./controllers/sublimadoSize');
+var transferSizeCtrl = require('./controllers/transferSize');
+var transferPrecioCtrl = require('./controllers/transferPrecio');
+var transferPrecioMaquilaCtrl = require('./controllers/transferPrecioMaquila');
+
 
 var OrderProductsCtrl = require('./controllers/orderProducts');
 
@@ -340,6 +349,30 @@ api.route('/sublimadoPrecioMaquila/:id')
 api.route('/sublimadoSize/:id')
   .get(sublimadoSizeCtrl.findById)
   .put(sublimadoSizeCtrl.update)  
+
+  api.route('/transferSize')
+  .get(transferSizeCtrl.findAll)
+  .post(transferSizeCtrl.add)
+
+api.route('/transferSize/:id')
+  .get(transferSizeCtrl.findById)
+  .put(transferSizeCtrl.update)  
+
+  api.route('/transferPrecio')
+  .get(transferPrecioCtrl.findAll)
+  .post(transferPrecioCtrl.add)
+
+api.route('/transferPrecio/:id')
+  .get(transferPrecioCtrl.findById)
+ 
+  api.route('/transferPrecioMaquila')
+  .get(transferPrecioMaquilaCtrl.findAll)
+  .post(transferPrecioMaquilaCtrl.add)
+
+api.route('/transferPrecioMaquila/:id')
+  .get(transferPrecioMaquilaCtrl.findById)
+
+
 
 
 
