@@ -93,6 +93,11 @@ import {TransferPrecioMaquilaComponent} from './tecnicas config/transfer.config,
 import {VinilTipoComponent} from './tecnicas config/vinil.config.tipo';
 import {VinilTipoService} from './tecnicas config/vinilTipo.service';
 import {VinilMainComponent} from './tecnicas config/vinil.mainscreen';
+import {VinilPrecioComponent} from './tecnicas config/vinil.config.precio';
+import {VinilPrecioService} from './tecnicas config/vinilPrecio.service';
+import {VinilPrecioMaquilaService} from './tecnicas config/vinilPrecioMaquila.service';
+import {VinilPrecioMaquilaComponent} from './tecnicas config/vinil.config.precioMaquila';
+
 
 
 
@@ -150,6 +155,9 @@ const appRoutes: Routes = [
   { path: 'transfer-precioMaquila', component: TransferPrecioMaquilaComponent},
   { path: 'vinil-tipo', component: VinilTipoComponent},
   { path: 'vinil-main', component: VinilMainComponent},
+  { path: 'vinil-precio', component: VinilPrecioComponent},
+  { path: 'vinil-preciomaquila', component: VinilPrecioMaquilaComponent},
+  
 ];
 
 
@@ -212,6 +220,8 @@ const appRoutes: Routes = [
   TransferPrecioMaquilaComponent,
   VinilTipoComponent,
   VinilMainComponent,
+  VinilPrecioComponent,
+  VinilPrecioMaquilaComponent
   ],
   providers : [  AuthGuard,CotizadorService, 
     ClienteService, 
@@ -232,7 +242,9 @@ const appRoutes: Routes = [
     TransferSizeService,
     TransferPrecioService,
     VinilTipoService
-    ,TransferPrecioMaquilaService],
+    ,TransferPrecioMaquilaService,
+    VinilPrecioMaquilaService,
+    VinilPrecioService],
   bootstrap:    [ AppComponent]
 })
 export class AppModule { }
