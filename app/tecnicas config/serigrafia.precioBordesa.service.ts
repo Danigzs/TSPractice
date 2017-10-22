@@ -30,6 +30,12 @@ constructor (private http: Http) {}
                     .map(this.extractData)
                     .catch(this.handleError);
   }
+
+  getTecnicas(): Observable<Array<SerigrafiaPrecioBordesa>> {
+    return this.http.get(this.url)
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
   addTecnica(serigrafiaPrecioBordesa:SerigrafiaPrecioBordesa): Observable<Array<SerigrafiaPrecioBordesa>> {
      let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
