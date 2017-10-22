@@ -24,6 +24,25 @@ exports.findById = function (req, res) {
   });
 };
 
+
+
+exports.findByInkQuantityWItem = function (req, res) {
+  SerigrafiaPrecioCliente.find({
+    "tintas":req.query.tintas
+  },function (err, serigrafiaPrecioCliente) {
+    if (err) return res.status(500).send( err.message);
+    console.log(req.query.prendas);
+    console.log(serigrafiaPrecioCliente.map((serigrafia => serigrafia.prendaDe)));
+    console.log(serigrafiaPrecioCliente.map((serigrafia => serigrafia.prendaHasta)));
+    var result = serigrafiaPrecioCliente.filter((serigrafia) => (req.query.prendas >=  serigrafia.prendaDe)  && (req.query.prendas <= serigrafia.prendaHasta));
+    res.status(200).json({
+      serigrafiaPrecioCliente: result
+    });
+
+  });
+};
+
+
 // //POST - Insert a new register
 exports.add = function (req, res) {
   console.log('POST');
