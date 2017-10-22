@@ -310,27 +310,29 @@
           <thead>
             <tr>
               <th>CANTIDAD</th>
-              <th>TIPO BORDADO</th>
+              <th>Técnica</th>
+              <th>Descripción</th>
+              <!-- <th>TIPO BORDADO</th> -->
               <!--<th>Tamaño</th>
               <th>Posicion</th>-->
-              <th>POSICIÓN</th>
+              <!-- <th>POSICIÓN</th>
               <th>TAMAÑO</th>
-              <th>PUNTADAS</th>
+              <th>PUNTADAS</th> -->
               <th>PRECIO</th>
-              <th>COLORES</th>
+              <!-- <th>COLORES</th> -->
               <th>TOTAL</th>
               <!--<th>Agregar Tecnicas</th>-->
             </tr>
           </thead>
-          <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let tecnicaBordado of order.tecnicaBordados; let i = index">
-            <td> <input type="number" name="quantity" [(ngModel)]="tecnicaBordado.cantidad"></td>
-            <td>{{tecnicaBordado.bType.nombre}} </td>
-            <td>{{tecnicaBordado.bPosition.posiciones}} </td>
-            <td>{{tecnicaBordado.bSize.size}} </td>
-            <td>{{tecnicaBordado.puntadas}} </td>
-            <td>{{tecnicaBordado.price | currency:'USD':true}}</td>
-            <td>{{tecnicaBordado.getColores()}}</td>
-            <td>{{tecnicaBordado.price*tecnicaBordado.cantidad | currency:'USD':true}}</td>
+          <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let grafico of order.graficos; let i = index">
+            <td> <input type="number" name="quantity" [(ngModel)]="grafico.quantity"></td>
+            <td>{{grafico.name}} </td>
+            <td [innerHtml]="grafico.summary"> </td>
+            <!-- <td>{{tecnicaBordado.bSize.size}} </td>
+            <td>{{tecnicaBordado.puntadas}} </td> -->
+            <td>{{grafico.price | currency:'USD':true}}</td>
+            <!-- <td>{{tecnicaBordado.getColores()}}</td> -->
+            <td>{{grafico.price*grafico.quantity | currency:'USD':true}}</td>
 
           </tr>
         </table>
@@ -413,7 +415,7 @@
         </div>
 
         <div style="cursor:pointer;width:100%;height:300px;" *ngIf="showSerigrafia">
-          <tecnicaserigrafia></tecnicaserigrafia>
+          <tecnicaserigrafia [OnAddSerigrafia]="OnAddSerigrafia"></tecnicaserigrafia>
         </div>
 
         <div style="cursor:pointer;width:100%;height:300px;" *ngIf="showSublimado">
@@ -424,50 +426,6 @@
           <tecnicatransfer></tecnicatransfer>
         </div>
       </div>
-
-      <!-- <Button (click)="openBordados()">
-        Bordados
-      </Button>
-      <Button (click)="openSerigrafia()">
-        Serigrafia
-      </Button>
-      <Button (click)="openSublimado()">
-        Sublimado
-      </Button>
-
-      <tecnicabordado *ngIf="!hidebordado"></tecnicabordado>
-      <tecnicaserigrafia *ngIf="!hideserigrafia"></tecnicaserigrafia>
-      <tecnicasublimado *ngIf="!hidesublimado"></tecnicasublimado> -->
-
-
-      <!-- <div class="c-grid-all-products">
-        <table class="table ">
-          <thead>
-            <tr>
-              <th>Cantidad</th> -->
-      <!--<th>Nombre</th>
-              <th>Tamaño</th>
-              <th>Posicion</th>-->
-      <!--<th>Precio unitario</th>
-              <th>Total</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let tecnica of tecnicas">
-            <td> <input type="number" name="quantity" [(ngModel)]="tecnica.quantity"></td>
-            -->
-      <!--<td>{{tecnica.name}} {{tecnica.subType}}</td>
-            <td>{{tecnica.size}}</td>
-            <td>{{tecnica.position}}</td>-->
-      <!-- <td>{{tecnica.name}} {{tecnica.subType}}, Tamaño: {{tecnica.size}}, Posición: {{tecnica.position}}</td>
-            <td>{{tecnica.price | currency:'USD':true}}</td>
-            <td>{{tecnica.total*tecnica.quantity | currency:'USD':true}}</td>
-            <th><button type="button" class="btn btn-primary btn-md" (click)="seleccionarTecnica(tecnica)">Seleccionar Maquila</button></th>
-
-          </tr>
-
-        </table>
-      </div> -->
 
     </div>
   </div>

@@ -33,6 +33,7 @@ export class Serigrafia {
   tintas:number
   quantity:number;
   wItem:boolean
+  cantidad:number;
 
 bInk:SerigrafiaTipoTinta;
 bInkType: SerigrafiaTipoTinta;
@@ -49,6 +50,7 @@ bClientePrice:SerigrafiaPrecioCliente;
     this.tintas = 0.0;
     this.quantity = 0;
     this.wItem = false;
+    this.cantidad = 0;
     this.bInk  = new SerigrafiaTipoTinta();
     this.bInkType  = new SerigrafiaTipoTinta();
     this.bUbications  = new Ubicaciones();
@@ -56,11 +58,12 @@ bClientePrice:SerigrafiaPrecioCliente;
     this.bBordesaPrice   = new SerigrafiaPrecioBordesa();
     this.bClientePrice   = new SerigrafiaPrecioCliente();
   } 
-  setTecnica(size:string,position:string,price:number,tintas:number, quantity:number, wItem:boolean){
+  setTecnica(size:string,position:string,price:number,tintas:number, quantity:number, wItem:boolean,cantidad:number){
     
     this.size  = size;
     this.position = position;
     this.price = price;
+    this.cantidad = cantidad;
     this.tintas=tintas;
     this.quantity = quantity;
     this.wItem = wItem;
@@ -70,7 +73,8 @@ bClientePrice:SerigrafiaPrecioCliente;
     _serigrafia.size = this.size;
     _serigrafia.position = this.position;
     _serigrafia.price = this.price;
-    _serigrafia.tintas=this.tintas;    
+    _serigrafia.tintas=this.tintas;
+    _serigrafia.cantidad=this.cantidad;    
     _serigrafia.bInk=this.bInk;
     _serigrafia.bInkType=this.bInkType;
     _serigrafia.bUbications=this.bUbications;

@@ -58,7 +58,7 @@ export class TecnicaSerigrafiaComponent  {
   public serigrafias: Array<Serigrafia>;
 
 
-  @Input() OnAddSerigrafiaTecnica:Function;
+  @Input() OnAddSerigrafia:Function;
 
 
 /**
@@ -156,29 +156,29 @@ export class TecnicaSerigrafiaComponent  {
      if(this.serigrafia.wItem == false){
        this._serigrafiaBordesaPriceService.getInkQuantity(this.serigrafia.tintas,this.serigrafia.quantity).subscribe(
          data => {
-             if(data.length > 0)
-             {
-               this.serigrafia.price = data[0].costo;
-             }
-             else {
-               this.serigrafia.price = 0;
-             }
+           if(data.length > 0)
+           {
+             this.serigrafia.price = data[0].costo;
+           }
+           else {
+             this.serigrafia.price = 0;
+           }
          });
      }
      else 
      {
        this._serigrafiaClientePriceService.getInkQuantityWItem(this.serigrafia.tintas,this.serigrafia.quantity).subscribe(
          data => {
-             if(data.length > 0)
-             {
-               if(this.serigrafia.quantity >= 1 && this.serigrafia.quantity <= 60)
-                 this.serigrafia.price = data[0].costo + this.appConfig.presecado + this.appConfig.revelado;
-               else 
-                 this.serigrafia.price = data[0].costo ;
-             }
-             else {
-               this.serigrafia.price = 0;
-             }
+           if(data.length > 0)
+           {
+             if(this.serigrafia.quantity >= 1 && this.serigrafia.quantity <= 60)
+               this.serigrafia.price = data[0].costo + this.appConfig.presecado + this.appConfig.revelado;
+             else 
+               this.serigrafia.price = data[0].costo ;
+           }
+           else {
+             this.serigrafia.price = 0;
+           }
          });
      }
    }
@@ -187,18 +187,16 @@ export class TecnicaSerigrafiaComponent  {
    this.tecnica = new Tecnica();
    this._tecnicaService.getTecnicas().subscribe(
      data => {
-       this.tecnicas = data;
-     }
-     )
+         this.tecnicas = data;
+       }
+   )
  }
  agregarTecnica(){
-
-   this._tecnicaService.addTecnica(this.tecnica).subscribe(
-     data => {
-       this.reloadTecnicas();
-
-     }
-     );
+   if(this.serigrafia.price > 0)
+   {
+     this.OnAddSerigrafia(this.serigrafia);
+   }
+   
  }
  updateTecnica()
  {

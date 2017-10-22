@@ -37,6 +37,8 @@ import {BordadoSize} from './tecnicas config/BordadoSize';
 import {Posiciones} from './tecnicas config/posiciones';
  import {Bordado} from './tecnicas/bordado'; 
  import {Colores} from './tecnicas config/colores'
+import {Grafico} from './grafico/grafico'; 
+import {Serigrafia} from './tecnicas/serigrafia'; 
 
 import {ChangeDetectorRef} from '@angular/core'
 
@@ -62,6 +64,7 @@ export class CotizadorComponent implements OnInit {
   public order: Order;
   public productos: Array < ProductCotizacion > ;
   public tecnica: Array <Tecnica>;
+
    
   
   
@@ -131,6 +134,7 @@ export class CotizadorComponent implements OnInit {
 
     this.closeMaquilas = this.closeMaquilas.bind(this);
     this.OnAddBordadoTecnica = this.OnAddBordadoTecnica.bind(this);
+    this.OnAddSerigrafia = this.OnAddSerigrafia.bind(this);
   }
 
   openBordados(){
@@ -183,7 +187,21 @@ export class CotizadorComponent implements OnInit {
   OnAddBordadoTecnica(bordado:Bordado){
     debugger
     this.closeMaquilas()
-    this.order.tecnicaBordados.push(bordado.copyNewTecnica());
+    // this.order.tecnicaBordados.push(bordado.copyNewTecnica());
+    var _bordado = new Bordado();
+    _bordado =  bordado.copyNewTecnica();
+    var _grafico = new Grafico();
+    _grafico.setBordado(_bordado);
+    this.order.graficos.push(_grafico);
+  }
+  OnAddSerigrafia(serigrafia:Serigrafia){
+    debugger
+    this.closeMaquilas()
+    var _serigrafia = new Serigrafia();
+    _serigrafia =  serigrafia.copyNewTecnica();
+    var _grafico = new Grafico();
+    _grafico.setSerigrafia(_serigrafia);
+    this.order.graficos.push(_grafico);
   }
 
   addProducto(producto: ProductCotizacion) {
