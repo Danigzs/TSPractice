@@ -62,6 +62,8 @@ var modelsublimadoSize = require('./models/sublimadoSize')(app, mongoose);
 var modeltransferSize = require('./models/transferSize')(app, mongoose);
 var modeltransferPrecio = require('./models/transferPrecio')(app, mongoose);
 var modeltransferPrecioMaquila = require('./models/transferPrecioMaquila')(app, mongoose);
+var modelvinilTipo = require('./models/vinilTipo')(app, mongoose);
+
 
 
 
@@ -98,6 +100,7 @@ var sublimadoSizeCtrl = require('./controllers/sublimadoSize');
 var transferSizeCtrl = require('./controllers/transferSize');
 var transferPrecioCtrl = require('./controllers/transferPrecio');
 var transferPrecioMaquilaCtrl = require('./controllers/transferPrecioMaquila');
+var vinilTipoCtrl = require('./controllers/vinilTipo');
 
 
 var OrderProductsCtrl = require('./controllers/orderProducts');
@@ -376,8 +379,15 @@ api.route('/transferPrecioMaquila/:id')
   .get(transferPrecioMaquilaCtrl.findById)
 
 
+  api.route('/vinilTipo')
+  .get(vinilTipoCtrl.findAll)
+  .post(vinilTipoCtrl.add)
 
+api.route('/vinilTipo/:id')
+  .get(vinilTipoCtrl.findById)
+  .put(vinilTipoCtrl.update)
 
+  
 
 //
 // ─── SELLERS ROUTES ─────────────────────────────────────────────────────────────

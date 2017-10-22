@@ -90,6 +90,9 @@ import {TransferPrecioComponent} from './tecnicas config/transfer.config.precio'
 import {TransferPrecioService} from './tecnicas config/transferPrecio.service';
 import {TransferPrecioMaquilaService} from './tecnicas config/transferPrecioMaquila.service';
 import {TransferPrecioMaquilaComponent} from './tecnicas config/transfer.config,preciomaquila';
+import {VinilTipoComponent} from './tecnicas config/vinil.config.tipo';
+import {VinilTipoService} from './tecnicas config/vinilTipo.service';
+import {VinilMainComponent} from './tecnicas config/vinil.mainscreen';
 
 
 
@@ -145,6 +148,8 @@ const appRoutes: Routes = [
   { path: 'transfer-main', component: TransferMainComponent},
   { path: 'transfer-precio', component: TransferPrecioComponent},
   { path: 'transfer-precioMaquila', component: TransferPrecioMaquilaComponent},
+  { path: 'vinil-tipo', component: VinilTipoComponent},
+  { path: 'vinil-main', component: VinilMainComponent},
 ];
 
 
@@ -203,18 +208,31 @@ const appRoutes: Routes = [
   SublimadoPrecioMaquilaComponent,
   TransferSizeComponent,
   TransferMainComponent,
-  TransferPrecioComponent
-  TransferPrecioMaquilaComponent
+  TransferPrecioComponent,
+  TransferPrecioMaquilaComponent,
+  VinilTipoComponent,
+  VinilMainComponent,
   ],
   providers : [  AuthGuard,CotizadorService, 
-    ClienteService, ProductoService, TecnicaService,
-    SellerService,OrderService,DashboardService,PaymentService,
+    ClienteService, 
+    ProductoService,
+     TecnicaService,
+    SellerService,
+    OrderService,DashboardService,PaymentService,
     RoleService,RegisterService, BordadoService, SerigrafiaService,
-    SublimadoService, TransferService,UbicacionesService, BordadoSizeService,ColoresComponent, 
-    BordadoPuntadasService, BordadoTipoService,AppConfigService,SublimadoPrecioService,
-    SerigrafiaPrecioBordesaService,SerigrafiaSizeService,SublimadoSizeService,
-    PosicionesService,ColoresService,SerigrafiaPrecioClienteService,
-    SublimadoPrecioMaquilaService,TransferSizeService,TransferPrecioService,TransferPrecioMaquilaService],
+    SublimadoService, TransferService,
+    UbicacionesService, BordadoSizeService,ColoresComponent, 
+    BordadoPuntadasService, 
+    BordadoTipoService,AppConfigService,SublimadoPrecioService,
+    SerigrafiaPrecioBordesaService,
+    SerigrafiaSizeService,SublimadoSizeService,
+    PosicionesService,ColoresService,
+    SerigrafiaPrecioClienteService,
+    SublimadoPrecioMaquilaService,
+    TransferSizeService,
+    TransferPrecioService,
+    VinilTipoService
+    ,TransferPrecioMaquilaService],
   bootstrap:    [ AppComponent]
 })
 export class AppModule { }
