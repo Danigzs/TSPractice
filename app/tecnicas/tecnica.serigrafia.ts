@@ -20,8 +20,8 @@ import {Tecnica} from '../producto/tecnica';
 import {SerigrafiaService} from './serigrafia.service';
 import {Serigrafia} from './serigrafia';
 /**
- * Config serigrafia  - Services
- */
+* Config serigrafia  - Services
+*/
 
 import {AppConfigService} from './../appConfig/appConfig.service';
 import {UbicacionesService} from './../tecnicas config/ubicaciones.service';
@@ -31,8 +31,8 @@ import {SerigrafiaPrecioClienteService} from './../tecnicas config/serigrafia.Pr
 import {SerigrafiaSizeService} from './../tecnicas config/serigrafiaSize.service';
 
 /**
- * Config serigrafia  - Models
- */
+* Config serigrafia  - Models
+*/
 import {SerigrafiaTipoTinta} from './../tecnicas config/SerigrafiaTipoTinta';
 import {Ubicaciones} from './../tecnicas config/ubicaciones';
 import {SerigrafiaPrecioBordesa} from './../tecnicas config/serigrafiaPrecioBordesa';
@@ -46,54 +46,54 @@ import {AppConfig} from './../appConfig/appConfig';
 
 @Component({
   selector: 'tecnicaserigrafia',
-    providers: [AppConfigService,SerigrafiaPrecioClienteService,UbicacionesService,SerigrafiaTipoTintaService,SerigrafiaPrecioBordesaService,SerigrafiaSizeService],
+  providers: [AppConfigService,SerigrafiaPrecioClienteService,UbicacionesService,SerigrafiaTipoTintaService,SerigrafiaPrecioBordesaService,SerigrafiaSizeService],
   styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
   templateUrl: "./app/tecnicas/tecnica.serigrafia.html"
-       
+
 })
 export class TecnicaSerigrafiaComponent  {  
- public tecnica:Tecnica;
- public serigrafia:Serigrafia;
+  public tecnica:Tecnica;
+  public serigrafia:Serigrafia;
   public tecnicas: Array < Tecnica > ;
   public serigrafias: Array<Serigrafia>;
-  
+
 
   @Input() OnAddSerigrafiaTecnica:Function;
 
 
 /**
-   * serigraph config
-   */
+ * serigraph config
+ */
 
-  public serigrafiaInkTypes: Array <SerigrafiaTipoTinta>;
-  public serigrafiaUbications: Array <Ubicaciones>;
-  public serigrafiaSizes: Array <SerigrafiaSize>;
-  public serigrafiaBordesaPrice: Array <SerigrafiaPrecioBordesa>;
-  public serigrafiaClientePrice: Array <SerigrafiaPrecioCliente>;
+ public serigrafiaInkTypes: Array <SerigrafiaTipoTinta>;
+ public serigrafiaUbications: Array <Ubicaciones>;
+ public serigrafiaSizes: Array <SerigrafiaSize>;
+ public serigrafiaBordesaPrice: Array <SerigrafiaPrecioBordesa>;
+ public serigrafiaClientePrice: Array <SerigrafiaPrecioCliente>;
 
 
-  /**
-   * Config serigraph
-   */
+/**
+ * Config serigraph
+ */
 
-   serigrafiaInkTypeSelected = new SerigrafiaTipoTinta;
-   serigrafiaUbicationSelected = new Ubicaciones;
-   serigrafiaSizeSelected = new SerigrafiaSize;
-   serigrafiaBordesaPriceSelected = new SerigrafiaPrecioBordesa;
-   serigrafiaClientePriceSelected = new SerigrafiaPrecioCliente;
+ serigrafiaInkTypeSelected = new SerigrafiaTipoTinta;
+ serigrafiaUbicationSelected = new Ubicaciones;
+ serigrafiaSizeSelected = new SerigrafiaSize;
+ serigrafiaBordesaPriceSelected = new SerigrafiaPrecioBordesa;
+ serigrafiaClientePriceSelected = new SerigrafiaPrecioCliente;
 
-   constructor(private  _tecnicaService: TecnicaService,
-    private _serigrafiaInkTypeService: SerigrafiaTipoTintaService,
-    private _serigrafiaUbicationsService: UbicacionesService,
-    private _serigrafiaSizeServie: SerigrafiaSizeService,
-    private _serigrafiaBordesaPriceService: SerigrafiaPrecioBordesaService,
-    private _serigrafiaClientePriceService: SerigrafiaPrecioClienteService,
-    private _appConfigService: AppConfigService,
-  
-  ) {
-  }
+ constructor(private  _tecnicaService: TecnicaService,
+   private _serigrafiaInkTypeService: SerigrafiaTipoTintaService,
+   private _serigrafiaUbicationsService: UbicacionesService,
+   private _serigrafiaSizeServie: SerigrafiaSizeService,
+   private _serigrafiaBordesaPriceService: SerigrafiaPrecioBordesaService,
+   private _serigrafiaClientePriceService: SerigrafiaPrecioClienteService,
+   private _appConfigService: AppConfigService,
 
-  ngOnInit() {
+   ) {
+ }
+
+ ngOnInit() {
    this.tecnica = new Tecnica();
    this.serigrafia = new Serigrafia();
    this.reloadTecnicas();
@@ -105,92 +105,107 @@ export class TecnicaSerigrafiaComponent  {
    this.serigrafiaBordesaPriceSelected = new SerigrafiaPrecioBordesa;
    this.serigrafiaClientePriceSelected = new SerigrafiaPrecioCliente;
    this.getSerigrafiaData().then(res =>{
-       if (this.serigrafiaInkTypes.length > 0)
-       {
-         this.serigrafiaInkTypeSelected = this.serigrafiaInkTypes[0];
+     if (this.serigrafiaInkTypes.length > 0)
+     {
+       this.serigrafiaInkTypeSelected = this.serigrafiaInkTypes[0];
+     }
+     
+     if (this.serigrafiaUbications.length > 0){ 
+       this.serigrafiaUbicationSelected= this.serigrafiaUbications[0];
+     }
+     if (this.serigrafiaSizes.length > 0){ 
+       this.serigrafiaSizeSelected= this.serigrafiaSizes[0];
+     }
+     if (this.serigrafiaBordesaPrice.length > 0)
+     { 
+       this.serigrafiaBordesaPriceSelected = this.serigrafiaBordesaPrice[0];
+     }
+     if (this.serigrafiaClientePrice.length > 0)
+       this.serigrafiaClientePriceSelected = this.serigrafiaClientePrice[0];
+
+     this.serigrafia.bInkType = this.serigrafiaInkTypeSelected;
+     this.serigrafia.bUbications = this.serigrafiaUbicationSelected;
+     this.serigrafia.bSize = this.serigrafiaSizeSelected;
+     this.serigrafia.bBordesaPrice = this.serigrafiaBordesaPriceSelected;
+     this.serigrafia.bClientePrice = this.serigrafiaClientePriceSelected;
+
+     // this.bordado.bType = this.bordadoTypeSelected;
+     // this.bordado.bSize = this.bordadoSizeSelected;
+     // this.bordado.bPosition = this.bordadoPositionSelected;
+     // this.bordado.bStitches = this.bordadoStitchSelected;
+     // this.bordado.bColores = this.bordadoColoresSelected;
+
+   })
+
+ }
+
+
+ getSerigrafiaData(): Promise < boolean > {
+   return new Promise < boolean > ((resolve, reject) => {
+
+     Observable.forkJoin(
+       this._serigrafiaInkTypeService.getTecnicas(),
+       this._serigrafiaUbicationsService.getTecnicas(),
+       this._serigrafiaSizeServie.getTecnicas(),
+       // this._serigrafiaBordesaPriceService.getTecnicas(),
+       this._serigrafiaClientePriceService.getTecnicas(),
+       this._appConfigService.getAppConfig()
+
+       ).subscribe(
+       results => {
+
+         this.serigrafiaInkTypes = results[0];
+         this.serigrafiaUbications  = results[1];
+         this.serigrafiaSizes  = results[2];
+         this.serigrafiaBordesaPrice  = results[3];
+         this.serigrafiaClientePrice = results[4];
+         this.appConfig = results[5];
+
+
+         resolve(true)
        }
-       
-       if (this.serigrafiaUbications.length > 0){ 
-         this.serigrafiaUbicationSelected= this.serigrafiaUbications[0];
-       }
-       if (this.serigrafiaSizes.length > 0){ 
-         this.serigrafiaSizeSelected= this.serigrafiaSizes[0];
-       }
-       if (this.serigrafiaBordesaPrice.length > 0)
-       { 
-         this.serigrafiaBordesaPriceSelected = this.serigrafiaBordesaPrice[0];
-       }
-       if (this.serigrafiaClientePrice.length > 0)
-         this.serigrafiaClientePriceSelected = this.serigrafiaClientePrice[0];
-
-       this.serigrafia.bInkType = this.serigrafiaInkTypeSelected;
-       this.serigrafia.bUbications = this.serigrafiaUbicationSelected;
-       this.serigrafia.bSize = this.serigrafiaSizeSelected;
-       this.serigrafia.bBordesaPrice = this.serigrafiaBordesaPriceSelected;
-       this.serigrafia.bClientePrice = this.serigrafiaClientePriceSelected;
-
-       // this.bordado.bType = this.bordadoTypeSelected;
-       // this.bordado.bSize = this.bordadoSizeSelected;
-       // this.bordado.bPosition = this.bordadoPositionSelected;
-       // this.bordado.bStitches = this.bordadoStitchSelected;
-       // this.bordado.bColores = this.bordadoColoresSelected;
-
-     })
-   
-  }
-
-
-   getSerigrafiaData(): Promise < boolean > {
-     return new Promise < boolean > ((resolve, reject) => {
-
-       Observable.forkJoin(
-         this._serigrafiaInkTypeService.getTecnicas(),
-         this._serigrafiaUbicationsService.getTecnicas(),
-         this._serigrafiaSizeServie.getTecnicas(),
-         this._serigrafiaBordesaPriceService.getTecnicas(),
-         this._serigrafiaClientePriceService.getTecnicas(),
-         this._appConfigService.getAppConfig()
-
-         ).subscribe(
-         results => {
-           debugger
-           this.serigrafiaInkTypes = results[0];
-           this.serigrafiaUbications  = results[1];
-           this.serigrafiaSizes  = results[2];
-           this.serigrafiaBordesaPrice  = results[3];
-           this.serigrafiaClientePrice = results[4];
-           this.appConfig = results[5];
-
-
-           resolve(true)
-         }
-         );
+       );
+     });
+ }
+ getSerigrafiaValue()
+ {
+   if(this.serigrafia.quantity > 0 && this.serigrafia.tintas > 0 )
+   {
+     this._serigrafiaBordesaPriceService.getInkQuantity(this.serigrafia.tintas,this.serigrafia.quantity).subscribe(
+       data => {
+           if(data.length >= 0)
+           {
+             this.serigrafia.price = data[0].costo;
+           }
+           else {
+             this.serigrafia.price = 0;
+           }
        });
    }
-
-  reloadTecnicas(){
-      this.tecnica = new Tecnica();
-      this._tecnicaService.getTecnicas().subscribe(
+ } 
+ reloadTecnicas(){
+   this.tecnica = new Tecnica();
+   this._tecnicaService.getTecnicas().subscribe(
      data => {
        this.tecnicas = data;
      }
-   )
-  }
-  agregarTecnica(){
-    
-    this._tecnicaService.addTecnica(this.tecnica).subscribe(
-      data => {
-    this.reloadTecnicas();
+     )
+ }
+ agregarTecnica(){
 
-      }
-    );
-  }
-  updateTecnica()
-    {
-       this._tecnicaService.addTecnica(this.tecnica).subscribe(
-      data => {
-        this.reloadTecnicas();
-      }
-    );
-    }
+   this._tecnicaService.addTecnica(this.tecnica).subscribe(
+     data => {
+       this.reloadTecnicas();
+
+     }
+     );
+ }
+ updateTecnica()
+ {
+   this._tecnicaService.addTecnica(this.tecnica).subscribe(
+     data => {
+       this.reloadTecnicas();
+     }
+     );
+ }
 }

@@ -255,8 +255,11 @@ api.route('/tipos/:id')
 
 api.route('/serigrafiaPrecioBordesa')
   .get(serigrafiaPrecioBordesaCtrl.findAll)
-  .post(serigrafiaPrecioBordesaCtrl.add)
   
+  .post(serigrafiaPrecioBordesaCtrl.add)
+
+api.route('/findByInkQuantity')
+.get(serigrafiaPrecioBordesaCtrl.findByInkQuantity)
 
 api.route('/serigrafiaPrecioBordesa/:id')
   .get(serigrafiaPrecioBordesaCtrl.findById) 

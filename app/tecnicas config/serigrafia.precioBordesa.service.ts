@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response }          from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import {URLSearchParams} from '@angular/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import { SerigrafiaPrecioBordesa } from './serigrafiaPrecioBordesa';
@@ -10,12 +11,22 @@ export class SerigrafiaPrecioBordesaService {
     serigrafiaPrecioBordesa:Array<SerigrafiaPrecioBordesa>;
     
      private url = 'http://localhost:8000/api/SerigrafiaPrecioBordesa';  // URL to web API
-
+    private getInkQuantityUrl = 'http://localhost:8000/api/findByInkQuantity';  // URL to web API
 constructor (private http: Http) {}
  
-  getTecnicas(): Observable<Array<SerigrafiaPrecioBordesa>> {
+  getInkQuantity(tintas:number, prendas:number): Observable<Array<SerigrafiaPrecioBordesa>> {
+     
+
+     let headers = new Headers({
+      'Content-Type': 'application/json'
+    });
     
-    return this.http.get(this.url)
+    let options = new RequestOptions();
+    options.headers = headers;
+    options.search = new URLSearchParams();
+    options.search.append('tintas', tintas.toString());
+    options.search.append('prendas', prendas.toString());
+    return this.http.get(this.getInkQuantityUrl,options)
                     .map(this.extractData)
                     .catch(this.handleError);
   }

@@ -25,6 +25,25 @@ exports.findById = function (req, res) {
 };
 
 
+//POST - Return a register with specified ID
+exports.findByInkQuantity = function (req, res) {
+  SerigrafiaPrecioBordesa.find({
+    "tintas":req.query.tintas
+  },function (err, serigrafiaPrecioBordesa) {
+    if (err) return res.status(500).send( err.message);
+    
+    console.log(req.query.prendas);
+    console.log(serigrafiaPrecioBordesa.map((serigrafia => serigrafia.prendaDe)));
+    console.log(serigrafiaPrecioBordesa.map((serigrafia => serigrafia.prendaHasta)));
+    var result = serigrafiaPrecioBordesa.filter((serigrafia) => (req.query.prendas >=  serigrafia.prendaDe)  && (req.query.prendas <= serigrafia.prendaHasta));
+    res.status(200).json({
+      serigrafiaPrecioBordesa: result
+    });
+
+  });
+};
+
+
 // //POST - Insert a new register
 exports.add = function (req, res) {
   console.log('POST');
@@ -45,7 +64,7 @@ exports.add = function (req, res) {
 
   });
 };
- 
+
 // //PUT - Update a register already exists
 // exports.update = function (req, res) {
 //     BordadoBase.findById(req.params.id, function (err, bordadoBase) {
@@ -56,7 +75,7 @@ exports.add = function (req, res) {
 //       if(req.body.tamanoPrice)
 //         bordadoBase.tamanoPrice = req.body.tamanoPrice; 
 //       bordadoBase.save(function (err) {
-      
+  
 //         if (err) return res.send(500, err.message);
 //       res.status(200).json({bordadoBase:bordadoBase});
 //     });
