@@ -28,30 +28,51 @@
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
+            <input type="checkbox" name="wItem" [(ngModel)]="transfer.wItem" (change)="getTransferValue()">
+            Con prenda
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
             Precio:
           </div>
         </div>
       </div>
 
       <div class="c-container-info-column">
+          <div class="c-container-info-column-item-container">
+              <div class="c-container-info-column-item-container info">
+                <select type="text" name="bordado" [(ngModel)]="transferUbicationSelected"  >
+                   <option *ngFor="let transferUbication of transferUbications" [ngValue]="transferUbication" >
+                     {{transferUbication.ubicaciones}}
+                    </option>
+                </select>
+              </div>
+            </div>
 
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            <input type="text" name="size" [(ngModel)]="tecnica.size">
-          </div>
-        </div>
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            <select type="text" name="position" [(ngModel)]="tecnica.position">
-            </select>
-          </div>
-        </div>
-        <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container">
+                <div class="c-container-info-column-item-container info">
+                  <select type="text" name="bordado" [(ngModel)]="sublimadoSizeSelected" >
+                     <option *ngFor="let transferSize of transferSizes" [ngValue]="transferSize" >
+                       {{transferSize.size}}
+                      </option>
+                  </select>
+                </div>
+              </div>
 
-          <div class="c-container-info-column-item-container info">
-            <input type="number" name="size">
-          </div>
-        </div>
+              <div class="c-container-info-column-item-container">
+                  <div class="c-container-info-column-item-container info">
+                    <input type="number" name="size" [(ngModel)]="transfer.quantity" (blur)="getTransferValue()">
+                  </div>
+                </div>
+
+                <div class="c-container-info-column-item-container">
+                    <div class="c-container-info-column-item-container info">
+                        <div class="example-full-width">
+                          <label >{{transfer.price| currency:'USD':true}}</label>
+                        </div> 
+                    </div>
+                  </div>
       </div>
 
     </div>

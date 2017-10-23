@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response }          from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import {URLSearchParams} from '@angular/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import { VinilPrecioMaquila } from './vinilPrecioMaquila';
@@ -10,7 +11,9 @@ export class VinilPrecioMaquilaService {
     vinilPrecioMaquila:Array<VinilPrecioMaquila>;
     
      private url = 'http://localhost:8000/api/vinilPrecioMaquila ';  // URL to web API
-
+     private transferPrecioUrl = 'http://localhost:8000/api/findByVinilPrecioMaquila'
+     
+     
 constructor (private http: Http) {}
  
   getTecnicas(): Observable<Array<VinilPrecioMaquila>> {
@@ -19,6 +22,22 @@ constructor (private http: Http) {}
                     .map(this.extractData)
                     .catch(this.handleError);
   }
+
+
+  getVinilPrecioMaquila(quantity:number): Observable<Array<VinilPrecioMaquila>> {
+    let headers = new Headers({
+     'Content-Type': 'application/json'
+   });
+   
+   let options = new RequestOptions();
+   options.headers = headers;
+   options.search = new URLSearchParams();
+   options.search.append('quantity', quantity.toString());
+   return this.http.get(this.transferPrecioUrl,options)
+                   .map(this.extractData)
+                   .catch(this.handleError);
+ }
+
   addTecnica(vinilPrecioMaquila:VinilPrecioMaquila): Observable<Array<VinilPrecioMaquila>> {
      let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
