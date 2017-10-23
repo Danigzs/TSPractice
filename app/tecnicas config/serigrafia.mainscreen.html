@@ -13,20 +13,20 @@
 
 <div style="width:100%">
   <div style="width:100%;height:300px;" *ngIf="showBordado">
-         <tinta-tipo></tinta-tipo>     
+         <tinta-tipo [appConfig]="appConfig"></tinta-tipo>     
   </div>
   
   <div style="cursor:pointer;width:100%;height:300px;" *ngIf="showSerigrafia">
-    <ubicaciones></ubicaciones>
+    <ubicaciones [appConfig]="appConfig"></ubicaciones>
   </div>
   
   <div style="cursor:pointer;width:100%;height:300px;" *ngIf="showSublimado">
-   <serigrafia-preciobordesa></serigrafia-preciobordesa>
+   <serigrafia-preciobordesa [appConfig]="appConfig"></serigrafia-preciobordesa>
   </div>
   <div style="cursor:pointer;width:100%;height:300px;" *ngIf="showPrecioCliente">
-    <serigrafia-preciocliente></serigrafia-preciocliente>
+    <serigrafia-preciocliente [appConfig]="appConfig"></serigrafia-preciocliente>
    </div>
    <div style="cursor:pointer;width:100%;height:300px;" *ngIf="showSize">
-    <serigrafia-size></serigrafia-size>
+    <serigrafia-size [appConfig]="appConfig"></serigrafia-size>
    </div>
 </div>

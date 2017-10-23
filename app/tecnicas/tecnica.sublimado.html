@@ -28,6 +28,13 @@
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
+            <input type="checkbox" name="wItem" [(ngModel)]="sublimado.wItem" (change)="getSublimadoValue()">
+            Con prenda
+          </div>
+        </div>
+
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
             Precio:
           </div>
         </div>
@@ -37,34 +44,42 @@
 
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-            <input type="text" name="size" [(ngModel)]="tecnica.size">
-          </div>
-        </div>
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            <select type="text" name="position" [(ngModel)]="tecnica.position">
+            <select type="text" name="bordado" [(ngModel)]="sublimadoUbicationSelected"  >
+               <option *ngFor="let sublimadoUbication of sublimadoUbications" [ngValue]="sublimadoUbication" >
+                 {{sublimadoUbication.ubicaciones}}
+                </option>
             </select>
           </div>
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-            <input type="number" name="size">
+            <select type="text" name="bordado" [(ngModel)]="sublimadoSizeSelected" >
+               <option *ngFor="let sublimadoSize of sublimadosSizes" [ngValue]="sublimadoSize" >
+                 {{sublimadoSize.size}}
+                </option>
+            </select>
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <input type="number" name="size" [(ngModel)]="sublimado.quantity" (blur)="getSublimadoValue()">
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+              <div class="example-full-width">
+                <label >{{sublimado.price| currency:'USD':true}}</label>
+              </div> 
           </div>
         </div>
       </div>
     </div>
-    <!-- <div class="c-container-info-column data">
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            <div class="example-full-width">
-              <input type="number" name="price" [(ngModel)]="tecnica.price" disabled>
-            </div>
-          </div>
-        </div>
-      </div> -->
   </div>
   <div class="c-add-product-container">
-    <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
     <button type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Agregar Tecnica</button>
   </div>
 

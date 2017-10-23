@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response }          from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
+import {URLSearchParams} from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
@@ -10,12 +11,25 @@ export class SublimadoPrecioService {
     sublimadoPrecio:Array<SublimadoPrecio>;
     
      private url = 'http://localhost:8000/api/sublimadoPrecio ';  // URL to web API
-
+    private sublimadoPrecioUrl = 'http://localhost:8000/api/findBySublimadoPrecio'
 constructor (private http: Http) {}
  
   getTecnicas(): Observable<Array<SublimadoPrecio>> {
     
     return this.http.get(this.url)
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+  getSublimadoPrecio(quantity:number): Observable<Array<SublimadoPrecio>> {
+     let headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+    
+    let options = new RequestOptions();
+    options.headers = headers;
+    options.search = new URLSearchParams();
+    options.search.append('quantity', quantity.toString());
+    return this.http.get(this.sublimadoPrecioUrl,options)
                     .map(this.extractData)
                     .catch(this.handleError);
   }

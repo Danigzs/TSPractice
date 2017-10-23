@@ -21,7 +21,6 @@ export class TipoTintaComponent  {
   @Input() appConfig:  AppConfig ;    
   public tipos:SerigrafiaTipoTinta;
   public tipotinta: Array < SerigrafiaTipoTinta > ;
-  cantidad = 1000;
   constructor(private  _tecnicaService: SerigrafiaTipoTintaService) {
   }
 

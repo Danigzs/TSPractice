@@ -15,7 +15,7 @@ exports.findAll = function (req, res) {
 
 //GET - Return a register with specified ID
 exports.findById = function (req, res) {
-    SublimadoPrecio.findById(req.params.id, function (err, sublimadoPrecioMaquila) {
+    SublimadoPrecioMaquila.findById(req.params.id, function (err, sublimadoPrecioMaquila) {
     if (err) return res.send(500, err.message);
     console.log('GET /sublimadoPrecioMaquila/' + req.params.id);
     res.status(200).json({
@@ -23,6 +23,24 @@ exports.findById = function (req, res) {
     });
   });
 };
+
+exports.findBySublimadoPrecioMaquila = function (req, res) {
+  SublimadoPrecioMaquila.find({
+    "prendaDe":{
+      $gte:req.query.quantity
+    }
+  },function (err, sublimadoPrecioMaquila) {
+    if (err) return res.status(500).send( err.message);
+
+    var result = sublimadoPrecioMaquila.filter((sublimado) => req.query.quantity <= sublimado.prendaHasta);
+
+    res.status(200).json({
+      sublimadoPrecioMaquila: result
+    });
+
+  });
+};
+
 
 // //POST - Insert a new register
 exports.add = function (req, res) {

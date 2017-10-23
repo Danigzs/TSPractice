@@ -353,14 +353,24 @@ api.route('/serigrafiaSize/:id')
 
 api.route('/sublimadoPrecio/:id')
   .get(sublimadoPrecioCtrl.findById)
-  
-  api.route('/sublimadoPrecioMaquila')
+
+api.route('/sublimadoPrecio/:id')
+  .get(sublimadoPrecioCtrl.findById)
+
+
+  api.route('/findBySublimadoPrecio')
+  .get(sublimadoPrecioCtrl.findBySublimadoPrecio)
+
+api.route('/sublimadoPrecioMaquila')
   .get(sublimadoPrecioMaquilaCtrl.findAll)
   .post(sublimadoPrecioMaquilaCtrl.add)
 
 api.route('/sublimadoPrecioMaquila/:id')
   .get(sublimadoPrecioMaquilaCtrl.findById)
 
+api.route('/findBySublimadoPrecioMaquila')
+  .get(sublimadoPrecioMaquilaCtrl.findBySublimadoPrecioMaquila)
+  
   api.route('/sublimadoSize')
   .get(sublimadoSizeCtrl.findAll)
   .post(sublimadoSizeCtrl.add)
