@@ -36,6 +36,7 @@ import {BordadoPuntadas} from './tecnicas config/BordadoPuntadas';
 import {BordadoSize} from './tecnicas config/BordadoSize';
 import {Posiciones} from './tecnicas config/posiciones';
  import {Bordado} from './tecnicas/bordado'; 
+ import {Sublimado} from './tecnicas/sublimado'; 
  import {Colores} from './tecnicas config/colores'
 import {Grafico} from './grafico/grafico'; 
 import {Serigrafia} from './tecnicas/serigrafia'; 
@@ -135,6 +136,7 @@ export class CotizadorComponent implements OnInit {
     this.closeMaquilas = this.closeMaquilas.bind(this);
     this.OnAddBordadoTecnica = this.OnAddBordadoTecnica.bind(this);
     this.OnAddSerigrafia = this.OnAddSerigrafia.bind(this);
+    this.OnAddSublimado = this.OnAddSublimado.bind(this);
   }
 
   openBordados(){
@@ -195,6 +197,7 @@ export class CotizadorComponent implements OnInit {
     this.order.graficos.push(_grafico);
     this.calculateTotal();
   }
+
   OnAddSerigrafia(serigrafia:Serigrafia){
     debugger
     this.closeMaquilas()
@@ -206,6 +209,16 @@ export class CotizadorComponent implements OnInit {
     this.calculateTotal();
   }
 
+  OnAddSublimado(sublimado:Sublimado){
+    debugger
+    this.closeMaquilas()
+    var _sublimado = new Sublimado();
+    _sublimado =  sublimado.copyNewTecnica();
+    var _grafico = new Grafico();
+    _grafico.setSublimado(_sublimado);
+    this.order.graficos.push(_grafico);
+    this.calculateTotal();
+  }
   addProducto(producto: ProductCotizacion) {
     producto.total = producto.price * producto.quantity;
     this.order.products.push(producto.copyNewProductCotizacion());

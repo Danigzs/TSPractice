@@ -46,15 +46,13 @@ export class Grafico {
   }
   setSublimado(sublimado:Sublimado)
   {
-    // debugger
-    // this.tech = "Serigrafia";
-    // this.price = serigrafia.price * serigrafia.cantidad;
-    // this.summary =  "Posición: " + serigrafia.bUbications.ubicaciones + 
-    //             ", Tipo Tinta: " + serigrafia.bInkType.tipotinta + 
-    //             ", Tamaño: " + serigrafia.bSize.size + 
-    //             ", No. tintas:" + serigrafia.tintas +
-    //             ", No. prendas: " + serigrafia.quantity + 
-    //             ", Con Prendas: " + (serigrafia.wItem == 1 ? "Sí" : "No") 
+     this.name = "Sublimado";
+    this.price = sublimado.price;
+    this.summary =  "<b>Posición: </b>" + sublimado.position + 
+                    "<br><b>Tamaño: </b>" + sublimado.size + 
+                    "<br><b>No. prendas: </b>" + sublimado.quantity + 
+                    "<br><b>Con Prendas: </b>" + (sublimado.wItem == 1 ? "Sí" : "No") 
+    this.quantity = 1;
   }
   copy(){
     var _grafico= new Grafico();
