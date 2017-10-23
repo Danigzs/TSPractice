@@ -65,6 +65,8 @@ var modeltransferPrecioMaquila = require('./models/transferPrecioMaquila')(app, 
 var modelvinilTipo = require('./models/vinilTipo')(app, mongoose);
 var modelvinilPrecio = require('./models/vinilPrecio')(app, mongoose);
 var modelvinilPrecioMaquila = require('./models/vinilPrecioMaquila')(app, mongoose);
+var modelvinilSize = require('./models/vinilSize')(app, mongoose);
+var modelVinil = require('./models/vinil')(app, mongoose);
 
 
 
@@ -105,6 +107,8 @@ var transferPrecioMaquilaCtrl = require('./controllers/transferPrecioMaquila');
 var vinilTipoCtrl = require('./controllers/vinilTipo');
 var vinilPrecioCtrl = require('./controllers/vinilPrecio');
 var vinilPrecioMaquilaCtrl = require('./controllers/vinilPrecioMaquila');
+var vinilSizeCtrl = require('./controllers/vinilSize');
+var VinilCtrl = require('./controllers/vinil');
 
 
 
@@ -411,6 +415,21 @@ api.route('/vinilPrecio/:id')
 api.route('/vinilPrecioMaquila/:id')
   .get(vinilPrecioMaquilaCtrl.findById)
 
+  api.route('/vinilSize')
+  .get(vinilSizeCtrl.findAll)
+  .post(vinilSizeCtrl.add)
+
+api.route('/vinilSize/:id')
+  .get(vinilSizeCtrl.findById)
+  .put(vinilSizeCtrl.update)  
+
+  api.route('/vinil')
+  .get(VinilCtrl.findAll)
+  .post(VinilCtrl.add);
+
+api.route('/vinil/:id')
+  .get(VinilCtrl.findById)
+  .put(VinilCtrl.update)
 
 //
 // ─── SELLERS ROUTES ─────────────────────────────────────────────────────────────

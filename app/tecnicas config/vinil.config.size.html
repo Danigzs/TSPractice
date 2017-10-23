@@ -1,0 +1,73 @@
+<div class="c-div-bgr bar-margin">
+    <div class="c-cliente-seccion">
+      <h1>Tamaño</h1>
+    </div>
+  
+    <div class="c-div-container">
+  
+  
+      <div class="c-container-info">
+  
+        <div class="c-container-info-column">
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Tamaño
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Coste %
+            </div>
+          </div>
+  
+        </div>
+  
+        <div class="c-container-info-column">
+  
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <input type="text" name="name" [(ngModel)]="vinilsize.size">
+  
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <input type="text" name="subType" [(ngModel)]="vinilsize.costo">
+            </div>
+          </div>
+  
+        </div>
+  
+        <div class="c-container-info-column data">
+  
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Precio:
+              
+            </div>
+          </div>
+  
+        </div>
+  
+      </div>
+    </div>
+    <div class="c-add-product-container">
+      <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
+      <button type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Agregar</button>
+      <div class="c-grid-products">
+        <table class="table " id="tproductos">
+          <thead>
+            <tr>
+              <th>Tamaño</th>
+              <th>%</th>             
+            </tr>
+          </thead>
+          <tr *ngFor="let vinilsize of viniles; let i = index">
+            <td>{{vinilsize.size}}</td>
+            <td>{{vinilsize.costo}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  
