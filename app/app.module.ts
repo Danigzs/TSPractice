@@ -25,6 +25,9 @@ import {TecnicaBordadoComponent} from './tecnicas/tecnica.bordado';
 import {TecnicaSerigrafiaComponent} from './tecnicas/tecnica.serigrafia';
 import {TecnicaSublimadoComponent} from './tecnicas/tecnica.sublimado';
 import {TecnicaTransferComponent} from './tecnicas/tecnica.transfer';
+import {TecnicaVinilComponent} from './tecnicas/tecnica.vinil';
+import {VinilService} from './tecnicas/vinil.service';
+
 
 
 import {EditSellerComponent} from './sellers/editseller.component'
@@ -160,6 +163,8 @@ const appRoutes: Routes = [
   { path: 'vinil-precio', component: VinilPrecioComponent},
   { path: 'vinil-preciomaquila', component: VinilPrecioMaquilaComponent},
   { path: 'vinil-size', component: VinilSizeComponent},
+  { path: 'tecnicavinilr', component: TecnicaVinilComponent},
+  
   
 ];
 
@@ -225,7 +230,8 @@ const appRoutes: Routes = [
   VinilMainComponent,
   VinilPrecioComponent,
   VinilPrecioMaquilaComponent,
-  VinilSizeComponent
+  VinilSizeComponent,
+  TecnicaVinilComponent
   ],
   providers : [  AuthGuard,CotizadorService, 
     ClienteService, 
@@ -248,7 +254,7 @@ const appRoutes: Routes = [
     VinilTipoService
     ,TransferPrecioMaquilaService,
     VinilPrecioMaquilaService,
-    VinilPrecioService],
+    VinilPrecioService,VinilService],
   bootstrap:    [ AppComponent]
 })
 export class AppModule { }
