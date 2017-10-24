@@ -24,6 +24,24 @@ exports.findById = function (req, res) {
   });
 };
 
+exports.findByTransferPrecioMaquila = function (req, res) {
+  TransferPrecioMaquila.find({
+    "prendaDe":{
+      $gte:req.query.quantity
+    }
+  },function (err, transferPrecioMaquila) {
+    if (err) return res.status(500).send( err.message);
+
+    var result = transferPrecioMaquila.filter((transfer) => req.query.quantity <= transfer.prendaHasta);
+
+    res.status(200).json({
+      transferPrecioMaquila: result
+    });
+
+  });
+};
+
+
 // //POST - Insert a new register
 exports.add = function (req, res) {
   console.log('POST');

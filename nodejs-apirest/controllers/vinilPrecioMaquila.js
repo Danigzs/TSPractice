@@ -24,6 +24,23 @@ exports.findById = function (req, res) {
   });
 };
 
+exports.findByVinilPrecioMaquila = function (req, res) {
+  VinilPrecioMaquila.find({
+    "prendaDe":{
+      $gte:req.query.quantity
+    }
+  },function (err, vinilPrecioMaquila) {
+    if (err) return res.status(500).send( err.message);
+
+    var result = vinilPrecioMaquila.filter((transfer) => req.query.quantity <= vinil.prendaHasta);
+
+    res.status(200).json({
+      vinilPrecioMaquila: result
+    });
+
+  });
+};
+
 // //POST - Insert a new register
 exports.add = function (req, res) {
   console.log('POST');

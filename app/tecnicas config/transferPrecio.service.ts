@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http, Response }          from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
+import {URLSearchParams} from '@angular/http';
+
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
@@ -10,7 +12,8 @@ export class TransferPrecioService {
     transferPrecio:Array<TransferPrecio>;
     
      private url = 'http://localhost:8000/api/transferPrecio ';  // URL to web API
-
+     private transferPrecioUrl = 'http://localhost:8000/api/findByTransferPrecio'
+     
 constructor (private http: Http) {}
  
   getTecnicas(): Observable<Array<TransferPrecio>> {
@@ -19,6 +22,20 @@ constructor (private http: Http) {}
                     .map(this.extractData)
                     .catch(this.handleError);
   }
+
+  getTransferPrecio(quantity:number): Observable<Array<TransferPrecio>> {
+    let headers = new Headers({
+     'Content-Type': 'application/json'
+   });
+   
+   let options = new RequestOptions();
+   options.headers = headers;
+   options.search = new URLSearchParams();
+   options.search.append('quantity', quantity.toString());
+   return this.http.get(this.transferPrecioUrl,options)
+                   .map(this.extractData)
+                   .catch(this.handleError);
+ }
   addTecnica(transferPrecio:TransferPrecio): Observable<Array<TransferPrecio>> {
      let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });

@@ -361,6 +361,9 @@ api.route('/sublimadoPrecio/:id')
   api.route('/findBySublimadoPrecio')
   .get(sublimadoPrecioCtrl.findBySublimadoPrecio)
 
+  api.route('/findByTransferPrecio')
+  .get(transferPrecioCtrl.findByTransferPrecio)
+
 api.route('/sublimadoPrecioMaquila')
   .get(sublimadoPrecioMaquilaCtrl.findAll)
   .post(sublimadoPrecioMaquilaCtrl.add)
@@ -370,7 +373,16 @@ api.route('/sublimadoPrecioMaquila/:id')
 
 api.route('/findBySublimadoPrecioMaquila')
   .get(sublimadoPrecioMaquilaCtrl.findBySublimadoPrecioMaquila)
+
+  api.route('/findByTransferPrecioMaquila')
+  .get(transferPrecioMaquilaCtrl.findByTransferPrecioMaquila)
   
+  api.route('/findByVinilPrecioMaquila')
+  .get(vinilPrecioMaquilaCtrl.findByVinilPrecioMaquila)
+
+  api.route('/findByVinilPrecio')
+  .get(vinilPrecioCtrl.findByVinilPrecio)
+
   api.route('/sublimadoSize')
   .get(sublimadoSizeCtrl.findAll)
   .post(sublimadoSizeCtrl.add)
