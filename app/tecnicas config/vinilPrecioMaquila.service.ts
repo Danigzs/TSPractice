@@ -11,7 +11,7 @@ export class VinilPrecioMaquilaService {
     vinilPrecioMaquila:Array<VinilPrecioMaquila>;
     
      private url = 'http://localhost:8000/api/vinilPrecioMaquila ';  // URL to web API
-     private transferPrecioUrl = 'http://localhost:8000/api/findByVinilPrecioMaquila'
+     private vinilPrecioMaquilaUrl = 'http://localhost:8000/api/findByVinilPrecioMaquila'
      
      
 constructor (private http: Http) {}
@@ -33,7 +33,7 @@ constructor (private http: Http) {}
    options.headers = headers;
    options.search = new URLSearchParams();
    options.search.append('quantity', quantity.toString());
-   return this.http.get(this.transferPrecioUrl,options)
+   return this.http.get(this.vinilPrecioMaquilaUrl,options)
                    .map(this.extractData)
                    .catch(this.handleError);
  }

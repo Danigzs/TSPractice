@@ -66,7 +66,7 @@ export class TecnicaSublimadoComponent  {
      if(this.sublimado.quantity > 0 )
    {
      if(this.sublimado.wItem == false){
-       this._sublimadoPrecioService.getSublimadoPrecio(this.sublimado.quantity).subscribe(
+       this._sublimadoPrecioMaquilaService.getSublimadoPrecioMaquila(this.sublimado.quantity).subscribe(
          data => {
            if(data.length > 0)
            {
@@ -79,7 +79,7 @@ export class TecnicaSublimadoComponent  {
      }
      else 
      {
-       this._sublimadoPrecioMaquilaService.getSublimadoPrecioMaquila(this.sublimado.quantity).subscribe(
+       this._sublimadoPrecioService.getSublimadoPrecio(this.sublimado.quantity).subscribe(
          data => {
            if(data.length > 0)
            {

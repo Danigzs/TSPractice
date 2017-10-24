@@ -69,6 +69,14 @@ export class Grafico {
   }
   setVinil(vinil:Vinil)
   {
+    this.name = "Vinil";
+    this.price = vinil.price;
+    this.summary = "<b>Tipo: </b>" + vinil.nombre +
+     "<b>Posición: </b>" + vinil.position + 
+    "<br><b>Tamaño: </b>" + vinil.size + 
+    "<br><b>No. prendas: </b>" + vinil.quantity + 
+    "<br><b>Con Prendas: </b>" + (vinil.wItem == 1 ? "Sí" : "No") 
+    this.quantity = 1;
      
   }
   copy(){

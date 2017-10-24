@@ -57,7 +57,7 @@ import {
      this.transferUbicationSelected = new Ubicaciones;
      this.transferSizeSelected = new TransferSize;
      this.getTransfer().then(res =>{
-      debugger
+      
       if (this.transferSizes.length > 0)
       {
         this.transferSizeSelected = this.transferSizes[0];
@@ -74,7 +74,7 @@ import {
       if(this.transfer.quantity > 0 )
     {
       if(this.transfer.wItem == false){
-        this._transferPrecioService.getTransferPrecio(this.transfer.quantity).subscribe(
+        this._transferPrecioMaquilaService.getTransferPrecioMaquila(this.transfer.quantity).subscribe(
           data => {
             if(data.length > 0)
             {
@@ -87,7 +87,7 @@ import {
       }
       else 
       {
-        this._transferPrecioMaquilaService.getTransferPrecioMaquila(this.transfer.quantity).subscribe(
+        this._transferPrecioService.getTransferPrecio(this.transfer.quantity).subscribe(
           data => {
             if(data.length > 0)
             {

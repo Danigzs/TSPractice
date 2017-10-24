@@ -51,7 +51,7 @@ import {
                 private _vinilSizeService: VinilSizeService,
                 private _vinilTypeService: VinilTipoService,
                 private _vinilPrecioService: VinilPrecioService,
-                private _vinilPrecioMaquilaservice: VinilPrecioMaquilaService ) {
+                private _vinilPrecioMaquilaService: VinilPrecioMaquilaService ) {
     }
   
     ngOnInit() {
@@ -82,7 +82,7 @@ import {
       if(this.vinil.quantity > 0 )
     {
       if(this.vinil.wItem == false){
-        this._vinilPrecioService.getVinilPrecio(this.vinil.quantity).subscribe(
+        this._vinilPrecioMaquilaService.getVinilPrecioMaquila(this.vinil.quantity).subscribe(
           data => {
             if(data.length > 0)
             {
@@ -95,7 +95,7 @@ import {
       }
       else 
       {
-        this._vinilPrecioMaquilaservice.getVinilPrecioMaquila(this.vinil.quantity).subscribe(
+        this._vinilPrecioService.getVinilPrecio(this.vinil.quantity).subscribe(
           data => {
             if(data.length > 0)
             {

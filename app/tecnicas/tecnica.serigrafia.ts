@@ -70,6 +70,7 @@ export class TecnicaSerigrafiaComponent  {
  public serigrafiaSizes: Array <SerigrafiaSize>;
  public serigrafiaBordesaPrice: Array <SerigrafiaPrecioBordesa>;
  public serigrafiaClientePrice: Array <SerigrafiaPrecioCliente>;
+ public appConfig: Array<AppConfig>;
 
 
 /**
