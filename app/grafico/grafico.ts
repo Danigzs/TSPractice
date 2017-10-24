@@ -16,7 +16,7 @@ export class Grafico {
     this.price = 0.0;
     this.quantity = 0;
   } 
-  set(name:string, summary: string, price:number, quantity:number){
+  set(name:string, summary: string, price:number, quantity:number, tech:string){
     this.name = tech;
     this.summary = summary;
     this.price = price;

@@ -51,7 +51,6 @@ export class TecnicaSublimadoComponent  {
    this.sublimadoUbicationSelected = new Ubicaciones;
    this.sublimadoSizeSelected = new SublimadoSize;
    this.getSublimados().then(res =>{
-     debugger
      if (this.sublimadosSizes.length > 0)
      {
        this.sublimadoSizeSelected = this.sublimadosSizes[0];

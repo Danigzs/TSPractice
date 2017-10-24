@@ -399,12 +399,12 @@
         </div>
 
         <div style="cursor:pointer;width:100%;height:300px;" *ngIf="showTransfer">
-          <tecnicatransfer></tecnicatransfer>
-        </div>
-        <div style="cursor:pointer;width:100%;height:300px;" *ngIf="showVinil">
+          <tecnicatransfer [OnAddTransfer]="OnAddTransfer"></tecnicatransfer>
+         </div> 
+         <div style="cursor:pointer;width:100%;height:300px;" *ngIf="showVinil">
             <tecnicavinil></tecnicavinil>
           </div>
-      </div>
+        </div>
 
     </div>
   </div>

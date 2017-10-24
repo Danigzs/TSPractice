@@ -5,6 +5,7 @@ export class Sublimado {
   price: number;
   quantity:number;
   wItem:boolean;
+  
   constructor() {
     this.size = "";
     this.position = "";

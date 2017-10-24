@@ -141,6 +141,7 @@ export class CotizadorComponent implements OnInit {
     this.OnAddBordadoTecnica = this.OnAddBordadoTecnica.bind(this);
     this.OnAddSerigrafia = this.OnAddSerigrafia.bind(this);
     this.OnAddSublimado = this.OnAddSublimado.bind(this);
+    this.OnAddTransfer = this.OnAddTransfer.bind(this);
   }
 
   openBordados(){
@@ -203,7 +204,6 @@ export class CotizadorComponent implements OnInit {
   }
 
   OnAddSerigrafia(serigrafia:Serigrafia){
-    debugger
     this.closeMaquilas()
     var _serigrafia = new Serigrafia();
     _serigrafia =  serigrafia.copyNewTecnica();
@@ -214,7 +214,6 @@ export class CotizadorComponent implements OnInit {
   }
 
   OnAddSublimado(sublimado:Sublimado){
-    debugger
     this.closeMaquilas()
     var _sublimado = new Sublimado();
     _sublimado =  sublimado.copyNewTecnica();

@@ -413,6 +413,11 @@ api.route('/transferPrecio/:id')
 api.route('/transferPrecioMaquila/:id')
   .get(transferPrecioMaquilaCtrl.findById)
 
+api.route('/findByTransferPrecio')
+  .get(transferPrecioCtrl.findByTransferPrecio)
+
+api.route('/findByTransferPrecioMaquila')
+  .get(transferPrecioMaquilaCtrl.findByTransferPrecioMaquila)
 
   api.route('/vinilTipo')
   .get(vinilTipoCtrl.findAll)

@@ -24,6 +24,7 @@ exports.findById = function (req, res) {
   });
 };
 
+
 exports.findByTransferPrecioMaquila = function (req, res) {
   TransferPrecioMaquila.find({
     "prendaDe":{

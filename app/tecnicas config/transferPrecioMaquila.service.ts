@@ -1,27 +1,25 @@
 import { Injectable } from '@angular/core';
 import { Http, Response }          from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
 import {URLSearchParams} from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import { TransferPrecioMaquila } from './transferPrecioMaquila';
 @Injectable()
 export class TransferPrecioMaquilaService {
-    transferPrecioMaquila:Array<TransferPrecioMaquila>;
-    
-     private url = 'http://localhost:8000/api/transferPrecioMaquila ';  // URL to web API
-     private transferPrecioMaquilaUrl = 'http://localhost:8000/api/findByTransferPrecioMaquila'
-     
-constructor (private http: Http) {}
- 
-  getTecnicas(): Observable<Array<TransferPrecioMaquila>> {
-    
-    return this.http.get(this.url)
-                    .map(this.extractData)
-                    .catch(this.handleError);
-  }
+  transferPrecioMaquila:Array<TransferPrecioMaquila>;
 
+  private url = 'http://localhost:8000/api/transferPrecioMaquila ';  // URL to web API
+  private transferPrecioMaquilaUrl = 'http://localhost:8000/api/findByTransferPrecioMaquila'
+  constructor (private http: Http) {}
+
+  getTecnicas(): Observable<Array<TransferPrecioMaquila>> {
+
+    return this.http.get(this.url)
+    .map(this.extractData)
+    .catch(this.handleError);
+  } 
   getTransferPrecioMaquila(quantity:number): Observable<Array<TransferPrecioMaquila>> {
     let headers = new Headers({
      'Content-Type': 'application/json'
@@ -37,21 +35,21 @@ constructor (private http: Http) {}
                    .catch(this.handleError);
  }
   addTecnica(transferPrecioMaquila:TransferPrecioMaquila): Observable<Array<TransferPrecioMaquila>> {
-     let headers = new Headers({ 'Content-Type': 'application/json' });
+    let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-   
+
     return this.http.post(this.url,transferPrecioMaquila,options)
-                    .map(this.extractData)
-                    .catch(this.handleError);
+    .map(this.extractData)
+    .catch(this.handleError);
   }
   private extractData(res: Response) {
-    
+
     let data = res.json();
     
     return data.transferPrecioMaquila || { };
   }
-    private handleError (error: Response | any) {
+  private handleError (error: Response | any) {
     // In a real world app, you might use a remote logging infrastructure
     let errMsg: string;
     if (error instanceof Response) {
