@@ -1,7 +1,8 @@
 import {Bordado} from './../tecnicas/bordado'; 
 import {Serigrafia} from './../tecnicas/serigrafia'; 
 import {Sublimado} from './../tecnicas/sublimado'; 
-import {Transfer} from './../tecnicas/transfer'; 
+import {Transfer} from './../tecnicas/transfer';
+import {Vinil} from './../tecnicas/vinil';
 
 export class Grafico {
   _id: string; 
@@ -53,6 +54,22 @@ export class Grafico {
                     "<br><b>No. prendas: </b>" + sublimado.quantity + 
                     "<br><b>Con Prendas: </b>" + (sublimado.wItem == 1 ? "Sí" : "No") 
     this.quantity = 1;
+  }
+  setTransfer(transfer:Transfer)
+  {
+     this.name = "Transfer";
+     this.price = transfer.price;
+     this.summary = "<b>Posición: </b>" + transfer.position + 
+     "<br><b>Tamaño: </b>" + transfer.size + 
+     "<br><b>No. prendas: </b>" + transfer.quantity + 
+     "<br><b>Con Prendas: </b>" + (transfer.wItem == 1 ? "Sí" : "No") 
+     this.quantity = 1;
+     
+
+  }
+  setVinil(vinil:Vinil)
+  {
+     
   }
   copy(){
     var _grafico= new Grafico();

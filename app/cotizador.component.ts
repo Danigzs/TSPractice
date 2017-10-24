@@ -40,6 +40,10 @@ import {Posiciones} from './tecnicas config/posiciones';
  import {Colores} from './tecnicas config/colores'
 import {Grafico} from './grafico/grafico'; 
 import {Serigrafia} from './tecnicas/serigrafia'; 
+import {Vinil} from './tecnicas/vinil'; 
+import {Transfer} from './tecnicas/transfer'; 
+
+
 
 import {ChangeDetectorRef} from '@angular/core'
 
@@ -219,6 +223,27 @@ export class CotizadorComponent implements OnInit {
     this.order.graficos.push(_grafico);
     this.calculateTotal();
   }
+  OnAddTransfer(transfer:Transfer){
+    debugger
+    this.closeMaquilas()
+    var _transfer = new Transfer();
+    _transfer =  transfer.copyNewTecnica();
+    var _grafico = new Grafico();
+    _grafico.setTransfer(_transfer);
+    this.order.graficos.push(_grafico);
+    this.calculateTotal();
+  }
+  OnAddVinil(vinil:Vinil){
+    debugger
+    this.closeMaquilas()
+    var _vinil = new Vinil();
+    _vinil =  vinil.copyNewTecnica();
+    var _grafico = new Grafico();
+    _grafico.setVinil(_vinil);
+    this.order.graficos.push(_grafico);
+    this.calculateTotal();
+  }
+
   addProducto(producto: ProductCotizacion) {
     producto.total = producto.price * producto.quantity;
     this.order.products.push(producto.copyNewProductCotizacion());
