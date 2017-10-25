@@ -112,6 +112,7 @@ export class TecnicaSublimadoComponent  {
     {
       this.sublimado.position = this.sublimadoUbicationSelected.ubicaciones;
       this.sublimado.size = this.sublimadoSizeSelected.size;
+      this.sublimado.percentageSize = this.sublimadoSizeSelected.costo;
        this.OnAddSublimado(this.sublimado);
     }
   }

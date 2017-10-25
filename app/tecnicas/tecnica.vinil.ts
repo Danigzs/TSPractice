@@ -129,10 +129,12 @@ import {
     {
       if(this.vinil.price > 0)
       {
+        this.vinil.percentageSize = this.vinilSizeSelected.costo;
+        this.vinil.percentageType = this.vinilTypeSelected.costo;
         this.vinil.nombre = this.vinilTypeSelected.nombre;
         this.vinil.position = this.vinilUbicationSelected.ubicaciones;
         this.vinil.size = this.vinilSizeSelected.size;
-         this.OnAddVinil(this.vinil);
+        this.OnAddVinil(this.vinil);
       }
     }
   

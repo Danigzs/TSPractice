@@ -142,6 +142,7 @@ export class CotizadorComponent implements OnInit {
     this.OnAddSerigrafia = this.OnAddSerigrafia.bind(this);
     this.OnAddSublimado = this.OnAddSublimado.bind(this);
     this.OnAddTransfer = this.OnAddTransfer.bind(this);
+    this.OnAddVinil = this.OnAddVinil.bind(this);
   }
 
   openBordados(){
