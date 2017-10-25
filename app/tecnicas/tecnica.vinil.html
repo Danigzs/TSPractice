@@ -32,6 +32,14 @@
               Cantidad
             </div>
           </div>
+          
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <input type="checkbox" name="wItem" [(ngModel)]="vinil.wItem" (change)="getVinilValue()">
+              Con prenda
+            </div>
+          </div>
+
           <div class="c-container-info-column-item-container">
             <div class="c-container-info-column-item-container info">
               Precio:
@@ -62,7 +70,7 @@
   
               <div class="c-container-info-column-item-container">
                   <div class="c-container-info-column-item-container info">
-                    <select type="text" name="bordado" [(ngModel)]="sublimadoSizeSelected" >
+                    <select type="text" name="bordado" [(ngModel)]="vinilSizeSelected" >
                        <option *ngFor="let vinilSize of vinilSizes" [ngValue]="vinilSize" >
                          {{vinilSize.size}}
                         </option>
@@ -74,9 +82,18 @@
                       <input type="number" name="size" [(ngModel)]="vinil.quantity" (blur)="getVinilValue()">
                     </div>
                   </div>
-          <div class="c-container-info-column-item-container">
-  
-            
+          
+             <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+              <div class="example-full-width">
+                <label >{{vinil.price| currency:'USD':true}}</label>
+              </div> 
+          </div>
+        </div>
           </div>
         </div>
   
@@ -93,7 +110,7 @@
     </div>
     <div class="c-add-product-container">
       <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
-      <button type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Agregar Tecnica</button>
+      <button type="button" class="btn btn-primary btn-md" (click)="addVinil()">Agregar Tecnica</button>
     </div>
   
   

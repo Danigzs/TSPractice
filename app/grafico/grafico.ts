@@ -27,7 +27,7 @@ export class Grafico {
     this.name = "Bordado" ;
     this.price = bordado.price * bordado.cantidad;
     this.summary =  "<b>Tipo: </b>" + bordado.bType.nombre + 
-                    "<br><b>Ubicación: </b>" + bordado.bPosition.posiciones + 
+                    "<br><b>Posición: </b>" + bordado.bPosition.posiciones + 
                     "<br><b>Colores: </b>" + bordado.bColores.join(",") + 
                     "<br><b>Puntadas: </b>" + bordado.puntadas +
                     "<br><b>Tamaño: </b>" + bordado.bSize.size;
@@ -69,7 +69,14 @@ export class Grafico {
   }
   setVinil(vinil:Vinil)
   {
-     
+     this.name = "Vinil";
+     this.price = vinil.price;
+     this.summary = "<b>Tipo: </b>" + vinil.nombre + 
+     "<br><b>Tamaño: </b>" + vinil.size + 
+     "<br><b>Posición: </b>" + vinil.position + 
+     "<br><b>No. prendas: </b>" + vinil.quantity + 
+     "<br><b>Con Prendas: </b>" + (vinil.wItem == 1 ? "Sí" : "No") 
+     this.quantity = 1;
   }
   copy(){
     var _grafico= new Grafico();

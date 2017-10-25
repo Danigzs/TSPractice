@@ -127,6 +127,7 @@ import {
     }
     addVinil()
     {
+      debugger
       if(this.vinil.price > 0)
       {
         this.vinil.nombre = this.vinilTypeSelected.nombre;
