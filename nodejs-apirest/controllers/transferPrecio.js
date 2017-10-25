@@ -26,13 +26,9 @@ exports.findById = function (req, res) {
 
 
 exports.findByTransferPrecio = function (req, res) {
-TransferPrecio.find({
-    "prendaDe":{
-      $gte:req.query.quantity
-    }
-  },function (err, transferPrecio) {
+TransferPrecio.find(function (err, transferPrecio) {
     if (err) return res.status(500).send( err.message);
-    var result = transferPrecio.filter((transfer) => req.query.quantity <= transfer.prendaHasta);
+    var result = transferPrecio.filter((transfer) => (req.query.quantity >=  transfer.prendaDe)  && (req.query.quantity <= transfer.prendaHasta));
     res.status(200).json({
       transferPrecio: result
     });

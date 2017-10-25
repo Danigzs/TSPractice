@@ -25,14 +25,10 @@ exports.findById = function (req, res) {
 };
 
 exports.findBySublimadoPrecioMaquila = function (req, res) {
-  SublimadoPrecioMaquila.find({
-    "prendaDe":{
-      $gte:req.query.quantity
-    }
-  },function (err, sublimadoPrecioMaquila) {
+  SublimadoPrecioMaquila.find(function (err, sublimadoPrecioMaquila) {
     if (err) return res.status(500).send( err.message);
 
-    var result = sublimadoPrecioMaquila.filter((sublimado) => req.query.quantity <= sublimado.prendaHasta);
+    var result = sublimadoPrecioMaquila.filter((sublimado) => (req.query.quantity >=  sublimado.prendaDe)  && (req.query.quantity <= sublimado.prendaHasta));
 
     res.status(200).json({
       sublimadoPrecioMaquila: result

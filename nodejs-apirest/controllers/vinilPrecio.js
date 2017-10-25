@@ -25,13 +25,9 @@ exports.findById = function (req, res) {
 };
 
 exports.findByVinilPrecio = function (req, res) {
-  VinilPrecio.find({
-      "prendaDe":{
-        $gte:req.query.quantity
-      }
-    },function (err, vinilPrecio) {
+  VinilPrecio.find(function (err, vinilPrecio) {
       if (err) return res.status(500).send( err.message);
-      var result = transferPrecio.filter((transfer) => req.query.quantity <= vinil.prendaHasta);
+      var result = vinilPrecio.filter((vinil) => (req.query.quantity >=  vinil.prendaDe)  && (req.query.quantity <= vinil.prendaHasta));
       res.status(200).json({
         vinilPrecio: result
       });  

@@ -32,7 +32,7 @@ exports.findByVinilPrecioMaquila = function (req, res) {
   },function (err, vinilPrecioMaquila) {
     if (err) return res.status(500).send( err.message);
 
-    var result = vinilPrecioMaquila.filter((transfer) => req.query.quantity <= vinil.prendaHasta);
+    var result = vinilPrecioMaquila.filter((vinil) => (req.query.quantity >=  vinil.prendaDe)  && (req.query.quantity <= vinil.prendaHasta));
 
     res.status(200).json({
       vinilPrecioMaquila: result
