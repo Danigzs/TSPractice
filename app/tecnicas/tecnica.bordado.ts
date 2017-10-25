@@ -189,6 +189,9 @@ import {BordadoTipoComponent} from './../tecnicas config/bordado.config.tipo'
      this.bordado.bPosition = this.bordadoPositionSelected;
      this.bordado.bStitches = this.bordadoStitchSelected;
      this.bordado.bSize = this.bordadoSizeSelected;
+     this.bordado.percentageSize = this.bordadoSizeSelected.costo;
+     this.bordado.percentageType = this.bordadoTypeSelected.costo;
+     this.bordado.percentagePosition = this.bordadoPositionSelected.costo;
      this.bordado.bColores = this.colorOptions.filter((item,index) => this.bordadoColoresSelected.indexOf(index) !== -1  ).map( item => item.name)
      this.bordado.calculateBordadoPrice();
      this.OnAddBordadoTecnica(this.bordado);

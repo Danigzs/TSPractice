@@ -1,29 +1,10 @@
-import {Observable} from 'rxjs/Observable';
-import {
-  Component,
-  OnInit,
-  ElementRef,
-  ViewChild,
-  Input,
-  Output,
-  EventEmitter,
-  ViewContainerRef
-} from '@angular/core';
 import {SerigrafiaTipoTinta} from './../tecnicas config/SerigrafiaTipoTinta';
 import {Ubicaciones} from './../tecnicas config/ubicaciones';
 import {SerigrafiaPrecioBordesa} from './../tecnicas config/serigrafiaPrecioBordesa';
-import {SerigrafiaPrecioCliente} from './../tecnicas config/serigrafiaPrecioCliente';
-import {AppConfig} from './../appConfig/appConfig';
 import {SerigrafiaSize} from './../tecnicas config/serigrafiaSize';
-import {AppConfigService} from './../appConfig/appConfig.service';
+import {SerigrafiaPrecioCliente} from './../tecnicas config/serigrafiaPrecioCliente';
 
-
-@Component({
-  
-  providers: [AppConfigService],
  
-
-})
 
 export class Serigrafia {
   _id: string; 
@@ -34,6 +15,8 @@ export class Serigrafia {
   quantity:number;
   wItem:boolean
   cantidad:number;
+  percentageSize:number;
+  percentageType:number;
 
 bInk:SerigrafiaTipoTinta;
 bInkType: SerigrafiaTipoTinta;
@@ -57,8 +40,10 @@ bClientePrice:SerigrafiaPrecioCliente;
     this.bSize  = new SerigrafiaSize();
     this.bBordesaPrice   = new SerigrafiaPrecioBordesa();
     this.bClientePrice   = new SerigrafiaPrecioCliente();
+    this.percentageSize = 0;
+    this.percentageType = 0;
   } 
-  setTecnica(size:string,position:string,price:number,tintas:number, quantity:number, wItem:boolean,cantidad:number){
+  setTecnica(size:string,position:string,price:number,tintas:number, quantity:number, wItem:boolean,cantidad:number, percentageSize:number, percentageType:number){
     
     this.size  = size;
     this.position = position;
@@ -67,6 +52,8 @@ bClientePrice:SerigrafiaPrecioCliente;
     this.tintas=tintas;
     this.quantity = quantity;
     this.wItem = wItem;
+    this.percentageType = percentageType;
+    this.percentageSize = percentageSize;
   }
   copyNewTecnica(){
     var _serigrafia= new Serigrafia();
@@ -83,6 +70,8 @@ bClientePrice:SerigrafiaPrecioCliente;
     _serigrafia.bClientePrice=this.bClientePrice;
     _serigrafia.quantity = this.quantity;   
     _serigrafia.wItem = this.wItem;   
+    _serigrafia.percentageSize = this.percentageSize;
+    _serigrafia.percentageType = this.percentageType;
     
     return _serigrafia
   }

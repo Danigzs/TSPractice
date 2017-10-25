@@ -194,6 +194,11 @@ export class TecnicaSerigrafiaComponent  {
  agregarTecnica(){
    if(this.serigrafia.price > 0)
    {
+   this.serigrafia.bInkType = this.serigrafiaInkTypeSelected;
+   this.serigrafia.bUbications = this.serigrafiaUbicationSelected;
+   this.serigrafia.bSize = this.serigrafiaSizeSelected;
+   this.serigrafia.percentageSize = this.serigrafiaSizeSelected.costo;
+   this.serigrafia.percentageType = this.serigrafiaInkTypeSelected.costo;
      this.OnAddSerigrafia(this.serigrafia);
    }
    

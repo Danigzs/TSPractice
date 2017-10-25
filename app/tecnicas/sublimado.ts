@@ -5,21 +5,24 @@ export class Sublimado {
   price: number;
   quantity:number;
   wItem:boolean;
-  
+  percentageSize:number;
+
   constructor() {
     this.size = "";
     this.position = "";
     this.price = 0.0;
     this.quantity = 0;
     this.wItem = false;
+    this.percentageSize = 0;
   } 
-  setTecnica(size:string,position:string,price:number, quantity:number, wItem:boolean){
+  setTecnica(size:string,position:string,price:number, quantity:number, wItem:boolean, percentageSize:number){
     
     this.size  = size;
     this.position = position;
     this.price = price;
     this.quantity = quantity;
     this.wItem = wItem;
+    this.percentageSize = percentageSize;
 
   }
   copyNewTecnica(){
@@ -29,7 +32,7 @@ export class Sublimado {
     _sublimado.price = this.price;
     _sublimado.quantity = this.quantity;
     _sublimado.wItem = this.wItem;
-    
+    _sublimado.percentageSize = this.percentageSize;
     return _sublimado
   }
 }
