@@ -91,17 +91,6 @@ export class Grafico {
   }
   setVinil(vinil:Vinil)
   {
-<<<<<<< HEAD
-    this.name = "Vinil";
-    this.price = vinil.price;
-    this.summary = "<b>Tipo: </b>" + vinil.nombre +
-     "<b>Posición: </b>" + vinil.position + 
-    "<br><b>Tamaño: </b>" + vinil.size + 
-    "<br><b>No. prendas: </b>" + vinil.quantity + 
-    "<br><b>Con Prendas: </b>" + (vinil.wItem == 1 ? "Sí" : "No") 
-    this.quantity = 1;
-     
-=======
      this.name = "Vinil";
      this.price = vinil.price;
      var percentage = (vinil.percentageType + vinil.percentageSize );
@@ -114,7 +103,6 @@ export class Grafico {
      this.quantity = 1;
      this.percentageSize = vinil.percentageSize;
      this.percentageType = vinil.percentageType;
->>>>>>> a9e2e77adf93d1daa1c369097dae1848c4df4f69
   }
   copy(){
     var _grafico= new Grafico();
