@@ -30,7 +30,9 @@ exports.add = function (req, res) {
   console.log('POST');
   console.log(req.body);
   var colores = new Colores({
-    color: req.body.color
+    color: req.body.color,
+    hilo: req.body.hilo,
+    marca: req.body.marca,
   });
   colores.save(function (err, colores) {
     if (err) return res.send(500, err.message);
@@ -44,7 +46,9 @@ exports.add = function (req, res) {
 //PUT - Update a register already exists
 exports.update = function (req, res) {
     Colores.findById(req.params.id, function (err, colores) {
-        colores.color = req.body.colores;
+        colores.color = req.body.color;
+        colores.hilo = req.body.hilo;
+        colores.marca = req.body.marca;
         colores.save(function (err) {
       if (err) return res.send(500, err.message);
       res.status(200).json({

@@ -4,12 +4,18 @@ autoIncrement.initialize(mongoose.connection);
 var Schema = mongoose.Schema;
 
 var coloresSchema = new Schema({
- 
-  color:{
-      type:Number
+
+  color: {
+    type: Number
+  },
+  hilo: {
+    type: String
+  },
+  marca: {
+    type: String
   }
+
 });
 
 coloresSchema.plugin(autoIncrement.plugin, 'Colores');
 module.exports = mongoose.model('Colores', coloresSchema);
-
