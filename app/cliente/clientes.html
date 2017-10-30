@@ -1,20 +1,15 @@
 <navbar></navbar>
 <div class="c-div-bgr bar-margin">
   <div class="c-cliente-seccion">
-      <h1>Clientes</h1>
-    </div>
+    <h1>Clientes</h1>
+  </div>
   <div class="c-div-container">
-
-    
-
     <div class="c-container-info">
-
       <div class="c-container-info-column">
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             Nombre
           </div>
-
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
@@ -31,22 +26,18 @@
             RFC
           </div>
         </div>
-
       </div>
 
       <div class="c-container-info-column data">
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-           
-              <input type="text" name="nombre" [(ngModel)]="cliente.name">
-           
-
+            <input type="text" name="nombre" [(ngModel)]="cliente.name">
           </div>
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             <div class="example-full-width">
-                <input type="text" name="email" [(ngModel)]="cliente.email">
+              <input type="text" name="email" [(ngModel)]="cliente.email">
             </div>
           </div>
         </div>
@@ -69,67 +60,66 @@
 
 
       <div class="c-container-info-column">
-         <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            Clave
-          </div>
-        </div>
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            Estado
-          </div>
-        </div>
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            País
-          </div>
-        </div>
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            Razón Social
-          </div>
+       <div class="c-container-info-column-item-container">
+        <div class="c-container-info-column-item-container info">
+          Clave
         </div>
       </div>
-
-      <div class="c-container-info-column data">
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-<div class="example-full-width">
-              <input type="text" name="code" [(ngModel)]="cliente.code">
-            </div>
-          </div>
-        </div>
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            <div class="example-full-width">
-              <input type="text" name="estado" [(ngModel)]="cliente.state">
-            </div>
-          </div>
-        </div>
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            <div class="example-full-width">
-              <input type="text" name="pais" [(ngModel)]="cliente.country">
-            </div>
-          </div>
-        </div>
-        <div class="c-container-info-column-item-container">
-          <div class="c-container-info-column-item-container info">
-            <div class="example-full-width">
-              <input type="text" name="razonSocial" [(ngModel)]="cliente.businessName">
-            </div>
-
-          </div>
+      <div class="c-container-info-column-item-container">
+        <div class="c-container-info-column-item-container info">
+          Estado
         </div>
       </div>
-
+      <div class="c-container-info-column-item-container">
+        <div class="c-container-info-column-item-container info">
+          País
+        </div>
+      </div>
+      <div class="c-container-info-column-item-container">
+        <div class="c-container-info-column-item-container info">
+          Razón Social
+        </div>
+      </div>
     </div>
- <div class="c-add-product-container">
-        <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
-        <button  type="button" class="btn btn-primary btn-md" (click)="agregarCliente()">Agregar Cliente</button>
-        
-      </div>
 
- <clients-list [clientes]="clientes" *ngIf="show" ></clients-list>
+    <div class="c-container-info-column data">
+      <div class="c-container-info-column-item-container">
+        <div class="c-container-info-column-item-container info">
+          <div class="example-full-width">
+            <input type="text" name="code" [(ngModel)]="cliente.code">
+          </div>
+        </div>
+      </div>
+      <div class="c-container-info-column-item-container">
+        <div class="c-container-info-column-item-container info">
+          <div class="example-full-width">
+            <input type="text" name="estado" [(ngModel)]="cliente.state">
+          </div>
+        </div>
+      </div>
+      <div class="c-container-info-column-item-container">
+        <div class="c-container-info-column-item-container info">
+          <div class="example-full-width">
+            <input type="text" name="pais" [(ngModel)]="cliente.country">
+          </div>
+        </div>
+      </div>
+      <div class="c-container-info-column-item-container">
+        <div class="c-container-info-column-item-container info">
+          <div class="example-full-width">
+            <input type="text" name="razonSocial" [(ngModel)]="cliente.businessName">
+          </div>
+
+        </div>
+      </div>
+    </div>
+
   </div>
+  
+  <div class="c-add-product-container">
+    <button  type="button" class="btn btn-primary btn-md" (click)="agregarCliente()">Agregar Cliente</button>
+  </div>
+
+  <clients-list [clientes]="clientes" *ngIf="show" ></clients-list>
+</div>
 </div>
