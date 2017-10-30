@@ -12,7 +12,7 @@
       </div>
       <div class="c-container-info-column-item-container">
         <div class="c-container-info-column-item-container info">
-          Costo %
+          Costo
         </div>
       </div>
 
@@ -38,7 +38,7 @@
 
       <div class="c-container-info-column-item-container">
         <div class="c-container-info-column-item-container info">
-          Precio:{{appConfig.bordado + ((bordadotipo.costo*.01)*appConfig.bordado) | currency:'USD':true}}
+         <!-- Precio:{{appConfig.bordado + ((bordadotipo.costo.01)*appConfig.bordado) | currency:'USD':true}} -->
         </div>
       </div>
     </div>
@@ -58,7 +58,6 @@
         <tr *ngFor="let bordadotipo of bordados; let i = index">
           <td>{{bordadotipo.nombre}}</td>
           <td>{{bordadotipo.costo}}</td>
-          <td>{{appConfig.bordado + ((bordadotipo.costo*.01)*appConfig.bordado) | currency:'USD':true}}</td>
         </tr>
       </table>
     </div>
