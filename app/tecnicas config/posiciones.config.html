@@ -38,7 +38,6 @@
   
           <div class="c-container-info-column-item-container">
             <div class="c-container-info-column-item-container info">
-              Precio:{{appConfig.bordado + ((posiciones.costo*.01)*appConfig.bordado) | currency:'USD':true}}
               
             </div>
           </div>
@@ -60,7 +59,7 @@
           </thead>
           <tr *ngFor="let posiciones of posicion; let i = index">
             <td>{{posiciones.posiciones}}</td>           
-            <td>Precio:{{appConfig.bordado + ((posiciones.costo*.01)*appConfig.bordado) | currency:'USD':true}}</td>
+            <td>{{posiciones.costo}}</td>
           </tr>               
   
         </table>

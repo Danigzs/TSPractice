@@ -1,6 +1,5 @@
 <ul class="nav nav-tabs">
     
-   <li><a [ngClass]="{'tab-selected': showBordado,'tab-no-selected':!showBordado}"  style="cursor:pointer"  (click)="showBordado=true;showSerigrafia=false;showSublimado=false;showMaquila=false;">Precios</a></li>
    <li><a [ngClass]="{'tab-selected': showMaquila,'tab-no-selected':!showMaquila}"  style="cursor:pointer"  (click)="showBordado=false;showSerigrafia=false;showSublimado=false;showMaquila=true;">Precios Maquila</a></li>
    
    <li><a [ngClass]="{'tab-selected': showSerigrafia,'tab-no-selected':!showSerigrafia}"  style="cursor:pointer" (click)="showBordado=false;showSerigrafia=true;showSublimado=false;showMaquila=false;">Tamaños</a></li>
@@ -9,12 +8,9 @@
   </ul>
 
 <div>
-    <h1>Precio Base: {{appConfig.sublimado | currency:'USD':true}}</h1> 
 </div>
 <div style="width:100%">
-  <div style="width:100%;height:300px;" *ngIf="showBordado">
-         <sublimado-precio [appConfig]="appConfig"></sublimado-precio>
-  </div>
+ 
 
   <div style="width:100%;height:300px;" *ngIf="showMaquila">
       <sublimado-preciomaquila [appConfig]="appConfig"></sublimado-preciomaquila>
