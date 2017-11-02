@@ -30,14 +30,13 @@
     <div class="c-container-info-column data">
       <div class="c-container-info-column-item-container">
         <div class="c-container-info-column-item-container info">
-          Precio:
+          :
         </div>
       </div>
     </div>
     <div class="c-container-info-column">
           <div class="c-container-info-column-item-container">
             <div class="c-container-info-column-item-container info">
-              <label >{{appConfig.serigrafia + ((tipos.costo*.01)*appConfig.serigrafia) | currency:'USD':true}}</label>
             </div>
           </div>
         </div>
@@ -50,7 +49,7 @@
         <thead>
           <tr>
             <th>Tinta</th>
-            <th>%</th>
+            <th>Costo</th>
           </tr>
         </thead>
         <tr *ngFor="let tipos of tipotinta; let i = index">
