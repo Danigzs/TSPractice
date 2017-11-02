@@ -40,13 +40,18 @@ import {
      )
     }
     agregarTecnica(){
-      
-      this._bordadoService.addTecnica(this.bordadosize).subscribe(
-        data => {
-      this.reloadTecnicas();
-  
-        }
-      );
+      if(this.bordadosize.size.length > 0){
+        this._bordadoService.addTecnica(this.bordadosize).subscribe(
+          data => {
+        this.reloadTecnicas();
+    
+          }
+        );
+     }
+     else 
+      {
+        alert("Favor de introducir un Tamaño")
+      }
     }
     updateTecnica()
       {

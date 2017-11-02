@@ -24,15 +24,18 @@ import { Observable } from 'rxjs/Observable';
 export class ClientesComponent implements OnInit {
   @Input() showClients:Boolean;
   @Output() closeClientAdded = new EventEmitter();
- 
+  
   public show = true;
   public clientes:Array<Cliente> = [];
   public cliente:Cliente;
   
   constructor(private  _clienteService: ClienteService) {
-
+      this.OnClientAdded = this.OnClientAdded.bind(this);
   }
 
+  OnClientAdded(){
+    this.reloadClients();
+  }
   ngOnInit() {
    this.cliente = new Cliente();
    this.reloadClients();

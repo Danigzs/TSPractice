@@ -9,28 +9,24 @@ import { AppConfigService } from '../appConfig/appConfig.service'
   templateUrl: "./app/tecnicas config/bordados.mainscreen.html"
 })
 export class BordadoMainComponent  implements OnInit {
-    appConfig:AppConfig
-    
-    constructor(private  _appConfigService: AppConfigService) {
-      
-        }
-      
-    ngOnInit() {
-      //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-      //Add 'implements OnInit' to the class.
-      this.appConfig = new AppConfig();
-      this.getAppConfig();
-    }
-
-
-    getAppConfig(){
-      this._appConfigService.getAppConfig().subscribe(
-            appConfig => {
-              
-              this.appConfig = appConfig;
-              
-            }
-         );
-        }
-
+  appConfig:AppConfig
+  constructor(private  _appConfigService: AppConfigService) {
   }
+  
+  ngOnInit() {
+    this.appConfig = new AppConfig();
+    this.getAppConfig();
+  }
+
+
+  getAppConfig(){
+    this._appConfigService.getAppConfig().subscribe(
+      appConfig => {
+        
+        this.appConfig = appConfig;
+        
+      }
+      );
+  }
+
+}

@@ -38,13 +38,17 @@ export class TipoTintaComponent  {
    )
   }
   agregarTecnica(){
-    
+    if(this.tipos.tipotinta.length > 0){
     this._tecnicaService.addTecnica(this.tipos).subscribe(
       data => {
     this.reloadTecnicas();
 
       }
     );
+  }
+  else {
+    alert("Favor de introducir un Tipo de Tinta.")
+  }
   }
   updateTecnica()
     {

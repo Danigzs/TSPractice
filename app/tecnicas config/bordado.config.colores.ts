@@ -42,13 +42,18 @@ import {
      )
     }
     agregarTecnica(){
-      
+      if(this.colores.color != 0 && this.colores.hilo.length > 0 && this.colores.marca.length > 0){
       this._tecnicaService.addTecnica(this.colores).subscribe(
         data => {
       this.reloadTecnicas();
   
         }
       );
+      }
+     else 
+      {
+        alert("Favor de llenar todos los campos.")
+      }
     }
     updateTecnica()
       {

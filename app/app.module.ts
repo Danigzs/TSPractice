@@ -10,6 +10,7 @@ import {HomeComponent} from './home.component'
 import {NavbarComponent} from './navbar/navbar.component';
 import {FormComponent}	from './form.component';
 import {ClientesComponent} from './clientes.details';
+import {AddClientComponent} from './cliente/addClient.component';
 import {ClientsListComponent} from './cliente/clientsList.component';
 import {CotizadorComponent} from './cotizador.component';
 import {TecnicasComponent} from './tecnicas/tecnicas.component';
@@ -182,6 +183,7 @@ const appRoutes: Routes = [
   AppComponent,
   FormComponent,
   ClientesComponent,
+  AddClientComponent,
   ClientsListComponent,
   CotizadorComponent,
   InventarioComponent,

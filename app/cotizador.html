@@ -428,12 +428,23 @@
  
   <div id="myModal" class="modal" *ngIf="!hideModalcliente">
     <!-- Modal content -->
+    <div class="modal-content" style="height:500px">
+      <span class="close" (click)="closeModal()">&times;</span>
+      
+      <h1>Agregar nuevo cliente</h1>
+      <div style="width:100%">
+       <add-client [OnClientAdded]="OnClientAdded"></add-client> 
+    </div>
+    </div>
+  </div>
+
+  <!-- <div id="myModal" class="modal" *ngIf="!hideModalcliente">
+     
     <div class="client-modal-content">
       <span class="close" (click)="closeModal()">&times;</span>
-      <clientes [showClients]="1" (closeClientAdded)="closeClientAdded($event)"></clientes>
+      <add-client [OnClientAdded]="OnClientAdded"></add-client>
     </div>
-
-  </div>
+  </div> -->
   <div id="myModal" class="modal" *ngIf="!hideModalpago">
     <!-- Modal content -->
     <div class="client-modal-content">

@@ -143,6 +143,19 @@ export class CotizadorComponent implements OnInit {
     this.OnAddSublimado = this.OnAddSublimado.bind(this);
     this.OnAddTransfer = this.OnAddTransfer.bind(this);
     this.OnAddVinil = this.OnAddVinil.bind(this);
+    this.OnClientAdded = this.OnClientAdded.bind(this);
+  }
+
+  OnClientAdded(){
+    alert("Cliente creado");
+    this._clienteService.getClients().subscribe(
+      clients => {
+        this.clientes = clients
+        if (this.clientes.length > 0)
+          this.clienteSelected = this.clientes[0];
+      }
+    );
+    this.hideModalcliente = true;
   }
 
   openBordados(){

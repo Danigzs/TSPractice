@@ -40,13 +40,18 @@ import {
      )
     }
     agregarTecnica(){
-      
+      if(this.posiciones.posiciones.length > 0){
       this._bordadoService.addTecnica(this.posiciones).subscribe(
         data => {
       this.reloadTecnicas();
   
         }
       );
+      }
+     else 
+      {
+        alert("Favor de introducir una Posición")
+      }
     }
     updateTecnica()
       {
