@@ -311,7 +311,7 @@
             </tr>
           </thead>
           <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let grafico of order.graficos; let i = index">
-            <td> <input type="number" name="quantity" [(ngModel)]="grafico.quantity" (blur)="calculateTotal()"></td>
+            <td> <input type="number" disabled name="quantity" [(ngModel)]="grafico.quantity" (blur)="calculateTotal()"></td>
             <td>{{grafico.name}} </td>
             <td [innerHtml]="grafico.summary"> </td>
             <td>{{grafico.costoTotal | currency:'USD':true}}</td>

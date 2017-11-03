@@ -26,6 +26,11 @@
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
+            Sub total
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
             Precio total
           </div>
         </div>
@@ -66,9 +71,16 @@
           </div>
         </div>
         <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+              <div class="example-full-width">
+                <label >{{bordadoTypeSelected.costo + bordadoSizeSelected.costo + bordadoStitchSelected.costo + bordadoPositionSelected.costo | currency:'USD':true}}</label>
+              </div> 
+          </div>
+          </div>
+        <div class="c-container-info-column-item-container">
         <div class="c-container-info-column-item-container info">
             <div class="example-full-width">
-              <label >{{bordado.cantidad*( bordado.price +  bordadoTypeSelected.costo + bordadoSizeSelected.costo + bordadoStitchSelected.costo + bordadoPositionSelected.costo )| currency:'USD':true}}</label>
+              <label >{{((bordadoTypeSelected.costo + bordadoSizeSelected.costo + bordadoStitchSelected.costo + bordadoPositionSelected.costo ) *(bordado.cantidad))| currency:'USD':true}}</label>
             </div> 
         </div>
         </div>

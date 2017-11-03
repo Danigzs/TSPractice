@@ -31,6 +31,11 @@
         </div> -->
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
+            Sub Total
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
             Precio
           </div>
         </div>
@@ -72,6 +77,13 @@
               </div> 
           </div>
           </div> -->
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+                <div class="example-full-width">
+                  <label >{{(serigrafia.price +  serigrafiaInkTypeSelected.costo +  serigrafiaSizeSelected.costo)| currency:'USD':true}}</label>
+                </div> 
+            </div>
+            </div>
         <div class="c-container-info-column-item-container">
         <div class="c-container-info-column-item-container info">
             <div class="example-full-width">

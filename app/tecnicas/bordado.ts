@@ -66,7 +66,7 @@ export class Bordado {
   } 
   calculateBordadoPrice(){
     this.appConfig = new AppConfig();
-    this.price = this.cantidad * ( (this.bType.costo) + (this.bSize.costo) + (this.bPosition.costo*.01))
+    this.price = 0;
   }
   setTecnica(cantidad:number,colores:number,bordado:string,puntadas:number,size:string,position:string,price:number, percentageSize:number, percentageType:number, percentagePosition:number, costoTotal:number){
     
