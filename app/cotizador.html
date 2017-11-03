@@ -314,8 +314,8 @@
             <td> <input type="number" name="quantity" [(ngModel)]="grafico.quantity" (blur)="calculateTotal()"></td>
             <td>{{grafico.name}} </td>
             <td [innerHtml]="grafico.summary"> </td>
-            <td>{{grafico.price | currency:'USD':true}}</td>
-            <td>{{grafico.price*grafico.quantity | currency:'USD':true}}</td>
+            <td>{{grafico.costoTotal | currency:'USD':true}}</td>
+            <td>{{grafico.costoTotal*grafico.quantity | currency:'USD':true}}</td>
 
           </tr>
         </table>
@@ -336,7 +336,10 @@
       <div class="total" style="text-align:right;width:100%;">
         <span class="c-total-amount-info">Total:</span><span class="c-total-amount"> {{order.total | currency:'USD':true }}</span>
       </div>
-      <button type="button" class="btn btn-success btn-lg" style="width:100%;    font-size: 20px;font-weight: bold;" (click)="CreateOrder()">Crear pedido</button>
+      <div style="padding-bottom: 50px;height: 100px">
+        <button type="button" class="btn btn-primary btn-lg" style="width:30%;   margin-left: 10%; float:left; font-size: 20px;font-weight: bold;" (click)="SaveCotizacion()">Guardar Cotización</button>
+        <button type="button" class="btn btn-success btn-lg" style="width:30%; margin-right: 10%;  float: right; font-size: 20px;font-weight: bold;" (click)="CreateOrder()">Crear pedido</button>
+      </div>
     </div>
 
   </div>

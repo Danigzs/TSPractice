@@ -55,7 +55,7 @@
           </thead>
           <tr *ngFor="let viniltipo of viniles; let i = index">
             <td>{{viniltipo.nombre}}</td>
-            <td>{{viniltipo.costo}}</td>
+            <td>{{viniltipo.costo | currency:'USD':true}}</td>
 
           </tr>
         </table>

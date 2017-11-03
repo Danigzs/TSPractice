@@ -127,8 +127,10 @@ import {
     }
     addVinil()
     {
+
       if(this.vinil.price > 0)
       {
+        this.vinil.costoTotal = this.vinilTypeSelected.costo + this.vinil.price + this.vinilSizeSelected.costo;
         this.vinil.percentageSize = this.vinilSizeSelected.costo;
         this.vinil.percentageType = this.vinilTypeSelected.costo;
         this.vinil.nombre = this.vinilTypeSelected.nombre;

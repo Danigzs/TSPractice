@@ -17,7 +17,7 @@ export class Serigrafia {
   cantidad:number;
   percentageSize:number;
   percentageType:number;
-
+  costoTotal:number;
 bInk:SerigrafiaTipoTinta;
 bInkType: SerigrafiaTipoTinta;
 bUbications:Ubicaciones;
@@ -42,8 +42,9 @@ bClientePrice:SerigrafiaPrecioCliente;
     this.bClientePrice   = new SerigrafiaPrecioCliente();
     this.percentageSize = 0;
     this.percentageType = 0;
+    this.costoTotal = 0;
   } 
-  setTecnica(size:string,position:string,price:number,tintas:number, quantity:number, wItem:boolean,cantidad:number, percentageSize:number, percentageType:number){
+  setTecnica(size:string,position:string,price:number,tintas:number, quantity:number, wItem:boolean,cantidad:number, percentageSize:number, percentageType:number, costoTotal:number){
     
     this.size  = size;
     this.position = position;
@@ -54,6 +55,7 @@ bClientePrice:SerigrafiaPrecioCliente;
     this.wItem = wItem;
     this.percentageType = percentageType;
     this.percentageSize = percentageSize;
+    this.costoTotal = costoTotal;
   }
   copyNewTecnica(){
     var _serigrafia= new Serigrafia();
@@ -72,7 +74,7 @@ bClientePrice:SerigrafiaPrecioCliente;
     _serigrafia.wItem = this.wItem;   
     _serigrafia.percentageSize = this.percentageSize;
     _serigrafia.percentageType = this.percentageType;
-    
+    _serigrafia.costoTotal = this.costoTotal;
     return _serigrafia
   }
 }

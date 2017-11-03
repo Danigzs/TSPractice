@@ -118,7 +118,7 @@ import {
     addTransfer(){
       if(this.transfer.price > 0)
       {
-
+        this.transfer.costoTotal = this.transfer.price + this.transferSizeSelected.costo ;
         this.transfer.position = this.transferUbicationSelected.ubicaciones;
         this.transfer.size = this.transferSizeSelected.size;
         this.transfer.percentageSize = this.transferSizeSelected.costo;

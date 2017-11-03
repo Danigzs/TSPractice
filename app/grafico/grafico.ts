@@ -13,6 +13,7 @@ export class Grafico {
   percentageSize: number;
   percentageType: number;
   percentagePosition:number;
+  costoTotal:number;
   constructor() {
     this.name = "";
     this.summary = "";
@@ -21,8 +22,10 @@ export class Grafico {
     this.percentageSize = 0;
     this.percentageType = 0;
     this.percentagePosition = 0;
+    this.costoTotal = 0;
   } 
-  set(name:string, summary: string, price:number, quantity:number, percentageSize:number, percentageType:number, percentagePosition:number){
+  set(name:string, summary: string, price:number, quantity:number, percentageSize:number, percentageType:number, percentagePosition:number, 
+    costoTotal:number){
     this.name = tech;
     this.summary = summary;
     this.price = price;
@@ -30,6 +33,7 @@ export class Grafico {
     this.percentageSize = percentageSize;
     this.percentageType = percentageType;
     this.percentagePosition = percentagePosition;
+    this.costoTotal = costoTotal;
   }
   setBordado(bordado:Bordado)
   {
@@ -40,13 +44,14 @@ export class Grafico {
                     "<br><b>Posición: </b>" + bordado.bPosition.posiciones + 
                     "<br><b>Colores: </b>" + bordado.bColores.join(",") + 
                     "<br><b>Puntadas: </b>" + bordado.puntadas +
-                    "<br><b>Tamaño: </b>" + bordado.bSize.size +
-                    "<br><b>Porcentage: </b>" + percentage +  "%";
+                    "<br><b>Tamaño: </b>" + bordado.bSize.size + 
+                    "<br><b>Precio unitario: </b>" + bordado.costoTotal 
+                    // "<br><b>Porcentage: </b>" + percentage +  "%";
     this.quantity = bordado.cantidad;
     this.percentageSize = bordado.percentageSize;
     this.percentageType = bordado.percentageType;
     this.percentagePosition = bordado.percentagePosition;
-
+    this.costoTotal = bordado.costoTotal * this.quantity;
   }
   setSerigrafia(serigrafia:Serigrafia)
   {
@@ -58,11 +63,13 @@ export class Grafico {
                     "<br><b>Tamaño: </b>" + serigrafia.bSize.size + 
                     "<br><b>No. tintas: </b>" + serigrafia.tintas +
                     "<br><b>No. prendas: </b>" + serigrafia.quantity + 
-                    "<br><b>Con Prendas: </b>" + (serigrafia.wItem == true ? "Sí" : "No") +
-                    "<br><b>Porcentage: </b>" + percentage + "%";
+                    "<br><b>Con Prendas: </b>" + (serigrafia.wItem == true ? "Sí" : "No")  + 
+                    "<br><b>Precio unitario: </b>" + serigrafia.costoTotal 
+                    // "<br><b>Porcentage: </b>" + percentage + "%";
     this.quantity = 1;
     this.percentageSize = serigrafia.percentageSize;
     this.percentageType = serigrafia.percentageSize;
+    this.costoTotal = serigrafia.costoTotal * this.quantity;
   }
   setSublimado(sublimado:Sublimado)
   {
@@ -72,9 +79,11 @@ export class Grafico {
                     "<br><b>Tamaño: </b>" + sublimado.size + 
                     "<br><b>No. prendas: </b>" + sublimado.quantity + 
                     "<br><b>Con Prendas: </b>" + (sublimado.wItem == true ? "Sí" : "No") +
-                    "<br><b>Porcentage: </b>" + sublimado.percentageSize + "%";
+                    "<br><b>Precio unitario: </b>" + sublimado.costoTotal 
+                    // "<br><b>Porcentage: </b>" + sublimado.percentageSize + "%";
     this.quantity = 1;
     this.percentageSize = sublimado.percentageSize;
+    this.costoTotal = sublimado.costoTotal * this.quantity;
   }
   setTransfer(transfer:Transfer)
   {
@@ -84,9 +93,11 @@ export class Grafico {
      "<br><b>Tamaño: </b>" + transfer.size + 
      "<br><b>No. prendas: </b>" + transfer.quantity + 
      "<br><b>Con Prendas: </b>" + (transfer.wItem == true ? "Sí" : "No")  +
-     "<br><b>Porcentage: </b>" + transfer.percentageSize + "%";
+     "<br><b>Precio unitario: </b>" + transfer.costoTotal 
+     // "<br><b>Porcentage: </b>" + transfer.percentageSize + "%";
      this.quantity = 1;
      this.percentageSize = transfer.percentageSize;
+     this.costoTotal = transfer.costoTotal * this.quantity;
 
   }
   setVinil(vinil:Vinil)
@@ -99,10 +110,12 @@ export class Grafico {
      "<br><b>Posición: </b>" + vinil.position + 
      "<br><b>No. prendas: </b>" + vinil.quantity + 
      "<br><b>Con Prendas: </b>" + (vinil.wItem == true ? "Sí" : "No")  +
-     "<br><b>Porcentage: </b>" + percentage + "%"; 
+     "<br><b>Precio unitario: </b>" + vinil.costoTotal 
+     // "<br><b>Porcentage: </b>" + percentage + "%"; 
      this.quantity = 1;
      this.percentageSize = vinil.percentageSize;
      this.percentageType = vinil.percentageType;
+     this.costoTotal = vinil.costoTotal * this.quantity;
   }
   copy(){
     var _grafico= new Grafico();

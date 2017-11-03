@@ -110,6 +110,7 @@ export class TecnicaSublimadoComponent  {
   addSublimado(){
     if(this.sublimado.price > 0)
     {
+      this.sublimado.costoTotal = this.sublimado.price + this.sublimadoSizeSelected.costo;
       this.sublimado.position = this.sublimadoUbicationSelected.ubicaciones;
       this.sublimado.size = this.sublimadoSizeSelected.size;
       this.sublimado.percentageSize = this.sublimadoSizeSelected.costo;

@@ -152,6 +152,7 @@ export class TecnicaSerigrafiaComponent  {
  }
  getSerigrafiaValue()
  {
+   debugger
    if(this.serigrafia.quantity > 0 && this.serigrafia.tintas > 0 )
    {
      if(this.serigrafia.wItem == false){
@@ -195,6 +196,7 @@ export class TecnicaSerigrafiaComponent  {
  agregarTecnica(){
    if(this.serigrafia.price > 0)
    {
+     this.serigrafia.costoTotal = this.serigrafia.price + this.serigrafiaInkTypeSelected.costo +  this.serigrafiaSizeSelected.costo;
    this.serigrafia.bInkType = this.serigrafiaInkTypeSelected;
    this.serigrafia.bUbications = this.serigrafiaUbicationSelected;
    this.serigrafia.bSize = this.serigrafiaSizeSelected;

@@ -309,7 +309,7 @@ export class CotizadorComponent implements OnInit {
       _total += this.getProductPrice(producto); //producto.price * producto.quantity;
     }
     for (let grafico of this.order.graficos) {
-      _total += grafico.price * grafico.quantity;
+      _total += grafico.costoTotal * grafico.quantity;
     }
 
     this.order.total = _total;

@@ -7,7 +7,7 @@ export class Transfer {
     quantity:number;
     wItem:boolean;
     percentageSize:number;
-
+    costoTotal:number;
     constructor() {
       this.size = "";
       this.position = "";
@@ -15,8 +15,9 @@ export class Transfer {
       this.quantity = 0;
       this.wItem = false;
       this.perceentageSize = 0;
+      this.costoTotal = 0;
     } 
-    setTecnica(wItem:boolean,quantity:number,size:string,position:string,price:number, percentageSize:number){
+    setTecnica(wItem:boolean,quantity:number,size:string,position:string,price:number, percentageSize:number, costoTotal:number){
       
       this.size  = size;
       this.position = position;
@@ -24,7 +25,7 @@ export class Transfer {
       this.quantity = quantity
       this.wItem = wItem;
       this.percentageSize = percentageSize;
-      
+      this.costoTotal = costoTotal;
     }
     copyNewTecnica(){
       var _transfer= new Transfer();
@@ -34,7 +35,7 @@ export class Transfer {
       _transfer.quantity = this.quantity;
       _transfer.wItem = this.wItem;
       _transfer.percentageSize = this.percentageSize
-      
+      _transfer.costoTotal = this.costoTotal;
    
       
       return _transfer

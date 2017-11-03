@@ -24,11 +24,11 @@
             Tamaño
           </div>
         </div>
-        <div class="c-container-info-column-item-container">
+        <!-- <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             Subtotal
           </div>
-        </div>
+        </div> -->
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             Precio
@@ -40,7 +40,7 @@
 
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-            <select type="text" name="bordado" [(ngModel)]="serigrafiaUbicationSelected" (ngModelChange)="selectSerigrafiaSize($event)">
+            <select type="text" name="bordado" [(ngModel)]="serigrafiaUbicationSelected"  >
                <option *ngFor="let serigrafiaUbication of serigrafiaUbications" [ngValue]="serigrafiaUbication" >
                  {{serigrafiaUbication.ubicaciones}}
                 </option>
@@ -49,7 +49,7 @@
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-            <select type="text" name="bordado" [(ngModel)]="serigrafiaInkTypeSelected" (ngModelChange)="selectSerigrafiaInkType($event)">
+            <select type="text" name="bordado" [(ngModel)]="serigrafiaInkTypeSelected" >
                <option *ngFor="let serigrafiaInkType of serigrafiaInkTypes" [ngValue]="serigrafiaInkType" >
                  {{serigrafiaInkType.tipotinta}}
                 </option>
@@ -58,24 +58,24 @@
         </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
-            <select type="text" name="bordado" [(ngModel)]="serigrafiaSizeSelected" (ngModelChange)="selectSerigrafiaSize($event)">
+            <select type="text" name="bordado" [(ngModel)]="serigrafiaSizeSelected" >
                <option *ngFor="let serigrafiaSize of serigrafiaSizes" [ngValue]="serigrafiaSize" >
                  {{serigrafiaSize.size}}
                 </option>
             </select>
           </div>
         </div>
-        <div class="c-container-info-column-item-container">
+        <!-- <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
               <div class="example-full-width">
                 <label >{{serigrafia.price | currency:'USD':true}}</label>
               </div> 
           </div>
-          </div>
+          </div> -->
         <div class="c-container-info-column-item-container">
         <div class="c-container-info-column-item-container info">
             <div class="example-full-width">
-              <label >{{(serigrafia.price + serigrafiaInkTypeSelected.costo)*(serigrafia.quantity)| currency:'USD':true}}</label>
+              <label >{{(serigrafia.price +  serigrafiaInkTypeSelected.costo +  serigrafiaSizeSelected.costo)*(serigrafia.quantity)| currency:'USD':true}}</label>
             </div> 
         </div>
         </div>
