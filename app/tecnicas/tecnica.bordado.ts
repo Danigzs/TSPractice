@@ -226,8 +226,4 @@ import {BordadoTipoComponent} from './../tecnicas config/bordado.config.tipo'
          );
        });
    }
-
-
-
  }
-
