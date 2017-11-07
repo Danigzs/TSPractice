@@ -46,6 +46,8 @@ export class Bordado {
   percentageType:number;
   percentagePosition:number;
 
+  maquila: boolean;
+
   constructor() {
     this.size = "";
     this.position = "";
@@ -63,12 +65,13 @@ export class Bordado {
     this.percentageType = 0;
     this.percentagePosition = 0;
     this.costoTotal = 0;
+    this.maquila = false;
   } 
   calculateBordadoPrice(){
     this.appConfig = new AppConfig();
     this.price = 0;
   }
-  setTecnica(cantidad:number,colores:number,bordado:string,puntadas:number,size:string,position:string,price:number, percentageSize:number, percentageType:number, percentagePosition:number, costoTotal:number){
+  setTecnica(maquila:boolean, cantidad:number,colores:number,bordado:string,puntadas:number,size:string,position:string,price:number, percentageSize:number, percentageType:number, percentagePosition:number, costoTotal:number){
     
     this.size  = size;
     this.position = position;
@@ -81,6 +84,7 @@ export class Bordado {
     this.percentagePosition = percentagePosition;
     this.percentageType = percentageType;
     this.costoTotal = costoTotal;
+    this.maquila = maquila
   }
   copyNewTecnica(){
     var _bordado= new Bordado();
@@ -102,6 +106,7 @@ export class Bordado {
     _bordado.percentageType=this.percentageType;
     _bordado.percentagePosition=this.percentagePosition;
     _bordado.costoTotal = this.costoTotal;
+    _bordado.maquila = this.maquila;
     return _bordado
   }
 
