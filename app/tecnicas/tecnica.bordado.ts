@@ -112,6 +112,12 @@ import {BordadoTipoComponent} from './../tecnicas config/bordado.config.tipo'
    } 
 
    ngOnInit() {
+     this.bordadoPrice.bind(this);
+     this.bordadoSubtotal.bind(this);
+     this.getBordadoPuntadasPrice.bind(this);
+     this.bordadoCalculateAll.bind(this);
+
+
      this.colorOptions = [ ];
      this.bordado = new Bordado();
      this.bordadoTypeSelected = new BordadoTipo();
@@ -182,7 +188,41 @@ import {BordadoTipoComponent} from './../tecnicas config/bordado.config.tipo'
 
    }
 
+   selectMaquila(){
+     this.bordadoCalculateAll();
+   }
 
+  bordadoCalculateAll(){
+    this.bordadoSubtotal();
+    this.bordadoPrice();
+  }
+  bordadoSubtotal(){
+    return this.bordadoTypeSelected.costo + this.bordadoSizeSelected.costo + this.bordadoPositionSelected.costo + this.getBordadoPuntadasPrice();
+  }
+
+   bordadoPrice(){
+     return ((this.bordadoTypeSelected.costo + this.bordadoSizeSelected.costo +  this.bordadoPositionSelected.costo + this.getBordadoPuntadasPrice())*(this.bordado.cantidad));
+   }
+
+   getBordadoPuntadasPrice(){
+     if(this.bordado.maquila){
+       if(this.bordado.puntadas == 0 )
+       {
+         return 0;
+       }
+       var totalStitches = Math.ceil(this.bordado.puntadas/1000);
+       if(totalStitches > 0)
+       {
+          return totalStitches * this.bordadoStitchSelected.costo;
+       }
+
+       return this.bordadoStitchSelected.costo;
+       
+     }
+     else {
+       return 0;
+     }
+   }
    addBordadoTecnica(){
 
      this.bordado.bType = this.bordadoTypeSelected;
@@ -193,7 +233,7 @@ import {BordadoTipoComponent} from './../tecnicas config/bordado.config.tipo'
      this.bordado.percentageType = this.bordadoTypeSelected.costo;
      this.bordado.percentagePosition = this.bordadoPositionSelected.costo;
      this.bordado.bColores = this.colorOptions.filter((item,index) => this.bordadoColoresSelected.indexOf(index) !== -1  ).map( item => item.name)
-     this.bordado.costoTotal = this.bordado.price +  this.bordadoTypeSelected.costo + this.bordadoSizeSelected.costo +  this.bordadoPositionSelected.costo;
+     this.bordado.costoTotal = this.bordado.price +  this.bordadoTypeSelected.costo + this.bordadoSizeSelected.costo +  this.bordadoPositionSelected.costo + this.getBordadoPuntadasPrice();
      this.OnAddBordadoTecnica(this.bordado);
    }
 

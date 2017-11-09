@@ -73,14 +73,14 @@
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
               <div class="example-full-width">
-                <label >{{bordadoTypeSelected.costo + bordadoSizeSelected.costo + bordadoPositionSelected.costo | currency:'USD':true}}</label>
+                <label >{{bordadoSubtotal() | currency:'USD':true}}</label>
               </div> 
           </div>
           </div>
         <div class="c-container-info-column-item-container">
         <div class="c-container-info-column-item-container info">
             <div class="example-full-width">
-              <label >{{((bordadoTypeSelected.costo + bordadoSizeSelected.costo +  bordadoPositionSelected.costo )*(bordado.cantidad))| currency:'USD':true}}</label>
+              <label >{{bordadoPrice()| currency:'USD':true}}</label>
             </div> 
         </div>
         </div>
@@ -107,7 +107,7 @@
         </div> 
            <div class="c-container-info-column-item-container">
             <div class="c-container-info-column-item-container info">
-              <input type="checkbox" name="maquila">
+              <input type="checkbox" name="maquila" [(ngModel)]="bordado.maquila" (click)="selectMaquila()">
               Maquila
             </div>
           </div> 
@@ -128,7 +128,7 @@
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             <div class="example-full-width">
-              <input type="number" name="price" [(ngModel)]="bordado.puntadas">
+              <input type="number" name="price" [(ngModel)]="bordado.puntadas" (blur)="bordadoCalculateAll()">
             </div>
           </div>
         </div>

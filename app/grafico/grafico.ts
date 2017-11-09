@@ -40,13 +40,14 @@ export class Grafico {
     this.name = "Bordado" ;
     this.price = bordado.price * bordado.cantidad;
     var percentage = (bordado.percentageType + bordado.percentageSize + bordado.percentagePosition);
+    var isMaquila = (bordado.maquila == true) ? "Si" : "No";
     this.summary =  "<b>Tipo: </b>" + bordado.bType.nombre + 
                     "<br><b>Posición: </b>" + bordado.bPosition.posiciones + 
                     "<br><b>Colores: </b>" + bordado.bColores.join(",") + 
                     "<br><b>Puntadas: </b>" + bordado.puntadas +
                     "<br><b>Tamaño: </b>" + bordado.bSize.size + 
-                    "<br><b>Precio unitario: </b>" + bordado.costoTotal 
-                    // "<br><b>Porcentage: </b>" + percentage +  "%";
+                    "<br><b>Precio unitario: </b>" + bordado.costoTotal +
+                    "<br><b>Es Maquila: </b>" + isMaquila;
     this.quantity = bordado.cantidad;
     this.percentageSize = bordado.percentageSize;
     this.percentageType = bordado.percentageType;
