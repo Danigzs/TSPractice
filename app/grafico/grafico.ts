@@ -39,7 +39,7 @@ export class Grafico {
   {
     this.name = "Bordado" ;
     this.price = bordado.price * bordado.cantidad;
-    var percentage = (bordado.percentageType + bordado.percentageSize + bordado.percentagePosition);
+    //var percentage = (bordado.percentageType + bordado.percentageSize + bordado.percentagePosition);
     var isMaquila = (bordado.maquila == true) ? "Si" : "No";
     this.summary =  "<b>Tipo: </b>" + bordado.bType.nombre + 
                     "<br><b>Posición: </b>" + bordado.bPosition.posiciones + 

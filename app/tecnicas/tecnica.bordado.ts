@@ -197,10 +197,16 @@ import {BordadoTipoComponent} from './../tecnicas config/bordado.config.tipo'
     this.bordadoPrice();
   }
   bordadoSubtotal(){
+    if(this.bordado.maquila){
+      return  this.getBordadoPuntadasPrice();
+    }
     return this.bordadoTypeSelected.costo + this.bordadoSizeSelected.costo + this.bordadoPositionSelected.costo + this.getBordadoPuntadasPrice();
   }
 
    bordadoPrice(){
+     if(this.bordado.maquila){
+      return  this.getBordadoPuntadasPrice() * this.bordado.cantidad;
+    }
      return ((this.bordadoTypeSelected.costo + this.bordadoSizeSelected.costo +  this.bordadoPositionSelected.costo + this.getBordadoPuntadasPrice())*(this.bordado.cantidad));
    }
 
@@ -233,7 +239,8 @@ import {BordadoTipoComponent} from './../tecnicas config/bordado.config.tipo'
      this.bordado.percentageType = this.bordadoTypeSelected.costo;
      this.bordado.percentagePosition = this.bordadoPositionSelected.costo;
      this.bordado.bColores = this.colorOptions.filter((item,index) => this.bordadoColoresSelected.indexOf(index) !== -1  ).map( item => item.name)
-     this.bordado.costoTotal = this.bordado.price +  this.bordadoTypeSelected.costo + this.bordadoSizeSelected.costo +  this.bordadoPositionSelected.costo + this.getBordadoPuntadasPrice();
+     this.bordado.price = this.bordadoSubtotal();
+     this.bordado.costoTotal = this.bordado.price ;
      this.OnAddBordadoTecnica(this.bordado);
    }
 
