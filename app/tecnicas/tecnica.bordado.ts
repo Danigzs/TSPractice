@@ -84,8 +84,8 @@ import {BordadoTipoComponent} from './../tecnicas config/bordado.config.tipo'
    public bordadoStitches: Array <BordadoPuntadas>;
    public bordadoSizes: Array <BordadoSize>;
    public bordadoPositions: Array <Posiciones>;
-   public bordadoColores:Array<Colores>;
-
+   public bordadoColores:Array<Colores>;  
+   
 
 
   /**
@@ -216,7 +216,14 @@ import {BordadoTipoComponent} from './../tecnicas config/bordado.config.tipo'
        {
          return 0;
        }
-       var totalStitches = Math.ceil(this.bordado.puntadas/1000);
+       var result = this.bordado.puntadas/1000;
+       var resultCast = Math.floor(this.bordado.puntadas/1000)
+       if(!Number.isInteger(result)){
+         resultCast += 1
+       }       
+       
+
+       var totalStitches = (this.bordado.puntadas/1000);
        if(totalStitches > 0)
        {
           return totalStitches * this.bordadoStitchSelected.costo;
