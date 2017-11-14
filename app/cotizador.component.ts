@@ -440,7 +440,8 @@ export class CotizadorComponent implements OnInit {
 
  
 
-  CreateOrder() {
+  CreateOrder(esCotizacion:number) {
+    this.order.esCotizacion = esCotizacion;
     this.order.client = this.clienteSelected;
     this.order.seller = this.sellerSelected;
     this.order.debt = this.order.total -  this.order.advance;
@@ -454,7 +455,12 @@ export class CotizadorComponent implements OnInit {
     this._orderService.addOrder(this.order).subscribe(
       data => {
         console.log("order added");
-        alert("Pedido Creado");
+        if(this.order.esCotizacion){
+          alert("Cotizacion guardada");
+        }
+        else {
+          alert("Pedido Creado");
+        }
          
       }
     );

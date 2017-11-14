@@ -216,20 +216,14 @@ import {BordadoTipoComponent} from './../tecnicas config/bordado.config.tipo'
        {
          return 0;
        }
+       debugger
        var result = this.bordado.puntadas/1000;
        var resultCast = Math.floor(this.bordado.puntadas/1000)
        if(!Number.isInteger(result)){
          resultCast += 1
        }       
        
-
-       var totalStitches = (this.bordado.puntadas/1000);
-       if(totalStitches > 0)
-       {
-          return totalStitches * this.bordadoStitchSelected.costo;
-       }
-
-       return this.bordadoStitchSelected.costo;
+       return resultCast * this.bordadoStitchSelected.costo;
        
      }
      else {
