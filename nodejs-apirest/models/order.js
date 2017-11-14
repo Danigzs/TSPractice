@@ -42,6 +42,9 @@ var orderSchema = new Schema({
   },
   payments:{
     type:Number
+  },
+  esCotizacion:{
+    type:Number
   }
 
 });

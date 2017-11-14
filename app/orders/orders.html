@@ -59,6 +59,7 @@
             <th>Vendedor</th>
             <th>Status</th>
             <th>Días de pago</th>
+            <th>Tipo</th>
             
             
           </tr>
@@ -75,6 +76,7 @@
           <td>{{order.seller.name}}</td>
           <td>{{order.shippingWay}}</td>
           <td>{{order.paymentDays}}</td>
+          <td>{{getOrderType(order)}}</td>
           
           
           

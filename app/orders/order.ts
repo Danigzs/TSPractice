@@ -70,4 +70,6 @@ export class Order {
     this.subTotal = subTotal;
     this.esCotizacion = esCotizacion;
   }
+
+  
 }

@@ -109,6 +109,7 @@ exports.add = function (req, res) {
       isPaid: req.body.isPaid,
       advance: req.body.advance,
       debt: req.body.debt,
+      esCotizacion:req.body.esCotizacion,
       shippingWay: req.body.shippingWay,
       shippingDate: req.body.shippingDate,
       createdAt: new Date()

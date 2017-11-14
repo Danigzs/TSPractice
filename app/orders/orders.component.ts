@@ -16,14 +16,22 @@ export class OrdersComponent implements OnInit {
   public clientname:String = "";
   public clientfolio:String = "";
 
+
   constructor(private _orderService:OrderService){
 
   }
   ngOnInit() {
+    this.getOrderType.bind(this);
     this._orderService.getOrders().subscribe(
       data=>{
         this.orders = data;
       }
     )
+  }
+  getOrderType(order:Order){
+    if (order.esCotizacion){
+      return "Cotización"
+    }
+    return "Pedido"
   }
 }
