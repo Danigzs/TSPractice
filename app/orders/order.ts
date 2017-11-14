@@ -25,6 +25,8 @@ export class Order {
   status:number;
   statusText:String;
   paymentDays:number;
+  esCotizacion:number;
+
   constructor() {
     this.client = new Cliente;
     this.seller = new Seller;
@@ -42,10 +44,11 @@ export class Order {
     this.subTotal = 0;
     this.statusText = "";
     this.status = -1;
+    this.esCotizacion = 0;
   } 
 
 
-  setOrder(_id:number, client:Cliente,seller:Seller,products:Array<ProductCotizacion>,maquilas:Array<TecnicaCotizacion>,tecnicaBordados:Array<Bordado>, graficos:Array<Grafico>, total:number,folio:number,notes:String,advance:number,debt:number,isPaid:number,createdAt:Date,shippingWay:String,shippingDate:Date,subTotal:number, statusText:String, status:number){
+  setOrder(_id:number, client:Cliente,seller:Seller,products:Array<ProductCotizacion>,maquilas:Array<TecnicaCotizacion>,tecnicaBordados:Array<Bordado>, graficos:Array<Grafico>, total:number,folio:number,notes:String,advance:number,debt:number,isPaid:number,createdAt:Date,shippingWay:String,shippingDate:Date,subTotal:number, statusText:String, status:number, esCotizacion:number){
     this._id = _id;
     this.client = client;
     this.seller = seller;
@@ -65,5 +68,8 @@ export class Order {
     this.shippingWay = shippingWay;
     this.shippingDate = shippingDate;
     this.subTotal = subTotal;
+    this.esCotizacion = esCotizacion;
   }
+
+  
 }
