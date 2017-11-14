@@ -223,7 +223,7 @@ import {BordadoTipoComponent} from './../tecnicas config/bordado.config.tipo'
        }       
        
 
-       var totalStitches = (this.bordado.puntadas/1000);
+       var totalStitches = Math.floor(this.bordado.puntadas/1000);
        if(totalStitches > 0)
        {
           return totalStitches * this.bordadoStitchSelected.costo;
