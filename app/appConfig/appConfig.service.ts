@@ -12,7 +12,7 @@ export class AppConfigService {
 
 constructor (private http: Http) {}
 
-  getAppConfig(): Observable<AppConfig> {
+  getAppConfig(): Observable<Array<AppConfig>> {
     
     return this.http.get(this.appConfigUrl)
                     .map(this.extractData)

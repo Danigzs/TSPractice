@@ -103,6 +103,7 @@ import {VinilPrecioMaquilaService} from './tecnicas config/vinilPrecioMaquila.se
 import {VinilPrecioMaquilaComponent} from './tecnicas config/vinil.config.precioMaquila';
 import {VinilSizeComponent} from './tecnicas config/vinil.config.size';
 import {VinilSizeService} from './tecnicas config/vinilSize.service';
+import {appConfigComponent} from './appConfig/appConfig.config';
 
 
 
@@ -165,6 +166,8 @@ const appRoutes: Routes = [
   { path: 'vinil-preciomaquila', component: VinilPrecioMaquilaComponent},
   { path: 'vinil-size', component: VinilSizeComponent},
   { path: 'tecnicavinilr', component: TecnicaVinilComponent},
+  { path: 'appconfig', component: appConfigComponent},
+
   
   
 ];
@@ -233,7 +236,8 @@ const appRoutes: Routes = [
   VinilPrecioComponent,
   VinilPrecioMaquilaComponent,
   VinilSizeComponent,
-  TecnicaVinilComponent
+  TecnicaVinilComponent,
+  appConfigComponent
   ],
   providers : [  AuthGuard,CotizadorService, 
     ClienteService, 

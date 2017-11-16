@@ -223,7 +223,6 @@ import {BordadoTipoComponent} from './../tecnicas config/bordado.config.tipo'
          resultCast += 1
        }       
        
-<<<<<<< HEAD
 
        var totalStitches = Math.floor(this.bordado.puntadas/1000);
        if(totalStitches > 0)
@@ -232,9 +231,6 @@ import {BordadoTipoComponent} from './../tecnicas config/bordado.config.tipo'
        }
 
        return this.bordadoStitchSelected.costo;
-=======
-       return resultCast * this.bordadoStitchSelected.costo;
->>>>>>> 251589f9e4775db53b6428d3e8571be7e938c72c
        
      }
      else {
