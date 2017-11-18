@@ -20,8 +20,8 @@ import {
   })
   export class appConfigComponent  {
     @Input() appConfig:  AppConfig  ;    
-    public posiciones:AppConfig;
-    public posicion: Array < AppConfig > ;
+    public posiciones:AppConfig ;
+    public posicion: Array <AppConfig> ;
     constructor(private  _bordadoService: AppConfigService) {
     }
   
@@ -56,5 +56,3 @@ import {
       );
       }
   }
-  
-  

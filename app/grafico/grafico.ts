@@ -52,7 +52,7 @@ export class Grafico {
     this.percentageSize = bordado.percentageSize;
     this.percentageType = bordado.percentageType;
     this.percentagePosition = bordado.percentagePosition;
-    this.costoTotal = bordado.costoTotal * this.quantity;
+    this.costoTotal = bordado.costoTotal;
   }
   setSerigrafia(serigrafia:Serigrafia)
   {
@@ -70,7 +70,7 @@ export class Grafico {
     this.quantity = 1;
     this.percentageSize = serigrafia.percentageSize;
     this.percentageType = serigrafia.percentageSize;
-    this.costoTotal = serigrafia.costoTotal * this.quantity;
+    this.costoTotal = serigrafia.costoTotal;
   }
   setSublimado(sublimado:Sublimado)
   {
@@ -84,7 +84,7 @@ export class Grafico {
                     // "<br><b>Porcentage: </b>" + sublimado.percentageSize + "%";
     this.quantity = 1;
     this.percentageSize = sublimado.percentageSize;
-    this.costoTotal = sublimado.costoTotal * this.quantity;
+    this.costoTotal = sublimado.costoTotal;
   }
   setTransfer(transfer:Transfer)
   {
@@ -98,7 +98,7 @@ export class Grafico {
      // "<br><b>Porcentage: </b>" + transfer.percentageSize + "%";
      this.quantity = 1;
      this.percentageSize = transfer.percentageSize;
-     this.costoTotal = transfer.costoTotal * this.quantity;
+     this.costoTotal = transfer.costoTotal;
 
   }
   setVinil(vinil:Vinil)
@@ -116,7 +116,7 @@ export class Grafico {
      this.quantity = 1;
      this.percentageSize = vinil.percentageSize;
      this.percentageType = vinil.percentageType;
-     this.costoTotal = vinil.costoTotal * this.quantity;
+     this.costoTotal = vinil.costoTotal;
   }
   copy(){
     var _grafico= new Grafico();
