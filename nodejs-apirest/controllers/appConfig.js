@@ -34,7 +34,12 @@ exports.add = function (req, res) {
     serigrafia: req.body.serigrafia,
     sublimado: req.body.sublimado,
     presecado: req.body.presecado,
-    revelado: req.body.revelado
+    revelado: req.body.revelado,
+    minBordado: req.body.minBordado,
+    minSerigrafia: req.body.minSerigrafia,
+    minSublimado: req.body.minSublimado,
+    minTransfer: req.body.minTransfer,
+    minVinil: req.body.minVinil
   });
   appConfig.save(function (err, appConfig) {
     if (err) return res.send(500, err.message);
@@ -58,6 +63,16 @@ exports.update = function (req, res) {
         appConfig.revelado = req.body.revelado; 
         if(req.body.presecado)
         appConfig.presecado = req.body.presecado; 
+        if(req.body.minBordado)
+        appConfig.minBordado = req.body.minBordado; 
+        if(req.body.minSerigrafia)
+        appConfig.minSerigrafia = req.body.minSerigrafia; 
+        if(req.body.minSublimado)
+        appConfig.minSublimado = req.body.minSublimado; 
+        if(req.body.minTransfer)
+        appConfig.minTransfer = req.body.minTransfer; 
+        if(req.body.minVinil)
+        appConfig.minVinil = req.body.minVinil; 
       appConfig.save(function (err) {
       
         if (err) return res.send(500, err.message);
