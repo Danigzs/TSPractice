@@ -441,7 +441,7 @@ export class CotizadorComponent implements OnInit {
  
 
   CreateOrder(esCotizacion:number) {
-    debugger
+    
     this.order.esCotizacion = esCotizacion;
     this.order.client = this.clienteSelected;
     this.order.seller = this.sellerSelected;
