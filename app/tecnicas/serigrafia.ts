@@ -14,7 +14,6 @@ export class Serigrafia {
   tintas:number
   quantity:number;
   wItem:boolean
-  wPresecado:boolean
   cantidad:number;
   percentageSize:number;
   percentageType:number;
@@ -36,7 +35,6 @@ bClientePrice:SerigrafiaPrecioCliente;
     this.wItem = false;
     this.cantidad = 0;
     this.bInk  = new SerigrafiaTipoTinta();
-    this.wPresecado = false;
     this.bInkType  = new SerigrafiaTipoTinta();
     this.bUbications  = new Ubicaciones();
     this.bSize  = new SerigrafiaSize();
@@ -46,7 +44,7 @@ bClientePrice:SerigrafiaPrecioCliente;
     this.percentageType = 0;
     this.costoTotal = 0;
   } 
-  setTecnica(size:string,position:string,price:number,tintas:number, quantity:number, wItem:boolean,cantidad:number, percentageSize:number, percentageType:number, costoTotal:number, wPresecado:boolean){
+  setTecnica(size:string,position:string,price:number,tintas:number, quantity:number, wItem:boolean,cantidad:number, percentageSize:number, percentageType:number, costoTotal:number){
     
     this.size  = size;
     this.position = position;
@@ -55,7 +53,6 @@ bClientePrice:SerigrafiaPrecioCliente;
     this.tintas=tintas;
     this.quantity = quantity;
     this.wItem = wItem;
-    this.wPresecado = wPresecado;
     this.percentageType = percentageType;
     this.percentageSize = percentageSize;
     this.costoTotal = costoTotal;
@@ -70,7 +67,6 @@ bClientePrice:SerigrafiaPrecioCliente;
     _serigrafia.bInk=this.bInk;
     _serigrafia.bInkType=this.bInkType;
     _serigrafia.bUbications=this.bUbications;
-    _serigrafia.wPresecado = this.wPresecado;
     _serigrafia.bSize=this.bSize;
     _serigrafia.bBordesaPrice=this.bBordesaPrice;
     _serigrafia.bClientePrice=this.bClientePrice;

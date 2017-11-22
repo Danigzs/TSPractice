@@ -26,24 +26,6 @@ exports.findById = function (req, res) {
   });
 };
 
-//GET - Return a register with specified ID
-exports.updateStock = function (req, res) {
-  Product.findById({_id:req.params.id}, function (err, product) {
-    if (err) return res.send(500, err.message);
-    console.log('GET /products stock/' + req.params.id);
-     product.stock = req.body.stock;
-     product.save(function(error){
-       if (err) return res.send(500, err.message);
-        res.status(200).json({
-        product: product
-      });
-     });
-     
-
-  });
-};
-
-
 //POST - Insert a new register
 exports.add = function (req, res) {
   console.log('POST');
@@ -55,8 +37,7 @@ exports.add = function (req, res) {
     isBordesa: req.body.isBordesa,
     description: req.body.description,
     supplies: req.body.supplies,
-    price: req.body.price,
-    stock:req.body.stock
+    price: req.body.price
   });
   product.save(function (err, client) {
     if (err) return res.send(500, err.message);
@@ -76,8 +57,7 @@ exports.update = function (req, res) {
     product.isBordesa =  req.body.isBordesa,
     product.description =  req.body.description,
     product.supplies =  req.body.supplies,
-    product.price =  req.body.price,
-    product.stock =  req.body.stock
+    product.price =  req.body.price
     product.save(function (err) {
       if (err) return res.send(500, err.message);
      res.status(200).json({

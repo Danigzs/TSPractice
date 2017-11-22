@@ -56,7 +56,7 @@ export class TecnicaSerigrafiaComponent  {
   public serigrafia:Serigrafia;
   public tecnicas: Array < Tecnica > ;
   public serigrafias: Array<Serigrafia>;
-  public presecadoAdded:boolean;
+
 
   @Input() OnAddSerigrafia:Function;
 
@@ -95,7 +95,6 @@ export class TecnicaSerigrafiaComponent  {
  }
 
  ngOnInit() {
-   this.presecadoAdded = false;
    this.tecnica = new Tecnica();
    this.serigrafia = new Serigrafia();
    this.reloadTecnicas();
@@ -151,26 +150,12 @@ export class TecnicaSerigrafiaComponent  {
        );
      });
  }
- setPresecado(){
-   if(this.serigrafia.wPresecado ){
-      this.serigrafia.price = this.serigrafia.price + this.appConfig.presecado + this.appConfig.revelado;
-      this.presecadoAdded = true;
-   }
-   else {
-     if(this.presecadoAdded)
-      {
-        this.serigrafia.price = this.serigrafia.price - this.appConfig.presecado - this.appConfig.revelado;
-        this.presecadoAdded = false;
-      }
-   }
-   
- }
  getSerigrafiaValue()
  {
-   
+   debugger
    if(this.serigrafia.quantity > 0 && this.serigrafia.tintas > 0 )
    {
-    //  if(this.serigrafia.wItem == false){
+     if(this.serigrafia.wItem == false){
        this._serigrafiaBordesaPriceService.getInkQuantity(this.serigrafia.tintas,this.serigrafia.quantity).subscribe(
          data => {
            if(data.length > 0)
@@ -181,23 +166,23 @@ export class TecnicaSerigrafiaComponent  {
              this.serigrafia.price = 0;
            }
          });
-    //  }
-    //  else 
-    //  {
-    //    this._serigrafiaClientePriceService.getInkQuantityWItem(this.serigrafia.tintas,this.serigrafia.quantity).subscribe(
-    //      data => {
-    //        if(data.length > 0)
-    //        {
-    //          if(this.serigrafia.quantity >= 1 && this.serigrafia.quantity <= 60)
-    //            this.serigrafia.price = data[0].costo + this.appConfig.presecado + this.appConfig.revelado;
-    //          else 
-    //            this.serigrafia.price = data[0].costo ;
-    //        }
-    //        else {
-    //          this.serigrafia.price = 0;
-    //        }
-    //      });
-    //  }
+     }
+     else 
+     {
+       this._serigrafiaClientePriceService.getInkQuantityWItem(this.serigrafia.tintas,this.serigrafia.quantity).subscribe(
+         data => {
+           if(data.length > 0)
+           {
+             if(this.serigrafia.quantity >= 1 && this.serigrafia.quantity <= 60)
+               this.serigrafia.price = data[0].costo + this.appConfig.presecado + this.appConfig.revelado;
+             else 
+               this.serigrafia.price = data[0].costo ;
+           }
+           else {
+             this.serigrafia.price = 0;
+           }
+         });
+     }
    }
  } 
  reloadTecnicas(){
