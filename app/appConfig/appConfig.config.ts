@@ -22,7 +22,7 @@ import {
     @Input() appConfig:  AppConfig  ;    
     public posiciones:AppConfig ;
     public posicion: Array <AppConfig> ;
-    constructor(private  _bordadoService: AppConfigService) {
+    constructor(private  _appConfigService: AppConfigService) {
     }
   
     ngOnInit() {
@@ -32,7 +32,7 @@ import {
   
     reloadTecnicas(){
         this.posiciones = new AppConfig();
-        this._bordadoService.getAppConfig().subscribe(
+        this._appConfigService.getAppConfig().subscribe(
        data => {
          this.posicion = data;
        }
@@ -40,7 +40,7 @@ import {
     }
     agregarTecnica(){
         
-        this._bordadoService.updateAppConfig(this.posiciones).subscribe(
+        this._appConfigService.updateAppConfig(this.posiciones).subscribe(
           data => {
         this.reloadTecnicas();
     
@@ -49,7 +49,7 @@ import {
       }
     updateTecnica()
       {
-         this._bordadoService.updateAppConfig(this.posiciones).subscribe(
+         this._appConfigService.updateAppConfig(this.posiciones).subscribe(
         data => {
           this.reloadTecnicas();
         }
