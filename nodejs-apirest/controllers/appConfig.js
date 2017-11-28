@@ -30,9 +30,7 @@ exports.add = function (req, res) {
   console.log('POST in');
   console.log(req.body);
   var appConfig = new AppConfig({
-    bordado: req.body.bordado,
-    serigrafia: req.body.serigrafia,
-    sublimado: req.body.sublimado,
+
     presecado: req.body.presecado,
     revelado: req.body.revelado,
     minBordado: req.body.minBordado,
@@ -53,12 +51,7 @@ exports.add = function (req, res) {
 //PUT - Update a register already exists
 exports.update = function (req, res) {
     AppConfig.findById(req.params.id, function (err, appConfig) {
-      if(req.body.bordado)
-        appConfig.bordado = req.body.bordado;
-      if(req.body.serigrafia)
-        appConfig.serigrafia = req.body.serigrafia;
-      if(req.body.sublimado)
-        appConfig.sublimado = req.body.sublimado;  
+     
         if(req.body.revelado)
         appConfig.revelado = req.body.revelado; 
         if(req.body.presecado)

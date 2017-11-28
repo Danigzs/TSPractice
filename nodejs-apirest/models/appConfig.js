@@ -5,19 +5,26 @@ var Schema = mongoose.Schema;
 
 var schema = new Schema({
 
-  bordado: {
-    type: Number
-  },
-  serigrafia: {
-    type: Number
-  },
-  sublimado: {
-    type: Number
-  },
+
   presecado: {
     type: Number
   },
   revelado: {
+    type: Number
+  },
+  minBordado:{
+    type: Number
+  },
+  minSerigrafia:{
+    type: Number
+  },
+  minSublimado:{
+    type:Number
+  },
+  minTransfer:{
+    type: Number
+  },
+  minVinil:{
     type: Number
   }
 

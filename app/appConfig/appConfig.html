@@ -18,7 +18,32 @@
             <div class="c-container-info-column-item-container info">
               Revelado
             </div>
-          </div>  
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Precio minimo bordado
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Precio minimo serigrafia
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Precio minimo sublimado
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Precio minimo transfer
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Precio minimo vinil
+            </div>
+          </div>
         </div>  
         <div class="c-container-info-column">
   
@@ -31,7 +56,33 @@
             <div class="c-container-info-column-item-container info">
               <input type="text" [(ngModel)]="posiciones.revelado">
             </div>
-          </div>  
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <input type="text" [(ngModel)]="posiciones.minBordado">
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <input type="text" [(ngModel)]="posiciones.minSerigrafia">
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <input type="text" [(ngModel)]="posiciones.minSublimado">
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <input type="text" [(ngModel)]="posiciones.minTransfer">
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <input type="text" [(ngModel)]="posiciones.minVinil">
+            </div>
+          </div>
+
         </div>
   
         <div class="c-container-info-column data">
@@ -54,12 +105,24 @@
           <thead>
             <tr>
               <th>Presecado</th>
-              <th>Revelado</th>              
+              <th>Revelado</th>        
+              <th>Bordado</th>
+              <th>Serigrafia</th> 
+              <th>Sublimado</th>
+              <th>Transfer</th>
+              <th>Vinil</th>       
             </tr>
           </thead>
           <tr *ngFor="let posiciones of posicion; let i = index">
             <td>{{posicion.presecado}}</td>
             <td>{{posicion.revelado}}</td>
+            <td>{{posicion.minBordado}}</td>
+            <td>{{posicion.minSerigrafia}}</td>
+
+            <td>{{posicion.minSublimado}}</td>
+            <td>{{posicion.minTransfer}}</td>
+            <td>{{posicion.minVinil}}</td>
+            
           </tr>
         </table>
       </div>
