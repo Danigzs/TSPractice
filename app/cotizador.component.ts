@@ -31,13 +31,13 @@ import {SellerService} from './sellers/seller.service'
 /**
  * Config bordados  - Models
  */
-import {BordadoTipo} from './tecnicas config/BordadoTipo';
-import {BordadoPuntadas} from './tecnicas config/BordadoPuntadas';
-import {BordadoSize} from './tecnicas config/BordadoSize';
-import {Posiciones} from './tecnicas config/posiciones';
+import {BordadoTipo} from './tecnicas_config/BordadoTipo';
+import {BordadoPuntadas} from './tecnicas_config/BordadoPuntadas';
+import {BordadoSize} from './tecnicas_config/BordadoSize';
+import {Posiciones} from './tecnicas_config/posiciones';
  import {Bordado} from './tecnicas/bordado'; 
  import {Sublimado} from './tecnicas/sublimado'; 
- import {Colores} from './tecnicas config/colores'
+ import {Colores} from './tecnicas_config/colores'
 import {Grafico} from './grafico/grafico'; 
 import {Serigrafia} from './tecnicas/serigrafia'; 
 import {Vinil} from './tecnicas/vinil'; 

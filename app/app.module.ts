@@ -59,50 +59,50 @@ import {SerigrafiaService} from'./tecnicas/serigrafia.service';
 import {SublimadoService} from './tecnicas/sublimado.service';
 import {TransferService} from './tecnicas/transfer.service';
 import {AppConfigService} from './appConfig/appConfig.service';
-import {BordadoTipoComponent} from './tecnicas config/bordado.config.tipo';
-import {BordadoTamañoComponent} from './tecnicas config/bordado.config.size';
-import {BordadoPuntadasComponent} from './tecnicas config/bordado.config.puntadas';
-import {BordadoMainComponent} from './tecnicas config/bordados.mainscreen';
-import {SerigrafiaMainComponent} from './tecnicas config/serigrafia.mainscreen';
-import {SublimadoMainComponent} from './tecnicas config/sublimado.mainscreen';
-import {BordadoTipoService} from './tecnicas config/BordadoTipo.service';
-import {BordadoPuntadasService} from './tecnicas config/BordadoPuntadas.service';
-import {BordadoSizeService} from './tecnicas config/BordadoSize.service';
-import {TipoTintaComponent} from './tecnicas config/serigrafia.config.tipotinta';
-import {PosicionComponent} from './tecnicas config/posiciones.config';
-import {PosicionesService} from './tecnicas config/posiciones.service';
-import {ColoresService} from './tecnicas config/colores.service';
-import {ColoresComponent} from './tecnicas config/bordado.config.colores';
-import {UbicacionComponent} from './tecnicas config/ubicaciones.config';
-import {UbicacionesService} from './tecnicas config/ubicaciones.service';
-import {SerigrafiaPrecioBordesaService} from './tecnicas config/serigrafia.precioBordesa.service'
-import {SerigrafiaPrecioBordesaComponent} from './tecnicas config/serigrafia.config.precioBordesa'
-import {SerigrafiaPrecioClienteService} from './tecnicas config/serigrafia.precioCliente.service'
-import {SerigrafiaPrecioClienteComponent} from './tecnicas config/serigrafia.config.precioCliente'
-import {SerigrafiaTamañoComponent} from './tecnicas config/serigrafia.config.size';
-import {SerigrafiaSizeService} from './tecnicas config/serigrafiaSize.service';
-import {SublimadoPrecioComponent} from './tecnicas config/sublimado.config.precio';
-import {SublimadoPrecioService} from './tecnicas config/sublimadoPrecio.service';
-import {SublimadoSizeService} from './tecnicas config/sublimadoSize.service';
-import {SublimadoSizeComponent} from './tecnicas config/sublimado.config.size';
-import {SublimadoPrecioMaquilaComponent} from './tecnicas config/sublimado.config.preciomaquila';
-import {SublimadoPrecioMaquilaService} from './tecnicas config/sublimadoPrecioMaquila.service';
-import {TransferSizeComponent} from './tecnicas config/transfer.config.size';
-import {TransferSizeService} from './tecnicas config/transferSize.service';
-import {TransferMainComponent} from './tecnicas config/transfer.mainscreen';
-import {TransferPrecioComponent} from './tecnicas config/transfer.config.precio';
-import {TransferPrecioService} from './tecnicas config/transferPrecio.service';
-import {TransferPrecioMaquilaService} from './tecnicas config/transferPrecioMaquila.service';
-import {TransferPrecioMaquilaComponent} from './tecnicas config/transfer.config,preciomaquila';
-import {VinilTipoComponent} from './tecnicas config/vinil.config.tipo';
-import {VinilTipoService} from './tecnicas config/vinilTipo.service';
-import {VinilMainComponent} from './tecnicas config/vinil.mainscreen';
-import {VinilPrecioComponent} from './tecnicas config/vinil.config.precio';
-import {VinilPrecioService} from './tecnicas config/vinilPrecio.service';
-import {VinilPrecioMaquilaService} from './tecnicas config/vinilPrecioMaquila.service';
-import {VinilPrecioMaquilaComponent} from './tecnicas config/vinil.config.precioMaquila';
-import {VinilSizeComponent} from './tecnicas config/vinil.config.size';
-import {VinilSizeService} from './tecnicas config/vinilSize.service';
+import {BordadoTipoComponent} from './tecnicas_config/bordado.config.tipo';
+import {BordadoTamañoComponent} from './tecnicas_config/bordado.config.size';
+import {BordadoPuntadasComponent} from './tecnicas_config/bordado.config.puntadas';
+import {BordadoMainComponent} from './tecnicas_config/bordados.mainscreen';
+import {SerigrafiaMainComponent} from './tecnicas_config/serigrafia.mainscreen';
+import {SublimadoMainComponent} from './tecnicas_config/sublimado.mainscreen';
+import {BordadoTipoService} from './tecnicas_config/BordadoTipo.service';
+import {BordadoPuntadasService} from './tecnicas_config/BordadoPuntadas.service';
+import {BordadoSizeService} from './tecnicas_config/BordadoSize.service';
+import {TipoTintaComponent} from './tecnicas_config/serigrafia.config.tipotinta';
+import {PosicionComponent} from './tecnicas_config/posiciones.config';
+import {PosicionesService} from './tecnicas_config/posiciones.service';
+import {ColoresService} from './tecnicas_config/colores.service';
+import {ColoresComponent} from './tecnicas_config/bordado.config.colores';
+import {UbicacionComponent} from './tecnicas_config/ubicaciones.config';
+import {UbicacionesService} from './tecnicas_config/ubicaciones.service';
+import {SerigrafiaPrecioBordesaService} from './tecnicas_config/serigrafia.precioBordesa.service'
+import {SerigrafiaPrecioBordesaComponent} from './tecnicas_config/serigrafia.config.precioBordesa'
+import {SerigrafiaPrecioClienteService} from './tecnicas_config/serigrafia.precioCliente.service'
+import {SerigrafiaPrecioClienteComponent} from './tecnicas_config/serigrafia.config.precioCliente'
+import {SerigrafiaTamañoComponent} from './tecnicas_config/serigrafia.config.size';
+import {SerigrafiaSizeService} from './tecnicas_config/serigrafiaSize.service';
+import {SublimadoPrecioComponent} from './tecnicas_config/sublimado.config.precio';
+import {SublimadoPrecioService} from './tecnicas_config/sublimadoPrecio.service';
+import {SublimadoSizeService} from './tecnicas_config/sublimadoSize.service';
+import {SublimadoSizeComponent} from './tecnicas_config/sublimado.config.size';
+import {SublimadoPrecioMaquilaComponent} from './tecnicas_config/sublimado.config.preciomaquila';
+import {SublimadoPrecioMaquilaService} from './tecnicas_config/sublimadoPrecioMaquila.service';
+import {TransferSizeComponent} from './tecnicas_config/transfer.config.size';
+import {TransferSizeService} from './tecnicas_config/transferSize.service';
+import {TransferMainComponent} from './tecnicas_config/transfer.mainscreen';
+import {TransferPrecioComponent} from './tecnicas_config/transfer.config.precio';
+import {TransferPrecioService} from './tecnicas_config/transferPrecio.service';
+import {TransferPrecioMaquilaService} from './tecnicas_config/transferPrecioMaquila.service';
+import {TransferPrecioMaquilaComponent} from './tecnicas_config/transfer.config,preciomaquila';
+import {VinilTipoComponent} from './tecnicas_config/vinil.config.tipo';
+import {VinilTipoService} from './tecnicas_config/vinilTipo.service';
+import {VinilMainComponent} from './tecnicas_config/vinil.mainscreen';
+import {VinilPrecioComponent} from './tecnicas_config/vinil.config.precio';
+import {VinilPrecioService} from './tecnicas_config/vinilPrecio.service';
+import {VinilPrecioMaquilaService} from './tecnicas_config/vinilPrecioMaquila.service';
+import {VinilPrecioMaquilaComponent} from './tecnicas_config/vinil.config.precioMaquila';
+import {VinilSizeComponent} from './tecnicas_config/vinil.config.size';
+import {VinilSizeService} from './tecnicas_config/vinilSize.service';
 import {appConfigComponent} from './appConfig/appConfig.config';
 
 

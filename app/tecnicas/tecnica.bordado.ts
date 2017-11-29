@@ -15,26 +15,26 @@ import {
   ViewContainerRef
 } from '@angular/core';
 import {BordadoService} from './bordado.service';
-import {BordadoTipoComponent} from './../tecnicas config/bordado.config.tipo'
+import {BordadoTipoComponent} from './../tecnicas_config/bordado.config.tipo'
 /**
  * Config bordados  - Models
  */
- import {BordadoTipo} from './../tecnicas config/BordadoTipo';
- import {BordadoPuntadas} from './../tecnicas config/BordadoPuntadas';
- import {BordadoSize} from './../tecnicas config/BordadoSize';
- import {Posiciones} from './../tecnicas config/posiciones';
+ import {BordadoTipo} from './../tecnicas_config/BordadoTipo';
+ import {BordadoPuntadas} from './../tecnicas_config/BordadoPuntadas';
+ import {BordadoSize} from './../tecnicas_config/BordadoSize';
+ import {Posiciones} from './../tecnicas_config/posiciones';
  import {AppConfig} from './../appConfig/appConfig';
- import {Colores} from './../tecnicas config/colores';
+ import {Colores} from './../tecnicas_config/colores';
 
 /**
  * Config bordados - Services
  */
- import {BordadoTipoService} from './../tecnicas config/BordadoTipo.service';
- import {BordadoPuntadasService} from './../tecnicas config/BordadoPuntadas.service';
- import {BordadoSizeService} from './../tecnicas config/BordadoSize.service';
- import {PosicionesService} from './../tecnicas config/posiciones.service';
+ import {BordadoTipoService} from './../tecnicas_config/BordadoTipo.service';
+ import {BordadoPuntadasService} from './../tecnicas_config/BordadoPuntadas.service';
+ import {BordadoSizeService} from './../tecnicas_config/BordadoSize.service';
+ import {PosicionesService} from './../tecnicas_config/posiciones.service';
  import {AppConfigService} from './../appConfig/appConfig.service';
- import {ColoresService} from './../tecnicas config/colores.service';
+ import {ColoresService} from './../tecnicas_config/colores.service';
 
  import { IMultiSelectOption,IMultiSelectTexts } from 'angular-2-dropdown-multiselect';
 

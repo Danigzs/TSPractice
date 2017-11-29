@@ -14,14 +14,14 @@ import {
   import {TecnicaService} from '../producto/tecnica.service';
   import {Tecnica} from '../producto/tecnica';
   import {Transfer} from '../tecnicas/transfer';
-  import {Ubicaciones} from './../tecnicas config/ubicaciones';
-  import {TransferSize} from '../tecnicas config/transferSize';
+  import {Ubicaciones} from './../tecnicas_config/ubicaciones';
+  import {TransferSize} from '../tecnicas_config/transferSize';
 
-  import {UbicacionesService} from './../tecnicas config/ubicaciones.service';
+  import {UbicacionesService} from './../tecnicas_config/ubicaciones.service';
   import {TransferService} from '../tecnicas/transfer.service';
-  import {TransferSizeService} from '../tecnicas config/transferSize.service';
-  import {TransferPrecioService} from '../tecnicas config/transferPrecio.service';
-  import {TransferPrecioMaquilaService} from '../tecnicas config/transferPrecioMaquila.service';
+  import {TransferSizeService} from '../tecnicas_config/transferSize.service';
+  import {TransferPrecioService} from '../tecnicas_config/transferPrecio.service';
+  import {TransferPrecioMaquilaService} from '../tecnicas_config/transferPrecioMaquila.service';
   
   
   

@@ -14,14 +14,14 @@ import {
 } from '@angular/core';
 
 import {SublimadoService} from '../tecnicas/sublimado.service';
-import {UbicacionesService} from './../tecnicas config/ubicaciones.service';
-import {SublimadoSizeService} from '../tecnicas config/sublimadoSize.service';
-import {SublimadoPrecioService} from '../tecnicas config/sublimadoPrecio.service';
-import {SublimadoPrecioMaquilaService} from '../tecnicas config/sublimadoPrecioMaquila.service';
+import {UbicacionesService} from './../tecnicas_config/ubicaciones.service';
+import {SublimadoSizeService} from '../tecnicas_config/sublimadoSize.service';
+import {SublimadoPrecioService} from '../tecnicas_config/sublimadoPrecio.service';
+import {SublimadoPrecioMaquilaService} from '../tecnicas_config/sublimadoPrecioMaquila.service';
 
-import {SublimadoSize} from '../tecnicas config/sublimadoSize';
+import {SublimadoSize} from '../tecnicas_config/sublimadoSize';
 import {Sublimado} from '../tecnicas/sublimado';
-import {Ubicaciones} from './../tecnicas config/ubicaciones';
+import {Ubicaciones} from './../tecnicas_config/ubicaciones';
 @Component({
   selector: 'tecnicasublimado',
     providers: [SublimadoSizeService,UbicacionesService,SublimadoPrecioService,SublimadoPrecioMaquilaService],

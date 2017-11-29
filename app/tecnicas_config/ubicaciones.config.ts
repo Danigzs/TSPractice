@@ -16,7 +16,7 @@ import {
     selector: 'ubicaciones',
       providers: [UbicacionesService],
     styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
-    templateUrl: "./app/tecnicas config/ubicaciones.config.html"
+    templateUrl: "./app/tecnicas_config/ubicaciones.config.html"
          
   })
   export class UbicacionComponent  {

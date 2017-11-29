@@ -17,7 +17,7 @@ import {
     selector: 'bordado-colores',
       providers: [ColoresService],
     styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
-    templateUrl: "./app/tecnicas config/bordado.config.colores.html"
+    templateUrl: "./app/tecnicas_config/bordado.config.colores.html"
          
   })
   export class ColoresComponent  {

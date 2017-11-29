@@ -24,20 +24,20 @@ import {Serigrafia} from './serigrafia';
 */
 
 import {AppConfigService} from './../appConfig/appConfig.service';
-import {UbicacionesService} from './../tecnicas config/ubicaciones.service';
-import {SerigrafiaTipoTintaService} from './../tecnicas config/SerigrafiaTipoTinta.service';
-import {SerigrafiaPrecioBordesaService} from './../tecnicas config/serigrafia.PrecioBordesa.service';
-import {SerigrafiaPrecioClienteService} from './../tecnicas config/serigrafia.PrecioCliente.service';
-import {SerigrafiaSizeService} from './../tecnicas config/serigrafiaSize.service';
+import {UbicacionesService} from './../tecnicas_config/ubicaciones.service';
+import {SerigrafiaTipoTintaService} from './../tecnicas_config/SerigrafiaTipoTinta.service';
+import {SerigrafiaPrecioBordesaService} from './../tecnicas_config/serigrafia.PrecioBordesa.service';
+import {SerigrafiaPrecioClienteService} from './../tecnicas_config/serigrafia.PrecioCliente.service';
+import {SerigrafiaSizeService} from './../tecnicas_config/serigrafiaSize.service';
 
 /**
 * Config serigrafia  - Models
 */
-import {SerigrafiaTipoTinta} from './../tecnicas config/SerigrafiaTipoTinta';
-import {Ubicaciones} from './../tecnicas config/ubicaciones';
-import {SerigrafiaPrecioBordesa} from './../tecnicas config/serigrafiaPrecioBordesa';
-import {SerigrafiaPrecioCliente} from './../tecnicas config/serigrafiaPrecioCliente';
-import {SerigrafiaSize} from './../tecnicas config/serigrafiaSize';
+import {SerigrafiaTipoTinta} from './../tecnicas_config/SerigrafiaTipoTinta';
+import {Ubicaciones} from './../tecnicas_config/ubicaciones';
+import {SerigrafiaPrecioBordesa} from './../tecnicas_config/serigrafiaPrecioBordesa';
+import {SerigrafiaPrecioCliente} from './../tecnicas_config/serigrafiaPrecioCliente';
+import {SerigrafiaSize} from './../tecnicas_config/serigrafiaSize';
 import {AppConfig} from './../appConfig/appConfig';
 
 

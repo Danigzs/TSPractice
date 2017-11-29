@@ -6,7 +6,7 @@ import { AppConfigService } from '../appConfig/appConfig.service'
   selector: 'vinil-main',
   providers: [AppConfigService],  
   styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
-  templateUrl: "./app/tecnicas config/vinil.mainscreen.html"
+  templateUrl: "./app/tecnicas_config/vinil.mainscreen.html"
 })
 export class VinilMainComponent  implements OnInit {
     appConfig:AppConfig

@@ -6,42 +6,42 @@ import {
     Input,    
     ViewContainerRef
   } from '@angular/core';
-  import {SublimadoSizeService} from './sublimadoSize.service';
-  import {SublimadoSize} from './sublimadoSize';
+  import {SublimadoPrecioService} from './sublimadoPrecio.service';
+  import {SublimadoPrecio} from './sublimadoPrecio';
   import {AppConfig} from './../appConfig/appConfig';
   
   
   
   @Component({
-    selector: 'sublimado-size',
-      providers: [SublimadoSizeService],
+    selector: 'sublimado-precio',
+      providers: [SublimadoPrecioService],
     styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
-    templateUrl: "./app/tecnicas config/sublimado.config.size.html"
+    templateUrl: "./app/tecnicas_config/sublimado.config.precio.html"
          
   })
-  export class SublimadoSizeComponent  {
+  export class SublimadoPrecioComponent  {
     @Input() appConfig:  AppConfig  ;    
-    public sublimadosize:SublimadoSize;
-    public sublimados: Array < SublimadoSize > ;
-    constructor(private  _bordadoService: SublimadoSizeService) {
+    public precios:SublimadoPrecio;
+    public precio: Array < SublimadoPrecio > ;
+    constructor(private  _bordadoService: SublimadoPrecioService) {
     }
   
     ngOnInit() {
-     this. sublimadosize = new SublimadoSize();
+     this. precios = new SublimadoPrecio();
      this.reloadTecnicas();
     }
   
     reloadTecnicas(){
-        this.sublimadosize = new SublimadoSize();
+        this.precios = new SublimadoPrecio();
         this._bordadoService.getTecnicas().subscribe(
        data => {
-         this.sublimados = data;
+         this.precio = data;
        }
      )
     }
     agregarTecnica(){
       
-      this._bordadoService.addTecnica(this.sublimadosize).subscribe(
+      this._bordadoService.addTecnica(this.precios).subscribe(
         data => {
       this.reloadTecnicas();
   
@@ -50,7 +50,7 @@ import {
     }
     updateTecnica()
       {
-         this._bordadoService.addTecnica(this.sublimadosize).subscribe(
+         this._bordadoService.addTecnica(this.precios).subscribe(
         data => {
           this.reloadTecnicas();
         }

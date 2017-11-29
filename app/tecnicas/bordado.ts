@@ -9,11 +9,11 @@ import {
   EventEmitter,
   ViewContainerRef
 } from '@angular/core';
-import {BordadoTipo} from './../tecnicas config/BordadoTipo';
- import {BordadoPuntadas} from './../tecnicas config/BordadoPuntadas';
- import {BordadoSize} from './../tecnicas config/BordadoSize';
- import {Posiciones} from './../tecnicas config/posiciones';
- import {Colores} from './../tecnicas config/colores';
+import {BordadoTipo} from './../tecnicas_config/BordadoTipo';
+ import {BordadoPuntadas} from './../tecnicas_config/BordadoPuntadas';
+ import {BordadoSize} from './../tecnicas_config/BordadoSize';
+ import {Posiciones} from './../tecnicas_config/posiciones';
+ import {Colores} from './../tecnicas_config/colores';
  import {AppConfig} from './../appConfig/appConfig';
  import {AppConfigService} from './../appConfig/appConfig.service';
 

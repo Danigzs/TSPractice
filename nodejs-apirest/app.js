@@ -248,6 +248,7 @@ api.route('/bordadoNombre')
 api.route('/bordadoNombre/:id')
   .get(bordadoNombreCtrl.findById)
   .put(bordadoNombreCtrl.update)
+  .delete(bordadoNombreCtrl.delete);
 
 api.route('/bordadoSize')
   .get(bordadoTamañoCtrl.findAll)

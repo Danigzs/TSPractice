@@ -15,7 +15,7 @@ import {AppConfig} from './../appConfig/appConfig';
   selector: 'tinta-tipo',
   providers:[SerigrafiaTipoTintaService],
   styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
-  templateUrl: "./app/tecnicas config/serigrafia.config.tipotinta.html"
+  templateUrl: "./app/tecnicas_config/serigrafia.config.tipotinta.html"
 })
 export class TipoTintaComponent  {
   @Input() appConfig:  AppConfig ;    

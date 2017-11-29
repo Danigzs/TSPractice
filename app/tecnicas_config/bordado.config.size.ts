@@ -16,7 +16,7 @@ import {
     selector: 'bordado-size',
       providers: [BordadoSizeService],
     styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
-    templateUrl: "./app/tecnicas config/bordado.config.size.html"
+    templateUrl: "./app/tecnicas_config/bordado.config.size.html"
          
   })
   export class BordadoTamañoComponent  {

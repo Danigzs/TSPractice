@@ -6,33 +6,33 @@ import {
     Input,    
     ViewContainerRef
   } from '@angular/core';
-  import {VinilPrecioMaquilaService} from './vinilPrecioMaquila.service';
-  import {VinilPrecioMaquila} from './vinilPrecioMaquila';
+  import {SerigrafiaPrecioBordesaService} from './serigrafia.precioBordesa.service';
+  import {SerigrafiaPrecioBordesa} from './serigrafiaPrecioBordesa';
   import {AppConfig} from './../appConfig/appConfig';
   
   
   
   @Component({
-    selector: 'vinil-preciomaquila',
-      providers: [VinilPrecioMaquilaService],
+    selector: 'serigrafia-preciobordesa',
+      providers: [SerigrafiaPrecioBordesaService],
     styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
-    templateUrl: "./app/tecnicas config/vinil.config.precioMaquila.html"
+    templateUrl: "./app/tecnicas_config/serigrafia.config.precioBordesa.html"
          
   })
-  export class VinilPrecioMaquilaComponent  {
+  export class SerigrafiaPrecioBordesaComponent  {
     @Input() appConfig:  AppConfig  ;    
-    public precios:VinilPrecioMaquila;
-    public precio: Array < VinilPrecioMaquila > ;
-    constructor(private  _bordadoService: VinilPrecioMaquilaService) {
+    public precios:SerigrafiaPrecioBordesa;
+    public precio: Array < SerigrafiaPrecioBordesa > ;
+    constructor(private  _bordadoService: SerigrafiaPrecioBordesaService) {
     }
   
     ngOnInit() {
-     this. precios = new VinilPrecioMaquila();
+     this. precios = new SerigrafiaPrecioBordesa();
      this.reloadTecnicas();
     }
   
     reloadTecnicas(){
-        this.precios = new VinilPrecioMaquila();
+        this.precios = new SerigrafiaPrecioBordesa();
         this._bordadoService.getTecnicas().subscribe(
        data => {
          this.precio = data;

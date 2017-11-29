@@ -16,7 +16,7 @@ import {
     selector: 'serigrafia-preciocliente',
       providers: [SerigrafiaPrecioClienteService],
     styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
-    templateUrl: "./app/tecnicas config/serigrafia.config.precioCliente.html"
+    templateUrl: "./app/tecnicas_config/serigrafia.config.precioCliente.html"
          
   })
   export class SerigrafiaPrecioClienteComponent  {

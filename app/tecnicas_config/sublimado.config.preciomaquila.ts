@@ -16,7 +16,7 @@ import {AppConfig} from './../appConfig/appConfig';
   selector: 'sublimado-preciomaquila',
   providers: [SublimadoPrecioMaquilaService],
   styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
-  templateUrl: "./app/tecnicas config/sublimado.config.preciomaquila.html"
+  templateUrl: "./app/tecnicas_config/sublimado.config.preciomaquila.html"
 
 })
 export class SublimadoPrecioMaquilaComponent  {

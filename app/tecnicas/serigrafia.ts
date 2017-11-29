@@ -1,8 +1,8 @@
-import {SerigrafiaTipoTinta} from './../tecnicas config/SerigrafiaTipoTinta';
-import {Ubicaciones} from './../tecnicas config/ubicaciones';
-import {SerigrafiaPrecioBordesa} from './../tecnicas config/serigrafiaPrecioBordesa';
-import {SerigrafiaSize} from './../tecnicas config/serigrafiaSize';
-import {SerigrafiaPrecioCliente} from './../tecnicas config/serigrafiaPrecioCliente';
+import {SerigrafiaTipoTinta} from './../tecnicas_config/SerigrafiaTipoTinta';
+import {Ubicaciones} from './../tecnicas_config/ubicaciones';
+import {SerigrafiaPrecioBordesa} from './../tecnicas_config/serigrafiaPrecioBordesa';
+import {SerigrafiaSize} from './../tecnicas_config/serigrafiaSize';
+import {SerigrafiaPrecioCliente} from './../tecnicas_config/serigrafiaPrecioCliente';
 
  
 

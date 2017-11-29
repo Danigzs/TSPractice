@@ -15,7 +15,7 @@ import {
     selector: 'vinil-tipo',
       providers: [VinilTipoService],
     styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
-    templateUrl: "./app/tecnicas config/vinil.config.tipo.html"
+    templateUrl: "./app/tecnicas_config/vinil.config.tipo.html"
          
   })
   export class VinilTipoComponent  {

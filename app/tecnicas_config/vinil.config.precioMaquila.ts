@@ -6,33 +6,33 @@ import {
     Input,    
     ViewContainerRef
   } from '@angular/core';
-  import {TransferPrecioService} from './transferPrecio.service';
-  import {TransferPrecio} from './transferPrecio';
+  import {VinilPrecioMaquilaService} from './vinilPrecioMaquila.service';
+  import {VinilPrecioMaquila} from './vinilPrecioMaquila';
   import {AppConfig} from './../appConfig/appConfig';
   
   
   
   @Component({
-    selector: 'transfer-precio',
-      providers: [TransferPrecioService],
+    selector: 'vinil-preciomaquila',
+      providers: [VinilPrecioMaquilaService],
     styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
-    templateUrl: "./app/tecnicas config/transfer.config.precio.html"
+    templateUrl: "./app/tecnicas_config/vinil.config.precioMaquila.html"
          
   })
-  export class TransferPrecioComponent  {
+  export class VinilPrecioMaquilaComponent  {
     @Input() appConfig:  AppConfig  ;    
-    public precios:TransferPrecio;
-    public precio: Array < TransferPrecio > ;
-    constructor(private  _bordadoService: TransferPrecioService) {
+    public precios:VinilPrecioMaquila;
+    public precio: Array < VinilPrecioMaquila > ;
+    constructor(private  _bordadoService: VinilPrecioMaquilaService) {
     }
   
     ngOnInit() {
-     this. precios = new TransferPrecio();
+     this. precios = new VinilPrecioMaquila();
      this.reloadTecnicas();
     }
   
     reloadTecnicas(){
-        this.precios = new TransferPrecio();
+        this.precios = new VinilPrecioMaquila();
         this._bordadoService.getTecnicas().subscribe(
        data => {
          this.precio = data;

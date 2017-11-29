@@ -16,7 +16,7 @@ import {
     selector: 'serigrafia-size',
       providers: [SerigrafiaSizeService],
     styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
-    templateUrl: "./app/tecnicas config/serigrafia.config.size.html"
+    templateUrl: "./app/tecnicas_config/serigrafia.config.size.html"
          
   })
   export class SerigrafiaTamañoComponent  {

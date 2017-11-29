@@ -6,42 +6,42 @@ import {
     Input,    
     ViewContainerRef
   } from '@angular/core';
-  import {VinilPrecioService} from './vinilPrecio.service';
-  import {VinilPrecio} from './vinilPrecio';
+  import {VinilSizeService} from './vinilSize.service';
+  import {VinilSize} from './vinilSize';
   import {AppConfig} from './../appConfig/appConfig';
   
   
   
   @Component({
-    selector: 'vinil-precio',
-      providers: [VinilPrecioService],
+    selector: 'vinil-size',
+      providers: [VinilSizeService],
     styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
-    templateUrl: "./app/tecnicas config/vinil.config.precio.html"
+    templateUrl: "./app/tecnicas_config/vinil.config.size.html"
          
   })
-  export class VinilPrecioComponent  {
+  export class VinilSizeComponent  {
     @Input() appConfig:  AppConfig  ;    
-    public precios:VinilPrecio;
-    public precio: Array < VinilPrecio > ;
-    constructor(private  _bordadoService: VinilPrecioService) {
+    public vinilsize:VinilSize;
+    public viniles: Array < VinilSize > ;
+    constructor(private  _bordadoService: VinilSizeService) {
     }
   
     ngOnInit() {
-     this. precios = new VinilPrecio();
+     this. vinilsize = new VinilSize();
      this.reloadTecnicas();
     }
   
     reloadTecnicas(){
-        this.precios = new VinilPrecio();
+        this.vinilsize = new VinilSize();
         this._bordadoService.getTecnicas().subscribe(
        data => {
-         this.precio = data;
+         this.viniles = data;
        }
      )
     }
     agregarTecnica(){
       
-      this._bordadoService.addTecnica(this.precios).subscribe(
+      this._bordadoService.addTecnica(this.vinilsize).subscribe(
         data => {
       this.reloadTecnicas();
   
@@ -50,7 +50,7 @@ import {
     }
     updateTecnica()
       {
-         this._bordadoService.addTecnica(this.precios).subscribe(
+         this._bordadoService.addTecnica(this.vinilsize).subscribe(
         data => {
           this.reloadTecnicas();
         }

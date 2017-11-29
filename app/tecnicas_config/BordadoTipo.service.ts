@@ -5,11 +5,15 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import { BordadoTipo } from './BordadoTipo';
+import {
+  URLSearchParams
+} from '@angular/http';
+import { debug } from 'util';
 @Injectable()
 export class BordadoTipoService {
     bordadotipo:Array<BordadoTipo>;
     
-     private url = 'http://localhost:8000/api/bordadoNombre';  // URL to web API
+     private url = 'http://localhost:8000/api/bordadoNombre';  // URL to web API 
 
 constructor (private http: Http) {}
  
@@ -19,6 +23,29 @@ constructor (private http: Http) {}
                     .map(this.extractData)
                     .catch(this.handleError);
   }
+  update(bordadotipo:BordadoTipo): Observable<Array<BordadoTipo>> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+   let options = new RequestOptions({ headers: headers });
+
+   
+  
+   return this.http.put(this.url+"/"+bordadotipo._id.toString(), bordadotipo ,options)
+                   .map(this.extractData)
+                   .catch(this.handleError);
+ }
+ delete(bordadotipo:BordadoTipo): Observable<Array<BordadoTipo>> {
+  let headers = new Headers({ 'Content-Type': 'application/json' });
+debugger
+  let options = new RequestOptions();
+ options.headers = headers;
+ options.search = new URLSearchParams();
+ options.search.append('id', bordadotipo._id.toString());
+
+
+ return this.http.delete(this.url+"/"+bordadotipo._id.toString() ,options)
+                 .map(this.extractData)
+                 .catch(this.handleError);
+}
   addTecnica(bordadotipo:BordadoTipo): Observable<Array<BordadoTipo>> {
      let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });

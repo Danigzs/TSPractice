@@ -6,42 +6,42 @@ import {
     Input,    
     ViewContainerRef
   } from '@angular/core';
-  import {TransferSizeService} from './transferSize.service';
-  import {TransferSize} from './transferSize';
+  import {SublimadoSizeService} from './sublimadoSize.service';
+  import {SublimadoSize} from './sublimadoSize';
   import {AppConfig} from './../appConfig/appConfig';
   
   
   
   @Component({
-    selector: 'transfer-size',
-      providers: [TransferSizeService],
+    selector: 'sublimado-size',
+      providers: [SublimadoSizeService],
     styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
-    templateUrl: "./app/tecnicas config/transfer.config.size.html"
+    templateUrl: "./app/tecnicas_config/sublimado.config.size.html"
          
   })
-  export class TransferSizeComponent  {
+  export class SublimadoSizeComponent  {
     @Input() appConfig:  AppConfig  ;    
-    public transfersize:TransferSize;
-    public transfers: Array < TransferSize > ;
-    constructor(private  _bordadoService: TransferSizeService) {
+    public sublimadosize:SublimadoSize;
+    public sublimados: Array < SublimadoSize > ;
+    constructor(private  _bordadoService: SublimadoSizeService) {
     }
   
     ngOnInit() {
-     this. transfersize = new TransferSize();
+     this. sublimadosize = new SublimadoSize();
      this.reloadTecnicas();
     }
   
     reloadTecnicas(){
-        this.transfersize = new TransferSize();
+        this.sublimadosize = new SublimadoSize();
         this._bordadoService.getTecnicas().subscribe(
        data => {
-         this.transfers = data;
+         this.sublimados = data;
        }
      )
     }
     agregarTecnica(){
       
-      this._bordadoService.addTecnica(this.transfersize).subscribe(
+      this._bordadoService.addTecnica(this.sublimadosize).subscribe(
         data => {
       this.reloadTecnicas();
   
@@ -50,7 +50,7 @@ import {
     }
     updateTecnica()
       {
-         this._bordadoService.addTecnica(this.transfersize).subscribe(
+         this._bordadoService.addTecnica(this.sublimadosize).subscribe(
         data => {
           this.reloadTecnicas();
         }

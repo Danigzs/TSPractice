@@ -6,33 +6,33 @@ import {
     Input,    
     ViewContainerRef
   } from '@angular/core';
-  import {SerigrafiaPrecioBordesaService} from './serigrafia.precioBordesa.service';
-  import {SerigrafiaPrecioBordesa} from './serigrafiaPrecioBordesa';
+  import {TransferPrecioMaquilaService} from './transferPrecioMaquila.service';
+  import {TransferPrecioMaquila} from './transferPrecioMaquila';
   import {AppConfig} from './../appConfig/appConfig';
   
   
   
   @Component({
-    selector: 'serigrafia-preciobordesa',
-      providers: [SerigrafiaPrecioBordesaService],
+    selector: 'transfer-precioMaquila',
+      providers: [TransferPrecioMaquilaService],
     styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
-    templateUrl: "./app/tecnicas config/serigrafia.config.precioBordesa.html"
+    templateUrl: "./app/tecnicas_config/transfer.config.preciomaquila.html"
          
   })
-  export class SerigrafiaPrecioBordesaComponent  {
+  export class TransferPrecioMaquilaComponent  {
     @Input() appConfig:  AppConfig  ;    
-    public precios:SerigrafiaPrecioBordesa;
-    public precio: Array < SerigrafiaPrecioBordesa > ;
-    constructor(private  _bordadoService: SerigrafiaPrecioBordesaService) {
+    public precios:TransferPrecioMaquila;
+    public precio: Array < TransferPrecioMaquila > ;
+    constructor(private  _bordadoService: TransferPrecioMaquilaService) {
     }
   
     ngOnInit() {
-     this. precios = new SerigrafiaPrecioBordesa();
+     this. precios = new TransferPrecioMaquila();
      this.reloadTecnicas();
     }
   
     reloadTecnicas(){
-        this.precios = new SerigrafiaPrecioBordesa();
+        this.precios = new TransferPrecioMaquila();
         this._bordadoService.getTecnicas().subscribe(
        data => {
          this.precio = data;

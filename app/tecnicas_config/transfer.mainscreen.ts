@@ -6,7 +6,7 @@ import { AppConfigService } from '../appConfig/appConfig.service'
   selector: 'transfer-main',
   providers: [AppConfigService],  
   styleUrls: ["./app/tecnicas/tecnicas.css", "app/styles/table.css"],
-  templateUrl: "./app/tecnicas config/transfer.mainscreen.html"
+  templateUrl: "./app/tecnicas_config/transfer.mainscreen.html"
 })
 export class TransferMainComponent  implements OnInit {
     appConfig:AppConfig

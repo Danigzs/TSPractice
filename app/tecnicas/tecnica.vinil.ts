@@ -11,17 +11,17 @@ import {
   import {TecnicaService} from '../producto/tecnica.service';
   import {Tecnica} from '../producto/tecnica';
   
-  import {VinilTipo} from '../tecnicas config/vinilTipo';
-  import {Ubicaciones} from './../tecnicas config/ubicaciones';
+  import {VinilTipo} from '../tecnicas_config/vinilTipo';
+  import {Ubicaciones} from './../tecnicas_config/ubicaciones';
   import {Vinil} from '../tecnicas/vinil';
-  import {VinilSize} from '../tecnicas config/vinilSize';
+  import {VinilSize} from '../tecnicas_config/vinilSize';
   
-  import {UbicacionesService} from './../tecnicas config/ubicaciones.service';
+  import {UbicacionesService} from './../tecnicas_config/ubicaciones.service';
   import {VinilService} from '../tecnicas/vinil.service';
-  import {VinilSizeService} from '../tecnicas config/vinilSize.service';
-  import {VinilPrecioService} from '../tecnicas config/vinilPrecio.service';
-  import {VinilPrecioMaquilaService} from '../tecnicas config/vinilPrecioMaquila.service';
-  import {VinilTipoService} from '../tecnicas config/vinilTipo.service';
+  import {VinilSizeService} from '../tecnicas_config/vinilSize.service';
+  import {VinilPrecioService} from '../tecnicas_config/vinilPrecio.service';
+  import {VinilPrecioMaquilaService} from '../tecnicas_config/vinilPrecioMaquila.service';
+  import {VinilTipoService} from '../tecnicas_config/vinilTipo.service';
   
   @Component({
     selector: 'tecnicavinil',

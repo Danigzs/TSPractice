@@ -33,7 +33,7 @@ exports.add = function (req, res) {
     nombre: req.body.nombre,
     costo: req.body.costo,
   });
-  bordadoNombre.save(function (err, client) {
+  bordadoNombre.save(function (err, bordadoNombre) {
     if (err) return res.send(500, err.message);
     res.status(200).json({
       bordadoNombre: bordadoNombre
@@ -49,8 +49,21 @@ exports.update = function (req, res) {
     bordadoNombre.costo = req.body.costo;    
     bordadoNombre.save(function (err) {
       if (err) return res.send(500, err.message);
-      res.status(200).json({client:client});
+      res.status(200).json({bordadoNombre:bordadoNombre});
     });
   });
 };
 
+
+//DELETE - Delete a register with specified ID
+exports.delete = function (req, res) {
+  BordadoNombre.findById(req.params.id, function (err, bordadoNombre) {
+    if(bordadoNombre)
+    bordadoNombre.remove(function (err) {
+      if (err) return res.send(500, err.message);
+      res.json({
+        message: 'Successfully deleted'
+      });
+    });
+  }); 
+};
