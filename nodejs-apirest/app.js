@@ -265,6 +265,8 @@ api.route('/bordadoPuntadas')
 api.route('/bordadoPuntadas/:id')
   .get(bordadoPuntadasCtrl.findById)
   .put(bordadoPuntadasCtrl.update)
+  .delete(bordadoPuntadasCtrl.delete);
+  
 
   api.route('/tipos')
   .get(SerigrafiaTipoTintaCtrl.findAll)

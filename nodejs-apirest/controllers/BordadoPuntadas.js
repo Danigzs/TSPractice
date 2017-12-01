@@ -48,8 +48,19 @@ exports.update = function (req, res) {
         bordadoPuntadas.costo = req.body.costo;    
         bordadoPuntadas.save(function (err) {
       if (err) return res.send(500, err.message);
-      res.status(200).json({client:client});
+      res.status(200).json({bordadoPuntadas:bordadoPuntadas});
     });
   });
+};
+exports.delete = function (req, res) {
+  BordadoPuntadas.findById(req.params.id, function (err, bordadoPuntadas) {
+    if(bordadoPuntadas)
+    bordadoPuntadas.remove(function (err) {
+      if (err) return res.send(500, err.message);
+      res.json({
+        message: 'Successfully deleted'
+      });
+    });
+  }); 
 };
 

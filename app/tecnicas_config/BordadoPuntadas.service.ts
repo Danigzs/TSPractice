@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { Http, Response }          from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import {
+  URLSearchParams
+} from '@angular/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import { BordadoPuntadas } from './BordadoPuntadas';
@@ -19,6 +22,31 @@ constructor (private http: Http) {}
                     .map(this.extractData)
                     .catch(this.handleError);
   }
+  update(bordadopuntadas:BordadoPuntadas): Observable<Array<BordadoPuntadas>> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+   let options = new RequestOptions({ headers: headers });
+
+   
+  
+   return this.http.put(this.url+"/"+bordadopuntadas._id.toString(), bordadopuntadas ,options)
+                   .map(this.extractData)
+                   .catch(this.handleError);
+ }
+
+ delete(bordadopuntadas:BordadoPuntadas): Observable<Array<BordadoPuntadas>> {
+  let headers = new Headers({ 'Content-Type': 'application/json' });
+debugger
+  let options = new RequestOptions();
+ options.headers = headers;
+ options.search = new URLSearchParams();
+ options.search.append('id', bordadopuntadas._id.toString());
+
+
+ return this.http.delete(this.url+"/"+bordadopuntadas._id.toString() ,options)
+                 .map(this.extractData)
+                 .catch(this.handleError);
+}
+
   addTecnica(bordadopuntadas:BordadoPuntadas): Observable<Array<BordadoPuntadas>> {
      let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
