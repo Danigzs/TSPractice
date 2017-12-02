@@ -5,6 +5,9 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import { BordadoSize } from './BordadoSize';
+import {
+  URLSearchParams
+} from '@angular/http';
 @Injectable()
 export class BordadoSizeService {
     bordadosize:Array<BordadoSize>;
@@ -19,6 +22,29 @@ constructor (private http: Http) {}
                     .map(this.extractData)
                     .catch(this.handleError);
   }
+  update(bordadosize:BordadoSize): Observable<Array<BordadoSize>> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+   let options = new RequestOptions({ headers: headers });
+
+   
+  
+   return this.http.put(this.url+"/"+bordadosize._id.toString(), bordadosize ,options)
+                   .map(this.extractData)
+                   .catch(this.handleError);
+ }
+ delete(bordadosize:BordadoSize): Observable<Array<BordadoSize>> {
+  let headers = new Headers({ 'Content-Type': 'application/json' });
+debugger
+  let options = new RequestOptions();
+ options.headers = headers;
+ options.search = new URLSearchParams();
+ options.search.append('id', bordadosize._id.toString());
+
+
+ return this.http.delete(this.url+"/"+bordadosize._id.toString() ,options)
+                 .map(this.extractData)
+                 .catch(this.handleError);
+}
   addTecnica(bordadosize:BordadoSize): Observable<Array<BordadoSize>> {
      let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
