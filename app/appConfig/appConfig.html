@@ -49,37 +49,37 @@
   
           <div class="c-container-info-column-item-container">
             <div class="c-container-info-column-item-container info">
-              <input type="text" [(ngModel)]="posiciones.presecado">
+              <input type="text" [(ngModel)]="posicion.presecado">
             </div>
           </div>
           <div class="c-container-info-column-item-container">
             <div class="c-container-info-column-item-container info">
-              <input type="text" [(ngModel)]="posiciones.revelado">
+              <input type="text" [(ngModel)]="posicion.revelado">
             </div>
           </div>
           <div class="c-container-info-column-item-container">
             <div class="c-container-info-column-item-container info">
-              <input type="text" [(ngModel)]="posiciones.minBordado">
+              <input type="text" [(ngModel)]="posicion.minBordado">
             </div>
           </div>
           <div class="c-container-info-column-item-container">
             <div class="c-container-info-column-item-container info">
-              <input type="text" [(ngModel)]="posiciones.minSerigrafia">
+              <input type="text" [(ngModel)]="posicion.minSerigrafia">
             </div>
           </div>
           <div class="c-container-info-column-item-container">
             <div class="c-container-info-column-item-container info">
-              <input type="text" [(ngModel)]="posiciones.minSublimado">
+              <input type="text" [(ngModel)]="posicion.minSublimado">
             </div>
           </div>
           <div class="c-container-info-column-item-container">
             <div class="c-container-info-column-item-container info">
-              <input type="text" [(ngModel)]="posiciones.minTransfer">
+              <input type="text" [(ngModel)]="posicion.minTransfer">
             </div>
           </div>
           <div class="c-container-info-column-item-container">
             <div class="c-container-info-column-item-container info">
-              <input type="text" [(ngModel)]="posiciones.minVinil">
+              <input type="text" [(ngModel)]="posicion.minVinil">
             </div>
           </div>
 
@@ -113,15 +113,16 @@
               <th>Vinil</th>       
             </tr>
           </thead>
-          <tr *ngFor="let posiciones of posicion; let i = index">
-            <td>{{posicion.presecado}}</td>
-            <td>{{posicion.revelado}}</td>
-            <td>{{posicion.minBordado}}</td>
-            <td>{{posicion.minSerigrafia}}</td>
+          <!-- <tr *ngFor="let posiciones of posicion; let i = index"> -->
+          <tr> 
+            <td>{{posiciones.presecado}}</td>
+            <td>{{posiciones.revelado}}</td>
+            <td>{{posiciones.minBordado}}</td>
+            <td>{{posiciones.minSerigrafia}}</td>
 
-            <td>{{posicion.minSublimado}}</td>
-            <td>{{posicion.minTransfer}}</td>
-            <td>{{posicion.minVinil}}</td>
+            <td>{{posiciones.minSublimado}}</td>
+            <td>{{posiciones.minTransfer}}</td>
+            <td>{{posiciones.minVinil}}</td>
             
           </tr>
         </table>

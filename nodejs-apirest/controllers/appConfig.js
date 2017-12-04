@@ -50,27 +50,33 @@ exports.add = function (req, res) {
  
 //PUT - Update a register already exists
 exports.update = function (req, res) {
+  console.log("LOOOG" + req.body);
     AppConfig.findById(req.params.id, function (err, appConfig) {
-     
-        if(req.body.revelado)
-        appConfig.revelado = req.body.revelado; 
-        if(req.body.presecado)
-        appConfig.presecado = req.body.presecado; 
-        if(req.body.minBordado)
-        appConfig.minBordado = req.body.minBordado; 
-        if(req.body.minSerigrafia)
-        appConfig.minSerigrafia = req.body.minSerigrafia; 
-        if(req.body.minSublimado)
-        appConfig.minSublimado = req.body.minSublimado; 
-        if(req.body.minTransfer)
-        appConfig.minTransfer = req.body.minTransfer; 
-        if(req.body.minVinil)
-        appConfig.minVinil = req.body.minVinil; 
-      appConfig.save(function (err) {
-      
-        if (err) return res.send(500, err.message);
-      res.status(200).json({appConfig:appConfig});
-    });
+      if(appConfig){
+          if(req.body.revelado)
+          appConfig.revelado = req.body.revelado; 
+          if(req.body.presecado)
+          appConfig.presecado = req.body.presecado; 
+          if(req.body.minBordado)
+          appConfig.minBordado = req.body.minBordado; 
+          if(req.body.minSerigrafia)
+          appConfig.minSerigrafia = req.body.minSerigrafia; 
+          if(req.body.minSublimado)
+          appConfig.minSublimado = req.body.minSublimado; 
+          if(req.body.minTransfer)
+          appConfig.minTransfer = req.body.minTransfer; 
+          if(req.body.minVinil)
+          appConfig.minVinil = req.body.minVinil; 
+        appConfig.save(function (err) {
+        
+          if (err) return res.send(500, err.message);
+        res.status(200).json({appConfig:appConfig});
+      });
+    }
+    else {
+      res.status(200).json({appConfig:[]});
+    }
   });
+
 };
 

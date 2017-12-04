@@ -8,6 +8,7 @@ import {
   } from '@angular/core';
   import {AppConfigService} from './appConfig.service';
   import {AppConfig} from './../appConfig/appConfig';
+import { debug } from 'util';
   
   
   
@@ -20,13 +21,14 @@ import {
   })
   export class appConfigComponent  {
     @Input() appConfig:  AppConfig  ;    
-    public posiciones:AppConfig ;
-    public posicion: Array <AppConfig> ;
+    public posicion: AppConfig ;
+    public posiciones: AppConfig ;
     constructor(private  _appConfigService: AppConfigService) {
     }
   
     ngOnInit() {
-     this. posiciones = new AppConfig();
+     this.posiciones = new AppConfig();
+     this.posicion = new AppConfig();
      this.reloadTecnicas();
     }
   
@@ -34,13 +36,14 @@ import {
         this.posiciones = new AppConfig();
         this._appConfigService.getAppConfig().subscribe(
        data => {
-         this.posicion = data;
+          this.posiciones = data;
+          this.posicion.copy(data); 
        }
      )
     }
     agregarTecnica(){
         
-        this._appConfigService.updateAppConfig(this.posiciones).subscribe(
+        this._appConfigService.updateAppConfig(this.posicion).subscribe(
           data => {
         this.reloadTecnicas();
     
@@ -49,7 +52,7 @@ import {
       }
     updateTecnica()
       {
-         this._appConfigService.updateAppConfig(this.posiciones).subscribe(
+         this._appConfigService.updateAppConfig(this.posicion).subscribe(
         data => {
           this.reloadTecnicas();
         }

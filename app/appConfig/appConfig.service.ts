@@ -12,7 +12,7 @@ export class AppConfigService {
 
 constructor (private http: Http) {}
 
-  getAppConfig(): Observable<Array<AppConfig>> {
+  getAppConfig(): Observable<AppConfig> {
     
     return this.http.get(this.appConfigUrl)
                     .map(this.extractData)
@@ -22,8 +22,7 @@ constructor (private http: Http) {}
       let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-   
-    return this.http.post(this.appConfigUrl,appConfig,options)
+        return this.http.put(this.appConfigUrl + "/" + appConfig._id.toString(), appConfig, options)
                     .map(this.extractData)
                     .catch(this.handleError);
   }

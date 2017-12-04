@@ -1,9 +1,8 @@
 export class AppConfig {
-    _id: String;
+    _id: number;
     bordado: number;
     serigrafia: number;
     sublimado:number;
-    id:number
     presecado:number
     revelado:number
     minBordado:number;
@@ -12,7 +11,7 @@ export class AppConfig {
     minTransfer:number;
     minVinil:number;
     constructor() {
-
+      this._id = 0;
       this.revelado=0;
       this.presecado=0;
       this.minBordado = 0;
@@ -23,8 +22,7 @@ export class AppConfig {
     } 
     setCategoria( presecado:number,
                   revelado:number,
-                  id:number,
-                  
+                  _id:number,
                   minBordado:number,
                   minSerigrafia:number,
                   minSublimado:number,
@@ -34,12 +32,24 @@ export class AppConfig {
 
       this.revelado = revelado;
       this.presecado = presecado;
-      this.id = id;
+      this._id = _id;
       this.minBordado = minBordado;
       this.minSerigrafia = minSerigrafia;
       this.minSublimado = minSublimado;
       this.minTransfer = minTransfer;
       this.minVinil = minVinil;
+    }
+      copy( appConfig:AppConfig
+                ){
+
+      this.revelado = appConfig.revelado;
+      this.presecado = appConfig.presecado;
+      this._id = appConfig._id;
+      this.minBordado = appConfig.minBordado;
+      this.minSerigrafia = appConfig.minSerigrafia;
+      this.minSublimado = appConfig.minSublimado;
+      this.minTransfer = appConfig.minTransfer;
+      this.minVinil = appConfig.minVinil;
     }
   }
   
