@@ -317,7 +317,9 @@ api.route('/appConfig/:id')
 
 api.route('/posiciones/:id')
   .get(posicionesCtrl.findById)
-  .put(posicionesCtrl.update);
+  .put(posicionesCtrl.update)
+  .delete(posicionesCtrl.delete);
+  
 
   api.route('/ubicaciones')
   .get(ubicacionesCtrl.findAll)
@@ -333,7 +335,9 @@ api.route('/ubicaciones/:id')
 
 api.route('/colores/:id')
   .get(coloresCtrl.findById)
-  .put(coloresCtrl.update);
+  .put(coloresCtrl.update)
+  .delete(coloresCtrl.delete);
+  
 
 
 api.route('/products')

@@ -5,6 +5,9 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import { Colores } from './colores';
+import {
+  URLSearchParams
+} from '@angular/http';
 @Injectable()
 export class ColoresService {
     colores:Array<Colores>;
@@ -19,6 +22,31 @@ constructor (private http: Http) {}
                     .map(this.extractData)
                     .catch(this.handleError);
   }
+  update(colores:Colores): Observable<Array<Colores>> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+   let options = new RequestOptions({ headers: headers });
+
+   
+  
+   return this.http.put(this.url+"/"+colores._id.toString(), colores ,options)
+                   .map(this.extractData)
+                   .catch(this.handleError);
+ }
+
+ delete(colores:Colores): Observable<Array<Colores>> {
+  let headers = new Headers({ 'Content-Type': 'application/json' });
+debugger
+  let options = new RequestOptions();
+ options.headers = headers;
+ options.search = new URLSearchParams();
+ options.search.append('id', colores._id.toString());
+
+
+ return this.http.delete(this.url+"/"+colores._id.toString() ,options)
+                 .map(this.extractData)
+                 .catch(this.handleError);
+}
+
   addTecnica(colores:Colores): Observable<Array<Colores>> {
      let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });

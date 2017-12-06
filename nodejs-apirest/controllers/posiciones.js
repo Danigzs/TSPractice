@@ -55,3 +55,17 @@ exports.update = function (req, res) {
     });
   });
 };
+
+//DELETE - Delete a register with specified ID
+exports.delete = function (req, res) {
+  Posiciones.findById(req.params.id, function (err, posiciones) {
+    if(posiciones)
+    posiciones.remove(function (err) {
+      if (err) return res.send(500, err.message);
+      res.json({
+        message: 'Successfully deleted'
+      });
+    });
+  }); 
+};
+

@@ -5,6 +5,9 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import { Posiciones } from './posiciones';
+import {
+  URLSearchParams
+} from '@angular/http';
 @Injectable()
 export class PosicionesService {
     posiciones:Array<Posiciones>;
@@ -19,6 +22,30 @@ constructor (private http: Http) {}
                     .map(this.extractData)
                     .catch(this.handleError);
   }
+
+  update(posiciones:Posiciones): Observable<Array<Posiciones>> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+   let options = new RequestOptions({ headers: headers });
+
+   
+  
+   return this.http.put(this.url+"/"+posiciones._id.toString(), posiciones ,options)
+                   .map(this.extractData)
+                   .catch(this.handleError);
+ }
+ delete(bordadotipo:Posiciones): Observable<Array<Posiciones>> {
+  let headers = new Headers({ 'Content-Type': 'application/json' });
+debugger
+  let options = new RequestOptions();
+ options.headers = headers;
+ options.search = new URLSearchParams();
+ options.search.append('id', bordadotipo._id.toString());
+
+
+ return this.http.delete(this.url+"/"+bordadotipo._id.toString() ,options)
+                 .map(this.extractData)
+                 .catch(this.handleError);
+}
   addTecnica(posiciones:Posiciones): Observable<Array<Posiciones>> {
      let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });

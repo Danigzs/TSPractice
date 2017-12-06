@@ -47,19 +47,25 @@
       </div>
       <div class="c-add-product-container">
           <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
-          <button type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Agregar</button>
-  
+          <button *ngIf="!isEditing"type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Agregar</button>
+          <button *ngIf="isEditing" type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Guardar</button>
+          <button *ngIf="isEditing" type="button" class="btn btn-primary btn-md" (click)="setEditMode(false,null)">Cancelar edicion</button>
+        
       <div class="c-grid-products">
         <table class="table " id="tproductos">
           <thead>
             <tr>
               <th>Posicion</th>
-              <th>Costo</th>              
+              <th>Costo</th>   
+              <th style="text-align:right">Acciones</th>
+              
             </tr>
           </thead>
           <tr *ngFor="let posiciones of posicion; let i = index">
             <td>{{posiciones.posiciones}}</td>           
             <td>{{posiciones.costo}}</td>
+            <td style="float:right"><button type="button" class="btn btn-primary btn-md" (click)="setEditMode(true,posiciones)">Editar</button>
+              <button type="button" class="btn btn-primary btn-md" (click)="delete(posiciones,i)">Borrar</button></td>  
           </tr>               
   
         </table>

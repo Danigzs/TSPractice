@@ -57,8 +57,10 @@ Tipo de hilo            </div>
       </div>
       <div class="c-add-product-container">
           <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
-          <button type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Agregar</button>
-  
+          <button *ngIf="!isEditing"type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Agregar</button>
+          <button *ngIf="isEditing" type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Guardar</button>
+          <button *ngIf="isEditing" type="button" class="btn btn-primary btn-md" (click)="setEditMode(false,null)">Cancelar edicion</button>
+        
       <div class="c-grid-products">
         <table class="table " id="tproductos">
           <thead>
@@ -66,6 +68,7 @@ Tipo de hilo            </div>
               <th>Color</th>
               <th>Hilo</th>
               <th>Marca</th>
+              <th style="text-align:right">Acciones</th>
               
               
             </tr>
@@ -74,7 +77,9 @@ Tipo de hilo            </div>
           <td>{{colores.color}}</td>   
           <td>{{colores.hilo}}</td>
           <td>{{colores.marca}}</td>            
-          
+          <td style="float:right"><button type="button" class="btn btn-primary btn-md" (click)="setEditMode(true,colores)">Editar</button>
+            <button type="button" class="btn btn-primary btn-md" (click)="delete(colores,i)">Borrar</button></td>
+
           </tr>               
   
         </table>
