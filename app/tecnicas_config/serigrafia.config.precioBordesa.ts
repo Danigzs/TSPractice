@@ -23,12 +23,35 @@ import {
     @Input() appConfig:  AppConfig  ;    
     public precios:SerigrafiaPrecioBordesa;
     public precio: Array < SerigrafiaPrecioBordesa > ;
+    public isEditing:Boolean;
     constructor(private  _bordadoService: SerigrafiaPrecioBordesaService) {
     }
   
     ngOnInit() {
+      this.isEditing = false;
+      
      this. precios = new SerigrafiaPrecioBordesa();
      this.reloadTecnicas();
+    }
+
+    setEditMode(edit:boolean,bordado:SerigrafiaPrecioBordesa){
+      this.isEditing = edit;
+      if(edit){
+        this.precios._id = bordado._id;
+        this.precios.costo = bordado.costo;
+        this.precios.tintas = bordado.tintas;
+        this.precios.prendaDe = bordado.prendaDe;
+        this.precios.prendaHasta = bordado.prendaHasta;
+        
+      }
+      else {
+        this.precios._id = 0;
+        this.precios.costo = 0;
+        this.precios.tintas = 0;
+        this.precios.prendaDe = 0;
+        this.precios.prendaHasta = 0;
+       
+      }
     }
   
     reloadTecnicas(){
@@ -40,13 +63,17 @@ import {
      )
     }
     agregarTecnica(){
-      
+      if(this.isEditing){
+        this.edit(this.precios);
+      }
+      else {
       this._bordadoService.addTecnica(this.precios).subscribe(
         data => {
       this.reloadTecnicas();
   
         }
       );
+    }
     }
     updateTecnica()
       {
@@ -56,6 +83,23 @@ import {
         }
       );
       }
+      edit(_serigrafiaPrecioBordesa:SerigrafiaPrecioBordesa){
+        this._bordadoService.update(_serigrafiaPrecioBordesa).subscribe(
+          data => {
+            this.setEditMode(false,null);
+            this.reloadTecnicas();
+          }
+        );
+      }
+      delete(_serigrafiaPrecioBordesa:SerigrafiaPrecioBordesa, index:number){
+        this._bordadoService.delete(_serigrafiaPrecioBordesa).subscribe(
+          data => {
+            this.reloadTecnicas();
+          }
+        );
+        
+      }
+
   }
   
   

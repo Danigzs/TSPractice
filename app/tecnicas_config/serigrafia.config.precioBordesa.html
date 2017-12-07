@@ -73,8 +73,10 @@
 
     </div>
     <div class="c-add-product-container">
-      <button type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Agregar</button>
-
+      <button *ngIf="!isEditing"type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Agregar</button>
+      <button *ngIf="isEditing" type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Guardar</button>
+      <button *ngIf="isEditing" type="button" class="btn btn-primary btn-md" (click)="setEditMode(false,null)">Cancelar edicion</button>
+  
     </div>
 
 
@@ -87,6 +89,7 @@
             <th>Desde</th>
             <th>Hasta</th>
             <th>Precio</th>
+            <th style="text-align:right">Acciones</th>
             
           </tr>
         </thead>
@@ -96,6 +99,9 @@
           <td>{{precios.prendaDe}}</td>
           <td>{{precios.prendaHasta}}</td>
           <td>{{precios.costo | currency:'USD':true}}</td>
+          <td style="float:right"><button type="button" class="btn btn-primary btn-md" (click)="setEditMode(true,precios)">Editar</button>
+            <button type="button" class="btn btn-primary btn-md" (click)="delete(precios,i)">Borrar</button></td>
+
         </tr>
 
       </table>

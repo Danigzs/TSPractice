@@ -4,6 +4,9 @@ import { Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import {
+  URLSearchParams
+} from '@angular/http';
 import { Ubicaciones } from './ubicaciones';
 @Injectable()
 export class UbicacionesService {
@@ -19,6 +22,29 @@ constructor (private http: Http) {}
                     .map(this.extractData)
                     .catch(this.handleError);
   }
+  update(ubicaciones:Ubicaciones): Observable<Array<Ubicaciones>> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+   let options = new RequestOptions({ headers: headers });
+
+   
+  
+   return this.http.put(this.url+"/"+ubicaciones._id.toString(), ubicaciones ,options)
+                   .map(this.extractData)
+                   .catch(this.handleError);
+ }
+ delete(ubicaciones:Ubicaciones): Observable<Array<Ubicaciones>> {
+  let headers = new Headers({ 'Content-Type': 'application/json' });
+debugger
+  let options = new RequestOptions();
+ options.headers = headers;
+ options.search = new URLSearchParams();
+ options.search.append('id', ubicaciones._id.toString());
+
+
+ return this.http.delete(this.url+"/"+ubicaciones._id.toString() ,options)
+                 .map(this.extractData)
+                 .catch(this.handleError);
+}
   addTecnica(ubicaciones:Ubicaciones): Observable<Array<Ubicaciones>> {
      let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });

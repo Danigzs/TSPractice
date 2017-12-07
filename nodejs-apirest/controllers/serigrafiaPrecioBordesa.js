@@ -64,6 +64,35 @@ exports.add = function (req, res) {
   });
 };
 
+exports.update = function (req, res) {
+  SerigrafiaPrecioBordesa.findById(req.params.id, function (err, serigrafiaPrecioBordesa) {
+    serigrafiaPrecioBordesa.tintas = req.body.tinta;
+    serigrafiaPrecioBordesa.costo = req.body.costo;    
+    serigrafiaPrecioBordesa.prendaDe = req.body.prendaDe;    
+    serigrafiaPrecioBordesa.prendaHasta = req.body.prendaHasta;    
+  
+    
+    serigrafiaPrecioBordesa.save(function (err) {
+      if (err) return res.send(500, err.message);
+      res.status(200).json({serigrafiaPrecioBordesa:serigrafiaPrecioBordesa});
+    });
+  });
+};
+
+
+//DELETE - Delete a register with specified ID
+exports.delete = function (req, res) {
+  SerigrafiaPrecioBordesa.findById(req.params.id, function (err, serigrafiaPrecioBordesa) {
+    if(serigrafiaPrecioBordesa)
+    serigrafiaPrecioBordesa.remove(function (err) {
+      if (err) return res.send(500, err.message);
+      res.json({
+        message: 'Successfully deleted'
+      });
+    });
+  }); 
+};
+
 // //PUT - Update a register already exists
 // exports.update = function (req, res) {
 //     BordadoBase.findById(req.params.id, function (err, bordadoBase) {

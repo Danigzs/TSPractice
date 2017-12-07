@@ -54,3 +54,15 @@ exports.update = function (req, res) {
   });
 };
 
+//DELETE - Delete a register with specified ID
+exports.delete = function (req, res) {
+  SerigrafiaTipotinta.findById(req.params.id, function (err, tipos) {
+    if(tipos)
+    tipos.remove(function (err) {
+      if (err) return res.send(500, err.message);
+      res.json({
+        message: 'Successfully deleted'
+      });
+    });
+  }); 
+};

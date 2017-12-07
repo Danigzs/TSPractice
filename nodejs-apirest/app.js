@@ -277,7 +277,8 @@ api.route('/bordadoPuntadas/:id')
 api.route('/tipos/:id')
   .get(SerigrafiaTipoTintaCtrl.findById)
   .put(SerigrafiaTipoTintaCtrl.update)
-
+  .delete(SerigrafiaTipoTintaCtrl.delete);
+  
 
 api.route('/serigrafiaPrecioBordesa')
   .get(serigrafiaPrecioBordesaCtrl.findAll)
@@ -289,6 +290,8 @@ api.route('/findByInkQuantity')
 
 api.route('/serigrafiaPrecioBordesa/:id')
   .get(serigrafiaPrecioBordesaCtrl.findById) 
+  .delete(serigrafiaPrecioBordesaCtrl.delete);
+  
 
 api.route('/serigrafiaPrecioCliente')
   .get(serigrafiaPrecioClienteCtrl.findAll)
@@ -327,7 +330,9 @@ api.route('/posiciones/:id')
 
 api.route('/ubicaciones/:id')
   .get(ubicacionesCtrl.findById)
-  .put(ubicacionesCtrl.update);
+  .put(ubicacionesCtrl.update)
+  .delete(ubicacionesCtrl.delete);
+  
 
   api.route('/colores')
   .get(coloresCtrl.findAll)

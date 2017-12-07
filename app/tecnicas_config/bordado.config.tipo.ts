@@ -96,6 +96,6 @@ export class BordadoTipoComponent  {
         this.reloadTecnicas();
       }
     );
+    
   }
 }
-

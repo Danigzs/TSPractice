@@ -23,12 +23,28 @@ import {
     @Input() appConfig:  AppConfig  ;    
     public ubicaciones:Ubicaciones;
     public ubicacion: Array < Ubicaciones > ;
+    public isEditing:Boolean;    
     constructor(private  _bordadoService: UbicacionesService) {
     }
   
     ngOnInit() {
      this. ubicaciones = new Ubicaciones();
      this.reloadTecnicas();
+     this.isEditing = false;
+     
+    }
+
+    setEditMode(edit:boolean,bordado:Ubicaciones){
+      this.isEditing = edit;
+      if(edit){
+        this.ubicaciones._id = bordado._id;
+        
+        this.ubicaciones.ubicaciones = bordado.ubicaciones;
+      }
+      else {
+        this.ubicaciones._id = 0;       
+        this.ubicaciones.ubicaciones = "";
+      }
     }
   
     reloadTecnicas(){
@@ -41,13 +57,19 @@ import {
     }
     agregarTecnica(){
       if(this.ubicaciones.ubicaciones.length > 0){
+        if(this.isEditing){
+          this.edit(this.ubicaciones);
+        }
+        else {
       this._bordadoService.addTecnica(this.ubicaciones).subscribe(
         data => {
       this.reloadTecnicas();
   
         }
-      );
-    }else{
+        );
+      }
+    }
+    else{
       alert("Favor de introducir el nombre de la Posición.")
     }
     }
@@ -58,6 +80,22 @@ import {
           this.reloadTecnicas();
         }
       );
+      }
+      edit(_ubicaciones:Ubicaciones){
+        this._bordadoService.update(_ubicaciones).subscribe(
+          data => {
+            this.setEditMode(false,null);
+            this.reloadTecnicas();
+          }
+        );
+      }
+      delete(_ubicaciones:Ubicaciones, index:number){
+        this._bordadoService.delete(_ubicaciones).subscribe(
+          data => {
+            this.reloadTecnicas();
+          }
+        );
+        
       }
   }
   

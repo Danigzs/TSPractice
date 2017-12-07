@@ -5,6 +5,9 @@ import { Observable } from 'rxjs/Observable';
 import {URLSearchParams} from '@angular/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import {
+  URLSearchParams
+} from '@angular/http';
 import { SerigrafiaPrecioBordesa } from './serigrafiaPrecioBordesa';
 @Injectable()
 export class SerigrafiaPrecioBordesaService {
@@ -30,7 +33,29 @@ export class SerigrafiaPrecioBordesaService {
     .catch(this.handleError);
   }
 
- 
+  update(serigrafiaPrecioBordesa:SerigrafiaPrecioBordesa): Observable<Array<SerigrafiaPrecioBordesa>> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+   let options = new RequestOptions({ headers: headers });
+
+   
+  
+   return this.http.put(this.url+"/"+serigrafiaPrecioBordesa._id.toString(), serigrafiaPrecioBordesa ,options)
+                   .map(this.extractData)
+                   .catch(this.handleError);
+ }
+ delete(serigrafiaPrecioBordesa:SerigrafiaPrecioBordesa): Observable<Array<SerigrafiaPrecioBordesa>> {
+  let headers = new Headers({ 'Content-Type': 'application/json' });
+debugger
+  let options = new RequestOptions();
+ options.headers = headers;
+ options.search = new URLSearchParams();
+ options.search.append('id', serigrafiaPrecioBordesa._id.toString());
+
+
+ return this.http.delete(this.url+"/"+serigrafiaPrecioBordesa._id.toString() ,options)
+                 .map(this.extractData)
+                 .catch(this.handleError);
+}
 
   getTecnicas(): Observable<Array<SerigrafiaPrecioBordesa>> {
     return this.http.get(this.url)
