@@ -360,6 +360,8 @@ api.route('/products/:id')
 api.route('/serigrafiaSize/:id')
   .get(serigrafiaSizeCtrl.findById)
   .put(serigrafiaSizeCtrl.update)
+  .delete(serigrafiaSizeCtrl.delete);
+  
 
   api.route('/sublimadoPrecio')
   .get(sublimadoPrecioCtrl.findAll)
@@ -384,6 +386,8 @@ api.route('/sublimadoPrecioMaquila')
 
 api.route('/sublimadoPrecioMaquila/:id')
   .get(sublimadoPrecioMaquilaCtrl.findById)
+  .delete(sublimadoPrecioMaquilaCtrl.delete)
+  
 
 api.route('/findBySublimadoPrecioMaquila')
   .get(sublimadoPrecioMaquilaCtrl.findBySublimadoPrecioMaquila)

@@ -34,6 +34,32 @@ export class SublimadoPrecioMaquilaService {
     .map(this.extractData)
     .catch(this.handleError);
   }
+
+  update(url:SublimadoPrecioMaquila): Observable<Array<SublimadoPrecioMaquila>> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+   let options = new RequestOptions({ headers: headers });
+
+   
+  
+   return this.http.put(this.url+"/"+url._id.toString(), url ,options)
+                   .map(this.extractData)
+                   .catch(this.handleError);
+ }
+ delete(url:SublimadoPrecioMaquila): Observable<Array<SublimadoPrecioMaquila>> {
+  let headers = new Headers({ 'Content-Type': 'application/json' });
+debugger
+  let options = new RequestOptions();
+ options.headers = headers;
+ options.search = new URLSearchParams();
+ options.search.append('id', url._id.toString());
+
+
+ return this.http.delete(this.url+"/"+url._id.toString() ,options)
+                 .map(this.extractData)
+                 .catch(this.handleError);
+}
+
+
   addTecnica(sublimadoPrecioMaquila:SublimadoPrecioMaquila): Observable<Array<SublimadoPrecioMaquila>> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });

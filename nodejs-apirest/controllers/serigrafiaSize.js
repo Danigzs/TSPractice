@@ -55,3 +55,28 @@ exports.update = function (req, res) {
     });
   });
 };
+
+exports.update = function (req, res) {
+  SerigrafiaSize.findById(req.params.id, function (err, serigrafiaSize) {
+    serigrafiaSize.size = req.body.size;
+    serigrafiaSize.costo = req.body.costo;    
+    serigrafiaSize.save(function (err) {
+      if (err) return res.send(500, err.message);
+      res.status(200).json({serigrafiaSize:serigrafiaSize});
+    });
+  });
+};
+
+
+//DELETE - Delete a register with specified ID
+exports.delete = function (req, res) {
+  SerigrafiaSize.findById(req.params.id, function (err, serigrafiaSize) {
+    if(serigrafiaSize)
+    serigrafiaSize.remove(function (err) {
+      if (err) return res.send(500, err.message);
+      res.json({
+        message: 'Successfully deleted'
+      });
+    });
+  }); 
+};

@@ -5,6 +5,9 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import { SerigrafiaSize } from './serigrafiaSize';
+import {
+  URLSearchParams
+} from '@angular/http';
 @Injectable()
 export class SerigrafiaSizeService {
     serigrafiaSize:Array<SerigrafiaSize>;
@@ -19,6 +22,30 @@ constructor (private http: Http) {}
                     .map(this.extractData)
                     .catch(this.handleError);
   }
+  update(serigrafiaSize:SerigrafiaSize): Observable<Array<SerigrafiaSize>> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+   let options = new RequestOptions({ headers: headers });
+
+   
+  
+   return this.http.put(this.url+"/"+serigrafiaSize._id.toString(), serigrafiaSize ,options)
+                   .map(this.extractData)
+                   .catch(this.handleError);
+ }
+ delete(serigrafiaSize:SerigrafiaSize): Observable<Array<SerigrafiaSize>> {
+  let headers = new Headers({ 'Content-Type': 'application/json' });
+debugger
+  let options = new RequestOptions();
+ options.headers = headers;
+ options.search = new URLSearchParams();
+ options.search.append('id', serigrafiaSize._id.toString());
+
+
+ return this.http.delete(this.url+"/"+serigrafiaSize._id.toString() ,options)
+                 .map(this.extractData)
+                 .catch(this.handleError);
+}
+
   addTecnica(serigrafiaSize:SerigrafiaSize): Observable<Array<SerigrafiaSize>> {
      let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });

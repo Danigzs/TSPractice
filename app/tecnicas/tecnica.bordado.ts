@@ -216,7 +216,7 @@ import {BordadoTipoComponent} from './../tecnicas_config/bordado.config.tipo'
        {
          return 0;
        }
-       debugger
+       
        var result = this.bordado.puntadas/1000;
        var resultCast = Math.floor(this.bordado.puntadas/1000)
        if(!Number.isInteger(result)){
