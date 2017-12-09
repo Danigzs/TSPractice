@@ -60,18 +60,25 @@
     </div>
     <div class="c-add-product-container">
       <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
-      <button type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Agregar</button>
-      <div class="c-grid-products">
+      <button *ngIf="!isEditing"type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Agregar</button>
+      <button *ngIf="isEditing" type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Guardar</button>
+      <button *ngIf="isEditing" type="button" class="btn btn-primary btn-md" (click)="setEditMode(false,null)">Cancelar edicion</button>
+        <div class="c-grid-products">
         <table class="table " id="tproductos">
           <thead>
             <tr>
               <th>Tamaño</th>
               <th>Costo</th>
+              <th style="text-align:right">Acciones</th>
+              
             </tr>
           </thead>
           <tr *ngFor="let sublimadosize of sublimados; let i = index">
             <td>{{sublimadosize.size}}</td>
             <td>{{sublimadosize.costo}}</td>
+            <td style="float:right"><button type="button" class="btn btn-primary btn-md" (click)="setEditMode(true,sublimadosize)">Editar</button>
+              <button type="button" class="btn btn-primary btn-md" (click)="delete(sublimadosize,i)">Borrar</button></td>
+  
           </tr>
         </table>
       </div>

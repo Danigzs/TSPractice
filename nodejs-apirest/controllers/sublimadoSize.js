@@ -55,3 +55,15 @@ exports.update = function (req, res) {
     });
   });
 };
+
+exports.delete = function (req, res) {
+  SublimadoSize.findById(req.params.id, function (err, sublimadoSize) {
+    if(sublimadoSize)
+    sublimadoSize.remove(function (err) {
+      if (err) return res.send(500, err.message);
+      res.json({
+        message: 'Successfully deleted'
+      });
+    });
+  }); 
+};

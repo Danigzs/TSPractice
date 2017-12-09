@@ -408,6 +408,8 @@ api.route('/findBySublimadoPrecioMaquila')
 api.route('/sublimadoSize/:id')
   .get(sublimadoSizeCtrl.findById)
   .put(sublimadoSizeCtrl.update)  
+  .delete(sublimadoSizeCtrl.delete)
+  
 
   api.route('/transferSize')
   .get(transferSizeCtrl.findAll)
