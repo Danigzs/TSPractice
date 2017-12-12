@@ -418,7 +418,8 @@ api.route('/sublimadoSize/:id')
 api.route('/transferSize/:id')
   .get(transferSizeCtrl.findById)
   .put(transferSizeCtrl.update)  
-
+  .delete(transferSizeCtrl.delete)
+  
   api.route('/transferPrecio')
   .get(transferPrecioCtrl.findAll)
   .post(transferPrecioCtrl.add)
@@ -446,6 +447,8 @@ api.route('/findByTransferPrecioMaquila')
 api.route('/vinilTipo/:id')
   .get(vinilTipoCtrl.findById)
   .put(vinilTipoCtrl.update)
+  .delete(vinilTipoCtrl.delete)
+  
 
   api.route('/vinilPrecio')
   .get(vinilPrecioCtrl.findAll)

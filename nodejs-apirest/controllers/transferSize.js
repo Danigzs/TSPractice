@@ -55,3 +55,16 @@ exports.update = function (req, res) {
     });
   });
 };
+
+//DELETE - Delete a register with specified ID
+exports.delete = function (req, res) {
+  TransferSize.findById(req.params.id, function (err, transferSize) {
+    if(transferSize)
+    transferSize.remove(function (err) {
+      if (err) return res.send(500, err.message);
+      res.json({
+        message: 'Successfully deleted'
+      });
+    });
+  }); 
+};

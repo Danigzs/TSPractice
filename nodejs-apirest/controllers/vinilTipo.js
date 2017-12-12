@@ -54,3 +54,15 @@ exports.update = function (req, res) {
   });
 };
 
+//DELETE - Delete a register with specified ID
+exports.delete = function (req, res) {
+  VinilTipo.findById(req.params.id, function (err, vinilTipo) {
+    if(vinilTipo)
+    vinilTipo.remove(function (err) {
+      if (err) return res.send(500, err.message);
+      res.json({
+        message: 'Successfully deleted'
+      });
+    });
+  }); 
+};

@@ -1,96 +1,98 @@
-
 <div class="c-div-bgr bar-margin">
-        <div class="c-cliente-seccion">
-          <h1>Precios</h1>
+  <div class="c-cliente-seccion">
+    <h1>Precios</h1>
+  </div>
+
+  <div class="c-div-container">
+
+    <div class="c-container-info">
+
+      <div class="c-container-info-column">
+        <div class="c-container-info-column-item-container">
+
         </div>
-      
-        <div class="c-div-container">      
-      
-          <div class="c-container-info">
-      
-            <div class="c-container-info-column">
-              <div class="c-container-info-column-item-container">
-    
-              </div>
-              <div class="c-container-info-column-item-container">
-                <div class="c-container-info-column-item-container info">
-                  Desde
-                </div>
-              </div> 
-              <div class="c-container-info-column-item-container">
-                    <div class="c-container-info-column-item-container info">
-                      Hasta
-                    </div>
-                  </div> 
-                  <div class="c-container-info-column-item-container">
-                        <div class="c-container-info-column-item-container info">
-                          Precio
-                        </div>
-                      </div> 
-      
-      
-            </div>
-      
-            <div class="c-container-info-column">
-      
-              <div class="c-container-info-column-item-container">
-                
-    
-              </div>
-              <div class="c-container-info-column-item-container">
-                <div class="c-container-info-column-item-container info">
-                  <input type="text" [(ngModel)]="precios.prendaDe" >
-                </div>
-              </div>
-
-              <div class="c-container-info-column-item-container">
-                    <div class="c-container-info-column-item-container info">
-                            <input type="text" [(ngModel)]="precios.prendaHasta" >
-                    </div>
-                  </div>
-
-                  <div class="c-container-info-column-item-container">
-                        <div class="c-container-info-column-item-container info">
-                                <input type="text"[(ngModel)]="precios.costo" >
-                        </div>
-                      </div>
-
-              
-            </div>
-      
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Desde
           </div>
-          <div class="c-add-product-container">
-            <button type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Agregar</button>
-      
-          </div>
-      
-      
-      
-          <div class="c-grid-products">
-            <table class="table " id="tproductos">
-              <thead>
-                <tr>
-                  
-                  <th>Desde</th>
-                  <th>Hasta</th>
-                  <th>Precio</th>
-                  
-                </tr>
-              </thead>
-              <tr class='clickable-row' *ngFor="let precios of precio; let i = index">
-                          
-                <td>{{precios.prendaDe}}</td>
-                <td>{{precios.prendaHasta}}</td>
-                <td>{{precios.costo | currency:'USD':true}}</td>
-              </tr>
-      
-            </table>
-      
-      
-          </div>
-          
         </div>
-      
-        
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Hasta
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Precio
+          </div>
+        </div>
+
+
       </div>
-      
+
+      <div class="c-container-info-column">
+
+        <div class="c-container-info-column-item-container">
+
+
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <input type="text" [(ngModel)]="precios.prendaDe">
+          </div>
+        </div>
+
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <input type="text" [(ngModel)]="precios.prendaHasta">
+          </div>
+        </div>
+
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <input type="text" [(ngModel)]="precios.costo">
+          </div>
+        </div>
+
+
+      </div>
+
+    </div>
+    <div class="c-add-product-container">
+      <button *ngIf="!isEditing"type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Agregar</button>
+      <button *ngIf="isEditing" type="button" class="btn btn-primary btn-md" (click)="agregarTecnica()">Guardar</button>
+      <button *ngIf="isEditing" type="button" class="btn btn-primary btn-md" (click)="setEditMode(false,null)">Cancelar edicion</button>
+  
+    </div>
+
+
+
+    <div class="c-grid-products">
+      <table class="table " id="tproductos">
+        <thead>
+          <tr>
+
+            <th>Desde</th>
+            <th>Hasta</th>
+            <th>Precio</th>
+            <th style="text-align:right">Acciones</th>
+            
+          </tr>
+        </thead>
+        <tr class='clickable-row' *ngFor="let precios of precio; let i = index">
+
+          <td>{{precios.prendaDe}}</td>
+          <td>{{precios.prendaHasta}}</td>
+          <td>{{precios.costo | currency:'USD':true}}</td>
+          
+        </tr>
+
+      </table>
+
+
+    </div>
+
+  </div>
+
+
+</div>
