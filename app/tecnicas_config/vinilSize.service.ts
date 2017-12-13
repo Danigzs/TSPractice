@@ -5,6 +5,9 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import { VinilSize } from './vinilSize';
+import {
+  URLSearchParams
+} from '@angular/http';
 @Injectable()
 export class VinilSizeService {
     vinilSize:Array<VinilSize>;
@@ -19,6 +22,31 @@ constructor (private http: Http) {}
                     .map(this.extractData)
                     .catch(this.handleError);
   }
+
+  update(vinilSize:VinilSize): Observable<Array<VinilSize>> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+   let options = new RequestOptions({ headers: headers });
+
+   
+  
+   return this.http.put(this.url+"/"+vinilSize._id.toString(), vinilSize ,options)
+                   .map(this.extractData)
+                   .catch(this.handleError);
+ }
+ delete(vinilSize:VinilSize): Observable<Array<VinilSize>> {
+  let headers = new Headers({ 'Content-Type': 'application/json' });
+debugger
+  let options = new RequestOptions();
+ options.headers = headers;
+ options.search = new URLSearchParams();
+ options.search.append('id', vinilSize._id.toString());
+
+
+ return this.http.delete(this.url+"/"+vinilSize._id.toString() ,options)
+                 .map(this.extractData)
+                 .catch(this.handleError);
+}
+
   addTecnica(vinilSize:VinilSize): Observable<Array<VinilSize>> {
      let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });

@@ -472,6 +472,8 @@ api.route('/vinilPrecioMaquila/:id')
 api.route('/vinilSize/:id')
   .get(vinilSizeCtrl.findById)
   .put(vinilSizeCtrl.update)  
+  .delete(vinilSizeCtrl.delete)
+  
 
   api.route('/vinil')
   .get(VinilCtrl.findAll)
