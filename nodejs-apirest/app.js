@@ -464,6 +464,8 @@ api.route('/vinilPrecio/:id')
 
 api.route('/vinilPrecioMaquila/:id')
   .get(vinilPrecioMaquilaCtrl.findById)
+  .delete(vinilPrecioMaquilaCtrl.delete)
+
 
   api.route('/vinilSize')
   .get(vinilSizeCtrl.findAll)

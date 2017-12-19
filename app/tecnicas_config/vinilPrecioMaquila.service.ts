@@ -23,6 +23,30 @@ constructor (private http: Http) {}
                     .catch(this.handleError);
   }
 
+  update(vinilPrecioMaquila:VinilPrecioMaquila): Observable<Array<VinilPrecioMaquila>> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+   let options = new RequestOptions({ headers: headers });
+
+   
+  
+   return this.http.put(this.url+"/"+vinilPrecioMaquila._id.toString(), vinilPrecioMaquila ,options)
+                   .map(this.extractData)
+                   .catch(this.handleError);
+ }
+ delete(vinilPrecioMaquila:VinilPrecioMaquila): Observable<Array<VinilPrecioMaquila>> {
+  let headers = new Headers({ 'Content-Type': 'application/json' });
+debugger
+  let options = new RequestOptions();
+ options.headers = headers;
+ options.search = new URLSearchParams();
+ options.search.append('id', vinilPrecioMaquila._id.toString());
+
+
+ return this.http.delete(this.url+"/"+vinilPrecioMaquila._id.toString() ,options)
+                 .map(this.extractData)
+                 .catch(this.handleError);
+}
+
 
   getVinilPrecioMaquila(quantity:number): Observable<Array<VinilPrecioMaquila>> {
     let headers = new Headers({

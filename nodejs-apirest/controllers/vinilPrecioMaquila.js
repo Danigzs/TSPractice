@@ -59,39 +59,30 @@ exports.add = function (req, res) {
   });
 };
 
-
-// //POST - Insert a new register
-// exports.add = function (req, res) {
-//   console.log('POST');
-//   console.log(req.body);
-//   var serigrafiaPrecioTinta = new SerigrafiaPrecioTinta({
-//     bordadoPrice: req.body.bordadoPrice,
-//     puntadaPrice: req.body.puntadaPrice,
-//     tamanoPrice: req.body.tamanoPrice,
-//   });
-//   bordadoBase.save(function (err, bordadoBase) {
-//     if (err) return res.send(500, err.message);
-//     res.status(200).json({
-//       bordadoBase: bordadoBase
-//     });
-
-//   });
-// };
+//PUT - Update a register already exists
+exports.update = function (req, res) {
+  VinilPrecioMaquila.findById(req.params.id, function (err, vinilPrecioMaquila) {
+    vinilPrecioMaquila.prendaDe = req.body.prendaDe;
+    vinilPrecioMaquila.prendaHasta = req.body.prendaHasta;   
+    vinilPrecioMaquila.costo = req.body.costo;    
  
-// //PUT - Update a register already exists
-// exports.update = function (req, res) {
-//     BordadoBase.findById(req.params.id, function (err, bordadoBase) {
-//       if(req.body.bordadoPrice)
-//         bordadoBase.bordadoPrice = req.body.bordadoPrice;
-//       if(req.body.puntadaPrice)
-//         bordadoBase.puntadaPrice = req.body.puntadaPrice;
-//       if(req.body.tamanoPrice)
-//         bordadoBase.tamanoPrice = req.body.tamanoPrice; 
-//       bordadoBase.save(function (err) {
-      
-//         if (err) return res.send(500, err.message);
-//       res.status(200).json({bordadoBase:bordadoBase});
-//     });
-//   });
-// };
+    vinilPrecioMaquila.save(function (err) {
+      if (err) return res.send(500, err.message);
+      res.status(200).json({vinilPrecioMaquila:vinilPrecioMaquila});
+    });
+  });
+};
 
+
+//DELETE - Delete a register with specified ID
+exports.delete = function (req, res) {
+  VinilPrecioMaquila.findById(req.params.id, function (err, vinilPrecioMaquila) {
+    if(vinilPrecioMaquila)
+    vinilPrecioMaquila.remove(function (err) {
+      if (err) return res.send(500, err.message);
+      res.json({
+        message: 'Successfully deleted'
+      });
+    });
+  }); 
+};
