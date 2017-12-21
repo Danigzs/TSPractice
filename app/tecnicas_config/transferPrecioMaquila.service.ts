@@ -19,7 +19,30 @@ export class TransferPrecioMaquilaService {
     return this.http.get(this.url)
     .map(this.extractData)
     .catch(this.handleError);
-  } 
+  }
+  update(transferPrecioMaquila:TransferPrecioMaquila): Observable<Array<TransferPrecioMaquila>> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+   let options = new RequestOptions({ headers: headers });
+
+   
+  
+   return this.http.put(this.url+"/"+transferPrecioMaquila._id.toString(), transferPrecioMaquila ,options)
+                   .map(this.extractData)
+                   .catch(this.handleError);
+ }
+ delete(transferPrecioMaquila:TransferPrecioMaquila): Observable<Array<TransferPrecioMaquila>> {
+  let headers = new Headers({ 'Content-Type': 'application/json' });
+debugger
+  let options = new RequestOptions();
+ options.headers = headers;
+ options.search = new URLSearchParams();
+ options.search.append('id', transferPrecioMaquila._id.toString());
+
+
+ return this.http.delete(this.url+"/"+transferPrecioMaquila._id.toString() ,options)
+                 .map(this.extractData)
+                 .catch(this.handleError);
+} 
   getTransferPrecioMaquila(quantity:number): Observable<Array<TransferPrecioMaquila>> {
     let headers = new Headers({
      'Content-Type': 'application/json'

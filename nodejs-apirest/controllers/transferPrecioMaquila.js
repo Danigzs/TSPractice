@@ -57,6 +57,32 @@ exports.add = function (req, res) {
   });
 };
 
+exports.update = function (req, res) {
+  TransferPrecioMaquila.findById(req.params.id, function (err, transferPrecioMaquila) {
+    transferPrecioMaquila.prendaDe = req.body.prendaDe;
+    transferPrecioMaquila.prendaHasta = req.body.prendaHasta;
+    transferPrecioMaquila.costo = req.body.costo;    
+    transferPrecioMaquila.save(function (err) {
+      if (err) return res.send(500, err.message);
+      res.status(200).json({transferPrecioMaquila:transferPrecioMaquila});
+    });
+  });
+};
+
+
+//DELETE - Delete a register with specified ID
+exports.delete = function (req, res) {
+  TransferPrecioMaquila.findById(req.params.id, function (err, transferPrecioMaquila) {
+    if(transferPrecioMaquila)
+    transferPrecioMaquila.remove(function (err) {
+      if (err) return res.send(500, err.message);
+      res.json({
+        message: 'Successfully deleted'
+      });
+    });
+  }); 
+};
+
 
 // //POST - Insert a new register
 // exports.add = function (req, res) {
