@@ -10,7 +10,7 @@ import { VinilPrecioMaquila } from './vinilPrecioMaquila';
 export class VinilPrecioMaquilaService {
     vinilPrecioMaquila:Array<VinilPrecioMaquila>;
     
-     private url = 'http://localhost:8000/api/vinilPrecioMaquila ';  // URL to web API
+     private url = 'http://localhost:8000/api/vinilPrecioMaquila';  // URL to web API
      private vinilPrecioMaquilaUrl = 'http://localhost:8000/api/findByVinilPrecioMaquila'
      
      

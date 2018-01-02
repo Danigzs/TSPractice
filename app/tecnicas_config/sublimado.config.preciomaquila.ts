@@ -80,6 +80,7 @@ export class SublimadoPrecioMaquilaComponent  {
       );
   }
   edit(_sublimadopreciomaquila:SublimadoPrecioMaquila){
+    
     this._sublimadoPrecioMaquilaService.update(_sublimadopreciomaquila).subscribe(
       data => {
         this.setEditMode(false,null);

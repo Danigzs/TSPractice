@@ -290,6 +290,7 @@ api.route('/findByInkQuantity')
 
 api.route('/serigrafiaPrecioBordesa/:id')
   .get(serigrafiaPrecioBordesaCtrl.findById) 
+  .put(serigrafiaPrecioBordesaCtrl.update) 
   .delete(serigrafiaPrecioBordesaCtrl.delete);
   
 
@@ -303,6 +304,7 @@ api.route('/findByInkQuantityWItem')
 
 api.route('/serigrafiaPrecioCliente/:id')
   .get(serigrafiaPrecioClienteCtrl.findById)
+  .put(serigrafiaPrecioClienteCtrl.update)
 
 
 api.route('/appConfig')
@@ -386,6 +388,7 @@ api.route('/sublimadoPrecioMaquila')
 
 api.route('/sublimadoPrecioMaquila/:id')
   .get(sublimadoPrecioMaquilaCtrl.findById)
+  .put(sublimadoPrecioMaquilaCtrl.update)  
   .delete(sublimadoPrecioMaquilaCtrl.delete)
   
 
@@ -465,6 +468,7 @@ api.route('/vinilPrecio/:id')
 
 api.route('/vinilPrecioMaquila/:id')
   .get(vinilPrecioMaquilaCtrl.findById)
+  .put(vinilPrecioMaquilaCtrl.update)
   .delete(vinilPrecioMaquilaCtrl.delete)
 
 

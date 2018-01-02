@@ -10,7 +10,7 @@ import { SublimadoPrecioMaquila } from './sublimadoPrecioMaquila';
 export class SublimadoPrecioMaquilaService {
   sublimadoPrecioMaquila:Array<SublimadoPrecioMaquila>;
   
-  private url = 'http://localhost:8000/api/sublimadoPrecioMaquila ';  // URL to web API
+  private url = 'http://localhost:8000/api/sublimadoPrecioMaquila';  // URL to web API
   private sublimadoPrecioMaquilaUrl = 'http://localhost:8000/api/findBySublimadoPrecioMaquila'
   constructor (private http: Http) {}
   

@@ -21,6 +21,7 @@ export class SublimadoPrecioMaquila {
             }
             copyNewTecnica(){
               var _sublimadopreciomaquila= new SublimadoPrecioMaquila();
+              _sublimadopreciomaquila._id = this._id;
               _sublimadopreciomaquila.costo = this.costo;
               _sublimadopreciomaquila.prendaDe = this.prendaDe;
               _sublimadopreciomaquila.prendaHasta = this.prendaHasta;  

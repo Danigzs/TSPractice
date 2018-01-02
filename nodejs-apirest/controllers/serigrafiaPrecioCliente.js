@@ -62,6 +62,20 @@ exports.add = function (req, res) {
   });
 };
 
+exports.update = function (req, res) {
+  SerigrafiaPrecioCliente.findById(req.params.id, function (err, serigrafiaPrecioCliente) {
+    serigrafiaPrecioCliente.tintas = req.body.tintas;
+    serigrafiaPrecioCliente.prendaDe = req.body.prendaDe;
+    serigrafiaPrecioCliente.prendaHasta = req.body.prendaHasta;   
+    serigrafiaPrecioCliente.costo = req.body.costo;    
+ 
+    serigrafiaPrecioCliente.save(function (err) {
+      if (err) return res.send(500, err.message);
+      res.status(200).json({serigrafiaPrecioCliente:serigrafiaPrecioCliente});
+    });
+  });
+};
+
 
 // //POST - Insert a new register
 // exports.add = function (req, res) {
