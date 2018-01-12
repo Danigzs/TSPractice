@@ -5,9 +5,6 @@ import { Observable } from 'rxjs/Observable';
 import {URLSearchParams} from '@angular/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-import {
-  URLSearchParams
-} from '@angular/http';
 import { SerigrafiaPrecioBordesa } from './serigrafiaPrecioBordesa';
 @Injectable()
 export class SerigrafiaPrecioBordesaService {

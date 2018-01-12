@@ -437,6 +437,8 @@ api.route('/transferPrecio/:id')
 api.route('/transferPrecioMaquila/:id')
   .get(transferPrecioMaquilaCtrl.findById)
   .delete(transferPrecioMaquilaCtrl.delete)
+  .put(transferPrecioMaquilaCtrl.update)
+
 
 api.route('/findByTransferPrecio')
   .get(transferPrecioCtrl.findByTransferPrecio)
