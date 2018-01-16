@@ -6,6 +6,7 @@ import {URLSearchParams} from '@angular/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import { SerigrafiaPrecioBordesa } from './serigrafiaPrecioBordesa';
+import { debug } from 'util';
 @Injectable()
 export class SerigrafiaPrecioBordesaService {
   serigrafiaPrecioBordesa:Array<SerigrafiaPrecioBordesa>;
@@ -42,7 +43,6 @@ export class SerigrafiaPrecioBordesaService {
  }
  delete(serigrafiaPrecioBordesa:SerigrafiaPrecioBordesa): Observable<Array<SerigrafiaPrecioBordesa>> {
   let headers = new Headers({ 'Content-Type': 'application/json' });
-debugger
   let options = new RequestOptions();
  options.headers = headers;
  options.search = new URLSearchParams();

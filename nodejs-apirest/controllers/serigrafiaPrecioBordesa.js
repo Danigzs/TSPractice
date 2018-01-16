@@ -45,8 +45,6 @@ exports.findByInkQuantity = function (req, res) {
 
 // //POST - Insert a new register
 exports.add = function (req, res) {
-  console.log('POST');
-  console.log(req.body);
   var serigrafiaPrecioBordesa = new SerigrafiaPrecioBordesa({
     tintas: req.body.tintas,
     prendaDe:req.body.prendaDe,
@@ -66,7 +64,7 @@ exports.add = function (req, res) {
 
 exports.update = function (req, res) {
   SerigrafiaPrecioBordesa.findById(req.params.id, function (err, serigrafiaPrecioBordesa) {
-    serigrafiaPrecioBordesa.tintas = req.body.tinta;
+    serigrafiaPrecioBordesa.tintas = req.body.tintas;
     serigrafiaPrecioBordesa.costo = req.body.costo;    
     serigrafiaPrecioBordesa.prendaDe = req.body.prendaDe;    
     serigrafiaPrecioBordesa.prendaHasta = req.body.prendaHasta;    

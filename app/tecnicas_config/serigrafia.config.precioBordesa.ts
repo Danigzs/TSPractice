@@ -9,6 +9,7 @@ import {
   import {SerigrafiaPrecioBordesaService} from './serigrafia.precioBordesa.service';
   import {SerigrafiaPrecioBordesa} from './serigrafiaPrecioBordesa';
   import {AppConfig} from './../appConfig/appConfig';
+import { serializePath } from '@angular/router/src/url_tree';
   
   
   
@@ -84,6 +85,7 @@ import {
       );
       }
       edit(_serigrafiaPrecioBordesa:SerigrafiaPrecioBordesa){
+        
         this._bordadoService.update(_serigrafiaPrecioBordesa).subscribe(
           data => {
             this.setEditMode(false,null);
