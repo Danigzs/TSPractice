@@ -212,9 +212,9 @@ import {BordadoTipoComponent} from './../tecnicas_config/bordado.config.tipo'
 
    getBordadoPuntadasPrice(){
      if(this.bordado.maquila){
-       if(this.bordado.puntadas == 0 )
+       if(this.bordado.puntadas <=1000 || this.bordado.puntadas == 0 )
        {
-         return 0;
+         return this.appConfig.minBordado;
        }
        
        var result = this.bordado.puntadas/1000;
@@ -229,7 +229,7 @@ import {BordadoTipoComponent} from './../tecnicas_config/bordado.config.tipo'
        {
           return totalStitches * this.bordadoStitchSelected.costo;
        }
-
+      
        return this.bordadoStitchSelected.costo;
        
      }
