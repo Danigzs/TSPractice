@@ -212,24 +212,33 @@ import {BordadoTipoComponent} from './../tecnicas_config/bordado.config.tipo'
 
    getBordadoPuntadasPrice(){
      if(this.bordado.maquila){
-       if(this.bordado.puntadas <=1000 || this.bordado.puntadas == 0 )
+       if(this.bordado.puntadas ==0)
        {
-         return this.appConfig.minBordado;
+         return this.appConfig.minBordado;      
        }
-       
+     
        var result = this.bordado.puntadas/1000;
        var resultCast = Math.floor(this.bordado.puntadas/1000)
        if(!Number.isInteger(result)){
          resultCast += 1
        }       
        
-
        var totalStitches = Math.floor(this.bordado.puntadas/1000);
        if(totalStitches > 0)
        {
-          return totalStitches * this.bordadoStitchSelected.costo;
-       }
-      
+         /* return totalStitches * this.bordadoStitchSelected.costo;*/
+         var stitchesTotal = totalStitches*this.bordadoStitchSelected.costo;
+         if(stitchesTotal<this.appConfig.minBordado){
+           return this.appConfig.minBordado;}
+          else{
+            return stitchesTotal;
+           }
+           
+         }
+       
+      if(this.bordadoStitchSelected.costo<this.appConfig.minBordado){
+        return this.appConfig.minBordado;
+      }
        return this.bordadoStitchSelected.costo;
        
      }
