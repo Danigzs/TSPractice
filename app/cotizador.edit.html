@@ -1,0 +1,461 @@
+<navbar></navbar>
+<div class="c-div-bgr bar-margin">
+  <div class="op-header">
+    <div class="op-title"> ORDEN DE PEDIDO </div>
+    <div class="op-subtitle"> BORDADOS, DISEÑO Y ESPECIALIDADES, S.A DE C.V. </div>
+    <div class="op-subtitle"> ESCOBEDO # 604-F CENTRO APODACA C.P. 66600 APODACA, N.L. </div>
+    <div class="op-subtitle"> BDE-061109-MQ9 </div>
+
+  </div>
+
+  <div class="op-header-stores-folio">
+    <div class="op-header-store">
+      <div class="op-stores-text"> SUC. MONTERREY </div>
+      <div class="op-stores-text"> TAMAZUNCHALE 501 FRACC. BUENOS AIRES </div>
+      <div class="op-stores-text"> MONTERREY, N.L. </div>
+      <div class="op-stores-text"> TELS 8030-5072, 8479-5439, 1493-0496, 8191-0238 </div>
+
+    </div>
+    <div class="op-header-store">
+      <div class="op-stores-text"> SUC. APODACA</div>
+      <div class="op-stores-text"> ESCOBEDO 604-C CENTRO </div>
+      <div class="op-stores-text"> APODACA, N.L. </div>
+      <div class="op-stores-text"> TEL. 8007-9272 </div>
+
+    </div>
+  </div>
+  <div class="c-div-container">
+
+    <div class="c-fecha-elaboracion-container">
+
+    </div>
+    <div class="c-cliente-seccion">
+      <button type="button" class="btn btn-primary btn-md" (click)="ClienteModal()">Agregar Cliente</button>
+      <!-- <label>Cliente</label>
+      <div class="c-cliente-nuevo">
+        <label> Nuevo</label>
+        <input type="checkbox" (click)="ClienteModal()">
+
+      </div>
+
+      <div class="c-cliente-existente">
+        <label> Existente</label>
+        <input type="checkbox">
+
+      </div> -->
+
+    </div>
+
+    <div class="c-container-c-v">
+      <div class="c-container-info c-container-info-l">
+
+        <div class="c-container-info-column column-text">
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Cliente
+            </div>
+
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Email
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Teléfono
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              RFC
+            </div>
+          </div>
+
+        </div>
+
+        <div class="c-container-info-column data">
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <select class="form-control" name="sel" [(ngModel)]="clienteSelected" (ngModelChange)="updateCliente($event)">
+                    <option *ngFor="let cliente of clientes" [ngValue]="cliente">
+                        {{cliente.name}}
+                    </option>
+                </select>
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <div class="example-full-width">
+                <span class="c-label-info">
+              {{clienteSelected.email}}
+            </span>
+              </div>
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <div class="example-full-width">
+                <span class="c-label-info">
+              {{clienteSelected.phone}}
+            </span>
+              </div>
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <div class="example-full-width">
+                <span class="c-label-info">
+              {{clienteSelected.rfc}}
+            </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="c-container-info-column column-text">
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Estado
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              País
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Razón Social
+            </div>
+          </div>
+        </div>
+
+        <div class="c-container-info-column data">
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <div class="example-full-width">
+                <span class="c-label-info">
+              {{clienteSelected.state}}
+            </span>
+              </div>
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <div class="example-full-width">
+                <span class="c-label-info">
+              {{clienteSelected.country}}
+            </span>
+              </div>
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <div class="example-full-width">
+                <span class="c-label-info">
+              {{clienteSelected.bussinessName}}
+            </span>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="c-container-info c-container-info-r">
+
+        <div class="c-container-info-column column-text">
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Vendedor
+            </div>
+
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Zona
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Forma de envío
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Fecha de entrega
+            </div>
+          </div>
+
+        </div>
+
+        <div class="c-container-info-column data">
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <select class="form-control" name="sel" [(ngModel)]="sellerSelected" (ngModelChange)="updateSeller($event)">
+                    <option *ngFor="let seller of sellers" [ngValue]="seller">
+                        {{seller.name}}
+                    </option>
+                </select>
+
+
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <div class="example-full-width">
+                <span class="c-label-info">
+              {{sellerSelected.store}}
+            </span>
+              </div>
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <div class="example-full-width">
+                <input type="text" name="code" [(ngModel)]="order.shippingWay">
+              </div>
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <div class="example-full-width">
+                <input type="text" name="code" [(ngModel)]="shippingDate">
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
+    </div>
+
+
+
+    <!--detalles de la cotizacion -->
+    <div>
+      <h3>Observaciones Generales, Descripción y Cantidad de Mercancia Recibida</h3>
+    </div>
+    <textarea class="c-container-descripcion" [(ngModel)]="order.notes">
+ 
+
+      </textarea>
+
+
+
+
+    <div class="table-responsive" style="width: 100%;">
+      <div class="c-cliente-seccion">
+        <h3>Productos </h3>
+      </div>
+      <div class="c-grid-products">
+
+        <table class="table " id="tproductos">
+          <thead>
+            <tr>
+              <th>CANTIDAD</th>
+              <!--<th>Producto</th>-->
+              <th>DESCRIPCIÓN</th>
+              <th>PRECIO UNITARIO</th>
+              <th>IMPORTE</th>
+              <!--<th>Agregar Tecnicas</th>-->
+            </tr>
+          </thead>
+          <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let producto of order.products; let i = index">
+            <td> <input type="number" name="quantity" [(ngModel)]="producto.quantity" (blur)="calculateTotal()"></td>
+            <!--<td>{{producto.name}}</td>-->
+            <td>{{producto.name}}. {{producto.description}}</td>
+            <td>{{getProductPrice(producto)| currency:'USD':true}}</td>
+            <td>{{calcularTotalProducto(producto) | currency:'USD':true}}</td>
+            <!--<th><button  type="button" class="btn btn-primary btn-md" (click)="verTecnica(i)">Tecnicas</button> <button  type="button" class="btn btn-primary btn-md" (click)="deleteRow()">Eliminar</button></th>-->
+
+          </tr>
+
+
+        </table>
+
+      </div>
+      <div class="c-add-product-container">
+
+        <button type="button" class="btn btn-primary btn-md" (click)="verProductos()">Agregar Producto</button>
+      </div>
+      <div class="c-cliente-seccion">
+        <h3>Graficos </h3>
+      </div>
+      <div class="c-grid-products">
+
+        <table class="table " id="tproductos">
+          <thead>
+            <tr>
+              <th>CANTIDAD</th>
+              <th>TÉCNICA</th>
+              <th>DESCRIPCIÓN</th>
+              <th>PRECIO</th>
+              <th>TOTAL</th>
+            </tr>
+          </thead>
+          <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let grafico of order.graficos; let i = index">
+            <td> <input type="number" disabled name="quantity" [(ngModel)]="grafico.quantity" (blur)="calculateTotal()"></td>
+            <td>{{grafico.name}} </td>
+            <td [innerHtml]="grafico.summary"> </td>
+            <td>{{grafico.costoTotal | currency:'USD':true}}</td>
+            <td>{{grafico.costoTotal*grafico.quantity | currency:'USD':true}}</td>
+
+          </tr>
+        </table>
+      </div>
+      <div class="c-add-product-container">
+        <button type="button" class="btn btn-primary btn-md" (click)="verMaquilas()">Tecnicas</button>
+      </div>
+      <div class="paid-container">
+        <div class="advance-discount">
+          <span class="c-total-amount-info-s">Anticipo:</span><input type="number" name="clave" [(ngModel)]="order.advance"
+            (blur)="updateAdvance($event)">
+        </div>
+        <div class="advance-discount">
+          <span class="c-total-amount-info-s">Resto:</span><input type="number" name="clave" [(ngModel)]="order.debt" readonly>
+        </div>
+      </div>
+      
+      <div class="total" style="text-align:right;width:100%;">
+        <span class="c-total-amount-info">Total:</span><span class="c-total-amount"> {{order.total | currency:'USD':true }}</span>
+      </div>
+      <div style="padding-bottom: 50px;height: 100px">
+        <button type="button" class="btn btn-primary btn-lg" style="width:30%;   margin-left: 10%; float:left; font-size: 20px;font-weight: bold;" (click)="CreateOrder(1)">Guardar Cotización</button>
+        <button type="button" class="btn btn-success btn-lg" style="width:30%; margin-right: 10%;  float: right; font-size: 20px;font-weight: bold;" (click)="CreateOrder(0)">Crear pedido</button>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div id="myModal" class="modal" *ngIf="!hideModal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <h1>Productos</h1>
+      <div class="c-grid-all-products">
+        <table class="table ">
+          <thead>
+            <tr>
+              <th>Cantidad</th>
+              <th>Codigo</th>
+              <th>Descripcion</th>
+              <th>Precio unitario</th>
+              <th>Total</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let producto of productos">
+            <td> <input type="number" name="quantity" [(ngModel)]="producto.quantity" min="1"></td>
+            <td>{{producto.code}}
+              <td>{{producto.name}}. {{producto.description}}</td>
+              <td>{{getProductPrice(producto) | currency:'USD':true}}</td>
+
+              <td>{{calcularTotalProducto(producto) | currency:'USD':true}}</td>
+              <th><button type="button" class="btn btn-primary btn-md" (click)="seleccionarProducto(producto)">Seleccionar Producto</button></th>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div id="maquilasModal" class="modal" *ngIf="!maquilasModal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close" (click)="closeMaquilas()">&times;</span>
+      <h1>Tecnicas</h1>
+      <ul class="nav nav-tabs">
+
+        <li><a [ngClass]="{'tab-selected': showBordado,'tab-no-selected':!showBordado}" style="cursor:pointer" (click)="showBordado=true;showSerigrafia=false;showSublimado=false;showTransfer=false;showVinil=false;">Bordados</a></li>
+        <li><a [ngClass]="{'tab-selected': showSerigrafia,'tab-no-selected':!showSerigrafia}" style="cursor:pointer" (click)="showBordado=false;showSerigrafia=true;showSublimado=false;showTransfer=false;showVinil=false;">Serigrafia</a></li>
+        <li><a [ngClass]="{'tab-selected': showSublimado,'tab-no-selected':!showSublimado}" style="cursor:pointer" (click)="showBordado=false;showSerigrafia=false;showSublimado=true;showTransfer=false;showVinil=false;">Sublimado</a></li>
+        <li><a [ngClass]="{'tab-selected': showTransfer,'tab-no-selected':!showTransfer}" style="cursor:pointer" (click)="showBordado=false;showSerigrafia=false;showSublimado=false;showTransfer=true;showVinil=false;">Transfer</a></li>
+        <li><a [ngClass]="{'tab-selected': showTransfer,'tab-no-selected':!showVinil}" style="cursor:pointer" (click)="showBordado=false;showSerigrafia=false;showSublimado=false;showTransfer=false;showVinil=true;">Vinil</a></li>
+        
+      </ul>
+      <div style="width:100%">
+        <div style="width:100%;height:300px;" *ngIf="showBordado">
+          <tecnicabordado [OnAddBordadoTecnica]="OnAddBordadoTecnica"></tecnicabordado>
+        </div>
+
+        <div style="cursor:pointer;width:100%;height:300px;" *ngIf="showSerigrafia">
+          <tecnicaserigrafia [OnAddSerigrafia]="OnAddSerigrafia"></tecnicaserigrafia>
+        </div>
+
+        <div style="cursor:pointer;width:100%;height:300px;" *ngIf="showSublimado">
+          <tecnicasublimado [OnAddSublimado]="OnAddSublimado"></tecnicasublimado>
+        </div>
+
+        <div style="cursor:pointer;width:100%;height:300px;" *ngIf="showTransfer">
+          <tecnicatransfer [OnAddTransfer]="OnAddTransfer"></tecnicatransfer>
+         </div> 
+         <div style="cursor:pointer;width:100%;height:300px;" *ngIf="showVinil">
+            <tecnicavinil [OnAddVinil]="OnAddVinil"></tecnicavinil>
+          </div>
+        </div>
+
+    </div>
+  </div>
+  <div id="myModal" class="modal" *ngIf="!hideModal2">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close" (click)="closeTecnicas()">&times;</span>
+
+      <h2>Tecnicas</h2>
+      <br>
+      <div class="c-tecnicas" *ngFor="let tecnica of tecnicas" (click)="selectTecnica(tecnica)" [ngClass]="!tecnica.selected ? 'normal' : 'selected'">
+        <span class="tooltiptext">Costo de Tecnica: {{tecnica.precio | currency:'USD':true}}</span>
+
+        <a style="font-family:Times New Roman, Times, sans-serif; color:grey" (click)="Details()">{{tecnica.nombre}}</a>
+      </div>
+
+    </div>
+  </div>
+ 
+ 
+  <div id="myModal" class="modal" *ngIf="!hideModalcliente">
+    <!-- Modal content -->
+    <div class="modal-content" style="height:500px">
+      <span class="close" (click)="closeModal()">&times;</span>
+      
+      <h1>Agregar nuevo cliente</h1>
+      <div style="width:100%">
+       <add-client [OnClientAdded]="OnClientAdded"></add-client> 
+    </div>
+    </div>
+  </div>
+
+  <!-- <div id="myModal" class="modal" *ngIf="!hideModalcliente">
+     
+    <div class="client-modal-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <add-client [OnClientAdded]="OnClientAdded"></add-client>
+    </div>
+  </div> -->
+  <div id="myModal" class="modal" *ngIf="!hideModalpago">
+    <!-- Modal content -->
+    <div class="client-modal-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <label>{{currentDate}}</label><br><br>
+      <label>{{clienteSelected}}</label><br><br>
+      <label>Cantidad a pagar:{{totalCotizacion|currency:'USD':true}}</label><br><br>
+    </div>
+
+  </div>
+</div>

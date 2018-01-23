@@ -32,7 +32,11 @@
             Con prenda
           </div>
         </div> -->
-
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Sub total:
+          </div>
+        </div>
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             Precio:
@@ -73,6 +77,13 @@
           <div class="c-container-info-column-item-container info">
               <div class="example-full-width">
                 <label >{{sublimado.price + sublimadoSizeSelected.costo| currency:'USD':true}}</label>
+              </div> 
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+              <div class="example-full-width">
+                <label >{{sublimado.price + sublimadoSizeSelected.costo * sublimado.quantity| currency:'USD':true}}</label>
               </div> 
           </div>
         </div>

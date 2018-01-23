@@ -13,6 +13,8 @@ import {ClientesComponent} from './clientes.details';
 import {AddClientComponent} from './cliente/addClient.component';
 import {ClientsListComponent} from './cliente/clientsList.component';
 import {CotizadorComponent} from './cotizador.component';
+import {CotizadorEditComponent} from './cotizador..component.edit';
+
 import {TecnicasComponent} from './tecnicas/tecnicas.component';
 import {SellersComponent} from './sellers/sellers.component';
 import {CategoriasComponent} from './categorias/categorias.component';
@@ -167,6 +169,7 @@ const appRoutes: Routes = [
   { path: 'vinil-size', component: VinilSizeComponent},
   { path: 'tecnicavinilr', component: TecnicaVinilComponent},
   { path: 'appconfig', component: appConfigComponent},
+  { path: 'cotizador-edit', component: CotizadorEditComponent},
 
   
   
@@ -189,6 +192,7 @@ const appRoutes: Routes = [
   AddClientComponent,
   ClientsListComponent,
   CotizadorComponent,
+  CotizadorEditComponent,
   InventarioComponent,
   ProductsListComponent,
   NuevoProductoComponent,
