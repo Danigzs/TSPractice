@@ -4,6 +4,9 @@ import { Order } from "./order";
 import {
   Observable
 } from 'rxjs/Observable';
+import {CotizadorEditComponent} from "./../cotizador..component.edit"
+import { Route } from '@angular/router/src/config';
+import { Routes, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'orders',
@@ -17,6 +20,7 @@ export class OrdersComponent implements OnInit {
   public clientname:String = "";
   public clientfolio:String = "";
   public isEditing:Boolean;
+  
 
 
   constructor(private _orderService:OrderService){
@@ -40,19 +44,20 @@ export class OrdersComponent implements OnInit {
 setEditMode(edit:boolean,orden:Order){
   this.isEditing = edit;
   if(edit){
-    this.order._id = orden._id;
+   /* this.order._id = orden._id;
     this.order.seller = orden.seller;
     this.order.client = orden.client;
     this.order.products = orden.products;
     this.order.maquilas = orden.maquilas;
     this.order.tecnicaBordados = orden.tecnicaBordados;
     this.order.graficos = orden.graficos;
-    this.order.total = orden.total;
-
+    this.order.total = orden.total;*/
+    var tmpOrder = orden;
+    const appRoute: Routes = [
+      { path: 'cotizador-edit', component: CotizadorEditComponent }
+    ];
 
   }
-  else {
-   
-  }
+
 }
 }
