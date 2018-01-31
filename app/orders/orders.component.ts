@@ -6,7 +6,7 @@ import {
 } from 'rxjs/Observable';
 import {CotizadorEditComponent} from "./../cotizador..component.edit"
 import { Route } from '@angular/router/src/config';
-import { Routes, RouterModule } from '@angular/router';
+import { NavigationExtras,Routes,RouterModule, Router} from '@angular/router';
 
 @Component({
   selector: 'orders',
@@ -23,7 +23,7 @@ export class OrdersComponent implements OnInit {
   
 
 
-  constructor(private _orderService:OrderService){
+  constructor(private _orderService:OrderService, private router:Router ){
 
   }
   ngOnInit() {
@@ -53,10 +53,11 @@ setEditMode(edit:boolean,orden:Order){
     this.order.graficos = orden.graficos;
     this.order.total = orden.total;*/
     var tmpOrder = orden;
-    const appRoute: Routes = [
+   /* const appRoute: Routes = [
       { path: 'cotizador-edit', component: CotizadorEditComponent }
     ];
-
+*/
+this.router.navigate(['/cotizador-edit',{orden:tmpOrder}]);
   }
 
 }
