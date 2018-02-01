@@ -42,6 +42,7 @@ import {Grafico} from './grafico/grafico';
 import {Serigrafia} from './tecnicas/serigrafia'; 
 import {Vinil} from './tecnicas/vinil'; 
 import {Transfer} from './tecnicas/transfer'; 
+import { NavigationExtras,Routes,RouterModule, Router, Route,ActivatedRoute} from '@angular/router';
 
 
 
@@ -69,7 +70,6 @@ export class CotizadorEditComponent implements OnInit {
   public order: Order;
   public productos: Array < ProductCotizacion > ;
   public tecnica: Array <Tecnica>;
-
    
   
   
@@ -134,7 +134,8 @@ export class CotizadorEditComponent implements OnInit {
     private _tecnicaService: TecnicaService, 
     private changeDetectorRef: ChangeDetectorRef, 
     private _sellerService: SellerService, 
-    private _orderService: OrderService
+    private _orderService: OrderService,
+    private route: ActivatedRoute,
     ) {
 
     this.closeMaquilas = this.closeMaquilas.bind(this);
@@ -470,11 +471,14 @@ export class CotizadorEditComponent implements OnInit {
   }
    
   ngOnInit() {
-  
+    this.route.params.subscribe(params=> {
+      this.order._id = +params['_id'];
+      console.log(this.order._id);
+    });
     this.order = new Order;
     // this.order.folio = "300";
     this.getConfigData().then(res => {
-      if (this.clientes.length > 0)
+      /*if (this.clientes.length > 0)
         this.clienteSelected = this.clientes[0];
       if (this.tecnicas.length > 0)
         this.tecnicaSelected = this.tecnicas[0];
@@ -491,7 +495,8 @@ export class CotizadorEditComponent implements OnInit {
       this.order.maquilas = [];
       this.order.tecnicaBordados = [];
       
-      this.setShippingDate();
+      this.setShippingDate();*/
+
 
     });
   }
