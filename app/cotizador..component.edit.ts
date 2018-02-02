@@ -471,9 +471,14 @@ export class CotizadorEditComponent implements OnInit {
   }
    
   ngOnInit() {
-    this.route.params.subscribe(params=> {
-      this.order._id = +params['_id'];
-      console.log(this.order._id);
+    
+    this.route.params.subscribe(params=> { 
+      debugger
+      console.log(params);
+      
+      /*this.order._id = +params['_id'];
+      console.log(this.order._id);*/
+    
     });
     this.order = new Order;
     // this.order.folio = "300";
