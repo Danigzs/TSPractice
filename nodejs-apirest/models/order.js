@@ -13,6 +13,10 @@ var orderSchema = new Schema({
   }],
   maquilas:[{
   }],
+  graficos:[{
+  }],
+  tecnicaBordados:[{
+  }],
   isPaid: {
     type: Number
   }, 
@@ -21,6 +25,9 @@ var orderSchema = new Schema({
   },
   folio: {
     type: Number
+  },
+  statusText:{
+    type:String
   },
   notes: {
     type: String
@@ -33,6 +40,12 @@ var orderSchema = new Schema({
   },
   shippingWay: {
     type: String
+  },
+  status:{
+    type:Number
+  },
+  subTotal:{
+    type:Number
   },
   shippingDate: {
     type: Date

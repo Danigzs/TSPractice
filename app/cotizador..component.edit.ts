@@ -207,7 +207,7 @@ export class CotizadorEditComponent implements OnInit {
   }
 
   OnAddBordadoTecnica(bordado:Bordado){
-    debugger
+    
     this.closeMaquilas()
     // this.order.tecnicaBordados.push(bordado.copyNewTecnica());
     var _bordado = new Bordado();
@@ -238,7 +238,7 @@ export class CotizadorEditComponent implements OnInit {
     this.calculateTotal();
   }
   OnAddTransfer(transfer:Transfer){
-    debugger
+    
     this.closeMaquilas()
     var _transfer = new Transfer();
     _transfer =  transfer.copyNewTecnica();
@@ -248,7 +248,7 @@ export class CotizadorEditComponent implements OnInit {
     this.calculateTotal();
   }
   OnAddVinil(vinil:Vinil){
-    debugger
+    
     this.closeMaquilas()
     var _vinil = new Vinil();
     _vinil =  vinil.copyNewTecnica();
@@ -441,9 +441,8 @@ export class CotizadorEditComponent implements OnInit {
 
  
 
-  CreateOrder(esCotizacion:number) {
-    debugger
-    this.order.esCotizacion = esCotizacion;
+  CreateOrder() {
+    
     this.order.client = this.clienteSelected;
     this.order.seller = this.sellerSelected;
     this.order.debt = this.order.total -  this.order.advance;
@@ -453,16 +452,12 @@ export class CotizadorEditComponent implements OnInit {
     else {
       this.order.isPaid = 0;
     }
-    console.log(this.order);
-    this._orderService.addOrder(this.order).subscribe(
+
+    this._orderService.updateOrder(this.order).subscribe(
       data => {
         console.log("order added");
-        if(this.order.esCotizacion){
-          alert("Cotizacion guardada");
-        }
-        else {
-          alert("Pedido Creado");
-        }
+        alert("Cambios guardados");
+        
          
       }
     );
@@ -470,39 +465,65 @@ export class CotizadorEditComponent implements OnInit {
 
   }
    
+getOrderById(orderId:Number){
+  this._orderService.findById(orderId).subscribe(
+    data=>{
+      this.order = new Order;
+      this.order  = data[0];
+      console.log(this.order);
+      this.getConfigData().then(res => {
+        if (this.clientes.length > 0)
+        {
+          this.clienteSelected = this.clientes[0];
+        }
+        if (this.tecnicas.length > 0)
+        {
+          this.tecnicaSelected = this.tecnicas[0];
+        }
+        if (this.productos.length > 0)
+        {
+          this.productoSelected = this.productos[0];
+        }
+  
+        if (this.sellers.length > 0)
+        {
+          //this.sellerSelected = this.sellers[0];
+          for(var i = 0 ; i < this.sellers.length; i++){
+            if(this.sellers[i]._id == this.order.seller._id){
+              this.sellerSelected = this.sellers[i];
+            }
+          }
+          for(var i = 0 ; i < this.clientes.length; i++){
+            if(this.clientes[i]._id == this.order.client._id){
+              this.clienteSelected = this.clientes[i];
+            }
+          }
+          
+        }
+ 
+        this.cotizacion.tecnica = this.tecnicaSelected;
+        this.cotizacion.cliente = this.clienteSelected;
+        this.productos = this.productos;
+        this.cotizacion.producto = this.productoSelected;
+        
+  
+      });
+    }
+  )
+}
+
   ngOnInit() {
+    this.order = new Order;
     
     this.route.params.subscribe(params=> { 
-      debugger
-      console.log(params);
       
-      /*this.order._id = +params['_id'];
-      console.log(this.order._id);*/
+      console.log(params);
+      this.getOrderById(params["id"]);
+       
     
     });
-    this.order = new Order;
+    
     // this.order.folio = "300";
-    this.getConfigData().then(res => {
-      /*if (this.clientes.length > 0)
-        this.clienteSelected = this.clientes[0];
-      if (this.tecnicas.length > 0)
-        this.tecnicaSelected = this.tecnicas[0];
-      if (this.productos.length > 0)
-        this.productoSelected = this.productos[0];
-
-      if (this.sellers.length > 0)
-        this.sellerSelected = this.sellers[0];
-      this.cotizacion.tecnica = this.tecnicaSelected;
-      this.cotizacion.cliente = this.clienteSelected;
-      this.productos = this.productos;
-      this.cotizacion.producto = this.productoSelected;
-      this.order.products = [];
-      this.order.maquilas = [];
-      this.order.tecnicaBordados = [];
-      
-      this.setShippingDate();*/
-
-
-    });
+    
   }
 }

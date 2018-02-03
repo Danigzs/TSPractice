@@ -57,7 +57,7 @@ setEditMode(edit:boolean,orden:Order){
       { path: 'cotizador-edit', component: CotizadorEditComponent }
     ];
 */
-this.router.navigate(['/cotizador-edit',{orden:'prueba'}]);
+    this.router.navigate(['/cotizador-edit',{id:tmpOrder._id}]);
   }
 
 }
