@@ -66,4 +66,15 @@ exports.update = function (req, res) {
     });
   });
 };
- 
+
+exports.delete = function (req, res) {
+  Product.findById(req.params.id, function (err, product) {
+    if(product)
+    product.remove(function (err) {
+      if (err) return res.send(500, err.message);
+      res.json({
+        message: 'Successfully deleted'
+      });
+    });
+  }); 
+};

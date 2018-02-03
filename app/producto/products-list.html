@@ -66,10 +66,12 @@
             <th>Precio 13-50</th>
             <th>Precio 51-200</th>
             <th>Precio mayor 200</th>
+            <th style="text-align:right">Acciones</th>
+
 
           </tr>
         </thead>
-        <tr class='clickable-row' *ngFor="let product of (providerProducts | search:productname:true  | searchcode:productcode:true)">
+        <tr class='clickable-row' *ngFor="let product of (providerProducts | search:productname:true  | searchcode:productcode:true); let i = index">
           <td>{{product.name}}</td>
           <td>{{product.stock}}</td>
           <td>{{product.code}}</td>
@@ -82,6 +84,8 @@
           <td>{{ ((product.price + product.price * .21) + (product.price + product.price * .21)  * .16)| currency:'USD':true}}</td>
           <td>{{((product.price + product.price * .17) + (product.price + product.price * .17)  * .16) | currency:'USD':true}}</td>
           <td>{{ ((product.price + product.price * .13) + (product.price + product.price * .13)  * .16) | currency:'USD':true}}</td>
+          <td style="float:right"><button type="button" class="btn btn-primary btn-md" (click)="delete(products,i)">Borrar</button></td>
+
         </tr>
 
       </table>
@@ -100,6 +104,8 @@
             <!--<th>Es Proveedor</th>
             <th>Es Bordesa</th>-->
             <th>Precio Unitaro</th>
+            <th style="text-align:right">Acciones</th>
+
 
           </tr>
         </thead>
@@ -112,6 +118,7 @@
           <!--<td>{{product.isProvider}}</td>
           <td>{{product.isBordesa}}</td>-->
           <td>{{product.price | currency:'USD':true}}</td>
+          <td style="float:right"><button type="button" class="btn btn-primary btn-md" (click)="delete(products,i)">Borrar</button></td>
         </tr>
       </table>
     </div>

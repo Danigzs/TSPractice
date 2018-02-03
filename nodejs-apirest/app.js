@@ -353,7 +353,9 @@ api.route('/products')
 
 api.route('/products/:id')
   .get(ProductCtrl.findById)
-  .put(ProductCtrl.update);
+  .put(ProductCtrl.update)
+  .delete(ProductCtrl.delete);
+
 
   api.route('/serigrafiaSize')
   .get(serigrafiaSizeCtrl.findAll)

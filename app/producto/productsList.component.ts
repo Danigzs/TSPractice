@@ -37,5 +37,14 @@ export class ProductsListComponent  implements OnInit{
      }
    )
   }
+
+  delete(_producto:Producto, index:number){
+    this._productService.delete(_producto).subscribe(
+      data => {
+        this.ngOnInit();
+      }
+    );
+    
+  }
   
 }

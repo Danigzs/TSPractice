@@ -1,5 +1,5 @@
 export class Cliente {
-  _id: String;
+  _id: number;
   name: String;
   businessName: String;
   address: String;
@@ -29,9 +29,10 @@ export class Cliente {
     this.email = "";
     this.attentTo = "";
     this.rfc = "";
+    this._id = 0;
   } 
 
-  setCliente( code:string,name:string,businessName:string,address:string,state:string,town:string,district:string,country:string,postalCode:string,phone:string,email:string,attentTo:string,rfc:string){
+  setCliente( _id:number, code:string,name:string,businessName:string,address:string,state:string,town:string,district:string,country:string,postalCode:string,phone:string,email:string,attentTo:string,rfc:string){
     this.code = code;
     this.name = name;
     this.businessName = businessName;
@@ -45,5 +46,6 @@ export class Cliente {
     this.email = email;
     this.attentTo = attentTo;
     this.rfc = rfc;
+    this._id = _id;
   }
 }

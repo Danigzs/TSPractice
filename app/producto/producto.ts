@@ -1,6 +1,6 @@
 import {Tecnica} from './tecnica'
 export class Producto {
-  _id: String;
+  _id: number;
   name: string;
   price: number;
   description: string;
@@ -37,7 +37,7 @@ export class Producto {
     // this.tecnicas = [];
    
   }
-  setProducto(CantidadDDiva:number,CantidadTCiva:number,CantidadCCiva:number,CantidadMCiva:number,_id:string, name:string,price:number,description:string,supplies:string,isProvider:number,isBordesa:number,code:string){
+  setProducto(CantidadDDiva:number,CantidadTCiva:number,CantidadCCiva:number,CantidadMCiva:number,_id:number, name:string,price:number,description:string,supplies:string,isProvider:number,isBordesa:number,code:string){
     this.CantidadDDiva=CantidadDDiva;
     this.CantidadTCiva=CantidadTCiva;
     this.CantidadCCiva= CantidadCCiva

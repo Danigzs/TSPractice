@@ -24,13 +24,15 @@ import { Observable } from 'rxjs/Observable';
 export class AddClientComponent  implements OnInit{
   @Input() OnClientAdded:Function;
   public cliente:Cliente;
-
+  public isEditing:Boolean;
   constructor(private  _clientService: ClienteService) {
   }
 
   ngOnInit() {
       this.cliente = new Cliente();
   }
+
+
 
   addClient(client:Cliente)
   {
@@ -41,5 +43,7 @@ export class AddClientComponent  implements OnInit{
       }
     )
   }
+
+
   
 }
