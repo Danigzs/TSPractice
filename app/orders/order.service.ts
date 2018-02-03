@@ -2,6 +2,10 @@ import {  Injectable} from '@angular/core';
 import {  Http,  Response} from '@angular/http';
 import {  Headers,  RequestOptions} from '@angular/http';
 import {  Observable} from 'rxjs/Observable';
+import {
+  URLSearchParams
+} from '@angular/http';
+
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import {  Order} from './order';
@@ -17,6 +21,22 @@ export class OrderService {
       .map(this.extractData)
       .catch(this.handleError);
   }
+
+  findById(orderId:Number):Observable<Array<Order>>{
+
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+      let options = new RequestOptions();
+     options.headers = headers;
+     options.search = new URLSearchParams();
+     options.search.append('id', orderId.toString());
+    
+    
+     return this.http.get(this.url+"/"+orderId.toString() ,options)
+                     .map(this.extractData)
+                     .catch(this.handleError);
+
+     
+  }
   addOrder(order: Order): Observable < Array < Order >> {
     let headers = new Headers({
       'Content-Type': 'application/json'
@@ -25,6 +45,22 @@ export class OrderService {
       headers: headers
     });
 
+
+    return this.http.post(this.url, order, options)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+  updateOrder(order: Order): Observable < Array < Order >> {
+    let headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+    let options = new RequestOptions();
+    options.headers = headers;
+    
+  
+    return this.http.put(this.url+"/"+order._id.toString(), order ,options)
+      .map(this.extractData)
+      .catch(this.handleError);
 
     return this.http.post(this.url, order, options)
       .map(this.extractData)

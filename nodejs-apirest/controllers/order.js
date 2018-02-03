@@ -54,8 +54,8 @@ exports.findAll = function (req, res) {
 exports.findById = function (req, res) {
   Order.findById(req.params.id, function (err, order) {
     if (err) return res.send(500, err.message);
-    console.log('GET /orders/' + req.params.id);
-    res.status(200).jsonp(client);
+    console.log('GET /order/' + req.params.id);
+    res.status(200).jsonp({orders:[order]});
   });
 };
 
@@ -103,12 +103,17 @@ exports.add = function (req, res) {
       seller: req.body.seller,
       products: req.body.products,
       maquilas: req.body.maquilas,
+      graficos: req.body.graficos,
+      tecnicaBordados : req.body.tecnicaBordados,
+      statusText: req.body.statusText,
       total: req.body.total,
       folio: (ord) ? parseInt(ord.folio) + 1 : 1,
       notes: req.body.notes,
       isPaid: req.body.isPaid,
       advance: req.body.advance,
       debt: req.body.debt,
+      status: req.body.status,
+      subTotal:req.body.subTotal, 
       esCotizacion:req.body.esCotizacion,
       shippingWay: req.body.shippingWay,
       shippingDate: req.body.shippingDate,
@@ -129,21 +134,33 @@ exports.add = function (req, res) {
 
 
 };
+ 
+
 
 //PUT - Update a register already exists
 exports.update = function (req, res) {
-  Oder.findById(req.params.id, function (err, order) {
-    order.client = req.body.client,
-      order.seller = req.body.seller,
-      order.products = req.body.products,
-      order.maquilas = req.body.maquilas,
-      order.total = req.body.total,
-      order.folio = req.body.folio,
-      order.notes = req.body.notes,
-      order.advance = req.body.advance,
-      order.debt = req.body.debt,
-      order.shippingWay = req.body.shippingWay,
-      order.shippingDate = req.body.shippingDate
+  var _order = new Order(req.body);
+
+  Order.findById({_id:req.params.id}, function (err, order) {
+ 
+
+
+    order.client = _order.client,
+      order.seller = _order.seller,
+      order.products = _order.products,
+      order.maquilas = _order.maquilas,
+      order.graficos = req.body.graficos,
+      order.tecnicaBordados = req.body.tecnicaBordados,
+      order.statusText = req.body.statusText,
+      order.total = _order.total,
+      order.folio = _order.folio,
+      order.status = req.body.status,
+      order.subTotal =req.body.subTotal, 
+      order.notes = _order.notes,
+      order.advance = _order.advance,
+      order.debt = _order.debt,
+      order.shippingWay = _order.shippingWay,
+      order.shippingDate = _order.shippingDate
     order.save(function (err) {
       if (err) return res.send(500, err.message);
       res.status(200).json({
