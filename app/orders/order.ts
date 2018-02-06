@@ -12,6 +12,7 @@ export class Order {
   maquilas: Array<TecnicaCotizacion>;
   tecnicaBordados: Array<Bordado>;
   graficos: Array<Grafico>;
+  currentStatus:Array<Number>;
   total: number;
   folio: number;
   notes:String;

@@ -75,7 +75,18 @@
           <td>{{order.advance | currency:'USD':true}}</td>
           <td>{{order.debt | currency:'USD':true}}</td>
           <td>{{order.seller.name}}</td>
-          <td>{{order.shippingWay}}</td>
+          <ss-multiselect-dropdown  *ngIf="order.status != 5 && order.status != 4" [options]="colorOptions" [settings]="mySettings"  (ngModelChange)="onChangeOrderStatus($event,order)" [(ngModel)]="order.currentStatus"  [texts]="multiConfig" ></ss-multiselect-dropdown>
+          <td *ngIf="order.status == 5 || order.status == 4">{{getOrderStatusText(order)}}</td> 
+          <!--
+            <ss-multiselect-dropdown
+                            [options]="finalServices"
+                            [texts]="myTexts"
+                            [settings]="mySettings"
+                            [(ngModel)]="selecOptions"
+                            (ngModelChange)="onChangeService($event)"
+                            [ngModelOptions]="{standalone: true}">
+                    </ss-multiselect-dropdown>
+                  -->
           <td>{{order.paymentDays}}</td>
           <td>{{getOrderType(order)}}</td>
           <td style="float:right"><button type="button" class="btn btn-primary btn-md" (click)="setEditMode(true,order)">Editar</button>

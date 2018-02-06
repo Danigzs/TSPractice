@@ -446,16 +446,28 @@ export class CotizadorComponent implements OnInit {
  
 
   CreateOrder(esCotizacion:number) {
-    debugger
+    
     this.order.esCotizacion = esCotizacion;
     this.order.client = this.clienteSelected;
     this.order.seller = this.sellerSelected;
     this.order.debt = this.order.total -  this.order.advance;
     if(this.order.debt == 0){
       this.order.isPaid = 1;
+      
     }
     else {
       this.order.isPaid = 0;
+       
+    }
+    if(esCotizacion){
+      this.order.status = 1;
+    }else {
+      if(this.order.debt == 0){
+        this.order.status = 3;
+      }
+      else {
+        this.order.status = 2;
+      }
     }
     console.log(this.order);
     this._orderService.addOrder(this.order).subscribe(
