@@ -12,6 +12,8 @@ import {Cotizacion} from './cotizacion/cotizacion'
 import {Producto} from './producto/producto'
 import {Tecnica} from './producto/tecnica'
 import {Seller} from './sellers/seller'
+import {Area} from './areas/area'
+import {AreaService} from'./areas/area.service'
 
 import {ProductCotizacion} from './producto/productCotizacion'
 import {TecnicaCotizacion} from './tecnicas/tecnicaCotizacion'
@@ -55,7 +57,7 @@ import {ChangeDetectorRef} from '@angular/core'
 
 @Component({
   selector: 'cotizador',
-  providers: [CotizadorService, ClienteService, ProductoService, TecnicaService, SellerService, OrderService],
+  providers: [AreaService, CotizadorService, ClienteService, ProductoService, TecnicaService, SellerService, OrderService],
   styleUrls: ["app/cotizador.css", "app/styles/table.css"],
   templateUrl: "app/cotizador.html"
 

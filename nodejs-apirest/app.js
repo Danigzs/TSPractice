@@ -67,11 +67,12 @@ var modelvinilPrecio = require('./models/vinilPrecio')(app, mongoose);
 var modelvinilPrecioMaquila = require('./models/vinilPrecioMaquila')(app, mongoose);
 var modelvinilSize = require('./models/vinilSize')(app, mongoose);
 var modelVinil = require('./models/vinil')(app, mongoose);
+var modelArea = require('./models/area')(app, mongoose);
 
 
 
 
-
+var AreaCtrl = require ('./controllers/area')
 var ClientCtrl = require('./controllers/client');
 var ProvideerCtrl = require('./controllers/provideer');
 var OrderCtrl = require('./controllers/order');
@@ -494,6 +495,14 @@ api.route('/vinil/:id')
   .get(VinilCtrl.findById)
   .put(VinilCtrl.update)
 
+  api.route('/area')
+  .get(AreaCtrl.findAll)
+  .post(AreaCtrl.add)
+
+  
+  api.route('/area/:id')
+  .get(AreaCtrl.findById)
+  .post(AreaCtrl.update)
 //
 // ─── SELLERS ROUTES ─────────────────────────────────────────────────────────────
 //

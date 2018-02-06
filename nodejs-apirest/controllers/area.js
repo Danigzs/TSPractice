@@ -1,14 +1,14 @@
 var mongoose = require('mongoose');
-var Tintas = mongoose.model('Tintas');
+var Area = mongoose.model('Area');
 
 //GET - Return all registers
 exports.findAll = function (req, res) {
 
-    Tintas.find(function (err, tintas) {
+    Area.find(function (err, area) {
     if (err) res.send(500, err.message);
-    console.log('GET /tintas')
+    console.log('GET /area')
     res.status(200).json({
-        tintas: tintas
+        area: area
     });
 
   });
@@ -16,11 +16,11 @@ exports.findAll = function (req, res) {
 
 //GET - Return a register with specified ID
 exports.findById = function (req, res) {
-    Tintas.findById(req.params.id, function (err, tintas) {
+    Area.findById(req.params._id, function (err, area) {
     if (err) return res.send(500, err.message);
-    console.log('GET /tintas/' + req.params.id);
+    console.log('GET /area/' + req.params._id);
     res.status(200).json({
-        tintas: tintas
+        area: area
     });
   });
 };
@@ -29,14 +29,13 @@ exports.findById = function (req, res) {
 exports.add = function (req, res) {
   console.log('POST');
   console.log(req.body);
-  var tintas = new Tintas({
-    tinta: req.body.tinta,
-    costo: req.body.costo,
+  var area = new Area({
+    nombre: req.body.nombre,
   });
-  tintas.save(function (err, tintas) {
+  area.save(function (err, area) {
     if (err) return res.send(500, err.message);
     res.status(200).json({
-        tintas: tintas
+        area: area
     });
 
   });
@@ -44,13 +43,12 @@ exports.add = function (req, res) {
 
 //PUT - Update a register already exists
 exports.update = function (req, res) {
-    Tintas.findById(req.params.id, function (err, tintas) {
-        tintas.tinta = req.body.tinta;
-        tintas.costo = req.body.costo;
+    Area.findById(req.params.id, function (err, area) {
+        area.nombre = req.body.nombre;
         tintas.save(function (err) {
       if (err) return res.send(500, err.message);
       res.status(200).json({
-        tintas: tintas
+        area: area
       });
     });
   });

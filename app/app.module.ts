@@ -30,6 +30,7 @@ import {TecnicaSublimadoComponent} from './tecnicas/tecnica.sublimado';
 import {TecnicaTransferComponent} from './tecnicas/tecnica.transfer';
 import {TecnicaVinilComponent} from './tecnicas/tecnica.vinil';
 import {VinilService} from './tecnicas/vinil.service';
+import {AreaService} from'./areas/area.service';
 
 
 
@@ -264,7 +265,7 @@ const appRoutes: Routes = [
     VinilTipoService
     ,TransferPrecioMaquilaService,
     VinilPrecioMaquilaService,
-    VinilPrecioService,VinilService],
+    VinilPrecioService,VinilService,AreaService],
   bootstrap:    [ AppComponent]
 })
 export class AppModule { }
