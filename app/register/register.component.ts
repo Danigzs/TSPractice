@@ -23,7 +23,7 @@ import {
   selector: 'register',
   providers: [RoleService],
   templateUrl: "app/register/register.html",
-  styleUrls: ["app/register/register.css"]
+  styleUrls: ["app/register/register.css", "app/styles/table.css"]
 
 })
 export class RegisterComponent implements OnInit {

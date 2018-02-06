@@ -124,6 +124,35 @@
 
     </div>
 
+    
+    <div class="c-grid-products">
+      <table class="table " id="tproductos">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Nombre de usuario</th>
+            <th>Contraseña</th>
+            <th>Tipo de usuario</th>
+           
+            <th></th>
+          </tr>
+        </thead>
+        <tr class='clickable-row' *ngFor="let user of user; let i = index">
+          <td>{{user.name}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.username}}</td>
+          <td>{{user.password}}</td>
+          
+        
+          
+        </tr>
+
+      </table>
+
+
+    </div>
+
     <!--clients-list [clientes]="clientes" *ngIf="show" ></clients-list>-->
   </div>
 </div>
