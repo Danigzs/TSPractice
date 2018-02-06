@@ -274,6 +274,7 @@
               <th>DESCRIPCIÓN</th>
               <th>PRECIO UNITARIO</th>
               <th>IMPORTE</th>
+              <th></th>
               <!--<th>Agregar Tecnicas</th>-->
             </tr>
           </thead>
@@ -283,7 +284,7 @@
             <td>{{producto.name}}. {{producto.description}}</td>
             <td>{{getProductPrice(producto)| currency:'USD':true}}</td>
             <td>{{calcularTotalProducto(producto) | currency:'USD':true}}</td>
-            <!--<th><button  type="button" class="btn btn-primary btn-md" (click)="verTecnica(i)">Tecnicas</button> <button  type="button" class="btn btn-primary btn-md" (click)="deleteRow()">Eliminar</button></th>-->
+            <th><button  type="button" class="btn btn-primary btn-md" (click)="deleteRow()">Eliminar</button></th>
 
           </tr>
 
@@ -308,6 +309,7 @@
               <th>DESCRIPCIÓN</th>
               <th>PRECIO</th>
               <th>TOTAL</th>
+              <th></th>
             </tr>
           </thead>
           <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let grafico of order.graficos; let i = index">
@@ -316,6 +318,7 @@
             <td [innerHtml]="grafico.summary"> </td>
             <td>{{grafico.costoTotal | currency:'USD':true}}</td>
             <td>{{grafico.costoTotal*grafico.quantity | currency:'USD':true}}</td>
+            <th><button  type="button" class="btn btn-primary btn-md" (click)="deleteGraficoRow(i)">Eliminar</button></th>
 
           </tr>
         </table>
@@ -337,8 +340,8 @@
         <span class="c-total-amount-info">Total:</span><span class="c-total-amount"> {{order.total | currency:'USD':true }}</span>
       </div>
       <div style="padding-bottom: 50px;height: 100px">
-        <button type="button" class="btn btn-primary btn-lg" style="width:30%;   margin-left: 10%; float:left; font-size: 20px;font-weight: bold;" (click)="CreateOrder(1)">Guardar Cotización</button>
-        <button type="button" class="btn btn-success btn-lg" style="width:30%; margin-right: 10%;  float: right; font-size: 20px;font-weight: bold;" (click)="CreateOrder(0)">Crear pedido</button>
+        <button type="button" class="btn btn-primary btn-lg" style="width:30%;   margin-left: 10%; float:left; font-size: 20px;font-weight: bold;" (click)="CreateOrder(1)">Guardar como Cotizacióm</button>
+        <button type="button" class="btn btn-success btn-lg" style="width:30%; margin-right: 10%;  float: right; font-size: 20px;font-weight: bold;" (click)="CreateOrder(0)">Guarda como Pedido</button>
       </div>
     </div>
 

@@ -159,6 +159,12 @@ export class CotizadorEditComponent implements OnInit {
     this.hideModalcliente = true;
   }
 
+  ConvertToPedido(){
+    this.order.esCotizacion = 0;
+  }
+  ConvertToCotizacion(){
+    this.order.esCotizacion = 1;
+  }
   openBordados(){
     this.hideserigrafia = true;
     this.hidesublimado = true
@@ -194,6 +200,7 @@ export class CotizadorEditComponent implements OnInit {
   updateSeller(event: Event) {
     console.warn(this.sellerSelected);
   }
+
 
   
   updateAdvance(event: Event){
@@ -397,6 +404,11 @@ export class CotizadorEditComponent implements OnInit {
     this.changeDetectorRef.detectChanges();
     this.calculateTotal()
 
+  }
+  deleteGraficoRow(rowNumber: number) {
+    this.order.graficos.splice(rowNumber, 1);
+    this.changeDetectorRef.detectChanges();
+    this.calculateTotal()
   }
   getProductsCotizacionFromProducts(_products: Array < Producto > ) {
     var prodsCot = Array < ProductCotizacion > ();

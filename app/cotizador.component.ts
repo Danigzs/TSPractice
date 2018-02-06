@@ -397,6 +397,11 @@ export class CotizadorComponent implements OnInit {
     this.calculateTotal()
 
   }
+  deleteGraficoRow(rowNumber: number) {
+    this.order.graficos.splice(rowNumber, 1);
+    this.changeDetectorRef.detectChanges();
+    this.calculateTotal()
+  }
   getProductsCotizacionFromProducts(_products: Array < Producto > ) {
     var prodsCot = Array < ProductCotizacion > ();
     _products.forEach(prod => {
@@ -495,4 +500,11 @@ export class CotizadorComponent implements OnInit {
 
     });
   }
+  ConvertToPedido(){
+    this.order.esCotizacion = 0;
+  }
+  ConvertToCotizacion(){
+    this.order.esCotizacion = 1;
+  }
+
 }

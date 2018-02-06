@@ -1,7 +1,8 @@
 <navbar></navbar>
 <div class="c-div-bgr bar-margin">
   <div class="op-header">
-    <div class="op-title"> ORDEN DE PEDIDO </div>
+    <div class="op-title" *ngIf="order.esCotizacion"> COTIZACIÓN </div>
+    <div class="op-title" *ngIf="!order.esCotizacion" > ORDEN DE PEDIDO </div>
     <div class="op-subtitle"> BORDADOS, DISEÑO Y ESPECIALIDADES, S.A DE C.V. </div>
     <div class="op-subtitle"> ESCOBEDO # 604-F CENTRO APODACA C.P. 66600 APODACA, N.L. </div>
     <div class="op-subtitle"> BDE-061109-MQ9 </div>
@@ -274,6 +275,7 @@
               <th>DESCRIPCIÓN</th>
               <th>PRECIO UNITARIO</th>
               <th>IMPORTE</th>
+              <th></th>
               <!--<th>Agregar Tecnicas</th>-->
             </tr>
           </thead>
@@ -283,6 +285,7 @@
             <td>{{producto.name}}. {{producto.description}}</td>
             <td>{{getProductPrice(producto)| currency:'USD':true}}</td>
             <td>{{calcularTotalProducto(producto) | currency:'USD':true}}</td>
+            <th><button  type="button" class="btn btn-primary btn-md" (click)="deleteRow(i)">Eliminar</button></th>
             <!--<th><button  type="button" class="btn btn-primary btn-md" (click)="verTecnica(i)">Tecnicas</button> <button  type="button" class="btn btn-primary btn-md" (click)="deleteRow()">Eliminar</button></th>-->
 
           </tr>
@@ -308,6 +311,7 @@
               <th>DESCRIPCIÓN</th>
               <th>PRECIO</th>
               <th>TOTAL</th>
+              <th></th>
             </tr>
           </thead>
           <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let grafico of order.graficos; let i = index">
@@ -316,7 +320,7 @@
             <td [innerHtml]="grafico.summary"> </td>
             <td>{{grafico.costoTotal | currency:'USD':true}}</td>
             <td>{{grafico.costoTotal*grafico.quantity | currency:'USD':true}}</td>
-
+            <th><button  type="button" class="btn btn-primary btn-md" (click)="deleteGraficoRow(i)">Eliminar</button></th>
           </tr>
         </table>
       </div>
@@ -336,9 +340,14 @@
       <div class="total" style="text-align:right;width:100%;">
         <span class="c-total-amount-info">Total:</span><span class="c-total-amount"> {{order.total | currency:'USD':true }}</span>
       </div>
-      <div style="padding-bottom: 50px;height: 100px">
+      <div style="padding-bottom: 50px;height: 100px" *ngIf="order.esCotizacion">
         <button type="button" class="btn btn-success btn-lg" style="width:30%; margin-right: 10%;  float: right; font-size: 20px;font-weight: bold;" (click)="CreateOrder()">Guardar cambios</button>
+        <button type="button" class="btn btn-success btn-lg" style="width:30%; margin-right: 10%;  float: right; font-size: 20px;font-weight: bold;" (click)="ConvertToPedido()">Convertir a Pedido</button>
       </div>
+      <div style="padding-bottom: 50px;height: 100px" *ngIf="!order.esCotizacion">
+          <button type="button" class="btn btn-success btn-lg" style="width:30%; margin-right: 10%;  float: right; font-size: 20px;font-weight: bold;" (click)="CreateOrder()">Guardar cambios</button>
+          <button type="button" class="btn btn-success btn-lg" style="width:30%; margin-right: 10%;  float: right; font-size: 20px;font-weight: bold;" (click)="ConvertToCotizacion()">Convertir a Cotización</button>
+        </div>
     </div>
 
   </div>
