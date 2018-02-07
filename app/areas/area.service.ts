@@ -8,11 +8,11 @@ import {URLSearchParams} from '@angular/http';
 import { Area } from './area';
 @Injectable()
 export class AreaService {
- private clientsUrl = 'http://localhost:8000/api/areas';  // URL to web API
+ private clientsUrl = 'http://localhost:8000/api/area';  // URL to web API
 
 constructor (private http: Http) {}
 
-  getClients(): Observable<Array<Area>> {
+  getAreas(): Observable<Array<Area>> {
     
     return this.http.get(this.clientsUrl)
                     .map(this.extractData)
@@ -56,7 +56,7 @@ debugger
     
     let data = res.json();
     
-    return data.clients || { };
+    return data.area || { };
   }
     private handleError (error: Response | any) {
     // In a real world app, you might use a remote logging infrastructure

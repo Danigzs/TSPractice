@@ -44,6 +44,7 @@ import {Grafico} from './grafico/grafico';
 import {Serigrafia} from './tecnicas/serigrafia'; 
 import {Vinil} from './tecnicas/vinil'; 
 import {Transfer} from './tecnicas/transfer'; 
+import { IMultiSelectOption,IMultiSelectTexts ,IMultiSelectSettings} from 'angular-2-dropdown-multiselect';
 
 
 
@@ -71,7 +72,8 @@ export class CotizadorComponent implements OnInit {
   public order: Order;
   public productos: Array < ProductCotizacion > ;
   public tecnica: Array <Tecnica>;
-
+  public areas:Array <Area>;
+  areaOptions: any[];
    
   
   
@@ -108,6 +110,7 @@ export class CotizadorComponent implements OnInit {
   clienteSelected = new Cliente;
   tecnicaSelected = new Tecnica;
   sellerSelected = new Seller;
+  areaselected = new Array<Area>();
 
   /**
    * Config bordado
@@ -126,6 +129,25 @@ export class CotizadorComponent implements OnInit {
   public hideserigrafia=true;
   public hidesublimado = true;
 
+  multiConfig: IMultiSelectTexts = {
+    checkAll: 'Seleccionar todos',
+    uncheckAll: 'Deseleccionar todos',
+    checked: 'color seleccionado',
+    checkedPlural: 'colores seleccionados',
+    searchPlaceholder: 'Buscar',
+    searchEmptyResult: 'Vacío...',
+    defaultTitle: 'Status',
+    allSelected: 'Todos seleccionados',
+  };
+  mySettings: IMultiSelectSettings = {
+    selectionLimit: 1,
+    autoUnselect: true,
+    checkedStyle: 'fontawesome',
+      buttonClasses: 'btn btn-default btn-block',
+    maxHeight: '300px'
+  
+  };
+  
   currentDate = this.getTodayDate();
   gridKeys = ["Cantidad", "Nombre", "Descripcion", "Precio Unitario", "Total"];
 
@@ -136,7 +158,8 @@ export class CotizadorComponent implements OnInit {
     private _tecnicaService: TecnicaService, 
     private changeDetectorRef: ChangeDetectorRef, 
     private _sellerService: SellerService, 
-    private _orderService: OrderService
+    private _orderService: OrderService,
+    private _areasService:AreaService
     ) {
 
     this.closeMaquilas = this.closeMaquilas.bind(this);
@@ -429,7 +452,8 @@ export class CotizadorComponent implements OnInit {
         this._clienteService.getClients(),
         this._productoService.getProducts(),
         this._tecnicaService.getTecnicas(),
-        this._sellerService.getSellers()
+        this._sellerService.getSellers(),
+        this._areasService.getAreas()
 
       ).subscribe(
         results => {
@@ -438,8 +462,13 @@ export class CotizadorComponent implements OnInit {
           this.productos = this.getProductsCotizacionFromProducts(results[1]);
           this.tecnicas = this.getTecnicasCotizacionFromTecnicas(results[2]);
           this.sellers = results[3];
-
+          this.areas = results[4]
+          console.log(this.areas);
+          this.areaOptions=[]
+          this.areaOptions = this.areas.map((nombre,index) =>  ({id : nombre._id }));
           resolve(true)
+         
+
         }
       );
     });
@@ -489,8 +518,10 @@ export class CotizadorComponent implements OnInit {
   }
    
   ngOnInit() {
-  
     this.order = new Order;
+
+   
+
     // this.order.folio = "300";
     this.getConfigData().then(res => {
       if (this.clientes.length > 0)
