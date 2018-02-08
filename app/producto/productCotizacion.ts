@@ -10,7 +10,7 @@ export class ProductCotizacion extends Producto {
     this.total = 0;
   }
 
-  setProductCotizacion(_id:string,name:string,price:number,description:string,supplies:string,isProvider:number,isBordesa:number,code:string,quantity:number,total:number){
+  setProductCotizacion(_id:number,name:string,price:number,description:string,supplies:string,isProvider:number,isBordesa:number,code:string,quantity:number,total:number){
     this._id = _id;
     this.name = name;
     this.price = price;

@@ -100,6 +100,7 @@ export class CotizadorComponent implements OnInit {
   public checknuevo: boolean;
   public checkexistente: boolean;
   public shippingDate: String = "";
+  public fecha: String="";
 
   public context = this
   componentName: 'CotizadorComponent';
@@ -174,7 +175,18 @@ export class CotizadorComponent implements OnInit {
     this.OnClientAdded = this.OnClientAdded.bind(this);
     this.onChangeOrderStatus.bind(this);
   }
+  convertdate()
+    {
+        var date = new Date();
+        var span = document.createElement("span");
+        span.innerText = "Current Time is -> " + date + "\n";
+        document.body.appendChild(span);      
+        var span = document.createElement("span");
+        span.style.color = "#00CC99";
+        span.innerText = "After change Date -> " + date.toDateString() + "\n";
+        document.body.appendChild(span);
 
+    }
   OnClientAdded(){
     alert("Cliente creado");
     this._clienteService.getClients().subscribe(
@@ -187,8 +199,23 @@ export class CotizadorComponent implements OnInit {
     this.hideModalcliente = true;
   }
   onChangeOrderStatus(event:Event,order:Order){
+    var d = new Date();
+    var hora = d.getHours();    
+    var minutos = d.getMinutes();
+    var segundos = d.getSeconds();
+    var date = d.toDateString();
+    var hour = hora.toString();
+    var minutes = minutos.toString();
+    var seconds = segundos.toString();
+    
+    
     console.log(order.currentArea)
-    order.area = +order.currentArea[0];
+    
+    order.area =+ order.currentArea[0];
+    var fecha = (date +" "+ hour+":"+minutes+":"+seconds).toString();
+    
+     order.orderHistory[0];
+    console.log(fecha)
   }
   openBordados(){
     this.hideserigrafia = true;

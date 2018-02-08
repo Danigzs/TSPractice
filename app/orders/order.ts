@@ -15,7 +15,7 @@ export class Order {
   currentStatus:Array<Number>;
   currentArea:Array<Number>;
   area:number;
-  areaText:String,
+  areaText:String;
   total: number;
   folio: number;
   notes:String;
@@ -30,6 +30,7 @@ export class Order {
   statusText:String;
   paymentDays:number;
   esCotizacion:number;
+  orderHistory:Array<String>;
 
   constructor() {
     this.client = new Cliente;
@@ -49,10 +50,11 @@ export class Order {
     this.statusText = "";
     this.status = -1;
     this.esCotizacion = 0;
+    this.orderHistory=[];
   } 
 
 
-  setOrder(_id:number, client:Cliente,seller:Seller,products:Array<ProductCotizacion>,maquilas:Array<TecnicaCotizacion>,tecnicaBordados:Array<Bordado>, graficos:Array<Grafico>, total:number,folio:number,notes:String,advance:number,debt:number,isPaid:number,createdAt:Date,shippingWay:String,shippingDate:Date,subTotal:number, statusText:String, status:number, esCotizacion:number){
+  setOrder(orderHistory:string,_id:number, client:Cliente,seller:Seller,products:Array<ProductCotizacion>,maquilas:Array<TecnicaCotizacion>,tecnicaBordados:Array<Bordado>, graficos:Array<Grafico>, total:number,folio:number,notes:String,advance:number,debt:number,isPaid:number,createdAt:Date,shippingWay:String,shippingDate:Date,subTotal:number, statusText:String, status:number, esCotizacion:number){
     this._id = _id;
     this.client = client;
     this.seller = seller;
@@ -73,6 +75,7 @@ export class Order {
     this.shippingDate = shippingDate;
     this.subTotal = subTotal;
     this.esCotizacion = esCotizacion;
+   
   }
 
   

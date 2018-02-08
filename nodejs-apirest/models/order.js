@@ -64,6 +64,9 @@ var orderSchema = new Schema({
   },
   esCotizacion:{
     type:Number
+  },
+  orderHistory:{
+    type:String
   }
 
 });
