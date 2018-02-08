@@ -2,7 +2,6 @@ export class Area {
    _id: number;
     nombre: String;
 
-  
     constructor() {
        
      

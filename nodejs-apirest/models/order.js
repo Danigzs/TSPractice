@@ -29,6 +29,9 @@ var orderSchema = new Schema({
   statusText:{
     type:String
   },
+  areaText:{
+    type:String
+  },
   notes: {
     type: String
   },
@@ -42,6 +45,9 @@ var orderSchema = new Schema({
     type: String
   },
   status:{
+    type:Number
+  },
+  area:{
     type:Number
   },
   subTotal:{

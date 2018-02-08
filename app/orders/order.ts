@@ -13,6 +13,9 @@ export class Order {
   tecnicaBordados: Array<Bordado>;
   graficos: Array<Grafico>;
   currentStatus:Array<Number>;
+  currentArea:Array<Number>;
+  area:number;
+  areaText:String,
   total: number;
   folio: number;
   notes:String;

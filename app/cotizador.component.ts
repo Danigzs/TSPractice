@@ -49,6 +49,7 @@ import { IMultiSelectOption,IMultiSelectTexts ,IMultiSelectSettings} from 'angul
 
 
 import {ChangeDetectorRef} from '@angular/core'
+import { debug } from 'util';
 
 
 
@@ -124,7 +125,8 @@ export class CotizadorComponent implements OnInit {
   bordadoColorSelected = new Colores;
   
 
-
+  statusSelected = new String();
+  
   public hidebordado=true;
   public hideserigrafia=true;
   public hidesublimado = true;
@@ -141,6 +143,7 @@ export class CotizadorComponent implements OnInit {
   };
   mySettings: IMultiSelectSettings = {
     selectionLimit: 1,
+    closeOnClickOutside:true,
     autoUnselect: true,
     checkedStyle: 'fontawesome',
       buttonClasses: 'btn btn-default btn-block',
@@ -169,6 +172,7 @@ export class CotizadorComponent implements OnInit {
     this.OnAddTransfer = this.OnAddTransfer.bind(this);
     this.OnAddVinil = this.OnAddVinil.bind(this);
     this.OnClientAdded = this.OnClientAdded.bind(this);
+    this.onChangeOrderStatus.bind(this);
   }
 
   OnClientAdded(){
@@ -182,7 +186,10 @@ export class CotizadorComponent implements OnInit {
     );
     this.hideModalcliente = true;
   }
-
+  onChangeOrderStatus(event:Event,order:Order){
+    console.log(order.currentArea)
+    order.area = +order.currentArea[0];
+  }
   openBordados(){
     this.hideserigrafia = true;
     this.hidesublimado = true
@@ -464,8 +471,8 @@ export class CotizadorComponent implements OnInit {
           this.sellers = results[3];
           this.areas = results[4]
           console.log(this.areas);
-          this.areaOptions=[]
-          this.areaOptions = this.areas.map((nombre,index) =>  ({id : nombre._id }));
+          
+          this.areaOptions = this.areas.map((area,index) =>  ({id : area._id,name:area.nombre }));
           resolve(true)
          
 
@@ -478,6 +485,10 @@ export class CotizadorComponent implements OnInit {
 
   CreateOrder(esCotizacion:number) {
     
+    var tmpOrder = this.order;
+
+    this.order.areaText = this.areas.find(function(v,i){ return v._id == tmpOrder.area}).nombre;
+    debugger
     this.order.esCotizacion = esCotizacion;
     this.order.client = this.clienteSelected;
     this.order.seller = this.sellerSelected;
@@ -540,7 +551,7 @@ export class CotizadorComponent implements OnInit {
       this.order.products = [];
       this.order.maquilas = [];
       this.order.tecnicaBordados = [];
-      
+      this.order.currentArea= [+this.areas[0]._id];
       this.setShippingDate();
 
     });
