@@ -341,6 +341,7 @@
       </div>
       <div style="padding-bottom: 50px;height: 100px">
         <ss-multiselect-dropdown [options]="areaOptions" [settings]="mySettings"  (ngModelChange)="onChangeOrderStatus($event,order)" [(ngModel)]="order.currentArea" [texts]="multiConfig" ></ss-multiselect-dropdown>   
+        
         <button type="button" class="btn btn-primary btn-lg" style="width:30%;   margin-left: 10%; float:left; font-size: 20px;font-weight: bold;" (click)="CreateOrder(1)">Guardar como Cotizacion</button>
         <button type="button" class="btn btn-success btn-lg" style="width:30%; margin-right: 10%;  float: right; font-size: 20px;font-weight: bold;" (click)="CreateOrder(0)">Guarda como Pedido</button>
       </div>
@@ -368,7 +369,7 @@
           </thead>
           <tr class='clickable-row' data-href='#' data-toggle="modal" data-target="#basicModal" *ngFor="let producto of productos">
             <td> <input type="number" name="quantity" [(ngModel)]="producto.quantity" min="1"></td>
-            <td>{{producto.code}}
+            <td>{{producto.code}}</td>
               <td>{{producto.name}}. {{producto.description}}</td>
               <td>{{getProductPrice(producto) | currency:'USD':true}}</td>
 

@@ -14,6 +14,8 @@ import {Tecnica} from './producto/tecnica'
 import {Seller} from './sellers/seller'
 import {Area} from './areas/area'
 import {AreaService} from'./areas/area.service'
+import {User} from "./register/user"
+
 
 import {ProductCotizacion} from './producto/productCotizacion'
 import {TecnicaCotizacion} from './tecnicas/tecnicaCotizacion'
@@ -75,7 +77,8 @@ export class CotizadorComponent implements OnInit {
   public tecnica: Array <Tecnica>;
   public areas:Array <Area>;
   areaOptions: any[];
-   
+  public user:User
+
   
   
 
@@ -207,15 +210,27 @@ export class CotizadorComponent implements OnInit {
     var hour = hora.toString();
     var minutes = minutos.toString();
     var seconds = segundos.toString();
-    
-    
+
+    var user = window.localStorage.getItem("user");
+    if(user){
+      this.user = JSON.parse(user);
+    }
+    else{
+      this.user = new User();
+    }
+    if(order.currentArea[0]){
     console.log(order.currentArea)
+    var tmpOrder = this.order;
+    var nombreArea= this.areas.find(function(v,i){
+      return tmpOrder.currentArea[0] == v._id}).nombre
     
+  
     order.area =+ order.currentArea[0];
-    var fecha = (date +" "+ hour+":"+minutes+":"+seconds).toString();
-    
-     order.orderHistory[0];
-    console.log(fecha)
+    var fecha = (date +" "+ hour+":"+minutes+":"+seconds+ " Usuario "+ this.user.username).toString();
+    var history = (nombreArea + " "+ fecha);
+     order.orderHistory.push(history);
+    console.log(order.orderHistory)
+    }
   }
   openBordados(){
     this.hideserigrafia = true;

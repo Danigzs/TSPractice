@@ -16,6 +16,8 @@ import {Seller} from './sellers/seller'
 import {ProductCotizacion} from './producto/productCotizacion'
 import {TecnicaCotizacion} from './tecnicas/tecnicaCotizacion'
 import {Order} from './orders/order'
+import {Area} from './areas/area'
+import {AreaService} from'./areas/area.service'
 /*
     Services
 */
@@ -43,6 +45,7 @@ import {Serigrafia} from './tecnicas/serigrafia';
 import {Vinil} from './tecnicas/vinil'; 
 import {Transfer} from './tecnicas/transfer'; 
 import { NavigationExtras,Routes,RouterModule, Router, Route,ActivatedRoute} from '@angular/router';
+import {User} from "./register/user"
 
 
 
@@ -56,7 +59,7 @@ import {ChangeDetectorRef} from '@angular/core'
 
 @Component({
   selector: 'cotizador-edit',
-  providers: [CotizadorService, ClienteService, ProductoService, TecnicaService, SellerService, OrderService],
+  providers: [AreaService,CotizadorService, ClienteService, ProductoService, TecnicaService, SellerService, OrderService],
   styleUrls: ["app/cotizador.css", "app/styles/table.css"],
   templateUrl: "app/cotizador.edit.html"
 
@@ -70,8 +73,9 @@ export class CotizadorEditComponent implements OnInit {
   public order: Order;
   public productos: Array < ProductCotizacion > ;
   public tecnica: Array <Tecnica>;
-   
-  
+   public user: User;
+   public areas:Array <Area>;
+
   
 
 
@@ -136,6 +140,8 @@ export class CotizadorEditComponent implements OnInit {
     private _sellerService: SellerService, 
     private _orderService: OrderService,
     private route: ActivatedRoute,
+    private _areasService:AreaService
+
     ) {
 
     this.closeMaquilas = this.closeMaquilas.bind(this);
@@ -157,6 +163,39 @@ export class CotizadorEditComponent implements OnInit {
       }
     );
     this.hideModalcliente = true;
+  }
+
+
+  onChangeOrderStatus(event:Event,order:Order){
+    var d = new Date();
+    var hora = d.getHours();    
+    var minutos = d.getMinutes();
+    var segundos = d.getSeconds();
+    var date = d.toDateString();
+    var hour = hora.toString();
+    var minutes = minutos.toString();
+    var seconds = segundos.toString();
+
+    var user = window.localStorage.getItem("user");
+    if(user){
+      this.user = JSON.parse(user);
+    }
+    else{
+      this.user = new User();
+    }
+    if(order.currentArea[0]){
+    console.log(order.currentArea)
+    var tmpOrder = this.order;
+    var nombreArea= this.areas.find(function(v,i){
+      return tmpOrder.currentArea[0] == v._id}).nombre
+    
+  
+    order.area =+ order.currentArea[0];
+    var fecha = (date +" "+ hour+":"+minutes+":"+seconds+ " Usuario "+ this.user.username).toString();
+    var history = (nombreArea + " "+ fecha);
+     order.orderHistory.push(history);
+    console.log(order.orderHistory)
+    }
   }
 
   ConvertToPedido(){
