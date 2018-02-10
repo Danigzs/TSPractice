@@ -51,6 +51,7 @@ import {User} from "./register/user"
 
 
 import {ChangeDetectorRef} from '@angular/core'
+import { debug } from 'util';
 
 
 
@@ -509,8 +510,8 @@ export class CotizadorEditComponent implements OnInit {
           console.log(this.areas);
           
           this.areaOptions = this.areas.map((area,index) =>  ({id : area._id,name:area.nombre }));
-
-
+ 
+          //this.order.currentArea= [+this.areas[0]._id];
           resolve(true)
         }
       );
@@ -594,7 +595,8 @@ getOrderById(orderId:Number){
         this.cotizacion.cliente = this.clienteSelected;
         this.productos = this.productos;
         this.cotizacion.producto = this.productoSelected;
-        
+        this.order.currentArea = [this.order.area];
+        //this.order.currentArea
   
       });
     }
@@ -611,7 +613,7 @@ getOrderById(orderId:Number){
        
     
     });
-    this.order.currentArea= [+this.areas[0]._id];
+    
     
     // this.order.folio = "300";
     

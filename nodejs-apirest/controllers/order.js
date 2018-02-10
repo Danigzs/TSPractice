@@ -105,6 +105,7 @@ exports.add = function (req, res) {
       maquilas: req.body.maquilas,
       graficos: req.body.graficos,
       tecnicaBordados : req.body.tecnicaBordados,
+      orderHistory: req.body.orderHistory,
       statusText: req.body.statusText,
       total: req.body.total,
       folio: (ord) ? parseInt(ord.folio) + 1 : 1,
@@ -152,6 +153,7 @@ exports.update = function (req, res) {
       order.products = _order.products,
       order.maquilas = _order.maquilas,
       order.graficos = req.body.graficos,
+      order.orderHistory = req.body.orderHistory;
       order.tecnicaBordados = req.body.tecnicaBordados,
       order.statusText = req.body.statusText,
       order.total = _order.total,

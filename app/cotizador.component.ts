@@ -218,7 +218,7 @@ export class CotizadorComponent implements OnInit {
     else{
       this.user = new User();
     }
-    if(order.currentArea[0]){
+    if(order.currentArea && order.currentArea[0]){
     console.log(order.currentArea)
     var tmpOrder = this.order;
     var nombreArea= this.areas.find(function(v,i){
