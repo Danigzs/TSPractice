@@ -28,6 +28,7 @@ import {OrderService} from './orders/order.service'
 
 import {TecnicaService} from './producto/tecnica.service'
 import {SellerService} from './sellers/seller.service'
+import { IMultiSelectOption,IMultiSelectTexts ,IMultiSelectSettings} from 'angular-2-dropdown-multiselect';
 
 
 /**
@@ -73,8 +74,9 @@ export class CotizadorEditComponent implements OnInit {
   public order: Order;
   public productos: Array < ProductCotizacion > ;
   public tecnica: Array <Tecnica>;
-   public user: User;
-   public areas:Array <Area>;
+  public user: User;
+  public areas:Array <Area>;
+  areaOptions: any[];
 
   
 
@@ -122,6 +124,25 @@ export class CotizadorEditComponent implements OnInit {
   bordadoPositionSelected = new Posiciones;
   bordadoColorSelected = new Colores;
   
+  multiConfig: IMultiSelectTexts = {
+    checkAll: 'Seleccionar todos',
+    uncheckAll: 'Deseleccionar todos',
+    checked: 'color seleccionado',
+    checkedPlural: 'colores seleccionados',
+    searchPlaceholder: 'Buscar',
+    searchEmptyResult: 'Vacío...',
+    defaultTitle: 'Status',
+    allSelected: 'Todos seleccionados',
+  };
+  mySettings: IMultiSelectSettings = {
+    selectionLimit: 1,
+    closeOnClickOutside:true,
+    autoUnselect: true,
+    checkedStyle: 'fontawesome',
+      buttonClasses: 'btn btn-default btn-block',
+    maxHeight: '300px'
+  
+  };
 
 
   public hidebordado=true;
@@ -474,7 +495,8 @@ export class CotizadorEditComponent implements OnInit {
         this._clienteService.getClients(),
         this._productoService.getProducts(),
         this._tecnicaService.getTecnicas(),
-        this._sellerService.getSellers()
+        this._sellerService.getSellers(),
+        this._areasService.getAreas()
 
       ).subscribe(
         results => {
@@ -483,6 +505,11 @@ export class CotizadorEditComponent implements OnInit {
           this.productos = this.getProductsCotizacionFromProducts(results[1]);
           this.tecnicas = this.getTecnicasCotizacionFromTecnicas(results[2]);
           this.sellers = results[3];
+          this.areas = results[4]
+          console.log(this.areas);
+          
+          this.areaOptions = this.areas.map((area,index) =>  ({id : area._id,name:area.nombre }));
+
 
           resolve(true)
         }
@@ -584,6 +611,7 @@ getOrderById(orderId:Number){
        
     
     });
+    this.order.currentArea= [+this.areas[0]._id];
     
     // this.order.folio = "300";
     

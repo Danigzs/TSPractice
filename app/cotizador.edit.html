@@ -341,11 +341,14 @@
         <span class="c-total-amount-info">Total:</span><span class="c-total-amount"> {{order.total | currency:'USD':true }}</span>
       </div>
       <div style="padding-bottom: 50px;height: 100px" *ngIf="order.esCotizacion">
+
         <button type="button" class="btn btn-success btn-lg" style="width:30%; margin-right: 10%;  float: right; font-size: 20px;font-weight: bold;" (click)="CreateOrder()">Guardar cambios</button>
         <button type="button" class="btn btn-success btn-lg" style="width:30%; margin-right: 10%;  float: right; font-size: 20px;font-weight: bold;" (click)="ConvertToPedido()">Convertir a Pedido</button>
       </div>
       <div style="padding-bottom: 50px;height: 100px" *ngIf="!order.esCotizacion">
           <button type="button" class="btn btn-success btn-lg" style="width:30%; margin-right: 10%;  float: right; font-size: 20px;font-weight: bold;" (click)="CreateOrder()">Guardar cambios</button>
+          <ss-multiselect-dropdown [options]="areaOptions" [settings]="mySettings"  (ngModelChange)="onChangeOrderStatus($event,order)" [(ngModel)]="order.currentArea" [texts]="multiConfig" ></ss-multiselect-dropdown>   
+
         </div>
     </div>
 
