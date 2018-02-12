@@ -78,7 +78,7 @@
           <td>{{order.seller.name}}</td>
           <ss-multiselect-dropdown  *ngIf="order.status != 5 && order.status != 4" [options]="colorOptions" [settings]="mySettings"  (ngModelChange)="onChangeOrderStatus($event,order)" [(ngModel)]="order.currentStatus"  [texts]="multiConfig" ></ss-multiselect-dropdown>
           <td *ngIf="order.status == 5 || order.status == 4">{{getOrderStatusText(order)}}</td> 
-          <td>{{order.areaText}}</td>
+          <td [(ngModel)]="order.areaText">{{order.areaText}}</td>
           <!--
             <ss-multiselect-dropdown
                             [options]="finalServices"

@@ -221,6 +221,9 @@ export class CotizadorEditComponent implements OnInit {
   }
 
   ConvertToPedido(){
+    var tmpOrder = this.order;
+    this.order.areaText = this.areas.find(function(v,i){ return v._id == tmpOrder.area}).nombre;
+
     this.order.esCotizacion = 0;
   }
   ConvertToCotizacion(){
@@ -521,7 +524,7 @@ export class CotizadorEditComponent implements OnInit {
  
 
   CreateOrder() {
-    
+  
     this.order.client = this.clienteSelected;
     this.order.seller = this.sellerSelected;
     this.order.debt = this.order.total -  this.order.advance;
@@ -551,6 +554,9 @@ export class CotizadorEditComponent implements OnInit {
          
       }
     );
+    var tmpOrder = this.order;
+
+    this.order.areaText = this.areas.find(function(v,i){ return v._id == tmpOrder.area}).nombre;
 
 
   }
