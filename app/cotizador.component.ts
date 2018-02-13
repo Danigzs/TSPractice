@@ -75,9 +75,11 @@ export class CotizadorComponent implements OnInit {
   public order: Order;
   public productos: Array < ProductCotizacion > ;
   public tecnica: Array <Tecnica>;
-  public areas:Array <Area>;
+  public areas:Array <Area>; 
   areaOptions: any[];
   public user:User
+  colorOptions: any[];
+  orders:Array<Order>
 
   
   
@@ -231,6 +233,38 @@ export class CotizadorComponent implements OnInit {
      order.orderHistory.push(history);
     console.log(order.orderHistory)
     }
+    if(order.currentStatus && order.currentStatus[0]){
+
+    console.log(order.currentStatus)
+    order.status = +order.currentStatus[0];
+}
+    
+  }
+  getOrderStatusText(order:Order){
+       
+    if(order.status == 5)
+    {
+      return "Cancelada";
+    }
+    if(order.status == 4){
+      return "Entregada";
+    }
+    if(order.status == 3){
+      return "Pendiente de Entrega";
+    }
+
+    if(order.esCotizacion){
+      return "Cotización"
+    }
+
+    if(order.debt == 0){
+      return "Pagada";
+    }
+    if(order.debt > 0 ){
+      return "Pendiente de Pago";
+    }
+    
+    
   }
   openBordados(){
     this.hideserigrafia = true;
@@ -531,6 +565,9 @@ export class CotizadorComponent implements OnInit {
 
     this.order.areaText = this.areas.find(function(v,i){ return v._id == tmpOrder.area}).nombre;
     debugger
+    this.order.statusText = this.colorOptions.find(function(v,i){ return v.id == tmpOrder.status}).name;
+
+    debugger
     this.order.esCotizacion = esCotizacion;
     this.order.client = this.clienteSelected;
     this.order.seller = this.sellerSelected;
@@ -573,7 +610,22 @@ export class CotizadorComponent implements OnInit {
   ngOnInit() {
     this.order = new Order;
 
-   
+    this.colorOptions = [
+      { id: 2, name: 'Pendiente de Pago'},
+      { id: 3, name: 'Pagada' },
+      { id: 4, name: 'Entregada'},
+      { id: 5, name: 'Cancelada'}];
+     
+      this.onChangeOrderStatus.bind(this);
+      this._orderService.getOrders().subscribe(
+        data=>{
+          this.orders = data;
+          this.orders.map((order,index) => ( 
+            order.currentStatus = [order.status]
+          ));
+        }
+      )
+
 
     // this.order.folio = "300";
     this.getConfigData().then(res => {
