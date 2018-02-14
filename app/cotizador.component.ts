@@ -147,6 +147,18 @@ export class CotizadorComponent implements OnInit {
     defaultTitle: 'Status',
     allSelected: 'Todos seleccionados',
   };
+
+  multiConfigArea: IMultiSelectTexts = {
+    checkAll: 'Seleccionar todos',
+    uncheckAll: 'Deseleccionar todos',
+    checked: 'color seleccionado',
+    checkedPlural: 'colores seleccionados',
+    searchPlaceholder: 'Buscar',
+    searchEmptyResult: 'Vacío...',
+    defaultTitle: 'Area',
+    allSelected: 'Todos seleccionados',
+  };
+
   mySettings: IMultiSelectSettings = {
     selectionLimit: 1,
     closeOnClickOutside:true,
@@ -237,6 +249,7 @@ export class CotizadorComponent implements OnInit {
 
     console.log(order.currentStatus)
     order.status = +order.currentStatus[0];
+    debugger
 }
     
   }
@@ -562,12 +575,11 @@ export class CotizadorComponent implements OnInit {
   CreateOrder(esCotizacion:number) {
     
     var tmpOrder = this.order;
-
+    debugger
     this.order.areaText = this.areas.find(function(v,i){ return v._id == tmpOrder.area}).nombre;
-    debugger
-    this.order.statusText = this.colorOptions.find(function(v,i){ return v.id == tmpOrder.status}).name;
-
-    debugger
+    
+   this.order.statusText = this.colorOptions.find(function(v,i){ return v.id == tmpOrder.status}).name;
+    
     this.order.esCotizacion = esCotizacion;
     this.order.client = this.clienteSelected;
     this.order.seller = this.sellerSelected;
@@ -611,12 +623,12 @@ export class CotizadorComponent implements OnInit {
     this.order = new Order;
 
     this.colorOptions = [
-      { id: 2, name: 'Pendiente de Pago'},
-      { id: 3, name: 'Pagada' },
-      { id: 4, name: 'Entregada'},
-      { id: 5, name: 'Cancelada'}];
+      { id: 0, name: 'Pendiente de Pago'},
+      { id: 1, name: 'Pagada' },
+      { id: 2, name: 'Entregada'},
+      { id: 3, name: 'Cancelada'}];
      
-      this.onChangeOrderStatus.bind(this);
+     /* this.onChangeOrderStatus.bind(this);
       this._orderService.getOrders().subscribe(
         data=>{
           this.orders = data;
@@ -624,7 +636,7 @@ export class CotizadorComponent implements OnInit {
             order.currentStatus = [order.status]
           ));
         }
-      )
+      )*/
 
 
     // this.order.folio = "300";
@@ -646,6 +658,8 @@ export class CotizadorComponent implements OnInit {
       this.order.maquilas = [];
       this.order.tecnicaBordados = [];
       this.order.currentArea= [+this.areas[0]._id];
+      this.order.currentStatus= [+this.colorOptions[0].id];
+
       this.setShippingDate();
 
     });

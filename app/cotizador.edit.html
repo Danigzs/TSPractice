@@ -251,6 +251,10 @@
 
     <!--detalles de la cotizacion -->
     <div>
+        <ss-multiselect-dropdown [options]="areaOptions" [settings]="mySettings"  (ngModelChange)="onChangeOrderStatus($event,order)" [(ngModel)]="order.currentArea" [texts]="multiConfigArea" ></ss-multiselect-dropdown>   
+        <ss-multiselect-dropdown  *ngIf="order.status != 5 && order.status != 4" [options]="colorOptions" [settings]="mySettings"  (ngModelChange)="onChangeOrderStatus($event,order)" [(ngModel)]="order.currentStatus"  [texts]="multiConfig" ></ss-multiselect-dropdown>
+        <label *ngIf="order.status == 5 || order.status == 4">{{getOrderStatusText(order)}}</label>        
+
       <h3>Observaciones Generales, Descripción y Cantidad de Mercancia Recibida</h3>
     </div>
     <textarea class="c-container-descripcion" [(ngModel)]="order.notes">
@@ -349,7 +353,6 @@
           <button type="button" class="btn btn-success btn-lg" style="width:30%; margin-right: 10%;  float: right; font-size: 20px;font-weight: bold;" (click)="CreateOrder()">Guardar cambios</button>
 
         </div>
-        <ss-multiselect-dropdown [options]="areaOptions" [settings]="mySettings"  (ngModelChange)="onChangeOrderStatus($event,order)" [(ngModel)]="order.currentArea" [texts]="multiConfig" ></ss-multiselect-dropdown>   
 
     </div>
 

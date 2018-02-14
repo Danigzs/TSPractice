@@ -135,6 +135,16 @@ export class CotizadorEditComponent implements OnInit {
     defaultTitle: 'Status',
     allSelected: 'Todos seleccionados',
   };
+  multiConfigArea: IMultiSelectTexts = {
+    checkAll: 'Seleccionar todos',
+    uncheckAll: 'Deseleccionar todos',
+    checked: 'color seleccionado',
+    checkedPlural: 'colores seleccionados',
+    searchPlaceholder: 'Buscar',
+    searchEmptyResult: 'Vacío...',
+    defaultTitle: 'Area',
+    allSelected: 'Todos seleccionados',
+  };
   mySettings: IMultiSelectSettings = {
     selectionLimit: 1,
     closeOnClickOutside:true,
