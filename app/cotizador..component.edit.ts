@@ -78,6 +78,7 @@ export class CotizadorEditComponent implements OnInit {
   public user: User;
   public areas:Array <Area>;
   areaOptions: any[];
+  colorOptions: any[];
 
   
 
@@ -215,11 +216,12 @@ export class CotizadorEditComponent implements OnInit {
     else{
       this.user = new User();
     }
-    if(order.currentArea[0]){
+    if(order.currentArea && order.currentArea[0]){
     console.log(order.currentArea)
-    var tmpOrder = this.order;
+    
+    //var tmpOrder = this.order;
     var nombreArea= this.areas.find(function(v,i){
-      return tmpOrder.currentArea[0] == v._id}).nombre
+      return order.currentArea[0] == v._id}).nombre
     
   
     order.area =+ order.currentArea[0];
@@ -228,6 +230,13 @@ export class CotizadorEditComponent implements OnInit {
      order.orderHistory.push(history);
     console.log(order.orderHistory)
     }
+    if(order.currentStatus && order.currentStatus[0]){
+      debugger
+    console.log(order.currentStatus)
+    order.status = +order.currentStatus[0];
+    
+}
+    
   }
 
   ConvertToPedido(){
@@ -567,6 +576,7 @@ export class CotizadorEditComponent implements OnInit {
     var tmpOrder = this.order;
 
     this.order.areaText = this.areas.find(function(v,i){ return v._id == tmpOrder.area}).nombre;
+       this.order.statusText = this.colorOptions.find(function(v,i){ return v.id == tmpOrder.status}).name;
 
 
   }
@@ -620,7 +630,13 @@ getOrderById(orderId:Number){
 }
 
   ngOnInit() {
+
     this.order = new Order;
+    this.colorOptions = [
+      { id: 0, name: 'Pendiente de Pago'},
+      { id: 1, name: 'Pagada' },
+      { id: 2, name: 'Entregada'},
+      { id: 3, name: 'Cancelada'}];
     
     this.route.params.subscribe(params=> { 
       

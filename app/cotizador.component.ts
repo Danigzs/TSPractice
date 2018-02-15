@@ -234,9 +234,10 @@ export class CotizadorComponent implements OnInit {
     }
     if(order.currentArea && order.currentArea[0]){
     console.log(order.currentArea)
-    var tmpOrder = this.order;
+    
+    //var tmpOrder = this.order;
     var nombreArea= this.areas.find(function(v,i){
-      return tmpOrder.currentArea[0] == v._id}).nombre
+      return order.currentArea[0] == v._id}).nombre
     
   
     order.area =+ order.currentArea[0];
@@ -246,10 +247,10 @@ export class CotizadorComponent implements OnInit {
     console.log(order.orderHistory)
     }
     if(order.currentStatus && order.currentStatus[0]){
-
+      debugger
     console.log(order.currentStatus)
     order.status = +order.currentStatus[0];
-    debugger
+    
 }
     
   }
@@ -575,11 +576,11 @@ export class CotizadorComponent implements OnInit {
   CreateOrder(esCotizacion:number) {
     
     var tmpOrder = this.order;
-    debugger
+    
     this.order.areaText = this.areas.find(function(v,i){ return v._id == tmpOrder.area}).nombre;
     
+
    this.order.statusText = this.colorOptions.find(function(v,i){ return v.id == tmpOrder.status}).name;
-    
     this.order.esCotizacion = esCotizacion;
     this.order.client = this.clienteSelected;
     this.order.seller = this.sellerSelected;
@@ -592,7 +593,7 @@ export class CotizadorComponent implements OnInit {
       this.order.isPaid = 0;
        
     }
-    if(esCotizacion){
+   /* if(esCotizacion){
       this.order.status = 1;
     }else {
       if(this.order.debt == 0){
@@ -600,8 +601,8 @@ export class CotizadorComponent implements OnInit {
       }
       else {
         this.order.status = 2;
-      }
-    }
+       }
+    }*/
     console.log(this.order);
     this._orderService.addOrder(this.order).subscribe(
       data => {
