@@ -114,6 +114,7 @@ export class CotizadorEditComponent implements OnInit {
   clienteSelected = new Cliente;
   tecnicaSelected = new Tecnica;
   sellerSelected = new Seller;
+  currentArea = new Area
 
   /**
    * Config bordado
@@ -133,7 +134,7 @@ export class CotizadorEditComponent implements OnInit {
     checkedPlural: 'colores seleccionados',
     searchPlaceholder: 'Buscar',
     searchEmptyResult: 'Vacío...',
-    defaultTitle: 'Status',
+    defaultTitle: 'Estatus',
     allSelected: 'Todos seleccionados',
   };
   multiConfigArea: IMultiSelectTexts = {
@@ -616,12 +617,16 @@ getOrderById(orderId:Number){
           }
           
         }
+        if(this.areas.length > 0){
+          this.currentArea = this.areas[0];
+        }
  
         this.cotizacion.tecnica = this.tecnicaSelected;
         this.cotizacion.cliente = this.clienteSelected;
         this.productos = this.productos;
         this.cotizacion.producto = this.productoSelected;
-        this.order.currentArea = [this.order.area];
+        this.areas = [this.currentArea];
+        this.order.currentStatus = [this.order.status];
         //this.order.currentArea
   
       });
@@ -634,9 +639,10 @@ getOrderById(orderId:Number){
     this.order = new Order;
     this.colorOptions = [
       { id: 0, name: 'Pendiente de Pago'},
-      { id: 1, name: 'Pagada' },
-      { id: 2, name: 'Entregada'},
-      { id: 3, name: 'Cancelada'}];
+      { id: 1, name: 'En Proceso'},
+      { id: 2, name: 'Pagada' },
+      { id: 3, name: 'Entregada'},
+      { id: 4, name: 'Cancelada'}];
     
     this.route.params.subscribe(params=> { 
       

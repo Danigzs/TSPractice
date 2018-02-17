@@ -144,7 +144,7 @@ export class CotizadorComponent implements OnInit {
     checkedPlural: 'colores seleccionados',
     searchPlaceholder: 'Buscar',
     searchEmptyResult: 'Vacío...',
-    defaultTitle: 'Status',
+    defaultTitle: 'Estatus',
     allSelected: 'Todos seleccionados',
   };
 
@@ -625,9 +625,10 @@ export class CotizadorComponent implements OnInit {
 
     this.colorOptions = [
       { id: 0, name: 'Pendiente de Pago'},
-      { id: 1, name: 'Pagada' },
-      { id: 2, name: 'Entregada'},
-      { id: 3, name: 'Cancelada'}];
+      { id: 1, name: 'En proceso'},
+      { id: 2, name: 'Pagada' },
+      { id: 3, name: 'Entregada'},
+      { id: 4, name: 'Cancelada'}];
      
      /* this.onChangeOrderStatus.bind(this);
       this._orderService.getOrders().subscribe(
