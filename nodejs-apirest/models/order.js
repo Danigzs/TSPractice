@@ -67,6 +67,9 @@ var orderSchema = new Schema({
   },
   orderHistory:[{
     type:String
+  }],
+  orderAreaHistory:[{
+    type:String
   }]
 
 });

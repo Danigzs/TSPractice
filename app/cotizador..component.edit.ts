@@ -52,6 +52,7 @@ import {User} from "./register/user"
 
 import {ChangeDetectorRef} from '@angular/core'
 import { debug } from 'util';
+import { read } from 'fs';
 
 
 
@@ -93,7 +94,7 @@ export class CotizadorEditComponent implements OnInit {
   public hideModal3 = true;
   public hideModalpago = true;
   public hideModalcliente = true;
-
+public dataLoaded = false;
   public maquilasModal = true;
   public showBordado = true;
   public showSerigrafia = false;
@@ -104,6 +105,8 @@ export class CotizadorEditComponent implements OnInit {
   public checkexistente: boolean;
   public shippingDate: String = "";
 
+  public firsTimeStatus = true;
+  public firsTimeArea = true;
   public context = this
   componentName: 'CotizadorComponent';
 
@@ -114,7 +117,7 @@ export class CotizadorEditComponent implements OnInit {
   clienteSelected = new Cliente;
   tecnicaSelected = new Tecnica;
   sellerSelected = new Seller;
-  currentArea = new Area
+  
 
   /**
    * Config bordado
@@ -201,6 +204,10 @@ export class CotizadorEditComponent implements OnInit {
 
 
   onChangeOrderStatus(event:Event,order:Order){
+    if(this.firsTimeStatus == true){
+      this.firsTimeStatus = false;
+      return;
+    }
     var d = new Date();
     var hora = d.getHours();    
     var minutos = d.getMinutes();
@@ -217,17 +224,14 @@ export class CotizadorEditComponent implements OnInit {
     else{
       this.user = new User();
     }
-    if(order.currentArea && order.currentArea[0]){
-    console.log(order.currentArea)
-    
+    if(order.currentStatus && order.currentStatus[0]){
+     
     //var tmpOrder = this.order;
-    var nombreArea= this.areas.find(function(v,i){
-      return order.currentArea[0] == v._id}).nombre
+    var nombreStatus= this.colorOptions.find(function(v,i){
+      return order.currentStatus[0] == v.id}).name;
     
-  
-    order.area =+ order.currentArea[0];
     var fecha = (date +" "+ hour+":"+minutes+":"+seconds+ " Usuario "+ this.user.username).toString();
-    var history = (nombreArea + " "+ fecha);
+    var history = (nombreStatus + " "+ fecha);
      order.orderHistory.push(history);
     console.log(order.orderHistory)
     }
@@ -236,8 +240,44 @@ export class CotizadorEditComponent implements OnInit {
     console.log(order.currentStatus)
     order.status = +order.currentStatus[0];
     
-}
+    }
     
+  }
+
+
+  onChangeAreaStatus(event:Event,order:Order){
+    if(this.firsTimeArea == true){
+      this.firsTimeArea = false;
+      return;
+    }
+    if(order.currentArea && order.currentArea[0]){
+    console.log(order.currentArea)
+    
+    //var tmpOrder = this.order;
+    
+    var nombreArea= this.areas.find(function(v,i){return order.currentArea[0] == v._id}).nombre
+   var d = new Date();
+    var hora = d.getHours();    
+    var minutos = d.getMinutes();
+    var segundos = d.getSeconds();
+    var date = d.toDateString();
+    var hour = hora.toString();
+    var minutes = minutos.toString();
+    var seconds = segundos.toString();
+
+    var user = window.localStorage.getItem("user");
+    if(user){
+      this.user = JSON.parse(user);
+    }
+    else{
+      this.user = new User();
+    }
+    var fecha = (date +" "+ hour+":"+minutes+":"+seconds+ " Usuario "+ this.user.username).toString();
+    var history = (nombreArea + " "+ fecha);
+     order.orderAreaHistory.push(history);
+  
+    order.area =+ order.currentArea[0];
+    }
   }
 
   ConvertToPedido(){
@@ -554,17 +594,14 @@ export class CotizadorEditComponent implements OnInit {
     else {
       this.order.isPaid = 0;
     }
+    
+    var tmpOrder = this.order;
 
-    if(this.order.esCotizacion){
-      this.order.status = 1;
-    }else {
-      if(this.order.debt == 0){
-        this.order.status = 3;
-      }
-      else {
-        this.order.status = 2;
-      }
-    }
+    this.order.areaText = this.areas.find(function(v,i){ return v._id == tmpOrder.area}).nombre;
+    
+
+   this.order.statusText = this.colorOptions.find(function(v,i){ return v.id == tmpOrder.status}).name;
+    
 
     this._orderService.updateOrder(this.order).subscribe(
       data => {
@@ -617,18 +654,15 @@ getOrderById(orderId:Number){
           }
           
         }
-        if(this.areas.length > 0){
-          this.currentArea = this.areas[0];
-        }
- 
         this.cotizacion.tecnica = this.tecnicaSelected;
         this.cotizacion.cliente = this.clienteSelected;
         this.productos = this.productos;
         this.cotizacion.producto = this.productoSelected;
-        this.areas = [this.currentArea];
-        this.order.currentStatus = [this.order.status];
-        //this.order.currentArea
-  
+        this.firsTimeArea = true;
+        this.firsTimeStatus= true; 
+        this.order.currentArea = [this.order.area];
+        this.order.currentStatus = [this.order.status]; 
+        this.dataLoaded = true;
       });
     }
   )
@@ -637,12 +671,17 @@ getOrderById(orderId:Number){
   ngOnInit() {
 
     this.order = new Order;
+    this.areaOptions = [
+      
+    ]
     this.colorOptions = [
       { id: 0, name: 'Pendiente de Pago'},
       { id: 1, name: 'En Proceso'},
       { id: 2, name: 'Pagada' },
       { id: 3, name: 'Entregada'},
-      { id: 4, name: 'Cancelada'}];
+      { id: 4, name: 'Cancelada'}
+
+    ];
     
     this.route.params.subscribe(params=> { 
       

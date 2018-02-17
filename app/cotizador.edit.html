@@ -250,8 +250,8 @@
 
 
     <!--detalles de la cotizacion -->
-    <div>
-        <ss-multiselect-dropdown [options]="areaOptions" [settings]="mySettings"  (ngModelChange)="onChangeOrderStatus($event,order)" [(ngModel)]="order.currentArea" [texts]="multiConfigArea" ></ss-multiselect-dropdown>   
+    <div *ngIf="dataLoaded">
+        <ss-multiselect-dropdown [options]="areaOptions" [settings]="mySettings"  (ngModelChange)="onChangeAreaStatus($event,order)" [(ngModel)]="order.currentArea" [texts]="multiConfigArea" ></ss-multiselect-dropdown>   
         <ss-multiselect-dropdown  *ngIf="order.status != 5 && order.status != 4" [options]="colorOptions" [settings]="mySettings"  (ngModelChange)="onChangeOrderStatus($event,order)" [(ngModel)]="order.currentStatus"  [texts]="multiConfig" ></ss-multiselect-dropdown>
         <label *ngIf="order.status == 5 || order.status == 4">{{getOrderStatusText(order)}}</label>        
 

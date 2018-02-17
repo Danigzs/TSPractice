@@ -31,6 +31,7 @@ export class Order {
   paymentDays:number;
   esCotizacion:number;
   orderHistory:Array<String>;
+  orderAreaHistory:Array<String>;
 
   constructor() {
     this.client = new Cliente;
@@ -51,6 +52,7 @@ export class Order {
     this.status = -1;
     this.esCotizacion = 0;
     this.orderHistory=[];
+    this.orderAreaHistory=[];
   } 
 
 
