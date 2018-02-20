@@ -159,6 +159,15 @@ public dataLoaded = false;
     maxHeight: '300px'
   
   };
+  myAreaSettings: IMultiSelectSettings = {
+    selectionLimit: 1,
+    closeOnClickOutside:true,
+    autoUnselect: true,
+    checkedStyle: 'fontawesome',
+      buttonClasses: 'btn btn-default btn-block',
+    maxHeight: '300px'
+  
+  };
 
 
   public hidebordado=true;
@@ -224,7 +233,7 @@ public dataLoaded = false;
     else{
       this.user = new User();
     }
-    if(order.currentStatus && order.currentStatus[0]){
+    if(order.currentStatus.length > 0){
      
     //var tmpOrder = this.order;
     var nombreStatus= this.colorOptions.find(function(v,i){
@@ -234,9 +243,7 @@ public dataLoaded = false;
     var history = (nombreStatus + " "+ fecha);
      order.orderHistory.push(history);
     console.log(order.orderHistory)
-    }
-    if(order.currentStatus && order.currentStatus[0]){
-      debugger
+         
     console.log(order.currentStatus)
     order.status = +order.currentStatus[0];
     
@@ -250,7 +257,7 @@ public dataLoaded = false;
       this.firsTimeArea = false;
       return;
     }
-    if(order.currentArea && order.currentArea[0]){
+    if(order.currentArea.length > 0){
     console.log(order.currentArea)
     
     //var tmpOrder = this.order;
@@ -277,6 +284,9 @@ public dataLoaded = false;
      order.orderAreaHistory.push(history);
   
     order.area =+ order.currentArea[0];
+    console.log(order.orderAreaHistory)
+         
+    console.log(order.currentArea)
     }
   }
 
@@ -572,10 +582,8 @@ public dataLoaded = false;
           this.areas = results[4]
           console.log(this.areas);
           
-          this.areaOptions = this.areas.map((area,index) =>  ({id : area._id,name:area.nombre }));
  
-          //this.order.currentArea= [+this.areas[0]._id];
-          resolve(true)
+           resolve(true)
         }
       );
     });
@@ -611,11 +619,7 @@ public dataLoaded = false;
          
       }
     );
-    var tmpOrder = this.order;
-
-    this.order.areaText = this.areas.find(function(v,i){ return v._id == tmpOrder.area}).nombre;
-       this.order.statusText = this.colorOptions.find(function(v,i){ return v.id == tmpOrder.status}).name;
-
+    
 
   }
    
@@ -660,9 +664,25 @@ getOrderById(orderId:Number){
         this.cotizacion.producto = this.productoSelected;
         this.firsTimeArea = true;
         this.firsTimeStatus= true; 
+
+        this.areaOptions = this.areas.map((area,index) =>  ({id : area._id,name:area.nombre }));   
+        this.colorOptions = [
+          { id: 0, name: 'Pendiente de Pago'},
+          { id: 1, name: 'En Proceso'},
+          { id: 2, name: 'Pagada' },
+          { id: 3, name: 'Entregada'},
+          { id: 4, name: 'Cancelada'}
+    
+        ];
+            
+        setTimeout(() => {
+          
+
         this.order.currentArea = [this.order.area];
         this.order.currentStatus = [this.order.status]; 
+        
         this.dataLoaded = true;
+      }, 2000); 
       });
     }
   )
@@ -675,11 +695,7 @@ getOrderById(orderId:Number){
       
     ]
     this.colorOptions = [
-      { id: 0, name: 'Pendiente de Pago'},
-      { id: 1, name: 'En Proceso'},
-      { id: 2, name: 'Pagada' },
-      { id: 3, name: 'Entregada'},
-      { id: 4, name: 'Cancelada'}
+      
 
     ];
     

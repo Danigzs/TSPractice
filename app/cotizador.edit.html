@@ -250,13 +250,13 @@
 
 
     <!--detalles de la cotizacion -->
-    <div *ngIf="dataLoaded">
-        <ss-multiselect-dropdown [options]="areaOptions" [settings]="mySettings"  (ngModelChange)="onChangeAreaStatus($event,order)" [(ngModel)]="order.currentArea" [texts]="multiConfigArea" ></ss-multiselect-dropdown>   
-        <ss-multiselect-dropdown  *ngIf="order.status != 5 && order.status != 4" [options]="colorOptions" [settings]="mySettings"  (ngModelChange)="onChangeOrderStatus($event,order)" [(ngModel)]="order.currentStatus"  [texts]="multiConfig" ></ss-multiselect-dropdown>
-        <label *ngIf="order.status == 5 || order.status == 4">{{getOrderStatusText(order)}}</label>        
-
-      <h3>Observaciones Generales, Descripción y Cantidad de Mercancia Recibida</h3>
+    <div [hidden]="!dataLoaded">
+        <ss-multiselect-dropdown [options]="areaOptions" [settings]="myAreaSettings"  (ngModelChange)="onChangeAreaStatus($event,order)" [(ngModel)]="order.currentArea" [texts]="multiConfigArea" ></ss-multiselect-dropdown>   
+        <ss-multiselect-dropdown [options]="colorOptions" [settings]="mySettings"  (ngModelChange)="onChangeOrderStatus($event,order)" [(ngModel)]="order.currentStatus"  [texts]="multiConfig" ></ss-multiselect-dropdown>
+ 
     </div>
+    <h3>Observaciones Generales, Descripción y Cantidad de Mercancia Recibida</h3>
+
     <textarea class="c-container-descripcion" [(ngModel)]="order.notes">
  
 

@@ -158,6 +158,7 @@ exports.update = function (req, res) {
       order.orderAreaHistory = req.body.orderAreaHistory;
       order.tecnicaBordados = req.body.tecnicaBordados,
       order.statusText = req.body.statusText,
+      order.areaText = req.body.areaText,
       order.total = _order.total,
       order.folio = _order.folio,
       order.status = req.body.status,
