@@ -70,7 +70,7 @@ export class TecnicaSerigrafiaComponent  {
  public serigrafiaSizes: Array <SerigrafiaSize>;
  public serigrafiaBordesaPrice: Array <SerigrafiaPrecioBordesa>;
  public serigrafiaClientePrice: Array <SerigrafiaPrecioCliente>;
- public appConfig: Array<AppConfig>;
+ public appConfig: AppConfig;
 
 
 /**
@@ -151,6 +151,7 @@ export class TecnicaSerigrafiaComponent  {
        );
      });
  }
+ //bug
  setPresecado(){
    if(this.serigrafia.wPresecado ){
       this.serigrafia.price = this.serigrafia.price + this.appConfig.presecado + this.appConfig.revelado;
@@ -165,8 +166,10 @@ export class TecnicaSerigrafiaComponent  {
    }
    
  }
+ //bug
  getSerigrafiaValue()
  {
+
    
    if(this.serigrafia.quantity > 0 && this.serigrafia.tintas > 0 )
    {
@@ -200,6 +203,7 @@ export class TecnicaSerigrafiaComponent  {
     //  }
    }
  } 
+
  reloadTecnicas(){
    this.tecnica = new Tecnica();
    this._tecnicaService.getTecnicas().subscribe(
