@@ -136,6 +136,8 @@ export class CotizadorComponent implements OnInit {
   public hidebordado=true;
   public hideserigrafia=true;
   public hidesublimado = true;
+  public firsTimeStatus = true;
+  public firsTimeArea = true;
 
   multiConfig: IMultiSelectTexts = {
     checkAll: 'Seleccionar todos',
@@ -216,6 +218,10 @@ export class CotizadorComponent implements OnInit {
     this.hideModalcliente = true;
   }
   onChangeOrderStatus(event:Event,order:Order){
+    if(this.firsTimeStatus == true){
+      this.firsTimeStatus = false;
+      return;
+    }
     var d = new Date();
     var hora = d.getHours();    
     var minutos = d.getMinutes();
@@ -232,27 +238,61 @@ export class CotizadorComponent implements OnInit {
     else{
       this.user = new User();
     }
-    if(order.currentArea && order.currentArea[0]){
-    console.log(order.currentArea)
-    
+    if(order.currentStatus.length > 0){
+     
     //var tmpOrder = this.order;
-    var nombreArea= this.areas.find(function(v,i){
-      return order.currentArea[0] == v._id}).nombre
+    var nombreStatus= this.colorOptions.find(function(v,i){
+      return order.currentStatus[0] == v.id}).name;
     
-  
-    order.area =+ order.currentArea[0];
     var fecha = (date +" "+ hour+":"+minutes+":"+seconds+ " Usuario "+ this.user.username).toString();
-    var history = (nombreArea + " "+ fecha);
+    var history = (nombreStatus + " "+ fecha);
      order.orderHistory.push(history);
     console.log(order.orderHistory)
-    }
-    if(order.currentStatus && order.currentStatus[0]){
-      debugger
+         
     console.log(order.currentStatus)
     order.status = +order.currentStatus[0];
     
-}
+    }
     
+  }
+
+
+  onChangeAreaStatus(event:Event,order:Order){
+    if(this.firsTimeArea == true){
+      this.firsTimeArea = false;
+      return;
+    }
+    if(order.currentArea.length > 0){
+    console.log(order.currentArea)
+    
+    //var tmpOrder = this.order;
+    
+    var nombreArea= this.areas.find(function(v,i){return order.currentArea[0] == v._id}).nombre
+   var d = new Date();
+    var hora = d.getHours();    
+    var minutos = d.getMinutes();
+    var segundos = d.getSeconds();
+    var date = d.toDateString();
+    var hour = hora.toString();
+    var minutes = minutos.toString();
+    var seconds = segundos.toString();
+
+    var user = window.localStorage.getItem("user");
+    if(user){
+      this.user = JSON.parse(user);
+    }
+    else{
+      this.user = new User();
+    }
+    var fecha = (date +" "+ hour+":"+minutes+":"+seconds+ " Usuario "+ this.user.username).toString();
+    var history = (nombreArea + " "+ fecha);
+     order.orderAreaHistory.push(history);
+  
+    order.area =+ order.currentArea[0];
+    console.log(order.orderAreaHistory)
+         
+    console.log(order.currentArea)
+    }
   }
   getOrderStatusText(order:Order){
        
@@ -577,10 +617,10 @@ export class CotizadorComponent implements OnInit {
     
     var tmpOrder = this.order;
     
-    this.order.areaText = this.areas.find(function(v,i){ return v._id == tmpOrder.area}).nombre;
+    //this.order.areaText = this.areas.find(function(v,i){ return v._id == tmpOrder.area}).nombre;
     
 
-   this.order.statusText = this.colorOptions.find(function(v,i){ return v.id == tmpOrder.status}).name;
+   //this.order.statusText = this.colorOptions.find(function(v,i){ return v.id == tmpOrder.status}).name;
     this.order.esCotizacion = esCotizacion;
     this.order.client = this.clienteSelected;
     this.order.seller = this.sellerSelected;

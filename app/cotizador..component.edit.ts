@@ -238,7 +238,7 @@ public dataLoaded = false;
     //var tmpOrder = this.order;
     var nombreStatus= this.colorOptions.find(function(v,i){
       return order.currentStatus[0] == v.id}).name;
-    
+    debugger
     var fecha = (date +" "+ hour+":"+minutes+":"+seconds+ " Usuario "+ this.user.username).toString();
     var history = (nombreStatus + " "+ fecha);
      order.orderHistory.push(history);
