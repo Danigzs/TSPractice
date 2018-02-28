@@ -250,10 +250,38 @@
 
 
     <!--detalles de la cotizacion -->
-    <div [hidden]="!dataLoaded">
-        <ss-multiselect-dropdown [options]="areaOptions" [settings]="myAreaSettings"  (ngModelChange)="onChangeAreaStatus($event,order)" [(ngModel)]="order.currentArea" [texts]="multiConfigArea" ></ss-multiselect-dropdown>   
+    <div [hidden]="!dataLoaded" style="display:flex">
+        <div style="width:40%;margin-left:5%;margin-right:5%;">
+        <label>
+            Status
+          </label>
         <ss-multiselect-dropdown [options]="colorOptions" [settings]="mySettings"  (ngModelChange)="onChangeOrderStatus($event,order)" [(ngModel)]="order.currentStatus"  [texts]="multiConfig" ></ss-multiselect-dropdown>
- 
+        </div>
+        <div style="width:40%;margin-left:5%;margin-right:5%;"> 
+        <label>
+            Área
+          </label>
+        <ss-multiselect-dropdown [options]="areaOptions" [settings]="myAreaSettings"  (ngModelChange)="onChangeAreaStatus($event,order)" [(ngModel)]="order.currentArea" [texts]="multiConfigArea" ></ss-multiselect-dropdown>   
+      </div>
+    </div>
+
+    <div style="display:flex">
+      <div style="width:40%;margin-left:5%;margin-right:5%;">
+        <h3>Historial de Status</h3>
+        <div class="c-container-descripcion" style="overflow-y: auto;">
+          <p *ngFor="let hist of order.orderHistory">
+            {{hist}}
+          </p>
+        </div>
+      </div>
+      <div style="width:40%;margin-left:5%;margin-right:5%;">
+        <h3>Historial de Área</h3>
+        <div class="c-container-descripcion" style="overflow-y: auto;">
+          <p *ngFor="let hist of order.orderAreaHistory">
+            {{hist}}
+          </p>
+        </div>
+      </div>
     </div>
     <h3>Observaciones Generales, Descripción y Cantidad de Mercancia Recibida</h3>
 
