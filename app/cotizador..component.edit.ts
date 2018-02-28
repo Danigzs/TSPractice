@@ -211,6 +211,18 @@ public dataLoaded = false;
     this.hideModalcliente = true;
   }
 
+  getDateTime(){
+    var d = new Date();
+    var hora = d.getHours();    
+    var minutos = d.getMinutes();
+    var segundos = d.getSeconds();
+    var date = d.toDateString();
+    var hour = hora.toString();
+    var minutes = minutos.toString();
+    var seconds = segundos.toString();
+    var fecha = (date +" "+ hour+":"+minutes+":"+seconds).toString();
+    return  fecha;
+  }
 
   onChangeOrderStatus(event:Event,order:Order){
     if(this.firsTimeStatus == true){
@@ -601,15 +613,21 @@ public dataLoaded = false;
     }
     else {
       this.order.isPaid = 0;
+
     }
     
+
+    
+
     var tmpOrder = this.order;
 
     this.order.areaText = this.areas.find(function(v,i){ return v._id == tmpOrder.area}).nombre;
     
 
    this.order.statusText = this.colorOptions.find(function(v,i){ return v.id == tmpOrder.status}).name;
-    
+   if(tmpOrder.status == 2){
+     this.order.paymentDate = this.getDateTime();
+   }
 
     this._orderService.updateOrder(this.order).subscribe(
       data => {

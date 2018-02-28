@@ -121,6 +121,7 @@ exports.add = function (req, res) {
       esCotizacion:req.body.esCotizacion,
       shippingWay: req.body.shippingWay,
       shippingDate: req.body.shippingDate,
+      paymentDate: req.body.paymentDate,
       createdAt: new Date()
 
     });
@@ -149,26 +150,27 @@ exports.update = function (req, res) {
  
 
 
-    order.client = _order.client,
-      order.seller = _order.seller,
-      order.products = _order.products,
-      order.maquilas = _order.maquilas,
-      order.graficos = req.body.graficos,
+    order.client = _order.client;
+      order.seller = _order.seller;
+      order.products = _order.products;
+      order.maquilas = _order.maquilas;
+      order.graficos = req.body.graficos;
       order.orderHistory = req.body.orderHistory;
       order.orderAreaHistory = req.body.orderAreaHistory;
-      order.tecnicaBordados = req.body.tecnicaBordados,
-      order.statusText = req.body.statusText,
-      order.areaText = req.body.areaText,
-      order.total = _order.total,
-      order.folio = _order.folio,
-      order.status = req.body.status,
-      order.area = req.body.area,
-      order.subTotal =req.body.subTotal, 
-      order.notes = _order.notes,
-      order.advance = _order.advance,
-      order.debt = _order.debt,
-      order.shippingWay = _order.shippingWay,
-      order.shippingDate = _order.shippingDate
+      order.tecnicaBordados = req.body.tecnicaBordados;
+      order.statusText = req.body.statusText;
+      order.areaText = req.body.areaText;
+      order.total = _order.total;
+      order.folio = _order.folio;
+      order.status = req.body.status;
+      order.area = req.body.area;
+      order.subTotal =req.body.subTotal;
+      order.notes = _order.notes;
+      order.advance = _order.advance;
+      order.debt = _order.debt;
+      order.shippingWay = _order.shippingWay;
+      order.shippingDate = _order.shippingDate;
+      order.paymentDate = _order.paymentDate;
     order.save(function (err) {
       if (err) return res.send(500, err.message);
       res.status(200).json({

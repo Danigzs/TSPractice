@@ -60,6 +60,7 @@
             <th>Status</th>
             <th>Área</th>
             <th>Días de pago</th>
+            <th>Fecha pagada</th>
             <th>Tipo</th>
             <th style="text-align:right">Acciones</th>
 
@@ -90,6 +91,7 @@
                     </ss-multiselect-dropdown>
                   -->
           <td>{{order.paymentDays}}</td>
+          <td>{{order.paymentDate}}</td>
           <td>{{getOrderType(order)}}</td>
           <td style="float:right"><button type="button" class="btn btn-primary btn-md" (click)="setEditMode(true,order)">Editar</button>
           

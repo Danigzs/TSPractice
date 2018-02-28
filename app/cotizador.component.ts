@@ -611,7 +611,19 @@ export class CotizadorComponent implements OnInit {
     });
   }
 
- 
+  getDateTime(){
+    var d = new Date();
+    var hora = d.getHours();    
+    var minutos = d.getMinutes();
+    var segundos = d.getSeconds();
+    var date = d.toDateString();
+    var hour = hora.toString();
+    var minutes = minutos.toString();
+    var seconds = segundos.toString();
+    var fecha = (date +" "+ hour+":"+minutes+":"+seconds).toString();
+    return  fecha;
+  }
+
 
   CreateOrder(esCotizacion:number) {
     
@@ -632,6 +644,10 @@ export class CotizadorComponent implements OnInit {
     else {
       this.order.isPaid = 0;
        
+    }
+
+    if(tmpOrder.status == 2){
+      this.order.paymentDate = this.getDateTime();
     }
    /* if(esCotizacion){
       this.order.status = 1;
