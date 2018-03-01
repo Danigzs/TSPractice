@@ -632,7 +632,8 @@ export class CotizadorComponent implements OnInit {
     //this.order.areaText = this.areas.find(function(v,i){ return v._id == tmpOrder.area}).nombre;
     
 
-   //this.order.statusText = this.colorOptions.find(function(v,i){ return v.id == tmpOrder.status}).name;
+    this.order.statusText = this.colorOptions.find(function(v,i){ return v.id == tmpOrder.status}).name;
+
     this.order.esCotizacion = esCotizacion;
     this.order.client = this.clienteSelected;
     this.order.seller = this.sellerSelected;
