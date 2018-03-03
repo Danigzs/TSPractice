@@ -7,11 +7,11 @@
   <div class="c-div-container">
  <ul class="nav nav-tabs">
          
-        <li><a [ngClass]="{'tab-selected': showBordado,'tab-no-selected':!showBordado}"  style="cursor:pointer"  (click)="showBordado=true;showSerigrafia=false;showSublimado=false;showTransfer=false;showVinil=false">Bordados</a></li>
-        <li><a [ngClass]="{'tab-selected': showSerigrafia,'tab-no-selected':!showSerigrafia}"  style="cursor:pointer" (click)="showBordado=false;showSerigrafia=true;showSublimado=false;showTransfer=false;showVinil=false">Serigrafia</a></li>
-        <li><a [ngClass]="{'tab-selected': showSublimado,'tab-no-selected':!showSublimado}"  style="cursor:pointer"  (click)="showBordado=false;showSerigrafia=false;showSublimado=true;showTransfer=false;showVinil=false">Sublimado</a></li>
-        <li><a [ngClass]="{'tab-selected': showTransfer,'tab-no-selected':!showTransfer}"  style="cursor:pointer"  (click)="showBordado=false;showSerigrafia=false;showSublimado=false;showTransfer=true;showVinil=false;">Transfer</a></li>
-        <li><a [ngClass]="{'tab-selected': showTransfer,'tab-no-selected':!showVinil}" style="cursor:pointer" (click)="showBordado=false;showSerigrafia=false;showSublimado=false;showTransfer=false;showVinil=true;">Vinil</a></li>
+        <li><a [ngClass]="{'tab-selected': showBordado,'tab-no-selected':!showBordado}"  style="cursor:pointer"  (click)="showBordado=true;showSerigrafia=false;showSublimado=false;showTransfer=false;showVinil=false;showappConfig=false;">Bordados</a></li>
+        <li><a [ngClass]="{'tab-selected': showSerigrafia,'tab-no-selected':!showSerigrafia}"  style="cursor:pointer" (click)="showBordado=false;showSerigrafia=true;showSublimado=false;showTransfer=false;showVinil=false;showappConfig=false;">Serigrafia</a></li>
+        <li><a [ngClass]="{'tab-selected': showSublimado,'tab-no-selected':!showSublimado}"  style="cursor:pointer"  (click)="showBordado=false;showSerigrafia=false;showSublimado=true;showTransfer=false;showVinil=false;showappConfig=false;">Sublimado</a></li>
+        <li><a [ngClass]="{'tab-selected': showTransfer,'tab-no-selected':!showTransfer}"  style="cursor:pointer"  (click)="showBordado=false;showSerigrafia=false;showSublimado=false;showTransfer=true;showVinil=false;showappConfig=false;">Transfer</a></li>
+        <li><a [ngClass]="{'tab-selected': showTransfer,'tab-no-selected':!showVinil}" style="cursor:pointer" (click)="showBordado=false;showSerigrafia=false;showSublimado=false;showTransfer=false;showVinil=true;showappConfig=false;">Vinil</a></li>
         <li><a [ngClass]="{'tab-selected': showSize,'tab-no-selected':!showappConfig}"  style="cursor:pointer"  (click)="showBordado=false;showSerigrafia=false;showSublimado=false;showTransfer=false;showVinil=false;showappConfig=true;">Precios generales</a></li>
         
         
