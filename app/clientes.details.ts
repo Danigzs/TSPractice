@@ -11,6 +11,7 @@ import {
 import {ClienteService} from './cliente/cliente.service';
 import {Cliente} from './cliente/cliente';
 import {ClientsListComponent} from './cliente/clientsList.component';
+import {AddClientComponent} from './cliente/addClient.component';
 import { Observable } from 'rxjs/Observable';
 
 
@@ -22,19 +23,30 @@ import { Observable } from 'rxjs/Observable';
        
 })
 export class ClientesComponent implements OnInit {
+  @ViewChild("addclient") addClientComponent:AddClientComponent;
   @Input() showClients:Boolean;
   @Output() closeClientAdded = new EventEmitter();
   
   public show = true;
   public clientes:Array<Cliente> = [];
   public cliente:Cliente;
-  
+  public isEdit:boolean;
+
   constructor(private  _clienteService: ClienteService) {
       this.OnClientAdded = this.OnClientAdded.bind(this);
+      this.SetOnEditMode = this.SetOnEditMode.bind(this);
+      // this.OnEditMode = this.OnEditMode.bind(this);
   }
 
+
+  // OnEditMode(edit:boolean,client:Cliente){
+  //   this.isEdit = edit;
+  // }
   OnClientAdded(){
     this.reloadClients();
+  }
+  SetOnEditMode(edit:boolean,client:Cliente){
+    this.addClientComponent.OnEditModeParent(edit,client);
   }
   ngOnInit() {
    this.cliente = new Cliente();
