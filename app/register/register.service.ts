@@ -25,10 +25,22 @@ export class RegisterService {
 
 
   private url = 'http://localhost:8000/api/login'; // URL to web API
+  private urlUsers = 'http://localhost:8000/api/users'; // URL to web API
   private urlRegister = 'http://localhost:8000/api/register'; // URL to web API
   constructor(private http: Http) {}
 
+  getUsers(): Observable < Array<User> > {
+    return this.http.get(this.urlUsers)
+      .map(this.extractUsersData)
+      .catch(this.handleError);
+  }
+  
+  private extractUsersData(res: Response) {
 
+    let data = res.json();
+
+    return data.users || {};
+  }
   register(user: User): Observable < User > {
     let headers = new Headers({
       'Content-Type': 'application/json'

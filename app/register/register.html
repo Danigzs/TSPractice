@@ -138,12 +138,12 @@
             <th></th>
           </tr>
         </thead>
-        <tr class='clickable-row' *ngFor="let user of user; let i = index">
+        <tr class='clickable-row' *ngFor="let user of users;">
           <td>{{user.name}}</td>
           <td>{{user.email}}</td>
           <td>{{user.username}}</td>
           <td>{{user.password}}</td>
-          
+          <td>{{user.role.name}}</td>
         
           
         </tr>

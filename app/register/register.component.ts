@@ -28,7 +28,10 @@ import {
 })
 export class RegisterComponent implements OnInit {
   roles: Array < Role > ;
+  public users:Array<User>;
+  
   user: User = new User;
+   
   roleSelected = new Role;
   constructor(private _rolesService: RoleService, private _registerService:RegisterService) {
 
@@ -37,7 +40,11 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    
+    this._registerService.getUsers().subscribe(
+      data =>{
+        this.users = data;
+      }
+    )
     this._rolesService.getRoles().subscribe(
         data => {
             this.roles = data;
