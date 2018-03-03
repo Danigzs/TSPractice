@@ -222,38 +222,35 @@ export class CotizadorComponent implements OnInit {
       this.firsTimeStatus = false;
       return;
     }
-    var d = new Date();
-    var hora = d.getHours();    
-    var minutos = d.getMinutes();
-    var segundos = d.getSeconds();
-    var date = d.toDateString();
-    var hour = hora.toString();
-    var minutes = minutos.toString();
-    var seconds = segundos.toString();
+    // var d = new Date();
+    // var hora = d.getHours();    
+    // var minutos = d.getMinutes();
+    // var segundos = d.getSeconds();
+    // var date = d.toDateString();
+    // var hour = hora.toString();
+    // var minutes = minutos.toString();
+    // var seconds = segundos.toString();
 
     var user = window.localStorage.getItem("user");
     if(user){
       this.user = JSON.parse(user);
-    }
-    else{
-      this.user = new User();
-    }
+    
     if(order.currentStatus.length > 0){
      
     //var tmpOrder = this.order;
     var nombreStatus= this.colorOptions.find(function(v,i){
       return order.currentStatus[0] == v.id}).name;
     
-    var fecha = (date +" "+ hour+":"+minutes+":"+seconds+ " Usuario "+ this.user.username).toString();
-    var history = (nombreStatus + " "+ fecha);
-     order.orderHistory.push(history);
-    console.log(order.orderHistory)
+    // var fecha = (date +" "+ hour+":"+minutes+":"+seconds+ " Usuario "+ this.user.username).toString();
+    // var history = (nombreStatus + " "+ fecha);
+    //  order.orderHistory.push(history);
+    // console.log(order.orderHistory)
          
     console.log(order.currentStatus)
     order.status = +order.currentStatus[0];
     
     }
-    
+    } 
   }
 
 
@@ -268,25 +265,22 @@ export class CotizadorComponent implements OnInit {
     //var tmpOrder = this.order;
     
     var nombreArea= this.areas.find(function(v,i){return order.currentArea[0] == v._id}).nombre
-   var d = new Date();
-    var hora = d.getHours();    
-    var minutos = d.getMinutes();
-    var segundos = d.getSeconds();
-    var date = d.toDateString();
-    var hour = hora.toString();
-    var minutes = minutos.toString();
-    var seconds = segundos.toString();
+  //  var d = new Date();
+  //   var hora = d.getHours();    
+  //   var minutos = d.getMinutes();
+  //   var segundos = d.getSeconds();
+  //   var date = d.toDateString();
+  //   var hour = hora.toString();
+  //   var minutes = minutos.toString();
+  //   var seconds = segundos.toString();
 
     var user = window.localStorage.getItem("user");
     if(user){
       this.user = JSON.parse(user);
-    }
-    else{
-      this.user = new User();
-    }
-    var fecha = (date +" "+ hour+":"+minutes+":"+seconds+ " Usuario "+ this.user.username).toString();
-    var history = (nombreArea + " "+ fecha);
-     order.orderAreaHistory.push(history);
+    } 
+    // var fecha = (date +" "+ hour+":"+minutes+":"+seconds+ " Usuario "+ this.user.username).toString();
+    // var history = (nombreArea + " "+ fecha);
+    //  order.orderAreaHistory.push(history);
   
     order.area =+ order.currentArea[0];
     console.log(order.orderAreaHistory)
@@ -647,9 +641,31 @@ export class CotizadorComponent implements OnInit {
        
     }
 
+    var dateTime = this.getDateTime()
+
     if(tmpOrder.status == 2){
-      this.order.paymentDate = this.getDateTime();
+      this.order.paymentDate = dateTime;
     }
+    
+      var nombreArea= this.areas.find(function(v,i){return tmpOrder.area == v._id}).nombre
+      var user = window.localStorage.getItem("user");
+      if(user){
+        this.user = JSON.parse(user);
+       
+      var fecha = (dateTime + " Usuario "+ this.user.username).toString();
+      tmpOrder.orderAreaHistory.push((nombreArea + " "+ fecha));
+
+      var nombreStatus= this.colorOptions.find(function(v,i){
+        return tmpOrder.status == v.id}).name;
+      
+      tmpOrder.orderHistory.push((nombreStatus + " "+ fecha));
+
+      }
+
+
+
+      
+
    /* if(esCotizacion){
       this.order.status = 1;
     }else {
