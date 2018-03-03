@@ -52,6 +52,7 @@ import { IMultiSelectOption,IMultiSelectTexts ,IMultiSelectSettings} from 'angul
 
 import {ChangeDetectorRef} from '@angular/core'
 import { debug } from 'util';
+import { tmpdir } from 'os';
 
 
 
@@ -620,9 +621,16 @@ export class CotizadorComponent implements OnInit {
 
 
   CreateOrder(esCotizacion:number) {
-    
     var tmpOrder = this.order;
     
+    if(!tmpOrder.status)    {
+      alert("Seleccione un status");
+      return;
+    }
+    if(!tmpOrder.area)    {
+      alert("Seleccione una área");
+      return;
+    }
     //this.order.areaText = this.areas.find(function(v,i){ return v._id == tmpOrder.area}).nombre;
     
 
@@ -696,13 +704,7 @@ export class CotizadorComponent implements OnInit {
   ngOnInit() {
     this.order = new Order;
 
-    this.colorOptions = [
-      { id: 0, name: 'Pendiente de Pago'},
-      { id: 1, name: 'En proceso'},
-      { id: 2, name: 'Pagada' },
-      { id: 3, name: 'Entregada'},
-      { id: 4, name: 'Cancelada'}];
-     
+   
      /* this.onChangeOrderStatus.bind(this);
       this._orderService.getOrders().subscribe(
         data=>{
@@ -733,6 +735,16 @@ export class CotizadorComponent implements OnInit {
       this.order.maquilas = [];
       this.order.tecnicaBordados = [];
       this.order.currentArea= [+this.areas[0]._id];
+
+      this.colorOptions = [
+        { id: 0, name: 'Pendiente de Pago'},
+        { id: 1, name: 'En proceso'},
+        { id: 2, name: 'Pagada' },
+        { id: 3, name: 'Entregada'},
+        { id: 4, name: 'Cancelada'}];
+     
+        
+        
       this.order.currentStatus= [+this.colorOptions[0].id];
 
       this.setShippingDate();

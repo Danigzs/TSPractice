@@ -50,7 +50,7 @@ export class Order {
     this.shippingDate = new Date;
     this.subTotal = 0;
     this.statusText = "";
-    this.status = -1;
+    //this.status = -1;
     this.esCotizacion = 0;
     this.orderHistory=[];
     this.orderAreaHistory=[];
