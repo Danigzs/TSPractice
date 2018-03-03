@@ -23,7 +23,7 @@
         </thead>
         <tr class='clickable-row' *ngFor="let order of orders; let i = index">
           <td>{{order.client.name}}</td>
-          <td>{{order.seller.name}}</td>
+          <td>{{(order.user)?order.user.name:""}}</td>
           <td>{{order.folio}}</td>
           <!-- <td>{{order.shippingWay}}</td> -->
           <td>{{order.shippingDate |date}}</td>

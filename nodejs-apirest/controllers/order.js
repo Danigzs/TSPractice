@@ -101,6 +101,7 @@ exports.add = function (req, res) {
     var order = new Order({
       client: req.body.client,
       seller: req.body.seller,
+      user: req.body.user,
       products: req.body.products,
       maquilas: req.body.maquilas,
       graficos: req.body.graficos,
@@ -152,6 +153,7 @@ exports.update = function (req, res) {
 
     order.client = _order.client;
       order.seller = _order.seller;
+      order.user = _order.user;
       order.products = _order.products;
       order.maquilas = _order.maquilas;
       order.graficos = req.body.graficos;

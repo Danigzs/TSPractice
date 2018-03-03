@@ -63,7 +63,7 @@ import { UserService } from './security/user.service';
 
 @Component({
   selector: 'cotizador-edit',
-  providers: [AreaService,CotizadorService, ClienteService, ProductoService, TecnicaService, SellerService, OrderService],
+  providers: [AreaService,CotizadorService, ClienteService, ProductoService, TecnicaService, SellerService, OrderService,UserService],
   styleUrls: ["app/cotizador.css", "app/styles/table.css"],
   templateUrl: "app/cotizador.edit.html"
 
@@ -74,6 +74,7 @@ export class CotizadorEditComponent implements OnInit {
   public cotizaciones: Array < any > ;
   public clientes: Array < Cliente > ;
   public sellers: Array < Seller > ;
+  public users: Array < User > ;
   public order: Order;
   public productos: Array < ProductCotizacion > ;
   public tecnica: Array <Tecnica>;
@@ -118,6 +119,7 @@ public dataLoaded = false;
   clienteSelected = new Cliente;
   tecnicaSelected = new Tecnica;
   sellerSelected = new Seller;
+  userSelected = new User;
   
 
   /**
@@ -300,7 +302,7 @@ public dataLoaded = false;
     console.warn(this.productoSelected);
   }
   updateSeller(event: Event) {
-    console.warn(this.sellerSelected);
+    console.warn(this.userSelected);
   }
 
 
@@ -537,7 +539,7 @@ public dataLoaded = false;
         this._clienteService.getClients(),
         this._productoService.getProducts(),
         this._tecnicaService.getTecnicas(),
-        this._sellerService.getSellers(),
+        this._userService.getSellerUsers(),
         this._areasService.getAreas()
 
       ).subscribe(
@@ -546,7 +548,7 @@ public dataLoaded = false;
           this.clientes = results[0];
           this.productos = this.getProductsCotizacionFromProducts(results[1]);
           this.tecnicas = this.getTecnicasCotizacionFromTecnicas(results[2]);
-          this.sellers = results[3];
+          this.users = results[3];
           this.areas = results[4]
           console.log(this.areas);
           
@@ -562,7 +564,8 @@ public dataLoaded = false;
   CreateOrder() {
   
     this.order.client = this.clienteSelected;
-    this.order.seller = this.sellerSelected;
+    // this.order.seller = this.sellerSelected;
+    this.order.user  = this.userSelected;
     this.order.debt = this.order.total -  this.order.advance;
     if(this.order.debt == 0){
       this.order.isPaid = 1;
@@ -633,13 +636,19 @@ getOrderById(orderId:Number){
           this.productoSelected = this.productos[0];
         }
   
-        if (this.sellers.length > 0)
+        if (this.users.length > 0)
         {
           //this.sellerSelected = this.sellers[0];
-          for(var i = 0 ; i < this.sellers.length; i++){
-            if(this.sellers[i]._id == this.order.seller._id){
-              this.sellerSelected = this.sellers[i];
+          for(var i = 0 ; i < this.users.length; i++){
+            if(this.order.user){
+              if(this.user[i]._id == this.order.user._id){
+                this.userSelected = this.users[i];
+              }
             }
+            else {
+                this.userSelected = this.users[0];
+            }
+            
           }
           for(var i = 0 ; i < this.clientes.length; i++){
             if(this.clientes[i]._id == this.order.client._id){

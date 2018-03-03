@@ -193,7 +193,7 @@
           </div>
           <div class="c-container-info-column-item-container">
             <div class="c-container-info-column-item-container info">
-              Zona
+              <!-- Zona -->
             </div>
           </div>
           <div class="c-container-info-column-item-container">
@@ -212,9 +212,9 @@
         <div class="c-container-info-column data">
           <div class="c-container-info-column-item-container">
             <div class="c-container-info-column-item-container info">
-              <select class="form-control" name="sel" [(ngModel)]="sellerSelected" (ngModelChange)="updateSeller($event)">
-                    <option *ngFor="let seller of sellers" [ngValue]="seller">
-                        {{seller.name}}
+              <select class="form-control" name="sel" [(ngModel)]="userSelected" (ngModelChange)="updateSeller($event)">
+                    <option *ngFor="let user of users" [ngValue]="user">
+                        {{user.name}}
                     </option>
                 </select>
 
@@ -225,7 +225,7 @@
             <div class="c-container-info-column-item-container info">
               <div class="example-full-width">
                 <span class="c-label-info">
-              {{sellerSelected.store}}
+              <!-- {{userSelected.store}} -->
             </span>
               </div>
             </div>

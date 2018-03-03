@@ -4,7 +4,7 @@ import {
 
 export class User {
 
-  id: number;
+  _id: number;
   name: String;
   username: String;
   password: String;
@@ -19,7 +19,7 @@ export class User {
     this.role = new Role;
   }
   setUser(id: number, name: string, username: string, password: string, email: string, role: Role) {
-    this.id = id;
+    this._id = id;
     this.name = name;
     this.username = username;
     this.password = password;

@@ -159,6 +159,10 @@ api.route('/roles/:id')
 api.route('/users')
   .get(UserCtrl.findAll)
 
+  
+api.route('/sellerUsers')
+  .get(UserCtrl.sellerUsers)
+
 api.route('/users/:id')
   .get(UserCtrl.findById)
 

@@ -14,6 +14,17 @@ exports.findAll = function (req, res) {
   });
 };
 
+exports.sellerUsers = function (req, res) {
+  User.find(function (err, users) {
+    if (err) res.send(500, err.message);
+    console.log('GET /user')
+    res.json({
+      users: users.filter(function(v,i){v.password = "*****"; return v.role.name.toLocaleLowerCase() == "vendedor";})
+    });
+
+  });
+   
+}; 
 //GET - Return a register with specified ID
 exports.findById = function (req, res) {
   User.findById(req.params.id, function (err, user) {

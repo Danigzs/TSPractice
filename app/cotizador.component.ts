@@ -63,7 +63,7 @@ import { UserService } from './security/user.service';
 
 @Component({
   selector: 'cotizador',
-  providers: [AreaService, CotizadorService, ClienteService, ProductoService, TecnicaService, SellerService, OrderService],
+  providers: [AreaService, CotizadorService, ClienteService, ProductoService, TecnicaService, SellerService, OrderService,UserService],
   styleUrls: ["app/cotizador.css", "app/styles/table.css"],
   templateUrl: "app/cotizador.html"
 
@@ -74,6 +74,7 @@ export class CotizadorComponent implements OnInit {
   public cotizaciones: Array < any > ;
   public clientes: Array < Cliente > ;
   public sellers: Array < Seller > ;
+  public users: Array < User> ;
   public order: Order;
   public productos: Array < ProductCotizacion > ;
   public tecnica: Array <Tecnica>;
@@ -119,7 +120,7 @@ export class CotizadorComponent implements OnInit {
   productoSelected = new Producto;
   clienteSelected = new Cliente;
   tecnicaSelected = new Tecnica;
-  sellerSelected = new Seller;
+  userSelected = new User;
   areaselected = new Array<Area>();
 
   /**
@@ -183,7 +184,7 @@ export class CotizadorComponent implements OnInit {
     private _productoService: ProductoService, 
     private _tecnicaService: TecnicaService, 
     private changeDetectorRef: ChangeDetectorRef, 
-    private _sellerService: SellerService, 
+    
     private _orderService: OrderService,
     private _areasService:AreaService,
     private _userService:UserService
@@ -351,7 +352,7 @@ export class CotizadorComponent implements OnInit {
     console.warn(this.productoSelected);
   }
   updateSeller(event: Event) {
-    console.warn(this.sellerSelected);
+    console.warn(this.userSelected);
   }
 
   
@@ -587,7 +588,8 @@ export class CotizadorComponent implements OnInit {
         this._clienteService.getClients(),
         this._productoService.getProducts(),
         this._tecnicaService.getTecnicas(),
-        this._sellerService.getSellers(),
+        // this._sellerService.getSellers(),
+        this._userService.getSellerUsers(),
         this._areasService.getAreas()
 
       ).subscribe(
@@ -596,7 +598,8 @@ export class CotizadorComponent implements OnInit {
           this.clientes = results[0];
           this.productos = this.getProductsCotizacionFromProducts(results[1]);
           this.tecnicas = this.getTecnicasCotizacionFromTecnicas(results[2]);
-          this.sellers = results[3];
+          // this.sellers = results[3];
+          this.users = results[3];
           this.areas = results[4]
           console.log(this.areas);
           
@@ -641,7 +644,7 @@ export class CotizadorComponent implements OnInit {
 
     this.order.esCotizacion = esCotizacion;
     this.order.client = this.clienteSelected;
-    this.order.seller = this.sellerSelected;
+    this.order.user = this.userSelected;
     this.order.debt = this.order.total -  this.order.advance;
     if(this.order.debt == 0){
       this.order.isPaid = 1;
@@ -728,8 +731,8 @@ export class CotizadorComponent implements OnInit {
       if (this.productos.length > 0)
         this.productoSelected = this.productos[0];
 
-      if (this.sellers.length > 0)
-        this.sellerSelected = this.sellers[0];
+      if (this.users.length > 0)
+        this.userSelected = this.users[0];
       this.cotizacion.tecnica = this.tecnicaSelected;
       this.cotizacion.cliente = this.clienteSelected;
       this.productos = this.productos;
