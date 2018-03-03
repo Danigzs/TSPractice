@@ -22,6 +22,8 @@ import {Cliente} from './cliente';
 export class ClientsListComponent  implements OnInit{
    @Input() clientes: Array < Cliente > ;
    @Input() SetOnEditMode:Function;
+   @Input() OnDeleteClient:Function;
+    
    cliente:Cliente;
    public isEditing:Boolean;
 
@@ -66,9 +68,10 @@ export class ClientsListComponent  implements OnInit{
   }
   delete(client:Cliente, index:number){
     this._clientService.delete(client).subscribe(
-     /* data => {
-        this.reloadTecnicas();
-      }*/
+      
+      data => {
+        this.OnDeleteClient();
+      }
     );
     
   }

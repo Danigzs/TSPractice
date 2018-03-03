@@ -27,6 +27,8 @@ export class ClientesComponent implements OnInit {
   @Input() showClients:Boolean;
   @Output() closeClientAdded = new EventEmitter();
   
+   
+
   public show = true;
   public clientes:Array<Cliente> = [];
   public cliente:Cliente;
@@ -34,6 +36,7 @@ export class ClientesComponent implements OnInit {
 
   constructor(private  _clienteService: ClienteService) {
       this.OnClientAdded = this.OnClientAdded.bind(this);
+      this.OnDeleteClient = this.OnDeleteClient.bind(this);
       this.SetOnEditMode = this.SetOnEditMode.bind(this);
       // this.OnEditMode = this.OnEditMode.bind(this);
   }
@@ -45,6 +48,10 @@ export class ClientesComponent implements OnInit {
   OnClientAdded(){
     this.reloadClients();
   }
+  OnDeleteClient(){
+    this.reloadClients();
+  }
+  
   SetOnEditMode(edit:boolean,client:Cliente){
     this.addClientComponent.OnEditModeParent(edit,client);
   }
