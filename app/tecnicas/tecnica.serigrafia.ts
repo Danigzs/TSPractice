@@ -161,7 +161,8 @@ export class TecnicaSerigrafiaComponent  {
    else {
      if(this.presecadoAdded)
       {
-     // this.serigrafia.price = this.serigrafia.price - this.appConfig.presecado - this.appConfig.revelado;
+        
+     this.serigrafia.price = this.serigrafia.price - this.appConfig.presecado - this.appConfig.revelado;
       this.presecadoAdded = false;
         this.getSerigrafiaValue();
       }
@@ -184,7 +185,7 @@ export class TecnicaSerigrafiaComponent  {
              this.setPresecado();
            }
            else {
-             this.serigrafia.price = 0;
+             //this.serigrafia.price = 0;
              
 
            }
