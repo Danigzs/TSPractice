@@ -2,7 +2,8 @@
 import { Component, OnInit, ElementRef} from '@angular/core';
 import { DashboardService } from "./dashboard/dashboard.service";
 import { Order } from "./orders/order";
-
+import { Route } from '@angular/router/src/config';
+import { NavigationExtras,Routes,RouterModule, Router} from '@angular/router';
 @Component({
   selector: 'dashboard',
   providers: [DashboardService],
@@ -13,7 +14,7 @@ export class HomeComponent implements OnInit {
   public orders:Array<Order>;
 
 
-  constructor(private _dashboardService:DashboardService){
+  constructor(private _dashboardService:DashboardService, private router:Router ){
 
   }
   ngOnInit() {
@@ -28,4 +29,9 @@ export class HomeComponent implements OnInit {
     //Add 'implements OnInit' to the class.
     
   }
+
+
+setEditMode(orden:Order){
+    this.router.navigate(['/cotizador-edit',{id:orden._id}]);
+}
 }

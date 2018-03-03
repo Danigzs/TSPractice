@@ -17,7 +17,7 @@
             <th>Anticipo</th>
             <th>Resto</th>
             <th>Total</th>
-            <!-- <th>Status</th> -->
+            <th>Editar</th>
             
           </tr>
         </thead>
@@ -30,7 +30,7 @@
           <td>{{order.advance | currency:'USD':true}}</td>
           <td>{{order.debt | currency:'USD':true}}</td>
           <td>{{order.total | currency:'USD':true}}</td>
-          <!-- <td>Status</td> -->
+          <td style="float:right"><button type="button" class="btn btn-primary btn-md" (click)="setEditMode(order)">Editar</button>
         </tr>
 
       </table>
