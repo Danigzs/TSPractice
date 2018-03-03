@@ -4,6 +4,7 @@ import {
   ElementRef,
   ViewChild,
   Input,
+  Output,
   ViewContainerRef
 } from '@angular/core';
 import {ClienteService} from './cliente.service';
@@ -20,6 +21,9 @@ import {Cliente} from './cliente';
 
 export class ClientsListComponent  implements OnInit{
    @Input() clientes: Array < Cliente > ;
+   @Input() SetOnEditMode:Function;
+   @Input() OnDeleteClient:Function;
+    
    cliente:Cliente;
    public isEditing:Boolean;
 
@@ -29,19 +33,23 @@ export class ClientsListComponent  implements OnInit{
 
   ngOnInit() {
    //this.clientes = this._clienteService.getClientes();
-   
+    
   }
-  setEditMode(edit:boolean,bordado:Cliente){
+  setEditMode(edit:boolean,client:Cliente){
     this.isEditing = edit;
+    if(!this.cliente){
+      this.cliente = new Cliente();
+    }
     if(edit){
-      this.cliente._id = bordado._id;
-      this.cliente.code = bordado.code;
-      this.cliente.name = bordado.name;
-      this.cliente.businessName = bordado.businessName;
-      this.cliente.address = bordado.address;
-      this.cliente.state = bordado.state;
-      this.cliente.town = bordado.town;
-      this.cliente.district = bordado.district;
+      
+      this.cliente._id = client._id;
+      this.cliente.code = client.code;
+      this.cliente.name = client.name;
+      this.cliente.businessName = client.businessName;
+      this.cliente.address = client.address;
+      this.cliente.state = client.state;
+      this.cliente.town = client.town;
+      this.cliente.district = client.district;
 
     }
     else {
@@ -55,12 +63,15 @@ export class ClientsListComponent  implements OnInit{
       this.cliente.district = "";
     
     }
+    this.SetOnEditMode(edit,client);
+     
   }
   delete(client:Cliente, index:number){
     this._clientService.delete(client).subscribe(
-     /* data => {
-        this.reloadTecnicas();
-      }*/
+      
+      data => {
+        this.OnDeleteClient();
+      }
     );
     
   }

@@ -112,6 +112,8 @@
   </div>
   
   <div class="c-add-product-container">
-    <button  type="button" class="btn btn-primary btn-md" (click)="addClient()">Agregar Cliente</button>
+    <button  *ngIf="isEditing == false" type="button" class="btn btn-primary btn-md" (click)="addClient()">Agregar Cliente</button>
+    <button  *ngIf="isEditing == true" type="button" class="btn btn-primary btn-md" (click)="saveEdit(cliente)">Guardar cambios</button>
+    <button  *ngIf="isEditing == true" type="button" class="btn btn-primary btn-md" (click)="cancelEdit()">Cancelar</button>
   </div>
 </div>

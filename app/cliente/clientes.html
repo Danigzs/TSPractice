@@ -4,8 +4,8 @@
     <h1>Clientes</h1>
   </div>
   <div class="c-div-container">
-     <add-client [OnClientAdded]="OnClientAdded"></add-client>
+     <add-client #addclient [OnClientAdded]="OnClientAdded"  ></add-client>
 
-  <clients-list [clientes]="clientes" *ngIf="show" ></clients-list>
+  <clients-list [clientes]="clientes" *ngIf="show" [SetOnEditMode]="SetOnEditMode" [OnDeleteClient] = "OnDeleteClient"></clients-list>
 </div>
 </div>
