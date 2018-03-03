@@ -66,7 +66,7 @@
             <th>Precio 13-50</th>
             <th>Precio 51-200</th>
             <th>Precio mayor 200</th>
-            <th style="text-align:right">Acciones</th>
+            <th style="text-align:right" *ngIf="isUserAdmin == true" >Acciones</th>
 
 
           </tr>
@@ -84,7 +84,7 @@
           <td>{{ ((product.price + product.price * .21) + (product.price + product.price * .21)  * .16)| currency:'USD':true}}</td>
           <td>{{((product.price + product.price * .17) + (product.price + product.price * .17)  * .16) | currency:'USD':true}}</td>
           <td>{{ ((product.price + product.price * .13) + (product.price + product.price * .13)  * .16) | currency:'USD':true}}</td>
-          <td style="float:right"><button type="button" class="btn btn-primary btn-md" (click)="delete(product,i)">Borrar</button></td>
+          <td style="float:right" *ngIf="isUserAdmin == true"><button type="button" class="btn btn-primary btn-md" (click)="delete(product,i)">Borrar</button></td>
 
         </tr>
 
@@ -104,7 +104,7 @@
             <!--<th>Es Proveedor</th>
             <th>Es Bordesa</th>-->
             <th>Precio Unitaro</th>
-            <th style="text-align:right">Acciones</th>
+            <th style="text-align:right" *ngIf="isUserAdmin == true" >Acciones</th>
 
 
           </tr>
@@ -118,7 +118,7 @@
           <!--<td>{{product.isProvider}}</td>
           <td>{{product.isBordesa}}</td>-->
           <td>{{product.price | currency:'USD':true}}</td>
-          <td style="float:right"><button type="button" class="btn btn-primary btn-md" (click)="delete(product,i)">Borrar</button></td>
+          <td style="float:right" *ngIf="isUserAdmin == true"><button type="button" class="btn btn-primary btn-md" (click)="delete(product,i)">Borrar</button></td>
         </tr>
       </table>
     </div>

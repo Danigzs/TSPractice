@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 import {ClienteService} from './cliente.service';
 import {Cliente} from './cliente';
+import { UserService } from '../security/user.service';
 
 
 
@@ -26,14 +27,15 @@ export class ClientsListComponent  implements OnInit{
     
    cliente:Cliente;
    public isEditing:Boolean;
-
+  isUserAdmin:Boolean;
    
-  constructor(private  _clientService: ClienteService) {
+  constructor(private  _clientService: ClienteService, private _userService:UserService) {
   }
 
   ngOnInit() {
    //this.clientes = this._clienteService.getClientes();
-    
+   this.isUserAdmin = this._userService.isUserAdmin();
+
   }
   setEditMode(edit:boolean,client:Cliente){
     this.isEditing = edit;

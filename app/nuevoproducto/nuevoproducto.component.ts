@@ -2,10 +2,11 @@ import {Component,OnInit,ElementRef,ViewChild,ViewContainerRef} from '@angular/c
 
 import {Producto} from './../producto/producto';
 import {ProductoService} from './../producto/producto.service';
+import { UserService } from '../security/user.service';
 
 @Component({
   selector: 'nuevoproducto',
-    styleUrls: ["app/nuevoproducto/nuevoproducto.css"],
+    styleUrls: ["app/nuevoproducto/nuevoproducto.css", "app/styles/table.css"],
   templateUrl: "app/nuevoproducto/nuevoproducto.html"
        
 })
@@ -14,10 +15,10 @@ export class NuevoProductoComponent  implements OnInit{
  public clienteSelected = {};
  
  public producto:Producto;
- 
+ isUserAdmin:Boolean;
 
 
-constructor (private _productService:ProductoService){}
+constructor (private _productService:ProductoService, private _userService:UserService){}
 updatePrice(){
       this.producto.pCantidadDD = this.producto.price + this.producto.price * .25      
       this.producto.pCantidadTC = this.producto.price + this.producto.price * .21      
@@ -60,6 +61,7 @@ ngOnInit() {
   this.producto.isProvider = 1;
   this.producto.isBordesa = 0;
   this.producto.stock = 1;
+  this.isUserAdmin = this._userService.isUserAdmin();
 }
 
 onProviderChange(){

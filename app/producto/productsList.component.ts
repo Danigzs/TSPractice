@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import {ProductoService} from './producto.service';
 import {Producto} from './producto';
+import {UserService} from './../security/user.service'
 
 
 
@@ -22,11 +23,14 @@ export class ProductsListComponent  implements OnInit{
   products: Array < Producto > = [] ;
   providerProducts: Array < Producto > = [] ;
   bordesaProducts: Array < Producto > = [] ;
-  constructor(private  _productService: ProductoService) {
+  isUserAdmin:Boolean
+  constructor(private  _productService: ProductoService,private  _userService:UserService) {
 
   }
 
   ngOnInit() {
+    this.isUserAdmin = false;
+    this.isUserAdmin = this._userService.isUserAdmin();
    this._productService.getProducts().subscribe(
      data => 
      {

@@ -20,6 +20,14 @@ import {
 @Injectable()
 export class RoleService {
 
+  isUserAdmin():Boolean{
+    var user = localStorage.getItem("user");
+    user = JSON.parse(user);
+    if( user.role._id != 1 ){
+        return false;
+    }
+    return true;
+  }
 
   private url = 'http://localhost:8000/api/roles'; // URL to web API
 

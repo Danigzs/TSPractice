@@ -53,6 +53,7 @@ import {User} from "./register/user"
 import {ChangeDetectorRef} from '@angular/core'
 import { debug } from 'util';
 import { read } from 'fs';
+import { UserService } from './security/user.service';
 
 
 
@@ -82,7 +83,7 @@ export class CotizadorEditComponent implements OnInit {
   colorOptions: any[];
 
   
-
+  isUserAdmin:Boolean;
 
 
 
@@ -187,7 +188,7 @@ public dataLoaded = false;
     private _orderService: OrderService,
     private route: ActivatedRoute,
     private _areasService:AreaService
-
+    private _userService:UserService
     ) {
 
     this.closeMaquilas = this.closeMaquilas.bind(this);
@@ -678,7 +679,7 @@ getOrderById(orderId:Number){
 }
 
   ngOnInit() {
-
+    this.isUserAdmin = this._userService.isUserAdmin();
     this.order = new Order;
     this.areaOptions = [
       

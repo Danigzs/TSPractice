@@ -11,6 +11,7 @@ import {
 import {ClienteService} from './cliente.service';
 import {Cliente} from './cliente';
 import { Observable } from 'rxjs/Observable';
+import { UserService } from '../security/user.service';
 
 
 
@@ -27,9 +28,9 @@ export class AddClientComponent  implements OnInit{
   
   public cliente:Cliente;
   public isEditing:Boolean;
-
+  isUserAdmin:Boolean;
   
-  constructor(private  _clientService: ClienteService) {
+  constructor(private  _clientService: ClienteService, private _userService:UserService) {
     this.OnEditMode = this.OnEditMode.bind(this);
     this.OnEditModeParent = this.OnEditModeParent.bind(this);
     
@@ -48,6 +49,8 @@ export class AddClientComponent  implements OnInit{
   ngOnInit() {
       this.cliente = new Cliente();
       this.isEditing = false;
+
+      this.isUserAdmin = this._userService.isUserAdmin();
   }
 
 

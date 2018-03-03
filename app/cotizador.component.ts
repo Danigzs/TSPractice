@@ -53,6 +53,7 @@ import { IMultiSelectOption,IMultiSelectTexts ,IMultiSelectSettings} from 'angul
 import {ChangeDetectorRef} from '@angular/core'
 import { debug } from 'util';
 import { tmpdir } from 'os';
+import { UserService } from './security/user.service';
 
 
 
@@ -82,7 +83,7 @@ export class CotizadorComponent implements OnInit {
   colorOptions: any[];
   orders:Array<Order>
 
-  
+  isUserAdmin:Boolean;
   
 
 
@@ -109,6 +110,7 @@ export class CotizadorComponent implements OnInit {
   public fecha: String="";
 
   public context = this
+  
   componentName: 'CotizadorComponent';
 
   cotizacion = new Cotizacion();
@@ -183,7 +185,8 @@ export class CotizadorComponent implements OnInit {
     private changeDetectorRef: ChangeDetectorRef, 
     private _sellerService: SellerService, 
     private _orderService: OrderService,
-    private _areasService:AreaService
+    private _areasService:AreaService,
+    private _userService:UserService
     ) {
 
     this.closeMaquilas = this.closeMaquilas.bind(this);
@@ -703,8 +706,8 @@ export class CotizadorComponent implements OnInit {
    
   ngOnInit() {
     this.order = new Order;
+    this.isUserAdmin = this._userService.isUserAdmin();
 
-   
      /* this.onChangeOrderStatus.bind(this);
       this._orderService.getOrders().subscribe(
         data=>{

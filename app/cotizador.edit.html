@@ -31,7 +31,7 @@
 
     </div>
     <div class="c-cliente-seccion">
-      <button type="button" class="btn btn-primary btn-md" (click)="ClienteModal()">Agregar Cliente</button>
+      <button type="button" *ngIf="isUserAdmin == true"  class="btn btn-primary btn-md" (click)="ClienteModal()">Agregar Cliente</button>
       <!-- <label>Cliente</label>
       <div class="c-cliente-nuevo">
         <label> Nuevo</label>

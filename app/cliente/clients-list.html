@@ -12,7 +12,7 @@
             <th>Estado</th>
             <th>País</th>
             <th>Razón Social</th>
-            <th style="text-align:right">Acciones</th>
+            <th style="text-align:right" *ngIf="isUserAdmin == true">Acciones</th>
 
           </tr>
         </thead>
@@ -25,8 +25,8 @@
           <td>{{cliente.state}}</td>
           <td>{{cliente.country}}</td>
           <td>{{cliente.businessName}}</td>
-          <td style="float:right"><button type="button" class="btn btn-primary btn-md" (click)="setEditMode(true,cliente)">Editar</button>
-            <button type="button" class="btn btn-primary btn-md" (click)="delete(cliente,i)">Borrar</button></td>
+          <td style="float:right" *ngIf="isUserAdmin == true" ><button type="button" class="btn btn-primary btn-md" (click)="setEditMode(true,cliente)">Editar</button>
+            <button type="button"  *ngIf="isUserAdmin == true" class="btn btn-primary btn-md" (click)="delete(cliente,i)">Borrar</button></td>
 
         </tr>
 
