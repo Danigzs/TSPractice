@@ -12,12 +12,12 @@
             <th>Cliente</th>
             <th>Vendedor</th>
             <th>Folio</th>
-            <th>Numero de factura</th>
+            <!-- <th>Numero de factura</th> -->
             <th>Fecha</th>
             <th>Anticipo</th>
             <th>Resto</th>
             <th>Total</th>
-            <th>Status</th>
+            <!-- <th>Status</th> -->
             
           </tr>
         </thead>
@@ -25,12 +25,12 @@
           <td>{{order.client.name}}</td>
           <td>{{order.seller.name}}</td>
           <td>{{order.folio}}</td>
-          <td>{{order.shippingWay}}</td>
+          <!-- <td>{{order.shippingWay}}</td> -->
           <td>{{order.shippingDate |date}}</td>
           <td>{{order.advance | currency:'USD':true}}</td>
           <td>{{order.debt | currency:'USD':true}}</td>
           <td>{{order.total | currency:'USD':true}}</td>
-          <td>Status</td>
+          <!-- <td>Status</td> -->
         </tr>
 
       </table>
