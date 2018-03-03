@@ -631,7 +631,7 @@ export class CotizadorComponent implements OnInit {
       alert("Seleccione una área");
       return;
     }
-    //this.order.areaText = this.areas.find(function(v,i){ return v._id == tmpOrder.area}).nombre;
+    this.order.areaText = this.areas.find(function(v,i){ return v._id == tmpOrder.area}).nombre;
     
 
     this.order.statusText = this.colorOptions.find(function(v,i){ return v.id == tmpOrder.status}).name;
@@ -744,7 +744,7 @@ export class CotizadorComponent implements OnInit {
         { id: 4, name: 'Cancelada'}];
      
         
-        
+
       this.order.currentStatus= [+this.colorOptions[0].id];
 
       this.setShippingDate();
