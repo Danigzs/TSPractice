@@ -617,12 +617,13 @@ export class CotizadorComponent implements OnInit {
     var hora = d.getHours();    
     var minutos = d.getMinutes();
     var segundos = d.getSeconds();
-    var date = d.toDateString();
+    var date = d.toLocaleString();
     var hour = hora.toString();
     var minutes = minutos.toString();
     var seconds = segundos.toString();
     var fecha = (date +" "+ hour+":"+minutes+":"+seconds).toString();
     return  fecha;
+    // return d.toLocaleString("es-MX");
   }
 
 
