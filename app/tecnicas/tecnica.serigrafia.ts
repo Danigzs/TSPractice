@@ -210,6 +210,9 @@ export class TecnicaSerigrafiaComponent  {
    }
  } 
 
+ getSerigrafiaCalc(){
+  return this.serigrafia.price+((this.serigrafiaInkTypeSelected.costo +  this.serigrafiaSizeSelected.costo)*this.serigrafia.quantity);
+ }
  reloadTecnicas(){
    this.tecnica = new Tecnica();
    this._tecnicaService.getTecnicas().subscribe(
