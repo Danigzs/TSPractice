@@ -434,7 +434,7 @@ public dataLoaded = false;
 
   }
   getTodayDate() {
-    return new Date().toLocaleDateString();
+    return this.getDateTime();
   }
   //Modal
   verProductos() {

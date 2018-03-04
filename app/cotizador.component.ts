@@ -483,7 +483,7 @@ export class CotizadorComponent implements OnInit {
 
   }
   getTodayDate() {
-    return new Date().toLocaleDateString();
+    return this.getDateTime();
   }
   //Modal
   verProductos() {
@@ -630,11 +630,11 @@ export class CotizadorComponent implements OnInit {
   CreateOrder(esCotizacion:number) {
     var tmpOrder = this.order;
     
-    if(!tmpOrder.status)    {
+    if(!(tmpOrder.status >=0))    {
       alert("Seleccione un status");
       return;
     }
-    if(!tmpOrder.area)    {
+    if(!(tmpOrder.area >=0))    {
       alert("Seleccione una área");
       return;
     }

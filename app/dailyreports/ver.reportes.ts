@@ -22,6 +22,18 @@ export class VerReportesComponent  {
       currentDate = this.getTodayDate();
 
 getTodayDate() {
-    return new Date().toLocaleDateString();
+    return this.getDateTime();
+  }
+  getDateTime(){
+    var d = new Date();
+    var hora = d.getHours();    
+    var minutos = d.getMinutes();
+    var segundos = d.getSeconds();
+    var date = d.toLocaleString();
+    var hour = hora.toString();
+    var minutes = minutos.toString();
+    var seconds = segundos.toString();
+    var fecha = (date +" "+ hour+":"+minutes+":"+seconds).toString();
+    return  fecha;
   }
 }
