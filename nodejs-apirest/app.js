@@ -151,10 +151,12 @@ api.route('/provideers/:id')
 //Roles Routes
 api.route('/roles')
   .get(RoleCtrl.findAll)
-
+  .post(RoleCtrl.add);
+  
 api.route('/roles/:id')
   .get(RoleCtrl.findById)
-
+  .delete(RoleCtrl.delete);
+  
 //User Routes
 api.route('/users')
   .get(UserCtrl.findAll)

@@ -19,7 +19,7 @@ exports.sellerUsers = function (req, res) {
     if (err) res.send(500, err.message);
     console.log('GET /user')
     res.json({
-      users: users.filter(function(v,i){v.password = "*****"; if(!v.role) return false; return v.role.name.toLocaleLowerCase() == "vendedor";})
+      users: users.filter(function(v,i){v.password = "*****"; if(!v.role && !v.role.name) return false; return v.role.name == "vendedor";})
     });
 
   });

@@ -18,8 +18,8 @@ export class AuthGuard implements CanActivate {
                 return true;
             }
             if( user.role._id != 1 ){
-                this.router.navigate(['/denied']);
-                return false;
+                //this.router.navigate(['/denied']);
+                //return false;
             }
             return true;
         }
