@@ -52,6 +52,7 @@
             <th>Cliente</th>
             <th>Fecha</th>
             <th>Fecha estimada de Entrega</th>
+            <th>Fecha de entrega</th>
             <th>Sub Total</th>
             <th>Total</th>
             <th>Anticipo</th>
@@ -71,6 +72,8 @@
           <td>{{order.folio}}</td>          
           <td>{{order.client.name}}</td>
           <td>{{order.createdAt |date}}</td>
+          <td></td>
+          <td></td>
           <td>{{order.shippingDate |date}}</td>
           <td>{{order.total - order.total*.16 | currency:'USD':true}}</td>
           <td>{{order.total | currency:'USD':true}}</td>
