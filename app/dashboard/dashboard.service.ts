@@ -12,18 +12,34 @@ import {
 import {
   Observable
 } from 'rxjs/Observable';
+import {
+  URLSearchParams
+} from '@angular/http';
+
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import {
   Order
 } from './../orders/order';
+import { User } from '../register/user';
 @Injectable()
 export class DashboardService {
   orders: Array < Order > ;
   private url = 'http://localhost:8000/api/home'; // URL to web API
   constructor(private http: Http) {}
 
-  getOrders(): Observable < Array < Order >> {
+  getOrders(user:User): Observable < Array < Order >> {
+
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+      let options = new RequestOptions();
+     options.headers = headers;
+     options.search = new URLSearchParams();
+     options.search.append('userid', user._id.toString());
+    
+    
+     return this.http.get(this.url+"/"+user._id.toString() ,options)
+                     .map(this.extractData)
+                     .catch(this.handleError);
 
     return this.http.get(this.url)
       .map(this.extractData)

@@ -10,6 +10,8 @@ import { NavigationExtras,Routes,RouterModule, Router} from '@angular/router';
 import { Stream } from 'stream';
 import { IMultiSelectOption,IMultiSelectTexts ,IMultiSelectSettings} from 'angular-2-dropdown-multiselect';
 import { debug } from 'util';
+import { User } from '../register/user';
+import { UserService } from '../security/user.service';
 
 @Component({
   selector: 'orders',
@@ -20,6 +22,7 @@ import { debug } from 'util';
 export class OrdersComponent implements OnInit {
   public orders:Array<Order>;
   public order: Order;
+  public user: User;
   public clientname:String = "";
   public clientfolio:String = "";
   public isEditing:Boolean;
@@ -48,11 +51,17 @@ mySettings: IMultiSelectSettings = {
   maxHeight: '300px'
 
 };
-  constructor(private _orderService:OrderService, private router:Router ){
+  constructor(private _orderService:OrderService, private router:Router, private _userService:UserService ){
  
   }
   ngOnInit() {
-    
+    var user = window.localStorage.getItem("user");
+    if(user){
+      this.user = JSON.parse(user);
+    }
+    else{
+      this.user = new User();
+    }
     
     this.colorOptions = [
       { id: 2, name: 'Pendiente de Pago'},
@@ -62,6 +71,8 @@ mySettings: IMultiSelectSettings = {
   
     this.getOrderType.bind(this);
     this.onChangeOrderStatus.bind(this);
+
+    if(this._userService.isUserAdmin()){
     this._orderService.getOrders().subscribe(
       data=>{
         this.orders = data;
@@ -70,6 +81,17 @@ mySettings: IMultiSelectSettings = {
         ));
       }
     )
+  }
+  else {
+      this._orderService.getOrdersByUser(this.user).subscribe(
+        data=>{
+          this.orders = data;
+          this.orders.map((order,index) => ( 
+            order.currentStatus = [order.status]
+          ));
+        }
+      )
+    }
   }
   onChangeOrderStatus(event:Event,order:Order){
     console.log(order.currentStatus)

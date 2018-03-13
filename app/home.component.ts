@@ -4,6 +4,7 @@ import { DashboardService } from "./dashboard/dashboard.service";
 import { Order } from "./orders/order";
 import { Route } from '@angular/router/src/config';
 import { NavigationExtras,Routes,RouterModule, Router} from '@angular/router';
+import { User } from './register/user';
 @Component({
   selector: 'dashboard',
   providers: [DashboardService],
@@ -12,14 +13,20 @@ import { NavigationExtras,Routes,RouterModule, Router} from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   public orders:Array<Order>;
-
+  public user:User;
 
   constructor(private _dashboardService:DashboardService, private router:Router ){
 
   }
   ngOnInit() {
-
-    this._dashboardService.getOrders().subscribe(
+    var user = window.localStorage.getItem("user");
+    if(user){
+      this.user = JSON.parse(user);
+    }
+    else{
+      this.user = new User();
+    }
+    this._dashboardService.getOrders(this.user).subscribe(
       data=>{
         this.orders = data;
       }

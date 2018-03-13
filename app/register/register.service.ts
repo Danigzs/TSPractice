@@ -25,7 +25,7 @@ export class RegisterService {
 
 
   private url = 'http://localhost:8000/api/login'; // URL to web API
-  private urlUsers = 'http://localhost:8000/api/users'; // URL to web API
+   private urlUsers = 'http://localhost:8000/api/users'; // URL to web API
   private urlRegister = 'http://localhost:8000/api/register'; // URL to web API
   constructor(private http: Http) {}
 
@@ -52,6 +52,21 @@ export class RegisterService {
       .map(this.extractData)
       .catch(this.handleError);
   }
+
+  removeUser(user: User): Observable < User > {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+ 
+  let options = new RequestOptions();
+ options.headers = headers;
+ options.search = new URLSearchParams();
+ options.search.append('id', user._id.toString());
+
+
+ return this.http.delete(this.urlUsers+"/"+user._id.toString() ,options)
+                 .map(this.extractData)
+                 .catch(this.handleError);
+  }
+
   login(user: User): Observable < User > {
     let headers = new Headers({
       'Content-Type': 'application/json'

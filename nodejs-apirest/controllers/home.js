@@ -2,12 +2,14 @@ var mongoose = require('mongoose');
 var Order = mongoose.model('Order');
 
 exports.getHome = function(req,res){
-    
-    //Obtener ordenes que vayan a vencer en 10 dias
-    Order.find({isPaid:0},function(err,orders){
+    var userId = req.params.id;
+    console.log(req.params);
+
+
+     Order.find({isPaid:0},function(err,orders){
         res.json({
-        orders: orders
-      });
+            orders: orders.filter(function(v,i){ if(!v.user) return false; if(v.user._id == userId) return true; })
+        });
     });
 } 
  

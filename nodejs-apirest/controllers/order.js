@@ -38,11 +38,26 @@ exports.getOrderByFolio = function(req,res){
 }
 //GET - Return all registers
 exports.findAll = function (req, res) {
-
+var userId = req.params.userId;
   var promise = fillOrders();
   promise.then(function (orders) {
     res.json({
       orders: orders
+    });
+  });
+
+};
+
+
+//GET - Return all registers
+exports.findAllByUser = function (req, res) {
+var userId = req.params.id;
+console.log(req.params);
+console.log("Get all orders by user " + userId);
+  var promise = fillOrders();
+  promise.then(function (orders) {
+    res.json({
+      orders: orders.filter(function(v,i){ if(!v.user) return false; if(v.user._id == userId) return true; })
     });
   });
 

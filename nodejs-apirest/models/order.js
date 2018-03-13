@@ -9,6 +9,8 @@ var orderSchema = new Schema({
   },
   seller: {
   },
+  user: {
+  },
   products:[{
   }],
   maquilas:[{

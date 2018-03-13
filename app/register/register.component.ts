@@ -37,14 +37,24 @@ export class RegisterComponent implements OnInit {
 
   }
 
-  ngOnInit() {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
+  deleteRow(user:User){
+    this._registerService.removeUser(user).subscribe(
+      data => {
+        this.getUsers();
+      }
+    )
+  }
+  getUsers(){
     this._registerService.getUsers().subscribe(
       data =>{
         this.users = data;
       }
     )
+  }
+  ngOnInit() {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.getUsers();
     this._rolesService.getRoles().subscribe(
         data => {
             this.roles = data;
@@ -61,6 +71,7 @@ export class RegisterComponent implements OnInit {
     this._registerService.register(this.user).subscribe(
         data=>{
             console.log(data);
+            this.getUsers();
         }
     )
   }

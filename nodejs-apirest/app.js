@@ -160,13 +160,14 @@ api.route('/roles/:id')
 //User Routes
 api.route('/users')
   .get(UserCtrl.findAll)
-
+ 
   
 api.route('/sellerUsers')
   .get(UserCtrl.sellerUsers)
 
 api.route('/users/:id')
   .get(UserCtrl.findById)
+  .delete(UserCtrl.delete);
 
 api.route('/login')
   .post(UserCtrl.login)
@@ -178,7 +179,7 @@ api.route('/register')
 // 
 
 
-api.route('/home')
+api.route('/home/:id')
   .get(HomeCtrl.getHome)
 
 api.route('/orders')
@@ -190,6 +191,9 @@ api.route('/getLastOrder')
 
 api.route('/ordersByFolio/:id')
   .get(OrderCtrl.getOrderByFolio);
+
+  api.route('/ordersbyuser/:id')
+  .get(OrderCtrl.findAllByUser)
 
 api.route('/orders/:id')
   .get(OrderCtrl.findById)

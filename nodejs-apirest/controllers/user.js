@@ -6,20 +6,44 @@ exports.findAll = function (req, res) {
 
   User.find(function (err, users) {
     if (err) res.send(500, err.message);
+
+    console.log(users);
+    var tmpUsers = users.filter(function(v,i){
+      return  (v.isEnabled == undefined)?true:(v.isEnabled == -1)?false:true });
+
     console.log('GET /user')
     res.json({
-      users: users
+      users: tmpUsers
     });
 
   });
 };
 
+//PUT - Update a register already exists
+exports.delete = function (req, res) {
+  console.log("Update User " + req.params.id)
+   User.findById({_id:req.params.id}, function (err, user) {
+    
+    
+    user.isEnabled = -1,
+   
+    user.save(function (err,user) {
+      if (err) return res.send(500).json({user:null});
+     res.status(200).json({
+      user: user
+    });
+    });
+  });
+};
+
+
 exports.sellerUsers = function (req, res) {
   User.find(function (err, users) {
     if (err) res.send(500, err.message);
-    console.log('GET /user')
+    console.log('GET get vendedores');
+    console.log(users);
     res.json({
-      users: users.filter(function(v,i){v.password = "*****"; if(!v.role && !v.role.name) return false; return v.role.name == "vendedor";})
+      users: users.filter(function(v,i){v.password = undefined; if(!v.role && !v.role.name) return false; return v.role.name == "vendedor" || v.role.name == "Vendedor" ;})
     });
 
   });

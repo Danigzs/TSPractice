@@ -9,10 +9,12 @@ import {
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import {  Order} from './order';
+import { User } from '../register/user';
 @Injectable()
 export class OrderService {
   orders: Array < Order > ;
   private url = 'http://localhost:8000/api/orders'; // URL to web API
+  private urlordersbyuser = 'http://localhost:8000/api/ordersbyuser'; // URL to web API
   constructor(private http: Http) {}
 
   getOrders(): Observable < Array < Order >> {
@@ -32,6 +34,21 @@ export class OrderService {
     
     
      return this.http.get(this.url+"/"+orderId.toString() ,options)
+                     .map(this.extractData)
+                     .catch(this.handleError);
+
+     
+  }
+  getOrdersByUser(user:User):Observable<Array<Order>>{
+
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+      let options = new RequestOptions();
+     options.headers = headers;
+     options.search = new URLSearchParams();
+     options.search.append('userid', user._id.toString());
+    
+    
+     return this.http.get(this.urlordersbyuser+"/"+user._id.toString() ,options)
                      .map(this.extractData)
                      .catch(this.handleError);
 

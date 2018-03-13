@@ -21,11 +21,11 @@ import { User } from '../register/user';
   
     isUserAdmin():Boolean{
       var user = localStorage.getItem("user");
-      user = JSON.parse(user);
-      if( user.role._id != 1 ){
-          return false;
+      let tmpUser:User= JSON.parse(user);
+      if( tmpUser.role.name == "Admin" || tmpUser.role.name == "admin" || tmpUser.role.name == "administrador"|| tmpUser.role.name == "Administrador" ){
+          return true;
       }
-      return true;
+      return false;
     }
 
     

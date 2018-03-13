@@ -18,6 +18,10 @@ var userSchema = new Schema({
   },
   role:{
 
+  },
+  isEnabled:{
+      type:Number,
+      default:1
   }
 
 });
