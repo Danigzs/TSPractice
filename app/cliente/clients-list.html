@@ -1,10 +1,60 @@
 <div class="c-div-bgr ">
   <div class="c-div-container">
     <div class="c-grid-products">
+
+      <h3>Filtros</h3>
+    <div class="c-container-info">
+       <div class="c-container-info-column">
+         <div class="c-container-info-column-item-container">
+           <div class="c-container-info-column-item-container info">
+             Nombre
+           </div>
+ 
+         </div>
+         <div class="c-container-info-column-item-container">
+           <div class="c-container-info-column-item-container info">
+             RFC
+           </div>
+         </div>
+         <div class="c-container-info-column-item-container">
+           <div class="c-container-info-column-item-container info">
+             Razón Social
+           </div>
+         </div>
+          
+       </div>
+ 
+       <div class="c-container-info-column data">
+         <div class="c-container-info-column-item-container">
+           <div class="c-container-info-column-item-container info">
+               <input type="text" name="nombre" [(ngModel)]="clientname" (ngModelChange)="onFilterNameChanged()">
+           </div>
+         </div>
+         <div class="c-container-info-column-item-container">
+           <div class="c-container-info-column-item-container info">
+             <div class="example-full-width">
+                 <input type="text" name="folio" [(ngModel)]="clientrfc" (ngModelChange)="onFilterRFCChanged()">
+             </div>
+           </div>
+         </div>
+         <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <div class="example-full-width">
+                  <input type="text" name="folio" [(ngModel)]="clientrazon" (ngModelChange)="onFilterRazonChanged()">
+              </div>
+            </div>
+          </div>
+ 
+       </div>
+ 
+  
+ 
+    </div>
       <table class="table " id="tproductos">
         <thead>
           <tr>
             <th>Nombre</th>
+            <th>Código</th>
             <th>Direccion</th>
             <th>Email</th>
             <th>Teléfono</th>
@@ -19,12 +69,15 @@
         <tr class='clickable-row' *ngFor="let cliente of clientes; let i = index">
           <td>{{cliente.name}}</td>
           <td>{{cliente.code}}</td>
+          <td>{{cliente.address}}</td>
           <td>{{cliente.email}}</td>
           <td>{{cliente.phone}}</td>
           <td>{{cliente.rfc}}</td>
          <!--  <td>{{cliente.state}}</td> -->
          <!--  <td>{{cliente.country}}</td> -->
           <td>{{cliente.businessName}}</td>
+
+          
           <td style="float:right" *ngIf="isUserAdmin == true" ><button type="button" class="btn btn-primary btn-md" (click)="setEditMode(true,cliente)">Editar</button>
             <button type="button"  *ngIf="isUserAdmin == true" class="btn btn-primary btn-md" (click)="delete(cliente,i)">Borrar</button></td>
 

@@ -310,7 +310,7 @@ public dataLoaded = false;
   updateAdvance(event: Event){
     if(this.order.total -  this.order.advance >= 0)
       {
-        this.order.debt = this.order.total -  this.order.advance;
+        this.order.debt  =Math.round((this.order.total -  this.order.advance)*100)/100;
       }
     else{
         this.order.advance = 0;
@@ -418,13 +418,13 @@ public dataLoaded = false;
 
     var _total = 0;
     for (let producto of this.order.products) {
-      _total += this.getProductPrice(producto); //producto.price * producto.quantity;
+      _total += this.getProductPrice(producto) * producto.quantity; //producto.price * producto.quantity;
     }
     for (let grafico of this.order.graficos) {
       _total += grafico.costoTotal * grafico.quantity;
     }
 
-    this.order.total = _total;
+    this.order.total =Math.round((_total)*100)/100; 
   }
 
 
@@ -566,7 +566,7 @@ public dataLoaded = false;
     this.order.client = this.clienteSelected;
     // this.order.seller = this.sellerSelected;
     this.order.user  = this.userSelected;
-    this.order.debt = this.order.total -  this.order.advance;
+    this.order.debt =Math.round(( this.order.total -  this.order.advance)*100)/100;
     if(this.order.debt == 0){
       this.order.isPaid = 1;
     }

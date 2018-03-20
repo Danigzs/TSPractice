@@ -355,11 +355,19 @@ export class CotizadorComponent implements OnInit {
     console.warn(this.userSelected);
   }
 
-  
+  updateAdvanceValues( ){
+    if(this.order.total -  this.order.advance >= 0)
+      {
+        this.order.debt = Math.round((this.order.total -  this.order.advance)*100)/ 100;
+      }
+    else{
+        this.order.advance = 0;
+    }
+  }
   updateAdvance(event: Event){
     if(this.order.total -  this.order.advance >= 0)
       {
-        this.order.debt = this.order.total -  this.order.advance;
+        this.order.debt = Math.round((this.order.total -  this.order.advance)*100)/ 100;
       }
     else{
         this.order.advance = 0;
@@ -367,7 +375,6 @@ export class CotizadorComponent implements OnInit {
   }
 
   OnAddBordadoTecnica(bordado:Bordado){
-    debugger
     this.closeMaquilas()
     // this.order.tecnicaBordados.push(bordado.copyNewTecnica());
     var _bordado = new Bordado();
@@ -467,13 +474,13 @@ export class CotizadorComponent implements OnInit {
 
     var _total = 0;
     for (let producto of this.order.products) {
-      _total += this.getProductPrice(producto); //producto.price * producto.quantity;
+      _total += this.getProductPrice(producto) * producto.quantity; //producto.price * producto.quantity;
     }
     for (let grafico of this.order.graficos) {
       _total += grafico.costoTotal * grafico.quantity;
     }
-
-    this.order.total = _total;
+     this.order.total =  Math.round((_total*100))/100;
+    this.updateAdvanceValues();
   }
 
 
@@ -646,7 +653,7 @@ export class CotizadorComponent implements OnInit {
     this.order.esCotizacion = esCotizacion;
     this.order.client = this.clienteSelected;
     this.order.user = this.userSelected;
-    this.order.debt = this.order.total -  this.order.advance;
+    this.order.debt =  Math.round((this.order.total -  this.order.advance)*100)/100;
     if(this.order.debt == 0){
       this.order.isPaid = 1;
       

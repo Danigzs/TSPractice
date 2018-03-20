@@ -24,7 +24,10 @@ export class ClientsListComponent  implements OnInit{
    @Input() clientes: Array < Cliente > ;
    @Input() SetOnEditMode:Function;
    @Input() OnDeleteClient:Function;
-    
+   clientname:string;
+   clientrfc:string;
+   clientrazon:string;
+   public allClientes:Array<Cliente>;
    cliente:Cliente;
    public isEditing:Boolean;
   isUserAdmin:Boolean;
@@ -33,6 +36,10 @@ export class ClientsListComponent  implements OnInit{
   }
 
   ngOnInit() {
+    setTimeout(() => {
+      this.allClientes = this.clientes;  
+    }, 1000);
+    
    //this.clientes = this._clienteService.getClientes();
    this.isUserAdmin = this._userService.isUserAdmin();
 
@@ -78,4 +85,39 @@ export class ClientsListComponent  implements OnInit{
     
   }
   
+  onFilterNameChanged(){
+    if(this.clientname == "")
+    {
+      this.clientes = this.allClientes;
+    }
+     
+    var name = this.clientname;
+    this.clientes = this.allClientes.filter((client,index) => {
+      return client.name.toLocaleLowerCase().indexOf(name.toLocaleLowerCase()) !== -1 ;
+    });
+  }
+
+  onFilterRFCChanged(){
+    if(this.clientrfc == "")
+    {
+      this.clientes = this.allClientes;
+    }
+     
+    var rfc = this.clientrfc;
+    this.clientes = this.allClientes.filter((client,index) => {
+      return client.rfc.toLocaleLowerCase().indexOf(rfc.toLocaleLowerCase()) !== -1 ;
+    });
+  }
+
+  onFilterRazonChanged(){
+    if(this.clientrazon == "")
+    {
+      this.clientes = this.allClientes;
+    }
+     
+    var razon = this.clientrazon;
+    this.clientes = this.allClientes.filter((client,index) => {
+      return client.businessName.toLocaleLowerCase().indexOf(razon.toLocaleLowerCase()) !== -1 ;
+    });
+  }
 }

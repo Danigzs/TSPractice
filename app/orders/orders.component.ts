@@ -4,7 +4,6 @@ import { Order } from "./order";
 import {
   Observable
 } from 'rxjs/Observable';
-import {CotizadorEditComponent} from "./../cotizador..component.edit"
 import { Route } from '@angular/router/src/config';
 import { NavigationExtras,Routes,RouterModule, Router} from '@angular/router';
 import { Stream } from 'stream';
@@ -12,6 +11,8 @@ import { IMultiSelectOption,IMultiSelectTexts ,IMultiSelectSettings} from 'angul
 import { debug } from 'util';
 import { User } from '../register/user';
 import { UserService } from '../security/user.service';
+import { AreaService } from '../areas/area.service';
+import { Area } from '../areas/area';
 
 @Component({
   selector: 'orders',
@@ -21,17 +22,21 @@ import { UserService } from '../security/user.service';
 })
 export class OrdersComponent implements OnInit {
   public orders:Array<Order>;
+  public allOrders:Array<Order>;
   public order: Order;
-  public user: User;
-  public clientname:String = "";
-  public clientfolio:String = "";
-  public isEditing:Boolean;
 
+  public user: User;
+  public clientname:string = "";
+  public clientfolio:string = "";
+  public isEditing:Boolean;
+  colorOptions: any[];
+  areaOptions: any[];
+  public areas:Array <Area>; 
   public orderStatus:Array<String>;
   statusSelected = new String();
   userDropdownSettings: IMultiSelectSettings;
-
-  colorOptions: any[];
+  selectedStatus:any;
+  selectedArea:any;
   multiConfig: IMultiSelectTexts = {
     checkAll: 'Seleccionar todos',
     uncheckAll: 'Deseleccionar todos',
@@ -51,10 +56,19 @@ mySettings: IMultiSelectSettings = {
   maxHeight: '300px'
 
 };
-  constructor(private _orderService:OrderService, private router:Router, private _userService:UserService ){
+  constructor(private _orderService:OrderService, private router:Router, private _userService:UserService,private _areasService:AreaService ){
  
   }
   ngOnInit() {
+    this.colorOptions = [
+      { id: 0, name: 'Pendiente de Pago'},
+      { id: 1, name: 'En proceso'},
+      { id: 2, name: 'Pagada' },
+      { id: 3, name: 'Entregada'},
+      { id: 4, name: 'Cancelada'}];
+   
+      
+
     var user = window.localStorage.getItem("user");
     if(user){
       this.user = JSON.parse(user);
@@ -62,12 +76,17 @@ mySettings: IMultiSelectSettings = {
     else{
       this.user = new User();
     }
-    
-    this.colorOptions = [
-      { id: 2, name: 'Pendiente de Pago'},
-      { id: 3, name: 'Pagada' },
-      { id: 4, name: 'Entregada'},
-      { id: 5, name: 'Cancelada'}];
+     
+
+    this._areasService.getAreas().subscribe(
+      data=>{
+        this.areas = data;
+        this.selectedArea = this.areas[0];
+        this.selectedStatus = this.colorOptions[0];
+
+      }
+    )
+
   
     this.getOrderType.bind(this);
     this.onChangeOrderStatus.bind(this);
@@ -75,6 +94,8 @@ mySettings: IMultiSelectSettings = {
     if(this._userService.isUserAdmin()){
     this._orderService.getOrders().subscribe(
       data=>{
+        this.allOrders = data;
+
         this.orders = data;
         this.orders.map((order,index) => ( 
           order.currentStatus = [order.status]
@@ -85,6 +106,7 @@ mySettings: IMultiSelectSettings = {
   else {
       this._orderService.getOrdersByUser(this.user).subscribe(
         data=>{
+          this.allOrders = data;
           this.orders = data;
           this.orders.map((order,index) => ( 
             order.currentStatus = [order.status]
@@ -101,6 +123,37 @@ mySettings: IMultiSelectSettings = {
 
       }
     );
+  }
+  onFilterClientChanged(){
+    if(this.clientname == "")
+    {
+      this.orders = this.allOrders;
+    }
+     
+    var name = this.clientname;
+    this.orders = this.allOrders.filter((order,index) => {
+      return order.client.businessName.toLocaleLowerCase().indexOf(name.toLocaleLowerCase()) !== -1 ;
+    });
+  }
+  onFilterFolioChanged(){
+    if(this.clientfolio == "")
+    {
+      this.orders = this.allOrders;
+    }
+     
+    this.orders = this.allOrders.filter((order,index) => {
+      return order.folio.toString() == this.clientfolio;
+    });
+  }
+  onFilterStatusChanged(){
+    this.orders = this.allOrders.filter((order,index) => {
+      return order.status == this.selectedStatus.id;
+    });
+  }
+  onFilterAreaChanged(){
+    this.orders = this.allOrders.filter((order,index) => {
+      return order.area == this.selectedArea._id;
+    });
   }
   getOrderStatusText(order:Order){
     var statusText= "";

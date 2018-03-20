@@ -17,14 +17,23 @@
             Folio
           </div>
         </div>
-         
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Status
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Área
+          </div>
+        </div>
       </div>
 
       <div class="c-container-info-column data">
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
            
-              <input type="text" name="nombre" [(ngModel)]="clientname">
+              <input type="text" name="nombre" [(ngModel)]="clientname" (ngModelChange)="onFilterClientChanged()">
            
 
           </div>
@@ -32,11 +41,33 @@
         <div class="c-container-info-column-item-container">
           <div class="c-container-info-column-item-container info">
             <div class="example-full-width">
-                <input type="text" name="folio" [(ngModel)]="clientfolio">
+                <input type="text" name="folio" [(ngModel)]="clientfolio" (ngModelChange)="onFilterFolioChanged()">
             </div>
           </div>
         </div>
-         
+
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <select class="form-control" name="sel" [(ngModel)]="selectedStatus" (ngModelChange)="onFilterStatusChanged()">
+                    <option *ngFor="let option of colorOptions" [ngValue]="option">
+                        {{option.name}}
+                    </option>
+                </select>
+
+
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <select class="form-control" name="sel" [(ngModel)]="selectedArea" (ngModelChange)="onFilterAreaChanged()">
+                    <option *ngFor="let area of areas" [ngValue]="area">
+                        {{area.nombre}}
+                    </option>
+                </select>
+
+
+          </div>
+        </div>
 
       </div>
 
