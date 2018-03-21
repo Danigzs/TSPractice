@@ -64,6 +64,9 @@ var orderSchema = new Schema({
   payments:{
     type:Number
   },
+  descuento:{
+    type:Number
+  },
   paymentDate:{
     type:String
   },

@@ -129,6 +129,7 @@ exports.add = function (req, res) {
       notes: req.body.notes,
       isPaid: req.body.isPaid,
       advance: req.body.advance,
+      descuento:req.body.descuento,
       debt: req.body.debt,
       status: req.body.status,
       area: req.body.area,
@@ -183,6 +184,7 @@ exports.update = function (req, res) {
       order.area = req.body.area;
       order.subTotal =req.body.subTotal;
       order.notes = _order.notes;
+      order.descuento = _order.descuento;
       order.advance = _order.advance;
       order.debt = _order.debt;
       order.shippingWay = _order.shippingWay;

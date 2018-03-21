@@ -22,6 +22,7 @@ export class Order {
   folio: number;
   notes:String;
   advance:number;
+  descuento:number;
   debt:number;
   shippingWay:String;
   createdAt:Date;
@@ -48,6 +49,7 @@ export class Order {
     this.folio = 0;
     this.notes = "";
     this.advance = 0;
+    this.descuento = 0;
     this.debt = 0;
     this.shippingWay ="";
     this.shippingDate = new Date;

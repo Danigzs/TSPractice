@@ -211,6 +211,7 @@ export class CotizadorComponent implements OnInit {
         document.body.appendChild(span);
 
     }
+     
   OnClientAdded(){
     alert("Cliente creado");
     this._clienteService.getClients().subscribe(
@@ -480,6 +481,9 @@ export class CotizadorComponent implements OnInit {
       _total += grafico.costoTotal * grafico.quantity;
     }
      this.order.total =  Math.round((_total*100))/100;
+     if(this.order.descuento > 0){
+      this.order.total = this.order.total - (this.order.total * (this.order.descuento/100));
+     }
     this.updateAdvanceValues();
   }
 

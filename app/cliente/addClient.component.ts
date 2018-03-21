@@ -65,7 +65,43 @@ export class AddClientComponent  implements OnInit{
 
   addClient(client:Cliente)
   {
-    this.cliente.vendedor = this.userSelected;
+
+    if(client.name.length == 0){
+      alert("Ingresar nombre");
+      return ;
+    }
+
+    if(client.email.length == 0){
+      alert("Ingresar correo");
+      return ;
+    }
+
+    if(client.phone.length == 0){
+      alert("Ingresar teléfono");
+      return ;
+    }
+
+    if(client.rfc.length == 0){
+      alert("Ingresar RFC");
+      return ;
+    }
+
+    if(client.code.length == 0){
+      alert("Ingresar código ");
+      return ;
+    }
+
+    if(client.address.length == 0){
+      alert("Ingresar dirección ");
+      return ;
+    }
+
+    if(client.businessName.length == 0){
+      alert("Ingresar Razón Social ");
+      return ;
+    }
+
+    client.vendedor = this.userSelected;
      if(this.isEditing){
        this.saveEdit(client);
      }
@@ -85,7 +121,44 @@ export class AddClientComponent  implements OnInit{
   }
 
  saveEdit(client:Cliente){
-    
+
+  if(client.name.length == 0){
+    alert("Ingresar nombre");
+    return ;
+  }
+
+  if(client.email.length == 0){
+    alert("Ingresar correo");
+    return ;
+  }
+
+  if(client.phone.length == 0){
+    alert("Ingresar teléfono");
+    return ;
+  }
+
+  if(client.rfc.length == 0){
+    alert("Ingresar RFC");
+    return ;
+  }
+
+  if(client.code.length == 0){
+    alert("Ingresar código ");
+    return ;
+  }
+
+  if(client.address.length == 0){
+    alert("Ingresar dirección ");
+    return ;
+  }
+
+  if(client.businessName.length == 0){
+    alert("Ingresar Razón Social ");
+    return ;
+  }
+
+  client.vendedor = this.userSelected;
+
   this._clientService.update(this.cliente).subscribe(
     data => {
         this.OnClientAdded();

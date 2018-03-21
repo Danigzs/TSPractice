@@ -206,7 +206,11 @@
               Fecha estimada de entrega
             </div>
           </div>
-
+          <div class="c-container-info-column-item-container">
+              <div class="c-container-info-column-item-container info">
+                % descuento
+              </div>
+            </div>
         </div>
 
         <div class="c-container-info-column data">
@@ -244,7 +248,13 @@
               </div>
             </div>
           </div> 
-
+          <div class="c-container-info-column-item-container">
+              <div class="c-container-info-column-item-container info">
+                <div class="example-full-width">
+                  <input type="number" name="descuento" [(ngModel)]="order.descuento"  (ngModelChange)="onChangeDescuento($event)">
+                </div>
+              </div>
+            </div> 
         </div>
 
 
