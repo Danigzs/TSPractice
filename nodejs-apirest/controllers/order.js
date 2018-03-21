@@ -128,6 +128,7 @@ exports.add = function (req, res) {
       folio: (ord) ? parseInt(ord.folio) + 1 : 1,
       notes: req.body.notes,
       isPaid: req.body.isPaid,
+      usercreador: req.body.usercreador,
       advance: req.body.advance,
       descuento:req.body.descuento,
       debt: req.body.debt,
@@ -172,17 +173,18 @@ exports.update = function (req, res) {
       order.user = _order.user;
       order.products = _order.products;
       order.maquilas = _order.maquilas;
-      order.graficos = req.body.graficos;
-      order.orderHistory = req.body.orderHistory;
-      order.orderAreaHistory = req.body.orderAreaHistory;
-      order.tecnicaBordados = req.body.tecnicaBordados;
-      order.statusText = req.body.statusText;
-      order.areaText = req.body.areaText;
+      order.graficos = _order.graficos;
+      order.orderHistory = _order.orderHistory;
+      order.orderAreaHistory = _order.orderAreaHistory;
+      order.tecnicaBordados = _order.tecnicaBordados;
+      order.statusText = _order.statusText;
+      order.areaText = _order.areaText;
       order.total = _order.total;
       order.folio = _order.folio;
-      order.status = req.body.status;
-      order.area = req.body.area;
-      order.subTotal =req.body.subTotal;
+      order.status = _order.status;
+      order.area = _order.area;
+      order.usercreador =  _order.usercreador,
+      order.subTotal =_order.subTotal;
       order.notes = _order.notes;
       order.descuento = _order.descuento;
       order.advance = _order.advance;

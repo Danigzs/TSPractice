@@ -8,7 +8,7 @@ exports.getHome = function(req,res){
 
      Order.find(function(err,orders){
         res.json({
-            orders: orders.filter(function(v,i){ if(!v.user) return false; if(v.user._id == userId) return true; })
+            orders: orders.filter(function(v,i){ if(!v.usercreador) return false; if(v.usercreador._id == userId) return true; })
         });
     });
 } 

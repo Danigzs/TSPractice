@@ -658,6 +658,14 @@ export class CotizadorComponent implements OnInit {
     this.order.esCotizacion = esCotizacion;
     this.order.client = this.clienteSelected;
     this.order.user = this.userSelected;
+
+     
+    var user = window.localStorage.getItem("user");
+    if(user){
+      this.user = JSON.parse(user);
+    }
+    this.order.usercreador = this.user;
+    this.order.usercreador = this.userSelected;
     this.order.debt =  Math.round((this.order.total -  this.order.advance)*100)/100;
     if(this.order.debt == 0){
       this.order.isPaid = 1;

@@ -578,8 +578,11 @@ public dataLoaded = false;
 
     }
     
-
-    
+    var user = window.localStorage.getItem("user");
+    if(user){
+      this.user = JSON.parse(user);
+    }
+    this.order.usercreador = this.user;
 
     var tmpOrder = this.order;
 

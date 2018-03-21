@@ -43,6 +43,8 @@ var orderSchema = new Schema({
   debt: {
     type: Number
   },
+  usercreador: {
+  },
   shippingWay: {
     type: String
   },

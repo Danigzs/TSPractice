@@ -32,6 +32,7 @@ export class Order {
   status:number;
   statusText:String;
   paymentDays:number;
+  usercreador:User;
   esCotizacion:number;
   orderHistory:Array<String>;
   orderAreaHistory:Array<String>;
@@ -57,6 +58,7 @@ export class Order {
     this.statusText = "";
     //this.status = -1;
     this.esCotizacion = 0;
+    this.usercreador = new User;
     this.orderHistory=[];
     this.orderAreaHistory=[];
     this.paymentDate = "";
