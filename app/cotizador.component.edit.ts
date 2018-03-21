@@ -425,6 +425,9 @@ public dataLoaded = false;
     }
 
     this.order.total =Math.round((_total)*100)/100; 
+    if(this.order.descuento > 0 && this.order.total > 0 ){
+      this.order.total = this.order.total - (this.order.total * (this.order.descuento/100));
+     }
   }
 
 
@@ -641,7 +644,7 @@ getOrderById(orderId:Number){
           //this.sellerSelected = this.sellers[0];
           for(var i = 0 ; i < this.users.length; i++){
             if(this.order.user){
-              if(this.user[i]._id == this.order.user._id){
+              if(this.users[i]._id == this.order.user._id){
                 this.userSelected = this.users[i];
               }
             }

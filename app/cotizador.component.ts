@@ -109,7 +109,7 @@ export class CotizadorComponent implements OnInit {
   public checkexistente: boolean;
   public shippingDate: String = "";
   public fecha: String="";
-
+  public descuentoaplicado = false;
   public context = this
   
   componentName: 'CotizadorComponent';
@@ -481,9 +481,10 @@ export class CotizadorComponent implements OnInit {
       _total += grafico.costoTotal * grafico.quantity;
     }
      this.order.total =  Math.round((_total*100))/100;
-     if(this.order.descuento > 0){
+     if(this.order.descuento > 0 && this.order.total > 0 ){
       this.order.total = this.order.total - (this.order.total * (this.order.descuento/100));
      }
+     
     this.updateAdvanceValues();
   }
 

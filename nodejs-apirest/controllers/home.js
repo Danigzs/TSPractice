@@ -6,7 +6,7 @@ exports.getHome = function(req,res){
     console.log(req.params);
 
 
-     Order.find({isPaid:0},function(err,orders){
+     Order.find(function(err,orders){
         res.json({
             orders: orders.filter(function(v,i){ if(!v.user) return false; if(v.user._id == userId) return true; })
         });
