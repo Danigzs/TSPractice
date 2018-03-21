@@ -8,7 +8,7 @@ import {URLSearchParams} from '@angular/http';
 import { Area } from './area';
 @Injectable()
 export class AreaService {
- private clientsUrl = 'http://localhost:8000/api/area';  // URL to web API
+ private clientsUrl = 'http://146.148.105.98:8000/api/area';  // URL to web API
 
 constructor (private http: Http) {}
 

@@ -8,7 +8,7 @@ import 'rxjs/add/operator/map';
 import { AppConfig } from './appConfig';
 @Injectable()
 export class AppConfigService {
- private appConfigUrl = 'http://localhost:8000/api/appConfig';  // URL to web API
+ private appConfigUrl = 'http://146.148.105.98:8000/api/appConfig';  // URL to web API
 
 constructor (private http: Http) {}
 

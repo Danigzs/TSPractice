@@ -18,7 +18,7 @@ import {URLSearchParams} from '@angular/http';
 export class ProductoService {
     tecnicas:Array<Producto>;
     
-     private url = 'http://localhost:8000/api/products';  // URL to web API
+     private url = 'http://146.148.105.98:8000/api/products';  // URL to web API
 
 constructor (private http: Http) {}
  

@@ -24,9 +24,9 @@ import {
 export class RegisterService {
 
 
-  private url = 'http://localhost:8000/api/login'; // URL to web API
-   private urlUsers = 'http://localhost:8000/api/users'; // URL to web API
-  private urlRegister = 'http://localhost:8000/api/register'; // URL to web API
+  private url = 'http://146.148.105.98:8000/api/login'; // URL to web API
+   private urlUsers = 'http://146.148.105.98:8000/api/users'; // URL to web API
+  private urlRegister = 'http://146.148.105.98:8000/api/register'; // URL to web API
   constructor(private http: Http) {}
 
   getUsers(): Observable < Array<User> > {

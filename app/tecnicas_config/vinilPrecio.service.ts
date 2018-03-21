@@ -11,8 +11,8 @@ import { VinilPrecio } from './vinilPrecio';
 export class VinilPrecioService {
     vinilPrecio:Array<VinilPrecio>;
     
-     private url = 'http://localhost:8000/api/vinilPrecio ';  // URL to web API
-     private vinilPrecioUrl = 'http://localhost:8000/api/findByVinilPrecio'
+     private url = 'http://146.148.105.98:8000/api/vinilPrecio ';  // URL to web API
+     private vinilPrecioUrl = 'http://146.148.105.98:8000/api/findByVinilPrecio'
      
 constructor (private http: Http) {}
  

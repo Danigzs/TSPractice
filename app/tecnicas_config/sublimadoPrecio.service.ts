@@ -10,8 +10,8 @@ import { SublimadoPrecio } from './sublimadoPrecio';
 export class SublimadoPrecioService {
     sublimadoPrecio:Array<SublimadoPrecio>;
     
-     private url = 'http://localhost:8000/api/sublimadoPrecio ';  // URL to web API
-    private sublimadoPrecioUrl = 'http://localhost:8000/api/findBySublimadoPrecio'
+     private url = 'http://146.148.105.98:8000/api/sublimadoPrecio ';  // URL to web API
+    private sublimadoPrecioUrl = 'http://146.148.105.98:8000/api/findBySublimadoPrecio'
 constructor (private http: Http) {}
  
   getTecnicas(): Observable<Array<SublimadoPrecio>> {

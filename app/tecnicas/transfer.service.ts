@@ -9,7 +9,7 @@ import { Transfer } from './transfer';
 export class TransferService {
     transfer:Array<Transfer>;
     
-     private url = 'http://localhost:8000/api/transfer';  // URL to web API
+     private url = 'http://146.148.105.98:8000/api/transfer';  // URL to web API
 
 constructor (private http: Http) {}
  

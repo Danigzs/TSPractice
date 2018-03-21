@@ -13,7 +13,7 @@ import { TransferSize } from './transferSize';
 export class TransferSizeService {
     transferSize:Array<TransferSize>;
     
-     private url = 'http://localhost:8000/api/transferSize';  // URL to web API
+     private url = 'http://146.148.105.98:8000/api/transferSize';  // URL to web API
 
 constructor (private http: Http) {}
  

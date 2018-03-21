@@ -42,6 +42,9 @@ var clientSchema = new Schema({
   },
   code: {
     type: String
+  },
+  vendedor:{
+    
   }
 });
 

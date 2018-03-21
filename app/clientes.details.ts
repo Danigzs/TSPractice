@@ -62,7 +62,7 @@ export class ClientesComponent implements OnInit {
   }
 
   reloadClients(){
-this._clienteService.getClients().subscribe(
+    this._clienteService.getClients().subscribe(
       clients => {
         this.clientes = clients;
         

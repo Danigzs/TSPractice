@@ -25,7 +25,7 @@ import { User } from '../register/user';
 @Injectable()
 export class DashboardService {
   orders: Array < Order > ;
-  private url = 'http://localhost:8000/api/home'; // URL to web API
+  private url = 'http://146.148.105.98:8000/api/home'; // URL to web API
   constructor(private http: Http) {}
 
   getOrders(user:User): Observable < Array < Order >> {

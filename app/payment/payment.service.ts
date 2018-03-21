@@ -26,8 +26,8 @@ import {
 @Injectable()
 export class PaymentService {
   payments: Array < Payment >
-    private url = 'http://localhost:8000/api/payments'; // URL to web API
-  private urlOrderPayments = 'http://localhost:8000/api/getOrderPayments'; // URL to web API
+    private url = 'http://146.148.105.98:8000/api/payments'; // URL to web API
+  private urlOrderPayments = 'http://146.148.105.98:8000/api/getOrderPayments'; // URL to web API
   constructor(private http: Http) {}
 
   getPayments(): Observable < Array < Payment >> {

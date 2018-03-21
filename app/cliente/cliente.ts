@@ -1,3 +1,5 @@
+import { User } from "../register/user";
+
 export class Cliente {
   _id: number;
   name: String;
@@ -13,6 +15,7 @@ export class Cliente {
   attentTo: String;
   rfc: String;
   code: String
+  vendedor:User;
 
   constructor() {
      
@@ -30,6 +33,7 @@ export class Cliente {
     this.attentTo = "";
     this.rfc = "";
     this._id = 0;
+    this.vendedor = new User;
   } 
 
   setCliente( _id:number, code:string,name:string,businessName:string,address:string,state:string,town:string,district:string,country:string,postalCode:string,phone:string,email:string,attentTo:string,rfc:string){

@@ -10,8 +10,8 @@ import { TransferPrecio } from './transferPrecio';
 export class TransferPrecioService {
     transferPrecio:Array<TransferPrecio>;
     
-     private url = 'http://localhost:8000/api/transferPrecio ';  // URL to web API
-     private transferPrecioUrl = 'http://localhost:8000/api/findByTransferPrecio'
+     private url = 'http://146.148.105.98:8000/api/transferPrecio ';  // URL to web API
+     private transferPrecioUrl = 'http://146.148.105.98:8000/api/findByTransferPrecio'
      
 constructor (private http: Http) {}
  

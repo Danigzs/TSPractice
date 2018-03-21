@@ -13,7 +13,7 @@ import { debug } from 'util';
 export class BordadoTipoService {
     bordadotipo:Array<BordadoTipo>;
     
-     private url = 'http://localhost:8000/api/bordadoNombre';  // URL to web API 
+     private url = 'http://146.148.105.98:8000/api/bordadoNombre';  // URL to web API 
 
 constructor (private http: Http) {}
  

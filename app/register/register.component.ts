@@ -67,11 +67,32 @@ export class RegisterComponent implements OnInit {
 
 
   register(){
+
+    if(this.user.email.length == 0){
+      alert("Ingresar correo");
+      return ;
+    }
+    if(this.user.name.length == 0){
+      alert("Ingresar nombre");
+      return ;
+    }
+    if(this.user.username.length == 0){
+      alert("Ingresar Nombre de usuario");
+      return ;
+    }
+    if(this.user.password.length == 0){
+      alert("Ingresar Contraseña");
+      return ;
+    }
+
       this.user.role = this.roleSelected;
     this._registerService.register(this.user).subscribe(
         data=>{
             console.log(data);
-            this.user = new User;
+            this.user.email = "";
+            this.user.name = "";
+            this.user.username = "";
+            this.user.password= "";
             this.getUsers();
         }
     )

@@ -9,7 +9,7 @@ import { Sublimado } from './sublimado';
 export class SublimadoService {
     sublimado:Array<Sublimado>;
     
-     private url = 'http://localhost:8000/api/sublimado';  // URL to web API
+     private url = 'http://146.148.105.98:8000/api/sublimado';  // URL to web API
 
 constructor (private http: Http) {}
  

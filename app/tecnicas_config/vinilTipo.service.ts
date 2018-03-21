@@ -13,7 +13,7 @@ import { debug } from 'util';
 export class VinilTipoService {
     vinilTipo:Array<VinilTipo>;
     
-     private url = 'http://localhost:8000/api/vinilTipo';  // URL to web API
+     private url = 'http://146.148.105.98:8000/api/vinilTipo';  // URL to web API
 
 constructor (private http: Http) {}
  

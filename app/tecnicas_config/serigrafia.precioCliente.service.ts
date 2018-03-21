@@ -10,8 +10,8 @@ import { SerigrafiaPrecioCliente } from './serigrafiaPrecioCliente';
 export class SerigrafiaPrecioClienteService {
   serigrafiapreciocliente:Array<SerigrafiaPrecioCliente>;
 
-  private url = 'http://localhost:8000/api/serigrafiaPrecioCliente';  // URL to web API
-  private getInkQuantityUrlWItem   = 'http://localhost:8000/api/findByInkQuantityWItem';  // URL to web API
+  private url = 'http://146.148.105.98:8000/api/serigrafiaPrecioCliente';  // URL to web API
+  private getInkQuantityUrlWItem   = 'http://146.148.105.98:8000/api/findByInkQuantityWItem';  // URL to web API
   constructor (private http: Http) {}
 
   getTecnicas(): Observable<Array<SerigrafiaPrecioCliente>> {

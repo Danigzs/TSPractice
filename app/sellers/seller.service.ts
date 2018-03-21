@@ -27,8 +27,8 @@ import {
 export class SellerService {
   tecnicas: Array < Seller > ;
 
-  private url = 'http://localhost:8000/api/sellers'; // URL to web API
-  private updateUrl = 'http://localhost:8000/api/sellers/'; // URL to web API
+  private url = 'http://146.148.105.98:8000/api/sellers'; // URL to web API
+  private updateUrl = 'http://146.148.105.98:8000/api/sellers/'; // URL to web API
   constructor(private http: Http) {}
 
   getSellers(): Observable < Array < Seller >> {

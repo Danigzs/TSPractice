@@ -12,7 +12,7 @@ import {
 export class BordadoSizeService {
     bordadosize:Array<BordadoSize>;
     
-     private url = 'http://localhost:8000/api/bordadoSize';  // URL to web API
+     private url = 'http://146.148.105.98:8000/api/bordadoSize';  // URL to web API
 
 constructor (private http: Http) {}
  

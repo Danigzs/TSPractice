@@ -13,8 +13,8 @@ import { User } from '../register/user';
 @Injectable()
 export class OrderService {
   orders: Array < Order > ;
-  private url = 'http://localhost:8000/api/orders'; // URL to web API
-  private urlordersbyuser = 'http://localhost:8000/api/ordersbyuser'; // URL to web API
+  private url = 'http://146.148.105.98:8000/api/orders'; // URL to web API
+  private urlordersbyuser = 'http://146.148.105.98:8000/api/ordersbyuser'; // URL to web API
   constructor(private http: Http) {}
 
   getOrders(): Observable < Array < Order >> {

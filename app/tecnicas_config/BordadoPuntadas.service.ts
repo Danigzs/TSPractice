@@ -12,7 +12,7 @@ import { BordadoPuntadas } from './BordadoPuntadas';
 export class BordadoPuntadasService {
     bordadopuntadas:Array<BordadoPuntadas>;
     
-     private url = 'http://localhost:8000/api/bordadoPuntadas';  // URL to web API
+     private url = 'http://146.148.105.98:8000/api/bordadoPuntadas';  // URL to web API
 
 constructor (private http: Http) {}
  

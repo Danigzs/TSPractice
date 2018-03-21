@@ -9,7 +9,7 @@ import { Tecnica } from './tecnica';
 export class TecnicaService {
     tecnicas:Array<Tecnica>;
     
-     private url = 'http://localhost:8000/api/tecnicas';  // URL to web API
+     private url = 'http://146.148.105.98:8000/api/tecnicas';  // URL to web API
 
 constructor (private http: Http) {}
  

@@ -12,7 +12,7 @@ import { SublimadoSize } from './sublimadoSize';
 export class SublimadoSizeService {
     sublimadoSize:Array<SublimadoSize>;
     
-     private url = 'http://localhost:8000/api/sublimadoSize';  // URL to web API
+     private url = 'http://146.148.105.98:8000/api/sublimadoSize';  // URL to web API
 
 constructor (private http: Http) {}
  

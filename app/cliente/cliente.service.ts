@@ -8,7 +8,7 @@ import {URLSearchParams} from '@angular/http';
 import { Cliente } from './cliente';
 @Injectable()
 export class ClienteService {
- private clientsUrl = 'http://localhost:8000/api/clients';  // URL to web API
+ private clientsUrl = 'http://146.148.105.98:8000/api/clients';  // URL to web API
 
 constructor (private http: Http) {}
 

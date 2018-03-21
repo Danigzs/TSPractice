@@ -12,7 +12,7 @@ import {
 export class SerigrafiaSizeService {
     serigrafiaSize:Array<SerigrafiaSize>;
     
-     private url = 'http://localhost:8000/api/serigrafiaSize';  // URL to web API
+     private url = 'http://146.148.105.98:8000/api/serigrafiaSize';  // URL to web API
 
 constructor (private http: Http) {}
  

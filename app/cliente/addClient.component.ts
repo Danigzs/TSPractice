@@ -12,6 +12,7 @@ import {ClienteService} from './cliente.service';
 import {Cliente} from './cliente';
 import { Observable } from 'rxjs/Observable';
 import { UserService } from '../security/user.service';
+import { User } from '../register/user';
 
 
 
@@ -25,7 +26,8 @@ import { UserService } from '../security/user.service';
 export class AddClientComponent  implements OnInit{
   @Input() OnClientAdded:Function;
    
-  
+  public users:Array<User>;
+  public userSelected:User;
   public cliente:Cliente;
   public isEditing:Boolean;
   isUserAdmin:Boolean;
@@ -35,6 +37,7 @@ export class AddClientComponent  implements OnInit{
     this.OnEditModeParent = this.OnEditModeParent.bind(this);
     
   }
+ 
 
   OnEditModeParent = function(edit:boolean,client:Cliente){
     this.isEditing  = edit;
@@ -51,12 +54,18 @@ export class AddClientComponent  implements OnInit{
       this.isEditing = false;
 
       this.isUserAdmin = this._userService.isUserAdmin();
+
+      this._userService.getSellerUsers().subscribe( data => {
+        this.users = data;
+        this.userSelected = this.users[0];
+      });
   }
 
 
 
   addClient(client:Cliente)
   {
+    this.cliente.vendedor = this.userSelected;
      if(this.isEditing){
        this.saveEdit(client);
      }

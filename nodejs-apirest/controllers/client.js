@@ -38,6 +38,7 @@ exports.add = function (req, res) {
   postalCode: req.body.postalCode,
   phone: req.body.phone,
   email: req.body.email,
+  vendedor: req.body.vendedor,
   attentTo: req.body.attentTo,
   rfc: req.body.rfc,
   code:  req.body.code
@@ -63,6 +64,7 @@ exports.update = function (req, res) {
   client.country =  req.body.country,
   client.postalCode =  req.body.postalCode,
   client.phone =  req.body.phone,
+  client.vendedor =  req.body.vendedor,
   client.email =  req.body.email,
   client.attentTo =  req.body.attentTo,
   client.rfc =  req.body.rfc,

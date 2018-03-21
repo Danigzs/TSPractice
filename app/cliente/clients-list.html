@@ -1,6 +1,6 @@
 <div class="c-div-bgr ">
+  
   <div class="c-div-container">
-    <div class="c-grid-products">
 
       <h3>Filtros</h3>
     <div class="c-container-info">
@@ -47,9 +47,6 @@
  
        </div>
  
-  
- 
-    </div>
       <table class="table " id="tproductos">
         <thead>
           <tr>
@@ -61,8 +58,9 @@
             <th>RFC</th>
            <!-- <th>Estado</th> -->
           <!--  <th>País</th> -->
-            <th>Razón Social</th>
-            <th style="text-align:right" *ngIf="isUserAdmin == true">Acciones</th>
+          <th>Razón Social</th>
+          <th>Vendedor</th>
+          <th style="text-align:right" *ngIf="isUserAdmin == true">Acciones</th>
 
           </tr>
         </thead>
@@ -75,7 +73,8 @@
           <td>{{cliente.rfc}}</td>
          <!--  <td>{{cliente.state}}</td> -->
          <!--  <td>{{cliente.country}}</td> -->
-          <td>{{cliente.businessName}}</td>
+         <td>{{cliente.businessName}}</td>
+         <td>{{(cliente.vendedor)?cliente.vendedor.name:""}}</td>
 
           
           <td style="float:right" *ngIf="isUserAdmin == true" ><button type="button" class="btn btn-primary btn-md" (click)="setEditMode(true,cliente)">Editar</button>

@@ -29,7 +29,7 @@ export class RoleService {
     return true;
   }
 
-  private url = 'http://localhost:8000/api/roles'; // URL to web API
+  private url = 'http://146.148.105.98:8000/api/roles'; // URL to web API
 
   constructor(private http: Http) {}
 

@@ -11,8 +11,8 @@ import { debug } from 'util';
 export class SerigrafiaPrecioBordesaService {
   serigrafiaPrecioBordesa:Array<SerigrafiaPrecioBordesa>;
 
-  private url = 'http://localhost:8000/api/SerigrafiaPrecioBordesa';  // URL to web API
-  private getInkQuantityUrl = 'http://localhost:8000/api/findByInkQuantity';  // URL to web API
+  private url = 'http://146.148.105.98:8000/api/SerigrafiaPrecioBordesa';  // URL to web API
+  private getInkQuantityUrl = 'http://146.148.105.98:8000/api/findByInkQuantity';  // URL to web API
   
   constructor (private http: Http) {}
 

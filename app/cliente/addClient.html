@@ -70,6 +70,12 @@
           Razón Social
         </div>
       </div>
+
+      <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Vendedor
+          </div>
+        </div>
     </div>
     <div class="c-container-info-column data">
         <div class="c-container-info-column-item-container">
@@ -96,6 +102,16 @@
 
         </div>
       </div>
+
+      <div class="c-container-info-column-item-container">
+           <div class="c-container-info-column-item-container info">
+            <select class="form-control" name="sel" [(ngModel)]="userSelected">
+                  <option *ngFor="let user of users" [ngValue]="user">
+                      {{user.name}}
+                  </option>
+              </select>
+            </div>
+        </div>
     </div>
 
   </div>
