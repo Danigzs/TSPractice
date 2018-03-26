@@ -67,7 +67,7 @@ export class Grafico {
                     "<br><b>Con Prendas: </b>" + (serigrafia.wItem == true ? "Sí" : "No")  + 
                     "<br><b>Precio unitario: </b>" + serigrafia.costoTotal 
                     // "<br><b>Porcentage: </b>" + percentage + "%";
-    this.quantity = 1;
+    this.quantity = serigrafia.quantity;
     this.percentageSize = serigrafia.percentageSize;
     this.percentageType = serigrafia.percentageSize;
     this.costoTotal = serigrafia.costoTotal;
