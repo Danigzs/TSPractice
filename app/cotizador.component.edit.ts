@@ -262,8 +262,6 @@ public dataLoaded = false;
 
   ConvertToPedido(){
     var tmpOrder = this.order;
-    this.order.areaText = this.areas.find(function(v,i){ return v._id == tmpOrder.area}).nombre;
-
     this.order.esCotizacion = 0;
   }
   ConvertToCotizacion(){

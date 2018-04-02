@@ -183,6 +183,7 @@ exports.update = function (req, res) {
       order.areaText = _order.areaText;
       order.total = _order.total;
       order.folio = _order.folio;
+      order.esCotizacion = _order.esCotizacion;
       order.status = _order.status;
       order.area = _order.area;
       order.usercreador =  _order.usercreador,
