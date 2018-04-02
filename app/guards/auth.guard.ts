@@ -6,7 +6,7 @@ export class AuthGuard implements CanActivate {
     
     constructor(private router: Router) { }
     // adminRoutes = [''];
-    adminRoutes = ['/nuevoproducto','/register','/bordadoreport','/verreportes','/payment','/tecnicas','/sellers','/categorias','/disenoreport'];
+    adminRoutes = ['/nuevoproducto','/register','/bordadoreport','/verreportes','/tecnicas','/sellers','/categorias','/disenoreport'];
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         if (localStorage.getItem('user')) {
             // logged in so return true

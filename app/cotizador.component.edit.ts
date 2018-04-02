@@ -69,7 +69,8 @@ import { UserService } from './security/user.service';
 
 })
 export class CotizadorEditComponent implements OnInit {
-  
+  public currentUser:User;
+  public readonlySeller:Boolean;
   public viewContainerRef: ViewContainerRef;
   public cotizaciones: Array < any > ;
   public clientes: Array < Cliente > ;
@@ -723,6 +724,7 @@ getOrderById(orderId:Number){
   ngOnInit() {
     this.isUserAdmin = this._userService.isUserAdmin();
     this.order = new Order;
+    this.readonlySeller = this._userService.isCurrentUserSeller();
     this.areaOptions = [
       
     ]

@@ -104,12 +104,18 @@
       </div>
 
       <div class="c-container-info-column-item-container">
-           <div class="c-container-info-column-item-container info">
+           <div class="c-container-info-column-item-container info" *ngIf="!esVendedor">
             <select class="form-control" name="sel" [(ngModel)]="userSelected">
                   <option *ngFor="let user of users" [ngValue]="user">
                       {{user.name}}
                   </option>
               </select>
+            </div>
+
+            <div class="c-container-info-column-item-container info" *ngIf="esVendedor">
+                <span class="c-label-info">
+                    {{userSelected.name}}
+                  </span>
             </div>
         </div>
     </div>

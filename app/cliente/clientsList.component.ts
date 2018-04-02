@@ -47,7 +47,7 @@ export class ClientsListComponent  implements OnInit{
    this.isUserAdmin = this._userService.isUserAdmin();
    this.currentUser = this._userService.getUser();
 
-   if( this.currentUser.role.name == "Admin" ||this.currentUser.role.name == "admin" || this.currentUser.role.name == "administrador"|| this.currentUser.role.name == "Administrador" || this.currentUser.role.name == "Vendedor" || this.currentUser.role.name == "vendedor"){
+   if( this.currentUser.role._id == 1 ||this.currentUser.role._id == 2){
      this.userCanEdit = true;
    }
 

@@ -69,7 +69,8 @@ import { UserService } from './security/user.service';
 
 })
 export class CotizadorComponent implements OnInit {
-  
+  public currentUser:User;
+  public readonlySeller:Boolean;
   public viewContainerRef: ViewContainerRef;
   public cotizaciones: Array < any > ;
   public clientes: Array < Cliente > ;
@@ -133,7 +134,6 @@ export class CotizadorComponent implements OnInit {
   bordadoSizeSelected = new BordadoSize;
   bordadoPositionSelected = new Posiciones;
   bordadoColorSelected = new Colores;
-  
 
   statusSelected = new String();
   
@@ -760,7 +760,8 @@ export class CotizadorComponent implements OnInit {
   ngOnInit() {
     this.order = new Order;
     this.isUserAdmin = this._userService.isUserAdmin();
-
+    this.currentUser = this._userService.getUser();
+    this.readonlySeller = this._userService.isCurrentUserSeller();
      /* this.onChangeOrderStatus.bind(this);
       this._orderService.getOrders().subscribe(
         data=>{
@@ -782,7 +783,19 @@ export class CotizadorComponent implements OnInit {
         this.productoSelected = this.productos[0];
 
       if (this.users.length > 0)
-        this.userSelected = this.users[0];
+        {
+          if(this._userService.isCurrentUserSeller())
+          {
+            this.userSelected = this.currentUser;
+
+          }
+          else {
+            this.userSelected = this.users[0];
+
+          }
+        }
+
+
       this.cotizacion.tecnica = this.tecnicaSelected;
       this.cotizacion.cliente = this.clienteSelected;
       this.productos = this.productos;

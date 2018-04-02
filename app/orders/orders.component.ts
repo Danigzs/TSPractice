@@ -24,7 +24,8 @@ export class OrdersComponent implements OnInit {
   public orders:Array<Order>;
   public allOrders:Array<Order>;
   public order: Order;
-
+  public esAdmin:Boolean;
+  public users: Array < User> ;
   public user: User;
   public clientname:string = "";
   public clientfolio:string = "";
@@ -33,6 +34,7 @@ export class OrdersComponent implements OnInit {
   areaOptions: any[];
   public areas:Array <Area>; 
   public orderStatus:Array<String>;
+  userSelected = new User;
   statusSelected = new String();
   userDropdownSettings: IMultiSelectSettings;
   selectedStatus:any;
@@ -60,6 +62,7 @@ mySettings: IMultiSelectSettings = {
  
   }
   ngOnInit() {
+    this.esAdmin = this._userService.isUserAdmin();
     this.colorOptions = [
       { id: 0, name: 'Pendiente de Pago'},
       { id: 1, name: 'En proceso'},
@@ -101,7 +104,16 @@ mySettings: IMultiSelectSettings = {
           order.currentStatus = [order.status]
         ));
       }
+    
+    
     )
+
+    this._userService.getSellerUsers().subscribe(
+      results => {
+        this.users = results;
+        if(this.users.length > 0)
+        this.userSelected = this.users[0];
+      })
   }
   else {
       this._orderService.getOrdersByUser(this.user).subscribe(
@@ -153,6 +165,11 @@ mySettings: IMultiSelectSettings = {
   onFilterAreaChanged(){
     this.orders = this.allOrders.filter((order,index) => {
       return order.area == this.selectedArea._id;
+    });
+  }
+  onFilterUserChanged(){
+    this.orders = this.allOrders.filter((order,index) => {
+      return order.user._id == this.userSelected._id;
     });
   }
   getOrderStatusText(order:Order){

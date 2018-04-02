@@ -22,10 +22,15 @@ import { User } from '../register/user';
     isUserAdmin():Boolean{
       var user = localStorage.getItem("user");
       let tmpUser:User= JSON.parse(user);
-      if( tmpUser.role.name == "Admin" || tmpUser.role.name == "admin" || tmpUser.role.name == "administrador"|| tmpUser.role.name == "Administrador" ){
+      if( tmpUser.role._id == 1){
           return true;
       }
       return false;
+    }
+    isCurrentUserSeller():Boolean{
+      var user = localStorage.getItem("user");
+      let tmpUser:User= JSON.parse(user);
+      return tmpUser.role._id == 2;
     }
     getUser():User{
       var user = localStorage.getItem("user");

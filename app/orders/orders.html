@@ -27,6 +27,11 @@
             Área
           </div>
         </div>
+        <div class="c-container-info-column-item-container" *ngIf="esAdmin">
+            <div class="c-container-info-column-item-container info">
+              Vendedor
+            </div>
+          </div>
       </div>
 
       <div class="c-container-info-column data">
@@ -69,6 +74,16 @@
           </div>
         </div>
 
+        <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info" *ngIf="esAdmin">
+             <select class="form-control" name="sel" [(ngModel)]="userSelected" (ngModelChange)="onFilterUserChanged()">
+                   <option *ngFor="let user of users" [ngValue]="user">
+                       {{user.name}}
+                   </option>
+               </select>
+             </div>
+         </div>
+
       </div>
 
  
@@ -109,7 +124,7 @@
           <td>{{order.total | currency:'USD':true}}</td>
           <td>{{order.advance | currency:'USD':true}}</td>
           <td>{{order.debt | currency:'USD':true}}</td>
-          <td>{{order.seller.name}}</td>
+          <td>{{order.user.name}}</td>
           <!--<ss-multiselect-dropdown  *ngIf="order.status != 5 && order.status != 4" [options]="colorOptions" [settings]="mySettings"  (ngModelChange)="onChangeOrderStatus($event,order)" [(ngModel)]="order.currentStatus"  [texts]="multiConfig" ></ss-multiselect-dropdown> -->
           <td >{{order.statusText}}</td> 
           <td>{{order.areaText}}</td>

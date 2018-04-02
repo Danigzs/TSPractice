@@ -23,6 +23,7 @@ import {
 import {
   Observable
 } from 'rxjs/Observable';
+import { UserService } from '../security/user.service';
 
 
 @Component({
@@ -42,7 +43,7 @@ export class PaymentComponent implements OnInit {
   public totalPayments: number = 0;
   selectedOrder = new Order; 
   todayDate = (new Date).toDateString();
-  constructor(private _paymentService: PaymentService, private _orderService: OrderService) {
+  constructor(private _paymentService: PaymentService, private _orderService: OrderService, private _userService: UserService) {
 
   }
 
@@ -51,7 +52,8 @@ export class PaymentComponent implements OnInit {
     //Add 'implements OnInit' to the class.
     this.payment = new Payment;
     this.payments = [];
-    this._orderService.getOrders().subscribe(
+    this.selectedOrder = new Order();
+    this._orderService.getOrdersByUser(this._userService.getUser()).subscribe(
       data => {
         this.orders = data;
         this.selectedOrder = (this.orders && this.orders.length > 0) ? this.orders[0] : null;
@@ -66,13 +68,18 @@ export class PaymentComponent implements OnInit {
     });
   }
   getOrderPayments() {
-    this._paymentService.getOrderPayments(this.selectedOrder._id).subscribe(
-      data => {
-        this.payments = [];
-        this.payments = data;
-        this.calculateTotalPayments();
-      }
-    )
+    if(this.selectedOrder && this.selectedOrder._id){
+      this._paymentService.getOrderPayments(this.selectedOrder._id).subscribe(
+        data => {
+          this.payments = [];
+          this.payments = data;
+          this.calculateTotalPayments();
+        }
+      )
+    }
+    else {
+      this.payments = [];
+    }
   } 
    
   addPayment() {

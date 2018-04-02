@@ -187,11 +187,7 @@
             </div>
 
           </div>
-          <div class="c-container-info-column-item-container">
-            <div class="c-container-info-column-item-container info">
-              <!-- Zona -->
-            </div>
-          </div>
+          
        <!--   <div class="c-container-info-column-item-container">
             <div class="c-container-info-column-item-container info">
               Forma de envío
@@ -211,7 +207,7 @@
 
         <div class="c-container-info-column data">
           <div class="c-container-info-column-item-container">
-            <div class="c-container-info-column-item-container info">
+             <div class="c-container-info-column-item-container info" *ngIf="!readonlySeller">
               <select class="form-control" name="sel" [(ngModel)]="userSelected" (ngModelChange)="updateSeller($event)">
                     <option *ngFor="let user of users" [ngValue]="user">
                         {{user.name}}
@@ -220,16 +216,17 @@
 
 
             </div>
-          </div>
-          <div class="c-container-info-column-item-container">
-            <div class="c-container-info-column-item-container info">
-              <div class="example-full-width">
-                <span class="c-label-info">
-              <!-- {{sellerSelected.store}} -->
-            </span>
-              </div>
+            <div class="c-container-info-column-item-container"  *ngIf="readonlySeller">
+                <div class="c-container-info-column-item-container info">
+                    <span class="c-label-info">
+                        {{userSelected.name}}
+                      </span>
+                </div>
             </div>
           </div>
+
+        
+           
         <!--  <div class="c-container-info-column-item-container">
             <div class="c-container-info-column-item-container info">
               <div class="example-full-width">

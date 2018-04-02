@@ -26,6 +26,8 @@ import { User } from '../register/user';
 export class AddClientComponent  implements OnInit{
   @Input() OnClientAdded:Function;
    
+  public currentUser:User;
+  public esVendedor:Boolean;
   public users:Array<User>;
   public userSelected:User;
   public cliente:Cliente;
@@ -52,12 +54,19 @@ export class AddClientComponent  implements OnInit{
   ngOnInit() {
       this.cliente = new Cliente();
       this.isEditing = false;
-
+      this.userSelected = new User();
+      this.currentUser = this._userService.getUser();
+      this.esVendedor = this._userService.isCurrentUserSeller();
       this.isUserAdmin = this._userService.isUserAdmin();
 
       this._userService.getSellerUsers().subscribe( data => {
         this.users = data;
-        this.userSelected = this.users[0];
+        if(this.esVendedor){
+          this.userSelected = this.currentUser;
+        }
+        else {
+          this.userSelected = this.users[0];
+        }
       });
   }
 

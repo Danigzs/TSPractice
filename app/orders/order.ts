@@ -40,7 +40,7 @@ export class Order {
   paymentDate:String;
 
   constructor() {
-    this.client = new Cliente;
+    this.client = new Cliente();
     this.seller = new Seller;
     this.user = new User;
     this.products = [];
