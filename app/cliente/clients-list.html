@@ -77,7 +77,7 @@
          <td>{{(cliente.vendedor)?cliente.vendedor.name:""}}</td>
 
           
-          <td style="float:right" *ngIf="isUserAdmin == true" ><button type="button" class="btn btn-primary btn-md" (click)="setEditMode(true,cliente)">Editar</button>
+          <td style="float:right" *ngIf="userCanEdit == true" ><button type="button" class="btn btn-primary btn-md" (click)="setEditMode(true,cliente)">Editar</button>
             <button type="button"  *ngIf="isUserAdmin == true" class="btn btn-primary btn-md" (click)="delete(cliente,i)">Borrar</button></td>
 
         </tr>

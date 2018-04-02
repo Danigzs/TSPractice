@@ -27,6 +27,11 @@ import { User } from '../register/user';
       }
       return false;
     }
+    getUser():User{
+      var user = localStorage.getItem("user");
+      let tmpUser:User= JSON.parse(user);
+      return tmpUser;
+    }
 
     
   private url = 'http://146.148.105.98:8000/api/sellerUsers'; // URL to web API

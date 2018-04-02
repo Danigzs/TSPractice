@@ -10,6 +10,7 @@ import {
 import {ClienteService} from './cliente.service';
 import {Cliente} from './cliente';
 import { UserService } from '../security/user.service';
+import { User } from '../register/user';
 
 
 
@@ -31,6 +32,8 @@ export class ClientsListComponent  implements OnInit{
    cliente:Cliente;
    public isEditing:Boolean;
   isUserAdmin:Boolean;
+  userCanEdit:Boolean;
+  currentUser:User;
    
   constructor(private  _clientService: ClienteService, private _userService:UserService) {
   }
@@ -42,6 +45,11 @@ export class ClientsListComponent  implements OnInit{
     
    //this.clientes = this._clienteService.getClientes();
    this.isUserAdmin = this._userService.isUserAdmin();
+   this.currentUser = this._userService.getUser();
+
+   if( this.currentUser.role.name == "Admin" ||this.currentUser.role.name == "admin" || this.currentUser.role.name == "administrador"|| this.currentUser.role.name == "Administrador" || this.currentUser.role.name == "Vendedor" || this.currentUser.role.name == "vendedor"){
+     this.userCanEdit = true;
+   }
 
   }
   setEditMode(edit:boolean,client:Cliente){
