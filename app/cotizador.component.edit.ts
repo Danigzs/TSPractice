@@ -414,6 +414,35 @@ public dataLoaded = false;
       }
 
   }
+  calcularDescuento(){
+    var totalDescuento = 0;
+    var totalSinDescuento = 0;
+    var _total = 0;
+    for (let producto of this.order.products) {
+      _total += this.getProductPrice(producto) * producto.quantity; //producto.price * producto.quantity;
+    }
+    for (let grafico of this.order.graficos) {
+      _total += grafico.costoTotal * grafico.quantity;
+    }
+    _total =  Math.round((_total*100))/100;
+
+    if(this.order.descuento > 0 && _total > 0 ){
+      totalDescuento =  (_total * (this.order.descuento/100));
+     }
+    return totalDescuento
+  }
+  calcularTotalSinDescuento(){
+    var totalSinDescuento = 0;
+    var _total = 0;
+    for (let producto of this.order.products) {
+      _total += this.getProductPrice(producto) * producto.quantity; //producto.price * producto.quantity;
+    }
+    for (let grafico of this.order.graficos) {
+      _total += grafico.costoTotal * grafico.quantity;
+    }
+    totalSinDescuento =  Math.round((_total*100))/100;
+    return totalSinDescuento;
+  }
   calculateTotal() {
 
     var _total = 0;

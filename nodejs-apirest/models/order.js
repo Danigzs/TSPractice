@@ -75,6 +75,9 @@ var orderSchema = new Schema({
   esCotizacion:{
     type:Number
   },
+  estimatedDate:{
+    type:String
+  },
   orderHistory:[{
     type:String
   }],

@@ -244,7 +244,7 @@
           <div class="c-container-info-column-item-container">
             <div class="c-container-info-column-item-container info">
               <div class="example-full-width">
-                <input type="text" name="code" [(ngModel)]="shippingDate">
+                <input type="text" name="code" [(ngModel)]="order.estimatedDate">
               </div>
             </div>
           </div> 
@@ -384,7 +384,12 @@
           <span class="c-total-amount-info-s">Resto:</span><input type="number" name="clave" [(ngModel)]="order.debt" readonly>
         </div>
       </div>
-      
+      <div class="total" style="text-align:right;width:100%;">
+          <span class="c-total-amount-info">Total sin descuento:</span><span class="c-total-amount"> {{calcularTotalSinDescuento()| currency:'USD':true }}</span>
+        </div>
+      <div class="total" style="text-align:right;width:100%;">
+          <span class="c-total-amount-info">Descuento aplicado:</span><span class="c-total-amount"> {{calcularDescuento()| currency:'USD':true }}</span>
+      </div>
       <div class="total" style="text-align:right;width:100%;">
         <span class="c-total-amount-info">Total:</span><span class="c-total-amount"> {{order.total | currency:'USD':true }}</span>
       </div>

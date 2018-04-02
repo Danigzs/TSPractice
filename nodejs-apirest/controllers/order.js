@@ -117,6 +117,7 @@ exports.add = function (req, res) {
       client: req.body.client,
       seller: req.body.seller,
       user: req.body.user,
+      estimatedDate: req.body.estimatedDate,
       products: req.body.products,
       maquilas: req.body.maquilas,
       graficos: req.body.graficos,
@@ -173,6 +174,7 @@ exports.update = function (req, res) {
       order.user = _order.user;
       order.products = _order.products;
       order.maquilas = _order.maquilas;
+      order.estimatedDate = _order.estimatedDate;
       order.graficos = _order.graficos;
       order.orderHistory = _order.orderHistory;
       order.orderAreaHistory = _order.orderAreaHistory;

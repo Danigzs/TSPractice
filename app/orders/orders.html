@@ -103,7 +103,7 @@
           <td>{{order.folio}}</td>          
           <td>{{order.client.name}}</td>
           <td>{{order.createdAt |date}}</td>
-          <td></td>
+          <td>{{order.estimatedDate |date}}</td>
           <td>{{order.shippingDate |date}}</td>
           <td>{{order.total - order.total*.16 | currency:'USD':true}}</td>
           <td>{{order.total | currency:'USD':true}}</td>
