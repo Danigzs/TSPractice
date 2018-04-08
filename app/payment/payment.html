@@ -105,7 +105,7 @@
           <div class="c-container-info-column-item-container info">
             <div class="example-full-width">
               <span class="c-label-info">
-              {{selectedOrder.debt | currency:'USD':true}}
+              {{selectedOrder.debt - selectedOrder.pagosTotales | currency:'USD':true}}
             </span>
             </div>
 
@@ -233,7 +233,7 @@
               <div class="c-container-info-column-item-container info">
                 <div class="example-full-width">
                   <span class="c-label-info">
-                  {{selectedOrder.debt | currency:'USD':true}}
+                  {{selectedOrder.debt - selectedOrder.pagosTotales  | currency:'USD':true}}
                 </span>
                 </div>
     

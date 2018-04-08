@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var Payment = mongoose.model('Payment');
-
+var Order = mongoose.model('Order');
 //GET - Return all registers
 exports.findAll = function (req, res) {
 
@@ -57,12 +57,18 @@ exports.add = function (req, res) {
       message: "Ha ocurrido un problema. El Pago no se ha realizado correctamente."
     }});
     }
-    res.status(200).json({
-      response:{ 
-      status: 200,
-      success:true,
-      message: "El Pago se ha realizado correctamente"
-    }});
-
+    Order.findById({_id:payment.order_id}, function (err, order) {
+      if(err) return res.send(500,err.message);
+      order.pagosTotales = payment.amount;
+      order.save(function (err) {
+      if (err) return res.send(500, err.message);
+      res.status(200).json({
+        response:{ 
+        status: 200,
+        success:true,
+        message: "El Pago se ha realizado correctamente"
+      }});
+      });
+    })
   });
 };

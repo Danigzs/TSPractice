@@ -97,7 +97,7 @@ export class PaymentComponent implements OnInit {
         alert("La canitdad a pagar debe de ser mayor a 0");
         return
     }
-    if ( this.payment.amount <= this.selectedOrder.debt) {
+    if ( this.payment.amount <= this.selectedOrder.debt - this.totalPayments) {
       this._paymentService.makePayment(this.payment).subscribe(
         data => {
           this.closeModalPayment();

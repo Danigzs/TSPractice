@@ -27,6 +27,7 @@ export class Order {
   shippingWay:String;
   createdAt:Date;
   isPaid:number;
+  pagosTotales:number;
   shippingDate:Date;
   subTotal:number;
   status:number;
@@ -54,6 +55,7 @@ export class Order {
     this.descuento = 0;
     this.debt = 0;
     this.shippingWay ="";
+    this.pagosTotales = 0;
     this.estimatedDate ="";
     this.shippingDate = new Date;
     this.subTotal = 0;
@@ -67,11 +69,12 @@ export class Order {
   } 
 
 
-  setOrder(orderHistory:string,_id:number, client:Cliente,user:User,seller:Seller,products:Array<ProductCotizacion>,estimatedDate:String,maquilas:Array<TecnicaCotizacion>,tecnicaBordados:Array<Bordado>, graficos:Array<Grafico>, total:number,folio:number,notes:String,advance:number,debt:number,isPaid:number,createdAt:Date,shippingWay:String,shippingDate:Date,subTotal:number, statusText:String, status:number, esCotizacion:number,paymentDate:String){
+  setOrder(orderHistory:string,_id:number,pagosTotales:number, client:Cliente,user:User,seller:Seller,products:Array<ProductCotizacion>,estimatedDate:String,maquilas:Array<TecnicaCotizacion>,tecnicaBordados:Array<Bordado>, graficos:Array<Grafico>, total:number,folio:number,notes:String,advance:number,debt:number,isPaid:number,createdAt:Date,shippingWay:String,shippingDate:Date,subTotal:number, statusText:String, status:number, esCotizacion:number,paymentDate:String){
     this._id = _id;
     this.client = client;
     this.user = user;
     this.seller = seller;
+    this.pagosTotales = pagosTotales;
     this.products = products;
     this.maquilas = maquilas;
     this.estimatedDate = estimatedDate;
