@@ -76,7 +76,8 @@ var orderSchema = new Schema({
     type:Number
   },
   pagosTotales:{
-    type:Number
+    type:Number,
+    default:0
   },
   estimatedDate:{
     type:String
