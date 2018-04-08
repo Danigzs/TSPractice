@@ -41,7 +41,7 @@ export class PaymentComponent implements OnInit {
   public orders: Array < Order >= [];
   public showModalPayment: boolean = false;
   public totalPayments: number = 0;
-  selectedOrder = new Order; 
+  selectedOrder = new Order(); 
   todayDate = (new Date).toDateString();
   constructor(private _paymentService: PaymentService, private _orderService: OrderService, private _userService: UserService) {
 
@@ -57,6 +57,9 @@ export class PaymentComponent implements OnInit {
       data => {
         this.orders = data;
         this.selectedOrder = (this.orders && this.orders.length > 0) ? this.orders[0] : null;
+        if(this.selectedOrder == null){
+          this.selectedOrder = new Order();
+        }
         this.getOrderPayments();
       }
     )
