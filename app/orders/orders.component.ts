@@ -97,6 +97,7 @@ mySettings: IMultiSelectSettings = {
     if(this._userService.isUserAdmin()){
     this._orderService.getOrders().subscribe(
       data=>{
+        
         this.allOrders = data;
 
         this.orders = data;
@@ -118,7 +119,14 @@ mySettings: IMultiSelectSettings = {
   else {
       this._orderService.getOrdersByUser(this.user).subscribe(
         data=>{
-          this.allOrders = data;
+          console.log(this.user);
+          console.log(data);
+        
+        
+        var user = this.user;
+        
+        data =   data.filter(function(v,i){ return v.area ==  user.role._id });;
+          this.allOrders =data;
           this.orders = data;
           this.orders.map((order,index) => ( 
             order.currentStatus = [order.status]
