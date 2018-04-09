@@ -47,6 +47,21 @@ export class PaymentComponent implements OnInit {
 
   }
 
+  reloadData(){
+    this.payment = new Payment;
+    this.payments = [];
+    this.selectedOrder = new Order();
+    this._orderService.getOrdersByUser(this._userService.getUser()).subscribe(
+      data => {
+        this.orders = data;
+        this.selectedOrder = (this.orders && this.orders.length > 0) ? this.orders[0] : null;
+        if(this.selectedOrder == null){
+          this.selectedOrder = new Order();
+        }
+        this.getOrderPayments();
+      }
+    )
+  }
   ngOnInit() {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
@@ -97,12 +112,12 @@ export class PaymentComponent implements OnInit {
         alert("La canitdad a pagar debe de ser mayor a 0");
         return
     }
-    if ( this.payment.amount <= this.selectedOrder.debt - this.totalPayments) {
+    if ( this.payment.amount <= this.selectedOrder.debt - this.selectedOrder.pagosTotales) {
       this._paymentService.makePayment(this.payment).subscribe(
         data => {
           this.closeModalPayment();
           alert(data.message);
-          this.getOrderPayments();
+          this.reloadData();
         }
       );
     }else{

@@ -99,7 +99,7 @@ export class CotizadorComponent implements OnInit {
   public hideModal3 = true;
   public hideModalpago = true;
   public hideModalcliente = true;
-
+  public esVendedor:Boolean;
   public maquilasModal = true;
   public showBordado = true;
   public showSerigrafia = false;
@@ -762,6 +762,7 @@ export class CotizadorComponent implements OnInit {
     this.isUserAdmin = this._userService.isUserAdmin();
     this.currentUser = this._userService.getUser();
     this.readonlySeller = this._userService.isCurrentUserSeller();
+    this.esVendedor = this._userService.isCurrentUserSeller();
      /* this.onChangeOrderStatus.bind(this);
       this._orderService.getOrders().subscribe(
         data=>{
@@ -777,6 +778,20 @@ export class CotizadorComponent implements OnInit {
     this.getConfigData().then(res => {
       if (this.clientes.length > 0)
         this.clienteSelected = this.clientes[0];
+
+
+        
+      
+      var user = this.currentUser;
+      this.clientes = this.clientes.filter(function(v,i){ return v.vendedor._id == user._id;});
+      if(this.clientes == null){
+        this.clientes = [];
+      }
+      if(this.esVendedor){
+        if (this.clientes.length > 0)
+            this.clienteSelected = this.clientes[0];
+      }
+
       if (this.tecnicas.length > 0)
         this.tecnicaSelected = this.tecnicas[0];
       if (this.productos.length > 0)

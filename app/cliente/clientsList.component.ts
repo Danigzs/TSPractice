@@ -34,12 +34,18 @@ export class ClientsListComponent  implements OnInit{
   isUserAdmin:Boolean;
   userCanEdit:Boolean;
   currentUser:User;
-   
+  public esVendedor:Boolean;
   constructor(private  _clientService: ClienteService, private _userService:UserService) {
   }
 
   ngOnInit() {
     setTimeout(() => {
+
+   var user = this.currentUser;
+   this.clientes = this.clientes.filter(function(v,i){ return v.vendedor._id == user._id;});
+   if(this.clientes == null){
+     this.clientes = [];
+   } 
       this.allClientes = this.clientes;  
     }, 1000);
     
@@ -50,6 +56,7 @@ export class ClientsListComponent  implements OnInit{
    if( this.currentUser.role._id == 1 ||this.currentUser.role._id == 2){
      this.userCanEdit = true;
    }
+
 
   }
   setEditMode(edit:boolean,client:Cliente){
