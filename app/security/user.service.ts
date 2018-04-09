@@ -27,6 +27,36 @@ import { User } from '../register/user';
       }
       return false;
     }
+    esVendedor():Boolean{
+      var user = localStorage.getItem("user");
+      let tmpUser:User= JSON.parse(user);
+      return tmpUser.role._id == 1;
+    }
+    esDisenador():Boolean{
+      var user = localStorage.getItem("user");
+      let tmpUser:User= JSON.parse(user);
+      return tmpUser.role._id == 2;
+    }
+    esBordador():Boolean{
+      var user = localStorage.getItem("user");
+      let tmpUser:User= JSON.parse(user);
+      return tmpUser.role._id == 3;
+    }
+    esSerigrafista():Boolean{
+      var user = localStorage.getItem("user");
+      let tmpUser:User= JSON.parse(user);
+      return tmpUser.role._id == 4;
+    }
+    esMaquilador():Boolean{
+      var user = localStorage.getItem("user");
+      let tmpUser:User= JSON.parse(user);
+      return tmpUser.role._id == 5;
+    }
+    esAlmacenista():Boolean{
+      var user = localStorage.getItem("user");
+      let tmpUser:User= JSON.parse(user);
+      return tmpUser.role._id == 6;
+    }
     isCurrentUserSeller():Boolean{
       var user = localStorage.getItem("user");
       let tmpUser:User= JSON.parse(user);
