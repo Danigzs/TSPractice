@@ -30,32 +30,32 @@ import { User } from '../register/user';
     esVendedor():Boolean{
       var user = localStorage.getItem("user");
       let tmpUser:User= JSON.parse(user);
-      return tmpUser.role._id == 1;
+      return tmpUser.role._id == 2;
     }
     esDisenador():Boolean{
       var user = localStorage.getItem("user");
       let tmpUser:User= JSON.parse(user);
-      return tmpUser.role._id == 2;
+      return tmpUser.role._id == 3;
     }
     esBordador():Boolean{
       var user = localStorage.getItem("user");
       let tmpUser:User= JSON.parse(user);
-      return tmpUser.role._id == 3;
+      return tmpUser.role._id == 4;
     }
     esSerigrafista():Boolean{
       var user = localStorage.getItem("user");
       let tmpUser:User= JSON.parse(user);
-      return tmpUser.role._id == 4;
+      return tmpUser.role._id == 5;
     }
     esMaquilador():Boolean{
       var user = localStorage.getItem("user");
       let tmpUser:User= JSON.parse(user);
-      return tmpUser.role._id == 5;
+      return tmpUser.role._id == 6;
     }
     esAlmacenista():Boolean{
       var user = localStorage.getItem("user");
       let tmpUser:User= JSON.parse(user);
-      return tmpUser.role._id == 6;
+      return tmpUser.role._id == 7;
     }
     isCurrentUserSeller():Boolean{
       var user = localStorage.getItem("user");
