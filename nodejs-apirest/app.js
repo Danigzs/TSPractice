@@ -164,6 +164,15 @@ api.route('/roles/:id')
   .get(RoleCtrl.findById)
   .delete(RoleCtrl.delete);
   
+ 
+api.route('/reportesbordado')
+.get(ReportebordadoCtrl.findAll)
+.post(ReportebordadoCtrl.add);
+
+api.route('/reportesbordado/:id')
+.get(ReportebordadoCtrl.findById)
+.delete(ReportebordadoCtrl.delete);
+
 //User Routes
 api.route('/users')
   .get(UserCtrl.findAll)
