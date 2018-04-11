@@ -19,15 +19,73 @@ import {Grafico} from './../grafico/grafico';
 import {Serigrafia} from './../tecnicas/serigrafia'; 
 import {Vinil} from './../tecnicas/vinil'; 
 import {Transfer} from './../tecnicas/transfer'; 
+import { Maquina } from './maquina';
+import { ReporteBordadoService } from './reportebordado.service';
+import { ReporteBordado } from './reportebordado';
+import { MaquinaService } from './maquina.service';
 
 @Component({
   selector: 'bordadoreport',
     providers: [TecnicaService],
-  styleUrls: ["app/dailyreports/bordado.reports.ts","app/styles/table.css"],
+  //styleUrls: ["app/dailyreports/bordado.reports.ts","app/styles/table.css"],
+  styleUrls: ["./app/cliente/addClient.css", "app/styles/table.css"],
   templateUrl: "./app/dailyreports/bordado.report.html"
        
 })
-export class BordadoReportComponent  {
+export class BordadoReportComponent implements OnInit {
+  public maquinaSelected:Maquina
+  public reportesbordado:Array<ReporteBordado>;
+  public maquinas:Array<Maquina>;
+  public reporte:ReporteBordado;
+  constructor(private _reporteBordadoService:ReporteBordadoService, private _maquinasService:MaquinaService){
 
+  }
+
+  cargarReportes(){
+    this.reportesbordado = [];
+    this.reporte = new ReporteBordado();
+    
+    this._maquinasService.getMaquinas().subscribe(data => {
+      this.maquinas = data;
+      this.maquinaSelected = this.maquinas[0];
+    });
+
+    this._reporteBordadoService.getReportesBordado().subscribe(data => {
+      this.reportesbordado = data;
+    });
+
+    
+  }
+
+  ngOnInit(): void {
+    this.cargarReportes();
+    
+  }
+  getFechaReporte(fecha:Date){
+    return fecha.toDateString();
+  }
+  agregarReporte(){
+    if(this.reporte.folio.length == 0){
+      alert("Ingresar folio");
+      return;
+    }
+    if(this.reporte.logo.length == 0){
+      alert("Ingresar logo");
+      return;
+    }
+    
+    if(this.reporte.fechaInicio.length == 0){
+      alert("Ingresar fecha inicio");
+      return;
+    }
+    if(this.reporte.fechaFinal.length == 0){
+      alert("Ingresar fecha final");
+      return;
+    }
+
+    this._reporteBordadoService.addReporteBordado(this.reporte).subscribe(data => {
+      this.cargarReportes();
+    });
+  }
 
 }

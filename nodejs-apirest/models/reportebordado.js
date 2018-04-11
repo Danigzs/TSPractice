@@ -4,10 +4,6 @@ autoIncrement.initialize(mongoose.connection);
 var Schema = mongoose.Schema;
 
 var reportebordadoSchema = new Schema({
-  reporte_bordado_id: {
-    type: Number,
-    required: true
-  },
   fecha: {
     type: Date
   },
@@ -20,16 +16,16 @@ var reportebordadoSchema = new Schema({
   logo: {
     type: String
   },
-  puntadas_logo: {
-    type: String
-  },
-  total_puntadas: {
+  puntadasLogo: {
     type: Number
   },
-  fecha_inicio: {
+  totalPuntadas: {
+    type: Number
+  },
+  fechaInicio: {
     type: String
   },
-  fecha_final: {
+  fechaFinal: {
     type: String
   },
   observaciones: {

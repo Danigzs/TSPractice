@@ -27,8 +27,16 @@ exports.add = function (req, res) {
   console.log('POST');
   console.log(req.body);
   var reporte = new Reportebordado({
-    name: req.body.name,
-    isAdmin: req.body.isAdmin
+    fecha: req.body.fecha,
+    maquina: req.body.maquina,
+    folio: req.body.folio,
+    logo: req.body.logo,
+    puntadasLogo: req.body.puntadasLogo,
+    totalPuntadas: req.body.totalPuntadas,
+    fechaInicio: req.body.fechaInicio,
+    fechaFinal: req.body.fechaFinal,
+    observaciones: req.body.observaciones,
+    bordador: req.body.bordador
   
   });
   reporte.save(function (err, reporte) {
@@ -40,23 +48,23 @@ exports.add = function (req, res) {
   });
 };
 
-//PUT - Update a register already exists
-exports.update = function (req, res) {
-  console.log("Update role " + req.params.id)
-  var _reporte = new Reportebordado(req.body);
-  Reportebordado.findById({_id:req.params.id}, function (err, reporte) {
+// //PUT - Update a register already exists
+// exports.update = function (req, res) {
+//   console.log("Update role " + req.params.id)
+//   var _reporte = new Reportebordado(req.body);
+//   Reportebordado.findById({_id:req.params.id}, function (err, reporte) {
      
-    reporte.name =  _reporte.name,
-  reporte.isAdmin =  _reporte.isAdmin,
+//     reporte.name =  _reporte.name,
+//   reporte.isAdmin =  _reporte.isAdmin,
  
-    reporte.save(function (err,reporte) {
-      if (err) return res.send(500).json({reporte:null});
-     res.status(200).json({
-       reporte: reporte
-    });
-    });
-  });
-};
+//     reporte.save(function (err,reporte) {
+//       if (err) return res.send(500).json({reporte:null});
+//      res.status(200).json({
+//        reporte: reporte
+//     });
+//     });
+//   });
+// };
 
 //DELETE - Delete a register with specified ID
 exports.delete = function (req, res) {

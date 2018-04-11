@@ -51,6 +51,8 @@ import {CotizadorService} from './cotizacion/cotizador.service';
 import {ProductoService} from './producto/producto.service';
 import {OrderService} from './orders/order.service';
 import {TecnicaService} from './producto/tecnica.service';
+import {ReporteBordadoService} from './dailyreports/reportebordado.service';
+import {MaquinaService} from './dailyreports/maquina.service';
 import {SellerService} from './sellers/seller.service';
 import {PaymentService}from './payment/payment.service';
 import {DashboardService} from './dashboard/dashboard.service';
@@ -246,7 +248,9 @@ const appRoutes: Routes = [
   appConfigComponent
   ],
   providers : [  AuthGuard,CotizadorService, 
-    ClienteService, 
+    ClienteService,
+    MaquinaService,
+    ReporteBordadoService,
     ProductoService,
      TecnicaService,
     SellerService,
