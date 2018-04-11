@@ -62,7 +62,7 @@ export class BordadoReportComponent implements OnInit {
     
   }
   getFechaReporte(fecha:Date){
-    return fecha.toDateString();
+    return (new Date(fecha)).toLocaleDateString()
   }
   agregarReporte(){
     if(this.reporte.folio.length == 0){
