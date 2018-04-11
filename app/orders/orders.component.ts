@@ -125,7 +125,7 @@ mySettings: IMultiSelectSettings = {
         
         var user = this.user;
         
-        data =   data.filter(function(v,i){ return v.area ==  user.role._id });;
+        data =   data.filter(function(v,i){ return v.area ==  (user.role._id-1) });;
           this.allOrders =data;
           this.orders = data;
           this.orders.map((order,index) => ( 
