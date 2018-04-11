@@ -83,6 +83,7 @@ export class BordadoReportComponent implements OnInit {
       return;
     }
 
+    this.reporte.maquina = this.maquinaSelected.name;
     this._reporteBordadoService.addReporteBordado(this.reporte).subscribe(data => {
       this.cargarReportes();
     });
