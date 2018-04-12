@@ -15,6 +15,16 @@
       </div>
       <div class="c-container-info-column-item-container">
         <div class="c-container-info-column-item-container info">
+            # de piezas x maquina
+        </div>
+      </div>
+      <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+              Producto
+          </div>
+        </div>
+      <div class="c-container-info-column-item-container">
+        <div class="c-container-info-column-item-container info">
           Folio
         </div>
       </div>
@@ -28,6 +38,10 @@
           Observaciones
         </div>
       </div>
+      
+       
+           
+          
     </div>
 
     <div class="c-container-info-column data">
@@ -47,6 +61,20 @@
          </div>
 
      </div>
+     <div class="c-container-info-column-item-container">
+        <div class="c-container-info-column-item-container info">
+          <div class="example-full-width">
+            <input type="text" name="reportenoPiezasPorMaquina" [(ngModel)]="reporte.noPiezasPorMaquina">
+          </div>
+        </div>
+      </div>
+      <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <input type="text" name="reporteproductoBordado" [(ngModel)]="reporte.productoBordado">
+            </div>
+          </div>
+        </div>
       <div class="c-container-info-column-item-container">
         <div class="c-container-info-column-item-container info">
           <div class="example-full-width">
@@ -100,6 +128,11 @@
             Bordador
           </div>
         </div>
+        <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              # de piezas por día
+            </div>
+          </div>
     </div>
     <div class="c-container-info-column data">
         <div class="c-container-info-column-item-container">
@@ -146,6 +179,14 @@
         </div>
       </div>
 
+      <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <input type="text" name="reportenoPiezasPorDia" [(ngModel)]="reporte.noPiezasPorDia">
+            </div>
+  
+          </div>
+        </div>
     </div>
 
   </div>
@@ -164,6 +205,9 @@
         <tr>
           <th>Maquina</th>
           <th>Folio</th>
+          <th># de piezas x maquina</th>
+          <th>Producto</th>
+          <th># de piezas por día</th>
           <th>Logo</th>
           <th>Puntadas Logo</th>
           <th>Total de puntadas</th>
@@ -175,14 +219,17 @@
       </thead>
       <tr class='clickable-row' *ngFor="let reporte of reportesbordado; let i = index">
           <td>{{reporte.maquina}}</td>        
-        <td>{{reporte.folio}}</td>
-        <td>{{reporte.logo}}</td>
-        <td>{{reporte.puntadasLogo}}</td>
-        <td>{{reporte.totalPuntadas}}</td>
-        <td>{{reporte.fechaInicio}}</td>
-        <td>{{reporte.fechaFinal}}</td>
-        <td>{{reporte.observaciones}}</td>
-        <td>{{reporte.bordador}}</td>
+          <td>{{reporte.folio}}</td>
+          <td>{{reporte.noPiezasPorMaquina}}</td>
+          <td>{{reporte.productoBordado}}</td>
+          <td>{{reporte.noPiezasPorDia}}</td>
+          <td>{{reporte.logo}}</td>
+          <td>{{reporte.puntadasLogo}}</td>
+          <td>{{reporte.totalPuntadas}}</td>
+          <td>{{reporte.fechaInicio}}</td>
+          <td>{{reporte.fechaFinal}}</td>
+          <td>{{reporte.observaciones}}</td>
+          <td>{{reporte.bordador}}</td>
       </tr>
 
     </table>

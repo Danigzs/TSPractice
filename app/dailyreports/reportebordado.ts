@@ -9,6 +9,9 @@ export class ReporteBordado {
   totalPuntadas:Number;
   fechaInicio:String;
   fechaFinal:String;
+  noPiezasPorMaquina:String;
+  productoBordado:String;
+  noPiezasPorDia:String;
   observaciones: String
   bordador:String;
 
@@ -17,6 +20,9 @@ export class ReporteBordado {
     this.fecha = new Date();
     this.maquina = "";
     this.folio= "";
+    this.noPiezasPorMaquina = "";
+    this.productoBordado = "";
+    this.noPiezasPorDia = "";
     this.logo= "";
     this.puntadasLogo = 0;
     this.totalPuntadas = 0;

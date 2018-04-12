@@ -13,6 +13,15 @@ var reportebordadoSchema = new Schema({
   folio: {
     type: String
   },
+  noPiezasPorMaquina: {
+    type:String
+  },
+  productoBordado: {
+    type:String
+  },
+  noPiezasPorDia: {
+    type:String
+  },
   logo: {
     type: String
   },
