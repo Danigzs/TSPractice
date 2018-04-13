@@ -1,3 +1,4 @@
+
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/forkJoin'
 
@@ -92,6 +93,7 @@ export class CotizadorEditComponent implements OnInit {
   //public productosCotizacion: Array < ProductCotizacion > ;
   public tecnicas: Array < TecnicaCotizacion > ;
   //public maquilasCotizacion: Array < TecnicaCotizacion > = [];
+ public  esdisenador:Boolean = false;
   public hideModal = true;
   public hideModal2 = true;
   public hideModal3 = true;
@@ -182,6 +184,7 @@ public dataLoaded = false;
   gridKeys = ["Cantidad", "Nombre", "Descripcion", "Precio Unitario", "Total"];
 
   constructor(
+    private router:Router,
     private _cotizadorService: CotizadorService, 
     public _clienteService: ClienteService, 
     private _productoService: ProductoService, 
@@ -190,7 +193,7 @@ public dataLoaded = false;
     private _sellerService: SellerService, 
     private _orderService: OrderService,
     private route: ActivatedRoute,
-    private _areasService:AreaService
+    private _areasService:AreaService,
     private _userService:UserService
     ) {
 
@@ -720,11 +723,15 @@ getOrderById(orderId:Number){
     }
   )
 }
+agregarAlReporte(){
+  this.router.navigate(['/disenoreport',{id:this.order._id}]);
+}
 
   ngOnInit() {
     this.isUserAdmin = this._userService.isUserAdmin();
     this.order = new Order;
     this.readonlySeller = this._userService.isCurrentUserSeller();
+    this.esdisenador = this._userService.esDisenador();
     this.areaOptions = [
       
     ]
@@ -737,7 +744,7 @@ getOrderById(orderId:Number){
       
       console.log(params);
       this.getOrderById(params["id"]);
-       
+      
     
     });
     

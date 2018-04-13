@@ -1,0 +1,262 @@
+<navbar></navbar>
+<div class="c-div-bgr bar-margin"> 
+<div class="c-div-container">
+  <div class="c-container-info">
+    <div class="c-container-info-column">
+      <div class="c-container-info-column-item-container">
+        <div class="c-container-info-column-item-container info">
+          Fecha
+        </div>
+      </div>
+      <div class="c-container-info-column-item-container">
+        <div class="c-container-info-column-item-container info">
+          Folio
+        </div>
+      </div>
+      <div class="c-container-info-column-item-container">
+        <div class="c-container-info-column-item-container info">
+          Cliente
+        </div>
+      </div>
+      <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+          Fecha de recibido
+          </div>
+        </div>
+      <div class="c-container-info-column-item-container">
+        <div class="c-container-info-column-item-container info">
+          Solicitante
+        </div>
+      </div>
+      <div class="c-container-info-column-item-container">
+        <div class="c-container-info-column-item-container info">
+          Hora de entrada
+        </div>
+      </div>
+      <div class="c-container-info-column-item-container">
+        <div class="c-container-info-column-item-container info">
+          Técnica
+        </div>
+      </div>
+      <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Puntadas
+          </div>
+        </div>
+       
+           
+          
+    </div>
+
+    <div class="c-container-info-column data">
+      <div class="c-container-info-column-item-container">
+        <div class="c-container-info-column-item-container info">
+          <span>{{getFechaReporte(reporte.fecha)}}</span>
+        </div>
+      </div>
+      <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <input type="text" name="reportefolio" [(ngModel)]="reporte.folio">
+            </div>
+          </div>
+      </div>
+      <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <input type="text" name="reportecliente" [(ngModel)]="reporte.cliente.name">
+            </div>
+          </div>
+      </div>
+      <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <input type="text" name="reporte" [(ngModel)]="reporte.fechaRecibido">
+            </div>
+          </div>
+        </div>
+     <div class="c-container-info-column-item-container">
+        <div class="c-container-info-column-item-container info">
+          <div class="example-full-width">
+            <input type="text" name="reportesolicitante" [(ngModel)]="reporte.solicitante">
+          </div>
+        </div>
+      </div>
+     
+      <div class="c-container-info-column-item-container">
+        <div class="c-container-info-column-item-container info">
+          <div class="example-full-width">
+            <input type="text" name="reportehoraentrada" [(ngModel)]="reporte.horaEntrada">
+          </div>
+        </div>
+      </div>
+      <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+              <input type="text" name="reportetecnica" [(ngModel)]="reporte.tecnica">
+
+           </div>
+  
+       </div>
+
+      <div class="c-container-info-column-item-container">
+        <div class="c-container-info-column-item-container info">
+          <div class="example-full-width">
+              <input type="text" name="reportepuntadas" [(ngModel)]="reporte.puntadas">
+            </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="c-container-info-column">
+        <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Tintas
+            </div>
+          </div> 
+      <div class="c-container-info-column-item-container">
+        <div class="c-container-info-column-item-container info">
+          Fecha de salida
+        </div>
+      </div> 
+      <div class="c-container-info-column-item-container">
+        <div class="c-container-info-column-item-container info">
+          Hora de salida
+        </div>
+      </div>
+
+      <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Compras o Taller
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Nombre logotipo
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Comentarios
+            </div>
+          </div>
+          <div class="c-container-info-column-item-container">
+              <div class="c-container-info-column-item-container info">
+                Quien realiza el trabajo
+              </div>
+            </div>
+    </div>
+    <div class="c-container-info-column data">
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <input type="text" name="reportetintas" [(ngModel)]="reporte.tintas">
+            </div>
+          </div>
+        </div>
+    <div class="c-container-info-column data">
+      <div class="c-container-info-column-item-container">
+        <div class="c-container-info-column-item-container info">
+          <div class="example-full-width">
+            <input type="text" name="reportefechasalida" [(ngModel)]="reporte.fechaSalida">
+          </div>
+        </div>
+      </div>
+    
+      <div class="c-container-info-column-item-container">
+        <div class="c-container-info-column-item-container info">
+          <div class="example-full-width">
+            <input type="text" name="reportehorasalida" [(ngModel)]="reporte.horaSalida">
+          </div>
+
+        </div>
+      </div>
+
+      <div class="c-container-info-column-item-container">
+        <div class="c-container-info-column-item-container info">
+          <div class="example-full-width">
+            <input type="text" name="reportecomprastaller" [(ngModel)]="reporte.comprasTaller">
+          </div>
+        </div>
+      </div >
+
+
+      <div class="c-container-info-column-item-container">
+        <div class="c-container-info-column-item-container info">
+          <div class="example-full-width">
+            <input type="text" name="reportelogotipo" [(ngModel)]="reporte.logotipo">
+          </div>
+
+        </div>
+      </div>
+
+      <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <input type="text" name="reportecomentarios" [(ngModel)]="reporte.comentarios">
+            </div>
+  
+          </div>
+        </div>
+
+        <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <div class="example-full-width">
+                <input type="text" name="reportetrabajador" [(ngModel)]="reporte.trabajoCreadoPor">
+              </div>
+    
+            </div>
+          </div>
+    </div>
+
+  </div>
+
+  
+</div>
+<div class="c-add-product-container" >
+  <button  type="button" class="btn btn-primary btn-md" (click)="agregarReporte()">Guardar</button>
+</div>
+
+
+
+  <div class="c-grid-products">
+    <table class="table " id="tproductos">
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Folio</th>
+          <th>Cliente</th>
+          <th>Fecha de recibido</th>
+          <th>Solicitante</th>
+          <th>Hora de entrada</th>
+          <th>Técnica</th>
+          <th>Puntadas</th>
+          <th>Tintas</th>
+          <th>Fecha de salida</th>
+          <th>Hora de salida</th>
+          <th>Compras o Taller</th>
+          <th>Logotipo</th>
+          <th>Comentarios</th>
+          <th>Nombre quien realiza el trabajo</th>
+        </tr>
+      </thead>
+      <tr class='clickable-row' *ngFor="let reporte of reportesdiseno; let i = index">
+          <td>{{reporte.fecha}}</td>        
+          <td>{{reporte.cliente.name}}</td>
+          <td>{{reporte.folio}}</td>
+          <td>{{reporte.fechaRecibido}}</td>
+          <td>{{reporte.solicitante}}</td>
+          <td>{{reporte.horaEntrada}}</td>
+          <td>{{reporte.tecnica}}</td>
+          <td>{{reporte.tintas}}</td>
+          <td>{{reporte.fechaSalida}}</td>
+          <td>{{reporte.horaSalida}}</td>
+          <td>{{reporte.logotipo}}</td>
+          <td>{{reporte.comentarios}}</td>
+          <td>{{reporte.trabajoCreadoPor}}</td>
+      </tr>
+
+    </table>
+  </div>
+</div>

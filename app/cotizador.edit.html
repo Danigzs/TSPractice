@@ -31,8 +31,9 @@
 
     </div>
     <div class="c-cliente-seccion">
-      <button type="button" *ngIf="isUserAdmin == true"  class="btn btn-primary btn-md" (click)="ClienteModal()">Agregar Cliente</button>
-      <!-- <label>Cliente</label>
+        <button type="button" *ngIf="isUserAdmin == true"  class="btn btn-primary btn-md" (click)="ClienteModal()">Agregar Cliente</button>
+        <button type="button" *ngIf="esdisenador == true"  class="btn btn-primary btn-md" (click)="agregarAlReporte()">Agregar al reporte</button>
+        <!-- <label>Cliente</label>
       <div class="c-cliente-nuevo">
         <label> Nuevo</label>
         <input type="checkbox" (click)="ClienteModal()">

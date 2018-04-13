@@ -52,6 +52,7 @@ import {ProductoService} from './producto/producto.service';
 import {OrderService} from './orders/order.service';
 import {TecnicaService} from './producto/tecnica.service';
 import {ReporteBordadoService} from './dailyreports/reportebordado.service';
+import {ReporteDisenoService} from './dailyreports/reportediseno.service';
 import {MaquinaService} from './dailyreports/maquina.service';
 import {SellerService} from './sellers/seller.service';
 import {PaymentService}from './payment/payment.service';
@@ -251,6 +252,7 @@ const appRoutes: Routes = [
     ClienteService,
     MaquinaService,
     ReporteBordadoService,
+    ReporteDisenoService,
     ProductoService,
      TecnicaService,
     SellerService,

@@ -42,6 +42,7 @@ var modelRole = require('./models/role')(app, mongoose);
 var modelMaquina = require('./models/maquina')(app, mongoose);
 var modelUser = require('./models/user')(app, mongoose);
 var modelReportebordado = require('./models/reportebordado')(app, mongoose);
+var modelReportediseno = require('./models/reportediseno')(app, mongoose);
 var modelBordado = require('./models/bordado')(app, mongoose);
 var modelSerigrafia = require('./models/serigrafia')(app, mongoose);
 var modelSublimado = require('./models/sublimado')(app, mongoose);
@@ -91,6 +92,7 @@ var SerigrafiaCtrl = require('./controllers/serigrafia');
 var SublimadoCtrl = require('./controllers/sublimado');
 var TransferCtrl = require('./controllers/transfer');
 var ReportebordadoCtrl = require('./controllers/reportebordado');
+var ReportedisenoCtrl = require('./controllers/reportediseno');
 var bordadoNombreCtrl = require('./controllers/BordadoNombre');
 var bordadoPuntadasCtrl = require('./controllers/BordadoPuntadas');
 var bordadoTamañoCtrl = require('./controllers/BordadoSize');
@@ -165,6 +167,15 @@ api.route('/roles/:id')
   .delete(RoleCtrl.delete);
   
  
+api.route('/reportesdiseno')
+.get(ReportedisenoCtrl.findAll)
+.post(ReportedisenoCtrl.add);
+
+api.route('/reportesdiseno/:id')
+.get(ReportedisenoCtrl.findById)
+.delete(ReportedisenoCtrl.delete);
+
+
 api.route('/reportesbordado')
 .get(ReportebordadoCtrl.findAll)
 .post(ReportebordadoCtrl.add);

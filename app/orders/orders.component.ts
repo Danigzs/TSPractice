@@ -105,10 +105,7 @@ mySettings: IMultiSelectSettings = {
           order.currentStatus = [order.status]
         ));
       }
-    
-    
     )
-
     this._userService.getSellerUsers().subscribe(
       results => {
         this.users = results;
@@ -117,15 +114,14 @@ mySettings: IMultiSelectSettings = {
       })
   }
   else {
-      this._orderService.getOrdersByUser(this.user).subscribe(
+    var esdisenador = this._userService.esDisenador();
+    if(esdisenador){
+      this._orderService.getOrders().subscribe(
         data=>{
-          console.log(this.user);
-          console.log(data);
-        
-        
-        var user = this.user;
-        
-        data =   data.filter(function(v,i){ return v.area ==  (user.role._id-1) });;
+          
+          var user = this.user;
+          
+          data =   data.filter(function(v,i){ return v.area ==  (user.role._id-1) });;
           this.allOrders =data;
           this.orders = data;
           this.orders.map((order,index) => ( 
@@ -134,6 +130,28 @@ mySettings: IMultiSelectSettings = {
         }
       )
     }
+    else 
+    {
+        this._orderService.getOrdersByUser(this.user).subscribe(
+          data=>{
+            console.log(this.user);
+            console.log(data);
+          
+          
+          var user = this.user;
+          
+            data =   data.filter(function(v,i){ return v.area ==  (user.role._id-1) });;
+            this.allOrders =data;
+            this.orders = data;
+            this.orders.map((order,index) => ( 
+              order.currentStatus = [order.status]
+            ));
+          }
+        )
+      }
+    }
+
+
   }
   onChangeOrderStatus(event:Event,order:Order){
     console.log(order.currentStatus)
