@@ -7,7 +7,7 @@ export class AuthGuard implements CanActivate {
     
     constructor(private router: Router, private _userservice:UserService) { }
     // adminRoutes = [''];
-    adminRoutes = ['/nuevoproducto','/register','/verreportes','/tecnicas','/sellers','/categorias','/disenoreport'];
+    adminRoutes = ['/nuevoproducto','/register','/verreportes','/tecnicas','/sellers','/categorias'];
     // adminRoutes = ['/nuevoproducto','/register','/bordadoreport','/verreportes','/tecnicas','/sellers','/categorias','/disenoreport'];
     bordadorRoutes = ['/bordadoreport','/verreportes'];
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {

@@ -78,7 +78,12 @@ getOrderById(orderId:Number){
       
       
       console.log(params);
-      this.getOrderById(params["id"]);
+      if(params != null && params["id"] != null){ 
+        this.getOrderById(params["id"]);
+      }
+        else {
+
+        }
       
     
     });
