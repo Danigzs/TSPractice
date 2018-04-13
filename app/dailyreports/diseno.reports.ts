@@ -118,6 +118,7 @@ getOrderById(orderId:Number){
 
     this._reporteDisenoService.addReporteDiseno(this.reporte).subscribe(data => {
       this.cargarReportes();
+      this.reporte = new ReporteDiseno();
     });
   }
 

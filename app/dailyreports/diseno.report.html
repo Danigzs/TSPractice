@@ -242,16 +242,18 @@
         </tr>
       </thead>
       <tr class='clickable-row' *ngFor="let reporte of reportesdiseno; let i = index">
-          <td>{{reporte.fecha}}</td>        
-          <td>{{reporte.cliente.name}}</td>
+          <td>{{getFechaReporte(reporte.fecha)}}</td>        
           <td>{{reporte.folio}}</td>
+          <td>{{reporte.cliente.name}}</td>
           <td>{{reporte.fechaRecibido}}</td>
           <td>{{reporte.solicitante}}</td>
           <td>{{reporte.horaEntrada}}</td>
           <td>{{reporte.tecnica}}</td>
+          <td>{{reporte.puntadas}}</td>
           <td>{{reporte.tintas}}</td>
           <td>{{reporte.fechaSalida}}</td>
           <td>{{reporte.horaSalida}}</td>
+          <td>{{reporte.comprasTaller}}</td>
           <td>{{reporte.logotipo}}</td>
           <td>{{reporte.comentarios}}</td>
           <td>{{reporte.trabajoCreadoPor}}</td>
