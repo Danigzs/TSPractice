@@ -783,14 +783,25 @@ export class CotizadorComponent implements OnInit {
         
       
       var user = this.currentUser;
-      this.clientes = this.clientes.filter(function(v,i){ return v.vendedor._id == user._id;});
-      if(this.clientes == null){
-        this.clientes = [];
+
+      if(this._userService.isUserAdmin()){
+        if(this.clientes == null){
+          this.clientes = [];
+        }
+              this.clienteSelected = this.clientes[0];
       }
-      if(this.esVendedor){
-        if (this.clientes.length > 0)
-            this.clienteSelected = this.clientes[0];
+      else {
+        this.clientes = this.clientes.filter(function(v,i){ return v.vendedor._id == user._id;});
+        if(this.clientes == null){
+          this.clientes = [];
+        }
+        if(this.esVendedor){
+          if (this.clientes.length > 0)
+              this.clienteSelected = this.clientes[0];
+        }
       }
+
+      
 
       if (this.tecnicas.length > 0)
         this.tecnicaSelected = this.tecnicas[0];

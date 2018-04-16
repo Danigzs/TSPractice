@@ -41,11 +41,17 @@ export class ClientsListComponent  implements OnInit{
   ngOnInit() {
     setTimeout(() => {
 
-   var user = this.currentUser;
-   this.clientes = this.clientes.filter(function(v,i){ return v.vendedor._id == user._id;});
-   if(this.clientes == null){
-     this.clientes = [];
-   } 
+      var user = this.currentUser;
+      if(this._userService.isUserAdmin()){ 
+         
+      }
+      else{
+          this.clientes = this.clientes.filter(function(v,i){ return v.vendedor._id == user._id;});
+          if(this.clientes == null){
+            this.clientes = [];
+          } 
+      }
+   
       this.allClientes = this.clientes;  
     }, 1000);
     

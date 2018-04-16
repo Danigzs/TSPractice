@@ -35,7 +35,7 @@ export class Order {
   paymentDays:number;
   usercreador:User;
   esCotizacion:number;
-  estimatedDate:String;
+  estimatedDate:Date;
   orderHistory:Array<String>;
   orderAreaHistory:Array<String>;
   paymentDate:String;
@@ -56,7 +56,7 @@ export class Order {
     this.debt = 0;
     this.shippingWay ="";
     this.pagosTotales = 0;
-    this.estimatedDate ="";
+    this.estimatedDate = new Date;
     this.shippingDate = new Date;
     this.subTotal = 0;
     this.statusText = "";

@@ -80,7 +80,7 @@ var orderSchema = new Schema({
     default:0
   },
   estimatedDate:{
-    type:String
+    type:Date
   },
   orderHistory:[{
     type:String
