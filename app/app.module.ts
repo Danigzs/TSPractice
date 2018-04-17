@@ -12,6 +12,7 @@ import {FormComponent}	from './form.component';
 import {ClientesComponent} from './clientes.details';
 import {AddClientComponent} from './cliente/addClient.component';
 import {ClientsListComponent} from './cliente/clientsList.component';
+import {ClientsImportacionComponent} from './cliente/clientesimportacion.component';
 import {CotizadorComponent} from './cotizador.component';
 import {CotizadorEditComponent} from './cotizador.component.edit';
 
@@ -22,6 +23,7 @@ import {InventarioComponent} from './inventario.component';
 import {PaymentComponent} from './payment/payment.component';
 import {NuevoProductoComponent} from './nuevoproducto/nuevoproducto.component';
 import {ProductsListComponent} from './producto/productsList.component';
+import {ProductsImportacionComponent} from './producto/productsimportacion.component';
 import {LoginComponent} from './login/login.component'
 import {RegisterComponent} from './register/register.component'
 import {TecnicaBordadoComponent} from './tecnicas/tecnica.bordado';
@@ -126,9 +128,11 @@ const appRoutes: Routes = [
   { path: 'dashboard', component: AppComponent },
   { path: 'clientes', component: ClientesComponent,canActivate: [AuthGuard]},
   { path: 'clients-list', component: ClientsListComponent},
+  { path: 'importacionclientes', component: ClientsImportacionComponent},
   { path: 'cotizador', component: CotizadorComponent,canActivate: [AuthGuard]},
   // { path: 'inventario', component: InventarioComponent},
   { path: 'inventario', component: ProductsListComponent},
+  { path: 'importacionproductos', component: ProductsImportacionComponent},
   { path: 'nuevoproducto', component: NuevoProductoComponent,canActivate: [AuthGuard]},
   { path: 'tecnicas', component: TecnicasComponent,canActivate: [AuthGuard]},
   { path: 'sellers', component: SellersComponent,canActivate: [AuthGuard]},
@@ -196,10 +200,12 @@ const appRoutes: Routes = [
   ClientesComponent,
   AddClientComponent,
   ClientsListComponent,
+  ClientsImportacionComponent,
   CotizadorComponent,
   CotizadorEditComponent,
   InventarioComponent,
   ProductsListComponent,
+  ProductsImportacionComponent,
   NuevoProductoComponent,
   TecnicasComponent,
   SellersComponent,

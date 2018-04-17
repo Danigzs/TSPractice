@@ -157,7 +157,7 @@
       <div class="c-container-info-column-item-container">
         <div class="c-container-info-column-item-container info">
           <div class="example-full-width">
-            <input type="text" name="razonSocial" [(ngModel)]="reporte.fechaInicio">
+            <input type="datetime-local" name="razonSocial" [(ngModel)]="reporte.fechaInicio">
           </div>
 
         </div>
@@ -166,7 +166,7 @@
       <div class="c-container-info-column-item-container">
         <div class="c-container-info-column-item-container info">
           <div class="example-full-width">
-            <input type="text" name="razonSocial" [(ngModel)]="reporte.fechaFinal">
+            <input type="datetime-local" name="razonSocial" [(ngModel)]="reporte.fechaFinal">
           </div>
 
         </div>
@@ -201,13 +201,100 @@
 </div>
 
 
+<h3>Filtros</h3>
+<div class="c-div-container">
+    <div class="c-container-info">
+
+      <div class="c-container-info-column">
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Maquina
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Folio
+            </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Fecha
+            </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Inicio
+            </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Final
+            </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              Bordador
+            </div>
+        </div>
+      </div>
+
+      <div class="c-container-info-column data">
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+              <select class="form-control" name="sel" [(ngModel)]="maquinaSelectedFilter" (change)="OnMaquinaFiltroChanged()">
+                  <option *ngFor="let maquinaFilter of maquinasFilro" [ngValue]="maquinaFilter">
+                      {{maquinaFilter.name}}
+                  </option>
+              </select>
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <div class="example-full-width">
+                <input type="text" name="foliofiltro" [(ngModel)]="folioFiltro" (change)="OnFolioFiltroChanged()">
+              </div>
+            </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <div class="example-full-width">
+                <input type="date" name="fechaFiltro" [(ngModel)]="fechaFiltro" (change)="OnFechaFiltroChanged()">
+              </div>
+            </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <div class="example-full-width">
+                <input type="datetime-local" name="inicioFiltro" [(ngModel)]="inicioFiltro" (change)="OnInicioFiltroChanged()">
+              </div>
+            </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+              <div class="example-full-width">
+                 <input type="datetime-local" name="finalFiltro" [(ngModel)]="finalFiltro" (change)="OnFinalFiltroChanged()">
+              </div>
+            </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+            <div class="c-container-info-column-item-container info">
+                <input type="text" name="bordadorFiltro" [(ngModel)]="bordadorFiltro" (change)="OnBordadorFiltroChanged()">
+            </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+      
 
   <div class="c-grid-products">
     <table class="table " id="tproductos">
       <thead>
         <tr>
-          <th>Maquina</th>
-          <th>Folio</th>
+            <th>Fecha</th>
+            <th>Maquina</th>
+            <th>Folio</th>
           <th># de piezas x maquina</th>
           <th>Producto</th>
           <th># de piezas por día</th>
@@ -221,6 +308,7 @@
         </tr>
       </thead>
       <tr class='clickable-row' *ngFor="let reporte of reportesbordado; let i = index">
+          <td>{{getFechaReporte(reporte.fecha)}}</td>        
           <td>{{reporte.maquina}}</td>        
           <td>{{reporte.folio}}</td>
           <td>{{reporte.noPiezasPorMaquina}}</td>

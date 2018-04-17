@@ -35,7 +35,11 @@ import { MaquinaService } from './maquina.service';
 export class BordadoReportComponent implements OnInit {
   public maquinaSelected:Maquina
   public reportesbordado:Array<ReporteBordado>;
+  public reportesbordadoAll:Array<ReporteBordado>;
   public maquinas:Array<Maquina>;
+  public maquinasFilroAll:Array<Maquina>;
+  public maquinasFilro:Array<Maquina>;
+  public maquinaSelectedFilter:Maquina;
   public reporte:ReporteBordado;
   constructor(private _reporteBordadoService:ReporteBordadoService, private _maquinasService:MaquinaService){
 
@@ -43,15 +47,20 @@ export class BordadoReportComponent implements OnInit {
 
   cargarReportes(){
     this.reportesbordado = [];
+    this.reportesbordadoAll = [];
     this.reporte = new ReporteBordado();
     
     this._maquinasService.getMaquinas().subscribe(data => {
       this.maquinas = data;
+      this.maquinasFilro = data;
+      this.maquinasFilroAll = data;
       this.maquinaSelected = this.maquinas[0];
+      this.maquinaSelectedFilter = this.maquinasFilroAll[0];
     });
 
     this._reporteBordadoService.getReportesBordado().subscribe(data => {
       this.reportesbordado = data;
+      this.reportesbordadoAll = data;
     });
 
     
@@ -74,14 +83,14 @@ export class BordadoReportComponent implements OnInit {
       return;
     }
     
-    if(this.reporte.fechaInicio.length == 0){
-      alert("Ingresar fecha inicio");
-      return;
-    }
-    if(this.reporte.fechaFinal.length == 0){
-      alert("Ingresar fecha final");
-      return;
-    }
+    // if(this.reporte.fechaInicio.length == 0){
+    //   alert("Ingresar fecha inicio");
+    //   return;
+    // }
+    // if(this.reporte.fechaFinal.length == 0){
+    //   alert("Ingresar fecha final");
+    //   return;
+    // }
 
     this.reporte.maquina = this.maquinaSelected.name;
     this._reporteBordadoService.addReporteBordado(this.reporte).subscribe(data => {
@@ -89,4 +98,26 @@ export class BordadoReportComponent implements OnInit {
     });
   }
 
+  aplicarFiltros(){
+
+  }
+  OnMaquinaFiltroChanged(){
+
+  }
+
+  OnFolioFiltroChanged(){
+
+  }
+  OnFechaFiltroChanged(){
+
+  }
+  OnInicioFiltroChanged(){
+
+  }
+  OnFinalFiltroChanged(){
+
+  }
+  OnBordadorFiltroChanged(){
+    // this.reportesbordado.filter()
+  }
 }

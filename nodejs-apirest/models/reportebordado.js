@@ -32,10 +32,10 @@ var reportebordadoSchema = new Schema({
     type: Number
   },
   fechaInicio: {
-    type: String
+    type: Date
   },
   fechaFinal: {
-    type: String
+    type: Date
   },
   observaciones: {
     type: String

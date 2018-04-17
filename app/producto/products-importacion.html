@@ -1,0 +1,176 @@
+<navbar></navbar>
+<div class="c-div-bgr bar-margin">
+  <div class="c-cliente-seccion">
+    <h1>Importacion de productos</h1>
+  </div>
+  <div class="c-div-container">
+
+
+
+    <div class="c-container-info">
+
+      <div class="c-container-info-column">
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Nombre
+          </div>
+
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            Clave
+          </div>
+        </div>
+      </div>
+
+      <div class="c-container-info-column data">
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+
+            <input type="text" name="nombre" [(ngModel)]="productname">
+
+
+          </div>
+        </div>
+        <div class="c-container-info-column-item-container">
+          <div class="c-container-info-column-item-container info">
+            <div class="example-full-width">
+              <input type="text" name="code" [(ngModel)]="productcode">
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="c-container-info-column">
+      </div>
+
+    </div>
+    <div class="c-add-product-container">
+      <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
+      <input id="file" type="file" (change)="fileChanged($event)">
+      <p>Output：{{compInfo}}</p>
+      <div *ngIf="isFileReaderWork" class="alert alert-success">FileReader works!</div>
+      <div *ngIf="!isFileReaderWork" class="alert alert-warn">This line will be removed, if FileReader works</div>
+
+
+    </div>
+    <div class="c-grid-products">
+      <table class="table " id="tproductos">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Cantidad</th>
+            <th>Código</th>
+            <th>Descripción</th>
+            <!--<th>Insumos</th>-->
+            <!--<th>Es Proveedor</th>
+            <th>Es Bordesa</th>-->
+            <th>Precio Unitaro</th>
+            <th>Precio 1-12</th>
+            <th>Precio 13-50</th>
+            <th>Precio 51-200</th>
+            <th>Precio mayor 200</th>
+            <th style="text-align:right" *ngIf="isUserAdmin == true" >Acciones</th>
+
+
+          </tr>
+        </thead>
+        <tr class='clickable-row' *ngFor="let product of (providerProducts | search:productname:true  | searchcode:productcode:true); let i = index">
+          <td>{{product.name}}</td>
+          <td>{{product.stock}}</td>
+          <td>{{product.code}}</td>
+          <td>{{product.description}}</td>
+          <!--<td>{{product.supplies}}</td>-->
+          <!--<td>{{product.isProvider}}</td>
+          <td>{{product.isBordesa}}</td>-->
+          <td>{{product.price | currency:'USD':true}}</td>
+          <td>{{ ((product.price + product.price * .25) + (product.price + product.price * .25)  * .16) | currency:'USD':true}}</td>
+          <td>{{ ((product.price + product.price * .21) + (product.price + product.price * .21)  * .16)| currency:'USD':true}}</td>
+          <td>{{((product.price + product.price * .17) + (product.price + product.price * .17)  * .16) | currency:'USD':true}}</td>
+          <td>{{ ((product.price + product.price * .13) + (product.price + product.price * .13)  * .16) | currency:'USD':true}}</td>
+          <td style="float:right" *ngIf="isUserAdmin == true"><button type="button" class="btn btn-primary btn-md" (click)="delete(product,i)">Borrar</button></td>
+
+        </tr>
+
+      </table>
+
+
+    </div>
+    <div class="c-grid-products">
+      <table class="table " id="tproductos">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Cantidad</th>
+            <th>Código</th>
+            <th>Descripción</th>
+            <th>Insumos</th>
+            <!--<th>Es Proveedor</th>
+            <th>Es Bordesa</th>-->
+            <th>Precio Unitaro</th>
+            <th style="text-align:right" *ngIf="isUserAdmin == true" >Acciones</th>
+
+
+          </tr>
+        </thead>
+        <tr class='clickable-row' *ngFor="let product of (bordesaProducts | search:productname:true  | searchcode:productcode:true)">
+          <td>{{product.name}}</td>
+          <td>{{product.stock}}</td>
+          <td>{{product.code}}</td>
+          <td>{{product.description}}</td>
+          <td>{{product.supplies}}</td>
+          <!--<td>{{product.isProvider}}</td>
+          <td>{{product.isBordesa}}</td>-->
+          <td>{{product.price | currency:'USD':true}}</td>
+          <td style="float:right" *ngIf="isUserAdmin == true"><button type="button" class="btn btn-primary btn-md" (click)="delete(product,i)">Borrar</button></td>
+        </tr>
+      </table>
+    </div>
+    <!--<clients-list [clientes]="clientes" *ngIf="show" ></clients-list>-->
+  </div>
+</div>
+
+
+<!--<div class="c-div-bgr">
+  <div class="c-div-container">
+
+
+    
+    <div class="c-grid-products">
+      <table class="table " id="tproductos">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Código</th>
+            <th>Descripción</th>
+            <th>Insumos</th>
+            <th>Es Proveedor</th>
+            <th>Es Bordesa</th>
+            <th>Precio Unitaro</th>
+            <th>Precio 1-12</th>
+            <th>Precio 13-50</th>
+            <th>Precio 51-100</th>
+            <th>Precio mayor 100</th>
+          </tr>
+        </thead>
+        <tr class='clickable-row' *ngFor="let product of products; let i = index">
+          <td>{{product.name}}</td>
+          <td>{{product.code}}</td>
+          <td>{{product.description}}</td>
+          <td>{{product.supplies}}</td>
+          <td>{{product.isProvider}}</td>
+          <td>{{product.isBordesa}}</td>
+          <td>{{product.price | currency:'USD':true}}</td>
+          <td>{{product.price - product.price * .25 | currency:'USD':true}}</td>
+          <td>{{product.price - product.price * .21 | currency:'USD':true}}</td>
+          <td>{{product.price - product.price * .17 | currency:'USD':true}}</td>
+          <td>{{product.price - product.price * .13 | currency:'USD':true}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+-->
+

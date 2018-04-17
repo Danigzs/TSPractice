@@ -1,0 +1,77 @@
+<navbar></navbar>
+<div class="c-div-bgr bar-margin">
+  <div class="c-cliente-seccion">
+    <h1>Importacion de clientes</h1>
+  </div>
+    <div class="c-container-info">
+       <div class="c-container-info-column">
+         <div class="c-container-info-column-item-container">
+           <div class="c-container-info-column-item-container info">
+             Vendedor
+           </div>
+         </div>
+       </div>
+ 
+       <div class="c-container-info-column data">
+          <div class="c-container-info-column-item-container">
+              <div class="c-container-info-column-item-container info" *ngIf="!esVendedor">
+               <select class="form-control" name="sel" [(ngModel)]="userSelected" (change)="OnVendedorChanged()">
+                     <option *ngFor="let user of users" [ngValue]="user">
+                         {{user.name}}
+                     </option>
+                 </select>
+               </div>
+   
+               <div class="c-container-info-column-item-container info" *ngIf="esVendedor">
+                   <span class="c-label-info">
+                       {{userSelected.name}}
+                     </span>
+               </div>
+           </div>
+          
+ 
+       </div>
+ 
+       <div class="c-add-product-container">
+          <!--<button md-raised-button color="primary" (click)="addProducto(productoSelected)">Agregar Producto</button>-->
+          <input id="file" type="file" (change)="fileChanged($event)">
+        </div>
+        <button md-raised-button color="primary" (click)="agregarClientes()">Agregar Clientes</button>
+      <table class="table " id="tproductos">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Código</th>
+            <th>Direccion</th>
+            <th>Email</th>
+            <th>Teléfono</th>
+            <th>RFC</th>
+           <!-- <th>Estado</th> -->
+          <!--  <th>País</th> -->
+          <th>Razón Social</th>
+          <th>Vendedor</th>
+
+          </tr>
+        </thead>
+        <tr class='clickable-row' *ngFor="let cliente of clientes; let i = index">
+          <td>{{cliente.name}}</td>
+          <td>{{cliente.code}}</td>
+          <td>{{cliente.address}}</td>
+          <td>{{cliente.email}}</td>
+          <td>{{cliente.phone}}</td>
+          <td>{{cliente.rfc}}</td>
+         <!--  <td>{{cliente.state}}</td> -->
+         <!--  <td>{{cliente.country}}</td> -->
+         <td>{{cliente.businessName}}</td>
+         <td>{{(cliente.vendedor)?cliente.vendedor.name:""}}</td>
+
+          
+          <!-- <td style="float:right" *ngIf="userCanEdit == true" ><button type="button" class="btn btn-primary btn-md" (click)="setEditMode(true,cliente)">Editar</button>
+            <button type="button"  *ngIf="isUserAdmin == true" class="btn btn-primary btn-md" (click)="delete(cliente,i)">Borrar</button></td> -->
+
+        </tr>
+
+      </table>
+
+  </div>
+</div>

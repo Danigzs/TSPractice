@@ -7,8 +7,8 @@ export class ReporteBordado {
   logo:String;
   puntadasLogo:Number;
   totalPuntadas:Number;
-  fechaInicio:String;
-  fechaFinal:String;
+  fechaInicio:Date;
+  fechaFinal:Date;
   noPiezasPorMaquina:String;
   productoBordado:String;
   noPiezasPorDia:String;
@@ -26,8 +26,8 @@ export class ReporteBordado {
     this.logo= "";
     this.puntadasLogo = 0;
     this.totalPuntadas = 0;
-    this.fechaInicio = "";
-    this.fechaFinal = "";
+    this.fechaInicio = new Date();
+    this.fechaFinal = new Date();
     this.observaciones = "";
     this.bordador = "";
     
