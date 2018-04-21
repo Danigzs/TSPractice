@@ -17,7 +17,7 @@ var reportereporteSchema = new Schema({
     
   },
   fechaRecibido: {
-    type:String
+    type:Date
   },
   solicitante: {
     
