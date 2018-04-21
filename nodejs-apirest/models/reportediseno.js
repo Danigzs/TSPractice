@@ -11,7 +11,7 @@ var reportereporteSchema = new Schema({
     type: Date
   },
   folio: {
-    type: Number
+    type: String
   },
   cliente:{
     
@@ -35,7 +35,7 @@ var reportereporteSchema = new Schema({
     
   },
   fechaSalida: {
-    type: String
+    type: Date
   },
   horaSalida: {
     type: String
