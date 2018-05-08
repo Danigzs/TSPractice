@@ -45,6 +45,10 @@ var clientSchema = new Schema({
   },
   vendedor:{
     
+  },
+  esTienda:{
+    type:Boolean,
+    default:false
   }
 });
 

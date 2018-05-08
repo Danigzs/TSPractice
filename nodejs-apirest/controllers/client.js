@@ -41,6 +41,7 @@ exports.add = function (req, res) {
   vendedor: req.body.vendedor,
   attentTo: req.body.attentTo,
   rfc: req.body.rfc,
+  esTienda: req.body.esTienda,
   code:  req.body.code
   });
   client.save(function (err, client) {
@@ -55,20 +56,21 @@ exports.add = function (req, res) {
 //PUT - Update a register already exists
 exports.update = function (req, res) {
   Client.findById(req.params.id, function (err, client) {
-    client.name =  req.body.name,
-  client.businessName =  req.body.businessName,
-  client.address =  req.body.address,
-  client.state =  req.body.state,
-  client.town =  req.body.town,
-  client.district =  req.body.district,
-  client.country =  req.body.country,
-  client.postalCode =  req.body.postalCode,
-  client.phone =  req.body.phone,
-  client.vendedor =  req.body.vendedor,
-  client.email =  req.body.email,
-  client.attentTo =  req.body.attentTo,
-  client.rfc =  req.body.rfc,
-  client.code =   req.body.code
+    client.name =  req.body.name;
+  client.businessName =  req.body.businessName;
+  client.address =  req.body.address;
+  client.state =  req.body.state;
+  client.town =  req.body.town;
+  client.district =  req.body.district;
+  client.country =  req.body.country;
+  client.postalCode =  req.body.postalCode;
+  client.phone =  req.body.phone;
+  client.vendedor =  req.body.vendedor;
+  client.email =  req.body.email;
+  client.attentTo =  req.body.attentTo;
+  client.rfc =  req.body.rfc;
+  client.code =   req.body.code;
+  client.esTienda =   req.body.esTienda;
     client.save(function (err) {
       if (err) return res.send(500, err.message);
      res.status(200).json({
