@@ -8,25 +8,31 @@ var reportereporteSchema = new Schema({
   fecha: {
     type: Date
   },
-  hora: {
+  planesdiarios: [],
+  visitasplaneadas: {
     type: String
   },
-  cliente: {
+  entrevistasrealizadas: {
     type: String
   },
-  direccion: {
-    type: String
-  },
-  telefono:{
+  ventasconcretadas:{
     type:String
   },
-  objetivo: {
+  montototaldepedidos: {
     type:String
   },
-  
-  observaciones: {
+  visitasrecibidas: {
     type:String
-
+  } ,
+  montodecobranza: {
+    type:String
+  } ,
+  montodedescuentos: {
+    type:String
+  } ,
+  revisado: {
+    type:Boolean,
+    default:false
   } ,
   creador:{
     

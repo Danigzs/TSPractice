@@ -29,14 +29,18 @@ exports.add = function (req, res) {
   var reporte = new Reporteplandiario({
 
     fecha:req.body.fecha,
-    hora:req.body.hora,
-    cliente:req.body.cliente,
-    direccion:req.body.direccion,
-    telefono:req.body.telefono,
-    objetivo:req.body.objetivo,
-    observaciones:req.body.observaciones,
+    planesdiarios:req.body.planesdiarios,
+    visitasplaneadas:req.body.visitasplaneadas,
+    entrevistasrealizadas:req.body.entrevistasrealizadas,
+    ventasconcretadas:req.body.ventasconcretadas,
+    montototaldepedidos:req.body.montototaldepedidos,
+    visitasrecibidas:req.body.visitasrecibidas,
+    montodecobranza:req.body.montodecobranza,
+    montodedescuentos:req.body.montodedescuentos,
+    revisado:req.body.revisado,
     creador:req.body.creador
-  
+   
+
   });
   reporte.save(function (err, reporte) {
     if (err) return res.send(500, err.message);
