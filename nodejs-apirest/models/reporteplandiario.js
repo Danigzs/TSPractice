@@ -8,32 +8,23 @@ var reportereporteSchema = new Schema({
   fecha: {
     type: Date
   },
-  fechaEntrada: {
-    type: Date
-  },
-  fechaSalida: {
-    type: Date
-  },
-  tipoPrenda: {
+  hora: {
     type: String
   },
-  cantidad:{
-    type:Number
-  },
-  folio: {
-    type:String
-  },
   cliente: {
-    
+    type: String
   },
-  status: {
-    type:Number
+  direccion: {
+    type: String
   },
-  statusText: {
+  telefono:{
     type:String
-
   },
-  comentarios: {
+  objetivo: {
+    type:String
+  },
+  
+  observaciones: {
     type:String
 
   } ,
@@ -43,5 +34,5 @@ var reportereporteSchema = new Schema({
 
 });
 
-reportereporteSchema.plugin(autoIncrement.plugin, 'Reportecostura');
-module.exports = mongoose.model('Reportecostura', reportereporteSchema);
+reportereporteSchema.plugin(autoIncrement.plugin, 'Reporteplandiario');
+module.exports = mongoose.model('Reporteplandiario', reportereporteSchema);

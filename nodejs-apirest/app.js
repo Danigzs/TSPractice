@@ -42,6 +42,7 @@ var modelRole = require('./models/role')(app, mongoose);
 var modelMaquina = require('./models/maquina')(app, mongoose);
 var modelUser = require('./models/user')(app, mongoose);
 var modelReportebordado = require('./models/reportebordado')(app, mongoose);
+var modelReporteplandiario = require('./models/reporteplandiario')(app, mongoose);
 var modelReportediseno = require('./models/reportediseno')(app, mongoose);
 var modelReportecostura = require('./models/reportecostura')(app, mongoose);
 var modelBordado = require('./models/bordado')(app, mongoose);
@@ -93,6 +94,7 @@ var SerigrafiaCtrl = require('./controllers/serigrafia');
 var SublimadoCtrl = require('./controllers/sublimado');
 var TransferCtrl = require('./controllers/transfer');
 var ReportebordadoCtrl = require('./controllers/reportebordado');
+var ReporteplandiarioCtrl = require('./controllers/reporteplandiario');
 var ReportedisenoCtrl = require('./controllers/reportediseno');
 var ReportecosturaCtrl = require('./controllers/reportecostura');
 var bordadoNombreCtrl = require('./controllers/BordadoNombre');
@@ -176,6 +178,15 @@ api.route('/reportesdiseno')
 api.route('/reportesdiseno/:id')
 .get(ReportedisenoCtrl.findById)
 .delete(ReportedisenoCtrl.delete);
+
+api.route('/reportesplandiario')
+.get(ReporteplandiarioCtrl.findAll)
+.post(ReporteplandiarioCtrl.add);
+
+api.route('/reportesplandiario/:id')
+.get(ReporteplandiarioCtrl.findById)
+.delete(ReporteplandiarioCtrl.delete);
+
 
 
 api.route('/reportescostura')

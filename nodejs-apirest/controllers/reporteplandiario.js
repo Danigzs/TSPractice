@@ -1,9 +1,9 @@
 var mongoose = require('mongoose');
-var Reportecostura = mongoose.model('Reportecostura');
+var Reporteplandiario = mongoose.model('Reporteplandiario');
 
 //GET - Return all registers
 exports.findAll = function (req, res) {
-  Reportecostura.find(function (err, reportes) {
+  Reporteplandiario.find(function (err, reportes) {
     if (err) res.send(500, err.message);
     console.log('GET /reportes')
     res.json({
@@ -15,7 +15,7 @@ exports.findAll = function (req, res) {
 
 //GET - Return a register with specified ID
 exports.findById = function (req, res) {
-  Reportecostura.findById(req.params.id, function (err, reporte) {
+  Reporteplandiario.findById(req.params.id, function (err, reporte) {
     if (err) return res.send(500, err.message);
     console.log('GET /reporte/' + req.params.id);
     res.status(200).jsonp({reporte:reporte});
@@ -26,18 +26,15 @@ exports.findById = function (req, res) {
 exports.add = function (req, res) {
   console.log('POST');
   console.log(req.body);
-  var reporte = new Reportecostura({
+  var reporte = new Reporteplandiario({
 
     fecha:req.body.fecha,
-    fechaEntrada:req.body.fechaEntrada,
-    fechaSalida:req.body.fechaSalida,
-    tipoPrenda:req.body.tipoPrenda,
-    cantidad:req.body.cantidad,
-    folio:req.body.folio,
+    hora:req.body.hora,
     cliente:req.body.cliente,
-    status:req.body.status,
-    statusText:req.body.statusText,
-    comentarios:req.body.comentarios,
+    direccion:req.body.direccion,
+    telefono:req.body.telefono,
+    objetivo:req.body.objetivo,
+    observaciones:req.body.observaciones,
     creador:req.body.creador
   
   });
@@ -70,7 +67,7 @@ exports.add = function (req, res) {
 
 //DELETE - Delete a register with specified ID
 exports.delete = function (req, res) {
-  Reportecostura.findById(req.params.id, function (err,reporte) {
+  Reporteplandiario.findById(req.params.id, function (err,reporte) {
     reporte.remove(function (err) {
       if (err) return res.send(500, err.message);
       res.json({
