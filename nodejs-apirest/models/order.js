@@ -82,6 +82,12 @@ var orderSchema = new Schema({
   estimatedDate:{
     type:Date
   },
+  requiereFactura:{
+    type:Boolean
+  },
+  factura:{
+    type:String
+  },
   orderHistory:[{
     type:String
   }],
