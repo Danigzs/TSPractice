@@ -10,4 +10,4 @@ var marcaSchema = new Schema({
 });
 
 marcaSchema.plugin(autoIncrement.plugin, 'Marca');
-module.exports = mongoose.model('Marca', maquinaSchema); 
+module.exports = mongoose.model('Marca', marcaSchema); 
