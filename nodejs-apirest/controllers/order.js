@@ -141,6 +141,8 @@ exports.add = function (req, res) {
       shippingWay: req.body.shippingWay,
       shippingDate: req.body.shippingDate,
       paymentDate: req.body.paymentDate,
+      requiereFactura: req.body.requiereFactura,
+      factura: req.body.factura,
       createdAt: new Date()
 
     });
@@ -195,6 +197,8 @@ exports.update = function (req, res) {
       order.shippingWay = _order.shippingWay;
       order.shippingDate = _order.shippingDate;
       order.paymentDate = _order.paymentDate;
+      order.requiereFactura = _order.requiereFactura;
+      order.factura = _order.factura;
     order.save(function (err) {
       if (err) return res.send(500, err.message);
       res.status(200).json({
