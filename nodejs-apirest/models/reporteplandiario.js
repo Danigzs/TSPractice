@@ -36,6 +36,12 @@ var reportereporteSchema = new Schema({
   } ,
   creador:{
     
+  },
+  revisadoPor:{
+    
+  },
+  fechaRevisado:{
+   type:Date 
   }
 
 });

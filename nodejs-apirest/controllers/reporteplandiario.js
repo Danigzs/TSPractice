@@ -58,7 +58,8 @@ exports.update = function (req, res) {
   Reporteplandiario.findById({_id:req.params.id}, function (err, reporte) {
       
     reporte.revisado = req.body.revisado;
-   
+    reporte.revisadoPor = req.body.revisadoPor;
+    reporte.fechaRevisado = req.body.fechaRevisado;
     reporte.save(function (err,reporte) {
       if (err) return res.send(500).json({reporte:null});
      res.status(200).json({
