@@ -40,6 +40,7 @@ var modelOrderProducts = require('./models/orderProducts')(app, mongoose);
 var modelPayment = require('./models/payment')(app, mongoose);
 var modelRole = require('./models/role')(app, mongoose);
 var modelMaquina = require('./models/maquina')(app, mongoose);
+var modelMarca = require('./models/marca')(app, mongoose);
 var modelUser = require('./models/user')(app, mongoose);
 var modelReportebordado = require('./models/reportebordado')(app, mongoose);
 var modelReporteplandiario = require('./models/reporteplandiario')(app, mongoose);
@@ -88,6 +89,7 @@ var PaymentCtrl = require('./controllers/payment');
 var HomeCtrl = require('./controllers/home');
 var RoleCtrl = require('./controllers/role');
 var MaquinaCtrl = require('./controllers/maquina');
+var MarcaCtrl = require('./controllers/marca');
 var UserCtrl = require('./controllers/user');
 var BordadoCtrl = require('./controllers/bordado');
 var SerigrafiaCtrl = require('./controllers/serigrafia');
@@ -160,6 +162,10 @@ api.route('/provideers/:id')
 api.route('/maquinas')
   .get(MaquinaCtrl.findAll)
 
+
+  api.route('/marcas')
+  .get(MarcaCtrl.findAll)
+  .post(MarcaCtrl.add);
 
 //Roles Routes
 api.route('/roles')

@@ -56,7 +56,9 @@ exports.add = function (req, res) {
     description: req.body.description,
     supplies: req.body.supplies,
     price: req.body.price,
-    stock:req.body.stock
+    stock:req.body.stock,
+    categoryUse:req.body.categoryUse,
+    brand:req.body.brand
   });
   product.save(function (err, client) {
     if (err) return res.send(500, err.message);
@@ -77,7 +79,9 @@ exports.update = function (req, res) {
     product.description =  req.body.description,
     product.supplies =  req.body.supplies,
     product.price =  req.body.price,
-    product.stock =  req.body.stock
+    product.stock =  req.body.stock,
+    product.categoryUse =  req.body.categoryUse,
+    product.brand =  req.body.brand
     product.save(function (err) {
       if (err) return res.send(500, err.message);
      res.status(200).json({

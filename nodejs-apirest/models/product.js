@@ -27,6 +27,12 @@ var productSchema = new Schema({
   },
   stock:{
     type:Number
+  },
+  categoryUse:{
+    type:String
+  },
+  brand:{
+    
   }
 });
 
