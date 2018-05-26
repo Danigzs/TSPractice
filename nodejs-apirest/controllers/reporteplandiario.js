@@ -51,23 +51,22 @@ exports.add = function (req, res) {
   });
 };
 
-// //PUT - Update a register already exists
-// exports.update = function (req, res) {
-//   console.log("Update role " + req.params.id)
-//   var _reporte = new Reportebordado(req.body);
-//   Reportebordado.findById({_id:req.params.id}, function (err, reporte) {
-     
-//     reporte.name =  _reporte.name,
-//   reporte.isAdmin =  _reporte.isAdmin,
- 
-//     reporte.save(function (err,reporte) {
-//       if (err) return res.send(500).json({reporte:null});
-//      res.status(200).json({
-//        reporte: reporte
-//     });
-//     });
-//   });
-// };
+//PUT - Update a register already exists
+exports.update = function (req, res) {
+  console.log("Update role " + req.params.id)
+  var _reporte = new Reporteplandiario(req.body);
+  Reporteplandiario.findById({_id:req.params.id}, function (err, reporte) {
+      
+    reporte.revisado = req.body.revisado;
+   
+    reporte.save(function (err,reporte) {
+      if (err) return res.send(500).json({reporte:null});
+     res.status(200).json({
+       reporte: reporte
+    });
+    });
+  });
+};
 
 //DELETE - Delete a register with specified ID
 exports.delete = function (req, res) {

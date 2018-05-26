@@ -191,6 +191,7 @@ api.route('/reportesplandiario')
 
 api.route('/reportesplandiario/:id')
 .get(ReporteplandiarioCtrl.findById)
+.put(ReporteplandiarioCtrl.update)
 .delete(ReporteplandiarioCtrl.delete);
 
 
