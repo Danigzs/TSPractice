@@ -29,6 +29,7 @@ exports.add = function (req, res) {
   var reporte = new Reporteplandiario({
 
     fecha:req.body.fecha,
+    fechaLocal:req.body.fechaLocal,
     planesdiarios:req.body.planesdiarios,
     visitasplaneadas:req.body.visitasplaneadas,
     entrevistasrealizadas:req.body.entrevistasrealizadas,
