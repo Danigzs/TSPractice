@@ -69,6 +69,16 @@ exports.update = function (req, res) {
   });
 };
 
+
+exports.isReportAlreadyDone = function(req, res){
+  
+  Reporteplandiario.find({fecha:req.params.fecha}, function (err, reporte) {
+    if (err) return res.send(500, err.message);
+    console.log('GET /reporte/' + req.params.fecha);
+    res.status(200).jsonp({reporte:reporte});
+  });
+}
+
 //DELETE - Delete a register with specified ID
 exports.delete = function (req, res) {
   Reporteplandiario.findById(req.params.id, function (err,reporte) {

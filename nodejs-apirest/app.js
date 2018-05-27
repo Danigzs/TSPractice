@@ -194,7 +194,8 @@ api.route('/reportesplandiario/:id')
 .put(ReporteplandiarioCtrl.update)
 .delete(ReporteplandiarioCtrl.delete);
 
-
+api.route('/reporteplandiariorealizado')
+.get(ReporteplandiarioCtrl.isReportAlreadyDone)
 
 api.route('/reportescostura')
 .get(ReportecosturaCtrl.findAll)
