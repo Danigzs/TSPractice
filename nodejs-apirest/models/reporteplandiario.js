@@ -8,6 +8,9 @@ var reportereporteSchema = new Schema({
   fecha: {
     type: Date
   },
+  fechaLocal: {
+    type: String
+  },
   planesdiarios: [],
   visitasplaneadas: {
     type: String
