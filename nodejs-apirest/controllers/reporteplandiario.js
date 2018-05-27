@@ -79,8 +79,7 @@ exports.reportdone = function(req, res){
     console.log(err);
     console.log(reporte);
     if (err){
-       return res.send(500, err.message).json({
-         reportes:[]});
+       return res.send(500, err.message);
     }
     console.log('GET /reporte/' + req.params.fecha);
 
