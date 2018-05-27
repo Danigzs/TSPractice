@@ -73,9 +73,18 @@ exports.update = function (req, res) {
 exports.isReportAlreadyDone = function(req, res){
   
   Reporteplandiario.find({fecha:req.params.fecha}, function (err, reporte) {
-    if (err) return res.send(500, err.message);
+    if (err){
+       return res.send(500, err.message).json({
+         reportes:[]});
+    }
     console.log('GET /reporte/' + req.params.fecha);
-    res.status(200).jsonp({reporte:reporte});
+
+    res.status(200).json({
+      reportes: [reporte]
+    });
+
+
+    //res.status(200).jsonp({reporte:reporte});
   });
 }
 
