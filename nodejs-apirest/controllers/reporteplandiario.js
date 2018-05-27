@@ -70,9 +70,9 @@ exports.update = function (req, res) {
 };
 
 
-exports.isReportAlreadyDone = function(req, res){
+exports.reportdone = function(req, res){
   console.log(req.params);
-  console.log("isReportAlreadyDone " + req.params);
+  console.log("isReportAlreadyDone ");
   Reporteplandiario.find({fecha:req.params.fecha}, function (err, reporte) {
     console.log(err);
     console.log(reporte);
