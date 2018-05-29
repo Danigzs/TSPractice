@@ -85,7 +85,7 @@ exports.reportdone = function(req, res){
     console.log('GET /reporte/' + req.params.fecha);
 
     res.status(200).json({
-      reportes: [reporte]
+      reportes: reporte
     });
 
 
