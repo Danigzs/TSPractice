@@ -76,17 +76,32 @@ exports.reportdone = function(req, res){
 
   console.log("isReportAlreadyDone ");
   console.log(req.body.fecha);
-  Reporteplandiario.find({fechaLocal:req.body.fechaLocal}, function (err, reporte) {
+  Reporteplandiario.find({fechaLocal:req.body.fechaLocal}, function (err, reportes) {
     console.log(err);
-    console.log(reporte);
+    console.log(reportes);
     if (err){
        return res.send(500, err.message);
     }
     console.log('GET /reporte/' + req.params.fecha);
 
-    res.status(200).json({
-      reportes: reporte
-    });
+    var found = false;
+    for(var i = 0; i < reportes.length; i ++){
+      if(reportes[i].creador._id == req.body.id){
+        found = true;
+      }
+    }
+
+    if(found == true){
+      res.status(200).json({
+        reportes: reportes
+      });
+    }
+    else {
+      res.status(200).json({
+        reportes: []
+      });
+    }
+    
 
 
     //res.status(200).jsonp({reporte:reporte});
