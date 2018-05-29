@@ -75,7 +75,8 @@ exports.reportdone = function(req, res){
   console.log(req.body);
 
   console.log("isReportAlreadyDone ");
-  Reporteplandiario.find({fechaLocal:{$eq:req.body.fecha}}, function (err, reporte) {
+  console.log(req.body.fecha);
+  Reporteplandiario.find({fechaLocal:req.body.fecha}, function (err, reporte) {
     console.log(err);
     console.log(reporte);
     if (err){
